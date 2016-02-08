@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)http://kangax.github.io/html-minifier/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>HTML minifier</title>
+    <link rel="stylesheet" href="./HTMLMinifier_files/master.css">
+  <style>iframe[src="//api.flattr.com/button/view/?uid=kangax&button=compact&url=http%3A%2F%2Fkangax.github.io%2Fhtml-minifier%2F"]
+{display:none !important;}</style><script type="text/javascript" async="" src="./HTMLMinifier_files/ga.js"></script></head>
+  <body>
+    <div>
+      <div id="outer-wrapper">
+        <iframe src="./HTMLMinifier_files/saved_resource.html" title="Flattr" height="20" width="110" style="border-width: 0px; display: none !important;"></iframe><script id="fbyg2uy">(function(i){var f,s=document.getElementById(i);f=document.createElement('iframe');f.src='//api.flattr.com/button/view/?uid=kangax&button=compact&url='+encodeURIComponent(document.URL);f.title='Flattr';f.height=20;f.width=110;f.style.borderWidth=0;s.parentNode.insertBefore(f,s);})('fbyg2uy');</script>
+        <div id="wrapper">
+          <h1>HTML Minifier <span>(v1.0.0)</span></h1>
+          <p id="warning">
+            Minifier is <strong>in beta</strong> and could be rough around the edges.
+            However, there's <a href="http://kangax.github.io/html-minifier/tests">an extensive test suite</a>.
+          </p>
+          <textarea rows="8" cols="40" id="input"></textarea>
+          <div class="minify-button">
+            <button type="button" id="minify-btn">Minify</button>
+          </div>
+          <textarea rows="8" cols="40" id="output" readonly=""></textarea>
+
+          <p id="stats"></p>
+          <div id="lint-report">
+            LINT REPORT:
+            <div id="report"></div>
+          </div>
+        </div>
+        <div id="options">
+          <ul>
+            <li>
+              <input type="checkbox" id="remove-comments" checked="">
+              <label for="remove-comments">Remove comments
+                <br>
+                <span class="quiet short">
+                  Conditional comments are left intact, but their inner (insignificant) whitespace is removed.
+                </span>
+              </label>
+            </li>
+            <li>
+              <input type="checkbox" id="remove-comments-from-cdata" checked="">
+              <label for="remove-comments-from-cdata">Also remove comments from scripts and styles</label>
+            </li>
+            <li>
+              <input type="checkbox" id="remove-cdata-sections-from-cdata" checked="">
+              <label for="remove-cdata-sections-from-cdata">Remove CDATA sections from scripts and styles</label>
+            </li>
+            <li>
+              <input type="checkbox" id="collapse-whitespace" checked="">
+              <label for="collapse-whitespace">Collapse whitespace</label>
+            </li>
+            <li>
+              <input type="checkbox" id="conservative-collapse">
+              <label for="conservative-collapse">Conservative whitespace collapse</label>
+            </li>
+            <li>
+              <input type="checkbox" id="collapse-boolean-attributes" checked="">
+              <label for="collapse-boolean-attributes">
+                Collapse boolean attributes
+                <br>
+                <span class="quiet short">
+                  (e.g. <code>&lt;... disabled="disabled"&gt; → &lt;... disabled&gt;</code>)
+                </span>
+              </label>
+            </li>
+            <li>
+              <input type="checkbox" id="remove-attribute-quotes" checked="">
+              <label for="remove-attribute-quotes">
+                Remove attribute quotes
+                <br>
+                <span class="quiet">
+                  (e.g. <code>&lt;p class="foo"&gt; → &lt;p class=foo&gt;</code>)
+                </span>
+              </label>
+            </li>
+            <li>
+              <input type="checkbox" id="remove-redundant-attributes" checked="">
+              <label for="remove-redundant-attributes">Remove redundant attributes/values</label>
+              <div class="quiet">
+                <code>&lt;script language="Javascript" ...&gt;</code><br>
+                <code>&lt;form method="get" ...&gt;</code><br>
+                <code>&lt;input type="text" ...&gt;</code><br>
+                <code>&lt;script src="..." charset="..."&gt;</code><br>
+                <code>&lt;a id="..." name="..."&gt;</code><br>
+                <code>&lt;... onclick="javascript:..." ...&gt;</code>
+              </div>
+            </li>
+            <li>
+              <input type="checkbox" id="use-short-doctype" checked="">
+              <label for="use-short-doctype" title="i.e. &lt;!DOCTYPE html&gt;">
+                Use short doctype
+              </label>
+            </li>
+            <li>
+              <input type="checkbox" id="remove-empty-attributes" checked="">
+              <label for="remove-empty-attributes">
+                Remove empty (or blank) attributes
+                <br>
+                <span class="quiet short">
+                  Valid attributes are: class, id, style, title, lang, dir, event attributes
+                </span>
+              </label>
+            </li>
+            <li>
+              <input type="checkbox" id="remove-optional-tags" checked="">
+              <label for="remove-optional-tags">
+                Remove optional tags
+                <br>
+                <span class="quiet short">
+                  Currently, only:
+                  <code>&lt;/html&gt;</code>,
+                  <code>&lt;/head&gt;</code>,
+                  <code>&lt;/body&gt;</code>,
+                  <code>&lt;/option&gt;</code>
+                  <code>&lt;/thead&gt;</code>,
+                  <code>&lt;/tbody&gt;</code>,
+                  <code>&lt;/tfoot&gt;</code>,
+                  and
+                  <code>&lt;/tr&gt;</code>
+                </span>
+              </label>
+            </li>
+            <li>
+              <input type="checkbox" id="remove-ignored">
+              <label for="remove-ignored">
+                Remove ignored tags
+                <br>
+                <span class="quiet short">
+                  Currently, only tags starting and ending with:
+                  <code>&lt;% ... %&gt;</code>
+                  and
+                  <code>&lt;? ... ?&gt;</code>
+                </span>
+              </label>
+            </li>
+            <li>
+              <input type="checkbox" id="remove-empty-elements">
+              <label for="remove-empty-elements" class="unsafe">
+                Remove empty elements
+                <br>
+                <span class="quiet short">
+                  All except <code>textarea</code>
+                </span>
+              </label>
+            </li>
+            <li>
+              <input type="checkbox" id="remove-script-type-attributes">
+              <label for="remove-script-type-attributes">
+                Remove <code>type="text/javascript"</code> from <code>script</code>'s
+                <br>
+                <span class="quiet short">
+                  Values other than "text/javascript" (e.g. "text/vbscript") are left intact.
+                </span>
+              </label>
+            </li>
+            <li>
+              <input type="checkbox" id="remove-style-link-type-attributes">
+              <label for="remove-style-link-type-attributes">
+                Remove <code>type="text/css"</code> from <code>style</code>'s and <code>link</code>'s
+                <br>
+                <span class="quiet short">
+                  Values other than "text/css" (e.g. "text/plain" or "application/atom+xml") are left intact.
+                </span>
+              </label>
+            </li>
+            <li>
+              <input type="checkbox" id="case-sensitive">
+              <label for="case-sensitive">
+                Case-sensitive attributes
+                <br>
+                <span class="quiet short">
+                  Useful when minifying SVG
+                </span>
+              </label>
+            </li>
+            <li>
+              <input type="checkbox" id="keep-closing-slash">
+              <label for="keep-closing-slash">
+                Keep closing slash
+                <br>
+                <span class="quiet short">
+                  Useful when minifying SVG
+                </span>
+              </label>
+            </li>
+            <li>
+              <input type="checkbox" id="minify-js" checked="">
+              <label for="minify-js">
+                Minify JS
+              </label>
+            </li>
+            <li>
+              <input type="checkbox" id="minify-js-templates">
+              <label for="minify-js-templates">
+                Minify JS Templates
+                <br>
+                <span class="quiet short">
+                  Minify HTML served inside script tag with a custom type attribute like "text/x-handlebars-template"
+                </span>
+              </label>
+            </li>
+            <li>
+              <label for="minify-js-templates-type" class="sub-option">
+                Template type
+              </label>
+              <input type="input" id="minify-js-templates-type">
+            </li>
+            <li>
+              <input type="checkbox" id="minify-css" checked="">
+              <label for="minify-css">
+                Minify CSS
+              </label>
+            </li>
+            <li>
+              <input type="checkbox" id="minify-urls">
+              <label for="minify-urls">
+                Minify URLs
+                <br>
+                <span class="quiet short">
+                  Convert absolute URLs to relative
+                </span>
+              </label>
+            </li>
+            <li>
+              <label for="minify-urls-siteurl" class="sub-option">
+                Site URL
+              </label>
+              <input type="input" id="minify-urls-siteurl">
+            </li>
+            <li>
+              <input type="checkbox" id="use-htmllint" checked="">
+              <label for="use-htmllint">
+                Validate input through HTML lint
+              </label>
+            </li>
+            <li>
+              <label for="max-line-length" class="sub-option">
+                Max line length
+              </label>
+              <input type="number" id="max-line-length" value="0" min="0" max="10000">
+            </li>
+          </ul>
+          <div class="controls">
+            <span>Select:</span>
+            <a href="http://kangax.github.io/html-minifier/#" id="select-all">All</a>,
+            <a href="http://kangax.github.io/html-minifier/#" id="select-none">None</a>,
+            <a href="http://kangax.github.io/html-minifier/#" id="select-safe">Safe</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <p class="quiet">
+          HTMLMinifier is made by <a href="http://perfectionkills.com/">kangax</a>,
+          using tweaked version of HTML parser by <a href="http://ejohn.org/">John Resig</a>
+          (which, in its turn, is based on work of <a href="http://erik.eae.net/">Erik Arvidsson</a>).
+          Source and bugtracker are <a href="https://github.com/kangax/html-minifier">hosted on GitHub</a>.
+        </p>
+      </div>
+
+    </div>
+    <script src="./HTMLMinifier_files/htmlminifier.min.js"></script>
+    <script src="./HTMLMinifier_files/uglify.js"></script>
+    <script src="./HTMLMinifier_files/cleancss-browser.js"></script>
+    <script src="./HTMLMinifier_files/relateurl-browser.js"></script>
+    <script src="./HTMLMinifier_files/master.js"></script>
+  
+
+</body></html>
