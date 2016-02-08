@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)http://spec.commonmark.org/dingus/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>commonmark.js demo</title>
+  <link href="./CommonMark_files/bootstrap.min.css" rel="stylesheet">
+  <link href="./CommonMark_files/dingus.css" rel="stylesheet">
+  <script src="./CommonMark_files/jquery.min.js"></script><style type="text/css">:root .container > .infoBoxList > .shareInfoBox
+{display:none !important;}</style>
+  <script src="./CommonMark_files/bootstrap.min.js"></script>
+  <script src="./CommonMark_files/lodash.min.js"></script>
+  <script src="./CommonMark_files/commonmark.js"></script>
+  <script src="./CommonMark_files/dingus.js"></script>
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1 class="title">commonmark.js dingus</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <p id="text-controls"><a id="clear-text-box">clear</a>&nbsp;<a id="permalink">permalink</a>&nbsp;&nbsp;&nbsp;
+      <label for="smart">Smart punctuation</label>
+      <input type="checkbox" id="smart">
+      </p>
+      <textarea id="text">## Try CommonMark
+
+You can try CommonMark here.  This dingus is powered by
+[commonmark.js](https://github.com/jgm/commonmark.js), the
+JavaScript reference implementation.
+
+1. item one
+2. item two
+   - sublist
+   - sublist
+
+</textarea>
+      <ul id="warnings"></ul>
+    </div>
+    <div class="col-md-6">
+      <ul id="result-tabs" class="nav nav-tabs" role="tablist">
+        <li class="active"><a href="http://spec.commonmark.org/dingus/#preview" role="tab" data-toggle="tab">Preview</a></li>
+        <li><a href="http://spec.commonmark.org/dingus/#result" role="tab" data-toggle="tab">HTML</a></li>
+        <li><a href="http://spec.commonmark.org/dingus/#result-ast" role="tab" data-toggle="tab">AST</a></li>
+      </ul>
+      <div class="tab-content">
+        <div id="preview" class="tab-pane active"><h2 data-sourcepos="1:1-1:17" class="selected">Try CommonMark</h2>
+<p data-sourcepos="3:1-5:36">You can try CommonMark here.  This dingus is powered by
+<a href="https://github.com/jgm/commonmark.js">commonmark.js</a>, the
+JavaScript reference implementation.</p>
+<ol data-sourcepos="7:1-11:0">
+<li data-sourcepos="7:1-7:11">item one</li>
+<li data-sourcepos="8:1-11:0">item two
+<ul data-sourcepos="9:4-11:0">
+<li data-sourcepos="9:4-9:12">sublist</li>
+<li data-sourcepos="10:4-11:0">sublist</li>
+</ul>
+</li>
+</ol>
+</div>
+        <div id="result" class="tab-pane">
+          <pre id="htmlpre"><code id="html">&lt;h2 data-sourcepos="1:1-1:17"&gt;Try CommonMark&lt;/h2&gt;
+&lt;p data-sourcepos="3:1-5:36"&gt;You can try CommonMark here.  This dingus is powered by
+&lt;a href="https://github.com/jgm/commonmark.js"&gt;commonmark.js&lt;/a&gt;, the
+JavaScript reference implementation.&lt;/p&gt;
+&lt;ol data-sourcepos="7:1-11:0"&gt;
+&lt;li data-sourcepos="7:1-7:11"&gt;item one&lt;/li&gt;
+&lt;li data-sourcepos="8:1-11:0"&gt;item two
+&lt;ul data-sourcepos="9:4-11:0"&gt;
+&lt;li data-sourcepos="9:4-9:12"&gt;sublist&lt;/li&gt;
+&lt;li data-sourcepos="10:4-11:0"&gt;sublist&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</code></pre>
+        </div>
+        <div id="result-ast" class="tab-pane">
+          <pre id="astpre"><code id="ast">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE CommonMark SYSTEM "CommonMark.dtd"&gt;
+&lt;document xmlns="http://commonmark.org/xml/1.0" sourcepos="1:1-11:0"&gt;
+  &lt;heading level="2" sourcepos="1:1-1:17"&gt;
+    &lt;text&gt;Try CommonMark&lt;/text&gt;
+  &lt;/heading&gt;
+  &lt;paragraph sourcepos="3:1-5:36"&gt;
+    &lt;text&gt;You can try CommonMark here.  This dingus is powered by&lt;/text&gt;
+    &lt;softbreak /&gt;
+    &lt;link destination="https://github.com/jgm/commonmark.js" title=""&gt;
+      &lt;text&gt;commonmark.js&lt;/text&gt;
+    &lt;/link&gt;
+    &lt;text&gt;, the&lt;/text&gt;
+    &lt;softbreak /&gt;
+    &lt;text&gt;JavaScript reference implementation.&lt;/text&gt;
+  &lt;/paragraph&gt;
+  &lt;list type="ordered" start="1" tight="true" delimiter="period" sourcepos="7:1-11:0"&gt;
+    &lt;item sourcepos="7:1-7:11"&gt;
+      &lt;paragraph sourcepos="7:4-7:11"&gt;
+        &lt;text&gt;item one&lt;/text&gt;
+      &lt;/paragraph&gt;
+    &lt;/item&gt;
+    &lt;item sourcepos="8:1-11:0"&gt;
+      &lt;paragraph sourcepos="8:4-8:11"&gt;
+        &lt;text&gt;item two&lt;/text&gt;
+      &lt;/paragraph&gt;
+      &lt;list type="bullet" tight="true" sourcepos="9:4-11:0"&gt;
+        &lt;item sourcepos="9:4-9:12"&gt;
+          &lt;paragraph sourcepos="9:6-9:12"&gt;
+            &lt;text&gt;sublist&lt;/text&gt;
+          &lt;/paragraph&gt;
+        &lt;/item&gt;
+        &lt;item sourcepos="10:4-11:0"&gt;
+          &lt;paragraph sourcepos="10:6-10:12"&gt;
+            &lt;text&gt;sublist&lt;/text&gt;
+          &lt;/paragraph&gt;
+        &lt;/item&gt;
+      &lt;/list&gt;
+    &lt;/item&gt;
+  &lt;/list&gt;
+&lt;/document&gt;
+</code></pre>
+        </div>
+    </div>
+      <div class="timing" style="visibility: visible;">Parsed in <span class="timing" id="parsetime" style="visibility: visible;">2</span>
+      ms.  Rendered in <span class="timing" id="rendertime" style="visibility: visible;">0</span> ms.</div>
+  </div>
+</div>
+
+
+</div></body></html>
