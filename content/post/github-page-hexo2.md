@@ -129,7 +129,7 @@ twitter: #右边栏要显示twitter展示的话，需要在此设置
   show_replies: false
   tweet_count: 5
 
-addthis: #SNS分享，身在天朝，当然用“百度分享”，暂时默认，后面会介绍
+addthis: #SNS分享
   enable: true
   pubid:
   facebook: true
