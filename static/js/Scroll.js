@@ -31,7 +31,7 @@ function scrollPlus()
     var VScrollonWidth = 10;
 
     //Set the background of the indicator bar. | 提示条的背景，可以为“rgba()”带透明色式或“#xxxxxx”实颜色式或其他。
-    var IndicBarBG = "rgba(151, 157, 189, 1)";
+    var IndicBarBG = "rgba(151, 157, 189, 0.5)";
 
     //Set the height of "thickness" of the indicator bar. | 提示条的粗细度，单位为像素。
     var IndicBarH = 20;
