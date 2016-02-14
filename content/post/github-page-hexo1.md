@@ -1,4 +1,5 @@
 +++
+categories = ["Hexo"]
 date = "2016-02-08T21:04:48+08:00"
 title = "Github Page+Hexo(一)"
 

@@ -1,4 +1,5 @@
 +++
+categories = ["CheatSheet"]
 date = "2016-02-08T21:08:48+08:00"
 title = "Markdown 简明语法手册"
 
