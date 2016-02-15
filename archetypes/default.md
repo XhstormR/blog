@@ -1,5 +1,5 @@
 +++
-categories = []
+Categories = []
 +++
 
 <!--more-->
