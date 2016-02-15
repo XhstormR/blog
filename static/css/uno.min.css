@@ -10,8 +10,9 @@ background-color: #FFFFFF ;}
 ::-webkit-scrollbar-track-piece:horizontal {
 background-color: #23241f ;}
 ::-webkit-scrollbar {
-height: 12px;
+height: 11px;
 width: 9px;}
 ::-webkit-scrollbar-thumb {
 background: #969CBD;}
 code{background:#e8f2fb;border:1px solid #c9e1f6}
+.bodytop{border-top: 5px solid #969CBD;}
