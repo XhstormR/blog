@@ -72,16 +72,16 @@ title = "Hexo(一)"
     $ npm install hexo -g
     ```
 
-## 搭建Hexo博客
+## 搭建Hexo
 
-1. 新建一个需要当做博客目录的文件夹(如`H:\hexo`)。
+1. 新建一个需要当做目录的文件夹(如`H:\hexo`)。
 
     进入该文件夹之后,加入hexo程序和npm依赖包。
     ```
     $ hexo init
     $ npm install
     ```
-2. 现在我们已经搭建起本地的hexo博客了，执行以下命令(在`H:\hexo`)，然后到浏览器输入`localhost:4000`看看。
+2. 现在我们已经搭建起本地的hexo了，执行以下命令(在`H:\hexo`)，然后到浏览器输入`localhost:4000`看看。
     ```
     hexo generate #生成静态页面至public目录
     hexo server #开启预览访问端口（默认端口4000，'ctrl + c'关闭server）
