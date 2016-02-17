@@ -1,6 +1,7 @@
     {{ partial "head.html" . }}
     <body>
         {{ partial "sidebar.html" . }}
+        <div class="bodytop">
         <div class="content-wrapper">
             <div class="content-wrapper__inner">
                 {{ range .Data.Pages.GroupByDate "2006" }}
@@ -15,6 +16,7 @@
                 </ul>
                 {{ end }}
             </div>
+        </div>
         </div>
     </body>
     {{ partial "script.html" .}}
