@@ -167,6 +167,8 @@ mount /dev/cdrom(or `sr0`) /mnt/cdrom/ #把设备文件挂载到空文件夹(挂
 mkdir /mnt/usb #创建空文件
 fdisk -l #查看U盘设备文件名
 mount -t vfat /dev/sdb1 /mnt/usb/ #把设备文件挂载到空文件夹(挂载点)上，vfat意思为fat32
+挂载本地镜像
+mount -o loop 123.iso /mnt/
 
 Tips : linux默认是不支持NTFS文件系统的
 ```
