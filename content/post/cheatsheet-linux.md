@@ -178,7 +178,7 @@ Tips : linux默认是不支持NTFS文件系统的
 echo [选项] [输出内容]
 -e #支持反斜线控制的字符转换
 
-echo -e "\e[1;31m 123456 \e[0m" #输出红颜色(31m)
+echo -e "\e[1;31m 123456 \e[0m" #输出红颜色 (31m)
 ```
 
 ## alias
@@ -189,8 +189,8 @@ unalias 别名 #删除别名
 
 别名永久生效
 vi ~/.bashrc
-#将命令写入环境变量配置文件，每个用户都分别有一个，~代表家目录
-#重启后生效，若想直接生效可用 source .bashrc 重新调用
+将命令写入环境变量配置文件，每个用户都分别有一个，~代表家目录。
+重启后生效，若想直接生效可用 source .bashrc 重新调用。
 ```
 
 ## chmod
@@ -203,7 +203,7 @@ x=执行     值 = 1
 
 chmod 764 file01 #把 file01 的权限改为 rwx rw- r--
 
-Tips : 预设的情況下，系统中所有的帐号与一般身份使用者，以及root的相关信息， 都是记录在 /etc/passwd 文件中。每个人的密码则是记录在 /etc/shadow 文件下。所有的组群名称记录在 /etc/group 內！
+Tips : 预设的情況下，系统中所有的帐号与一般身份使用者的相关信息都是记录在 /etc/passwd  文件中；每个人的密码则是记录在 /etc/shadow 文件下；所有的组群名称记录在 /etc/group 內。
 ```
 
 ## chown
@@ -349,6 +349,7 @@ lastlog命令默认读取 /var/log/lastlog 文件
 
 ls -l /etc | more
 netstat -an | grep ESTABLISHED | wc -l
+keystone tenant-list | grep service | awk '{print $2}'
 ```
 
 ## 重定向
