@@ -32,11 +32,11 @@ total 20
 -rw-r--r--. 1 root root 9072 Mar 18 10:14 install.log
 -rw-r--r--. 1 root root 3161 Mar 18 10:13 install.log.syslog
 
-10位 前1(-文件 d目录 l软连接) 后9(rw-r--r--)
+10位     前1(-文件 d目录 l软连接)     后9(rw-r--r--)
 rw-r--r--(333)
-u所属用户 g所属组 o其他人
-r读 w写 x执行
-1引用计数 root所属用户 root所属组 9072文件大小
+u所属用户     g所属组     o其他人
+r读     w写     x执行
+1引用计数     root所属用户     root所属组     9072文件大小
 
 Tips : ll = ls -l
 ```
@@ -67,7 +67,7 @@ rmdir #删除空白目录，不常用
 -v #显示详细信息
 
 rm -rf *
-rm -rf `ls|grep -v word` #删除除了 word 之外的所有文件
+rm -rf `ls | grep -v word` #删除除了 word 之外的所有文件
 ```
 
 ## cp
@@ -104,8 +104,8 @@ ln [原文件]  [目标文件]
 locate [文件名] #在数据库中搜索文件名，速度非常快
 updatedb #手动更新数据库
 
-/var/lib/mlocate #数据库位置,默认一天一更新
-/etc/updatedb.conf #locate配置文件
+/var/lib/mlocate     数据库位置,默认一天一更新
+/etc/updatedb.conf     locate配置文件
 ```
 
 ## find
@@ -144,7 +144,7 @@ find /etc/ -name '*.ini' #查找 /etc 目录中以 .ini 结尾的文件
 
 ## grep
 ```bash
-grep[选项] 字符串 文件名 #在文件当中匹配符合条件的字符串
+grep[选项] 字符串 文件名     在文件当中查找匹配符合条件的字符串
 -i #忽略大小写
 -v #排除指定字符串，取反
 
@@ -252,7 +252,7 @@ tar -[cxt]f [打包解包文件名] [源文件]
 -f #指定打包后的文件名
 -z #直接打包为.tar.gz文件
 -j #直接打包为.tar.bz2文件
-tar -xf 123.tar.gz -c /tmp/ #指定解包位置
+tar -xf 123.tar.gz -C /tmp/ #指定解包位置
 ```
 
 ## 退出登录
@@ -261,7 +261,7 @@ logout
 exit
 
 Tips : 
-ctrl+D #快捷键退出
+Ctrl+D #快捷键退出
 ```
 
 ## 搜索系统命令
@@ -271,7 +271,6 @@ which [命令名] #查找可执行文件和默认别名
 
 [root@controller ~]$ whereis ls
 ls: /bin/ls /usr/share/man/man1/ls.1.gz
-
 [root@controller ~]$ which ls  
 alias ls='ls --color=auto'
         /bin/ls
@@ -292,20 +291,61 @@ man -f [命令]
 w
 who
 
-过去登录用户：
-last #last命令默认是读取/var/log/wtmp文件数据
+[root@controller ~]$ w
+ 08:28:35 up  1:50,  2 users,  load average: 0.02, 0.23, 0.19
+USER     TTY      FROM              LOGIN@   IDLE   JCPU   PCPU WHAT
+root     pts/0    192.168.100.65   06:41    8.00s  0.08s  0.08s -bash
+root     pts/1    192.168.100.151  07:47    0.00s  0.06s  0.00s w
+[root@controller ~]$ who
+root     pts/0        2016-03-24 06:41 (192.168.100.65)
+root     pts/1        2016-03-24 07:47 (192.168.100.151)
 
-查询所有用户的最后一次登录时间：
-lastlog #lastlog命令默认是读取/var/log/lastlog文件数据
+last #过去登录用户
+last命令默认读取 /var/log/wtmp 文件
+
+lastlog #查询所有用户的最后一次登录时间
+lastlog命令默认读取 /var/log/lastlog 文件
 ```
 
 ## 通配符
 ```bash
-* 匹配任何内容 123*
-? 匹配一个任意字符 12?.log
-[] 匹配中括号中内的任意一个字符 12[34].log = 123.log or 124.log
-[-] 匹配中括号中内的任意一个字符，-代表一个范围。例如：[a-z]代表匹配一个小写字母
-[^] 逻辑非，表示匹配不是中括号内的一个字符。例如：[^0-9]代表匹配一个不是数字的字符
+*     匹配任意字符     123*
+?     匹配一个任意字符     12?.log
+[]     匹配中括号中内的任意一个字符     12[34].log = 123.log or 124.log
+[-]     匹配中括号中内的任意一个字符，- 代表一个范围。例如：[a-z]代表匹配一个小写字母
+[^]     逻辑非，表示匹配不是中括号内的一个字符。例如：[^0-9]代表匹配一个不是数字的字符
+```
+
+## 管道符
+```bash
+命令1 | 命令2     命令1的正确输出作为命令2的操作对象，注意命令2必须能够处理命令1的输出
+
+ls -l /etc | more
+netstat -an | grep ESTABLISHED | wc -l
+```
+
+## 重定向
+```bash
+标准输出重定向
+命令 > 文件
+ls > test.log #以覆盖方式把本该输出至屏幕的信息保存至文件当中
+ls >> test.log #以追加方式把本该输出至屏幕的信息保存至文件当中
+
+标准错误输出重定向
+错误命令 2[>,>>]文件
+lsss 2[>,>>]test.log #以[覆盖,追加]方式把本该输出至屏幕的错误信息保存至文件当中
+
+- 命令 &>>文件     正确输出和错误输出同时追加保存
+- 命令 >> 文件1 2>>文件2     正确输出和错误输出分开保存
+```
+
+## 多命令顺序执行
+```bash
+;     命令1; 命令2     多个命令按顺序顺序执行，命令之间没有任何逻辑联系
+&&     命令1 && 命令2     逻辑与，只有当命令1执行成功时，命令2才会执行
+||     命令1 || 命令2     逻辑或，命令1执行成功时，命令2不会执行；命令1执行失败，命令2才会执行
+
+ls && echo yes || echo no #判断命令是否执行成功
 ```
 
 ## 脚本
@@ -315,24 +355,24 @@ vi hello.sh
 echo -e "\e[1;36m 123456 \e[0m"
 
 执行脚本
-* chmod 755 hello.sh #赋予执行权限，直接运行
+- chmod 755 hello.sh #赋予执行权限，直接运行
    ./hello.sh
-* bash hello.sh #通过Bash调用执行脚本
+- bash hello.sh #通过Bash调用执行脚本
 ```
 
-## Linux目录
+## Linux 目录
 ```bash
-/boot 启动文件目录
-/dev 设备文件目录
-/etc 配置文件目录
-/home 普通用户的家目录
-/root 超级用户的家目录
-/lib 系统库目录，so等于DLL文件
-/tmp 临时文件目录
-/usr 系统软件资源目录
-/var 系统文档目录
-/proc|/sys 内存挂载点，不能操作
-/mnt|/media|/misc 媒体设备挂载点
+/boot     启动文件目录
+/dev     设备文件目录
+/etc     配置文件目录
+/home     普通用户的家目录
+/root     超级用户的家目录
+/lib     系统库目录，so等于DLL文件
+/tmp     临时文件目录
+/usr     系统软件资源目录
+/var     系统文档目录
+/proc|/sys     内存挂载点，不能操作
+/mnt|/media|/misc     媒体设备挂载点
 
 根目录(/)下的bin和sbin，usr目录(/user)下的的bin和sbin，这四个目录都是用来保存系统命令的。
 区别在于2个sbin目录只有root用户才能执行。
@@ -340,13 +380,16 @@ echo -e "\e[1;36m 123456 \e[0m"
 
 ## 快捷键
 ```bash
-ctrl+l 清屏
-ctrl+c 强制终止
-ctrl+d 退出登录
-ctrl+a 光标移动到行首
-ctrl+e 光标移动到行尾
-ctrl+u 从光标所在位置删除到行首
-ctrl+w 删除光标前的一个字段
-ctrl+z 把命令放入后台
-ctrl+r 在历史命令中搜索
+Ctrl+L     清屏
+Ctrl+C     终止当前命令
+Ctrl+D     退出登录
+Ctrl+A     光标移动到行首
+Ctrl+E     光标移动到行尾
+Ctrl+U     从光标所在位置删除到行首
+Ctrl+W     删除光标前的一个字段
+Ctrl+Z     把命令放入后台
+Ctrl+R     在历史命令中搜索
+Ctrl+M     回车键 (Enter)
+Ctrl+S     暂停屏幕输出
+Ctrl+Q     恢复屏幕输出
 ```
