@@ -32,7 +32,7 @@ total 20
 -rw-r--r--. 1 root root 9072 Mar 18 10:14 install.log
 -rw-r--r--. 1 root root 3161 Mar 18 10:13 install.log.syslog
 
-10位     前1(-文件 d目录 l软连接)     后9(rw-r--r--)
+10位     前1(-文件 d目录 l连接)     后9(rw-r--r--)
 rw-r--r--(333)
 u所属用户     g所属组     o其他人
 r读     w写     x执行
@@ -191,11 +191,36 @@ vi ~/.bashrc
 #重启后生效，若想直接生效可用 source .bashrc 重新调用
 ```
 
+## chmod
+```bash
+chmod [选项] [参数]
+rwx rw- r--(333)
+r=读取     值 = 4
+w=写入     值 = 2
+x=执行     值 = 1
+
+chmod 764 file01 #把 file01 的权限改为 rwx rw- r--
+
+Tips : 预设的情況下，系统中所有的帐号与一般身份使用者，以及root的相关信息， 都是记录在 /etc/passwd 文件中。每个人的密码则是记录在 /etc/shadow 文件下。所有的组群名称记录在 /etc/group 內！
+```
+
+## chown
+```bash
+chown [选项] [参数]
+
+参数：
+用户:组：指定所有者和所属工作组。当省略“:组”，仅改变文件所有者；
+文件：指定要改变所有者和工作组的文件列表。支持多个文件和目标，支持shell通配符。
+
+chown user:market file01 #把 file01 给 user，并添加到 market 组中
+```
+
 ## history
 ```bash
 history [选项] [历史命令保存文件]
 -c #清空历史命令
 -w #把缓存中的历史命令写入历史命令保存文件~/.bash_history
+
 !n 重复执行第n条历史命令
 !! 重复执行上一条命令
 !abc 重复执行最后一条以abc开头的命令
@@ -204,9 +229,10 @@ history [选项] [历史命令保存文件]
 ## shutdown
 ```bash
 shutdown [选项] [时间(now立即)]
--c #取消前一个关机命令
 -h #关机
 -r #重启
+-k #只是发布消息
+-c #取消前一个关机命令
 ```
 
 ## init
@@ -278,7 +304,6 @@ alias ls='ls --color=auto'
 
 ## 查看命令帮助
 ```bash
-
 whatis [命令]
 相当于
 man -f [命令]
@@ -348,6 +373,16 @@ lsss 2[>,>>]test.log #以[覆盖,追加]方式把本该输出至屏幕的错误�
 ls && echo yes || echo no #判断命令是否执行成功
 ```
 
+## 后台进程
+```bash
+Ctrl+Z     暂停进程并放入后台
+jobs #显示暂停的进程
+bg %N #使第N个进程在后台运行     back
+fg %N #使第N个进程在前台运行     front
+
+Tips : bg 和 fg 不带 %N 时默认对最后一个进程进行操作
+```
+
 ## 脚本
 ```bash
 vi hello.sh
@@ -381,13 +416,13 @@ echo -e "\e[1;36m 123456 \e[0m"
 ## 快捷键
 ```bash
 Ctrl+L     清屏
+Ctrl+Z     暂停进程并放入后台
 Ctrl+C     终止当前命令
 Ctrl+D     退出登录
 Ctrl+A     光标移动到行首
 Ctrl+E     光标移动到行尾
 Ctrl+U     从光标所在位置删除到行首
 Ctrl+W     删除光标前的一个字段
-Ctrl+Z     把命令放入后台
 Ctrl+R     在历史命令中搜索
 Ctrl+M     回车键 (Enter)
 Ctrl+S     暂停屏幕输出
