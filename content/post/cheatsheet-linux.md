@@ -235,14 +235,21 @@ shutdown [选项]  [时间 (now立即) ]
 -r #重启
 -k #只是发布消息
 -c #取消前一个关机命令
+
+shutdown -h now #立即关机
+shutdown -r now #立即重启
 ```
 
 ## init
 ```bash
 init [0-6] #切换系统运行级别
 runlevel #查询系统当前运行级别
+
 /etc/inittab     系统默认运行级别配置文件,默认为3
 0关机     1单用户     2不完全多用户(不含NFS服务)     3完全多用户(默认字符界面)     4未分配     5图形界面     6重启
+
+Tips : 
+Ctrl+ALT+F1~7 #在图形界面和字符界面中切换
 ```
 
 ## zip 压缩
@@ -432,4 +439,6 @@ Ctrl+R     在历史命令中搜索
 Ctrl+M     回车键 (Enter)
 Ctrl+S     暂停屏幕输出
 Ctrl+Q     恢复屏幕输出
+Ctrl+ALT+F1~7     在图形界面和字符界面中切换
+Ctrl+ALT+T     在图形界面中打开终端
 ```
