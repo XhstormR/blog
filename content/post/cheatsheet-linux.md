@@ -434,6 +434,7 @@ Ctrl+D     退出登录
 Ctrl+A     光标移动到行首
 Ctrl+E     光标移动到行尾
 Ctrl+U     从光标所在位置删除到行首
+Ctrl+K     从光标所在位置删除到行尾
 Ctrl+W     删除光标前的一个字段
 Ctrl+R     在历史命令中搜索
 Ctrl+M     回车键 (Enter)
