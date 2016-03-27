@@ -7,8 +7,6 @@ title = "CMD 使用 UTF-8 编码"
 
 <!--more-->
 
-> 最近用 You-Get 的时候，提示 CMD 不支持一些 Unicode 字符。
-
 ### 1. 修改 CMD 页面编码
 ```
 chcp 65001 #改用 UTF-8 编码
@@ -25,8 +23,7 @@ chcp 65001 #改用 UTF-8 编码
 ```
 chcp 437 #英文
 chcp 932 #日文
-chcp 936 #简体中文
 chcp 949 #韩文
+chcp 936 #简体中文
 chcp 950 #繁体中文
-chcp 65001 #utf-8
 ```
