@@ -252,6 +252,13 @@ Tips :
 Ctrl+ALT+F1~7 #在图形界面和字符界面中切换
 ```
 
+## ZModem
+```bash
+yum -y install lrzsz #安装 ZModem 支持软件
+rz #上传文件     对于 Linux Receive(收到)
+sz #下载文件     对于 Linux Send(发送)
+```
+
 ## zip 压缩
 ```bash
 zip [压缩文件名] [源文件] #压缩文件
@@ -433,9 +440,12 @@ Ctrl+C     终止当前命令
 Ctrl+D     退出登录
 Ctrl+A     光标移动到行首
 Ctrl+E     光标移动到行尾
-Ctrl+U     从光标所在位置删除到行首
-Ctrl+K     从光标所在位置删除到行尾
-Ctrl+W     删除光标前的一个字段
+Ctrl+U     从光标所在位置剪切到行首
+Ctrl+K     从光标所在位置剪切到行尾
+Ctrl+W     剪切光标前的一个字段
+Ctrl+Y     粘贴上一次用快捷键剪切的字符
+Ctrl+?     撤消前一次动作
+Ctrl+O     重复执行命令
 Ctrl+R     在历史命令中搜索
 Ctrl+M     回车键 (Enter)
 Ctrl+S     暂停屏幕输出
