@@ -152,6 +152,15 @@ Tips : 默认为包含匹配，可使用正则表达式进行包含匹配
 grep ^[a-z] /etc/nova/nova.conf #使用正则表达式去掉注释
 ```
 
+## sed
+```bash
+-i #将修改写入文件
+-e #执行多条编辑命令
+d 删除(sed命令)
+
+sed -i -e '/^$/'d -e '/^#/'d openrc.sh #删除 空白行 和 注释行
+```
+
 ## mount
 ```bash
 mount #查询系统中已经挂载的设备
@@ -421,14 +430,15 @@ echo -e "\e[1;36m 123456 \e[0m"
 /etc     配置文件目录
 /home     普通用户的家目录
 /root     超级用户的家目录
-/lib     系统库目录，so等于DLL文件
+/lib     系统函数库目录
 /tmp     临时文件目录
 /usr     系统软件资源目录
+/opt     第三方软件资源目录
 /var     系统文档目录
 /proc|/sys     内存挂载点，不能操作
 /mnt|/media|/misc     媒体设备挂载点
 
-根目录(/)下的bin和sbin，usr目录(/user)下的的bin和sbin，这四个目录都是用来保存系统命令的。
+根目录(/)下的bin和sbin，usr目录(/usr)下的的bin和sbin，这四个目录都是用来保存系统命令的。
 区别在于2个sbin目录只有root用户才能执行。
 ```
 
@@ -452,4 +462,7 @@ Ctrl+S     暂停屏幕输出
 Ctrl+Q     恢复屏幕输出
 Ctrl+ALT+F1~7     在图形界面和字符界面中切换
 Ctrl+ALT+T     在图形界面中打开终端
+
+~+TAB*2     All Present Users on system from "/etc/passwd"
+@+TAB*2     Entries from "/etc/hosts"
 ```
