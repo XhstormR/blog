@@ -104,6 +104,7 @@ ln [原文件]  [目标文件]
 locate [文件名] #在数据库中搜索文件名，速度非常快
 updatedb #手动更新数据库
 
+yum -y install mlocate #安装 locate
 /var/lib/mlocate     数据库位置,默认一天一更新
 /etc/updatedb.conf     locate配置文件
 ```
@@ -165,8 +166,9 @@ sed -i -e '/^$/'d -e '/^#/'d openrc.sh #删除 空白行 和 注释行
 ```bash
 mount #查询系统中已经挂载的设备
 mount -a #依据配置文件/etc/fstab的内容，自动挂载
+mount [-t 文件系统] [-o特殊选项] 设备文件名 挂载点 #挂载设备
 umount [设备文件名或挂载点] #卸载设备
-mount [-t 文件系统] [-o特殊选项] 设备文件名 挂载点
+
 
 example:
 挂载光盘
@@ -263,7 +265,7 @@ Ctrl+ALT+F1~7 #在图形界面和字符界面中切换
 
 ## ZModem
 ```bash
-yum -y install lrzsz #安装 ZModem 支持软件
+yum -y install lrzsz #安装 ZModem
 rz #上传文件     对于 Linux Receive(收到)
 sz #下载文件     对于 Linux Send(发送)
 ```
