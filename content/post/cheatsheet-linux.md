@@ -28,6 +28,7 @@ more #分屏显示
 -l #以列表形式显示详细信息
 -h #文件大小人性化显示
 -i #显示inode
+-R #将指定目录下的所有文件及子目录一并处理     Recursive(递归)
 
 [root@controller ~]$ ls -l
 total 20
