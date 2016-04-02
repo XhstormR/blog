@@ -370,6 +370,7 @@ exit
 
 Tips : 
 Ctrl+D #快捷键退出
+[root@controller ~]$ ssh-copy-id user@host #将 SSHKeys 复制到 user@host 以启用无密码 SSH 登录
 ```
 
 ## 搜索系统命令
