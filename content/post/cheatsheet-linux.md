@@ -122,6 +122,15 @@ rz #上传文件     对于 Linux Receive(收到)
 sz #下载文件     对于 Linux Send(发送)
 ```
 
+## SSH
+```bash
+ssh-keygen #在 ~/.ssh 目录下生成公钥和私钥
+ssh-copy-id user@host #将公钥复制到 user@host 下的 ~/.ssh/authorized_keys 以启用无密码 SSH 登录
+ssh user@host #以 SSH 方式登陆远程主机
+
+yum -y install openssh-clients #安装 SSH 套件
+```
+
 ## tree
 ```bash
 yum -y install tree #安装 tree
@@ -370,7 +379,6 @@ exit
 
 Tips : 
 Ctrl+D #快捷键退出
-[root@controller ~]$ ssh-copy-id user@host #将 SSHKeys 复制到 user@host 以启用无密码 SSH 登录
 ```
 
 ## 搜索系统命令
