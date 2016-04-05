@@ -315,6 +315,18 @@ history [选项] [历史命令保存文件]
 !abc 重复执行最后一条以abc开头的命令
 ```
 
+## uname
+```bash
+-a #显示全部信息
+-m #电脑类型
+-n #主机名称
+-v #显示内核版本
+-r #显示内核发行编号
+
+[root@controller ~]$ uname -a
+Linux controller 2.6.32-431.el6.x86_64 井1 SMP Fri Nov 22 03:15:09 UTC 2013 x86_64 x86_64 x86_64 GNU/Linux
+```
+
 ## shutdown
 ```bash
 shutdown [选项]  [时间 (now立即) ]
@@ -532,7 +544,7 @@ Ctrl+M     回车键 (Enter)
 Ctrl+S     暂停屏幕输出
 Ctrl+Q     恢复屏幕输出
 Ctrl+ALT+F1~7     在图形界面和字符界面中切换
-Ctrl+ALT+T     在图形界面中打开终端
+Ctrl+ALT+T     在图形界面中打开终端（CentOS 需要自己设置快捷键）
 
 ~+TAB*2     All Present Users on system from "/etc/passwd"
 @+TAB*2     Entries from "/etc/hosts"
