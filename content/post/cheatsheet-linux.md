@@ -28,13 +28,20 @@ more #分屏显示
 -l #以列表形式显示详细信息
 -h #文件大小人性化显示
 -i #显示inode
+-r #反向排序     Reverse(相反)
 -R #将指定目录下的所有文件及子目录一并处理     Recursive(递归)
+-S #按文件大小降序排列     Size
 
 [root@controller ~]$ ls -l
 total 20
 -rw-------. 1 root root  986 Mar 18 10:14 anaconda-ks.cfg
 -rw-r--r--. 1 root root 9072 Mar 18 10:14 install.log
 -rw-r--r--. 1 root root 3161 Mar 18 10:13 install.log.syslog
+[root@compute ~]# ll -Shr
+total 20K
+-rw-------. 1 root root 1.2K Mar 29 14:35 anaconda-ks.cfg
+-rw-r--r--. 1 root root 3.1K Mar 29 14:34 install.log.syslog
+-rw-r--r--. 1 root root 8.9K Mar 29 14:35 install.log
 
 10位     前1(-文件 d目录 l连接)     后9(rw-r--r--)
 rw-r--r--(333)
