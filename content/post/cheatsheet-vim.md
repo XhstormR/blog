@@ -1,5 +1,5 @@
 +++
-Categories = []
+Categories = ["CheatSheet"]
 date = "2016-03-31T11:09:57+08:00"
 title = "Vim 命令不完全手册"
 
