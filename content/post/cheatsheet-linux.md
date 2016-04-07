@@ -9,7 +9,7 @@ title = "Linux 命令不完全手册"
 
 > 最近因为要参加全国云计算比赛，需要使用 Linux；所以我把关于 Linux 系统的一些命令整理在这里，以便查阅。
 
-```bash
+```
 pwd #查看当前路径
 date #查看当前时间
 file #查看文件类型
@@ -23,7 +23,7 @@ more #分屏显示
 ```
 
 ## ls
-```bash
+```
 -a #显示隐藏文件
 -l #以列表形式显示详细信息
 -h #文件大小人性化显示
@@ -37,7 +37,7 @@ total 20
 -rw-------. 1 root root  986 Mar 18 10:14 anaconda-ks.cfg
 -rw-r--r--. 1 root root 9072 Mar 18 10:14 install.log
 -rw-r--r--. 1 root root 3161 Mar 18 10:13 install.log.syslog
-[root@compute ~]# ll -Shr
+[root@compute ~]$ ll -Shr
 total 20K
 -rw-------. 1 root root 1.2K Mar 29 14:35 anaconda-ks.cfg
 -rw-r--r--. 1 root root 3.1K Mar 29 14:34 install.log.syslog
@@ -55,26 +55,26 @@ ls `cat 123` # ` ` 包含的命令 bash 会先执行
 ```
 
 ## mkdir
-```bash
+```
 -p #递归创建目录
 
 mkdir -p 1/2/3
 ```
 
 ## cd
-```bash
+```
 cd #进入当前用户家目录
 cd - #进入上一次的目录
 cd .. #进入上一级目录
 ```
 
 ## rmdir
-```bash
+```
 rmdir #删除空白目录，不常用
 ```
 
 ## rm
-```bash
+```
 -r #删除目录
 -f #不显示确认信息
 -v #显示详细信息
@@ -84,7 +84,7 @@ rm -rf `ls | grep -v word` #删除除了 word 之外的所有文件
 ```
 
 ## cp
-```bash
+```
 cp [选项] [原文件或目录] [目标目录]
 -u #只复制比目标新的文件
 -r #复制目录
@@ -96,7 +96,7 @@ cp -r /root/install.log .
 ```
 
 ## mv
-```bash
+```
 mv [选项] [原文件或目录] [目标目录]
 -u #只移动比目标新的文件
 
@@ -104,7 +104,7 @@ mv 123 1 #相当于重命名
 ```
 
 ## ln
-```bash
+```
 ln [原文件]  [目标文件]
 -s #创建软链接 soft，不加则创建硬链接 hard，需使用绝对路径
 
@@ -113,7 +113,7 @@ ln [原文件]  [目标文件]
 ```
 
 ## locate
-```bash
+```
 locate [文件名] #在数据库中搜索文件名，速度非常快
 updatedb #手动更新数据库
 
@@ -123,14 +123,14 @@ yum -y install mlocate #安装 locate
 ```
 
 ## ZModem
-```bash
+```
 yum -y install lrzsz #安装 ZModem
 rz #上传文件     对于 Linux Receive(收到)
 sz #下载文件     对于 Linux Send(发送)
 ```
 
 ## SSH
-```bash
+```
 ssh-keygen #在 ~/.ssh 目录下生成公钥和私钥
 ssh-copy-id user@host #将公钥复制到 user@host 下的 ~/.ssh/authorized_keys 以启用无密码 SSH 登录
 ssh user@host #以 SSH 方式登陆远程主机
@@ -139,7 +139,7 @@ yum -y install openssh-clients #安装 SSH 套件
 ```
 
 ## tree
-```bash
+```
 yum -y install tree #安装 tree
 -a #显示所有文件和目录     all
 -d #只显示目录     directory
@@ -177,7 +177,7 @@ yum -y install tree #安装 tree
 ```
 
 ## find
-```bash
+```
 find [搜索范围]  [搜索条件]  [搜索文件]
 find / -name 123.log
 
@@ -211,7 +211,7 @@ find /etc/ -name '*.ini' #查找 /etc 目录中以 .ini 结尾的文件
 ```
 
 ## grep
-```bash
+```
 grep[选项] 字符串 文件名     在文件当中查找匹配符合条件的字符串
 -n #显示行号
 -i #忽略大小写
@@ -227,7 +227,7 @@ grep -vn -e ^井 -e '^$' /etc/vsftpd/vsftpd.conf #使用正则表达式取反去
 ```
 
 ## sed
-```bash
+```
 -i #将修改写入文件
 -e #执行多条编辑命令
 
@@ -238,29 +238,47 @@ sed -i -e '/^$/'d -e '/^#/'d openrc.sh #删除 空白行 和 注释行
 ```
 
 ## mount
-```bash
+```
 mount #查询系统中已经挂载的设备
 mount -a #依据配置文件/etc/fstab的内容，自动挂载
-mount [-t 文件系统] [-o特殊选项] 设备文件名 挂载点 #挂载设备
+mount [-t 文件系统] [-o特殊选项] 设备文件名 挂载点 #挂载设备     type     option
 umount [设备文件名或挂载点] #卸载设备
 
+-t #一般不必指定，mount 会自动选择正确的类型
+     光盘、光盘镜像：iso9660
+     DOS fat16：msdos
+     Windows9x fat32：vfat
+     WindowsNT ntfs：ntfs
+     Windows 网络文件共享：smbfs
+     Linux 网络文件共享：nfs
+-o #挂载方式
+     loop：把一个文件当成硬盘分区挂载
+     ro：采用只读方式挂接设备
+     rw：采用读写方式挂接设备
+     iocharset：指定访问文件系统所用字符集
 
 example:
 挂载光盘
-mkdir /mnt/cdrom #创建空文件夹
-mount /dev/cdrom(or `sr0`) /mnt/cdrom/ #把设备文件挂载到空文件夹(挂载点)上
+mount /dev/cdrom(or `sr0`) /mnt/ #把设备文件挂载到空文件夹(挂载点)上
 挂载U盘
-mkdir /mnt/usb #创建空文件
-fdisk -l #查看U盘设备文件名
-mount -t vfat /dev/sdb1 /mnt/usb/ #把设备文件挂载到空文件夹(挂载点)上，vfat意思为fat32
+fdisk -l #查看分区表
+mount /dev/sdb1 /mnt/ #把设备文件挂载到空文件夹(挂载点)上，若中文乱码加上`-o iocharset=cp936`
 挂载本地镜像
-mount -o loop 123.iso /mnt/
+mount -o loop 1.iso /mnt/
 
-Tips : linux默认是不支持NTFS文件系统的
+Tips：
+[root@controller ~]$ cat /proc/partitions #同样可以查看分区表
+major minor  blocks  name
+   8        0  292421632 sda
+   8        1    1024000 sda1
+   8        2  204800000 sda2
+   8        3    8192000 sda3
+linux默认是不支持NTFS文件系统的
+cp /dev/cdrom /tmp/1.iso #从光盘制作光盘镜像文件
 ```
 
 ## echo
-```bash
+```
 echo [选项] [输出内容]
 -e #支持反斜线控制的字符转换
 
@@ -268,7 +286,7 @@ echo -e "\e[1;31m 123456 \e[0m" #输出红颜色 (31m)
 ```
 
 ## alias
-```bash
+```
 alias #查看系统中所有的命令别名
 alias 别名='原命令' #设定命令别名，重启失效
 unalias 别名 #删除别名
@@ -280,7 +298,7 @@ vi ~/.bashrc
 ```
 
 ## chmod
-```bash
+```
 chmod [选项] [参数]
 rwx rw- r--(333)
 r=读取     值 = 4
@@ -293,7 +311,7 @@ Tips : 预设的情況下，系统中所有的帐号与一般身份使用者的�
 ```
 
 ## chown
-```bash
+```
 chown [选项] [参数]
 -R #操作文件夹下的所有文件     Recursive(递归)
 
@@ -305,7 +323,7 @@ chown user:market file01 #把 file01 给 user，并添加到 market 组中
 ```
 
 ## history
-```bash
+```
 history [选项] [历史命令保存文件]
 -c #清空历史命令
 -w #把缓存中的历史命令写入历史命令保存文件 ~/.bash_history
@@ -316,19 +334,31 @@ history [选项] [历史命令保存文件]
 ```
 
 ## uname
-```bash
--a #显示全部信息
+```
+-a #显示全部系统信息
 -m #电脑类型
 -n #主机名称
--v #显示内核版本
--r #显示内核发行编号
+-v #内核版本
+-r #内核发行编号
 
 [root@controller ~]$ uname -a
 Linux controller 2.6.32-431.el6.x86_64 井1 SMP Fri Nov 22 03:15:09 UTC 2013 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
+## lsb_release
+```
+-a #显示全部发行版本信息
+
+[root@controller ~]$ lsb_release -a
+LSB Version:    :base-4.0-amd64:base-4.0-noarch:core-4.0-amd64:core-4.0-noarch
+Distributor ID: CentOS
+Description:    CentOS release 6.5 (Final)
+Release:        6.5
+Codename:       Final
+```
+
 ## shutdown
-```bash
+```
 shutdown [选项]  [时间 (now立即) ]
 -h #关机
 -r #重启
@@ -340,7 +370,7 @@ shutdown -r now #立即重启
 ```
 
 ## init
-```bash
+```
 init [0-6] #切换系统运行级别
 runlevel #查询系统当前运行级别
 
@@ -352,14 +382,14 @@ Ctrl+ALT+F1~7 #在图形界面和字符界面中切换
 ```
 
 ## zip 压缩
-```bash
+```
 zip [压缩文件名] [源文件] #压缩文件
 zip -r [压缩文件名] [源目录] #压缩目录
 unzip [压缩文件名] #解压缩
 ```
 
 ## gz 压缩
-```bash
+```
 gzip [源文件] #压缩为.gz格式压缩文件，源文件会消失
 gzip -r [目录] #分别压缩目录下的所有子文件，不能压缩目录
 gunzip or gzip -d [压缩文件] #解压缩
@@ -369,7 +399,7 @@ gzip -c abc > abc.gz
 ```
 
 ## bz2 压缩
-```bash
+```
 bzip2 [源文件] #压缩为.bz2格式的压缩文件，源文件会消失
 bzip2 -k [源文件] #压缩之后保留源文件
 `bunzip2` or `bzip2` -d [压缩文件] [-k 保留源文件] #解压缩
@@ -378,7 +408,7 @@ Tips : bzip2不支持目录压缩
 ```
 
 ## tar 压缩
-```bash
+```
 tar -[cxt]f [打包解包文件名] [源文件]
 -c #打包
 -x #解包
@@ -392,7 +422,7 @@ tar -xf 123.tar.gz -C /tmp/ #指定解包位置
 ```
 
 ## 退出登录
-```bash
+```
 logout
 exit
 
@@ -401,7 +431,7 @@ Ctrl+D #快捷键退出
 ```
 
 ## 搜索系统命令
-```bash
+```
 whereis [命令名] #查找可执行文件和帮助文件
 which [命令名] #查找可执行文件和默认别名
 
@@ -413,7 +443,7 @@ alias ls='ls --color=auto'
 ```
 
 ## 查看命令帮助
-```bash
+```
 whatis [命令]
 相当于
 man -f [命令]
@@ -421,7 +451,7 @@ man -f [命令]
 ```
 
 ## 查看用户登录信息
-```bash
+```
 当前登录用户：
 w
 who
@@ -443,7 +473,7 @@ lastlog命令默认读取 /var/log/lastlog 文件
 ```
 
 ## 通配符
-```bash
+```
 *     匹配任意字符     123*
 ?     匹配一个任意字符     12?.log
 []     匹配中括号中内的任意一个字符     12[34].log = 123.log or 124.log
@@ -452,7 +482,7 @@ lastlog命令默认读取 /var/log/lastlog 文件
 ```
 
 ## 管道符
-```bash
+```
 命令1 | 命令2     命令1的正确输出作为命令2的操作对象，注意命令2必须能够处理命令1的输出
 
 ls -l /etc | more
@@ -461,7 +491,7 @@ keystone tenant-list | grep service | awk '{print $2}'
 ```
 
 ## 重定向
-```bash
+```
 标准输出重定向
 命令 > 文件
 ls > test.log #以覆盖方式把本该输出至屏幕的信息保存至文件当中
@@ -476,7 +506,7 @@ lsss 2[>,>>] test.log #以[覆盖,追加]方式把本该输出至屏幕的错误
 ```
 
 ## 多命令顺序执行
-```bash
+```
 ;     命令1; 命令2     多个命令按顺序顺序执行，命令之间没有任何逻辑联系
 &&     命令1 && 命令2     逻辑与，只有当命令1执行成功时，命令2才会执行
 ||     命令1 || 命令2     逻辑或，命令1执行成功时，命令2不会执行；命令1执行失败，命令2才会执行
@@ -485,7 +515,7 @@ ls && echo yes || echo no #判断命令是否执行成功
 ```
 
 ## 后台进程
-```bash
+```
 Ctrl+Z     暂停进程并放入后台
 jobs #显示暂停的进程
 bg %N #使第N个进程在后台运行     back
@@ -495,7 +525,7 @@ Tips : bg 和 fg 不带 %N 时默认对最后一个进程进行操作
 ```
 
 ## 脚本
-```bash
+```
 vi hello.sh
 #!/bin/bash
 echo -e "\e[1;36m 123456 \e[0m"
@@ -507,7 +537,7 @@ echo -e "\e[1;36m 123456 \e[0m"
 ```
 
 ## Linux 目录
-```bash
+```
 /boot     启动文件目录
 /dev     设备文件目录
 /etc     配置文件目录
@@ -526,7 +556,7 @@ echo -e "\e[1;36m 123456 \e[0m"
 ```
 
 ## 快捷键
-```bash
+```
 Ctrl+L     清屏
 Ctrl+Z     暂停进程并放入后台
 Ctrl+C     终止当前命令
