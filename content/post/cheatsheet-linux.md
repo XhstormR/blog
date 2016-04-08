@@ -15,7 +15,7 @@ date #查看当前时间
 file #查看文件类型
 cat #查看文件内容
 head #查看文件头10行内容
-tail #查看文件末尾10行内容
+tail #查看文件末尾10行内容 -f 追踪文件最新增加的内容 follow
 ifconfig #查看网卡信息
 touch #创建空文件
 wc #统计文本
@@ -29,20 +29,19 @@ more #分屏显示
 -h #文件大小人性化显示
 -i #显示inode
 -r #反向排序     Reverse(相反)
--R #将指定目录下的所有文件及子目录一并处理     Recursive(递归)
+-R #操作文件夹下的所有文件     Recursive(递归)
 -S #按文件大小降序排列     Size
 
-[root@controller ~]$ ls -l
-total 20
--rw-------. 1 root root  986 Mar 18 10:14 anaconda-ks.cfg
--rw-r--r--. 1 root root 9072 Mar 18 10:14 install.log
--rw-r--r--. 1 root root 3161 Mar 18 10:13 install.log.syslog
 [root@compute ~]$ ll -Shr
 total 20K
 -rw-------. 1 root root 1.2K Mar 29 14:35 anaconda-ks.cfg
 -rw-r--r--. 1 root root 3.1K Mar 29 14:34 install.log.syslog
 -rw-r--r--. 1 root root 8.9K Mar 29 14:35 install.log
-
+[root@controller ~]$ ls -l
+total 20
+-rw-------. 1 root root  986 Mar 18 10:14 anaconda-ks.cfg
+-rw-r--r--. 1 root root 9072 Mar 18 10:14 install.log
+-rw-r--r--. 1 root root 3161 Mar 18 10:13 install.log.syslog
 10位     前1(-文件 d目录 l连接)     后9(rw-r--r--)
 rw-r--r--(333)
 u所属用户     g所属组     o其他人
@@ -75,7 +74,7 @@ rmdir #删除空白目录，不常用
 
 ## rm
 ```
--r #递归处理，删除目录下的所有文件及子目录
+-r #操作文件夹下的所有文件     Recursive(递归)
 -f #不显示确认信息
 -v #显示详细信息
 
@@ -87,7 +86,7 @@ rm -rf `ls | grep -v word` #删除除了 word 之外的所有文件
 ```
 cp [选项] [原文件或目录] [目标目录]
 -u #只复制比目标新的文件
--r #复制目录
+-r #操作文件夹下的所有文件     Recursive(递归)
 -p #连带文件属性复制
 -d #若原文件是链接文件，则复制链接属性
 -a #相当于 -rpd
@@ -129,24 +128,6 @@ rz #上传文件     对于 Linux Receive(收到)
 sz #下载文件     对于 Linux Send(发送)
 ```
 
-## SSH
-```
-ssh-keygen #在 ~/.ssh 目录下生成公钥和私钥
-ssh-copy-id user@host #将公钥复制到 user@host 下的 ~/.ssh/authorized_keys 以启用无密码 SSH 登录
-ssh user@host #以 SSH 方式登陆远程主机
-
-yum -y install openssh-clients #安装 SSH 套件
-```
-
-## scp
-```
--r #递归方式复制
--p #指定远程主机的端口号
-
-[root@controller ~]$ scp -r /tmp/soft root@192.168.100.10:/tmp/ #上传本地目录到远程机器指定目录
-[root@controller ~]$ scp -r root@192.168.100.10:/tmp/soft /tmp/ #从远处复制到本地
-```
-
 ## tree
 ```
 yum -y install tree #安装 tree
@@ -183,6 +164,24 @@ yum -y install tree #安装 tree
 ├── .tcshrc
 └── .viminfo
 3 directories, 16 files
+```
+
+## SSH
+```
+ssh-keygen #在 ~/.ssh 目录下生成公钥和私钥
+ssh-copy-id user@host #将公钥复制到 user@host 下的 ~/.ssh/authorized_keys 以启用无密码 SSH 登录
+ssh user@host #以 SSH 方式登陆远程主机
+
+yum -y install openssh-clients #安装 SSH 套件
+```
+
+## scp
+```
+-r #操作文件夹下的所有文件     Recursive(递归)
+-p #指定远程主机的端口号
+
+[root@controller ~]$ scp -r /tmp/soft root@192.168.100.10:/tmp/ #上传本地目录到远程机器指定目录
+[root@controller ~]$ scp -r root@192.168.100.10:/tmp/soft /tmp/ #从远处复制到本地
 ```
 
 ## find
@@ -227,7 +226,7 @@ grep[选项] 字符串 文件名     在文件当中查找匹配符合条件的�
 -v #排除指定字符串，取反
 -c #统计文本中匹配字符串的行数
 -e #执行多条编辑命令
--r #在多级目录中对文本进行递归搜索
+-r #操作文件夹下的所有文件     Recursive(递归)
 --color=auto #高亮匹配字符
 
 Tips : 默认为包含匹配，可使用正则表达式进行包含匹配     ^开头     结尾$
@@ -244,6 +243,7 @@ grep -vn -e ^井 -e '^$' /etc/vsftpd/vsftpd.conf #使用正则表达式取反去
 d #删除
 
 sed -i -e '/^$/'d -e '/^#/'d openrc.sh #删除 空白行 和 注释行
+sed -i 's/b/strong/g' index.html #搜索 index.html 中的 b 并将其替换为 strong
 ```
 
 ## mount
@@ -306,9 +306,46 @@ vi ~/.bashrc
 重启后生效，若想直接生效可用 source .bashrc 重新调用。
 ```
 
+## lsblk
+```
+-a #显示所有设备
+-f #显示文件系统信息
+
+[root@controller ~]$ lsblk  
+NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sda      8:0    0 278.9G  0 disk 
+├─sda1   8:1    0  1000M  0 part /boot
+├─sda2   8:2    0 195.3G  0 part /
+└─sda3   8:3    0   7.8G  0 part [SWAP]
+设备名     主要和次要设备号     是否为可移动设备     容量     是否为只读     类型     挂载点
+```
+
+## yum
+```
+-y #对所有提问都回答 yes
+
+yum install tree #安装包
+yum remove tree #移除包
+yum reinstall tree #重新安装包
+yum search tree #搜索包
+yum list #列出所有包
+yum list installed #列出已安装的包
+yum update #更新系统
+yum check-update #更新包列表
+yum repolist #列出源
+yum provides /bin/bash #查找某一文件的提供包
+yum info bash #查看软件包详情
+yum clean all #删除缓存
+
+添加源：add to /etc/yum.repos.d/
+移除源：remove from /etc/yum.repos.d/
+```
+
 ## chmod
 ```
 chmod [选项] [参数]
+-R #操作文件夹下的所有文件     Recursive(递归)
+
 rwx rw- r--(333)
 r=读取     值 = 4
 w=写入     值 = 2
@@ -522,6 +559,7 @@ lsss 2[>,>>] test.log #以[覆盖,追加]方式把本该输出至屏幕的错误
 &&     命令1 && 命令2     逻辑与，只有当命令1执行成功时，命令2才会执行
 ||     命令1 || 命令2     逻辑或，命令1执行成功时，命令2不会执行；命令1执行失败，命令2才会执行
 
+ls `cat 123` # ` ` 包含的命令 bash 会先执行
 ls && echo yes || echo no #判断命令是否执行成功
 ```
 
@@ -574,10 +612,10 @@ Ctrl+C     终止当前命令
 Ctrl+D     退出登录
 Ctrl+A     光标移动到行首
 Ctrl+E     光标移动到行尾
-Ctrl+U     从光标所在位置剪切到行首
-Ctrl+K     从光标所在位置剪切到行尾
+Ctrl+U     剪切光标之前的内容
+Ctrl+K     剪切光标之后的内容
 Ctrl+W     剪切光标前的一个字段
-Ctrl+Y     粘贴上一次用快捷键剪切的字符
+Ctrl+Y     粘贴上一次快捷键剪切的内容
 Ctrl+?     撤消前一次动作
 Ctrl+O     重复执行命令
 Ctrl+R     在历史命令中搜索
