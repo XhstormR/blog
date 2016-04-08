@@ -138,6 +138,15 @@ ssh user@host #以 SSH 方式登陆远程主机
 yum -y install openssh-clients #安装 SSH 套件
 ```
 
+## scp
+```
+-r #递归方式复制
+-p #指定远程主机的端口号
+
+[root@controller ~]$ scp -r /tmp/soft root@192.168.100.10:/tmp/ #上传本地目录到远程机器指定目录
+[root@controller ~]$ scp -r root@192.168.100.10:/tmp/soft /tmp/ #从远处复制到本地
+```
+
 ## tree
 ```
 yum -y install tree #安装 tree
@@ -355,6 +364,8 @@ Distributor ID: CentOS
 Description:    CentOS release 6.5 (Final)
 Release:        6.5
 Codename:       Final
+                                   标准     基础
+Tips：LSB 是 Linux Standard Base 的缩写
 ```
 
 ## shutdown
