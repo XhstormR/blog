@@ -1,16 +1,18 @@
 +++
 Categories = ["Notes"]
 date = "2016-04-06T11:28:51+08:00"
-title = "使用 Libvirt 管理 KVM "
+title = "Libvirt 不完全使用手册"
 
 +++
 
 <!--more-->
 
+> KVM 负责 CPU 和 RAM 的虚拟化；QEMU 则负责模拟 IO 设备，如网卡和硬盘；KVM 加上 QEMU 之后就能实现真正意义上的服务器虚拟化，称之为 QEMU-KVM。
 > 
+> 而 Libvirt 则是调用 KVM 虚拟化技术的接口间接控制 QEMU-KVM，如果直接用 QEMU-KVM 的接口会非常繁琐。另外 OpenStack 也是用 Libvirt 的库管理 VM，可以控制除了 QEMU 以外的模拟器，包括 VMWARE, VirtualBox, Xen等等。
 
 ### Libvirt 部分
-```bash
+```
 yum -y install virt-manager
 yum -y install libvirt
 yum -y install kvm
@@ -35,7 +37,7 @@ default              active     yes           yes
 [root@controller ~]$ virsh vncdisplay 1 #查看 VNC 端口为5901
 :1
 [root@controller ~]$ virsh start 1 #启动虚拟机
-[root@controller ~]$ virsh destroy 1 #停止虚拟机
+[root@controller ~]$ virsh destroy 1 #停止虚拟机（粗暴）
 
 virt-install --os-variant list #查看支持系统版本
 virsh list --all #显示所有虚拟机
@@ -45,6 +47,9 @@ virsh create /tmp/1.xml #定义并创建虚拟机
 virsh undefine 1 #删除虚拟机
 virsh suspend 1 #暂停虚拟机
 vrish resume 1 #恢复虚拟机
+virsh shutdown 1 #停止虚拟机（优雅），需要 `yum -y install acpid`
+virsh save 1 /tmp/1save #生成虚拟机快照，跳过文件系统缓存--bypass-cache，同时生成XML配置文件--xml 1，还原后自动启动--running
+virsh restore /tmp/1save --bypass-cache --running #还原虚拟机，需先关闭虚拟机
 virsh domblklist 1 #查看虚拟机使用的磁盘文件
 qemu-img info 1.qcow2 #查看虚拟磁盘信息
 virt-cat 1.qcow2 /etc/passwd #查看虚拟磁盘里的文件
@@ -74,8 +79,9 @@ Tips：
      /etc/selinux/config 修改为 SELINUX=disabled
      setenforce 0
 ```
+
 ### OpenStack 部分
-```bash
+```
 [root@controller ~]$ virt-sysprep -d 1 #清理虚拟机，如 MAC 地址
 [root@controller ~]$ virsh undefine 1 #取消定义虚拟机
 [root@controller ~]$ virt-sparsify --compress /tmp/1.qcow2 #压缩镜像（可选）
