@@ -26,7 +26,7 @@ more #分屏显示
 ```
 -a #显示隐藏文件
 -l #以列表形式显示详细信息
--h #文件大小人性化显示
+-h #大小人性化显示
 -i #显示inode
 -r #反向排序     Reverse(相反)
 -R #操作文件夹下的所有文件     Recursive(递归)
@@ -63,6 +63,7 @@ mkdir -p 1/2/3
 ## cd
 ```
 cd #进入当前用户家目录
+cd ~ #进入当前用户家目录
 cd - #进入上一次的目录
 cd .. #进入上一级目录
 ```
@@ -137,7 +138,7 @@ yum -y install tree #安装 tree
 -u #在文件和目录前显示所属用户     user
 -g #在文件和目录前显示所属组     group
 -s #列出文件和目录大小     size
--h #列出文件和目录大小     human
+-h #列出文件和目录大小并人性化显示     human
 -p #列出权限标识     purview
 -i #不以阶梯状列出文件和目录     Ignore indentation
 -C #文件夹显示不同颜色     color
@@ -321,6 +322,54 @@ sda      8:0    0 278.9G  0 disk
 设备名     主要和次要设备号     是否为可移动设备     容量     是否为只读     类型     挂载点
 ```
 
+## df
+```
+-a #显示所有文件系统
+-h #大小人性化显示
+-T #显示文件系统类型
+
+[root@controller ~]$ df -Th
+Filesystem     Type   Size  Used Avail Use% Mounted on
+/dev/sda3      ext4   193G  2.7G  180G   2% /
+tmpfs          tmpfs  5.8G     0  5.8G   0% /dev/shm
+/dev/sda2      ext4   985M   38M  897M   5% /boot
+/dev/sda1      vfat   200M  260K  200M   1% /boot/efi
+```
+
+## du
+```
+-a #同时显示文件大小
+-c #同时显示大小总和
+-s #仅显示大小总和
+-h #大小人性化显示
+-S #目录大小不包含子目录的大小
+--max-depth=0 #列出小于队列深度的文件夹，0等同于 -s
+
+[root@controller ~]$ du -hac #人性化显示所有文件目录及总和的大小
+4.0K    ./.bash_profile
+4.0K    ./.bash_logout
+4.0K    ./installl.log.syslog
+4.0K    ./.ssh/known_hosts
+4.0K    ./.ssh/authorized_keys
+12K     ./.ssh
+4.0K    ./anaconda-ks.cfg
+12K     ./installl.log
+4.0K    ./.bashrc
+4.0K    ./.cshrc
+4.0K    ./.viminfo
+4.0K    ./.bash_history
+4.0K    ./.tcshrc
+64K     .
+64K     total
+[root@controller ~]$ du --max-depth=1 -h /opt/ #列出各子目录所使用的空间
+3.3G    /opt/paas
+24K     /opt/distribution-karaf-0.2.1-Helium-SR1.1
+2.7G    /opt/iaas
+441M    /opt/opendaylight
+4.2G    /opt/centos
+21G     /opt/
+```
+
 ## yum
 ```
 -y #对所有提问都回答 yes
@@ -423,8 +472,8 @@ shutdown -r now #立即重启
 init [0-6] #切换系统运行级别
 runlevel #查询系统当前运行级别
 
-/etc/inittab     系统默认运行级别配置文件,默认为3
-0关机     1单用户     2不完全多用户(不含NFS服务)     3完全多用户(默认字符界面)     4未分配     5图形界面     6重启
+/etc/inittab     系统默认运行级别配置文件,默认为3     initial table
+0关机     1单用户     2不完全多用户(不含NFS服务)     3完全多用户(默认字符界面)     4未分配     5图形界面(X11)     6重启
 
 Tips : 
 Ctrl+ALT+F1~7 #在图形界面和字符界面中切换
@@ -607,7 +656,7 @@ echo -e "\e[1;36m 123456 \e[0m"
 
 ## 快捷键
 ```
-Ctrl+L     清屏
+Ctrl+L     清屏     (BTW，CMD 下的清屏命令是 `cls`)
 Ctrl+Z     暂停进程并放入后台
 Ctrl+C     终止当前命令
 Ctrl+D     退出登录
