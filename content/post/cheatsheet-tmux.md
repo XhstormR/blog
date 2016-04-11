@@ -1,7 +1,7 @@
 +++
 Categories = ["CheatSheet"]
 date = "2016-04-10T12:16:09+08:00"
-title = "Tmux"
+title = "Tmux 不完全使用手册"
 
 +++
 
@@ -10,6 +10,11 @@ title = "Tmux"
 > https://tmux.github.io/
 >
 > ![](/uploads/tmux.png)
+>
+> Tmux is a terminal multiplexer.It lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and reattach them to a different terminal.
+>
+> 一个 Session 可以包含多个 Window，而每个 Window 又可以包含多个 Pane。
+
 
 ```
 Session     会话
@@ -18,17 +23,21 @@ Pane     面板
 Attach     附加
 Detach     分离
 
-[root@controller ~]$ tmux new-s -s haha #创建一个叫做 haha 的会话
+[root@controller ~]$ yum -y installl tmux #安装 tmux
+[root@controller ~]$ tmux new -s haha #创建一个叫做 haha 的会话
 [root@controller ~]$ tmux ls #列出所有会话
 0: 1 windows (created Sun Apr 10 13:31:27 2016) [83x47]
 2: 1 windows (created Sun Apr 10 13:32:15 2016) [83x47]
 haha: 1 windows (created Sun Apr 10 13:32:07 2016) [83x47]
 [root@controller ~]$ tmux a -t 2 #连接到 2 号会话，没有指定目标会自动连接到上一次使用的会话     Target(目标)
+[root@controller ~]$ tmux killl-server #关闭所有会话
 
 Ctrl+D or `exit`     退出
 Ctrl+B - ?     列出所有快捷键
 Ctrl+B - T     显示时间
 Ctrl+B - :     进入命令行模式
+Ctrl+B - [     进入复制模式
+Ctrl+B - ]     粘贴
 Ctrl+B - ~     查看历史信息
 Ctrl+B - PgUp or PgDn     查看历史命令
 
@@ -59,6 +68,9 @@ Ctrl+B - Q     显示面板编号
 Ctrl+B - 空格键     切换页面布局
 Ctrl+B - 方向键     自由选择面板
 
-yum -y install tmux #安装 tmux
-一个 Session 可以包含多个 Window，而每个 Window 又可以包含多个 Pane。
+Prefix = Ctrl+B
+vi ~/.tmux.conf #设置 Prefix 为 Ctrl+A，复制模式设置为 vi - 默认为 SPACE开始 ENTER结束 ESC清空
+    unbind C-b
+    set -g prefix C-a
+    setw -g mode-keys vi
 ```
