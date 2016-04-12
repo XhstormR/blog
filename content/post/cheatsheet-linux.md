@@ -170,11 +170,17 @@ yum -y install tree #安装 tree
 
 ## SSH
 ```
+yum -y install openssh-clients #安装 SSH 套件
 ssh-keygen #在 ~/.ssh 目录下生成公钥和私钥
 ssh-copy-id user@host #将公钥复制到 user@host 下的 ~/.ssh/authorized_keys 以启用无密码 SSH 登录
 ssh user@host #以 SSH 方式登陆远程主机
 
-yum -y install openssh-clients #安装 SSH 套件
+Tips：
+干掉弱密码
+[root@controller ~]$ openssl rand -hex 30 #十六进制格式
+6ae8592f578b0d2ec704a1ac347cdfc9205d41ede0f853eb15cb28786553
+[root@controller ~]$ openssl rand -base64 30 #Base64编码
+HTUKtp8wVb2m8ZIIsLtXkQDGKc+V8SeSWJg8yU0Z
 ```
 
 ## scp
