@@ -12,7 +12,7 @@ title = "Linux 命令不完全手册"
 ```
 pwd #查看当前路径
 date #查看当前时间
-file #查看文件类型
+file #查看文件类型 -i 显示MIME类别
 cat #查看文件内容
 head #查看文件头10行内容
 tail #查看文件末尾10行内容 -f 监视文件最新增加的内容     Follow
@@ -25,6 +25,7 @@ more #分屏显示
 ## ls
 ```
 -a #显示隐藏文件
+-d #只显示当前文件夹信息
 -l #以列表形式显示详细信息
 -h #大小人性化显示
 -i #显示inode
@@ -32,7 +33,7 @@ more #分屏显示
 -R #操作文件夹下的所有文件     Recursive(递归)
 -S #按文件大小降序排列     Size
 
-[root@compute ~]$ ll -Shr
+[root@controller ~]$ ll -Shr
 total 20K
 -rw-------. 1 root root 1.2K Mar 29 14:35 anaconda-ks.cfg
 -rw-r--r--. 1 root root 3.1K Mar 29 14:34 install.log.syslog
@@ -224,11 +225,17 @@ find /etc/ -name '*.ini' #查找 /etc 目录中以 .ini 结尾的文件
 grep[选项] 字符串 文件名     在文件当中查找匹配符合条件的字符串
 -n #显示行号
 -i #忽略大小写
+-l #只列出匹配的文件名称
+-L #只列出不匹配的文件名称
 -v #排除指定字符串，取反
 -c #统计文本中匹配字符串的行数
 -e #执行多条编辑命令
 -r #操作文件夹下的所有文件     Recursive(递归)
 --color=auto #高亮匹配字符
+
+[root@controller ~]$ grep "ls --color=auto" /etc/ -rn #递归查找并显示行号
+/etc/profile.d/colorls.sh:40:alias ls='ls --color=auto' 2>/dev/null
+/etc/profile.d/colorls.csh:46:alias ls 'ls --color=auto'
 
 Tips : 默认为包含匹配，可使用正则表达式进行包含匹配     ^开头     结尾$
 grep ^[a-z] /etc/nova/nova.conf #使用正则表达式去掉注释
@@ -453,6 +460,18 @@ Release:        6.5
 Codename:       Final
                                    标准     基础
 Tips：LSB 是 Linux Standard Base 的缩写
+```
+
+## ps
+```
+-A #显示所有程序
+-f #显示所有内容
+-e #与 `A` 选项相同
+
+[root@controller ~]$ ps -ef | grep vim #查找进程
+root      7207  2965  0 11:30 pts/1    00:00:00 vim
+root      7542  2965  0 11:30 pts/1    00:00:00 grep vim
+[root@controller ~]$ kill 7207 #终止进程
 ```
 
 ## shutdown
