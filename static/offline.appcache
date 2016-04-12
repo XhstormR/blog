@@ -9,6 +9,7 @@ js/nprogress.js
 js/main.min.js
 js/magic-canvas.min.js
 uploads/blog-cover.jpg
+http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js
 
 NETWORK:
 *
