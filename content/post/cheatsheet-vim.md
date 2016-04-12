@@ -97,16 +97,15 @@ Ctrl+^     在打开的文件中切换
 Ctrl+Q     进入底行模式
 Ctrl+G     显示正在编辑的文本信息
 
-
 Vim 的配置文件为 /etc/vimrc
-set number     显示行号
-set cursorline     高亮当前行
-nmap <F2> :nohlsearch<CR>     在命令模式下按 F2 相当于输入 `:nohlsearch` 跟一个回车，取消搜索加亮
+    set number     显示行号
+    set cursorline     高亮当前行
+    nmap <F2> :nohlsearch<CR>     在命令模式下按 F2 相当于输入 `:nohlsearch` 跟一个回车，取消搜索加亮
 
 Tips：
 yum -y install vim #安装 Vim
 vim /root/.bashrc #设置别名，替换系统默认编辑器
-      alias vi=vim
+    alias vi=vim
 
 大部分 Linux 发行版默认编辑器是 Vi，Vim 是它的升级版。
 关于它俩的区别：
