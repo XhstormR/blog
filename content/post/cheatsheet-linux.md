@@ -12,6 +12,7 @@ title = "Linux 命令不完全手册"
 ```
 pwd #查看当前路径
 date #查看当前时间
+type #查看命令类型
 file #查看文件类型 -i 显示MIME类别
 cat #查看文件内容
 head #查看文件头10行内容
@@ -20,6 +21,7 @@ ifconfig #查看网卡信息
 touch #创建空文件
 wc #统计文本
 more #分屏显示
+reset #初始化终端
 ```
 
 ## ls
@@ -710,4 +712,5 @@ Ctrl+ALT+T     在图形界面中打开终端（CentOS 需要自己设置快捷�
 
 ~+TAB*2     All Present Users on system from "/etc/passwd"
 @+TAB*2     Entries from "/etc/hosts"
+$+TAB*2     All Sys variables
 ```
