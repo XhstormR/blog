@@ -27,17 +27,25 @@ more #分屏显示
 -a #显示隐藏文件
 -d #只显示当前文件夹信息
 -l #以列表形式显示详细信息
+-F #显示类型标识符     /目录 *可执行文件 @符号链接 =Sockets套接字 |FIFO命令管道 普通文件无标识符     Classify(分类)
 -h #大小人性化显示
 -i #显示inode
 -r #反向排序     Reverse(相反)
 -R #操作文件夹下的所有文件     Recursive(递归)
 -S #按文件大小降序排列     Size
 
-[root@controller ~]$ ll -Shr
+[root@controller ~]$ ll -Shr #人性化显示大小并按大小升序排列
 total 20K
 -rw-------. 1 root root 1.2K Mar 29 14:35 anaconda-ks.cfg
 -rw-r--r--. 1 root root 3.1K Mar 29 14:34 install.log.syslog
 -rw-r--r--. 1 root root 8.9K Mar 29 14:35 install.log
+[root@controller ~]$ ls -Fl
+total 24
+-rw-------. 1 root root 1208 Apr 12 14:42 anaconda-ks.cfg
+-rw-r--r--. 1 root root 9114 Apr 12 16:22 install.log
+-rw-r--r--. 1 root root 3161 Apr 12 14:41 install.log.syslog
+drwxr-xr-x. 2 root root 4096 Apr 13 06:06 test/
+-rwxr-xr-x. 1 root root    0 Apr 13 06:06 test.sh*
 [root@controller ~]$ ls -l
 total 20
 -rw-------. 1 root root  986 Mar 18 10:14 anaconda-ks.cfg
