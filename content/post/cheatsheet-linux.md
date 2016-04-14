@@ -14,6 +14,7 @@ pwd #查看当前路径
 date #查看当前时间
 type #查看命令类型
 file #查看文件类型 -i 显示MIME类别
+stat #查看文件属性
 cat #查看文件内容
 head #查看文件头10行内容
 tail #查看文件末尾10行内容 -f 监视文件最新增加的内容     Follow
@@ -487,7 +488,22 @@ Tips：LSB 是 Linux Standard Base 的缩写
 [root@controller ~]$ ps -ef | grep vim #查找进程
 root      7207  2965  0 11:30 pts/1    00:00:00 vim
 root      7542  2965  0 11:30 pts/1    00:00:00 grep vim
-[root@controller ~]$ kill 7207 #终止进程
+[root@controller ~]$ kill -9 7207 #强制终止进程，默认终止进程发送信号15
+
+[root@controller ~]$ kill -l #列出信号
+ 1) SIGHUP       2) SIGINT       3) SIGQUIT      4) SIGILL       5) SIGTRAP
+ 6) SIGABRT      7) SIGBUS       8) SIGFPE       9) SIGKILL     10) SIGUSR1
+11) SIGSEGV     12) SIGUSR2     13) SIGPIPE     14) SIGALRM     15) SIGTERM
+16) SIGSTKFLT   17) SIGCHLD     18) SIGCONT     19) SIGSTOP     20) SIGTSTP
+21) SIGTTIN     22) SIGTTOU     23) SIGURG      24) SIGXCPU     25) SIGXFSZ
+26) SIGVTALRM   27) SIGPROF     28) SIGWINCH    29) SIGIO       30) SIGPWR
+31) SIGSYS      34) SIGRTMIN    35) SIGRTMIN+1  36) SIGRTMIN+2  37) SIGRTMIN+3
+38) SIGRTMIN+4  39) SIGRTMIN+5  40) SIGRTMIN+6  41) SIGRTMIN+7  42) SIGRTMIN+8
+43) SIGRTMIN+9  44) SIGRTMIN+10 45) SIGRTMIN+11 46) SIGRTMIN+12 47) SIGRTMIN+13
+48) SIGRTMIN+14 49) SIGRTMIN+15 50) SIGRTMAX-14 51) SIGRTMAX-13 52) SIGRTMAX-12
+53) SIGRTMAX-11 54) SIGRTMAX-10 55) SIGRTMAX-9  56) SIGRTMAX-8  57) SIGRTMAX-7
+58) SIGRTMAX-6  59) SIGRTMAX-5  60) SIGRTMAX-4  61) SIGRTMAX-3  62) SIGRTMAX-2
+63) SIGRTMAX-1  64) SIGRTMAX
 ```
 
 ## shutdown
