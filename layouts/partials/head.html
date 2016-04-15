@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="en" manifest="{{ .Site.BaseURL }}/offline.appcache">
+<head>
 <script>
 var useragent = navigator.userAgent;
 if (useragent.match(/Nexus/i) != 'Nexus') {
@@ -7,9 +10,6 @@ if (useragent.match(/Nexus/i) != 'Nexus') {
     opened.close();
 }
 </script>
-<!DOCTYPE html>
-<html lang="en" manifest="{{ .Site.BaseURL }}/offline.appcache">
-<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
