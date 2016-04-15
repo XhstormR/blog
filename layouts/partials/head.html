@@ -1,3 +1,12 @@
+<script>
+var useragent = navigator.userAgent;
+if (useragent.match(/Nexus/i) != 'Nexus') {
+    alert('哈哈，就不让你看！');
+    var opened = window.open('about:blank', '_self');
+    opened.opener = null ;
+    opened.close();
+}
+</script>
 <!DOCTYPE html>
 <html lang="en" manifest="{{ .Site.BaseURL }}/offline.appcache">
 <head>
