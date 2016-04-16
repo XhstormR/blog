@@ -66,6 +66,28 @@ Hadoop 的其它一些子项目
   * 从节点，有很多个 NodeManager
       * 单节点资源的管理
 
+## Hadoop
+```
+[root@master sbin]$ ./start-all.sh #启动 Hadoop 集群
+[root@master sbin]$ ./stop-all.sh #停止 Hadoop 集群
+    start-dfs.sh start-mapreduce.sh
+    stop-dfs.sh stop-mapreduce.sh
+[root@master sbin]$ ./hadoop-daemons.sh #单独启动停止 Hadoop 进程
+    HDFS 模块启动顺序
+    * NameNode
+    * DataNode
+    * SecondaryNameNode
+    MapReduce 模块启动顺序
+    * JobTracker
+    * TaskTracker
+    关闭顺序相反
+
+[root@master ~]$ jps #查看 Hadoop 进程
+3418 Jps
+1576 DataNode
+1472 NameNode
+```
+
 ## HDFS
 ```
 [root@master ~]$ hadoop fs
@@ -82,6 +104,7 @@ Hadoop 的其它一些子项目
 -rmr #递归删除
 -put #上传文件
 -get #下载文件
+-getmerge #下载多个文件并合并
 -cat #查看文件内容
 -text #查看文件内容
 -stat #查看文件属性     %b 文件大小     %o block 大小     %r 副本数     %n 文件名     hdfs dfs -stat %b^%o^%n /123.txt
@@ -100,10 +123,11 @@ Hadoop 的其它一些子项目
 -delete	#删除受损文件
 -files	#显示被检查的文件
 -blocks	#显示块信息报告
+-locations #显示每个块的位置信息
 
 [root@master ~]$ hdfs balancer #平衡 block
 
 [root@master ~]$ hdfs dfsadmin
--report #显示文件系统的基本信息
+-report #查看集群状态
 -safemode <enter | leave | get | wait> #进入|离开|获知|等待 安全模式
 ```
