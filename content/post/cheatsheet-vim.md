@@ -7,8 +7,12 @@ title = "Vim 命令不完全手册"
 
 <!--more-->
 
+> http://www.vim.org/
+>
 > ![](/uploads/vim.png)
 > 
+> Vim is often called a "programmer's editor," and so useful for programming that many consider it an entire IDE. It's not just for programmers, though. Vim is perfect for all kinds of text editing, from composing email to editing configuration files.
+>
 > 只要接触 Linux ，不可避免的会用到 Vim 编辑器。一方面它基本上是所有 Linux 发行版的默认编辑器；另一方面它是也一个拥有20年历史的超级强大的文本编辑器。
 
 ```bash
