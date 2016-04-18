@@ -54,7 +54,7 @@ Hadoop 的其它一些子项目
       * 把计算任务分给 TaskTracker 执行，即任务调度
       * 监控 TaskTracker 的执行情况
   * 从节点，有很多个 TaskTracker
-      * 执行 JobTracker 分配的计算任务（Map，Reduce）
+      * 执行 JobTracker 分配的计算任务（Map 映射，Reduce 归约）
 
 ![](/uploads/hadoop-mapreduce.png)
 
