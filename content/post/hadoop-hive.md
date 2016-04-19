@@ -38,7 +38,7 @@ create database db1;     创建数据库
 show databases;     显示数据库
 use db1;     切换至 db1 数据库
 create table a1(id int,name string) row format delimited fileds terminated by '\t' [stored as textfile];     创建表并以 TAB 键分割[并存储为纯文本]
-create table a1(id int,name string) partitioned by (p string) row format delimited fileds terminated by '\t';     创建表并创建分区字段`p`并以 TAB 键分割
+create table a1(id int,name string) partitioned by (p string) row format delimited fileds terminated by '\t';     创建分区表分区字段`p`并以 TAB 键分割
 show tables;     显示表名
 show partitions a1;     查看表分区
 desc a1;     查看表结构
@@ -52,6 +52,10 @@ alter table a1 add columns (age int,date string);     添加2列新字段
 alter table a1 replace columns (id int);     替换表中所有字段
 alter table a1 rename to a2;     更改表名
 create table a1bak like a1;     创建表并复制表结构
+
+create table a1(id int,name string) row format delimited fileds terminated by '\040' location '/123';     创建表并指定存放位置
+dfs -put /root/1.txt /123;     直接上传代替 LOAD 操作
+select * from a1;     查询表所有数据
 
 !ls -l;     执行外部命令
 dfs -ls /;     执行 dfs 命令
