@@ -11,6 +11,8 @@ title = "学习 Hadoop"
 >
 > https://hadoop.apache.org/docs/r1.0.4/cn/
 >
+> ![](/uploads/hadoop-core.png)
+>
 > 分布式存储(HDFS)，分布式计算(MapReduce)
 
 ## Hadoop
