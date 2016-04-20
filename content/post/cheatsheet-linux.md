@@ -142,6 +142,28 @@ rz #上传文件     对于 Linux Receive(收到)
 sz #下载文件     对于 Linux Send(发送)
 ```
 
+## nethogs
+```
+yum -y install nethogs #安装 nethogs
+-d 1 #设置刷新频率为 1 秒     delay(延迟)
+
+交互命令
+m     切换统计视图     KB/sec -> KB -> B -> MB
+r     按接收流量排序     RECEIVED
+s     按发送流量排序     SEND
+q     退出
+
+[root@controller ~]$ nethogs -d 1 eth0 eth1 #同时监视 eth0、eth1 网卡，默认只监视 eth0
+NetHogs version 0.8.0
+  PID USER     PROGRAM                                DEV        SENT      RECEIVED       
+2039  qpidd    /usr/sbin/qpidd                        eth0       0.350       0.397 KB/sec
+16415 root     sshd: root@pts/4                       eth0       2.509       0.047 KB/sec
+28605 root     sshd: root@pts/0                       eth0       0.645       0.047 KB/sec
+1885  mysql    /usr/libexec/mysqld                    eth0       0.000       0.000 KB/sec
+?     root     unknown TCP                                       0.000       0.000 KB/sec
+  TOTAL                                                          3.504       0.491 KB/sec 
+```
+
 ## tree
 ```bash
 yum -y install tree #安装 tree
