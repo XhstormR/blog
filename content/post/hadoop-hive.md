@@ -27,8 +27,8 @@ title = "学习 Hive"
   * Hive 在导入数据过程中不会对数据做任何修改，只是将数据移至 HDFS 目录中，所有数据都是在导入时确定。（纯移动/复制操作）
   * 因此 Hive 并不提供实时的查询和基于行级的数据更新操作，不适合联机事务处理（低延迟）。
 * Hive 没有定义专门的数据格式，因此创建表时，指定Hive数据的列分隔符与行分隔符，Hive即可解析数据。
-  * 列分割符：‘，’、‘\t’(TAB)、'\040'(空格)     [[ASCII码表](http://defindit.com/ascii.html)]
-  * 行分隔符：'\n'(ENTER)
+  * 列分割符:','     '\t'(TAB)     '\040'(空格)     [[ASCII码表](http://defindit.com/ascii.html)]
+  * 行分隔符:'\n'(ENTER)
   * 文件格式：TextFile(数据是纯文本)、SequenceFile(若需要压缩)
 * Hive 中的数据模型有4种：Table(内部表)、Partition(分区表)、External Table(外部表)、Bucket(桶表)
 
@@ -60,4 +60,36 @@ select * from a1;     查询表所有数据
 !ls -l;     执行外部命令
 dfs -ls /;     执行 dfs 命令
 Hive 的历史命令存放在 ~/.hivehistory
+```
+
+## MySQL 操作
+```
+mysql -uroot -p000000     登录 MySQL
+show databases;     显示数据库
+create database a1;     创建数据库
+use a1;     切换至 a1 数据库
+show tables;     显示表名
+create table b1(id int(4),name varchar(20),sex char(1));     创建表
+describe b1;     查看表结构
+insert into b1 values (1234,'xiaoming','m');     插入数据
+select * from b1;     查询数据
+delete from b1;     删除表中所有数据
+     delete from b1 where sex='m'     删除表中 sex 为 'm' 的数据
+drop table b1;     删除表
+drop database a1;     删除数据库
+
+grant all on *.* to user1@'%' identified by '123456';     创建 user1 用户并[赋有所有权限]且可在[任何主机]上[访问所有数据库]     on to by
+     '%' 任何主机     'localhost' 本机
+flush privileges;     刷新用户权限表，另一种不推荐方式 `service mysqld restart`
+
+MySQL 的配置文件为 /etc/my.conf
+     [mysqld]
+     default-character-set=utf8
+     character-set-server=utf8
+     [client]
+     default-character-set=utf8
+
+service mysqld start     启动 MySQL 服务
+chkconfig mysqld on     设置开机启动服务
+MySQL 的历史命令存放在 ~/.mysql_history
 ```
