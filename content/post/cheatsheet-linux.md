@@ -145,15 +145,15 @@ sz #下载文件     对于 Linux Send(发送)
 ## nethogs
 ```
 yum -y install nethogs #安装 nethogs
--d 1 #设置刷新频率为 1 秒     delay(延迟)
+-d 2 #设置刷新频率为 2 秒，默认 1 秒     delay(延迟)
 
 交互命令
-m     切换统计视图     KB/sec -> KB -> B -> MB
+m     切换统计视图     KB/sec -> Total[KB -> B -> MB]
 r     按接收流量排序     RECEIVED
 s     按发送流量排序     SEND
 q     退出
 
-[root@controller ~]$ nethogs -d 1 eth0 eth1 #同时监视 eth0、eth1 网卡，默认只监视 eth0
+[root@controller ~]$ nethogs eth0 eth1 #同时监视 eth0、eth1 网卡，默认只监视 eth0
 NetHogs version 0.8.0
   PID USER     PROGRAM                                DEV        SENT      RECEIVED       
 2039  qpidd    /usr/sbin/qpidd                        eth0       0.350       0.397 KB/sec
@@ -162,6 +162,14 @@ NetHogs version 0.8.0
 1885  mysql    /usr/libexec/mysqld                    eth0       0.000       0.000 KB/sec
 ?     root     unknown TCP                                       0.000       0.000 KB/sec
   TOTAL                                                          3.504       0.491 KB/sec 
+```
+
+## iftop
+```
+yum -y install iftop #安装 iftop
+
+
+
 ```
 
 ## tree
@@ -467,9 +475,23 @@ chown user:market file01 #把 file01 给 user，并添加到 market 组中
 
 ## history
 ```
-history [选项] [历史命令保存文件]
+history [选项]
 -c #清空历史命令
 -w #把缓存中的历史命令写入历史命令保存文件 ~/.bash_history
+
+[root@controller ~]$ echo $HISTSIZE #存储数量由环境变量 `HISTSIZE` 控制，默认1000条
+1000
+[root@controller ~]$ history 10 #显示最近10条历史命令
+   92  ls
+   93  cd ..
+   94  ls
+   95  exit
+   96  ls -a
+   97  cd .ssh/
+   98  ls
+   99  cat known_hosts
+  100  exit
+  101  history 10
 
 !n 重复执行第n条历史命令
 !! 重复执行上一条命令
