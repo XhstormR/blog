@@ -81,10 +81,24 @@ drop database a1;     删除数据库
 grant all on *.* to user1@'%' identified by '123456';     创建 user1 用户并[赋有所有权限]且可在[任何主机]上[访问所有数据库]     on to by
      '%' 任何主机     'localhost' 本机
 flush privileges;     刷新用户权限表，另一种不推荐方式 `service mysqld restart`
+show variables like 'character%';     查看数据库字符集
+     +--------------------------+----------------------------+
+     | Variable_name            | Value                      |
+     +--------------------------+----------------------------+
+     | character_set_client     | utf8                       |
+     | character_set_connection | utf8                       |
+     | character_set_database   | utf8                       |
+     | character_set_filesystem | binary                     |
+     | character_set_results    | utf8                       |
+     | character_set_server     | utf8                       |
+     | character_set_system     | utf8                       |
+     | character_sets_dir       | /usr/share/mysql/charsets/ |
+     +--------------------------+----------------------------+
+     8 rows in set (0.00 sec)
 
 MySQL 的配置文件为 /etc/my.conf
      [mysqld]
-     default-character-set=utf8
+     default-character-set=utf8     (将被弃用)
      character-set-server=utf8
      [client]
      default-character-set=utf8
