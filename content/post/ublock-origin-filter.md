@@ -7,9 +7,13 @@ title = "uBlock Origin Filter"
 
 <!--more-->
 
->[uBlock Origin Download](http://www73.zippyshare.com/v/EFlgoO6T/file.html)
+> ![](/uploads/ublock.svg)
 >
->我把我自定义的 uBlock Origin Filter 整理在这里，以便查阅。
+> [uBlock Origin](https://github.com/gorhill/uBlock)
+>
+> uBlock Origin is NOT an "ad blocker": it is a wide-spectrum blocker -- which happens to be able to function as a mere "ad blocker". The default behavior of uBlock Origin when newly installed is to block ads, trackers and malware sites.
+>
+> 我把我自定义的 uBlock Origin Filter 整理在这里，以便查阅。
 
 ```
 {
