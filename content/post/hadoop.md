@@ -7,6 +7,8 @@ title = "学习 Hadoop"
 
 <!--more-->
 
+Updated on April 19, 2016
+
 > https://hadoop.apache.org/
 >
 > https://hadoop.apache.org/docs/r1.0.4/cn/

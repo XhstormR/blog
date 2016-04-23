@@ -7,9 +7,13 @@ title = "带宽测速"
 
 <!--more-->
 
+Updated on April 23, 2016
+
 http://openspeedtest.com/
 
 http://www.speedtest.net/
+
+http://speedtest.hkg02.softlayer.com/speedtest/
 
 工信部:
 

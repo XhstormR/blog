@@ -7,6 +7,8 @@ title = "Libvirt 不完全使用手册"
 
 <!--more-->
 
+Updated on April 9, 2016
+
 > https://libvirt.org/
 >
 > http://wiki.qemu.org/Main_Page

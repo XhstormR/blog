@@ -7,6 +7,8 @@ title = "Linux 命令不完全手册"
 
 <!--more-->
 
+Updated on April 24, 2016
+
 > 最近因为要参加全国云计算比赛，需要使用 Linux；所以我把关于 Linux 系统的一些命令整理在这里，以便查阅。
 
 ```
@@ -142,6 +144,43 @@ rz #上传文件     对于 Linux Receive(收到)
 sz #下载文件     对于 Linux Send(发送)
 ```
 
+## ncdu
+```c
+yum -y install ncdu #安装 ncdu
+
+交互命令
+n     按文件名排序
+s     按文件大小排序
+r     重新统计大小
+g     切换统计视图
+e     显示隐藏文件
+d     删除文件/文件夹
+i     显示文件/目录信息
+↑↓     上/下
+←→     返回/进入
+
+[root@controller ~]$ ncdu /root/
+ncdu 1.7 ~ Use the arrow keys to navigate, press ? for help                      
+--- /root -----------------------------------------------------------------------
+   16.0kiB [ 13.8% ##########]  .bash_history                                    
+   16.0kiB [ 13.8% ##########] /.ssh
+   12.0kiB [ 10.3% #######   ]  install.log
+    8.0kiB [  6.9% #####     ] /.novaclient
+    8.0kiB [  6.9% #####     ] /.m2
+    8.0kiB [  6.9% #####     ]  .viminfo
+    8.0kiB [  6.9% #####     ] /.karaf
+    4.0kiB [  3.4% ##        ]  install.log.syslog
+    4.0kiB [  3.4% ##        ]  anaconda-ks.cfg
+    4.0kiB [  3.4% ##        ]  .rnd
+    4.0kiB [  3.4% ##        ]  .mysql_history
+    4.0kiB [  3.4% ##        ]  .bashrc
+    4.0kiB [  3.4% ##        ]  .bash_profile
+    4.0kiB [  3.4% ##        ]  .tcshrc
+    4.0kiB [  3.4% ##        ]  .cshrc
+    4.0kiB [  3.4% ##        ]  .bash_logout
+ Total disk usage: 116.0kiB  Apparent size:  66.3kiB  Items: 30                  
+```
+
 ## nethogs
 ```
 yum -y install nethogs #安装 nethogs
@@ -149,8 +188,8 @@ yum -y install nethogs #安装 nethogs
 
 交互命令
 m     切换统计视图     KB/sec -> Total[KB -> B -> MB]
-r     按接收流量排序     RECEIVED
 s     按发送流量排序     SEND
+r     按接收流量排序     RECEIVED
 q     退出
 
 [root@controller ~]$ nethogs eth0 eth1 #同时监视 eth0、eth1 网卡，默认只监视 eth0
@@ -167,9 +206,42 @@ NetHogs version 0.8.0
 ## iftop
 ```
 yum -y install iftop #安装 iftop
+-i eth1 #设定监视网卡
 
+交互命令
+n     是否解析 IP
+N     是否解析端口
+s     是否显示本地 主机
+d     是否显示远端 主机
+S     是否显示本地 端口
+D     是否显示远端 端口
+p     是否显示端口连接
+P     是否暂停
+b     是否显示平均流量刻度条
+B     切换刻度条时间单位     2s，10s，40s
+l     打开屏幕过滤功能
+L     切换刻度条单位
+t     切换显示格式
+T     是否显示每个连接的总流量
+j,k     滚动屏幕
+1,2,3     根据右侧3列流量排序
+<     根据本地主机名排序
+>     根据远端主机名排序
 
+TX     发送Transport     cum     运行到目前的总流量     peak     流量峰值     rates     过去2s，10s，40s的平均流量
+RX     接收Received
+TOTAL     总流量
 
+                 19.1Mb            38.1Mb            57.2Mb            76.3Mb      95.4Mb
+└────────────────┴─────────────────┴─────────────────┴──────────────
+192.168.100.10:ssh         => 192.168.100.151:54315        116KB  4.09Kb  4.09Kb  4.06Kb
+                           <=                             12.1KB   320b    320b    418b
+192.168.100.10:ssh         => 192.168.100.151:53704        687KB   688b    726b   1.49Kb
+                           <=                              155KB   160b    160b    311b
+────────────────────────────────────────────────────────────────────
+TX:             cum:   14.6MB   peak:   11.4Kb           rates:   4.77Kb  4.80Kb  5.54Kb
+RX:                     715MB           2.27Kb                     480b    480b    730b
+TOTAL:                  729MB           13.7Kb                    5.23Kb  5.27Kb  6.26Kb
 ```
 
 ## tree
@@ -228,10 +300,10 @@ HTUKtp8wVb2m8ZIIsLtXkQDGKc+V8SeSWJg8yU0Z
 ## scp
 ```
 -r #操作文件夹下的所有文件     Recursive(递归)
--p #指定远程主机的端口号
+-P #指定远程主机的 SSH 端口号
 
-[root@controller ~]$ scp -r /tmp/soft root@192.168.100.10:/tmp/ #上传本地目录到远程机器指定目录
-[root@controller ~]$ scp -r root@192.168.100.10:/tmp/soft /tmp/ #从远处复制到本地
+[root@controller ~]$ scp -r /tmp/soft root@192.168.100.10:/tmp/ #上传本地目录到远端指定目录
+[root@controller ~]$ scp -r root@192.168.100.10:/tmp/soft /tmp/ #从远端下载到本地
 ```
 
 ## find
@@ -522,6 +594,29 @@ Release:        6.5
 Codename:       Final
                                    标准     基础
 Tips：LSB 是 Linux Standard Base 的缩写
+```
+
+## free
+```
+-m #以 MB 为单位
+-g #以 GB 为单位
+-s 1 #每 1 秒更新内存使用情况
+
+[root@controller ~]# free -g
+                    total       used       free     shared    buffers     cached
+Mem:                11          2          9          0          0          0
+-/+ buffers/cache:          2          9
+Swap:                  7          0          7
+
+total     内存总数     total=used+free
+used     已使用的内存
+free     空闲内存
+shared     废弃内存
+buffers     缓存内存
+cached     缓存内存
+-buffers/cache     used-buffers-cached 被程序实实在在使用的内存
++buffers/cache     free+buffers+cached 可以被挪用的内存
+Swap     交换分区
 ```
 
 ## ps
