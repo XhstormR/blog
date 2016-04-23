@@ -7,6 +7,8 @@ title = "学习 Hive"
 
 <!--more-->
 
+Updated on April 22, 2016
+
 > ![](/uploads/hadoop-hive-logo.png)
 >
 > https://hive.apache.org/

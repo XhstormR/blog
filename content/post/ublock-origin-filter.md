@@ -7,6 +7,8 @@ title = "uBlock Origin Filter"
 
 <!--more-->
 
+Updated on April 21, 2016
+
 > ![](/uploads/ublock.svg)
 >
 > [uBlock Origin](https://github.com/gorhill/uBlock)
