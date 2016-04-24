@@ -144,6 +144,25 @@ rz #上传文件     对于 Linux Receive(收到)
 sz #下载文件     对于 Linux Send(发送)
 ```
 
+## 7z
+```bash
+yum -y install p7zip* #安装 7z     p7zip，p7zip-plugins，7za是7z的精简版，建议使用7z
+a     添加到压缩文件
+b     基准测试     Benchmark
+d     从压缩文件中删除
+l     列出压缩文件中的内容
+t     测试压缩文件
+e     解压到当前目录，但没有目录结构，即所有文件都在同一个目录下
+x     以完整路径解压
+-o     指定输出文件夹     output
+
+7z a 123 * #将当前目录下的所有文件和文件夹都压缩到 123.7z 中
+7z a /root/123 /tmp/ #将 /tmp 中的所有内容压缩到 /root 目录中的 123.7z 中
+7z l 123.7z #列出压缩文件中的内容
+7z x 123.7z #解压 123.7z 中的所有文件到当前目录下
+7z x 123.7z -o456 #解压 123.7z 中的所有文件到 456 目录中，456 目录会自动创建
+```
+
 ## ncdu
 ```c
 yum -y install ncdu #安装 ncdu
