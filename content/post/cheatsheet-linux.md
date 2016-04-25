@@ -144,6 +144,47 @@ rz #上传文件     对于 Linux Receive(收到)
 sz #下载文件     对于 Linux Send(发送)
 ```
 
+## parted
+```bash
+yum -y install parted #安装 parted
+-l #输出分区信息
+
+交互命令
+help [COMMAND]     获取帮助信息
+mklabel     设置分区表，如 gpt 和 msdos
+mkpart     创建新分区     mkpart PART-TYPE [FS-TYPE] START END
+print     输出分区信息，可简写为 p
+      free     同时显示磁盘剩余空间
+      all     显示所有磁盘信息
+      number     显示指定分区信息
+rm     删除分区
+select     选择设备
+quit     退出，可简写为 q
+
+[root@controller ~]$ parted 
+      select /dev/sdb #选择设备
+      p #显示磁盘分区信息
+      mklabel gpt #将分区表修改为 gpt 格式
+      mkpart primary 265gb 275gb #创建一个大小为 10GB 的主分区，分区起始位置：265gb，分区结束位置：275gb
+      mkpart primary 275gb 280gb #创建一个大小为 5GB 的主分区，分区起始位置：275gb，分区结束位置：280gb
+      rm 2 #删除大小为 5GB 的分区
+      p free #同时查看磁盘剩余空间
+      q #退出
+[root@controller ~]$ mkfs.ext4 /dev/sdb1 #格式化为 ext4 文件系统
+[root@controller ~]$ mkdir /123 #挂载
+[root@controller ~]$ mount /dev/sdb1 /123/ #挂载
+[root@controller ~]$ df -h|grep 123 #查看挂载分区
+/dev/sdb1       9.6G  138M  9.3G   2% /123
+
+[root@controller ~]$ parted /dev/sdb
+      mklabel gpt
+      mkpart primary 0% 100%
+      q
+[root@controller ~]$ mkfs.ext4 /dev/sdb1
+[root@controller ~]$ mkdir /123
+[root@controller ~]$ mount /dev/sdb1 /123
+```
+
 ## 7z
 ```bash
 yum -y install p7zip* #安装 7z     p7zip，p7zip-plugins，7za是7z的精简版，建议使用7z
