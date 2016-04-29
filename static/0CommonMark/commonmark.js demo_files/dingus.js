@@ -5,7 +5,8 @@
 
 var commonmark = window.commonmark;
 var writer = new commonmark.HtmlRenderer({ sourcepos: true });
-var xmlwriter = new commonmark.XmlRenderer({ sourcepos: true });
+var htmlwriter = new commonmark.HtmlRenderer({ sourcepos: false });
+var xmlwriter = new commonmark.XmlRenderer({ sourcepos: false });
 var reader = new commonmark.Parser();
 
 function getQueryVariable(variable) {
@@ -28,24 +29,26 @@ var render = function(parsed) {
     var result = writer.render(parsed);
     var endTime = new Date().getTime();
     var renderTime = endTime - startTime;
-    $("#preview").html(result);
-    $("#html").text(result);
+    var preview = $("#preview iframe").contents().find('body');
+    preview.get(0).innerHTML = result;
+    $("#html").text(htmlwriter.render(parsed));
     $("#ast").text(xmlwriter.render(parsed));
     $("#rendertime").text(renderTime);
 };
 
 var syncScroll = function() {
     var textarea = $("#text");
+    var preview = $("#preview iframe").contents().find('body');
     var lineHeight = parseFloat(textarea.css('line-height'));
     // NOTE this assumes we don't have wrapped lines,
-    // so we set white-space: nowrap on the textarea:
+    // so we have set white-space:nowrap on the textarea:
     var lineNumber = Math.floor(textarea.scrollTop() / lineHeight) + 1;
-    var elt = $("#preview [data-sourcepos^='" + lineNumber + ":']").last();
+    var elt = preview.find("*[data-sourcepos^='" + lineNumber + ":']").last();
     if (elt.length > 0) {
         if (elt.offset()) {
-            var curTop = $("#preview").scrollTop();
-            $("#preview").animate({
-                scrollTop: curTop + elt.offset().top - 100
+            console.log("Moving scrollTop to ", elt.offset().top - 100);
+            preview.animate({
+                scrollTop: elt.offset().top - 100
             }, 50);
         }
     }
@@ -61,12 +64,13 @@ var markSelection = function() {
             lineNumber++;
         }
     }
-    var elt = $("#preview [data-sourcepos^='" + lineNumber + ":']").last();
+    var preview = $("#preview iframe").contents().find('body');
+    var elt = preview.find("[data-sourcepos^='" + lineNumber + ":']").last();
     if (elt.length > 0) {
-        $("#preview .selected").removeClass("selected");
+        preview.find(".selected").removeClass("selected");
         elt.addClass("selected");
-        syncScroll();
     }
+    syncScroll();
 };
 
 var parseAndRender = function() {
@@ -82,6 +86,7 @@ var parseAndRender = function() {
 };
 
 $(document).ready(function() {
+  $('iframe').load( function() {
     var textarea = $("#text");
     var initial_text = getQueryVariable("text");
     var smartSelected = getQueryVariable("smart") === "1";
@@ -89,8 +94,6 @@ $(document).ready(function() {
     reader.options.smart = smartSelected;
     if (initial_text) {
         textarea.val(initial_text);
-        // show HTML tab if text is from query
-        $('#result-tabs a[href="#result"]').tab('show');
     }
 
     parseAndRender();
@@ -109,7 +112,8 @@ $(document).ready(function() {
 
     textarea.bind('input propertychange',
                   _.debounce(parseAndRender, 50, { maxWait: 100 }));
-    textarea.on('scroll', _.debounce(syncScroll, 50, { maxWait: 50 }));
+    //textarea.on('scroll', _.debounce(syncScroll, 50, { maxWait: 50 }));
+    textarea.on('scroll', syncScroll);
     textarea.on('keydown click focus',
                 _.debounce(markSelection, 50, { maxWait: 100}));
 
@@ -117,4 +121,5 @@ $(document).ready(function() {
         reader.options.smart = $("#smart").prop('checked');
         parseAndRender();
     });
+  });
 });
