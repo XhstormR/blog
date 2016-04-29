@@ -605,6 +605,18 @@ chown [选项] [参数]
 chown user:market file01 #把 file01 给 user，并添加到 market 组中
 ```
 
+## passwd
+```
+-d #删除密码
+-l #锁住密码     Lock
+-u #解开锁住的密码     Unlock
+-S #查看密码的相关信息     Status
+
+passwd #更改当前登录用户密码
+passwd mysql #更改 mysql 用户的密码
+passwd -d root #删除 root 用户的密码，注意删除 root 用户密码后，便不能用 root 用户远程登录了
+```
+
 ## history
 ```
 history [选项]
