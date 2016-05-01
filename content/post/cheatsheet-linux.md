@@ -7,7 +7,7 @@ title = "Linux 命令不完全手册"
 
 <!--more-->
 
-Updated on April 24, 2016
+Updated on April 29, 2016
 
 > 最近因为要参加全国云计算比赛，需要使用 Linux；所以我把关于 Linux 系统的一些命令整理在这里，以便查阅。
 
@@ -562,8 +562,8 @@ tmpfs          tmpfs  5.8G     0  5.8G   0% /dev/shm
 -y #对所有提问都回答 yes
 
 yum install tree #安装包
-yum remove tree #移除包
 yum reinstall tree #重新安装包
+yum remove tree #移除包
 yum search tree #搜索包
 yum list #列出所有包
 yum list installed #列出已安装的包
@@ -574,8 +574,8 @@ yum provides /bin/bash #查找某一文件的提供包
 yum info bash #查看软件包详情
 yum clean all #删除缓存
 
-添加源：add to /etc/yum.repos.d/
-移除源：remove from /etc/yum.repos.d/
+添加源：add <repo> to /etc/yum.repos.d/
+移除源：remove <repo> from /etc/yum.repos.d/
 ```
 
 ## chmod
