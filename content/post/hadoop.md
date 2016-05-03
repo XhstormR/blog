@@ -1,13 +1,13 @@
 +++
 Categories = ["Hadoop"]
 date = "2016-04-14T21:45:01+08:00"
-title = "学习 Hadoop"
+title = "自学 Hadoop"
 
 +++
 
 <!--more-->
 
-Updated on April 19, 2016
+Updated on April 29, 2016
 
 > https://hadoop.apache.org/
 >
