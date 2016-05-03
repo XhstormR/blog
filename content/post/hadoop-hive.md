@@ -1,13 +1,13 @@
 +++
 Categories = ["Hadoop"]
 date = "2016-04-19T07:49:53+08:00"
-title = "学习 Hive"
+title = "自学 Hive"
 
 +++
 
 <!--more-->
 
-Updated on April 22, 2016
+Updated on April 25, 2016
 
 > ![](/uploads/hadoop-hive-logo.png)
 >

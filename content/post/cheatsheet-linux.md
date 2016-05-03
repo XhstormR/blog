@@ -7,7 +7,7 @@ title = "Linux 命令不完全手册"
 
 <!--more-->
 
-Updated on April 29, 2016
+Updated on May 3, 2016
 
 > 最近因为要参加全国云计算比赛，需要使用 Linux；所以我把关于 Linux 系统的一些命令整理在这里，以便查阅。
 
