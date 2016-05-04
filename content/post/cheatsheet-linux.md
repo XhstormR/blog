@@ -7,8 +7,12 @@ title = "Linux 命令不完全手册"
 
 <!--more-->
 
-Updated on May 3, 2016
+Updated on May 5, 2016
 
+> ![](/uploads/linux-centos.svg)
+>
+> https://www.centos.org/
+>
 > 最近因为要参加全国云计算比赛，需要使用 Linux；所以我把关于 Linux 系统的一些命令整理在这里，以便查阅。
 
 ```
@@ -22,7 +26,7 @@ head #查看文件头10行内容
 tail #查看文件末尾10行内容 -f 监视文件最新增加的内容     Follow
 ifconfig #查看网卡信息
 touch #创建空文件
-wc #统计文本
+wc #统计文本     行数 单词数 字节数     -l -w -c
 less #分屏显示 -5 每次显示5行 -N 显示行号
 more #分页显示 -5 每次显示5行
 reset #初始化终端
@@ -63,7 +67,7 @@ u所属用户     g所属组     o其他人
 r读     w写     x执行
 1引用计数     root所属用户     root所属组     9072文件大小
 
-Tips : 
+Tips :
 ll = ls -l
 ls `cat 123` # ` ` 包含的命令 bash 会先执行
 ```
@@ -161,7 +165,7 @@ rm     删除分区
 select     选择设备
 quit     退出，可简写为 q
 
-[root@controller ~]$ parted 
+[root@controller ~]$ parted
       select /dev/sdb #选择设备
       p #显示磁盘分区信息
       mklabel gpt #将分区表修改为 gpt 格式
@@ -196,12 +200,15 @@ t     测试压缩文件
 e     解压到当前目录，但没有目录结构，即所有文件都在同一个目录下
 x     以完整路径解压
 -o     指定输出文件夹     output
+-mx[0,1,3,5,7,9]     指定压缩级别
 
 7z a 123 * #将当前目录下的所有文件和文件夹都压缩到 123.7z 中
 7z a /root/123 /tmp/ #将 /tmp 中的所有内容压缩到 /root 目录中的 123.7z 中
 7z l 123.7z #列出压缩文件中的内容
 7z x 123.7z #解压 123.7z 中的所有文件到当前目录下
 7z x 123.7z -o456 #解压 123.7z 中的所有文件到 456 目录中，456 目录会自动创建
+
+7z a 123 123 -mx9 #将当前文件夹里的 123 文件夹以 ultra 级别压缩到 123.7z 中
 ```
 
 ## ncdu
@@ -220,9 +227,9 @@ i     显示文件/目录信息
 ←→     返回/进入
 
 [root@controller ~]$ ncdu /root/
-ncdu 1.7 ~ Use the arrow keys to navigate, press ? for help                      
+ncdu 1.7 ~ Use the arrow keys to navigate, press ? for help
 --- /root -----------------------------------------------------------------------
-   16.0kiB [ 13.8% ##########]  .bash_history                                    
+   16.0kiB [ 13.8% ##########]  .bash_history
    16.0kiB [ 13.8% ##########] /.ssh
    12.0kiB [ 10.3% #######   ]  install.log
     8.0kiB [  6.9% #####     ] /.novaclient
@@ -238,7 +245,7 @@ ncdu 1.7 ~ Use the arrow keys to navigate, press ? for help
     4.0kiB [  3.4% ##        ]  .tcshrc
     4.0kiB [  3.4% ##        ]  .cshrc
     4.0kiB [  3.4% ##        ]  .bash_logout
- Total disk usage: 116.0kiB  Apparent size:  66.3kiB  Items: 30                  
+ Total disk usage: 116.0kiB  Apparent size:  66.3kiB  Items: 30
 ```
 
 ## nethogs
@@ -254,13 +261,13 @@ q     退出
 
 [root@controller ~]$ nethogs eth0 eth1 #同时监视 eth0、eth1 网卡，默认只监视 eth0
 NetHogs version 0.8.0
-  PID USER     PROGRAM                                DEV        SENT      RECEIVED       
+  PID USER     PROGRAM                                DEV        SENT      RECEIVED
 2039  qpidd    /usr/sbin/qpidd                        eth0       0.350       0.397 KB/sec
 16415 root     sshd: root@pts/4                       eth0       2.509       0.047 KB/sec
 28605 root     sshd: root@pts/0                       eth0       0.645       0.047 KB/sec
 1885  mysql    /usr/libexec/mysqld                    eth0       0.000       0.000 KB/sec
 ?     root     unknown TCP                                       0.000       0.000 KB/sec
-  TOTAL                                                          3.504       0.491 KB/sec 
+  TOTAL                                                          3.504       0.491 KB/sec
 ```
 
 ## iftop
@@ -500,9 +507,9 @@ vi ~/.bashrc
 -d #只显示磁盘
 -f #显示文件系统信息
 
-[root@controller ~]$ lsblk  
+[root@controller ~]$ lsblk
 NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
-sda      8:0    0 278.9G  0 disk 
+sda      8:0    0 278.9G  0 disk
 ├─sda1   8:1    0  1000M  0 part /boot
 ├─sda2   8:2    0 195.3G  0 part /
 └─sda3   8:3    0   7.8G  0 part [SWAP]
@@ -669,7 +676,7 @@ Tips：LSB 是 Linux Standard Base 的缩写
 ```
 
 ## free
-```
+```bash
 -m #以 MB 为单位
 -g #以 GB 为单位
 -s 1 #每 1 秒更新内存使用情况
@@ -689,6 +696,33 @@ cached     缓存内存
 -buffers/cache     used-buffers-cached 被程序实实在在使用的内存
 +buffers/cache     free+buffers+cached 可以被挪用的内存
 Swap     交换分区
+```
+
+## netstat
+```
+-a #显示所有端口
+     -at #显示所有 TCP 端口
+     -au #显示所有 UDP 端口
+-l #只显示监听状态的端口     Listen
+     同上
+-s #显示所有端口的统计信息
+     同上
+-n #不解析 IP
+-o #显示计时器
+-p #显示PID     Program name
+-r #显示核心路由     Route
+-i #显示网络接口     Interface
+-c #持续输出网络信息     Continue
+
+[root@controller ~]$ netstat -anp | grep ssh #查找进程
+tcp        0      0 0.0.0.0:22                  0.0.0.0:*                   LISTEN      1604/sshd
+tcp        0      0 192.168.100.10:22           192.168.100.151:54704       ESTABLISHED 24349/sshd
+tcp        0      0 :::22                       :::*                        LISTEN      1604/sshd
+unix  2      [ ]         DGRAM                    4581866 24349/sshd
+[root@controller ~]$ netstat -anp | grep ':80' #查找端口
+tcp        0      0 0.0.0.0:8000                0.0.0.0:*                   LISTEN      2330/python
+tcp        0      0 0.0.0.0:8004                0.0.0.0:*                   LISTEN      2322/python
+tcp        0      0 :::80                       :::*                        LISTEN      1884/httpd
 ```
 
 ## ps
@@ -738,7 +772,7 @@ runlevel #查询系统当前运行级别
 /etc/inittab     系统默认运行级别配置文件,默认为3     initial table
 0关机     1单用户     2不完全多用户(不含NFS服务)     3完全多用户(默认字符界面)     4未分配     5图形界面(X11)     6重启
 
-Tips : 
+Tips :
 Ctrl+ALT+F1~7 #在图形界面和字符界面中切换
 ```
 
@@ -787,7 +821,7 @@ tar -xf 123.tar.gz -C /tmp/ #指定解包位置
 logout
 exit
 
-Tips : 
+Tips :
 Ctrl+D #快捷键退出
 ```
 
@@ -798,7 +832,7 @@ which [命令名] #查找可执行文件和默认别名
 
 [root@controller ~]$ whereis ls
 ls: /bin/ls /usr/share/man/man1/ls.1.gz
-[root@controller ~]$ which ls  
+[root@controller ~]$ which ls
 alias ls='ls --color=auto'
         /bin/ls
 ```
