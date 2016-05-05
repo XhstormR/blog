@@ -26,6 +26,9 @@ head #查看文件头10行内容
 tail #查看文件末尾10行内容 -f 监视文件最新增加的内容     Follow
 ifconfig #查看网卡信息
 touch #创建空文件
+grep service #取带有 service 的行
+awk '{print $2}' #取第 2 列
+sort #排序文本     -u 去重     -k 2 以第二列为目标     -t : 以 `:` 为分隔符     -r 以相反顺序来排序（降序）     -c 检查文本是否已排序     -o123 将结果存入 123 文件中
 wc #统计文本     行数 单词数 字节数     -l -w -c
 less #分屏显示 -5 每次显示5行 -N 显示行号
 more #分页显示 -5 每次显示5行
@@ -418,6 +421,10 @@ grep[选项] 字符串 文件名     在文件当中查找匹配符合条件的�
 -c #统计文本中匹配字符串的行数
 -e #执行多条编辑命令
 -r #操作文件夹下的所有文件     Recursive(递归)
+-A 3 #显示匹配结果的后 3 行
+-B 3 #显示匹配结果的前 3 行
+-C 3 #显示匹配结果的前 3 行和后 3 行
+-3 #Same as -C
 --color=auto #高亮匹配字符
 
 [root@controller ~]$ grep "ls --color=auto" /etc/ -rn #递归查找并显示行号
@@ -883,6 +890,7 @@ lastlog命令默认读取 /var/log/lastlog 文件
 ls -l /etc | more
 netstat -an | grep ESTABLISHED | wc -l
 keystone tenant-list | grep service | awk '{print $2}'
+ps -e | grep nova | awk '{print $4}' | sort -u
 ```
 
 ## 重定向
