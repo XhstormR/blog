@@ -107,3 +107,18 @@ Updated on May 5, 2016
  2089 ?        00:00:00 glance-api
  2308 ?        00:00:00 glance-registry
 ```
+
+## NOVA
+
+```
+* 我采取的是双节点
+[root@controller ~]$ ps -e|grep nova|sort -uk 4
+ 2427 ?        00:01:42 nova-api
+ 2435 ?        00:00:07 nova-cert
+ 2443 ?        00:01:40 nova-conductor
+ 2451 ?        00:00:07 nova-consoleaut
+ 2459 ?        00:00:02 nova-novncproxy
+ 2467 ?        00:00:07 nova-scheduler
+[root@compute ~]$ ps -e|grep nova|sort -uk 4
+ 2173 ?        00:01:53 nova-compute
+```
