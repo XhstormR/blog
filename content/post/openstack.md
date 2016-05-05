@@ -51,3 +51,59 @@ Updated on May 5, 2016
 `注 * 为本人必须安装项`
 
 ## KEYSTONE
+![](/uploads/openstack-keystone.svg)
+
+* Keystone：一个公司的安全部门
+  * Authentication(认证) 和 Authorization(授权)
+  * 管理用户及其权限
+  * 维护 Service 的 Endpoint
+* Tenant：安全部门的多个办公室
+  * 也叫 Project，将 OpenStack 的资源进行分组和隔离，是各个服务中的一些可以访问的资源集合
+  * 资源所有权属于 Project，而不是 User
+  * User 必须挂在 Project 里才能使用该 Project 的资源
+* User：在办公室上班的员工
+  * User 指代任何使用 OpenStack 的实体，可以是用户或程序
+  * User 可以属于多个 Project
+* Role：安全部门内的各种权限 - Authorization(授权)
+  * 可以为 User 分配多个 Role
+  * admin 相当于 root
+* Service：被安全部门认可的职能
+  * Service 通过 Endpoint 暴露自己的 API
+  * Service 通过`policy.json`决定每个 Role 能做什么事
+  * `policy.json`默认只区分`admin`和非`admin`Role；若要对特定 Role 进行授权，需要修改`policy.json`
+* Endpoint：职能办公室的入口
+  * User 通过 Endpoint 访问资源和执行操作
+  * Endpoint 包含 3 种 URL
+      * publicURL，可以被全局访问 eg.http://compute.example.com
+      * internalURL，只能被局域网访问 eg.http://compute.example.local
+      * adminURL，被从常规的访问中分离 eg.http://controller:35357/v2.0
+* Token：访问职能办公室的钥匙
+  * User 成功认证后由 Keystone 分配的字符串 - Authentication(认证)
+  * 在与其他服务交互中只需要携带 Token 即可，Token 有效期默认为 24 小时
+
+```
+[root@controller ~]$ ps -e | grep keystone
+ 2385 ?        00:01:14 keystone-all
+```
+
+## GLANCE
+![](/uploads/openstack-glance.svg)
+
+* glance-api：对外提供 REST API，响应 Image 查询、获取和存储的调用
+  * glance-api 不会真正处理请求
+      * 关于 Image Metadata 的相关操作，请求转发给 glance-registry
+      * 关于 Image 自身获取的相关操作，请求转发给该 Image 的 Store backend
+* glance-registry：负责处理和存取 Image 的 Metadata 到 Database 中
+  * Glance 支持多种格式的 Image
+  * Image 的 Metadata 会存储在 Database 中，默认是 MySQL > glance
+* Store backend：Glance 自己并不存储 Image，真正的 Image 存放在 backed 中
+  * Glance 支持多种 backed，默认是`Local File System`，存储在`/var/lib/glance/images`中
+  * 除了上图列举出的 backed，还有 GridFS、Ceph、Sheepdog、VMware ESX
+
+------------------------------------![](/uploads/openstack-glance2.svg "Glance 与 OpenStack 其他 Service 间的关系")------------------------------------
+
+```
+[root@controller ~]$ ps -e | grep glance | sort -uk 4
+ 2089 ?        00:00:00 glance-api
+ 2308 ?        00:00:00 glance-registry
+```
