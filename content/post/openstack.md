@@ -7,7 +7,7 @@ title = "自学 OpenStack"
 
 <!--more-->
 
-Updated on May 5, 2016
+Updated on 2016-05-05
 
 > https://www.openstack.org/
 >
@@ -117,7 +117,7 @@ Updated on May 5, 2016
  2435 ?        00:00:07 nova-cert
  2443 ?        00:01:40 nova-conductor
  2451 ?        00:00:07 nova-consoleaut
- 2459 ?        00:00:02 nova-novncproxy
+ 2459 ?        00:00:02 nova-novncproxy     #nova-console
  2467 ?        00:00:07 nova-scheduler
 [root@compute ~]$ ps -e|grep nova|sort -uk 4
  2173 ?        00:01:53 nova-compute

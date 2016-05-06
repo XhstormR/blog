@@ -7,7 +7,7 @@ title = "Aria2 Configuration"
 
 <!--more-->
 
-Updated on April 23, 2016
+Updated on 2016-04-23
 
 > https://aria2.github.io/
 >

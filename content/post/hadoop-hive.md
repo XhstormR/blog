@@ -7,7 +7,7 @@ title = "自学 Hive"
 
 <!--more-->
 
-Updated on April 25, 2016
+Updated on 2016-05-07
 
 > ![](/uploads/hadoop-hive-logo.png)
 >
@@ -72,9 +72,10 @@ create database a1;     创建数据库
 use a1;     切换至 a1 数据库
 show tables;     显示表名
 create table b1(id int(4),name varchar(20),sex char(1));     创建表
-describe b1;     查看表结构
+desc b1;     查看表结构
 insert into b1 values (1234,'xiaoming','m');     插入数据
 select * from b1;     查询数据
+     select user,host from mysql.user \G;     查询 mysql.user 表数据并以组排列
 delete from b1;     删除表中所有数据
      delete from b1 where sex='m'     删除表中 sex 为 'm' 的数据
 drop table b1;     删除表
@@ -83,6 +84,7 @@ drop database a1;     删除数据库
 grant all on *.* to user1@'%' identified by '123456';     创建 user1 用户并[赋有所有权限]且可在[任何主机]上[访问所有数据库]     on to by
      '%' 任何主机     'localhost' 本机
 flush privileges;     刷新用户权限表，另一种不推荐方式 `service mysqld restart`
+show grants for keystone@'localhost';     查看用户权限
 show variables like 'character%';     查看数据库字符集
      +--------------------------+----------------------------+
      | Variable_name            | Value                      |
@@ -100,8 +102,8 @@ show variables like 'character%';     查看数据库字符集
 
 MySQL 的配置文件为 /etc/my.conf
      [mysqld]
-     default-character-set=utf8     (将被弃用)
      character-set-server=utf8
+     default-character-set=utf8     (将被弃用)
      [client]
      default-character-set=utf8
 

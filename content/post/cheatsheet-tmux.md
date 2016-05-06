@@ -7,7 +7,7 @@ title = "Tmux 不完全使用手册"
 
 <!--more-->
 
-Updated on April 14, 2016
+Updated on 2016-04-14
 
 > https://tmux.github.io/
 >
