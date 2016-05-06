@@ -7,7 +7,7 @@ title = "常用 Git 命令清单"
 
 <!--more-->
 
-Updated on April 7, 2016
+Updated on 2016-04-07
 
 > https://git-scm.com/book/zh/v2
 >

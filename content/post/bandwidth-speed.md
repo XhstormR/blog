@@ -7,7 +7,7 @@ title = "带宽测速"
 
 <!--more-->
 
-Updated on April 23, 2016
+Updated on 2016-04-23
 
 http://openspeedtest.com/
 

@@ -7,7 +7,7 @@ title = "自学 Hadoop"
 
 <!--more-->
 
-Updated on April 29, 2016
+Updated on 2016-04-29
 
 > https://hadoop.apache.org/
 >

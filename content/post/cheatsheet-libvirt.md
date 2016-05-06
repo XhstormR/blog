@@ -7,16 +7,16 @@ title = "Libvirt 不完全使用手册"
 
 <!--more-->
 
-Updated on April 9, 2016
+Updated on 2016-04-09
 
 > https://libvirt.org/
 >
 > http://wiki.qemu.org/Main_Page
-> 
+>
 > http://www.linux-kvm.org/page/Main_Page
-> 
+>
 > KVM 负责 CPU 和 RAM 的虚拟化；QEMU 则负责模拟 IO 设备，如网卡和硬盘；KVM 加上 QEMU 之后就能实现真正意义上的服务器虚拟化，称之为 QEMU-KVM。
-> 
+>
 > 而 Libvirt 则是调用 KVM 虚拟化技术的接口间接控制 QEMU-KVM，包含一个API库，一个守护程序 Libvirtd，一个命令行工具 virsh，如果直接用 QEMU-KVM 的接口会非常繁琐。另外 OpenStack 也是用 Libvirt 的库管理 VM，可以控制除了 QEMU 以外的模拟器，包括 VMWARE, VirtualBox, Xen等等。
 
 ### Libvirt 部分
@@ -74,7 +74,7 @@ QEMU: Checking for device /dev/net/tun                                     : PAS
 LXC: Checking for Linux >= 2.6.26                                         : PASS
 [root@controller ~]$ dmesg | grep kvm #检查内核日志
 [root@controller ~]$ lsmod | grep kvm #显示加载到内核中的模块的状态信息
-kvm_intel              54285  0 
+kvm_intel              54285  0
 kvm                   333172  1 kvm_intel
 名称     大小     依赖模块个数     依赖模块内容
 
