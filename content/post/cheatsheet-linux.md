@@ -105,8 +105,36 @@ rm -rf *
 rm -rf `ls | grep -v word` #删除除了 word 之外的所有文件
 
 删除文件名前带有特殊字符的文件
-    rm -rf -- -H
-    rm -rf ./-H
+    rm -rf -- -123
+    rm -rf ./-123
+```
+
+## chattr
+```
+-R #操作文件夹下的所有文件     Recursive(递归)
++ 属性 #开启属性
+- 属性 #关闭属性
+
+第二扩展文件系统属性：
+a：让文件或目录仅供附加用途
+b：不更新文件或目录的最后存取时间
+c：将文件或目录压缩后存放
+d：将文件或目录排除在倾倒操作之外
+i：不得任意更动文件或目录
+s：保密性删除文件或目录
+S：即时更新文件或目录
+u：预防意外删除
+
+[root@controller ~]$ chattr +i 123 #添加 i 属性，保护文件
+[root@controller ~]$ lsattr #查看文件的第二扩展文件系统属性
+----i--------e- ./123
+[root@controller ~]$ rm -rf 123 #不能删除
+rm: cannot remove 123: Operation not permitted
+[root@controller ~]$ chattr -i 123 #关闭属性
+[root@controller ~]$ rm -rfv 123
+removed 123
+
+[root@controller ~]$ chattr +a 123 #只能往里面追加内容，不能删除
 ```
 
 ## cp
@@ -692,7 +720,7 @@ Tips：LSB 是 Linux Standard Base 的缩写
 -g #以 GB 为单位
 -s 1 #每 1 秒更新内存使用情况
 
-[root@controller ~]# free -g
+[root@controller ~]$ free -g
                     total       used       free     shared    buffers     cached
 Mem:                11          2          9          0          0          0
 -/+ buffers/cache:          2          9

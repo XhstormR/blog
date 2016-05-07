@@ -60,10 +60,10 @@ Updated on 2016-05-08
 * Tenant：安全部门的多个办公室
   * 也叫 Project，将 OpenStack 的资源进行分组和隔离，是各个服务中的一些可以访问的资源集合
   * 资源所有权属于 Project，而不是 User
-  * User 必须挂在 Project 里才能使用该 Project 的资源
+  * 所有 User 必须挂在 Project 里才能使用并且共享该 Project 里的资源
 * User：在办公室上班的员工
   * User 指代任何使用 OpenStack 的实体，可以是用户或程序
-  * User 可以属于多个 Project
+  * User 可以属于多个 Project，针对每个 Project，User 拥有一个角色(Role)
 * Role：安全部门内的各种权限 - Authorization(授权)
   * 可以为 User 分配多个 Role
   * admin 相当于 root
@@ -74,9 +74,10 @@ Updated on 2016-05-08
 * Endpoint：职能办公室的入口
   * User 通过 Endpoint 访问资源和执行操作
   * Endpoint 包含 3 种 URL
-      * publicURL，可以被全局访问 eg.http://compute.example.com
-      * internalURL，只能被局域网访问 eg.http://compute.example.local
+      * publicURL，可以被全局访问 eg.http://controller:5000/v2.0
+      * internalURL，只能被局域网访问 eg.http://controller:5000/v2.0
       * adminURL，被从常规的访问中分离 eg.http://controller:35357/v2.0
+          * Keystone 分业务端口(5000)和管理端口(35357)
 * Token：访问职能办公室的钥匙
   * User 成功认证后由 Keystone 分配的字符串 - Authentication(认证)
   * 在与其他服务交互中只需要携带 Token 即可，Token 有效期默认为 24 小时
