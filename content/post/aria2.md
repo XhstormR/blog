@@ -7,7 +7,7 @@ title = "Aria2 Configuration"
 
 <!--more-->
 
-Updated on 2016-04-23
+Updated on 2016-05-07
 
 > https://aria2.github.io/
 >
@@ -23,7 +23,7 @@ max-mmap-limit=2048M
 file-allocation=falloc
 continue=true
 max-concurrent-downloads=3
-max-connection-per-server=5
+max-connection-per-server=10
 min-split-size=10M
 split=10
 disable-ipv6=true
@@ -43,4 +43,11 @@ referer=http://pan.baidu.com/disk/home
 user-agent=netdisk;5.3.4.5;PC;PC-Windows;5.1.2600;WindowsBaiduYunGuanJia
 seed-time=0
 max-overall-upload-limit=10K
+```
+
+## YAAW Header
+```
+User-Agent: netdisk;5.3.4.5;PC;PC-Windows;5.1.2600;WindowsBaiduYunGuanJia
+Referer: http://pan.baidu.com/disk/home
+Cookie: BDUSS=kZ0U0ljSG1YZ0pzc25UVGtYZTlUWHk2NjAxVVhaUDlYVDhWVHJ5YjR5bWl-aEJYQVFBQUFBJCQAAAAAAAAAAAEAAAC21z4NZTY3NDA4MDg5NAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKJx6VaicelWY;BAIDUID=F670113C5AF68B1E0E9383DF78F061BB:FG=1
 ```
