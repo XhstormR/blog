@@ -66,7 +66,9 @@ Updated on 2016-05-08
   * User 可以属于多个 Project，针对每个 Project，User 拥有一个角色(Role)
 * Role：安全部门内的各种权限 - Authorization(授权)
   * 可以为 User 分配多个 Role
-  * admin 相当于 root
+  * OpenStack 默认定义了 2 种角色
+      * member：典型用户
+      * admin：超级管理用户，对所有 Project 都有完全的权限，相当于 root
 * Service：被安全部门认可的职能
   * Service 通过 Endpoint 暴露自己的 API
   * Service 通过`policy.json`决定每个 Role 能做什么事

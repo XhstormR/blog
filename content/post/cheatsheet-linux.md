@@ -7,7 +7,7 @@ title = "Linux 命令不完全手册"
 
 <!--more-->
 
-Updated on 2016-05-07
+Updated on 2016-05-09
 
 > ![](/uploads/linux-centos.svg)
 >
@@ -27,7 +27,7 @@ tail #查看文件末尾10行内容 -f 监视文件最新增加的内容     Fol
 ifconfig #查看网卡信息
 touch #创建空文件
 grep service #取带有 service 的行
-awk '{print $2}' #取第 2 列
+awk '{print $2}' #取第 2 列     /123/ 模拟grep取行     NR==5 第5行
 sort #排序文本     -u 去重     -k 2 以第二列为目标     -t : 以 `:` 为分隔符     -r 以相反顺序来排序（降序）     -c 检查文本是否已排序     -o123 将结果存入 123 文件中
 wc #统计文本     行数 单词数 字节数     -l -w -c
 less #分屏显示 -5 每次显示5行 -N 显示行号
