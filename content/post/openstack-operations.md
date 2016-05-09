@@ -9,7 +9,7 @@ title = "OpenStack 不完全使用手册"
 
 Updated on 2016-05-09
 
->
+> ![](/uploads/openstack-logo.svg "LOGO")
 
 ## curl
 *OpenStack 服务提供 RESTful API，而 curl 能通过命令行直接发送和接收 HTTP 的请求和响应*
@@ -28,19 +28,21 @@ curl -i -H "X-Auth-Token:123" http://0.0.0.0:35357/v2.0/tenants | python -mjson.
 
 [root@controller ~]$ a=`keystone token-get | awk 'NR==5{print $4}'`
 [root@controller ~]$ echo $a
-[root@controller ~]$ curl -H "X-Auth-Token:$a" http://0.0.0.0:35357/v2.0/tenants
+[root@controller ~]$ curl -s -H "X-Auth-Token:$a" http://0.0.0.0:35357/v2.0/tenants
 ```
 
 ## KEYSTONE
 ```bash
 keystone token-get | awk 'NR==5{print $4}'     获取 Token     第5行第4列
-nova endpoints | grep -A 7 Keystone     获取 Endpoint
-curl -H "X-Auth-Token:$a" http://0.0.0.0:35357/v2.0/users | python -mjson.tool     返回用户
-curl -H "X-Auth-Token:$a" http://0.0.0.0:35357/v2.0/users/123 | python -mjson.tool     返回某个用户
-curl -H "X-Auth-Token:$a" http://0.0.0.0:35357/v2.0/tenants | python -mjson.tool     返回租户
-curl -H "X-Auth-Token:$a" http://0.0.0.0:35357/v2.0/tenants/123 | python -mjson.tool     返回某个租户
-curl -H "X-Auth-Token:$a" http://0.0.0.0:35357/v2.0/tenants/123/users/123/roles | python -mjson.tool     返回某个租户上用户被授予的角色
-curl -H "X-Auth-Token:$a" http://0.0.0.0:35357/v2.0/endpoints | python -mjson.tool     返回服务端点
+nova endpoints | grep -A 7 Keystone     获取 Endpoint     35357
+curl -s -H "X-Auth-Token:$a" http://0.0.0.0:35357/v2.0/users     返回用户
+curl -s -H "X-Auth-Token:$a" http://0.0.0.0:35357/v2.0/users/123     返回某个用户
+curl -s -H "X-Auth-Token:$a" http://0.0.0.0:35357/v2.0/tenants     返回租户
+curl -s -H "X-Auth-Token:$a" http://0.0.0.0:35357/v2.0/tenants/123     返回某个租户
+curl -s -H "X-Auth-Token:$a" http://0.0.0.0:35357/v2.0/tenants/123/users/123/roles     返回某个租户上用户被授予的角色
+curl -s -H "X-Auth-Token:$a" http://0.0.0.0:35357/v2.0/endpoints     返回服务端点
+curl -s -H "X-Auth-Token:$a" http://0.0.0.0:35357/v2.0/tokens/$a     检验 Token 有效性，并返回 Token 信息
+curl -s -I -H "X-Auth-Token:$a" http://0.0.0.0:35357/v2.0/tokens/$a     使用 Header 校验 Token 有效性
 -------------------------------------------------------
 
 ```
@@ -48,10 +50,11 @@ curl -H "X-Auth-Token:$a" http://0.0.0.0:35357/v2.0/endpoints | python -mjson.to
 ## GLANCE
 ```bash
 keystone token-get | awk 'NR==5{print $4}'     获取 Token     第5行第4列
-nova endpoints | grep -A 7 glance     获取 Endpoint
-curl -H "X-Auth-Token:$a" http://0.0.0.0:9292/v1/images | python -mjson.tool     返回镜像列表
-curl -H "X-Auth-Token:$a" http://0.0.0.0:9292/v1/images/detail | python -mjson.tool     返回镜像列表(详细)
-curl -H "X-Auth-Token:$a" http://0.0.0.0:9292/v2/images/123 | python -mjson.tool     返回某个镜像的详细信息
+nova endpoints | grep -A 7 glance     获取 Endpoint     9292
+curl -s -H "X-Auth-Token:$a" http://0.0.0.0:9292/v1/images     返回镜像列表
+curl -s -H "X-Auth-Token:$a" http://0.0.0.0:9292/v1/images/detail     返回镜像列表(详细)
+curl -s -H "X-Auth-Token:$a" http://0.0.0.0:9292/v2/images     返回镜像列表(详细)
+curl -s -H "X-Auth-Token:$a" http://0.0.0.0:9292/v2/images/123     返回某个镜像的详细信息
 curl -I -X HEAD -H "X-Auth-Token:$a" http://0.0.0.0:9292/v1/images/123     返回某个镜像的 Metadata
 curl -X GET -H "X-Auth-Token:$a" http://0.0.0.0:9292/v1/images/123 > test.img     下载某个镜像
 -------------------------------------------------------

@@ -76,9 +76,9 @@ Updated on 2016-05-08
 * Endpoint：职能办公室的入口
   * User 通过 Endpoint 访问资源和执行操作
   * Endpoint 包含 3 种 URL
-      * publicURL，可以被全局访问 eg.http://controller:5000/v2.0
-      * internalURL，只能被局域网访问 eg.http://controller:5000/v2.0
-      * adminURL，被从常规的访问中分离 eg.http://controller:35357/v2.0
+      * publicURL，可以被全局访问，外网普通服务入口 eg.http://controller:5000/v2.0
+      * internalURL，只能被局域网访问，内网普通服务入口 eg.http://controller:5000/v2.0
+      * adminURL，被从常规的访问中分离，内网管理员入口 eg.http://controller:35357/v2.0
           * Keystone 分业务端口(5000)和管理端口(35357)
 * Token：访问职能办公室的钥匙
   * User 成功认证后由 Keystone 分配的字符串 - Authentication(认证)
