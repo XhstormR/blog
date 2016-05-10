@@ -115,13 +115,13 @@ Updated on 2016-05-08
 
 ```
 * 我采取的是双节点
-[root@controller ~]$ ps -e|grep nova|sort -uk 4
+[root@controller ~]$ ps -e | grep nova | sort -uk 4
  2427 ?        00:01:42 nova-api
  2435 ?        00:00:07 nova-cert
  2443 ?        00:01:40 nova-conductor
  2451 ?        00:00:07 nova-consoleaut
  2459 ?        00:00:02 nova-novncproxy     #nova-console
  2467 ?        00:00:07 nova-scheduler
-[root@compute ~]$ ps -e|grep nova|sort -uk 4
+[root@compute ~]$ ps -e | grep nova | sort -uk 4
  2173 ?        00:01:53 nova-compute
 ```
