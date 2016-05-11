@@ -7,7 +7,7 @@ title = "自学 OpenStack"
 
 <!--more-->
 
-Updated on 2016-05-08
+Updated on 2016-05-11
 
 > https://www.openstack.org/
 >

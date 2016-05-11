@@ -7,7 +7,7 @@ title = "Vim 命令不完全手册"
 
 <!--more-->
 
-Updated on 2016-04-23
+Updated on 2016-05-11
 
 > http://www.vim.org/
 >
@@ -123,6 +123,8 @@ Ctrl+W - 方向键     自由选择窗口
 :sp 1     分割窗口并打开文件1
 
 Vim 的配置文件为 /etc/vimrc
+    set nocp     关闭 Vi 兼容模式
+    set is     开启实时检索
     set number     显示行号
     set cursorline     高亮当前行
     nmap <F2> :nohlsearch<CR>     在命令模式下按 F2 相当于输入 `:nohlsearch` 跟一个回车，取消搜索加亮
