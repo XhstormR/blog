@@ -7,7 +7,7 @@ title = "Linux 命令不完全手册"
 
 <!--more-->
 
-Updated on 2016-05-09
+Updated on 2016-05-11
 
 > ![](/uploads/linux-centos.svg)
 >
@@ -107,6 +107,9 @@ rm -rf `ls | grep -v word` #删除除了 word 之外的所有文件
 删除文件名前带有特殊字符的文件
     rm -rf -- -123
     rm -rf ./-123
+
+cp -- 1 -1     -1
+cp 1 \\1     \1
 ```
 
 ## chattr
