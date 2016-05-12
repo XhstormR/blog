@@ -7,7 +7,7 @@ title = "自学 Hadoop"
 
 <!--more-->
 
-Updated on 2016-04-29
+Updated on 2016-05-11
 
 > https://hadoop.apache.org/
 >
@@ -87,9 +87,14 @@ Hadoop 的其它一些子项目
     关闭顺序相反
 
 [root@master ~]$ jps #查看 Hadoop 进程
-3418 Jps
-1576 DataNode
-1472 NameNode
+4711 Jps
+3867 NodeManager
+3435 NameNode
+3772 ResourceManager
+3528 DataNode
+
+启动 Hadoop 时，如果出现错误信息 `: Name or service not knownstname master`
+需要将 hadoop-2.7.0/etc/hadoop/slaves 中的主机名换成 IP 地址，本人推荐一开始就写成 IP 地址
 ```
 
 ## HDFS

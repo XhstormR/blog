@@ -30,7 +30,7 @@ Updated on 2016-05-07
   * 因此 Hive 并不提供实时的查询和基于行级的数据更新操作，不适合联机事务处理（低延迟）。
 * Hive 没有定义专门的数据格式，因此创建表时，指定Hive数据的列分隔符与行分隔符，Hive即可解析数据。
   * 列分割符:','     '\t'(TAB)     '\040'(空格)     [[ASCII码表](http://defindit.com/ascii.html)]
-  * 行分隔符:'\n'(ENTER)
+  * 行分隔符: '\n'(ENTER)
   * 文件格式：TextFile(数据是纯文本)、SequenceFile(若需要压缩)
 * Hive 中的数据模型有4种：Table(内部表)、Partition(分区表)、External Table(外部表)、Bucket(桶表)
 

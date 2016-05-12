@@ -7,7 +7,7 @@ title = "OpenStack 不完全使用手册"
 
 <!--more-->
 
-Updated on 2016-05-09
+Updated on 2016-05-11
 
 > ![](/uploads/openstack-logo.svg "LOGO")
 
