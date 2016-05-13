@@ -9,13 +9,7 @@ title = "HTTP Status Code"
 
 Updated on 2016-05-13
 
-> https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
->
-> https://en.m.wikipedia.org/wiki/List_of_HTTP_status_codes
->
-> https://tools.ietf.org/html/rfc7231#section-6
->
-> https://httpstatuses.com/
+> [W3C](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) | [Wikipedia](https://en.m.wikipedia.org/wiki/List_of_HTTP_status_codes) | [IETF](https://tools.ietf.org/html/rfc7231#section-6) | [HTTPStatus](https://httpstatuses.com/)
 >
 > 我把 HTTP 状态码按其类型整理在这里，以便查阅。
 
@@ -44,7 +38,7 @@ Updated on 2016-05-13
 206 部分内容 - 服务器成功处理了部分 GET 请求。
 
 ## 3xx 重定向
-*要完成请求，需要进一步操作*
+*表示要完成请求，需要进一步操作*
 
 300 多种选择 - 针对请求，服务器可执行多种操作，或提供操作列表供请求者选择。
 
@@ -61,7 +55,7 @@ Updated on 2016-05-13
 307 临时重定向 - 服务器目前从不同位置的网页响应请求，会自动将请求者转到不同的位置。
 
 ## 4xx 请求错误
-*请求出错，妨碍了服务器的处理*
+*表示请求出错，妨碍了服务器的处理*
 
 400 错误请求 - 服务器不理解请求的语法。
 
@@ -98,6 +92,16 @@ Updated on 2016-05-13
 417 未满足期望值 - 服务器未满足 "期望" 请求标头字段的要求。
 
 ## 5xx 服务器错误
-*服务器处理请求时发生内部错误*
+*表示服务器在处理请求时发生内部错误*
 
 500 服务器内部错误 - 服务器遇到错误，无法完成请求。
+
+501 尚未实施 - 服务器不具备完成请求的功能。
+
+502 错误网关 - 服务器作为网关或代理，从上游服务器收到无效响应。
+
+503 服务不可用 - 由于超载或停机维护服务器目前无法使用。
+
+504 网关超时 - 服务器作为网关或代理，没有及时从上游服务器收到请求。
+
+505 HTTP 版本不受支持 - 服务器不支持请求中所用的 HTTP 协议版本。

@@ -9,7 +9,7 @@ title = "OpenStack 不完全使用手册"
 
 Updated on 2016-05-11
 
-> ![](/uploads/openstack-logo.svg "LOGO")
+> ![](/uploads/openstack-logo.svg)
 
 ## curl
 *OpenStack 服务提供 RESTful API，而 curl 能通过命令行直接发送和接收 HTTP 的请求和响应*
@@ -60,4 +60,15 @@ curl -I -X HEAD -H "X-Auth-Token:$a" http://0.0.0.0:9292/v1/images/123     返�
 curl -X GET -H "X-Auth-Token:$a" http://0.0.0.0:9292/v1/images/123 > test.img     下载某个镜像
 -------------------------------------------------------
 
+```
+
+## Sahara
+```
+ssh cloud-user@192.168.200.104
+sudo passwd root #修改 root 密码
+su #转到 root 用户
+passwd cloud-user #修改 cloud-user 密码
+passwd hadoop #修改 hadoop 密码
+su hadoop #转到 hadoop 用户
+jps #查看 Hadoop 进程，开始 Hadoop 操作 >>>
 ```
