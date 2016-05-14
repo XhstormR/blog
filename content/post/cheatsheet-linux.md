@@ -902,6 +902,8 @@ man -f [命令]
 当前登录用户：
 w
 who
+whoami     euid 有效用户 当前操作的用户ID     Effective
+who am i     uid 实际用户 登录时使用的用户ID
 
 [root@controller ~]$ w
  08:28:35 up  1:50,  2 users,  load average: 0.02, 0.23, 0.19
