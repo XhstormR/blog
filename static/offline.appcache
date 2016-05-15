@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#2016-04-12 10:49
+#2016-04-12 10:44
 
 CACHE:
 favicon.ico
@@ -13,7 +13,7 @@ uploads/blog-cover.jpg
 http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js
 http://apps.bdimg.com/libs/highlight.js/9.1.0/highlight.min.js
 http://apps.bdimg.com/libs/highlight.js/9.1.0/styles/monokai_sublime.min.css
-http://cdn.bootcss.com/gsap/1.18.2/TweenLite.min.js
+http://cdn.bootcss.com/gsap/1.18.4/TweenLite.min.js
 
 NETWORK:
 *
