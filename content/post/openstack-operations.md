@@ -11,7 +11,7 @@ Updated on 2016-05-11
 
 > ![](/uploads/openstack-logo.svg)
 
-## curl
+## curl - *命令行浏览器*
 *OpenStack 服务提供 RESTful API，而 curl 能通过命令行直接发送和接收 HTTP 的请求和响应*
 ```bash
 -X [HEAD,POST,GET,PUT,DELETE] # 指定 HTTP 的请求类型     Request
@@ -23,6 +23,13 @@ Updated on 2016-05-11
 -k #忽略 HTTPS 的证书     Insecure
 -s #不显示进度条     Silent
 -v #显示详细信息     Verbose
+-------------------------------------------------------
+-A "Mozilla/5.0 (Linux; Android 5.1.1; Nexus 6 Build/LYZ28E) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.20 Mobile Safari/537.36" #指定 User-Agent
+-e "www.qq.com" #指定 Referer URL
+-x 10.34.3.71:808 #指定代理服务器
+-o "123.7z" #保存至本地
+-O #根据服务器上的文件名自动保存至本地
+-c #断点续传
 
 curl -s -H "X-Auth-Token:123" http://0.0.0.0:35357/v2.0/tenants | python -mjson.tool #格式化输出 JSON
 
