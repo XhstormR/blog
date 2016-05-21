@@ -7,7 +7,7 @@ title = "自学 Hadoop"
 
 <!--more-->
 
-Updated on 2016-05-11
+Updated on 2016-05-22
 
 > https://hadoop.apache.org/
 >
@@ -114,6 +114,7 @@ Hadoop 的其它一些子项目
 -put #上传文件
 -get #下载文件
 -getmerge #下载多个文件并合并
+-appendToFile - #通过终端向文件输入内容
 -cat #查看文件内容
 -text #查看文件内容
 -stat #查看文件属性     %b 文件大小     %o block 大小     %r 副本数     %n 文件名     hdfs dfs -stat %b^%o^%n /123.txt

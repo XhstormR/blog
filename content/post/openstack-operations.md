@@ -7,7 +7,7 @@ title = "OpenStack 不完全使用手册"
 
 <!--more-->
 
-Updated on 2016-05-11
+Updated on 2016-05-22
 
 > ![](/uploads/openstack-logo.svg)
 
@@ -16,7 +16,7 @@ Updated on 2016-05-11
 ```bash
 -X [HEAD,POST,GET,PUT,DELETE] # 指定 HTTP 的请求类型     Request
 -H "name:123" #添加 HTTP 请求头     Header
--D [123,-] #将 HTTP 响应头输出到[文件或stdout]     Dump
+-D [123,-] #将 HTTP 响应头输出到[文件或终端]     Dump
 -i #同时显示 HTTP 响应头     Include
 -I #只显示文档信息     Head
 -u admin:pass #登录授权页面     User
