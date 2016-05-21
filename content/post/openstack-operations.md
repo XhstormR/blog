@@ -51,6 +51,7 @@ curl -H "X-Auth-Token:$a" http://0.0.0.0:35357/v2.0/endpoints     返回服务�
 curl -H "X-Auth-Token:$a" http://0.0.0.0:35357/v2.0/tokens/$a     检验 Token 有效性，并返回 Token 信息
 curl -I -H "X-Auth-Token:$a" http://0.0.0.0:35357/v2.0/tokens/$a     使用 Header 校验 Token 有效性
 -------------------------------------------------------
+keystone --os-token 123 --os-endpoint http://0.0.0.0:35357/v2.0 user-role-add --user admin --role admin --tenant admin     使用 Token 鉴权     keystone.conf - admin_token = 123
 
 ```
 
