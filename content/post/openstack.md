@@ -7,7 +7,7 @@ title = "自学 OpenStack"
 
 <!--more-->
 
-Updated on 2016-05-19
+Updated on 2016-05-26
 
 > https://www.openstack.org/
 >
@@ -125,7 +125,7 @@ Updated on 2016-05-19
 * nova-cert：提供 x509 证书支持
 
 ---------
-* Message Queue(消息队列)：子服务的信息中转站 - qpid
+* Message Queue(消息队列)：子服务的信息中转站 - Qpid
 * Database：MySQL
 
 ```

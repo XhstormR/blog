@@ -7,7 +7,7 @@ title = "OpenStack 不完全使用手册"
 
 <!--more-->
 
-Updated on 2016-05-22
+Updated on 2016-05-26
 
 > ![](/uploads/openstack-logo.svg)
 
@@ -52,7 +52,6 @@ curl -H "X-Auth-Token:$a" http://0.0.0.0:35357/v2.0/tokens/$a     检验 Token �
 curl -I -H "X-Auth-Token:$a" http://0.0.0.0:35357/v2.0/tokens/$a     使用 Header 校验 Token 有效性
 -------------------------------------------------------
 keystone --os-token 123 --os-endpoint http://0.0.0.0:35357/v2.0 user-role-add --user admin --role admin --tenant admin     使用 Token 鉴权     keystone.conf - admin_token = 123
-
 ```
 
 ## GLANCE
@@ -67,7 +66,32 @@ curl -H "X-Auth-Token:$a" http://0.0.0.0:9292/v2/images/123     返回某个镜�
 curl -I -X HEAD -H "X-Auth-Token:$a" http://0.0.0.0:9292/v1/images/123     返回某个镜像的 Metadata
 curl -X GET -H "X-Auth-Token:$a" http://0.0.0.0:9292/v1/images/123 > test.img     下载某个镜像
 -------------------------------------------------------
+glance image-create --name centos6.5 --disk-format qcow2 --container-format bare --is-public True --progress < centos_65_x86_6420140327.qcow2     上传镜像
+glance image-update centos6.5 --property hw_disk_bus=scsi --property hw_scsi_model=virtio-scsi     更新镜像
+glance image-update centos6.5 --name centos6.5_scsi     更新镜像
+     Property：
+     hw_disk_bus=scsi
+     hw_scsi_model=virtio-scsi
+     hw_cdrom_bus=ide
+```
 
+## SWIFT
+```
+swift --os-username=1 --os-password=1 --os-tenant-name=1 --os-auth-url=http://0.0.0.0:35357/v2.0 stat     查看特定用户信息
+```
+
+## Heat
+```
+heat stack-create -f server.yml  -P ImageID=centos6.5 -P NetID=int mystack     创建栈
+heat event-list mystack     查看栈的事件日志
+heat event-show mystack server1 d9c12983-d4df-42ad-bd01-350c9b8abfd6     查看事件日志的详细信息
+```
+
+## Ceilometer
+```
+ceilometer meter-list     查看所有测量值
+ceilometer resource-list     查看所有资源
+ceilometer resource-show -r  a3f74bc8-8200-4345-9f07-fa4aae11567d     查看资源详情
 ```
 
 ## Sahara
