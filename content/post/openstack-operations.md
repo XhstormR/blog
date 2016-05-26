@@ -77,6 +77,8 @@ glance image-update centos6.5 --name centos6.5_scsi     更新镜像
 
 ## SWIFT
 ```
+swift-init all restart     重新启动所有 SWIFT 服务
+swift -U 1:1 -K 1 -V 2 -A http://0.0.0.0:35357/v2.0 stat     查看特定用户信息
 swift --os-username=1 --os-password=1 --os-tenant-name=1 --os-auth-url=http://0.0.0.0:35357/v2.0 stat     查看特定用户信息
 ```
 
