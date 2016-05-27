@@ -36,6 +36,11 @@ curl -s -H "X-Auth-Token:123" http://0.0.0.0:35357/v2.0/tenants | python -mjson.
 [root@controller ~]$ a=`keystone token-get | awk 'NR==5{print $4}'`
 [root@controller ~]$ echo $a
 [root@controller ~]$ curl -H "X-Auth-Token:$a" http://0.0.0.0:35357/v2.0/tenants
+
+[root@controller ~]$ keystone --debug tenant-list     v2.0
+[root@controller ~]$ glance --debug image-list     v1
+[root@controller ~]$ nova --debug list     v2
+........
 ```
 
 ## KEYSTONE
@@ -75,8 +80,16 @@ glance image-update centos6.5 --name centos6.5_scsi     更新镜像
      hw_cdrom_bus=ide
 ```
 
+## CINDER
+```
+3：MySQL+KEYSTONE+CINDER
+-------------------------------------------------------
+```
+
 ## SWIFT
 ```
+3：MySQL+KEYSTONE+SWIFT
+-------------------------------------------------------
 swift-init all restart     重新启动所有 SWIFT 服务
 swift -U 1:1 -K 1 -V 2 -A http://0.0.0.0:35357/v2.0 stat     查看特定用户信息
 swift --os-username=1 --os-password=1 --os-tenant-name=1 --os-auth-url=http://0.0.0.0:35357/v2.0 stat     查看特定用户信息
