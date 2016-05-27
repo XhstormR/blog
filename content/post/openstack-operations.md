@@ -46,7 +46,7 @@ curl -s -H "X-Auth-Token:123" http://0.0.0.0:35357/v2.0/tenants | python -mjson.
 ## KEYSTONE
 ```bash
 keystone token-get | awk 'NR==5{print $4}'     获取 Token     第5行第4列
-nova endpoints | grep -A 7 Keystone     获取 Endpoint     35357
+nova endpoints | grep -A 7 keystone     获取 Endpoint     35357
 curl -H "X-Auth-Token:$a" http://0.0.0.0:35357/v2.0/users     返回用户
 curl -H "X-Auth-Token:$a" http://0.0.0.0:35357/v2.0/users/123     返回某个用户
 curl -H "X-Auth-Token:$a" http://0.0.0.0:35357/v2.0/tenants     返回租户
