@@ -119,3 +119,13 @@ passwd hadoop #修改 hadoop 密码
 su hadoop #转到 hadoop 用户
 jps #查看 Hadoop 进程，开始 Hadoop 操作 >>>
 ```
+
+---
+
+## GLANCE
+
+#### 未加 SCSI 属性的镜像 - virtio-blk
+![](/uploads/openstack-glance-normal.png "virtio-blk")
+
+#### 已加 SCSI 属性的镜像 - virtio-scsi（更灵活、更具扩展性）
+![](/uploads/openstack-glance-scsi.png "virtio-scsi")
