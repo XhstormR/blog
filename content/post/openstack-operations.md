@@ -7,7 +7,7 @@ title = "OpenStack 不完全使用手册"
 
 <!--more-->
 
-Updated on 2016-05-26
+Updated on 2016-05-29
 
 > ![](/uploads/openstack-logo.svg)
 
@@ -124,8 +124,8 @@ jps #查看 Hadoop 进程，开始 Hadoop 操作 >>>
 
 ## GLANCE
 
-#### 未加 SCSI 属性的镜像 - virtio-blk
+#### 使用未加 SCSI 属性的镜像创建的VM - virtio-blk
 ![](/uploads/openstack-glance-normal.png "virtio-blk")
 
-#### 已加 SCSI 属性的镜像 - virtio-scsi（更灵活、更具扩展性）
+#### 使用已加 SCSI 属性的镜像创建的VM - virtio-scsi（更灵活、更具扩展性）
 ![](/uploads/openstack-glance-scsi.png "virtio-scsi")

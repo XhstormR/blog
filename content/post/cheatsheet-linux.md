@@ -7,7 +7,7 @@ title = "Linux 命令不完全手册"
 
 <!--more-->
 
-Updated on 2016-05-13
+Updated on 2016-05-29
 
 > ![](/uploads/linux-centos.svg)
 >
@@ -536,9 +536,15 @@ cp /dev/cdrom /tmp/1.iso #从光盘制作光盘镜像文件
 ## echo
 ```
 echo [选项] [输出内容]
--e #支持反斜线控制的字符转换
+-e #激活转义字符，支持反斜线控制的字符转换
+     \a 发出警告声
+     \f 换行但光标仍旧停留在原来的位置
+     \n 换行且光标移至行首
+     \t 插入制表符     TAB键
+     \\ 插入 \
 
 echo -e "\e[1;31m 123456 \e[0m" #输出红颜色 (31m)
+echo -e "123\n45\f6" >> 123 #追加写入文件
 ```
 
 ## alias
@@ -973,6 +979,15 @@ bg %N #使第N个进程在后台运行     back
 fg %N #使第N个进程在前台运行     front
 
 Tips : bg 和 fg 不带 %N 时默认对最后一个进程进行操作
+```
+
+## 自定义登录信息
+```
+登录前 /etc/issue 本地设备     /etc/issue.net 远程设备
+     \l 显示第几个终端机接口
+     \d 日期
+     \t 时间
+登录后 /etc/motd     Message Of The Day
 ```
 
 ## 脚本
