@@ -7,7 +7,7 @@ title = "OpenStack 不完全使用手册"
 
 <!--more-->
 
-Updated on 2016-05-29
+Updated on 2016-05-31
 
 > ![](/uploads/openstack-logo.svg)
 
@@ -40,7 +40,12 @@ curl -s -H "X-Auth-Token:123" http://0.0.0.0:35357/v2.0/tenants | python -mjson.
 [root@controller ~]$ keystone --debug tenant-list     v2.0
 [root@controller ~]$ glance --debug image-list     v1
 [root@controller ~]$ nova --debug list     v2
-........
+
+keystone catalog
+nova endpoints
+
+openstack-status
+openstack-service restart
 ```
 
 ## KEYSTONE
@@ -56,7 +61,17 @@ curl -H "X-Auth-Token:$a" http://0.0.0.0:35357/v2.0/endpoints     返回服务�
 curl -H "X-Auth-Token:$a" http://0.0.0.0:35357/v2.0/tokens/$a     检验 Token 有效性，并返回 Token 信息
 curl -I -H "X-Auth-Token:$a" http://0.0.0.0:35357/v2.0/tokens/$a     使用 Header 校验 Token 有效性
 -------------------------------------------------------
+keystone user-role-list --user 123 --tenant admin     查看用户在某个租户中的角色
 keystone --os-token 123 --os-endpoint http://0.0.0.0:35357/v2.0 user-role-add --user admin --role admin --tenant admin     使用 Token 鉴权     keystone.conf - admin_token = 123
+     Token 验证
+     export OS_SERVICE_TOKEN=cacb79002f
+     export OS_SERVICE_ENDPOINT=http://0.0.0.0:35357/v2.0
+     -----------
+     Password 验证
+     export OS_USERNAME=admin
+     export OS_PASSWORD=000000
+     export OS_TENANT_NAME=admin
+     export OS_AUTH_URL=http://0.0.0.0:35357/v2.0
 ```
 
 ## GLANCE
@@ -78,6 +93,52 @@ glance image-update centos6.5 --name centos6.5_scsi     更新镜像
      hw_disk_bus=scsi
      hw_scsi_model=virtio-scsi
      hw_cdrom_bus=ide
+-------------------------------------------------------
+CirrOS
+http://download.cirros-cloud.net/
+user:cirros     password:cubswin:)
+glance image-create --name cirros --disk-format qcow2 --container-format bare < cirros-0.3.4-x86_64-disk.img
+```
+
+## NOVA
+```
+nova secgroup-list     列出安全组
+nova secgroup-list-rules default     查看安全组
+nova secgroup-add-rule default tcp 1 65535 0.0.0.0/0     添加规则
+nova secgroup-add-rule default udp 1 65535 0.0.0.0/0     添加规则
+nova secgroup-add-rule default icmp -1 -1 0.0.0.0/0     添加规则
+-------------------------------------------------------
+nova keypair-list     列出密钥对
+nova keypair-add 123 > 123.priv     创建密钥对
+nova keypair-add --pub-key /root/.ssh/id_rsa.pub 123     添加密钥对     事先已做 ssh-keygen
+-------------------------------------------------------
+nova flavor-list     列出 VM 类型
+nova flavor-create 123 auto 1024 20 1     创建 VM 类型     名称 编号 内存 磁盘 内核
+-------------------------------------------------------
+nova boot --flavor m1.small --image centos6.5 --nic net-id=17589f7c-0504-4485-8c13-53f1b306eab1 123     创建实例
+nova list     列出实例     virsh list --all
+nova show 123     查看实例
+nova suspend 123     暂停实例
+nova resume 123     恢复实例
+nova start 123     启动实例
+nova stop 123     停止实例
+nova reboot 123     重启实例
+nova delete 123     终止实例
+nova rename 123 swift     重命名实例
+nova image-create 123 snapshot1     为实例创建快照
+nova console-log 123     查看启动日志
+nova get-vnc-console 123 novnc     获取 VNC URL，通过游览器访问
+-------------------------------------------------------
+nova volume-list     列出云硬盘     CINDER
+nova volume-show test     显示云硬盘     CINDER
+nova volume-create --display-name test 1     创建云硬盘     CINDER
+nova volume-attach 123 5495c0aa-896d-4a50-b40f-3a0730cd6a64     为实例挂载云硬盘     CINDER
+nova volume-detach 123 5495c0aa-896d-4a50-b40f-3a0730cd6a64     为实例断开云硬盘     CINDER
+-------------------------------------------------------
+nova floating-ip-pool-list     列出浮动 IP 池(外部网络)     GRE网络
+nova floating-ip-list     列出获取的浮动 IP     GRE网络
+nova floating-ip-create ext     获取浮动 IP     GRE网络
+nova floating-ip-associate 123 192.168.200.105     关联浮动 IP     GRE网络
 ```
 
 ## CINDER
@@ -97,6 +158,7 @@ swift --os-username=1 --os-password=1 --os-tenant-name=1 --os-auth-url=http://0.
 
 ## Heat
 ```
+heat stack-list     列出栈
 heat stack-create -f server.yml  -P ImageID=centos6.5 -P NetID=int mystack     创建栈
 heat event-list mystack     查看栈的事件日志
 heat event-show mystack server1 d9c12983-d4df-42ad-bd01-350c9b8abfd6     查看事件日志的详细信息
