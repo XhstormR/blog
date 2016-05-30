@@ -36,14 +36,14 @@ curl -s -H "X-Auth-Token:123" http://0.0.0.0:35357/v2.0/tenants | python -mjson.
 [root@controller ~]$ a=`keystone token-get | awk 'NR==5{print $4}'`
 [root@controller ~]$ echo $a
 [root@controller ~]$ curl -H "X-Auth-Token:$a" http://0.0.0.0:35357/v2.0/tenants
-
+-------------------------------------------------------
 [root@controller ~]$ keystone --debug tenant-list     v2.0
 [root@controller ~]$ glance --debug image-list     v1
 [root@controller ~]$ nova --debug list     v2
-
+-------------------------------------------------------
 keystone catalog
 nova endpoints
-
+-------------------------------------------------------
 openstack-status
 openstack-service restart
 ```
