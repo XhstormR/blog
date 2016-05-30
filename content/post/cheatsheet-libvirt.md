@@ -7,7 +7,7 @@ title = "Libvirt 不完全使用手册"
 
 <!--more-->
 
-Updated on 2016-04-09
+Updated on 2016-05-31
 
 > https://libvirt.org/
 >
@@ -48,7 +48,8 @@ default              active     yes           yes
 [root@controller ~]$ virsh destroy 1 #停止虚拟机（粗暴）
 
 virt-install --os-variant list #查看支持系统版本
-virsh list --all #显示所有虚拟机
+virsh list --all #列出所有虚拟机
+virsh dominfo 1 #查看虚拟机
 virsh dumpxml 1 #显示虚拟机配置文件内容
 virsh define /tmp/1.xml #添加虚拟机     定义
 virsh create /tmp/1.xml #添加并创建虚拟机
