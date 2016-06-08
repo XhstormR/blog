@@ -7,7 +7,7 @@ title = "自学 Hive"
 
 <!--more-->
 
-Updated on 2016-05-07
+Updated on 2016-06-08
 
 > ![](/uploads/hadoop-hive-logo.png)
 >
@@ -75,11 +75,13 @@ create table b1(id int(4),name varchar(20),sex char(1));     创建表
 desc b1;     查看表结构
 insert into b1 values (1234,'xiaoming','m');     插入数据
 select * from b1;     查询数据
-     select user,host from mysql.user \G;     查询 mysql.user 表数据并以组排列
+     select user,host,password from mysql.user \G;     查询 mysql.user 表数据并以组排列
 delete from b1;     删除表中所有数据
      delete from b1 where sex='m'     删除表中 sex 为 'm' 的数据
 drop table b1;     删除表
 drop database a1;     删除数据库
+select now();     查看时间
+select version();     查看版本
 
 grant all on *.* to user1@'%' identified by '123456';     创建 user1 用户并[赋有所有权限]且可在[任何主机]上[访问所有数据库]     on to by
      '%' 任何主机     'localhost' 本机
@@ -106,6 +108,17 @@ MySQL 的配置文件为 /etc/my.conf
      default-character-set=utf8     (将被弃用)
      [client]
      default-character-set=utf8
+
+重置 MySQL ROOT 密码
+     vim /etc/my.conf
+          [mysqld]
+          skip-grant-tables
+     service mysqld restart
+     mysql -uroot -p123
+          update mysql.user set password=PASSWORD('123456') where user='root';
+
+导入数据库     mysql> source /root/mysql.sql
+导出数据库     mysqldump -uroot -p123 mysql > mysql.sql
 
 service mysqld start     启动 MySQL 服务
 chkconfig mysqld on     设置开机启动服务

@@ -7,7 +7,7 @@ title = "Linux 命令不完全手册"
 
 <!--more-->
 
-Updated on 2016-05-29
+Updated on 2016-06-08
 
 > ![](/uploads/linux-centos.svg)
 >
@@ -73,7 +73,8 @@ r读     w写     x执行
 
 Tips :
 ll = ls -l
-ls `cat 123` # ` ` 包含的命令 bash 会先执行
+ls `cat 123`     ``包含的命令 bash 会先执行
+ll /root/{1,2}     等同于 ll /root/1 /root/2
 ```
 
 ## mkdir
@@ -150,7 +151,8 @@ cp [选项] [原文件或目录] [目标目录]
 -d #若原文件是链接文件，则复制链接属性
 -a #相当于 -rpd
 
-cp -r /root/install.log .
+cp /root/123 .     复制文件到当前目录
+cp /root/123{,.bak}     备份文件,等同于 cp /root/123 /root/123.bak
 ```
 
 ## mv
