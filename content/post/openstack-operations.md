@@ -7,7 +7,7 @@ title = "OpenStack 不完全使用手册"
 
 <!--more-->
 
-Updated on 2016-05-31
+Updated on 2016-06-07
 
 > ![](/uploads/openstack-logo.svg)
 
@@ -128,6 +128,8 @@ nova rename 123 swift     重命名实例
 nova image-create 123 snapshot1     为实例创建快照
 nova console-log 123     查看启动日志
 nova get-vnc-console 123 novnc     获取 VNC URL，通过游览器访问
+nova usage-list     列出平台资源使用情况
+nova hypervisor-stats     列出虚拟机监控器统计数据
 -------------------------------------------------------
 nova volume-list     列出云硬盘     CINDER
 nova volume-show test     显示云硬盘     CINDER
