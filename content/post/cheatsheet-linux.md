@@ -172,12 +172,20 @@ ln [原文件]  [目标文件]
 硬链接：拥有相同的i节点和存储block块，可以看作同一个文件，删除其中之一，另一个还能使用，可通过i节点识别，不能跨分区和针对目录使用，相当于backup，防止误删。
 ```
 
+## z
+```
+echo '. /root/z.sh' >> .bashrc #安装 z
+
+https://github.com/rupa/z
+https://github.com/rupa/z/raw/master/z.sh
+```
+
 ## locate
 ```bash
+yum -y install mlocate #安装 locate
 locate [文件名] #在数据库中搜索文件名，速度非常快
 updatedb #手动更新数据库
 
-yum -y install mlocate #安装 locate
 /var/lib/mlocate     数据库位置,默认一天一更新
 /etc/updatedb.conf     locate配置文件
 ```
