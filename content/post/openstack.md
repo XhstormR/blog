@@ -117,11 +117,11 @@ Updated on 2016-05-26
 * nova-scheduler：虚拟机调度服务，负责决定在哪个计算节点上运行虚拟机
 * nova-compute：管理虚拟机的核心服务，通过调用 Hypervisor API 实现虚拟机生命周期管理
 * nova-conductor：代替 nova-compute 访问数据库
+* nova-consoleauth：负责对访问虚拟机控制台请求提供 Token 认证
 * nova-console：用户可以通过多种方式访问虚拟机的控制台
   * nova-novncproxy：基于 Web 浏览器的 VNC 访问
   * nova-spicehtml5proxy：基于 HTML5 浏览器的 SPICE 访问
   * nova-xvpnvncproxy：基于 Java 客户端的 VNC 访问
-* nova-consoleauth：负责对访问虚拟机控制台请求提供 Token 认证
 * nova-cert：提供 x509 证书支持
 
 ---------
