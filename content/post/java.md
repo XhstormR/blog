@@ -19,6 +19,11 @@ Updated on 2016-06-11
 >
 > http://docs.oracle.com/javase/8/docs/api/overview-frame.html
 
+## JDK
+* JDK：Java Development Kit（Java 开发工具包）
+  * JRE：Java Runtime Environment（Java 运行环境）
+  * JVM：Java Virtual Machine（Java 虚拟机）
+
 ## Edition
 ||微型版(Micro Edition)|标准版(Standard Edition)|企业版(Enterprise Edition)|
 |:--|:--|:--|:--|
@@ -35,5 +40,35 @@ Updated on 2016-06-11
 |CLASSPATH|.;%JAVA_HOME%\lib|配置类库文件位置|
 |---------------------|------------------------------------------------|-----------------------|
 
+## 跨平台原理
+|a.java|javac|a.class|java|JVM|HelloWorld!|
+|:--|:--|:--|:--|:--|:--|
+|源代码|编译器|字节码|解释器|虚拟机|
+|-----------|-----------|-----------|-----------|-----------|---------------》|
+
+## CMD
+```java
+---------
+public class a{
+    public static void main(String[]args){
+        System.out.println("HelloWorld!");
+    }
+}
+---------
+D:\>javac a.java
+D:\>java a     运行字节码文件不加后缀名
+HelloWorld!
+```
+
 ## Eclipse
-Eclipse 汉化包：http://www.eclipse.org/babel/downloads.php
+汉化包：http://www.eclipse.org/babel/downloads.php
+
+## Java 规范
+* 标识符：用于给 Java 程序中变量、类、方法等命名的符号，严格区分大小写。
+  * 只能由字母，数字， `_` ， `$` 组成，且不能以数字开头。
+  * 类名：首字母大写，大驼峰式命名法，MyFirstJavaClass。
+  * 方法名，变量名：首字母小写，小驼峰式命名法，stuName。
+* 源文件名：源文件名应该和类名相同。
+* 主方法入口：所有的 Java 程序由 `public static void main(String[]args)` 方法处开始执行。
+
+![](/uploads/java-variable.svg)
