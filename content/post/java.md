@@ -56,7 +56,7 @@ public class a{
 }
 ---------
 D:\>javac a.java
-D:\>java a     运行字节码文件不加后缀名
+D:\>java a     java命令不跟文件后缀名
 HelloWorld!
 ```
 
@@ -64,11 +64,23 @@ HelloWorld!
 汉化包：http://www.eclipse.org/babel/downloads.php
 
 ## Java 规范
-* 标识符：用于给 Java 程序中变量、类、方法等命名的符号，严格区分大小写。
+* 源文件名：源文件名应该和类名相同。
+* 主方法入口：所有的 Java 程序由 `public static void main(String[]args)` 方法处开始执行。
+* 标识符：用于给 Java 程序中类、方法、变量等命名的符号，严格区分大小写。
   * 只能由字母，数字， `_` ， `$` 组成，且不能以数字开头。
   * 类名：首字母大写，大驼峰式命名法，MyFirstJavaClass。
   * 方法名，变量名：首字母小写，小驼峰式命名法，stuName。
-* 源文件名：源文件名应该和类名相同。
-* 主方法入口：所有的 Java 程序由 `public static void main(String[]args)` 方法处开始执行。
-
 ![](/uploads/java-variable.svg)
+* 变量：包含变量类型、变量名、变量值 3 个元素。 `String name="Dave";`
+
+```java
+String a = "你好"; //声明变量的同时进行初始化
+----
+String a; //先声明后赋值
+a = "你好";
+
+Man b = new Man(); //声明对象的同时进行实例化
+----
+Man b; //先声明后实例化
+b = new Man();
+```
