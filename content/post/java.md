@@ -7,7 +7,7 @@ title = "自学 Java"
 
 <!--more-->
 
-Updated on 2016-06-11
+Updated on 2016-06-13
 
 > ![](/uploads/java.png "Java")
 >
@@ -70,8 +70,15 @@ HelloWorld!
   * 只能由字母，数字， `_` ， `$` 组成，且不能以数字开头。
   * 类名：首字母大写，大驼峰式命名法，MyFirstJavaClass。
   * 方法名，变量名：首字母小写，小驼峰式命名法，stuName。
-![](/uploads/java-variable.svg)
-* 变量：包含变量类型、变量名、变量值 3 个元素。 `String name="Dave";`
+* 变量：包含变量类型、变量名、变量值 3 个元素。`String name="Dave";`
+* 常量：一种特殊的变量，由 final 修饰，值不能被改变。`final char SEX = '男';`
+* 自动类型转换：表数范围小的可以向表数范围大的进行自动类型转换；将一个小容器的水倒入一个大容器没有问题，但是将一个大容器的水倒入一个小容器则会装不下，会溢出。byte→short(char)→int→long→float→double
+* 强制类型转换：直接截断，不会进行四舍五入。`int a = (int)3.1415926;`
+* 注释：单行注释（`//`），多行注释（`/**/`）。
+
+![](/uploads/java-identifiers.svg)
+
+![](/uploads/java-arithmetic.svg)
 
 ```java
 String a = "你好"; //声明变量的同时进行初始化
@@ -83,4 +90,10 @@ Man b = new Man(); //声明对象的同时进行实例化
 ----
 Man b; //先声明后实例化
 b = new Man();
+
+int i = 5;
+int b = i++; //先进行赋值，再执行自增，b=5
+----
+int i = 5;
+int b = ++i; //先执行自增，再进行赋值，b=6
 ```
