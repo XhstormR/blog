@@ -63,6 +63,20 @@ HelloWorld!
 ## Eclipse
 汉化包：http://www.eclipse.org/babel/downloads.php
 
+#### 快捷键
+```
+F2     显示错误提示
+F11     调试运行
+Shift+Enter     在当前行的下一行插入空行
+Ctrl+1     快速修正
+Ctrl+D     删除行
+ALT+↑↓     移动行
+ALT+/     内容辅助
+Ctrl+ALT+/     文字补全
+Ctrl+Shift+F     格式化代码
+ALT+Shift+J     生成文档注释
+```
+
 ## Java 规范
 * 源文件名：源文件名应该和类名相同。
 * 主方法入口：所有的 Java 程序由 `public static void main(String[]args)` 方法处开始执行。
@@ -84,34 +98,44 @@ HelloWorld!
   * switch 后面小括号中表达式的值必须是 **整型或字符型** 。
   * case 匹配后，如果没有遇见 **break** 会继续执行下一个的 case 块的内容，直到遇到 break 语句或者 switch 语句块结束。
   * default 块可以出现在 **任意位置**，也 **可以省略**
-* 循环语句 for：
+* 循环语句 for：for 关键字后面括号中的三个表达式都可以省略，但两个 `;` 不能省略。
+  * for 循环变量初始化和循环变量变化部分，可以使用 `,` 同时初始化或改变多个循环变量的值。
+* 数组：
 
-![](/uploads/java-identifiers.svg)
+---
 
-![](/uploads/java-arithmetic.svg)
+![](/uploads/java-identifiers.svg "标识符")
 
-![](/uploads/java-assignment.svg)
+![](/uploads/java-arithmetic.svg "算术运算符")
 
-![](/uploads/java-comparison.svg)
+![](/uploads/java-assignment.svg "赋值运算符")
 
-![](/uploads/java-logical.svg)
+![](/uploads/java-comparison.svg "比较运算符")
+
+![](/uploads/java-logical.svg "逻辑运算符")
+
+![](/uploads/java-dataType.svg "数据类型")
+
+![](/uploads/java-processControl.svg "流程控制")
+
+---
 
 ```java
-String a = "你好"; //声明变量的同时进行初始化
+String a = "你好";     //声明变量的同时进行初始化
 ----
-String a; //先声明后赋值
+String a;     //先声明后赋值
 a = "你好";
 
-Man b = new Man(); //声明对象的同时进行实例化
+Man b = new Man();     //声明对象的同时进行实例化
 ----
-Man b; //先声明后实例化
+Man b;     //先声明后实例化
 b = new Man();
 
 int i = 5;
-int b = i++; //先进行赋值，再执行自增，b=5
+int b = i++;     //先进行赋值，再执行自增，b=5
 ----
 int i = 5;
-int b = ++i; //先执行自增，再进行赋值，b=6
+int b = ++i;     //先执行自增，再进行赋值，b=6
 
 -------------------------------------------------------
 
@@ -136,7 +160,7 @@ if (score > 80) {
     System.out.println("奖励手机");
 } else if (score > 60) {
     System.out.println("奖励鼠标");
-} else {
+} else {     //前面的条件均不成立时，才会执行 else 块内的代码
     System.out.println("罚做俯卧撑");
 }
 
@@ -184,7 +208,7 @@ while (i <= 5) {     //先判断，后执行
 
 循环语句 do...while
 int i = 1;
-do {     //先执行，后判断，至少会执行一次
+do {     //先执行，后判断，so无条件至少会执行一次
 	System.out.println(i);
 	i++;
 } while (i <= 5);
@@ -192,5 +216,36 @@ do {     //先执行，后判断，至少会执行一次
 循环语句 for
 for (int i = 1; i <= 5; i++) {     //结构更加简洁易读
 	System.out.println(i);
+}
+
+循环跳转语句 break
+int sum = 0;
+for (int i = 1; i <= 10; i++) {
+	sum = sum + i;
+	if (sum > 20) {
+		System.out.print("当前的累加值为:" + sum);
+		break;     //循环将 1 到 10 之间的整数相加，如果满足累加值大于 20，则跳出循环
+	}
+}
+
+循环跳转语句 continue
+int sum = 0;
+for (int i = 1; i <= 10; i++) {
+	if (i % 2 == 1) {
+		continue;     //如果i为奇数,结束本次循环，进行下一次循环
+	}
+	sum = sum + i;
+}
+System.out.print("1到10之间的所有偶数的和为：" + sum);
+----
+i % 2 == 1     //i是奇数
+i % 2 == 0     //i是偶数
+
+循环语句 多重循环 打印九九乘法表     //外层循环每执行一次，内层循环要执行一圈
+for (int i = 1; i <= 9; i++) {     //外层循环控制打印行数
+	for (int x = 1, y = i; x <= y; x++) {     //内层循环控制打印公式
+		System.out.print(x + "*" + y + "=" + x * y + "  ");     //print() 不会换行，println() 会换行
+	}
+	System.out.println();     //打印完毕换行
 }
 ```
