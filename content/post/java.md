@@ -17,7 +17,7 @@ Updated on 2016-06-15
 >
 > http://www.oracle.com/technetwork/java/index.html
 >
-> http://docs.oracle.com/javase/8/docs/api/overview-frame.html
+> http://docs.oracle.com/javase/8/docs/api/overview-frame.html | [中文版](http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/index.html)
 
 ## JDK
 * JDK：Java Development Kit（Java 开发工具包）
@@ -50,7 +50,7 @@ Updated on 2016-06-15
 ```java
 ---------
 public class a{
-    public static void main(String[]args){
+    public static void main(String[] args){
         System.out.println("HelloWorld!");
     }
 }
@@ -65,21 +65,28 @@ HelloWorld!
 
 #### 快捷键
 ```
-F2     显示错误提示
+F2     显示工具提示
+F6     调试 - 单步跳过
 F11     调试运行
-Shift+Enter     在当前行的下一行插入空行
+
 Ctrl+1     快速修正
+Ctrl+/     单行注释
 Ctrl+D     删除行
 ALT+↑↓     移动行
 ALT+/     内容辅助
+Shift+Enter     在当前行的下一行插入空行
+
 Ctrl+ALT+/     文字补全
+Ctrl+ALT+↑↓     复制行
 Ctrl+Shift+F     格式化代码
+Ctrl+Shift+O     自动导入需要的包
 ALT+Shift+J     生成文档注释
+ALT+Shift+R     重构 - 重命名
 ```
 
 ## Java 规范
 * 源文件名：源文件名应该和类名相同。
-* 主方法入口：所有的 Java 程序由 `public static void main(String[]args)` 方法处开始执行。
+* 主方法入口：所有的 Java 程序由 `public static void main(String[] args)` 方法处开始执行。
 * 变量：包含变量类型、变量名、变量值 3 个元素。`String name="Dave";`
 * 常量：一种特殊的变量，由 final 修饰，值不能被改变。`final char SEX = '男';`
   * final 在修饰成员变量时，必须同时设定初值。
@@ -100,7 +107,7 @@ ALT+Shift+J     生成文档注释
   * default 块可以出现在 **任意位置**，也 **可以省略**
 * 循环语句 for：for 关键字后面括号中的三个表达式都可以省略，但两个 `;` 不能省略。
   * for 循环变量初始化和循环变量变化部分，可以使用 `,` 同时初始化或改变多个循环变量的值。
-* 数组：
+* 数组：数组的下标从 0 开始。
 
 ---
 
@@ -121,6 +128,12 @@ ALT+Shift+J     生成文档注释
 ---
 
 ```java
+int i = 5;
+int b = i++;     //先进行赋值，再执行自增，b=5
+----
+int i = 5;
+int b = ++i;     //先执行自增，再进行赋值，b=6
+
 String a = "你好";     //声明变量的同时进行初始化
 ----
 String a;     //先声明后赋值
@@ -131,11 +144,13 @@ Man b = new Man();     //声明对象的同时进行实例化
 Man b;     //先声明后实例化
 b = new Man();
 
-int i = 5;
-int b = i++;     //先进行赋值，再执行自增，b=5
+int[] scores = new int[4];     //声明数组的同时进行分配空间，数组长度为 4
 ----
-int i = 5;
-int b = ++i;     //先执行自增，再进行赋值，b=6
+int[] scores;     //先声明后分配空间，数组长度为 4
+scores = new int[4];
+scores[0] = 76;     //赋值，放入数据
+----
+int[] scores = { 76, 83, 92, 87 };     //声明数组的同时进行分配空间和赋值
 
 -------------------------------------------------------
 
@@ -248,4 +263,49 @@ for (int i = 1; i <= 9; i++) {     //外层循环控制打印行数
 	}
 	System.out.println();     //打印完毕换行
 }
+
+获取用户输入数字并判断位数
+----
+import java.util.Scanner;     //导入 java.util 包下的 Scanner 类
+
+public class HelloWorld {
+	public static void main(String[] args) {
+		Scanner a1 = new Scanner(System.in);     //实例化 Scanner 对象为 a1
+		System.out.print("请输入:");     //提示用户输入，使用 print() 不换行
+		int num = a1.nextInt();     //获取用户输入并保存在变量中
+		int count = 0;
+		for (; num != 0; count++) {
+			num /= 10;
+		}
+		System.out.println(count + "位");
+		a1.close();     //关闭输入
+	}
+}
+----
+
+获取用户输入班级成绩并计算平均分
+----
+import java.util.*;     //导入 java.util 包下的所有类
+
+public class HelloWorld {
+	public static void main(String[] args) {
+		int classNum = 3;     //班级数量
+		int stuNum = 4;     //学生数量
+		double sum = 0;
+		double avg = 0;
+		Scanner a1 = new Scanner(System.in);     //实例化 Scanner 对象为 a1
+		for (int i = 1; i <= classNum; i++) {
+			sum = 0;     //重置班级总分
+			System.out.println("请输入第" + i + "个班级的成绩");
+			for (int j = 1; j <= stuNum; j++) {
+				System.out.print("请输入成绩:");
+				sum = sum + a1.nextInt();     //获取用户输入成绩并累加
+			}
+			avg = sum / stuNum;
+			System.out.println("第" + i + "个班级的平均分是" + avg);
+		}
+		a1.close();     //关闭输入
+	}
+}
+----
 ```
