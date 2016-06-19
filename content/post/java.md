@@ -7,7 +7,7 @@ title = "自学 Java"
 
 <!--more-->
 
-Updated on 2016-06-15
+Updated on 2016-06-20
 
 > ![](/uploads/java.png "Java")
 >
@@ -72,6 +72,7 @@ F11     调试运行
 Ctrl+1     快速修正
 Ctrl+/     单行注释
 Ctrl+D     删除行
+Ctrl+L     转至行
 ALT+↑↓     移动行
 ALT+/     内容辅助
 Shift+Enter     在当前行的下一行插入空行
@@ -88,8 +89,8 @@ ALT+Shift+R     重构 - 重命名
 * 源文件名：源文件名应该和类名相同。
 * 主方法入口：所有的 Java 程序由 `public static void main(String[] args)` 方法处开始执行。
 * 变量：包含变量类型、变量名、变量值 3 个元素。`String name="Dave";`
-* 常量：一种特殊的变量，由 final 修饰，值不能被改变。`final char SEX = '男';`
-  * final 在修饰成员变量时，必须同时设定初值。
+  * 常量：一种特殊的变量，由 final 修饰，值不能被改变。`final char SEX = '男';`
+      * final 在修饰成员变量时，必须同时设定初值。
 * 自动类型转换：表数范围小的可以向表数范围大的进行自动类型转换；将一个小容器的水倒入一个大容器没有问题，但是将一个大容器的水倒入一个小容器则会装不下，会溢出。byte→short(char)→int→long→float→double
 * 强制类型转换：直接截断，不会进行四舍五入。`int a = (int)3.1415926;`
 * 注释：单行注释（`//`），多行注释（`/**/`）。
@@ -107,7 +108,16 @@ ALT+Shift+R     重构 - 重命名
   * default 块可以出现在 **任意位置**，也 **可以省略**
 * 循环语句 for：for 关键字后面括号中的三个表达式都可以省略，但两个 `;` 不能省略。
   * for 循环变量初始化和循环变量变化部分，可以使用 `,` 同时初始化或改变多个循环变量的值。
-* 数组：数组的下标从 0 开始。
+* 数组（Array）：使用 `数组名.length` 获取数组的长度；使用 `数组名[下标]` 来访问；数组的下标从 0 开始，如长度为 3 ，则下标为 0，1，2。
+  * 二维数组：特殊的一维数组，它的每个数组空间中保存的是一个一维数组。
+* 方法：用来解决一类问题的代码组合，是一个功能模块。通过 `对象名.方法名()` 调用方法。
+  * 访问修饰符：public、protected、private，也可以省略。
+  * 返回值类型：方法不返回任何值，则返回值类型指定为 void；方法具有返回值，则需要指定返回值的类型，并且在方法体中使用 return 语句返回值。
+  * 形参：定义方法时的参数，目的是用来定义方法需要传入的参数的个数和类型。
+  * 实参：调用方法时的参数，是传递给方法真正被处理的值。
+  * 重载：方法名相同，但是形参的个数、顺序或类型不同，则称为方法的重载。
+      * 当调用被重载的方法时， Java 会根据参数的个数和类型来判断应该调用哪个重载方法，参数完全匹配的方法将被执行。
+      * 判断方法重载的依据：●必须是在同一个类中●方法名相同●方法参数的个数、顺序或类型不同。
 
 ---
 
@@ -121,9 +131,11 @@ ALT+Shift+R     重构 - 重命名
 
 ![](/uploads/java-logical.svg "逻辑运算符")
 
+![](/uploads/java-array.svg "数组")
+
 ![](/uploads/java-dataType.svg "数据类型")
 
-![](/uploads/java-processControl.svg "流程控制")
+![](/uploads/java-processControl.svg "流程控制语句")
 
 ---
 
@@ -146,9 +158,9 @@ b = new Man();
 
 int[] scores = new int[4];     //声明数组的同时进行分配空间，数组长度为 4
 ----
-int[] scores;     //先声明后分配空间，数组长度为 4
+int[] scores;     //先声明后分配空间，再赋值放入数据，数组长度为 4
 scores = new int[4];
-scores[0] = 76;     //赋值，放入数据
+scores[0] = 76;
 ----
 int[] scores = { 76, 83, 92, 87 };     //声明数组的同时进行分配空间和赋值
 
@@ -209,6 +221,7 @@ case 3:
 case 4:     //可以把功能相同的 case 语句合并起来
 case 5:
 	System.out.println("鼓励奖");
+	break;
 default:
 	System.out.println("没有名次");
 	break;
@@ -305,6 +318,95 @@ public class HelloWorld {
 			System.out.println("第" + i + "个班级的平均分是" + avg);
 		}
 		a1.close();     //关闭输入
+	}
+}
+----
+
+-------------------------------------------------------
+
+循环遍历数组
+int[] nums = { 1, 2, 3 };
+for (int i = 0; i < nums.length; i++) {     //nums.length 获取数组长度
+	System.out.println(nums[i]);
+}
+----
+int[] nums = { 1, 2, 3 };
+for (int a : nums) {
+	System.out.println(a);     //可以使用foreach形式来遍历数组和集合，for 语句的简化版，更简单便捷
+}
+
+循环遍历二维数组
+int[][] nums = { { 1, 2, 3 }, { 4, 5, 6 } };
+for (int i = 0; i < nums.length; i++) {
+	for (int j = 0; j < nums[i].length; j++) {
+		System.out.println(nums[i][j]);
+	}
+	System.out.println();
+}
+
+使用 Arrays 类操作数组
+----
+import java.util.Arrays;
+
+public class HelloWorld {
+	public static void main(String[] args) {
+		int[] scores = { 76, 83, 92, 87 };
+		Arrays.sort(scores);     //将数组按升序排序
+		String a = Arrays.toString(scores);     //将数组输出为字符串
+		System.out.println(a);
+	}
+}
+----
+
+根据用户输入数字，随机生成排序后的数组，并打印数组输出的成字符串
+----
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class HelloWorld {
+	public static void main(String[] args) {
+		HelloWorld a = new HelloWorld();     //创建对象
+		Scanner b = new Scanner(System.in);     //创建对象
+
+		System.out.print("请输入：");
+		int num = b.nextInt();     //接收用户输入数字到变量
+		int[] arrays = a.arrays(num);     //传递数字
+		System.out.println(Arrays.toString(arrays));     //将数组输出为字符串
+		b.close();     //关闭输入
+	}
+
+	public int[] arrays(int a) {     //方法
+		int[] arrays = new int[a];     //生成数组
+		for (int i = 0; i < arrays.length; i++) {
+			arrays[i] = (int) (Math.random() * 100);     //生成随机数并赋值给数组
+		}
+		Arrays.sort(arrays);     //排序数组
+		return arrays;     //返回数组
+	}
+}
+----
+
+通过成绩数组输出前三名并判断成绩有效性
+----
+import java.util.Arrays;
+
+public class HelloWorld {
+	public static void main(String[] args) {
+		int[] scores = { 89, -23, 64, 91, 119, 52, 73 };
+		HelloWorld a = new HelloWorld();
+		a.rank(scores);
+	}
+
+	public void rank(int[] a) {     //方法
+		Arrays.sort(a);     //排序数组
+		System.out.println("前三名：");
+		for (int i = a.length - 1, count = 0; count < 3; i--) {     //倒序遍历数组
+			if (a[i] > 100 || a[i] < 0) {     //判断成绩有效性
+				continue;
+			}
+			System.out.println(a[i]);
+			count++;
+		}
 	}
 }
 ----
