@@ -7,7 +7,7 @@ title = "自学 Java"
 
 <!--more-->
 
-Updated on 2016-06-20
+Updated on 2016-06-21
 
 > ![](/uploads/java.png "Java")
 >
@@ -17,12 +17,14 @@ Updated on 2016-06-20
 >
 > http://www.oracle.com/technetwork/java/index.html
 >
+> http://docs.oracle.com/javase/8/docs/index.html
+>
 > http://docs.oracle.com/javase/8/docs/api/overview-frame.html | [中文版](http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/index.html)
 
 ## JDK
 * JDK：Java Development Kit（Java 开发工具包）
   * JRE：Java Runtime Environment（Java 运行环境）
-  * JVM：Java Virtual Machine（Java 虚拟机）
+      * JVM：Java Virtual Machine（Java 虚拟机）
 
 ## Edition
 ||微型版(Micro Edition)|标准版(Standard Edition)|企业版(Enterprise Edition)|
@@ -63,7 +65,7 @@ HelloWorld!
 ## Eclipse
 汉化包：http://www.eclipse.org/babel/downloads.php
 
-#### 快捷键
+### 快捷键
 ```
 F2     显示工具提示
 F6     调试 - 单步跳过
@@ -111,7 +113,7 @@ ALT+Shift+R     重构 - 重命名
 * 数组（Array）：使用 `数组名.length` 获取数组的长度；使用 `数组名[下标]` 来访问；数组的下标从 0 开始，如长度为 3 ，则下标为 0，1，2。
   * 二维数组：特殊的一维数组，它的每个数组空间中保存的是一个一维数组。
 * 方法：用来解决一类问题的代码组合，是一个功能模块。通过 `对象名.方法名()` 调用方法。
-  * 访问修饰符：public、protected、private，也可以省略。
+  * 访问修饰符：public、protected、private、缺省。
   * 返回值类型：方法不返回任何值，则返回值类型指定为 void；方法具有返回值，则需要指定返回值的类型，并且在方法体中使用 return 语句返回值。
   * 形参：定义方法时的参数，目的是用来定义方法需要传入的参数的个数和类型。
   * 实参：调用方法时的参数，是传递给方法真正被处理的值。
@@ -137,7 +139,7 @@ ALT+Shift+R     重构 - 重命名
 
 ![](/uploads/java-processControl.svg "流程控制语句")
 
----
+## Code
 
 ```java
 int i = 5;
@@ -386,7 +388,7 @@ public class HelloWorld {
 }
 ----
 
-通过成绩数组输出前三名并判断成绩有效性
+遍历数组输出前三名并判断成绩有效性
 ----
 import java.util.Arrays;
 
@@ -407,6 +409,26 @@ public class HelloWorld {
 			System.out.println(a[i]);
 			count++;
 		}
+	}
+}
+----
+
+遍历数组输出学生年龄的最大值
+----
+public class HelloWorld2 {
+	public static void main(String[] args) {
+		HelloWorld2 a = new HelloWorld2();     //创建对象
+		int maxScore = a.getMaxAge();     //接收返回值
+		System.out.println("最大年龄为：" + maxScore);
+	}
+
+	public int getMaxAge() {     //方法
+		int[] a = { 19, 23, 21, 19, 25, 29, 17 };
+		int max = 0;
+		for (int i : a) {     //使用 foreach 形式来遍历数组
+			max = max > i ? max : i;     //三元运算符
+		}
+		return max;
 	}
 }
 ----

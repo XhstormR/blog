@@ -19,7 +19,7 @@ Updated on 2016-05-31
 >
 > 而 Libvirt 则是调用 KVM 虚拟化技术的接口间接控制 QEMU-KVM，包含一个API库，一个守护程序 Libvirtd，一个命令行工具 virsh，如果直接用 QEMU-KVM 的接口会非常繁琐。另外 OpenStack 也是用 Libvirt 的库管理 VM，可以控制除了 QEMU 以外的模拟器，包括 VMWARE, VirtualBox, Xen等等。
 
-### Libvirt 部分
+## Libvirt 部分
 ```
 yum -y install virt-manager
 yum -y install libvirt
@@ -89,7 +89,7 @@ Tips：
      setenforce 0
 ```
 
-### OpenStack 部分
+## OpenStack 部分
 ```
 [root@controller ~]$ virt-sysprep -d 1 #清理虚拟机，如 MAC 地址
 [root@controller ~]$ virsh undefine 1 #取消定义虚拟机

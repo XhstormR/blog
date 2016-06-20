@@ -188,8 +188,10 @@ jps #查看 Hadoop 进程，开始 Hadoop 操作 >>>
 
 ## GLANCE
 
-#### 使用未加 SCSI 属性的镜像创建的VM - virtio-blk
+使用未加 SCSI 属性的镜像创建的VM - virtio-blk
+
 ![](/uploads/openstack-glance-normal.png "virtio-blk")
 
-#### 使用已加 SCSI 属性的镜像创建的VM - virtio-scsi（更灵活、更具扩展性）
+使用已加 SCSI 属性的镜像创建的VM - virtio-scsi（更灵活、更具扩展性）
+
 ![](/uploads/openstack-glance-scsi.png "virtio-scsi")
