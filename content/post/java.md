@@ -11,8 +11,6 @@ Updated on 2016-06-27
 
 > ![](/uploads/java.png "Java")
 >
-> http://www.eclipse.org/
->
 > http://www.tiobe.com/tiobe_index
 >
 > http://www.oracle.com/technetwork/java/index.html
@@ -62,10 +60,12 @@ D:\>java a     java命令不跟文件后缀名
 HelloWorld!
 ```
 
-## Eclipse
-汉化包：http://www.eclipse.org/babel/downloads.php
+## IDE
+* Eclipse：http://www.eclipse.org/downloads/eclipse-packages/
+  * 汉化包：http://www.eclipse.org/babel/downloads.php
+* IntelliJ IDEA：https://www.jetbrains.com/idea/download/
 
-### 快捷键
+### Eclipse 快捷键
 ```
 F2     显示工具提示
 F6     调试 - 单步跳过
@@ -165,7 +165,7 @@ ALT+Shift+R     重构 - 重命名
   * `equals()` 方法：比较对象的引用是否指向同一块内存地址（比较是否为同一部手机）（`==` 运算符也可以做到）。可以通过重写该方法比较两个对象的属性值是否一致（比较两部手机的属性），Eclipse 的源码(Source)菜单中的 `生成hashCode()和equals()` 能自动完成。
   * `getClass()` 方法：返回类对象。`example：Man b = new Man();`
       * 类对象：关注类的代码信息(有哪些属性、方法)。`Man`
-      * 类的对象：关注对象的数据信息(属性值是多少)。`b`
+      * 类的对象：关注对象的数据信息(属性值是多少)。`new Man()`
 
 ---
 
@@ -175,7 +175,9 @@ ALT+Shift+R     重构 - 重命名
       * 父类的引用可以指向 **子类** 的对象。`Animal b = new Dog();`
   * 方法多态
       * 创建本类对象时，调用的方法为本类方法。
-      * 创建子类对象时，调用的方法为子类 **重写或继承的方法**。
+      * 创建子类对象时，调用的方法为 **子类重写或继承的方法**。
+          * 即子类独有的方法不可访问，不能通过父类的引用调用子类独有的方法。
+* 引用类型转换：
 
 
 ## SVG
