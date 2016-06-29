@@ -198,7 +198,7 @@ ALT+Shift+R     重构 - 重命名
 
 ![](/uploads/java-array.svg "数组")
 
-![](/uploads/java-dataType.svg "数据类型")
+![](/uploads/java-datatype.svg "数据类型")
 
 ![](/uploads/java-processControl.svg "流程控制语句")
 
