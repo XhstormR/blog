@@ -7,9 +7,11 @@ title = "Vim 命令不完全手册"
 
 <!--more-->
 
-Updated on 2016-05-11
+Updated on 2016-06-28
 
 > http://www.vim.org/
+>
+> http://www.lagmonster.org/docs/vi.html
 >
 > ![](/uploads/vim.png)
 >
