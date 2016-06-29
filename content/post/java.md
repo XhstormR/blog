@@ -7,7 +7,7 @@ title = "自学 Java"
 
 <!--more-->
 
-Updated on 2016-06-27
+Updated on 2016-06-29
 
 > ![](/uploads/java.png "Java")
 >
@@ -19,7 +19,7 @@ Updated on 2016-06-27
 >
 > http://docs.oracle.com/javase/8/docs/api/overview-frame.html | [中文版](http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/index.html)
 
-## JDK
+## [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * JDK：Java Development Kit（Java 开发工具包）
   * JRE：Java Runtime Environment（Java 运行环境）
       * JVM：Java Virtual Machine（Java 虚拟机）
@@ -154,7 +154,7 @@ ALT+Shift+R     重构 - 重命名
 * 继承（extends）：是类与类的一种关系，子类继承于父类（SuperClass），一个类只有一个父类，即单继承。`class 子类 extends 父类 {....}`
   * 优点：子类拥有父类所有的属性和方法（不能为 private），实现代码复用。
   * 重写：子类可以重写父类继承的方法，当调用方法时会优先调用子类的方法。
-      * 规则：返回值类型、方法名、参数类型及个数都要与父类继承的方法相同，才为方法的重写。（换句话说只重写方法体）
+      * 规则：返回值类型、方法名、参数类型及个数都要与父类继承的方法相同，才为方法的重写。（换句话说 **只重写方法体**）
   * 继承初始化执行顺序：初始化父类（属性初始化 ➜ 构造方法） ➜ 初始化子类（相同）
       * 子类的构造过程中必须调用其父类的构造方法。如果子类的构造方法中没有显式调用父类的构造方法，则系统默认隐式调用父类无参构造方法 `super();`；若显式调用构造方法，则必须放在子类的构造方法第一行。
 * super：代表父类对象。
@@ -174,8 +174,8 @@ ALT+Shift+R     重构 - 重命名
       * 父类的引用可以指向本类的对象。`Animal a = new Animal();`
       * 父类的引用可以指向 **子类** 的对象。`Animal b = new Dog();`
   * 方法多态
-      * 创建本类对象时，调用的方法为本类方法。
-      * 创建子类对象时，调用的方法为 **子类重写或继承的方法**。
+      * 指向本类对象时，调用的方法为本类方法。
+      * 指向子类对象时，调用的方法为 **子类重写或继承的方法**。
           * 即子类独有的方法不可访问，不能通过父类的引用调用子类独有的方法。
 * 引用类型转换：
 
