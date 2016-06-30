@@ -68,11 +68,13 @@ HelloWorld!
 ### Eclipse 快捷键
 ```
 F2     显示工具提示
+F3     打开声明文件
 F6     调试 - 单步跳过
 F11     调试运行
 
 Ctrl+1     快速修正
 Ctrl+/     单行注释
+Ctrl+S     保存
 Ctrl+W     关闭文件
 Ctrl+D     删除行
 Ctrl+L     转至行
@@ -82,6 +84,7 @@ Shift+Enter     在当前行的下一行插入空行
 
 Ctrl+ALT+/     文字补全
 Ctrl+ALT+↑↓     复制行
+Ctrl+Shift+S     全部保存
 Ctrl+Shift+F     格式化代码
 Ctrl+Shift+O     自动导入需要的包
 ALT+Shift+J     生成文档注释
@@ -151,7 +154,7 @@ ALT+Shift+R     重构 - 重命名
 
 ---
 
-* 继承（extends）：是类与类的一种关系，子类继承于父类（SuperClass），一个类只有一个父类，即单继承。`class 子类 extends 父类 {....}`
+* 继承（extends）：是类与类的一种关系，子类继承于父类（SuperClass），一个类只有一个父类，即单继承。`class 子类 extends 父类 {...}`
   * 优点：子类拥有父类所有的属性和方法（不能为 private），实现代码复用。
   * 重写：子类可以重写父类继承的方法，当调用方法时会优先调用子类的方法。
       * 规则：返回值类型、方法名、参数类型及个数都要与父类继承的方法相同，才为方法的重写。（换句话说 **只重写方法体**）
@@ -177,7 +180,24 @@ ALT+Shift+R     重构 - 重命名
       * 指向本类对象时，调用的方法为本类方法。
       * 指向子类对象时，调用的方法为 **子类重写或继承的方法**。
           * 即子类独有的方法不可访问，不能通过父类的引用调用子类独有的方法。
-* 引用类型转换：
+* 引用类型转换：使用 `instanceof` 运算符判断一个引用是否是某个类型或某个类型的子类型，从而判断是否可以使用强制类型转换，返回布尔值，通常与 `if` 配合使用。`b instanceof Dog`
+  * 向上类型转换（自动类型转换）：小类型到大类型的转换。`Animal b = new Dog();`
+  * 向下类型转换（强制类型转换）：大类型到小类型的转换。`Dog c = (Dog)b;`
+* 抽象类：用 `abstract` 修饰的类。`public abstract class Phone {...}`
+  * 作用： **约束子类必须包含某些方法**，但不关注子类如何实现。
+  * 规则
+      * 用 `abstract` 修饰抽象方法，只有声明， **没有方法体**。`public abstract void call();`
+      * 包含抽象方法的类是抽象类。
+      * 抽象类可以包含普通方法，也可以没有抽象方法。
+      * 抽象类不能直接创建，通过 **引用多态** 指向子类对象来使用。`Phone a = new SmartPhone();`
+* 接口（interface）：使用 `interface` 定义接口，由全局常量和公共的抽象方法所组成。
+  * 类描述对象的属性和方法，接口则包含类要具有的属性和要实现的方法，它定义了某一批类所要遵守的 **规范**。
+      * 接口中的属性：常量，系统会自动添加 `public static final` 修饰符。
+      * 接口中的方法：抽象方法，系统会自动添加 `public abstract` 修饰符。
+  * 父类单继承（extends），接口多实现（ **implements**）。Java 中的类只能继承一个父类，不够灵活，可以通过实现多个接口做补充。
+  * 接口不能直接创建，通过 **引用多态** 指向实现接口的对象来使用。`IPlayGame b = new SmartPhone();`
+  * 接口在使用过程中，经常与匿名内部类配合使用。
+      * 匿名内部类：没有名字的内部类，不关注类的名字，在使用的时候才定义。
 
 
 ## SVG
@@ -195,6 +215,8 @@ ALT+Shift+R     重构 - 重命名
 ![](/uploads/java-comparison.svg "比较运算符")
 
 ![](/uploads/java-logical.svg "逻辑运算符")
+
+![](/uploads/java-interface.svg "接口")
 
 ![](/uploads/java-array.svg "数组")
 
@@ -499,4 +521,20 @@ public class HelloWorld2 {
 	}
 }
 ----
+
+-------------------------------------------------------
+
+匿名内部类实现接口
+IPlayGame i = new IPlayGame() {
+	public void playGame() {
+		System.out.println("匿名内部类实现接口的方式1");
+	}
+};
+i.playGame();
+----
+new IPlayGame() {
+	public void playGame() {
+		System.out.println("匿名内部类实现接口的方式2");     //推荐方式2
+	}
+}.playGame();
 ```
