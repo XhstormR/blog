@@ -19,6 +19,37 @@ Updated on 2016-06-30
 >
 > http://docs.oracle.com/javase/8/docs/api/overview-frame.html | [中文版](http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/index.html)
 
+## IDE
+* Eclipse：http://www.eclipse.org/downloads/eclipse-packages/
+  * 汉化包：http://www.eclipse.org/babel/downloads.php
+* IntelliJ IDEA：https://www.jetbrains.com/idea/download/
+
+### Eclipse 快捷键
+```
+F2     显示工具提示
+F3     打开声明文件
+F6     调试 - 单步跳过
+F11     调试运行
+
+Ctrl+1     快速修正
+Ctrl+/     单行注释
+Ctrl+S     保存
+Ctrl+W     关闭文件
+Ctrl+D     删除行
+Ctrl+L     转至行
+ALT+↑↓     移动行
+ALT+/     内容辅助
+Shift+Enter     在当前行的下一行插入空行
+
+Ctrl+ALT+/     文字补全
+Ctrl+ALT+↑↓     复制行
+Ctrl+Shift+S     全部保存
+Ctrl+Shift+F     格式化代码
+Ctrl+Shift+O     自动导入需要的包
+ALT+Shift+J     生成文档注释
+ALT+Shift+R     重构 - 重命名
+```
+
 ## [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * JDK：Java Development Kit（Java 开发工具包）
   * JRE：Java Runtime Environment（Java 运行环境）
@@ -58,37 +89,6 @@ public class a{
 D:\>javac a.java
 D:\>java a     java命令不跟文件后缀名
 HelloWorld!
-```
-
-## IDE
-* Eclipse：http://www.eclipse.org/downloads/eclipse-packages/
-  * 汉化包：http://www.eclipse.org/babel/downloads.php
-* IntelliJ IDEA：https://www.jetbrains.com/idea/download/
-
-### Eclipse 快捷键
-```
-F2     显示工具提示
-F3     打开声明文件
-F6     调试 - 单步跳过
-F11     调试运行
-
-Ctrl+1     快速修正
-Ctrl+/     单行注释
-Ctrl+S     保存
-Ctrl+W     关闭文件
-Ctrl+D     删除行
-Ctrl+L     转至行
-ALT+↑↓     移动行
-ALT+/     内容辅助
-Shift+Enter     在当前行的下一行插入空行
-
-Ctrl+ALT+/     文字补全
-Ctrl+ALT+↑↓     复制行
-Ctrl+Shift+S     全部保存
-Ctrl+Shift+F     格式化代码
-Ctrl+Shift+O     自动导入需要的包
-ALT+Shift+J     生成文档注释
-ALT+Shift+R     重构 - 重命名
 ```
 
 ## Java 规范
