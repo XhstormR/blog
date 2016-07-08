@@ -9,6 +9,8 @@ title = "Aria2 Configuration"
 
 Updated on 2016-05-07
 
+> [![](/uploads/file-into-picture2.png)](http://ww4.sinaimg.cn/large/a15b4afegw1f5lotqn7xfj203k03kb29)
+>
 > https://aria2.github.io/
 >
 > aria2 is a lightweight multi-protocol & multi-source command-line download utility. It supports HTTP/HTTPS, FTP, SFTP, BitTorrent and Metalink. aria2 can be manipulated via built-in JSON-RPC and XML-RPC interfaces.The next generation download utility.
