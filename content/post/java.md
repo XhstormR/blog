@@ -24,6 +24,59 @@ Updated on 2016-06-30
   * 汉化包：http://www.eclipse.org/babel/downloads.php
 * IntelliJ IDEA：https://www.jetbrains.com/idea/download/
 
+### IDEA 快捷键
+```
+F2     查找错误
+F3     搜索关键字
+F12     打开最近使用的工具窗口
+Esc     返回编辑器
+
+Ctrl+F12     查看文件结构
+Ctrl+[]     转至大括号处
+Ctrl+W     扩大选区
+Ctrl+Y     删除行
+Ctrl+D     复制行
+Ctrl+G     转至行
+Ctrl+B     转至声明处
+Ctrl+O     重写方法
+Ctrl+H     查看类结构
+Ctrl+P     方法参数提示
+Ctrl+J     自动代码
+ALT+F3     高亮选中文本
+ALT+。   内容辅助（自己设置）
+ALT+/     文字补全
+ALT+1     打开或隐藏工程面板
+ALT+Enter     快速修正
+Shift+F6     重构 - 重命名
+Shift+Esc     隐藏最近使用的工具窗口
+
+Ctrl+ALT+F12     打开资源管理器
+Ctrl+ALT+S     设置
+Ctrl+ALT+L     格式化代码
+Ctrl+ALT+O     清除无效包引用
+Ctrl+Shift+J     合并行
+Ctrl+Shift+Enter     完成声明
+
+ALT+Insert     生成方法
+Ctrl+ALT+Insert     新建文件
+
+Ctrl+/     注释行（单行注释）
+Ctrl+Shift+/     添加注释（多行注释）
+
+Ctrl+N     查找类
+Ctrl+Shift+N     查找文件
+Ctrl+Shift+ALT+N     查找变量
+
+ALT+←→     切换文件
+ALT+↑↓     切换方法
+
+ALT+Shift+↑↓     移动行
+Ctrl+Shift+↑↓     移动方法
+
+Shift+Enter     在当前行的下一行插入空行
+Ctrl+ALT+Enter     在当前行的上一行插入空行
+```
+
 ### Eclipse 快捷键
 ```
 F2     显示工具提示
