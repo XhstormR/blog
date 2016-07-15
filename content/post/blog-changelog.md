@@ -8,6 +8,8 @@ title = "Blog Changelog"
 <!--more-->
 
 > 我把我对本博客的一些更新整理在这里，以便查阅。
+>
+> 后来因为太懒，就不整理了。
 
 ## Highlight
 
