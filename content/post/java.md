@@ -27,11 +27,7 @@ Updated on 2016-06-30
 ### IDEA 快捷键
 ```
 F2     查找错误
-F3     搜索关键字
-F12     打开最近使用的工具窗口
-Esc     返回编辑器
 
-Ctrl+F12     查看文件结构
 Ctrl+[]     转至大括号处
 Ctrl+W     扩大选区
 Ctrl+Y     删除行
@@ -42,20 +38,27 @@ Ctrl+O     重写方法
 Ctrl+H     查看类结构
 Ctrl+P     方法参数提示
 Ctrl+J     自动代码
-ALT+F3     高亮选中文本
 ALT+。   内容辅助（自己设置）
 ALT+/     文字补全
 ALT+1     打开或隐藏工程面板
 ALT+Enter     快速修正
 Shift+F6     重构 - 重命名
-Shift+Esc     隐藏最近使用的工具窗口
 
-Ctrl+ALT+F12     打开资源管理器
 Ctrl+ALT+S     设置
 Ctrl+ALT+L     格式化代码
 Ctrl+ALT+O     清除无效包引用
 Ctrl+Shift+J     合并行
 Ctrl+Shift+Enter     完成声明
+
+Esc     返回编辑器
+Shift+Esc     隐藏最近使用的工具窗口
+
+F3     搜索关键字
+ALT+F3     高亮选中文本（same as Ctrl+F）
+
+F12     查看最近使用的工具窗口
+Ctrl+F12     查看文件结构
+Ctrl+ALT+F12     查看文件路径
 
 ALT+Insert     生成方法
 Ctrl+ALT+Insert     新建文件
