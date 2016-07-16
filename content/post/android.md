@@ -229,7 +229,7 @@ public class FirstActivity extends AppCompatActivity implements CompoundButton.O
 
 -------------------------------------------------------
 
-RadioGroup
+RadioGroup && RadioButton
 布局文件
 <RadioGroup
         android:id="@+id/radioGroup"
