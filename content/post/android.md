@@ -103,6 +103,10 @@ root@HM2013023:/ # exit
 
 ![](/uploads/android-radiobutton.svg "RadioButton")
 
+![](/uploads/android-layout.svg "Layout")
+
+![](/uploads/android-activity-life-cycle.svg "Activity 生命周期")
+
 ## Code
 ```java
 AutoCompleteTextView
