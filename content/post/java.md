@@ -34,6 +34,7 @@ Ctrl+Y     删除行
 Ctrl+D     复制行
 Ctrl+G     转至行
 Ctrl+B     转至声明处
+Ctrl+R     替换文本
 Ctrl+O     重写方法
 Ctrl+H     查看类结构
 Ctrl+P     方法参数提示

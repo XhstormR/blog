@@ -7,7 +7,7 @@ title = "自学 Android"
 
 <!--more-->
 
-Updated on 2016-07-12
+Updated on 2016-07-20
 
 > ![](/uploads/android.svg "Android")
 >
@@ -73,11 +73,18 @@ root@HM2013023:/ # exit
   * 广播接收器（Broadcast Receiver）：用于接收和发送广播的组件。
   * 内容提供器（Content Provider）：用于实现不同应用程序之间共享数据的组件。
 * 控件属性
+  * sp：Scale-independent Pixels（可伸缩像素），文字尺寸一律使用 `sp` 单位。
+  * dp：Density-independent Pixels（密度无关像素），非文字尺寸使用 `dp` 单位。
   * orientation（方向）：`horizontal`（水平） | `vertical`（垂直）
   * wrap_content：包裹内容。
   * match_parent：铺满容器。
-  * sp：Scale-independent Pixels（可伸缩像素），文字尺寸一律使用 `sp` 单位。
-  * dp：Density-independent Pixels（密度无关像素），非文字尺寸使用 `dp` 单位。
+  * layout_weight：占据父容器 **剩余空间** 的比例。**外**
+      * 假设屏幕宽度为 X，2个控件的宽度都为 `match_parent` 的情况下，原有宽度为 X，2个控件的宽度也都为 X，那么剩余宽度为 X-(X+X)=-X；左边的控件占三分之一，所以总宽度为 X+(-X)*(1/3)=(2/3)X。
+      * 建议将 `width` 或 `height` 设为 `0dp`，这样就可以理解为屏占比了。
+  * margin：外边距，控件边框与控件边框的距离。**外**
+  * padding：内边距，控件边框与控件内容的距离。**里**
+  * layout_gravity：控件位置。**外**
+  * gravity：内容位置。**里**
 
 ## SVG
 
@@ -104,8 +111,6 @@ root@HM2013023:/ # exit
 ![](/uploads/android-radiobutton.svg "RadioButton")
 
 ![](/uploads/android-layout.svg "Layout")
-
-![](/uploads/android-activity-life-cycle.svg "Activity 生命周期")
 
 ## Code
 ```java
