@@ -50,6 +50,7 @@ Ctrl+ALT+L     格式化代码
 Ctrl+ALT+O     清除无效包引用
 Ctrl+Shift+J     合并行
 Ctrl+Shift+Enter     完成声明
+Ctrl+Shift+F10     RUN
 
 Esc     返回编辑器
 Shift+Esc     隐藏最近使用的工具窗口
