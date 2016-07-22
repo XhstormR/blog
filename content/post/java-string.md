@@ -7,7 +7,7 @@ title = "关于Java中的 String"
 
 <!--more-->
 
-Updated on 2016-07-20
+Updated on 2016-07-22
 
 > ![](/uploads/java-string.svg "String")
 
@@ -52,4 +52,27 @@ str.reverse();     HGFEDCBA     反转
 str.append(123);     ABCDEFGH123     追加
 str.insert(1, "123");     A123BCDEFGH     插入
 str.setCharAt(1,' ');     A CDEFGH     替换
+```
+
+---
+
+```java
+public class A {
+    public static void main(String[] args) {
+        String str = "123456";
+        for (char i : new StringBuilder(str).reverse().toString().toCharArray()) {     ①
+            System.out.println(i);
+        }
+    }
+}
+注 ①：
+StringBuilder   ➜   654321   ➜   String   ➜   char[]
+----
+输出：
+6
+5
+4
+3
+2
+1
 ```
