@@ -51,7 +51,17 @@ Updated on 2016-07-22
 
 ![](/uploads/java-stack-catalan2.png "Catalan")
 
-Reference：https://en.wikipedia.org/wiki/Catalan_number
+### 中缀表达式转后缀表达式的思路
+* 操作符：若 stack1 为空栈，则直接进栈 stack1。
+  * 若优先级比 stack1 栈顶元素高，则进栈 stack1。
+  * 若优先级比 stack1 栈顶元素低或相同，则弹出 stack1 栈顶元素至 stack2，再与 stack1 栈顶元素比较。
+* 操作数：直接进栈 stack2。
+
+## Reference
+
+Catalan number：https://en.wikipedia.org/wiki/Catalan_number
+
+Regex：http://help.mythicsoft.com/filelocatorpro/cn/quickstart.htm
 
 ![](/uploads/java-stack.png "Stack")
 
@@ -95,7 +105,7 @@ public class A {
 
     private static boolean isMatch(String str) {
         Stack<Character> stack = new Stack<Character>();     新建一个栈
-        for (int i = 0; i < str.length(); i++) {
+        for (int i = 0; i < str.length(); i++) {     扫描字符串
             if (str.charAt(i) == '(') {
                 stack.push('(');     数据入栈
             }
@@ -129,5 +139,124 @@ true
 
 中缀表达式转为后缀表达式
 ----
+public class A {
+    public static void main(String[] args) {
+        String a = "1.8 + 5 / 8 * 1.6";
+        System.out.println(a + "\n" + reverse(a));
+    }
 
+    private static String reverse(String str) {
+        Stack<String> stack = new Stack<>();       stack    原表达式
+        Stack<String> stack1 = new Stack<>();     stack1  操作符
+        Stack<String> stack2 = new Stack<>();     stack2  操作数
+
+        for (String i : reverseString(str.split(" "))) {     字符串   ➜   String 数组   ➜   反转   ➜   压入 stack
+            stack.push(i);
+        }
+        for (; !stack.empty(); ) {     stack(空)   ➜   stack1 和 stack2
+            String i = stack.peek();     预览栈顶元素
+            switch (i) {
+                case "+":     同一优先级操作符（低）
+                case "-":
+                    if (stack1.empty()) {     空栈直接进栈
+                        stack1.push(stack.pop());
+                    } else {     否则清空 stack1 至 stack2，再进栈
+                        for (; !stack1.empty(); ) {
+                            stack2.push(stack1.pop());
+                        }
+                        stack1.push(stack.pop());
+                    }
+                    break;
+                case "*":     同一优先级操作符（高）
+                case "/":
+                    if (stack1.empty() || stack1.peek().equals("+") || stack1.peek().equals("-")) {
+                        stack1.push(stack.pop());
+                    } else {     空栈直接进栈或者优先级比 stack1 栈顶元素高，否则弹出 stack1 栈顶元素至 stack2，再与 stack1 栈顶元素比较
+                        stack2.push(stack1.pop());
+                    }
+                    break;
+                default:     操作数直接进栈 stack2
+                    stack2.push(stack.pop());
+                    break;
+            }
+        }
+        for (; !stack1.empty(); ) {     stack1(空)   ➜   stack2
+            stack2.push(stack1.pop());
+        }
+        String[] strings = new String[stack2.size()];
+        for (int i = 0, j = stack2.size(); i < j; i++) {     stack2(空)   ➜   String 数组
+            strings[i] = stack2.pop();
+        }
+        String string = "";
+        for (String i : reverseString(strings)) {     String 数组   ➜   反转   ➜   字符串
+            string += i + " ";
+        }
+        return string;
+    }
+
+    private static String[] reverseString(String[] str) {     反转数组
+        String[] strings = new String[str.length];
+        for (int i = 0, j = str.length; i < j; i++) {
+            strings[i] = str[str.length - i - 1];
+        }
+        return strings;
+    }
+}
+----
+输出：
+1.8 + 5 / 8 * 1.6
+1.8 5 8 / 1.6 * +
+
+-------------------------------------------------------
+
+后缀表达式求值
+----
+public class A {
+    public static void main(String[] args) {
+        String a = "1.8 5 8 / 1.6 * +";
+        System.out.println(calculate(a));
+    }
+
+    private static String calculate(String str) {
+        if (str.matches(".*0 /.*-.*")) {     使用正则表达式匹配除以0，分别返回 "-∞" 或 "∞"
+            return "-∞";
+        } else if (str.matches(".*0 /.*+.*")) {
+            return "∞";
+        }
+        Stack<String> stack = new Stack<>();
+        double a, b;
+
+        for (String i : str.split(" ")) {     字符串   ➜   String 数组   ➜   扫描
+            switch (i) {
+                case "+":     操作符则弹出栈顶2个元素进行运算，再将结果进栈
+                    a = Double.parseDouble(stack.pop());     String   ➜   double
+                    b = Double.parseDouble(stack.pop());
+                    stack.push(String.valueOf(b + a));     double   ➜   String
+                    break;
+                case "-":
+                    a = Double.parseDouble(stack.pop());
+                    b = Double.parseDouble(stack.pop());
+                    stack.push(String.valueOf(b - a));
+                    break;
+                case "*":
+                    a = Double.parseDouble(stack.pop());
+                    b = Double.parseDouble(stack.pop());
+                    stack.push(String.valueOf(b * a));
+                    break;
+                case "/":
+                    a = Double.parseDouble(stack.pop());
+                    b = Double.parseDouble(stack.pop());
+                    stack.push(String.valueOf(b / a));
+                    break;
+                default:     操作数直接进栈
+                    stack.push(i);
+                    break;
+            }
+        }
+        return stack.pop();
+    }
+}
+----
+输出：
+2.8
 ```

@@ -66,7 +66,7 @@ public class A {
     }
 }
 注 ①：
-StringBuilder   ➜   654321   ➜   String   ➜   char[]
+String   ➜   StringBuilder   ➜   反转   ➜   String   ➜   char[]
 ----
 输出：
 6
