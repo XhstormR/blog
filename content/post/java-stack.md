@@ -21,7 +21,7 @@ Updated on 2016-07-22
       * empty：测试栈是否为空。
       * search：返回对象在栈中的位置。
 
-### 以固定顺序进栈，求出栈顺序总数
+### 固定顺序进栈，求出栈顺序总数
 1 个元素进栈有 1 种出栈顺序，2 个元素进栈有 2 种出栈顺序，3 个元素进栈有 5 种出栈顺序
 
 把 `n` 个元素的出栈顺序数记为 `f(n)`，则对于 `1`、 `2`、 `3` 元素可得出：
@@ -52,10 +52,12 @@ Updated on 2016-07-22
 ![](/uploads/java-stack-catalan2.png "Catalan")
 
 ### 中缀表达式转后缀表达式的思路
+* stack1 ⟺ 操作符；stack2 ⟺ 操作数
 * 操作符：若 stack1 为空栈，则直接进栈 stack1。
   * 若优先级比 stack1 栈顶元素高，则进栈 stack1。
   * 若优先级比 stack1 栈顶元素低或相同，则弹出 stack1 栈顶元素至 stack2，再与 stack1 栈顶元素比较。
 * 操作数：直接进栈 stack2。
+* 最后清空 stack1 元素至 stack2，done。
 
 ## Reference
 
