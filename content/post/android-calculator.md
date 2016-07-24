@@ -9,7 +9,7 @@ title = "Android 计算器"
 
 Updated on 2016-07-23
 
-> [![](/uploads/android-calculator.png "Stack")](http://ww4.sinaimg.cn/large/a15b4afegw1f650hwobvnj203k03kk3x)
+> [![](/uploads/android-calculator.png "Calculator")](http://ww4.sinaimg.cn/large/a15b4afegw1f650hwobvnj203k03kk3x)
 
 ## FirstActivty.java
 ```java
