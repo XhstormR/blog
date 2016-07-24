@@ -7,9 +7,591 @@ title = "Android 计算器"
 
 <!--more-->
 
-Updated on 2016-07-19
+Updated on 2016-07-23
 
->
+> [![](/uploads/android-calculator.png "Stack")](http://ww4.sinaimg.cn/large/a15b4afegw1f650hwobvnj203k03kk3x)
+
+## FirstActivty.java
+```java
+package com.example.system.myapplication;
+
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import java.util.Stack;
+
+public class FirstActivty extends AppCompatActivity implements View.OnClickListener {
+    private Button btn_0;
+    private Button btn_1;
+    private Button btn_2;
+    private Button btn_3;
+    private Button btn_4;
+    private Button btn_5;
+    private Button btn_6;
+    private Button btn_7;
+    private Button btn_8;
+    private Button btn_9;
+    private Button btn_dian;
+    private Button btn_jian;
+    private Button btn_jia;
+    private Button btn_cheng;
+    private Button btn_chu;
+    private Button btn_clear;
+    private Button btn_delete;
+    private Button btn_equal;
+    private EditText editText;
+    private String str = "";
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.first_activity);
+
+        btn_0 = (Button) findViewById(R.id.btn_0);
+        btn_1 = (Button) findViewById(R.id.btn_1);
+        btn_2 = (Button) findViewById(R.id.btn_2);
+        btn_3 = (Button) findViewById(R.id.btn_3);
+        btn_4 = (Button) findViewById(R.id.btn_4);
+        btn_5 = (Button) findViewById(R.id.btn_5);
+        btn_6 = (Button) findViewById(R.id.btn_6);
+        btn_7 = (Button) findViewById(R.id.btn_7);
+        btn_8 = (Button) findViewById(R.id.btn_8);
+        btn_9 = (Button) findViewById(R.id.btn_9);
+        btn_dian = (Button) findViewById(R.id.btn_dian);
+        btn_jia = (Button) findViewById(R.id.btn_jia);
+        btn_jian = (Button) findViewById(R.id.btn_jian);
+        btn_cheng = (Button) findViewById(R.id.btn_cheng);
+        btn_chu = (Button) findViewById(R.id.btn_chu);
+        btn_clear = (Button) findViewById(R.id.btn_clear);
+        btn_delete = (Button) findViewById(R.id.btn_delete);
+        btn_equal = (Button) findViewById(R.id.btn_equal);
+        editText = (EditText) findViewById(R.id.editText);
+
+        btn_0.setOnClickListener(this);
+        btn_1.setOnClickListener(this);
+        btn_2.setOnClickListener(this);
+        btn_3.setOnClickListener(this);
+        btn_4.setOnClickListener(this);
+        btn_5.setOnClickListener(this);
+        btn_6.setOnClickListener(this);
+        btn_7.setOnClickListener(this);
+        btn_8.setOnClickListener(this);
+        btn_9.setOnClickListener(this);
+        btn_dian.setOnClickListener(this);
+        btn_jia.setOnClickListener(this);
+        btn_jian.setOnClickListener(this);
+        btn_cheng.setOnClickListener(this);
+        btn_chu.setOnClickListener(this);
+        btn_clear.setOnClickListener(this);
+        btn_delete.setOnClickListener(this);
+        btn_equal.setOnClickListener(this);
+        editText.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btn_0:
+            case R.id.btn_1:
+            case R.id.btn_2:
+            case R.id.btn_3:
+            case R.id.btn_4:
+            case R.id.btn_5:
+            case R.id.btn_6:
+            case R.id.btn_7:
+            case R.id.btn_8:
+            case R.id.btn_9:
+                str += ((Button) view).getText().toString();
+                break;
+            case R.id.btn_dian:
+                if (!str.isEmpty() && !str.matches(".* \\S*\\.\\S*$")) {     使用正则表达式防止重复输入
+                    str += ((Button) view).getText().toString();
+                }
+                break;
+            case R.id.btn_jia:
+            case R.id.btn_jian:
+            case R.id.btn_cheng:
+            case R.id.btn_chu:
+                if (!str.isEmpty() && !str.matches(".*[+-/*] $")) {     使用正则表达式防止重复输入
+                    str += " " + ((Button) view).getText().toString() + " ";
+                }
+                break;
+            case R.id.btn_clear:     清空
+                str = "";
+                break;
+            case R.id.btn_delete:     退位
+                str = str.isEmpty() ? "" : str.substring(0, str.length() - 1);
+                break;
+            case R.id.btn_equal:     计算
+                str = str.isEmpty() ? "" : calculate(reverse(str));
+                break;
+        }
+        editText.setText(str);
+    }
+
+     ----- 后面代码可参考 "栈" -----
+
+    private static String reverse(String str) {     中缀表达式转后缀表达式
+        Stack<String> stack = new Stack<>();
+        Stack<String> stack1 = new Stack<>();
+        Stack<String> stack2 = new Stack<>();
+        for (String i : reverseString(str.split(" "))) {
+            stack.push(i);
+        }
+        for (; !stack.empty(); ) {
+            String i = stack.peek();
+            switch (i) {
+                case "+":
+                case "-":
+                    if (stack1.empty()) {
+                        stack1.push(stack.pop());
+                    } else {
+                        for (; !stack1.empty(); ) {
+                            stack2.push(stack1.pop());
+                        }
+                        stack1.push(stack.pop());
+                    }
+                    break;
+                case "*":
+                case "/":
+                    if (stack1.empty() || stack1.peek().equals("+") || stack1.peek().equals("-")) {
+                        stack1.push(stack.pop());
+                    } else {
+                        stack2.push(stack1.pop());
+                    }
+                    break;
+                default:
+                    stack2.push(stack.pop());
+                    break;
+            }
+        }
+        for (; !stack1.empty(); ) {
+            stack2.push(stack1.pop());
+        }
+        String[] strings = new String[stack2.size()];
+        for (int i = 0, j = stack2.size(); i < j; i++) {
+            strings[i] = stack2.pop();
+        }
+        String string = "";
+        for (String i : reverseString(strings)) {
+            string += i + " ";
+        }
+        return string;
+    }
+
+    private static String[] reverseString(String[] str) {     反转数组
+        String[] strings = new String[str.length];
+        for (int i = 0, j = str.length; i < j; i++) {
+            strings[i] = str[str.length - i - 1];
+        }
+        return strings;
+    }
+
+    private static String calculate(String str) {     后缀表达式求值
+        if (str.matches(".*0 /.*-.*")) {
+            return "-∞";
+        } else if (str.matches(".*0 /.*+.*")) {
+            return "∞";
+        }
+        Stack<String> stack = new Stack<>();
+        double a, b;
+
+        for (String i : str.split(" ")) {
+            switch (i) {
+                case "+":
+                    a = Double.parseDouble(stack.pop());
+                    b = Double.parseDouble(stack.pop());
+                    stack.push(String.valueOf(b + a));
+                    break;
+                case "-":
+                    a = Double.parseDouble(stack.pop());
+                    b = Double.parseDouble(stack.pop());
+                    stack.push(String.valueOf(b - a));
+                    break;
+                case "*":
+                    a = Double.parseDouble(stack.pop());
+                    b = Double.parseDouble(stack.pop());
+                    stack.push(String.valueOf(b * a));
+                    break;
+                case "/":
+                    a = Double.parseDouble(stack.pop());
+                    b = Double.parseDouble(stack.pop());
+                    stack.push(String.valueOf(b / a));
+                    break;
+                default:
+                    stack.push(i);
+                    break;
+            }
+        }
+        return stack.pop();
+    }
+}
+```
+
+## first_activity.xml
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:padding="5dp">
+
+    <EditText
+            android:keepScreenOn="true"     保持屏幕常亮
+            android:focusable="false"     不可获取焦点
+            android:focusableInTouchMode="false"     不可获取焦点
+            android:layout_weight="2"
+            android:background="@drawable/view_bg"
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:hint="结果"
+            android:textSize="30sp"
+            android:gravity="end|bottom"
+            android:padding="20dp"/>
+
+    <TableLayout
+            android:layout_weight="3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:stretchColumns="*"
+            android:shrinkColumns="*">
+
+        <TableRow
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+            <Button
+                    android:background="@drawable/button_selector"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="C"
+                    android:textSize="25sp"
+                    android:textColor="#ff7700"
+                    android:gravity="center"
+                    android:id="@+id/btn_clear"
+                    android:layout_column="0"/>
+
+            <Button
+                    android:background="@drawable/button_selector"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="DEL"
+                    android:textSize="25sp"
+                    android:textColor="#ff7700"
+                    android:gravity="center"
+                    android:id="@+id/btn_delete"
+                    android:layout_column="1"/>
+
+            <Button
+                    android:background="@drawable/button_selector"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="/"
+                    android:textSize="25sp"
+                    android:gravity="center"
+                    android:id="@+id/btn_chu"
+                    android:layout_column="2"/>
+
+            <Button
+                    android:background="@drawable/button_selector"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="*"
+                    android:textSize="25sp"
+                    android:gravity="center"
+                    android:id="@+id/btn_cheng"
+                    android:layout_column="3"/>
+
+        </TableRow>
+
+        <TableRow
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+            <Button
+                    android:background="@drawable/button_selector"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="7"
+                    android:textSize="25sp"
+                    android:gravity="center"
+                    android:id="@+id/btn_7"
+                    android:layout_column="0"/>
+
+            <Button
+                    android:background="@drawable/button_selector"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="8"
+                    android:textSize="25sp"
+                    android:gravity="center"
+                    android:id="@+id/btn_8"
+                    android:layout_column="1"/>
+
+            <Button
+                    android:background="@drawable/button_selector"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="9"
+                    android:textSize="25sp"
+                    android:gravity="center"
+                    android:id="@+id/btn_9"
+                    android:layout_column="2"/>
+
+            <Button
+                    android:background="@drawable/button_selector"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="-"
+                    android:textSize="25sp"
+                    android:gravity="center"
+                    android:id="@+id/btn_jian"
+                    android:layout_column="3"/>
+
+        </TableRow>
+
+        <TableRow
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+            <Button
+                    android:background="@drawable/button_selector"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="4"
+                    android:textSize="25sp"
+                    android:gravity="center"
+                    android:id="@+id/btn_4"
+                    android:layout_column="0"/>
+
+            <Button
+                    android:background="@drawable/button_selector"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="5"
+                    android:textSize="25sp"
+                    android:gravity="center"
+                    android:id="@+id/btn_5"
+                    android:layout_column="1"/>
+
+            <Button
+                    android:background="@drawable/button_selector"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="6"
+                    android:textSize="25sp"
+                    android:gravity="center"
+                    android:id="@+id/btn_6"
+                    android:layout_column="2"/>
+
+            <Button
+                    android:background="@drawable/button_selector"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="+"
+                    android:textSize="25sp"
+                    android:gravity="center"
+                    android:id="@+id/btn_jia"
+                    android:layout_column="3"/>
+        </TableRow>
+
+    </TableLayout>
+
+    <LinearLayout
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal">
+
+        <LinearLayout
+                android:layout_weight="3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+            <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp">
+
+                <Button
+                        android:background="@drawable/button_selector"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="1"
+                        android:textSize="25sp"
+                        android:gravity="center"
+                        android:id="@+id/btn_1"/>
+
+                <Button
+                        android:background="@drawable/button_selector"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="2"
+                        android:textSize="25sp"
+                        android:gravity="center"
+                        android:id="@+id/btn_2"/>
+
+                <Button
+                        android:background="@drawable/button_selector"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="3"
+                        android:textSize="25sp"
+                        android:gravity="center"
+                        android:id="@+id/btn_3"/>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp">
+
+                <Button
+                        android:background="@drawable/button_selector"
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="0"
+                        android:textSize="25sp"
+                        android:gravity="center"
+                        android:id="@+id/btn_0"/>
+
+                <Button
+                        android:background="@drawable/button_selector"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="."
+                        android:textSize="25sp"
+                        android:gravity="center"
+                        android:id="@+id/btn_dian"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+                android:background="@drawable/equal_selector"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="="
+                android:textSize="25sp"
+                android:id="@+id/btn_equal"/>
+    </LinearLayout>
+
+</LinearLayout>
+```
+
+## drawable
+```xml
+view_bg.xml
+---
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <corners android:radius="5dp"/>     圆角
+    <solid android:color="#f7de63"/>     填充色
+    <stroke     边框
+            android:width="5dp"
+            android:color="#00ffffff"/>
+    <gradient     渐变色
+            android:startColor="#ffffff"
+            android:endColor="#ff0000"/>
+</shape>
+
+-------------------------------------------------------
+
+button_bg.xml
+---
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <corners android:radius="5dp"/>
+    <solid android:color="@color/beige"/>
+    <stroke
+            android:width="5dp"
+            android:color="#00ffffff"/>
+</shape>
+
+button_press.xml
+---
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <corners android:radius="5dp"/>
+    <solid android:color="@color/wheat"/>
+    <stroke
+            android:width="5dp"
+            android:color="#00ffffff"/>
+</shape>
+
+button_selector.xml
+---
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/button_press" android:state_pressed="true"/>
+    <item android:drawable="@drawable/button_bg"/>
+</selector>
+
+-------------------------------------------------------
+
+equal_bg.xml
+---
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <corners android:radius="5dp"/>
+    <solid android:color="#ff7700"/>
+    <stroke
+            android:width="5dp"
+            android:color="#00ffffff"/>
+</shape>
+
+equal_press.xml
+---
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <corners android:radius="5dp"/>
+    <solid android:color="#ffae00"/>
+    <stroke
+            android:width="5dp"
+            android:color="#00ffffff"/>
+</shape>
+
+equal_selector.xml
+---
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/equal_press" android:state_pressed="true"/>     点击状态
+    <item android:drawable="@drawable/equal_bg"/>     普通状态
+</selector>
+
+-------------------------------------------------------
+
+styles.xml
+---
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">     全屏页面
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+</resources>
+```
 
 ## colors.xml
 ```xml
