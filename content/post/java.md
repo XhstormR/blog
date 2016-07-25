@@ -46,6 +46,7 @@ ALT+Enter     快速修正
 Shift+F6     重构 - 重命名
 
 Ctrl+ALT+S     设置
+Ctrl+ALT+T     代码包围
 Ctrl+ALT+L     格式化代码
 Ctrl+ALT+O     清除无效包引用
 Ctrl+Shift+J     合并行

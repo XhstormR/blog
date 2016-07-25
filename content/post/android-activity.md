@@ -25,16 +25,65 @@ Updated on 2016-07-18
 ```xml
 AndroidManifest.xml
 ⇳
-<activity android:name="com.example.system.myapplication.MainActivity">
-    <intent-filter>     设置为主入口
-        <action android:name="android.intent.action.MAIN"/>
-        <category android:name="android.intent.category.LAUNCHER"/>
-    </intent-filter>
-</activity>
+<application
+          android:label="@string/app_name"     应用名称
+          android:icon="@mipmap/ic_launcher"     应用图标
+          android:theme="@style/AppTheme">     应用主题
+
+    <activity android:name="com.example.system.myapplication.MainActivity">
+        <intent-filter>     标签
+            <action android:name="android.intent.action.MAIN"/>     设置为入口 Activity
+            <category android:name="android.intent.category.LAUNCHER"/>
+        </intent-filter>
+    </activity>
+
+    其余组件
+
+</application>
+```
+
+## 保护 Activity
+```xml
+应用A - AndroidManifest.xml
+⇳
+<permission
+        android:name="aa.bb.cc.dd"
+        android:protectionLevel="normal"/>
+<activity
+        android:name=".MainActivity"
+        android:permission="aa.bb.cc.dd"/>     添加权限
+
+应用B - AndroidManifest.xml
+⇳
+<uses-permission android:name="aa.bb.cc.dd"/>     使用应用A 中的权限
 ```
 
 ## Activity 之间的通信
 ```java
+1
+---
+AndroidManifest.xml
+⇳
+<activity android:name=".B">
+    <intent-filter>     标签
+        <action android:name="aa.bb.cc"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+    </intent-filter>
+</activity>
+
+A.class
+⇳
+public void onClick(View view) {
+    Intent intent = new Intent();
+    intent.setAction("aa.bb.cc");
+    intent.addCategory("android.intent.category.DEFAULT");
+    startActivity(intent);
+}
+
+-------------------------------------------------------
+
+2
+---
 public class A extends AppCompatActivity {
     private Button button1;
     private Button button2;

@@ -45,11 +45,11 @@ class A {
 }
 ----
 输出：
-true
-true
+true     多次出现的字符串，Java编译程序会将内存地址指向同一对象
+true     内容相同
 --------------
-false
-true
+false     显式 new 了一个对象，内存地址不相同
+true     内容相同
 --------------
 false
 false

@@ -108,25 +108,25 @@ public class A {
     private static boolean isMatch(String str) {
         Stack<Character> stack = new Stack<Character>();     新建一个栈
         for (int i = 0; i < str.length(); i++) {     扫描字符串
-            if (str.charAt(i) == '(') {
-                stack.push('(');     数据入栈
-            }
-            if (str.charAt(i) == ')') {
-                if (!stack.empty() && stack.pop() == '(') {     匹配成功，数据出栈
-                    continue;
-                } else {
-                    return false;
-                }
-            }
-            if (str.charAt(i) == '[') {
-                stack.push('[');     数据入栈
-            }
-            if (str.charAt(i) == ']') {
-                if (!stack.empty() && stack.pop() == '[') {     匹配成功，数据出栈
-                    continue;
-                } else {
-                    return false;
-                }
+            switch (str.charAt(i)) {
+                case '(':
+                    stack.push('(');     数据入栈
+                    break;
+                case '[':
+                    stack.push('[');     数据入栈
+                    break;
+                case ')':
+                    if (!stack.empty() && stack.pop() == '(') {     匹配成功，数据出栈
+                        continue;
+                    } else {
+                        return false;
+                    }
+                case ']':
+                    if (!stack.empty() && stack.pop() == '[') {     匹配成功，数据出栈
+                        continue;
+                    } else {
+                        return false;
+                    }
             }
         }
         return stack.empty();     判断栈是否为空（其实到这步可以直接返回 true）
