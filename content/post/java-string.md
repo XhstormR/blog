@@ -36,15 +36,18 @@ str.regionMatches(0, "DABC", 1, 3)     true     比较部分内容     原从0�
 str.startsWith("ABC")     true     比较开头
 str.endsWith("ABC")     false     比较结尾
 
-str.trim()     删除开头和结尾的空格
+str.trim()     去除开头和结尾的空格
 str.toLowerCase()     abcdefgh     大小写转换
 str.concat("123")     ABCDEFGH123     追加
 str.replace("B", " ")     A CDEFGH     替换
 str.substring(2, 6)     CDEF     截取字符串     返回 CharSequence
 str.subSequence(2, 6)     CDEF     截取字符串     返回 String
+
+str.split(" ")     以空格为分隔符，返回字符串数组
+str.toCharArray()     返回字符数组
 ```
 
-## StringBuilder
+## StringBuilder and StringBuffer
 ```java
 StringBuilder str = new StringBuilder("ABCDEFGH");
 

@@ -67,7 +67,7 @@ root@HM2013023:/ # exit
 
 ## Android 规范
 * [Android Design](/uploads/android-design.png "Android Design")
-* Android 组件：所有组件都需要在 `AndroidManifest.xml` 中进行注册。
+* Android 组件：所有组件都需要在 `AndroidManifest.xml ➜ application` 里进行注册。
   * 活动（Activity）：一种包含用户界面的组件，主要用于和用户进行交互。
   * 服务（Service）：用于实现程序后台运行的组件，不需要和用户交互。
   * 广播接收器（Broadcast Receiver）：用于接收和发送广播的组件。
