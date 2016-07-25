@@ -40,11 +40,12 @@ str.trim()     去除开头和结尾的空格
 str.toLowerCase()     abcdefgh     大小写转换
 str.concat("123")     ABCDEFGH123     追加
 str.replace("B", " ")     A CDEFGH     替换
-str.substring(2, 6)     CDEF     截取字符串     返回 CharSequence
-str.subSequence(2, 6)     CDEF     截取字符串     返回 String
+str.substring(2, 6)     CDEF     截取字符串     返回 String
+str.subSequence(2, 6)     CDEF     截取字符串     返回 CharSequence
 
-str.split(" ")     以空格为分隔符，返回字符串数组
-str.toCharArray()     返回字符数组
+str.split(" ")     以空格为分隔符，返回字符串数组     返回 String[]
+str.toCharArray()     返回字符数组     返回 Char[]
+str.matches(".*0 /.*+.*")     使用正则表达式匹配内容
 ```
 
 ## StringBuilder and StringBuffer
