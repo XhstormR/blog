@@ -46,16 +46,22 @@ str.subSequence(2, 6)     CDEF     截取字符串     返回 CharSequence
 str.split(" ")     以空格为分隔符，返回字符串数组     返回 String[]
 str.toCharArray()     返回字符数组     返回 Char[]
 str.matches(".*0 /.*+.*")     使用正则表达式匹配内容
+
+Tips：
+字符串索引范围从 0 开始，到 str.length()-1 结束。
+indexOf 没有匹配结果会返回 -1。
+substring 包括开始位置的字符，不包括结束位置的字符。   [2,6)
 ```
 
 ## StringBuilder and StringBuffer
 ```java
 StringBuilder str = new StringBuilder("ABCDEFGH");
 
+str.toString();     ABCDEFGH     转换为String
 str.reverse();     HGFEDCBA     反转
+str.setCharAt(1,' ');     A CDEFGH     替换
 str.append(123);     ABCDEFGH123     追加
 str.insert(1, "123");     A123BCDEFGH     插入
-str.setCharAt(1,' ');     A CDEFGH     替换
 ```
 
 ---

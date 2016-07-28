@@ -278,6 +278,10 @@ HelloWorld!
 
 ![](/uploads/java-access.svg "访问修饰符")
 
+![](/uploads/java-wrapper.svg "包装类")
+
+![](/uploads/java-wrapper-method.svg "包装类")
+
 ![](/uploads/java-arithmetic.svg "算术运算符")
 
 ![](/uploads/java-assignment.svg "赋值运算符")
@@ -607,6 +611,18 @@ new IPlayGame() {
 		System.out.println("匿名内部类实现接口的方式2");     //推荐方式2
 	}
 }.playGame();
+
+-------------------------------------------------------
+
+Math 类
+double i = 12.85;
+----
+Math.ceil(i)     13.0     返回大于参数的最小整数     天花板
+Math.floor(i)     12.0     返回小于参数的最大整数     地板
+Math.round(i)     13     返回四舍五入后的整数
+(int)i     12     强制类型转换，直接截断
+
+Math.random()     0.6019044390548263     返回 (0,1) 之间的随机浮点数
 ```
 
 ### 继承初始化执行顺序
@@ -652,4 +668,20 @@ class Initial {
 3父类构造方法
 2子类初始化块
 3子类构造方法
+```
+
+### 装箱和拆箱
+```java
+装箱：把基本类型转换为包装类，使其具有对象的性质，分为手动装箱和自动装箱。
+拆箱：和装箱相反，把包装类对象转换为基本类型的值，分为手动拆箱和自动拆箱。
+
+int i = 5;
+----
+Integer x = new Integer(i);     手动装箱
+Integer y = i;     自动装箱
+
+Integer j = new Integer(10);
+----
+int m = j.intValue();     手动拆箱
+int n = j;     自动拆箱
 ```
