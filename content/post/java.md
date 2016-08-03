@@ -401,7 +401,7 @@ while (i <= 5) {     //先判断，后执行
 
 循环语句 do...while
 int i = 1;
-do {     //先执行，后判断，so无条件至少会执行一次
+do {     //先执行，后判断，所以至少会无条件执行一次
 	System.out.println(i);
 	i++;
 } while (i <= 5);
@@ -617,8 +617,8 @@ new IPlayGame() {
 Math 类
 double i = 12.85;
 ----
-Math.ceil(i)     13.0     返回大于参数的最小整数     天花板
-Math.floor(i)     12.0     返回小于参数的最大整数     地板
+Math.ceil(i)       13.0     返回大于参数的最小整数（向上取整）     天花板
+Math.floor(i)     12.0     返回小于参数的最大整数（向下取整）     地板
 Math.round(i)     13     返回四舍五入后的整数
 (int)i     12     强制类型转换，直接截断
 

@@ -30,7 +30,7 @@ AndroidManifest.xml
           android:icon="@mipmap/ic_launcher"     应用图标
           android:theme="@style/AppTheme">     应用主题
 
-    <activity android:name="com.example.system.myapplication.MainActivity">
+    <activity android:name="com.example.system.myapplication.MainActivity">     注册 Activity
         <intent-filter>     标签
             <action android:name="android.intent.action.MAIN"/>     设置为入口 Activity
             <category android:name="android.intent.category.LAUNCHER"/>
