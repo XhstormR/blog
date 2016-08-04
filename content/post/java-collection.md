@@ -228,5 +228,4 @@ java.util.Comparator       临时比较规则     compare(Object o1, Object o2)
 0      相等     o1=o2
 正数     大     o1>o2
 负数     小     o1<o2
-
 ```
