@@ -65,6 +65,8 @@ Catalan number：https://en.wikipedia.org/wiki/Catalan_number
 
 Regex：http://help.mythicsoft.com/filelocatorpro/cn/quickstart.htm , [Java](http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/java/util/regex/Pattern.html#sum)
 
+LaTeX：https://latex.codecogs.com/eqneditor/editor.php
+
 ![](/uploads/java-stack.png "Stack")
 
 ```java
