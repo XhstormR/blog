@@ -51,7 +51,7 @@ AndroidManifest.xml
         android:protectionLevel="normal"/>
 <activity
         android:name=".MainActivity"
-        android:permission="aa.bb.cc.dd"/>     添加权限
+        android:permission="aa.bb.cc.dd"/>     添加权限，受到保护
 
 应用B - AndroidManifest.xml
 ⇳
