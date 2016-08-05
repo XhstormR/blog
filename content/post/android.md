@@ -7,7 +7,7 @@ title = "自学 Android"
 
 <!--more-->
 
-Updated on 2016-07-20
+Updated on 2016-08-05
 
 > ![](/uploads/android.svg "Android")
 >
@@ -79,12 +79,16 @@ root@HM2013023:/ # exit
   * wrap_content：包裹内容。
   * match_parent：铺满容器。
   * layout_weight：占据父容器 **剩余空间** 的比例。**外**
-      * 假设屏幕宽度为 X，2个控件的宽度都为 `match_parent` 的情况下，原有宽度为 X，2个控件的宽度也都为 X，那么剩余宽度为 X-(X+X)=-X；左边的控件占三分之一，所以总宽度为 X+(-X)*(1/3)=(2/3)X。
+      * 假设屏幕宽度为 X，2个控件的宽度都为 `match_parent` 的情况下，原有宽度为 X，2个控件的宽度也都为 X，那么剩余宽度为 X-(X+X)=-X；左边的控件占三分之一，所以左边总宽度为 X+(-X)*(1/3)=(2/3)X。
       * 建议将 `width` 或 `height` 设为 `0dp`，这样就可以理解为屏占比了。
   * margin：外边距，控件边框与控件边框的距离。**外**
   * padding：内边距，控件边框与控件内容的距离。**里**
   * layout_gravity：控件位置。**外**
   * gravity：内容位置。**里**
+* ListView：显示列表项的控件。
+  * 数据适配器：把复杂的数据绑定至指定控件上，是数据源和控件之间的桥梁。
+      * ArrayAdapter（数组适配器）：用于绑定格式单一的数据。（数组或集合）
+      * SimpleAdapter（简单适配器）：用于绑定格式复杂的数据。（特定泛型集合）
 
 ## SVG
 
