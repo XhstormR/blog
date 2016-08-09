@@ -47,6 +47,9 @@ repositories {
 ### 找不到资源文件
 IDEA ➜ Build ➜ `Make Project` or `Rebuild Project`（重新生成 R.java）
 
+### 没有 Assets 文件夹
+IDEA ➜ File ➜ New ➜ Folder ➜ Assets Folder（src/main/assets/）
+
 ### 导入 SDK 源码
 IDEA ➜ File ➜ Project Structure ➜ SDKs ➜ Sourcepath
 
@@ -98,9 +101,10 @@ root@HM2013023:/ # exit
       * OnItemClickListener：监听列表中单个条目的点击事件。
       * OnScrollListener：监听列表的滚动。
 * GridView：以 **表格** 形式显示条目的控件。（格）
-* DatePicker && TimePicker：日期选择器 && 时间选择器。
 * Spinner：以 **下拉列表** 形式显示条目的控件。（行）
+* DatePicker && TimePicker：日期选择器 && 时间选择器。
 * ProgressBar：环形进度条、水平进度条（精确）。
+* WebView：显示网页的控件。
 
 ## SVG
 
@@ -731,6 +735,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         textView.setText("第一进度条：" + progressBar.getProgress() + "%第二进度条：" + progressBar.getSecondaryProgress() + "%最大进度条：" + progressBar.getMax());
     }
 }
+
+-------------------------------------------------------
+
+WebView
+布局文件
+main_activity.xml
+
 ```
 
 ---
