@@ -7,11 +7,13 @@ title = "自学 Android"
 
 <!--more-->
 
-Updated on 2016-08-05
+Updated on 2016-08-09
 
 > ![](/uploads/android.svg "Android")
 >
 > https://developer.android.com/index.html
+>
+> https://developer.android.com/reference/classes.html
 
 ## 开发环境
 * IntelliJ IDEA：https://www.jetbrains.com/idea/download/
@@ -44,6 +46,9 @@ repositories {
 
 ### 找不到资源文件
 IDEA ➜ Build ➜ `Make Project` or `Rebuild Project`（重新生成 R.java）
+
+### 导入 SDK 源码
+IDEA ➜ File ➜ Project Structure ➜ SDKs ➜ Sourcepath
 
 ## Android Debug Bridge
 * 手机开启 USB 调试模式
@@ -85,10 +90,17 @@ root@HM2013023:/ # exit
   * padding：内边距，控件边框与控件内容的距离。**里**
   * layout_gravity：控件位置。**外**
   * gravity：内容位置。**里**
-* ListView：显示列表项的控件。
+* ListView：以 **列表** 形式显示条目的控件。（行）
   * 数据适配器：把复杂的数据绑定至指定控件上，是数据源和控件之间的桥梁。
       * ArrayAdapter（数组适配器）：用于绑定格式单一的数据。（数组或集合）
       * SimpleAdapter（简单适配器）：用于绑定格式复杂的数据。（特定泛型集合）
+  * 事件监听器：监听某种动作行为并做出响应，是程序和用户系统交互的桥梁。
+      * OnItemClickListener：监听列表中单个条目的点击事件。
+      * OnScrollListener：监听列表的滚动。
+* GridView：以 **表格** 形式显示条目的控件。（格）
+* DatePicker && TimePicker：日期选择器 && 时间选择器。
+* Spinner：以 **下拉列表** 形式显示条目的控件。（行）
+* ProgressBar：环形进度条、水平进度条（精确）。
 
 ## SVG
 
@@ -124,7 +136,6 @@ AutoCompleteTextView
         android:id="@+id/autoCompleteTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:hint="请输入关键词"     输入文本提示
         android:completionThreshold="2"     输入 2 个字符时开始匹配
         />
@@ -156,12 +167,10 @@ ToggleButton
         android:id="@+id/toggleButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:checked="false"     默认为关
         android:textOff="关"
         android:textOn="开"
         />
-
 <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
@@ -204,7 +213,6 @@ CheckBox
         android:textAlignment="center"
         android:layout_gravity="center"
         />
-
 <CheckBox
         android:id="@+id/checkBox2"
         android:layout_width="match_parent"
@@ -233,8 +241,8 @@ public class FirstActivity extends AppCompatActivity implements CompoundButton.O
     public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
         Log.i("Tag", b + "");
         if (b) {
-            Toast.makeText(compoundButton.getContext(), "选中" + compoundButton.getText().toString(), Toast.LENGTH_SHORT).show();     （上下文对象，字符串消息，显示时间）
-        } else {
+            Toast.makeText(compoundButton.getContext(), "选中" + compoundButton.getText().toString(), Toast.LENGTH_SHORT).show();
+        } else {                                                  ⇳ （上下文对象，字符串消息，显示时间）
             Toast.makeText(compoundButton.getContext(), "取消" + compoundButton.getText().toString(), Toast.LENGTH_SHORT).show();
         }
     }
@@ -267,8 +275,8 @@ RadioGroup && RadioButton
 ----
 
 Activity 文件
-public class FirstActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener {     注意是实现 RadioGroup 类的监听方法，而不是 CompoundButton 类的
-    @Override
+public class FirstActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener {
+    @Override                                                                                            ↳ 注意是实现 RadioGroup 类的监听方法，而不是 CompoundButton 类的
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.first_layout);
@@ -287,6 +295,440 @@ public class FirstActivity extends AppCompatActivity implements RadioGroup.OnChe
                 Log.i("Tag", "性别为女");
                 break;
         }
+    }
+}
+
+-------------------------------------------------------
+
+ListView
+布局文件
+main_activity.xml
+⇳
+<ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"/>
+item.xml     简单适配器的自定义布局文件
+⇳
+<ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher"
+        android:id="@+id/imageView"/>
+<TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Test"
+        android:id="@+id/textView"/>
+
+----
+
+Activity 文件
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, AbsListView.OnScrollListener {
+    private String[] data1 = {"1", "2", "3", "4", "5", "6"};     数据源
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main_activity);
+
+        ListView listView = (ListView) findViewById(R.id.listView);     1控件
+
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, data1);
+        listView.setAdapter(arrayAdapter);     3将控件与适配器绑定                               ↳ 2数组适配器（上下文对象，布局文件，数据源）
+
+        SimpleAdapter simpleAdapter = new SimpleAdapter(this, getdata(), R.layout.item, new String[]{"image", "text"}, new int[]{R.id.imageView, R.id.textView});
+        listView.setAdapter(simpleAdapter);     3将控件与适配器绑定                             ↳ 2简单适配器（上下文对象，数据源，布局文件，索引(Map中的键名)，绑定控件ID(与索引成对应关系)）
+
+        listView.setOnItemClickListener(this);     监听点击条目
+        listView.setOnScrollListener(this);     监听滚动变化
+    }
+
+    private List<Map<String, Object>> getdata() {     数据源：由许多 Map 所组成的 List 集合，一个 Map 对应一个条目
+        List<Map<String, Object>> data2 = new ArrayList<>();
+        for (int i = 0; i < 6; i++) {
+            Map<String, Object> map = new HashMap<>();
+            map.put("image", R.mipmap.ic_launcher);     (键,值)
+            map.put("text", "文本" + i);
+            data2.add(map);
+        }
+        return data2;
+    }
+
+    @Override
+    public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+    }
+
+    @Override
+    public void onScrollStateChanged(AbsListView view, int scrollState) {     滚动变化
+        switch (scrollState) {
+            case SCROLL_STATE_TOUCH_SCROLL:
+                Log.i("Tag", "1正在滚动(手指未离开)");
+                break;
+            case SCROLL_STATE_FLING:
+                Log.i("Tag", "2正在滑动(手指已离开)");
+                break;
+            case SCROLL_STATE_IDLE:
+                Log.i("Tag", "3停止滚动");
+                break;
+        }
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {     点击条目
+        Toast.makeText(this, position + "\n" + parent.getItemAtPosition(position).toString(), Toast.LENGTH_SHORT).show();
+    }                                           ↳ 显示索引位置和对应数据源中的数据
+}
+
+下滑增加新条目
+case SCROLL_STATE_FLING:
+    Map<String, Object> map = new HashMap<>();
+    map.put("image", R.mipmap.ic_launcher);
+    map.put("text", "新条目");
+    data2.add(map);
+    simpleAdapter.notifyDataSetChanged();     更新控件数据，同步 UI 线程
+    break;
+
+-------------------------------------------------------
+
+DatePicker && TimePicker
+布局文件
+<DatePicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/datePicker"/>
+<TimePicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/timePicker"/>
+
+----
+
+Activity 文件
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main_activity);
+
+        DatePicker datePicker = (DatePicker) findViewById(R.id.datePicker);
+        TimePicker timePicker = (TimePicker) findViewById(R.id.timePicker);
+        Calendar calendar = Calendar.getInstance();     java.util.Calendar 类
+
+        int year = calendar.get(Calendar.YEAR);     年
+        int month = calendar.get(Calendar.MONTH) + 1;     月（从零开始）
+        int day = calendar.get(Calendar.DAY_OF_MONTH);     日
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);     小时
+        int minute = calendar.get(Calendar.MINUTE);     分钟
+        setTitle(year + "-" + month + "-" + day + "-" + hour + ":" + minute);     设置标题栏
+
+        datePicker.init(year, calendar.get(Calendar.MONTH), day, new DatePicker.OnDateChangedListener() {     日期选择器（年，月，日，监听器）
+            @Override
+            public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                setTitle(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
+            }
+        });
+
+        timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {     时间选择器（监听器）
+            @Override
+            public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
+                setTitle(hourOfDay + ":" + minute);
+            }
+        });
+
+        new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {     对话框形式的日期选择器（上下文对象，监听器，年，月，日）.show()
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                setTitle(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
+            }
+        }, year, calendar.get(Calendar.MONTH), day).show();
+
+        new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {     对话框形式的时间选择器（上下文对象，监听器，小时，分钟，是否为24小时制）.show()
+            @Override
+            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                setTitle(hourOfDay + ":" + minute);
+            }
+        }, hour, minute, true).show();
+    }
+}
+
+-------------------------------------------------------
+
+GridView
+布局文件
+main_activity.xml
+⇳
+<GridView
+        android:numColumns="3"     一行三列，可以设置自适应 auto_fit
+        android:horizontalSpacing="10dp"     列间距
+        android:verticalSpacing="10dp"     行间距
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/gridView"/>
+item.xml     简单适配器的自定义布局文件
+⇳
+LinearLayout ⟺ android:gravity="center"     整体居中
+<ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher"
+        android:id="@+id/imageView"/>
+<TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Test"
+        android:id="@+id/textView"/>
+
+----
+
+Activity 文件
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main_activity);
+
+        GridView gridView = (GridView) findViewById(R.id.gridView);     1控件
+        SimpleAdapter simpleAdapter = new SimpleAdapter(this, getdata(), R.layout.item, new String[]{"image", "text"}, new int[]{R.id.imageView, R.id.textView});
+        gridView.setAdapter(simpleAdapter);     3将控件与适配器绑定                             ↳ 2简单适配器（上下文对象，数据源，布局文件，索引(Map中的键名)，绑定控件ID(与索引成对应关系)）
+        gridView.setOnItemClickListener(this);     监听点击条目
+    }
+
+    private List<Map<String, Object>> getdata() {     数据源
+        List<Map<String, Object>> data = new ArrayList<>();
+        for (int i = 0; i < 9; i++) {
+            Map<String, Object> map = new HashMap<>();
+            map.put("image", R.mipmap.ic_launcher);
+            map.put("text", "文本" + i);
+            data.add(map);
+        }
+        return data;
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Log.i("Tag", parent + "\n" + view + "\n" + position + "\n" + id);
+        Log.i("Tag", ((TextView) view.findViewById(R.id.textView)).getText().toString());     获得点击条目中的控件
+    }
+}
+
+-------------------------------------------------------
+
+Spinner
+布局文件
+main_activity.xml
+⇳
+<Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner"/>
+<TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/textView"/>
+item.xml     简单适配器的自定义布局文件
+⇳
+LinearLayout ⟺ android:orientation="horizontal"     横向排列
+<ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher"
+        android:id="@+id/imageView"/>
+<TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Test"
+        android:id="@+id/textView2"/>
+
+----
+
+Activity 文件
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+    private String[] strings = {"文本1", "文本2", "文本3", "文本4",};     数据源
+    private TextView textView;
+    private Spinner spinner;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main_activity);
+
+        textView = (TextView) findViewById(R.id.textView);
+        spinner = (Spinner) findViewById(R.id.spinner);     1控件
+
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, strings);     2数组适配器
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);     设置下拉样式
+        spinner.setAdapter(arrayAdapter);     3将控件与适配器绑定
+
+        SimpleAdapter simpleAdapter = new SimpleAdapter(this, getdata(), R.layout.item, new String[]{"image", "text"}, new int[]{R.id.imageView, R.id.textView2});     2简单适配器
+        simpleAdapter.setDropDownViewResource(R.layout.item);     设置下拉样式
+        spinner.setAdapter(simpleAdapter);     3将控件与适配器绑定
+
+        spinner.setOnItemSelectedListener(this);     监听器
+    }
+
+    private List<Map<String, Object>> getdata() {     数据源
+        List<Map<String, Object>> data = new ArrayList<>();
+        for (String string : strings) {
+            Map<String, Object> map = new HashMap<>();
+            map.put("image", R.mipmap.ic_launcher);
+            map.put("text", string);
+            data.add(map);
+        }
+        return data;
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        textView.setText(position + "\n" + ((TextView) view.findViewById(R.id.textView2)).getText().toString());
+    }                                     ↳ 显示索引位置并且获得点击条目中的控件
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+    }
+}
+
+-------------------------------------------------------
+
+ProgressBar
+布局文件
+main_activity.xml
+⇳
+<ProgressBar
+        android:progressDrawable="@drawable/progressbar"     覆盖系统自带的绘制文件（可选）
+        android:secondaryProgress="60"     第二进度条
+        android:progress="30"     第一进度条
+        android:max="100"     最大进度条
+        android:indeterminate="false"     设置为精确进度
+        style="?android:attr/progressBarStyleHorizontal"     设置为水平进度条
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar"/>
+<Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="增加"
+        android:id="@+id/increase"/>
+<Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="减少"
+        android:id="@+id/decrease"/>
+<Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="重置"
+        android:id="@+id/reset"/>
+<Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="对话框形式"
+        android:id="@+id/dialog"/>
+<TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/textView"/>
+progressbar.xml     ProgressBar 的自定义绘制文件
+⇳
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@android:id/background">     最大进度条
+        <shape>
+            <solid android:color="#ff9d9e9d"/>     填充色
+        </shape>
+    </item>
+    <item android:id="@android:id/secondaryProgress">     第二进度条
+        <clip>
+            <shape>
+                <solid android:color="#008a9f"/>
+            </shape>
+        </clip>
+    </item>
+    <item android:id="@android:id/progress">     第一进度条
+        <clip>
+            <shape>
+                <solid android:color="#00ddff"/>
+            </shape>
+        </clip>
+    </item>
+</layer-list>
+
+----
+
+Activity 文件
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    private ProgressBar progressBar;
+    private Button btn_increase;
+    private Button btn_decrease;
+    private Button btn_reset;
+    private Button btn_dialog;
+    private TextView textView;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main_activity);
+
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        btn_increase = (Button) findViewById(R.id.increase);
+        btn_decrease = (Button) findViewById(R.id.decrease);
+        btn_reset = (Button) findViewById(R.id.reset);
+        btn_dialog = (Button) findViewById(R.id.dialog);
+        textView = (TextView) findViewById(R.id.textView);
+
+        btn_increase.setOnClickListener(this);
+        btn_decrease.setOnClickListener(this);
+        btn_reset.setOnClickListener(this);
+        btn_dialog.setOnClickListener(this);
+        textView.setText("第一进度条：" + progressBar.getProgress() + "%第二进度条：" + progressBar.getSecondaryProgress() + "%最大进度条：" + progressBar.getMax());
+    }                                                                           ↳ 获取进度
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.increase:
+                progressBar.incrementProgressBy(10);     改变进度
+                progressBar.incrementSecondaryProgressBy(10);
+                break;
+            case R.id.decrease:
+                progressBar.incrementProgressBy(-10);     改变进度
+                progressBar.incrementSecondaryProgressBy(-10);
+                break;
+            case R.id.reset:
+                progressBar.setProgress(30);     设置进度
+                progressBar.setSecondaryProgress(60);
+                break;
+            case R.id.dialog:
+                ProgressDialog progressDialog = new ProgressDialog(this);     实例化对话框
+                progressDialog.setTitle("对话框标题");
+                progressDialog.setMessage("对话框信息");
+                progressDialog.setIcon(R.mipmap.ic_launcher);     对话框图标
+
+                progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);     设置为水平进度条
+                progressDialog.setIndeterminate(false);     设置为精确进度
+                progressDialog.setMax(100);     设置最大进度
+                progressDialog.incrementProgressBy(30);     改变进度
+
+                progressDialog.setButton(DialogInterface.BUTTON_POSITIVE, "确定", new DialogInterface.OnClickListener() {     确定按钮
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(MainActivity.this, "已确定", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                progressDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "取消", new DialogInterface.OnClickListener() {     取消按钮
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(MainActivity.this, "已取消", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                progressDialog.setCancelable(false);     不可以通过返回按钮退出对话框
+                progressDialog.show();     显示对话框
+                break;
+        }
+        textView.setText("第一进度条：" + progressBar.getProgress() + "%第二进度条：" + progressBar.getSecondaryProgress() + "%最大进度条：" + progressBar.getMax());
     }
 }
 ```
