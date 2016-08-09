@@ -55,7 +55,7 @@ AndroidManifest.xml
 
 应用B - AndroidManifest.xml
 ⇳
-<uses-permission android:name="aa.bb.cc.dd"/>     使用应用A 中的权限
+<uses-permission android:name="aa.bb.cc.dd"/>     申请权限
 ```
 
 ## Activity 之间的通信
@@ -186,6 +186,30 @@ public class B extends AppCompatActivity {
                     setResult(2, intent);     传出数据（结果码，意图）
                     finish();     结束当前 Activity
                 }
+            }
+        });
+    }
+}
+
+-------------------------------------------------------
+
+通过 Intent 调用外部浏览器
+---
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main_activity);
+
+        Button button = (Button) findViewById(R.id.button);
+
+        button.setOnClickListener(new View.OnClickListener() {     点击按钮调用外部浏览器打开网页
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("https://www.bing.com/");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
             }
         });
     }
