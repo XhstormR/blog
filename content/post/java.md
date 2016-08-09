@@ -50,6 +50,7 @@ Ctrl+ALT+T     代码包围
 Ctrl+ALT+L     格式化代码
 Ctrl+ALT+O     清除无效包引用
 Ctrl+Shift+J     合并行
+Ctrl+Shift+U     大小写转换
 Ctrl+Shift+Enter     完成声明
 Ctrl+Shift+F10     RUN
 
