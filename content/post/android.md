@@ -741,7 +741,76 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 WebView
 布局文件
 main_activity.xml
+<WebView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/webView"/>
+配置文件
+AndroidManifest.xml
+<uses-permission android:name="android.permission.INTERNET"/>     网络访问权限
 
+----
+
+Activity 文件
+public class MainActivity extends AppCompatActivity {
+    private WebView webView;
+    private ProgressDialog progressDialog;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main_activity);
+
+        webView = (WebView) findViewById(R.id.webView);
+
+        webView.loadUrl("https://www.bing.com/");     加载 Web 页面
+        webView.loadUrl("file:///android_asset/example.html");     加载本地页面
+        webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {     不使用外部游览器打开页面
+                view.loadUrl(url);
+                return true;
+            }
+        });
+        webView.setWebChromeClient(new WebChromeClient() {
+            @Override
+            public void onProgressChanged(WebView view, int newProgress) {     弹出 ProgressDialog 显示页面加载进度
+                if (newProgress == 100) {
+                    if (progressDialog != null && progressDialog.isShowing()) {
+                        progressDialog.dismiss();     关闭对话框
+                        progressDialog = null;
+                    }
+                } else {
+                    if (progressDialog == null) {
+                        progressDialog = new ProgressDialog(MainActivity.this);
+                        progressDialog.setTitle("正在加载");
+                        progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+                        progressDialog.setProgress(newProgress);
+                        progressDialog.show();     显示对话框
+                    } else {
+                        progressDialog.setProgress(newProgress);
+                    }
+                }
+            }
+        });
+        WebSettings settings = webView.getSettings();     获得 WebSettings 对象
+        settings.setJavaScriptEnabled(true);     启用 JavaScript
+        settings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);     优先使用缓存
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {     判断是否为返回键
+            if (webView.canGoBack()) {
+                webView.goBack();     返回上一页面
+                return true;
+            } else {
+                System.exit(0);     退出 APP
+            }
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+}
 ```
 
 ---

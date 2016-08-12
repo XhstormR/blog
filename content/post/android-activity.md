@@ -91,7 +91,7 @@ public class A extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        Log.i("Tag", "A ---> onCreate");
+        Log.i("Tag", "A ---> 1onCreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.a);
         button1 = (Button) findViewById(R.id.a_bt1);
@@ -125,37 +125,37 @@ public class A extends AppCompatActivity {
 
     @Override
     protected void onStart() {
-        Log.i("Tag", "A ---> onStart");
+        Log.i("Tag", "A ---> 2onStart");
         super.onStart();
     }
 
     @Override
     protected void onResume() {
-        Log.i("Tag", "A ---> onResume");
+        Log.i("Tag", "A ---> 3onResume");
         super.onResume();
     }
 
     @Override
     protected void onPause() {
-        Log.i("Tag", "A ---> onPause");
+        Log.i("Tag", "A ---> 4onPause");
         super.onPause();
     }
 
     @Override
     protected void onStop() {
-        Log.i("Tag", "A ---> onStop");
+        Log.i("Tag", "A ---> 5onStop");
         super.onStop();
     }
 
     @Override
     protected void onDestroy() {
-        Log.i("Tag", "A ---> onDestroy");
+        Log.i("Tag", "A ---> 6onDestroy");
         super.onDestroy();
     }
 
     @Override
     protected void onRestart() {
-        Log.i("Tag", "A ---> onRestart");
+        Log.i("Tag", "A ---> 7onRestart");
         super.onRestart();
     }
 }
@@ -215,3 +215,7 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 ```
+
+## 关于 finish() 和 System.exit(0)
+* finish()：结束调用此方法的 `Activity` 的生命周期，也就是按顺序执行至 `onDestroy()`。
+* System.exit(0)：直接停止该 App 的虚拟机，相当于App直接断电，不应该使用此方法。

@@ -233,7 +233,6 @@ public class FirstActivty extends AppCompatActivity implements View.OnClickListe
 
 ## first_activity.xml
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
@@ -499,9 +498,7 @@ public class FirstActivty extends AppCompatActivity implements View.OnClickListe
 ```xml
 view_bg.xml
 ---
-<?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-
     <corners android:radius="5dp"/>     圆角
     <solid android:color="#f7de63"/>     填充色
     <stroke     边框
@@ -516,9 +513,7 @@ view_bg.xml
 
 button_bg.xml
 ---
-<?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-
     <corners android:radius="5dp"/>
     <solid android:color="@color/beige"/>
     <stroke
@@ -528,9 +523,7 @@ button_bg.xml
 
 button_press.xml
 ---
-<?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-
     <corners android:radius="5dp"/>
     <solid android:color="@color/wheat"/>
     <stroke
@@ -540,7 +533,6 @@ button_press.xml
 
 button_selector.xml
 ---
-<?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:drawable="@drawable/button_press" android:state_pressed="true"/>
     <item android:drawable="@drawable/button_bg"/>
@@ -550,9 +542,7 @@ button_selector.xml
 
 equal_bg.xml
 ---
-<?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-
     <corners android:radius="5dp"/>
     <solid android:color="#ff7700"/>
     <stroke
@@ -562,9 +552,7 @@ equal_bg.xml
 
 equal_press.xml
 ---
-<?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-
     <corners android:radius="5dp"/>
     <solid android:color="#ffae00"/>
     <stroke
@@ -574,7 +562,6 @@ equal_press.xml
 
 equal_selector.xml
 ---
-<?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:drawable="@drawable/equal_press" android:state_pressed="true"/>     点击状态
     <item android:drawable="@drawable/equal_bg"/>     普通状态
