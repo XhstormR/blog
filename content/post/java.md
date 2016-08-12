@@ -615,6 +615,21 @@ new IPlayGame() {
 
 -------------------------------------------------------
 
+Scanner.nextLine() 的用法
+Scanner scanner = new Scanner(System.in);
+while (true) {
+    try {
+        int i = scanner.nextInt();
+        System.out.println(i);
+        break;
+    } catch (Exception e) {
+        scanner.nextLine();     消耗之前的错误输出，避免死循环
+        System.out.println("请重新输入!");
+    }
+}
+
+-------------------------------------------------------
+
 Math 类
 double i = 12.85;
 ----
