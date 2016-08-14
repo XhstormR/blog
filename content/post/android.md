@@ -7,7 +7,7 @@ title = "自学 Android"
 
 <!--more-->
 
-Updated on 2016-08-09
+Updated on 2016-08-12
 
 > ![](/uploads/android.svg "Android")
 >
@@ -805,7 +805,7 @@ public class MainActivity extends AppCompatActivity {
                 webView.goBack();     返回上一页面
                 return true;
             } else {
-                System.exit(0);     退出 APP
+                finish();     结束当前 Activity
             }
         }
         return super.onKeyDown(keyCode, event);
