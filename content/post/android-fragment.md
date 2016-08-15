@@ -167,9 +167,9 @@ interface MyListener {
 
 MainActivity.java
 ⇳
-Fragment fragmentById = fragmentManager.findFragmentById(R.id.MyFragment);     静态加载
+Fragment fragmentById = fragmentManager.findFragmentById(R.id.MyFragment);     通过 ID 获得 Fragment 对象
 ((MyFragment) fragmentById).setText("数据传入");     调用接口方法
-Fragment fragmentByTag = fragmentManager.findFragmentByTag("MyFragment");     动态加载
+Fragment fragmentByTag = fragmentManager.findFragmentByTag("MyFragment");     通过 Tag 获得 Fragment 对象
 ((MyFragment) fragmentByTag).setText("数据传入");     调用接口方法
 
 MyFragment.java     implements MyListener
@@ -177,7 +177,7 @@ MyFragment.java     implements MyListener
 @Override
 public void setText(String string) {     实现接口方法
     Toast.makeText(getActivity(), string, Toast.LENGTH_SHORT).show();
-}                                    ↳ 获得所在 Activity 对象
+}                                    ↳ 获得宿主 Activity 对象
 ```
 
 ### 传出
@@ -197,5 +197,5 @@ public void setText(String string) {     实现接口方法
 Fragment.java
 ⇳
 ((MyListener) getActivity()).setText("数据传出");     调用接口方法
-                          ↳ 获得所在 Activity 对象
+                          ↳ 获得宿主 Activity 对象
 ```
