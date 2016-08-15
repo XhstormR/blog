@@ -815,6 +815,39 @@ public class MainActivity extends AppCompatActivity {
 
 ---
 
+```java
+android:visibility="visible"     可见
+button.setVisibility(View.VISIBLE);
+----
+android:visibility="invisible"     隐形（不可见，占据空间）
+button.setVisibility(View.INVISIBLE);
+----
+android:visibility="gone"     隐藏（不可见，释放空间）
+button.setVisibility(View.GONE);
+
+-------------------------------------------------------
+
+RadioButton 做出 TAB 效果
+布局文件
+<RadioButton
+        android:checked="true"     默认选中
+        android:drawableTop="@mipmap/ic_launcher"     放置图片
+        android:background="@drawable/button"     背景样式
+        android:button="@null"     无按钮样式
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TAB"
+        android:id="@+id/radioButton"/>
+背景样式 (button.xml)
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/gray" android:state_checked="true"/>
+    <item android:drawable="@color/white"/>
+</selector>
+```
+
+---
+
 [Maven1](https://repo1.maven.org/maven2/),[Maven2](https://repo.maven.apache.org/maven2/),[JCenter](https://jcenter.bintray.com/),[Mirror](http://maven.aliyun.com/)
 
 Cache：

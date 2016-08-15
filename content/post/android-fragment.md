@@ -7,7 +7,7 @@ title = "Android Fragment"
 
 <!--more-->
 
-Updated on 2016-08-12
+Updated on 2016-08-14
 
 > ![](/uploads/android-fragment.svg "Fragment 生命周期方法")
 
@@ -112,7 +112,7 @@ main_activity.xml
 <fragment
         android:name="com.example.system.myapplication.Fragment"     加载的 Fragment 类
         android:id="@+id/MyFragment"     标识 Fragment
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 ```
 
@@ -123,7 +123,7 @@ main_activity.xml
 <LinearLayout     容器
         android:id="@+id/container"
         android:orientation="vertical"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 </LinearLayout>
 
@@ -137,3 +137,65 @@ fragmentTransaction.commit();     提交事务
 ```
 
 ## Fragment 通信
+### 传入
+```java
+不存在
+----
+MainActivity.java
+⇳
+Fragment fragment = new Fragment();     Fragment
+Bundle bundle = new Bundle();     数据包
+bundle.putString("data", "数据传入");     导入数据
+fragment.setArguments(bundle);     导入数据包
+FragmentManager fragmentManager = getFragmentManager();     获得 FragmentManager 对象
+FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();     开启事务
+fragmentTransaction.add(R.id.container, fragment, "MyFragment");     加载 Fragment
+fragmentTransaction.addToBackStack(null);     添加至回退栈
+fragmentTransaction.commit();     提交事务
+
+Fragment.java
+⇳
+Bundle bundle = getArguments();     获取数据包
+String string = bundle.getString("data");     获取数据
+
+已存在
+----
+接口 (MyListener.java)
+interface MyListener {
+    void setText(String string);
+}
+
+MainActivity.java
+⇳
+Fragment fragmentById = fragmentManager.findFragmentById(R.id.MyFragment);     静态加载
+((MyFragment) fragmentById).setText("数据传入");     调用接口方法
+Fragment fragmentByTag = fragmentManager.findFragmentByTag("MyFragment");     动态加载
+((MyFragment) fragmentByTag).setText("数据传入");     调用接口方法
+
+MyFragment.java     implements MyListener
+⇳
+@Override
+public void setText(String string) {     实现接口方法
+    Toast.makeText(getActivity(), string, Toast.LENGTH_SHORT).show();
+}                                    ↳ 获得所在 Activity 对象
+```
+
+### 传出
+```java
+接口 (MyListener.java)
+interface MyListener {
+    void setText(String string);
+}
+
+MainActivity.java     implements MyListener
+⇳
+@Override
+public void setText(String string) {     实现接口方法
+    Toast.makeText(this, string, Toast.LENGTH_SHORT).show();
+}
+
+Fragment.java
+⇳
+((MyListener) getActivity()).setText("数据传出");     调用接口方法
+                          ↳ 获得所在 Activity 对象
+```
