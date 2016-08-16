@@ -11,6 +11,19 @@ Updated on 2016-08-14
 
 > ![](/uploads/android-fragment.svg "Fragment 生命周期方法")
 
+## FragmentManager
+* `findFragmentById()` ⟺ `findFragmentByTag()`：获得 Fragment 对象。
+* `addOnBackStackChangedListener()`：添加监听回退栈变化的监听器。
+* `popBackStack()`：弹出回退栈，模拟用户按下返回按钮。
+
+## FragmentTransaction
+* `add()` ⟺ `remove()`：`onAttach()-onResume()` ⟺ `onPause()-onDetach()`
+* `attach()` ⟺ `detach()`：`onCreateView()-onResume()` ⟺ `onPause()-onDestroyView()`
+* `show()` ⟺ `hide()`：不执行生命周期中的方法，仅仅是显示或隐藏。
+* `replace()`：销毁容器中所有的 Fragment，再添加一个指定的 Fragment。
+
+---
+
 ## 创建 Fragment
 ### Fragment.java
 ```java
@@ -132,7 +145,7 @@ MainActivity.java
 FragmentManager fragmentManager = getFragmentManager();     获得 FragmentManager 对象
 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();     开启事务
 fragmentTransaction.add(R.id.container, new Fragment(), "MyFragment");     加载 Fragment（放置容器，加载的 Fragment 类，标识 Fragment）
-fragmentTransaction.addToBackStack(null);     添加至回退栈
+fragmentTransaction.addToBackStack(null);     添加事务至回退栈
 fragmentTransaction.commit();     提交事务
 ```
 
@@ -150,7 +163,7 @@ fragment.setArguments(bundle);     导入数据包
 FragmentManager fragmentManager = getFragmentManager();     获得 FragmentManager 对象
 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();     开启事务
 fragmentTransaction.add(R.id.container, fragment, "MyFragment");     加载 Fragment
-fragmentTransaction.addToBackStack(null);     添加至回退栈
+fragmentTransaction.addToBackStack(null);     添加事务至回退栈
 fragmentTransaction.commit();     提交事务
 
 Fragment.java
