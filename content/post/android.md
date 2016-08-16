@@ -840,7 +840,7 @@ RadioButton 做出 TAB 效果
         android:text="TAB"
         android:id="@+id/radioButton"/>
 背景样式 (button.xml)
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<selector xmlns:android="http://schemas.android.com/apk/res/android">     选择器
     <item android:drawable="@color/gray" android:state_checked="true"/>
     <item android:drawable="@color/white"/>
 </selector>
