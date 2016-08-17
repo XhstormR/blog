@@ -22,4 +22,4 @@ code{background:#e8f2fb;border:1px solid #c9e1f6}
 abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,html,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{cursor:url(../uploads/cursor.ico),auto}
 
 img[data-src] {opacity: 0;}
-img{opacity: 1;transition: opacity 0.9s;}
+img{opacity: 1;transition: opacity 2s;}
