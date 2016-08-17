@@ -13,7 +13,7 @@ Updated on 2016-06-28
 >
 > http://www.lagmonster.org/docs/vi.html
 >
-> ![](/uploads/vim.png)
+> {{< image "/uploads/vim.png" "Vim" >}}
 >
 > Vim is often called a "programmer's editor," and so useful for programming that many consider it an entire IDE. It's not just for programmers, though. Vim is perfect for all kinds of text editing, from composing email to editing configuration files.
 >
