@@ -9,7 +9,7 @@ title = "关于Java中的 String"
 
 Updated on 2016-07-22
 
-> ![](/uploads/java-string.svg "String")
+> {{< image "/uploads/java-string.svg" "String" >}}
 
 * String：字符串常量
   * 一旦被创建就不能修改它的值，而是通过重新创建一个新的对象并重新引用。

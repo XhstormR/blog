@@ -9,7 +9,7 @@ title = "通过 Java 实现租车系统"
 
 Updated on 2016-07-02
 
-> ![](/uploads/java-rent.svg "Java")
+> {{< image "/uploads/java-rent.svg" "Java" >}}
 >
 > 分别创建了三个类：车类(Car)、方法类(Method)、入口类(Initial)
 
