@@ -67,6 +67,14 @@ str.insert(1, "123");     A123BCDEFGH     插入
 ---
 
 ```java
+String str1 = "123";     使用 1 个对象
+String str2 = new String("123");     使用 2 个对象
+
+str1 == str2     false     显式 new 了一个对象，内存地址不相同
+str1.equals(str2)     true     内容相同
+
+-------------------------------------------------------
+
 public class A {
     public static void main(String[] args) {
         String str = "123456";
