@@ -5,7 +5,6 @@ CACHE:
 favicon.ico
 css/uno.min.css
 css/nprogress.css
-js/nprogress.js
 js/main.min.js
 js/magic-canvas.min.js
 uploads/cursor.ico
