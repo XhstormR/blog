@@ -1,7 +1,2 @@
 <img data-src="{{ index .Params 0 }}" alt="" title="{{ index .Params 1 }}" />
-<script>
-[].forEach.call(document.querySelectorAll('img[data-src]'), function(img) {
-    img.setAttribute('src', img.getAttribute('data-src'));
-    img.onload = function() {img.removeAttribute('data-src');};
-});
-</script>
+<script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(a){a.setAttribute("src",a.getAttribute("data-src"));a.onload=function(){a.removeAttribute("data-src")}});</script>
