@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" manifest="{{ .Site.BaseURL }}/offline.appcache">
 <head>
-<!--
-<script>
-var useragent = navigator.userAgent;
-if (useragent.match(/Nexus/i) != 'Nexus') {
-    alert('哈哈，就不让你看！');
-    var opened = window.open('about:blank', '_self');
-    opened.opener = null ;
-    opened.close();
-}
-</script>
--->
+    <!--
+    <script>
+    var useragent = navigator.userAgent;
+    if (useragent.match(/Nexus/i) != 'Nexus') {
+        alert('哈哈，就不让你看！');
+        var opened = window.open('about:blank', '_self');
+        opened.opener = null ;
+        opened.close();
+    }
+    </script>
+    -->
     <meta charset="utf-8">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
     <title> {{ .Title }} &middot; {{ .Site.Title }} </title>
-    <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" href="{{ .RSSlink }}" />
+    <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" href="{{ .RSSlink }}"/>
     <link rel="icon" type="image/x-icon" href="{{ .Site.BaseURL }}/favicon.ico">
     <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/uno.min.css">
     <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
