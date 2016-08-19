@@ -16,9 +16,7 @@
     <div class="panel-main">
         <div class="panel-main__inner panel-inverted">
             <div class="panel-main__content">
-                <h1 class="panel-cover__title panel-title">
-                    <a href="{{ .Site.BaseURL }}/"  title="link to homepage for {{ .Site.Title }}">{{ .Site.Title }}</a>
-                </h1>
+                <h1 class="panel-cover__title panel-title"><a href="{{ .Site.BaseURL }}/"  title="link to homepage for {{ .Site.Title }}">{{ .Site.Title }}</a></h1>
                 <hr class="panel-cover__divider" />
                 <p class="panel-cover__description">{{ if .Site.Params.description }} {{ .Site.Params.description }} {{end}}</p>
                 <hr class="panel-cover__divider panel-cover__divider--secondary" />
