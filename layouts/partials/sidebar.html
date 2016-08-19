@@ -35,35 +35,3 @@
     </div>
 </header>
 </div>
-
-<noscript>
-    <style>
-        #scriptHeader {display:none;}
-        .navigation-wrapper{
-            display: block;
-            top: 0;
-        }
-    </style>
-    <header class="panel-cover panel-cover--collapsed" style="background-image: url({{ .Site.Params.cover }})">
-        <div class="panel-main">
-            <div class="panel-main__inner panel-inverted">
-                <div class="panel-main__content">
-                    <h1 class="panel-cover__title panel-title">
-                        <a href="{{ .Site.BaseURL }}/"  title="link to homepage for {{ .Site.Title }}">{{ .Site.Title }}</a>
-                    </h1>
-                    <hr class="panel-cover__divider" />
-                    <p class="panel-cover__description">{{ if .Site.Params.description }} {{ .Site.Params.description }} {{end}}</p>
-                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
-                    <div class="navigation-wrapper">
-                        <nav class="cover-navigation cover-navigation--primary">
-                            <ul class="navigation">
-                                <li class="navigation__item"><a href="{{ .Site.BaseURL }}/#blog" title="link to {{ .Site.Title }} blog" class="blog-button">Blog</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            <div class="panel-cover--overlay"></div>
-        </div>
-    </header>
-</noscript>
