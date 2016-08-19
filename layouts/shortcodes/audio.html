@@ -1,1 +1,1 @@
-<audio src="{{ index .Params 0 }}" autoplay loop controls></audio>
+<audio src="{{ index .Params 0 }}" autoplay loop {{ if .Get 1 | eq "1" }}controls{{ end }}></audio>
