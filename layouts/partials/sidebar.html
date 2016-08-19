@@ -4,15 +4,15 @@
             <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
     </span>
     <header class="
-        {{ if .IsNode }}
-        {{ if or (eq .URL "/post/") (in .URL "/tags/") (in .URL "/categories/") }}
-            panel-cover panel-cover--collapsed
-        {{ else }}
-                panel-cover
-        {{ end }}
-        {{ else }}
-            panel-cover panel-cover--collapsed
-        {{ end }}">
+{{ if .IsNode }}
+    {{ if or (eq .URL "/post/") (in .URL "/tags/") (in .URL "/categories/") }}
+        panel-cover panel-cover--collapsed
+    {{ else }}
+        panel-cover
+    {{ end }}
+{{ else }}
+    panel-cover panel-cover--collapsed
+{{ end }}">
     <div class="panel-main">
         <div class="panel-main__inner panel-inverted">
             <div class="panel-main__content">
@@ -25,7 +25,7 @@
                 <div class="navigation-wrapper">
                     <nav class="cover-navigation cover-navigation--primary">
                         <ul class="navigation">
-                            <li class="navigation__item"><a href="{{ .Site.BaseURL }}#blog" title="link to {{ .Site.Title }} blog" class="blog-button">Blog</a> </li>
+                            <li class="navigation__item"><a href="{{ .Site.BaseURL }}#blog" title="link to {{ .Site.Title }} blog" class="blog-button">Blog</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -57,7 +57,7 @@
                     <div class="navigation-wrapper">
                         <nav class="cover-navigation cover-navigation--primary">
                             <ul class="navigation">
-                                <li class="navigation__item"><a href="{{ .Site.BaseURL }}/#blog" title="link to {{ .Site.Title }} blog" class="blog-button">Blog</a> </li>
+                                <li class="navigation__item"><a href="{{ .Site.BaseURL }}/#blog" title="link to {{ .Site.Title }} blog" class="blog-button">Blog</a></li>
                             </ul>
                         </nav>
                     </div>
