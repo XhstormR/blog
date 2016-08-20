@@ -22,6 +22,10 @@ Updated on 2016-08-01
 List<String> list = new ArrayList<>(Arrays.asList("A", "B", "C"));     Arrays.asList() 将数组转化为 List
 String[] strings = {"1", "2", "3"};
 
+集合转数组
+String[] ListToArray = new String[list.size()];
+list.toArray(ListToArray);
+
 增
 ----
 list.add("A");     A B C A     加入集合
