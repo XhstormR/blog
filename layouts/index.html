@@ -1,31 +1,29 @@
-    {{ partial "head.html" . }}
-    <body>
-        {{ partial "sidebar.html" . }}
-        <div class="bodytop">
-        <div class="content-wrapper">
-            <div class="content-wrapper__inner">
-                <section id="main">
-                    <div>
-                        {{ range first 10 .Data.Pages }}
-                            {{ if eq .Type  "post" }}
-                                {{ .Render "summary"}}
-                            {{ end }}
-                        {{ end }}
-                    </div>
-                    </br>
-                    <h4>
-                        <a href="{{ .Site.BaseURL }}/post/">Archive</a>
-                        &nbsp;&nbsp;
-                        <a href="{{ .Site.BaseURL }}/categories/">Categories</a>
-                    </h4>
-                </section>
+{{ partial "head.html" . }}
+<body>
+{{ partial "sidebar.html" . }}
+<div class="bodytop">
+<div class="content-wrapper">
+    <div class="content-wrapper__inner">
+        <section id="main">
+            <div>
+                {{ range first 10 .Data.Pages }}
+                    {{ if eq .Type  "post" }}
+                        {{ .Render "summary"}}
+                    {{ end }}
+                {{ end }}
             </div>
-        </div>
-        </div>
-        {{ partial "script.html" .}}
+            </br>
+            <h4>
+                <a href="{{ .Site.BaseURL }}/post/">Archive</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ .Site.BaseURL }}/categories/">Categories</a>
+            </h4>
+        </section>
+    </div>
+</div>
+</div>
+{{ partial "script.html" .}}
 <canvas id="reactive-bg-canvas"></canvas>
 <script src="http://cdn.bootcss.com/gsap/1.19.0/TweenLite.min.js"></script>
 <script src="{{ .Site.BaseURL }}/js/magic-canvas.min.js"></script>
 <script>if(document.body.clientWidth>960){$.magicCanvas.draw({type:"random-move",rgb:function (circlePos) {var px = circlePos.x;var py = circlePos.y;return {r:0,g:0,b:0};}})}</script>
-    </body>
+</body>
 </html>

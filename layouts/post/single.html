@@ -1,22 +1,22 @@
-  {{ partial "head.html" . }}
-  <body>
-    {{ partial "sidebar.html" . }}
-    <div class="bodytop">
-    <div class="content-wrapper">
-      <div class="content-wrapper__inner">
+{{ partial "head.html" . }}
+<body>
+{{ partial "sidebar.html" . }}
+<div class="bodytop">
+<div class="content-wrapper">
+    <div class="content-wrapper__inner">
         <div class="post">
-          <h1>{{ .Title }}</h1>
-          <span class="post-date">{{ .Date.Format "2006-01-02" }}</span>
-          {{ .Content }}
+            <h1>{{ .Title }}</h1>
+            <span class="post-date">{{ .Date.Format "2006-01-02" }}</span>
+            {{ .Content }}
         </div>
         <div class="sharing"></div>
-      </div>
     </div>
-    {{ .TableOfContents }}
-    </div>
-    <link rel="stylesheet" href="http://apps.bdimg.com/libs/highlight.js/9.1.0/styles/monokai_sublime.min.css">
-    <script src="http://apps.bdimg.com/libs/highlight.js/9.1.0/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-  </body>
-  {{ partial "script.html" .}}
+</div>
+</div>
+{{ .TableOfContents }}
+{{ partial "script.html" .}}
+<link rel="stylesheet" href="http://apps.bdimg.com/libs/highlight.js/9.1.0/styles/monokai_sublime.min.css">
+<script src="http://apps.bdimg.com/libs/highlight.js/9.1.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
 </html>
