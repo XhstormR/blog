@@ -803,7 +803,7 @@ public class MainActivity extends AppCompatActivity {
         if (keyCode == KeyEvent.KEYCODE_BACK) {     判断是否为返回键
             if (webView.canGoBack()) {
                 webView.goBack();     返回上一页面
-                return true;
+                return true;     消耗掉事件
             } else {
                 finish();     结束当前 Activity
             }
