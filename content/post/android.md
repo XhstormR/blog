@@ -105,6 +105,13 @@ root@HM2013023:/ # exit
 * DatePicker && TimePicker：日期选择器 && 时间选择器。
 * ProgressBar：环形进度条、水平进度条（精确）。
 * WebView：显示网页的控件。
+* ViewFlipper：多页面自动轮播并且带有动画效果的控件。
+  * `setInAnimation()` ⟺ `setOutAnimation()`：设置进入(退出)屏幕时的动画。
+  * `showPrevious()` ⟺ `showNext()`：显示前(后)一页。
+  * `startFlipping()` ⟺ `stopFlipping()`：开始(停止)循环切换。
+  * `setFlipInterval()`：设置切换页面的时间间隔，eg. 1s = 1000。
+* ScrollView：包裹的子控件屏幕显示不完全，需要通过滚动来显示完整的控件。
+  * ScrollView 垂直滚动，HorizontalScrollView 水平滚动。
 
 ## SVG
 
@@ -809,6 +816,74 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         return super.onKeyDown(keyCode, event);
+    }
+}
+
+-------------------------------------------------------
+
+ViewFlipper
+布局文件
+main_activity.xml
+<ViewFlipper
+        android:id="@+id/viewFlipper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+</ViewFlipper>
+
+----
+
+Activity 文件
+public class MainActivity extends Activity implements View.OnTouchListener {
+    private ViewFlipper viewFlipper;
+    private float startX;     起始X轴坐标
+
+    @Override
+    protected void onCreate(@Nullable final Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main_activity);
+
+        viewFlipper = (ViewFlipper) findViewById(R.id.viewFlipper);
+        viewFlipper.addView(getImageView(R.mipmap.ic_launcher));     动态导入页面
+        viewFlipper.addView(getImageView(R.mipmap.ic_launcher));
+        viewFlipper.addView(getImageView(R.mipmap.ic_launcher));
+
+        viewFlipper.setInAnimation(this, R.anim.left_in);     设置进入动画
+        viewFlipper.setOutAnimation(this, R.anim.left_out);     设置退出动画
+        viewFlipper.setFlipInterval(2000);     设置切换页面的间隔为 2s
+        viewFlipper.startFlipping();     第一种：页面轮播
+
+        viewFlipper.setOnTouchListener(this);     第二种：手势切换（设置监听器）
+    }
+
+    private ImageView getImageView(int resID) {     获得 ImageView
+        ImageView imageView = new ImageView(this);
+        imageView.setImageResource(resID);     内容图片
+        imageView.setBackgroundResource(resID);     背景图片
+        return imageView;
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:     手指按下
+                startX = event.getX();     获得起始X轴坐标
+                break;
+            case MotionEvent.ACTION_MOVE:     手指滑动
+                if (event.getX() - startX > 100) {     向右滑动看前一页面
+                    viewFlipper.setInAnimation(MainActivity.this, R.anim.left_in);
+                    viewFlipper.setOutAnimation(MainActivity.this, R.anim.left_out);
+                    viewFlipper.showPrevious();     显示前一页
+                }
+                if (startX - event.getX() > 100) {     向左滑动看后一页
+                    viewFlipper.setInAnimation(MainActivity.this, R.anim.right_in);
+                    viewFlipper.setOutAnimation(MainActivity.this, R.anim.right_out);
+                    viewFlipper.showNext();     显示后一页
+                }
+                break;
+            case MotionEvent.ACTION_UP:     手指离开
+                break;
+        }
+        return true;     消耗掉事件
     }
 }
 ```

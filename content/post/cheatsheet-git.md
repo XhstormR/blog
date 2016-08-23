@@ -288,6 +288,7 @@ $ git archive
 ---
 
 ```xml
-$ git diff
-$ git diff
+$ git diff     工作区与暂存区比较
+$ git diff head     工作区与仓库区比较
+$ git diff --cached     暂存区与仓库区比较
 ```
