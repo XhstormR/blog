@@ -55,7 +55,7 @@ total 20K
 -rw-------. 1 root root 1.2K Mar 29 14:35 anaconda-ks.cfg
 -rw-r--r--. 1 root root 3.1K Mar 29 14:34 install.log.syslog
 -rw-r--r--. 1 root root 8.9K Mar 29 14:35 install.log
-[root@controller ~]$ ls -Fl
+[root@controller ~]$ ls -lF
 total 24
 -rw-------. 1 root root 1208 Apr 12 14:42 anaconda-ks.cfg
 -rw-r--r--. 1 root root 9114 Apr 12 16:22 install.log
