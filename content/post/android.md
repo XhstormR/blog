@@ -7,7 +7,7 @@ title = "自学 Android"
 
 <!--more-->
 
-Updated on 2016-08-12
+Updated on 2016-08-24
 
 > {{< image "/uploads/android.svg" "Android" >}}
 >
@@ -112,6 +112,12 @@ root@HM2013023:/ # exit
   * `setFlipInterval()`：设置切换页面的时间间隔，eg. 1s = 1000。
 * ScrollView：包裹的子控件屏幕显示不完全，需要通过滚动来显示完整的控件。
   * ScrollView 垂直滚动，HorizontalScrollView 水平滚动。
+  * `getScrollY()`：获得滚动条的滚动距离。
+  * `scrollTo()`：使滚动条移动至指定位置。
+  * `scrollBy()`：使滚动条的滚动距离增加或减少。
+  * `getHeight()`：获得控件的高度。（在 onLayout 方法运行后被确定）
+  * `getMeasuredHeight()`：获得控件的高度。（在 onMeasure 方法运行后被确定）
+      * 在 onLayout 方法中使用 `getMeasuredHeight()`，除此之外都使用`getHeight()`。
 
 ## SVG
 
@@ -869,6 +875,8 @@ public class MainActivity extends Activity implements View.OnTouchListener {
                 startX = event.getX();     获得起始X轴坐标
                 break;
             case MotionEvent.ACTION_MOVE:     手指滑动
+                break;
+            case MotionEvent.ACTION_UP:     手指离开
                 if (event.getX() - startX > 100) {     向右滑动看前一页面
                     viewFlipper.setInAnimation(MainActivity.this, R.anim.left_in);
                     viewFlipper.setOutAnimation(MainActivity.this, R.anim.left_out);
@@ -880,10 +888,93 @@ public class MainActivity extends Activity implements View.OnTouchListener {
                     viewFlipper.showNext();     显示后一页
                 }
                 break;
-            case MotionEvent.ACTION_UP:     手指离开
-                break;
         }
         return true;     消耗掉事件
+    }
+}
+
+-------------------------------------------------------
+
+ScrollView
+布局文件
+main_activity.xml
+<Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Up"
+        android:id="@+id/button"/>
+<Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Down"
+        android:id="@+id/button2"/>
+<ScrollView
+        android:scrollbars="none"     不显示滚动条
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView">
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"/>
+</ScrollView>
+
+----
+
+Activity 文件
+public class MainActivity extends Activity implements View.OnTouchListener, View.OnClickListener {
+    private ScrollView scrollView;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main_activity);
+
+        TextView textView = (TextView) findViewById(R.id.textView);
+        textView.setText(getResources().getString(R.string.text));     获得 strings.xml 里的资源 text
+
+        scrollView = (ScrollView) findViewById(R.id.scrollView);
+        Button up = (Button) findViewById(R.id.button);
+        Button down = (Button) findViewById(R.id.button2);
+
+        scrollView.setOnTouchListener(this);     监听器
+        up.setOnClickListener(this);     监听器
+        down.setOnClickListener(this);     监听器
+
+        scrollView.setHorizontalScrollBarEnabled(false);     不显示横向滚动条
+        scrollView.setVerticalScrollBarEnabled(false);     不显示纵向滚动条
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:     手指按下
+                break;
+            case MotionEvent.ACTION_MOVE:     手指移动
+                break;
+            case MotionEvent.ACTION_UP:     手指离开
+                if (scrollView.getScrollY() == 0) {     滚动距离为 0 时
+                    Log.i("Tag", "在顶部");
+                }
+                if (scrollView.getScrollY() + scrollView.getHeight() == scrollView.getChildAt(0).getHeight()) {     滚动距离+父容器高度(屏幕高度)=子控件高度 时
+                    Log.i("Tag", "在底部");
+                    ((TextView) this.findViewById(R.id.textView)).append(getResources().getString(R.string.string));     追加文本
+                }
+                break;
+        }
+        return false;     不消耗事件，让 TextView 得以滚动
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.button:
+                scrollView.scrollBy(0, -30);     向上滚动 30
+                break;
+            case R.id.button2:
+                scrollView.scrollBy(0, 30);     向下滚动 30
+                break;
+        }
     }
 }
 ```

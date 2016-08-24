@@ -7,7 +7,7 @@ title = "常用 Git 命令清单"
 
 <!--more-->
 
-Updated on 2016-04-07
+Updated on 2016-08-24
 
 > https://git-scm.com/book/zh/v2
 >
@@ -288,7 +288,22 @@ $ git archive
 ---
 
 ```xml
-$ git diff     工作区与暂存区比较
-$ git diff head     工作区与仓库区比较
-$ git diff --cached     暂存区与仓库区比较
+git diff     工作区与暂存区比较
+git diff head     工作区与仓库区比较
+git diff --cached     暂存区与仓库区比较
+```
+
+---
+
+```bash
+vim ~/.bashrc
+    alias ll='ls -lhF --color=auto'
+    alias grep='grep -n --color=auto'
+source ~/.bashrc
+
+-------------------------------------------------------
+
+updatedb --output="D:\Download\GIT\123.db" --localpaths="D:\Download\GIT"
+locate --database="/d/Download/GIT/123.db" *java*md
+grep http `locate --database="/d/Download/GIT/123.db" *java*md`
 ```
