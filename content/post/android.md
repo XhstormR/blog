@@ -118,6 +118,9 @@ root@HM2013023:/ # exit
   * `getHeight()`：获得控件的高度。（在 onLayout 方法运行后被确定）
   * `getMeasuredHeight()`：获得控件的高度。（在 onMeasure 方法运行后被确定）
       * 在 onLayout 方法中使用 `getMeasuredHeight()`，除此之外都使用`getHeight()`。
+* Gallery：画廊、缩略图浏览器。
+* ImageSwitcher：用于显示图片并切换的控件，可以设置切换时的动画效果。
+  * ImageView 的选择器，需要实现 ViewFactory 中的 makeView() 方法为其返回 ImageView。
 
 ## SVG
 
@@ -975,6 +978,98 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
                 scrollView.scrollBy(0, 30);     向下滚动 30
                 break;
         }
+    }
+}
+
+-------------------------------------------------------
+
+Gallery + ImageSwitcher
+布局文件
+main_activity.xml
+<Gallery
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/gallery"/>
+<ImageSwitcher
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/imageSwitcher"/>
+
+----
+
+Activity 文件
+public class MainActivity extends Activity implements AdapterView.OnItemSelectedListener, ViewSwitcher.ViewFactory {
+    private int[] res = {R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher};     数据源
+    private ImageSwitcher imageSwitcher;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main_activity);
+
+        Gallery gallery = (Gallery) findViewById(R.id.gallery);     1控件
+        MyBaseAdapter myBaseAdapter = new MyBaseAdapter(this, res);     2自定义适配器（上下文对象，数据源）
+        gallery.setAdapter(myBaseAdapter);     3将控件与适配器绑定
+
+        gallery.setOnItemSelectedListener(this);     加载监听器
+
+        imageSwitcher = (ImageSwitcher) findViewById(R.id.imageSwitcher);
+        imageSwitcher.setFactory(this);     加载 ViewFactory，实现 makeView() 方法
+        imageSwitcher.setInAnimation(AnimationUtils.loadAnimation(this, android.R.anim.fade_in));     设置进入动画
+        imageSwitcher.setOutAnimation(AnimationUtils.loadAnimation(this, android.R.anim.fade_out));     设置退出动画
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        imageSwitcher.setBackgroundResource(res[position]);     设置背景图片
+//        imageSwitcher.setBackgroundResource(res[position % res.length]);     循环页面
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+    }
+
+    @Override
+    public View makeView() {     创建 View
+        ImageView imageView = new ImageView(this);
+        imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);     设置图片缩放模式为等比例缩放并居中
+        return imageView;
+    }
+}
+----
+public class MyBaseAdapter extends BaseAdapter {     自定义适配器
+    private Context context;     上下文对象
+    private int[] res;     数据源
+
+    public MyBaseAdapter(Context context, int[] res) {     构造方法
+        this.context = context;
+        this.res = res;
+    }
+
+    @Override
+    public int getCount() {     获得页面数量
+        return res.length;
+//        return Integer.MAX_VALUE;     循环页面
+    }
+
+    @Override
+    public Object getItem(int position) {     获得数据源对象
+        return res[position];
+    }
+
+    @Override
+    public long getItemId(int position) {     获得数据源ID
+        return position;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {     获得页面
+        ImageView imageView = new ImageView(context);
+        imageView.setBackgroundResource(res[position]);     设置背景图片
+//        imageView.setBackgroundResource(res[position % res.length]);     循环页面
+        imageView.setLayoutParams(new ViewGroup.LayoutParams(400, 300));     设置控件宽高
+        imageView.setScaleType(ImageView.ScaleType.FIT_XY);     设置图片缩放模式为铺满控件
+        return imageView;
     }
 }
 ```
