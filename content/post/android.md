@@ -7,7 +7,7 @@ title = "自学 Android"
 
 <!--more-->
 
-Updated on 2016-08-24
+Updated on 2016-08-25
 
 > {{< image "/uploads/android.svg" "Android" >}}
 >
@@ -100,10 +100,11 @@ root@HM2013023:/ # exit
   * 事件监听器：监听某种动作行为并做出响应，是程序和用户系统交互的桥梁。
       * OnItemClickListener：监听列表中单个条目的点击事件。
       * OnScrollListener：监听列表的滚动。
-* GridView：以 **表格** 形式显示条目的控件。（格）
+* GridView：以 **表格** 形式显示条目的控件。（格）（可以用于替代 TableLayout 布局）
 * Spinner：以 **下拉列表** 形式显示条目的控件。（行）
 * DatePicker && TimePicker：日期选择器 && 时间选择器。
 * ProgressBar：环形进度条、水平进度条（精确）。
+  * SeekBar：拖动条，ProgressBar 的子类。
 * WebView：显示网页的控件。
 * ViewFlipper：多页面自动轮播并且带有动画效果的控件。
   * `setInAnimation()` ⟺ `setOutAnimation()`：设置进入(退出)屏幕时的动画。
@@ -618,7 +619,7 @@ ProgressBar
 main_activity.xml
 ⇳
 <ProgressBar
-        android:progressDrawable="@drawable/progressbar"     覆盖系统自带的绘制文件（可选）
+        android:progressDrawable="@drawable/progressbar"     覆盖系统自带的样式（可选）
         android:secondaryProgress="60"     第二进度条
         android:progress="30"     第一进度条
         android:max="100"     最大进度条
@@ -652,7 +653,7 @@ main_activity.xml
         android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/textView"/>
-progressbar.xml     ProgressBar 的自定义绘制文件
+progressbar.xml     自定义进度条样式
 ⇳
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@android:id/background">     最大进度条
@@ -874,12 +875,12 @@ public class MainActivity extends Activity implements View.OnTouchListener {
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN:     手指按下
+            case MotionEvent.ACTION_DOWN:     1手指按下
                 startX = event.getX();     获得起始X轴坐标
                 break;
-            case MotionEvent.ACTION_MOVE:     手指滑动
+            case MotionEvent.ACTION_MOVE:     2手指滑动
                 break;
-            case MotionEvent.ACTION_UP:     手指离开
+            case MotionEvent.ACTION_UP:     3手指离开
                 if (event.getX() - startX > 100) {     向右滑动看前一页面
                     viewFlipper.setInAnimation(MainActivity.this, R.anim.left_in);
                     viewFlipper.setOutAnimation(MainActivity.this, R.anim.left_out);
@@ -951,11 +952,11 @@ public class MainActivity extends Activity implements View.OnTouchListener, View
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN:     手指按下
+            case MotionEvent.ACTION_DOWN:     1手指按下
                 break;
-            case MotionEvent.ACTION_MOVE:     手指移动
+            case MotionEvent.ACTION_MOVE:     2手指移动
                 break;
-            case MotionEvent.ACTION_UP:     手指离开
+            case MotionEvent.ACTION_UP:     3手指离开
                 if (scrollView.getScrollY() == 0) {     滚动距离为 0 时
                     Log.i("Tag", "在顶部");
                 }
@@ -1070,6 +1071,59 @@ public class MyBaseAdapter extends BaseAdapter {     自定义适配器
         imageView.setLayoutParams(new ViewGroup.LayoutParams(400, 300));     设置控件宽高
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);     设置图片缩放模式为铺满控件
         return imageView;
+    }
+}
+
+-------------------------------------------------------
+
+SeekBar
+布局文件
+main_activity.xml
+⇳
+<SeekBar
+        android:progressDrawable="@drawable/progressbar"     覆盖系统自带的样式（可选）
+        android:thumb="@drawable/seekbar_thumb"     覆盖系统自带的样式（可选）
+        android:progress="50"     第一进度条
+        android:max="100"     最大进度条
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/seekBar"/>
+seekbar_thumb.xml     自定义拖动按钮样式
+⇳
+<selector xmlns:android="http://schemas.android.com/apk/res/android">     选择器
+    <item android:state_pressed="true" android:state_window_focused="true" android:drawable="@mipmap/ic_launcher"/>     按下
+    <item android:state_focused="true" android:state_window_focused="true" android:drawable="@mipmap/ic_launcher"/>     焦点
+    <item android:state_selected="true" android:state_window_focused="true" android:drawable="@mipmap/ic_launcher"/>     选中
+    <item android:drawable="@mipmap/ic_launcher"/>     默认
+</selector>
+
+----
+
+Activity 文件
+public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeListener {
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main_activity);
+
+        SeekBar seekBar = (SeekBar) findViewById(R.id.seekBar);
+        seekBar.setOnSeekBarChangeListener(this);     设置监听器
+    }
+
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+        Log.i("Tag", "2正在拖动:" + String.valueOf(progress));
+    }
+
+    @Override
+    public void onStartTrackingTouch(SeekBar seekBar) {
+        Log.i("Tag", "1开始拖动");
+    }
+
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) {
+        Log.i("Tag", "3停止拖动");
     }
 }
 ```
