@@ -7,7 +7,7 @@ title = "uBlock Origin Filter"
 
 <!--more-->
 
-Updated on 2016-04-21
+Updated on 2016-08-26
 
 > ![](/uploads/ublock.svg)
 >
@@ -19,8 +19,8 @@ Updated on 2016-04-21
 
 ```
 {
-  "timeStamp": 1456584751630,
-  "version": "1.6.2",
+  "timeStamp": 1472183385499,
+  "version": "1.8.4",
   "userSettings": {
     "advancedUserEnabled": true,
     "autoUpdate": true,
@@ -29,7 +29,6 @@ Updated on 2016-04-21
     "colorBlindFriendly": false,
     "contextMenuEnabled": false,
     "dynamicFilteringEnabled": true,
-    "experimentalEnabled": false,
     "externalLists": "https://code.csdn.net/i_square/i/blob/master/iFL.txt",
     "firewallPaneMinimized": true,
     "hyperlinkAuditingDisabled": true,
@@ -59,11 +58,11 @@ Updated on 2016-04-21
     "assets/thirdparties/easylist-downloads.adblockplus.org/easylist.txt": {
       "title": "EasyList",
       "group": "ads",
-      "homeURL": "https://easylist-downloads.adblockplus.org/easylist.txt",
+      "homeURL": "https://easylist.to/easylist/easylist.txt",
       "supportURL": "https://forums.lanik.us/",
       "off": false,
-      "entryCount": 61832,
-      "entryUsedCount": 61429
+      "entryCount": 66669,
+      "entryUsedCount": 66245
     },
     "https://easylist-downloads.adblockplus.org/easylistchina.txt": {
       "off": false,
@@ -71,25 +70,25 @@ Updated on 2016-04-21
       "group": "regions",
       "lang": "zh",
       "supportURL": "http://abpchina.org/forum/forum.php",
-      "entryCount": 12230,
-      "entryUsedCount": 12218
+      "entryCount": 13029,
+      "entryUsedCount": 13018
     },
     "https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjxlist.txt": {
       "off": false,
       "title": "CHN: CJX's EasyList Lite (main focus on Chinese sites)",
       "group": "regions",
       "supportURL": "https://github.com/cjx82630/cjxlist",
-      "entryCount": 404,
-      "entryUsedCount": 403
+      "entryCount": 433,
+      "entryUsedCount": 433
     },
     "assets/thirdparties/easylist-downloads.adblockplus.org/easyprivacy.txt": {
       "title": "EasyPrivacy",
       "group": "privacy",
-      "homeURL": "https://easylist-downloads.adblockplus.org/easyprivacy.txt",
+      "homeURL": "https://easylist.to/easylist/easyprivacy.txt",
       "supportURL": "https://forums.lanik.us/",
       "off": false,
-      "entryCount": 11093,
-      "entryUsedCount": 11093
+      "entryCount": 11902,
+      "entryUsedCount": 11902
     },
     "assets/thirdparties/mirror1.malwaredomains.com/files/justdomains": {
       "title": "Malware domains",
@@ -118,10 +117,10 @@ Updated on 2016-04-21
       "entryUsedCount": 1259
     }
   },
-  "netWhitelist": "192.168.1.1\nabout-scheme\nbehind-the-scene\nchrome-extension-scheme\nchrome-scheme\nloopconversation.about-scheme\nopera-scheme",
-  "dynamicFilteringString": "* * inline-script block\n* * 1p-script block\n* * 3p-script block\n* * 3p-frame block\n* * image block\n* ajax.googleapis.com * block\n* bilibili.com * noop\n* bootstrapcdn.com * block\n* fonts.googleapis.com * block\n* hdslb.com * noop\n* microsofttranslator.com * noop\n* zythum.sinaapp.com * noop\npan.baidu.com pan.baidu.com * noop\npan.baidu.com s1.pan.bdstatic.com * noop\nw.mail.qq.com qq.com * noop\nwww.bing.com * inline-script noop\nwww.bing.com * 1p-script noop\nwww.v2ex.com * 3p block\nwww.zhihu.com * inline-script noop\nwww.zhihu.com * 1p-script noop\nyouku.com * inline-script noop\nyouku.com * 1p-script noop\nyunpan.cn qhimg.com * noop\nyunpan.cn yunpan.cn * noop",
+  "netWhitelist": "192.168.1.1\nabout-scheme\nbehind-the-scene\nchrome-extension-scheme\nchrome-scheme\nlocalhost\nloopconversation.about-scheme\nopera-scheme\nxhstormr.tk",
+  "dynamicFilteringString": "* * inline-script block\n* * 1p-script block\n* * 3p-script block\n* * 3p-frame block\n* * image block\n* ajax.googleapis.com * block\n* bootstrapcdn.com * block\n* fonts.googleapis.com * block\n* imgur.com * noop\n* sinaimg.cn * noop\n* zythum.sinaapp.com * noop\nbilibili.com bilibili.com * noop\nbilibili.com hdslb.com * noop\npan.baidu.com baidupcs.com * noop\npan.baidu.com pan.baidu.com * noop\npan.baidu.com pcsdata.baidu.com * noop\npan.baidu.com s1.pan.bdstatic.com * noop\nw.mail.qq.com qq.com * noop\nwww.draw.io draw.io * noop\nwww.imooc.com imooc.com * noop\nwww.v2ex.com * 3p block\nyouku.com ykimg.com * noop\nyouku.com youku.com * noop\nzhihu.com zhihu.com * noop\nzhihu.com zhimg.com * noop",
   "urlFilteringString": "",
-  "hostnameSwitchesString": "no-cosmetic-filtering: www.zdfans.com true\nno-remote-fonts: * true",
+  "hostnameSwitchesString": "no-remote-fonts: * true",
   "userFilters": ""
 }
 ```
