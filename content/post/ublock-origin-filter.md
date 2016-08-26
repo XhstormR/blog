@@ -17,9 +17,9 @@ Updated on 2016-08-26
 >
 > 我把我自定义的 uBlock Origin Filter 整理在这里，以便查阅。
 
-```
+```json
 {
-  "timeStamp": 1472183385499,
+  "timeStamp": 1472187220330,
   "version": "1.8.4",
   "userSettings": {
     "advancedUserEnabled": true,
