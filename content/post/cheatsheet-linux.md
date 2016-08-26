@@ -7,7 +7,7 @@ title = "Linux 命令不完全手册"
 
 <!--more-->
 
-Updated on 2016-06-08
+Updated on 2016-08-25
 
 > ![](/uploads/linux-centos.svg)
 >
@@ -463,6 +463,7 @@ find /etc/ -name '*.ini' #查找 /etc 目录中以 .ini 结尾的文件
 grep[选项] 字符串 文件名     在文件当中查找匹配符合条件的字符串
 -n #显示行号
 -i #忽略大小写
+-I #忽略二进制文件
 -l #只列出匹配的文件名称
 -L #只列出不匹配的文件名称
 -v #排除指定字符串，取反

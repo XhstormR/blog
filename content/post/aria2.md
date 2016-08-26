@@ -7,7 +7,7 @@ title = "Aria2 Configuration"
 
 <!--more-->
 
-Updated on 2016-08-21
+Updated on 2016-08-23
 
 > [![](/uploads/file-into-picture2.png)](http://ww4.sinaimg.cn/large/a15b4afegw1f5lotqn7xfj203k03kb29)
 >
