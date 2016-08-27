@@ -7,7 +7,7 @@ title = "自学 Android"
 
 <!--more-->
 
-Updated on 2016-08-25
+Updated on 2016-08-27
 
 > {{< image "/uploads/android.svg" "Android" >}}
 >
@@ -58,8 +58,16 @@ IDEA ➜ File ➜ Project Structure ➜ SDKs ➜ Sourcepath
 * 电脑安装 Android USB 驱动
 
 ```html
-adb install D:\1.apk     安装APP
-adb uninstall 1     卸载APP
+adb start-server     启动 ADB
+adb kill-server     停止 ADB
+
+adb reboot     重启手机
+adb reboot recovery     重启至 Recovery 模式
+adb reboot bootloader     重启至 Fastboot 模式
+
+adb install D:\1.apk     安装 App     -r 允许覆盖安装     -d 允许降级安装
+adb uninstall com.baidu.mobile     卸载 App（包名）     -k 保留数据和缓存
+
 adb push D:\1.txt  /mnt/sdcard/Download/1.txt     发送至手机
 adb pull /mnt/sdcard/Download/1.txt  D:\1.txt     下载至电脑
 
@@ -71,6 +79,26 @@ D:\Download\Java\android-sdk-windows\platform-tools\adb.exe shell     登录设�
 shell@HM2013023:/ $ su
 root@HM2013023:/ # ls
 root@HM2013023:/ # exit
+
+wm size     查看屏幕分辨率
+wm density     查看屏幕密度
+dumpsys window displays     查看显示屏参数
+screencap -p /sdcard/123.png     截图
+screenrecord /sdcard/123.mp4     录屏
+date -s 20160823.131500     设置日期和时间
+cat /system/build.prop     查看硬件和系统属性
+cat /data/misc/wifi/*.conf     查看连接过的 WIFI 密码
+
+PackageManager
+pm list packages     显示所有应用     -d 禁用的应用     -e 启用的应用     -3 第三方应用     -s 系统应用
+pm clear com.baidu.mobile     清除数据和缓存
+
+ActivityManager
+am start -n com.example.app/.ExampleActivity     调用 Activity
+am startservice ...     调用 Service
+am broadcast ...     发送广播
+am force-stop com.baidu.mobile     强制停止 App
+dumpsys activity activities | grep mFocusedActivity     查看前台 Activity
 ```
 
 ## Android 规范
@@ -1163,7 +1191,7 @@ RadioButton 做出 TAB 效果
 
 ---
 
-[Maven1](https://repo1.maven.org/maven2/),[Maven2](https://repo.maven.apache.org/maven2/),[JCenter](https://jcenter.bintray.com/),[Mirror](http://maven.aliyun.com/)
+[Maven0](https://mvnrepository.com/),[Maven1](https://repo1.maven.org/maven2/),[Maven2](https://repo.maven.apache.org/maven2/),[JCenter](https://jcenter.bintray.com/),[Mirror](http://maven.aliyun.com/)
 
 Cache：
 [![](/uploads/file-into-picture2.png)](http://ww1.sinaimg.cn/large/a038ef72gw1f5lcbds6wvj203k03k1lf "Part1")
