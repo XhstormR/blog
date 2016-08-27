@@ -19,7 +19,7 @@ Updated on 2016-08-26
 
 ```json
 {
-  "timeStamp": 1472187220330,
+  "timeStamp": 1472265132491,
   "version": "1.8.4",
   "userSettings": {
     "advancedUserEnabled": true,

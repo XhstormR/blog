@@ -803,6 +803,7 @@ tcp        0      0 :::80                       :::*                        LIST
 -e #与 `A` 选项相同
 
 [root@controller ~]$ ps -ef | grep vim #查找进程
+所属用户 进程ID 父进程ID                                进程名
 root      7207  2965  0 11:30 pts/1    00:00:00 vim
 root      7542  2965  0 11:30 pts/1    00:00:00 grep vim
 [root@controller ~]$ kill -9 7207 #强制终止进程，默认终止进程发送信号15

@@ -7,13 +7,21 @@ title = "常用 Git 命令清单"
 
 <!--more-->
 
-Updated on 2016-08-24
+Updated on 2016-08-27
 
+> {{< image "/uploads/git2.png" "Git" >}}
+>
 > https://git-scm.com/book/zh/v2
+>
+> http://ndpsoftware.com/git-cheatsheet.html
 >
 > https://rogerdudler.github.io/git-guide/index.zh.html
 >
->我把常用的 Git 命令按其类型整理在这里，以便查阅。
+> https://marklodato.github.io/visual-git-guide/index-zh-cn.html
+>
+> https://github.com/git-for-windows/git/releases/latest
+>
+> 我把常用的 Git 命令按其类型整理在这里，以便查阅。
 >
 > 一般来说，日常使用只要记住下图6个命令，就可以了。但是熟练使用，恐怕要记住60～100个命令。
 >
