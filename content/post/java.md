@@ -173,7 +173,7 @@ HelloWorld!
 * 条件语句 switch：当 switch 后表达式的值和 case 语句后的值相同时，从该位置开始向下执行，直到遇到 break 语句或者 switch 语句块结束；如果没有匹配的 case 语句则执行 **default** 块的代码。
   * switch 后面小括号中表达式的值必须是 **整型或字符型** 。
   * case 匹配后，如果没有遇见 **break** 会继续执行下一个的 case 块的内容，直到遇到 break 语句或者 switch 语句块结束。
-  * default 块可以出现在 **任意位置**，也 **可以省略**
+  * default 块可以出现在 **任意位置**，也 **可以省略**。
 * 循环语句 for：for 关键字后面括号中的三个表达式都可以省略，但两个 `;` 不能省略。
   * for 循环变量初始化和循环变量变化部分，可以使用 `,` 同时初始化或改变多个循环变量的值。
 * 数组（Array）：使用 `数组名.length` 获取数组的长度；使用 `数组名[下标]` 来访问；数组的下标从 0 开始，如长度为 3 ，则下标为 0，1，2。
@@ -362,7 +362,7 @@ if (score > 80) {
 条件语句 嵌套if
 String today = "周末";
 String weather = "晴朗";
-if (today.equals("周末")) {     //equals()用于判断字符串内容是否相同，也可用 today == "周末"
+if (today.equals("周末")) {     //String 类的 equals() 用于判断字符串内容是否相同，也可用 today == "周末"
     //内层if 开始
     if (weather.equals("晴朗")) {
         System.out.println("去散步");
