@@ -296,6 +296,10 @@ $ git archive
 ---
 
 ```xml
+git config --global diff.context 0     全局设置 diff 时不显示上下文
+
+-------------------------------------------------------
+
 git diff     工作区与暂存区比较
 git diff head     工作区与仓库区比较
 git diff --cached     暂存区与仓库区比较
