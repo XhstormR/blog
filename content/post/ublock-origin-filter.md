@@ -19,7 +19,7 @@ Updated on 2016-08-26
 
 ```json
 {
-  "timeStamp": 1472265132491,
+  "timeStamp": 1472365371165,
   "version": "1.8.4",
   "userSettings": {
     "advancedUserEnabled": true,
@@ -61,8 +61,8 @@ Updated on 2016-08-26
       "homeURL": "https://easylist.to/easylist/easylist.txt",
       "supportURL": "https://forums.lanik.us/",
       "off": false,
-      "entryCount": 66669,
-      "entryUsedCount": 66245
+      "entryCount": 66703,
+      "entryUsedCount": 66279
     },
     "https://easylist-downloads.adblockplus.org/easylistchina.txt": {
       "off": false,
@@ -70,8 +70,8 @@ Updated on 2016-08-26
       "group": "regions",
       "lang": "zh",
       "supportURL": "http://abpchina.org/forum/forum.php",
-      "entryCount": 13029,
-      "entryUsedCount": 13018
+      "entryCount": 13066,
+      "entryUsedCount": 13055
     },
     "https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjxlist.txt": {
       "off": false,
@@ -87,8 +87,8 @@ Updated on 2016-08-26
       "homeURL": "https://easylist.to/easylist/easyprivacy.txt",
       "supportURL": "https://forums.lanik.us/",
       "off": false,
-      "entryCount": 11902,
-      "entryUsedCount": 11902
+      "entryCount": 11905,
+      "entryUsedCount": 11905
     },
     "assets/thirdparties/mirror1.malwaredomains.com/files/justdomains": {
       "title": "Malware domains",
