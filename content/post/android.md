@@ -99,6 +99,10 @@ am startservice ...     调用 Service
 am broadcast ...     发送广播
 am force-stop com.baidu.mobile     强制停止 App
 dumpsys activity activities | grep mFocusedActivity     查看前台 Activity
+
+/data/property/persist.sys.usb.config     配置 USB
+⇳
+mtp,adb     作为媒体设备,开启调试模式
 ```
 
 ## Android 规范
@@ -108,7 +112,7 @@ dumpsys activity activities | grep mFocusedActivity     查看前台 Activity
   * 服务（Service）：用于实现程序后台运行的组件，不需要和用户交互。
   * 广播接收器（Broadcast Receiver）：用于接收和发送广播的组件。
   * 内容提供器（Content Provider）：用于实现不同应用程序之间共享数据的组件。
-* 控件属性
+* 控件属性：
   * sp：Scale-independent Pixels（可伸缩像素），文字尺寸一律使用 `sp` 单位。
   * dp：Density-independent Pixels（密度无关像素），非文字尺寸使用 `dp` 单位。
   * orientation（方向）：`horizontal`（水平） | `vertical`（垂直）
@@ -121,6 +125,13 @@ dumpsys activity activities | grep mFocusedActivity     查看前台 Activity
   * padding：内边距，控件边框与控件内容的距离。**里**
   * layout_gravity：控件位置。**外**
   * gravity：内容位置。**里**
+* 布局优化：布局层次一样的情况下，LinearLayout 的性能要稍高于 RelativeLayout。
+  * include：将可重用的布局提取出来并通过 `include` 标签导入使用。
+      * merge：若通过 `include` 标签导入的布局不需要顶节点，可以将顶节点标签替换为`merge`，顶节点会被直接忽略而子控件会被直接导入，以降低布局嵌套层次。
+  * ViewStub：导入的布局会惰性加载，在创建主布局时不进行实例化，需要在代码中手动实例化，以节省内存并加快布局创建速度。（不支持导入 `merge` 布局）
+
+---
+
 * ListView：以 **列表** 形式显示条目的控件。（行）
   * 数据适配器：把复杂的数据绑定至指定控件上，是数据源和控件之间的桥梁。
       * ArrayAdapter（数组适配器）：用于绑定格式单一的数据。（数组或集合）
@@ -354,6 +365,7 @@ ListView
 main_activity.xml
 ⇳
 <ListView
+        android:scrollbars="vertical"     显示垂直滚动条
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/listView"/>
@@ -406,6 +418,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+        if (firstVisibleItem == 0) {
+            Log.i("Tag", "在顶部");
+        }
+        if (firstVisibleItem + visibleItemCount == totalItemCount) {
+            Log.i("Tag", "在底部");
+        }
     }
 
     @Override
@@ -1167,6 +1185,40 @@ button.setVisibility(View.INVISIBLE);
 ----
 android:visibility="gone"     隐藏（不可见，释放空间）
 button.setVisibility(View.GONE);
+
+-------------------------------------------------------
+
+include     导入布局
+----
+<include layout="@layout/common_title"/>     导入的布局
+
+merge     忽略顶节点，直接导入子控件
+----
+<merge xmlns:android="http://schemas.android.com/apk/res/android"     忽略
+       android:orientation="vertical"     忽略
+       android:layout_width="match_parent"     忽略
+       android:layout_height="match_parent">     忽略
+    <ProgressBar
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    <TextView
+            android:text="请稍后"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+</merge>
+
+ViewStub     导入布局（惰性加载）
+----
+<ViewStub
+        android:layout="@layout/common_title"     导入的布局
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/viewStub"/>
+----
+viewStub.setOnInflateListener()     设置加载时的监听器（可选）
+View view = viewStub.inflate();     开始加载并接收实例化的布局 View
 
 -------------------------------------------------------
 
