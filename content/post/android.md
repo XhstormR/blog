@@ -1100,12 +1100,12 @@ public class MyBaseAdapter extends BaseAdapter {     自定义适配器
     }
 
     @Override
-    public Object getItem(int position) {     获得数据源对象
+    public Object getItem(int position) {     获得数据对象
         return res[position];
     }
 
     @Override
-    public long getItemId(int position) {     获得数据源ID
+    public long getItemId(int position) {     获得数据ID
         return position;
     }
 

@@ -25,7 +25,7 @@ Updated on 2016-06-30
 * IntelliJ IDEA：https://www.jetbrains.com/idea/download/
 
 ### IDEA 快捷键
-```
+```xml
 F2     查找错误
 
 Ctrl+[]     转至大括号处
@@ -38,7 +38,7 @@ Ctrl+R     替换文本
 Ctrl+O     重写方法
 Ctrl+H     查看类结构
 Ctrl+P     方法参数提示
-Ctrl+J     自动代码
+Ctrl+J     自动代码（Live Templates）
 ALT+。   内容辅助（自己设置）
 ALT+/     文字补全
 ALT+1     打开或隐藏工程面板
@@ -72,6 +72,9 @@ Ctrl+ALT+Insert     新建文件
 Ctrl+/     注释行（单行注释）
 Ctrl+Shift+/     添加注释（多行注释）
 
+Ctrl+Shift+C     复制绝对路径
+Ctrl+Shift+ALT+C     复制相对路径
+
 Ctrl+N     查找类
 Ctrl+Shift+N     查找文件
 Ctrl+Shift+ALT+N     查找变量
@@ -87,7 +90,7 @@ Ctrl+ALT+Enter     在当前行的上一行插入空行
 ```
 
 ### Eclipse 快捷键
-```
+```xml
 F2     显示工具提示
 F3     打开声明文件
 F6     调试 - 单步跳过
@@ -641,6 +644,15 @@ Math.round(i)     13     返回四舍五入后的整数
 (int)i     12     强制类型转换，直接截断
 
 Math.random()     0.6019044390548263     返回 (0,1) 之间的随机浮点数
+
+-------------------------------------------------------
+
+System.currentTimeMillis()     返回 Unix 时间戳，单位为毫秒（除以 1000 即为标准 Unix 时间戳 (秒)）
+System.nanoTime()     精确计时器，单位为毫微秒
+     long l1 = System.nanoTime();
+     Some code ...
+     long l2 = System.nanoTime();
+     System.out.println(l2 - l1);
 ```
 
 ### 继承初始化执行顺序
