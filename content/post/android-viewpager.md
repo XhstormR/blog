@@ -9,7 +9,7 @@ title = "Android ViewPager"
 
 Updated on 2016-08-20
 
-> ViewPager 通常与 Fragment 搭配使用以实现页面导航
+> ViewPager 通常与 Fragment 搭配使用以实现页面导航。
 
 ## Activity
 ```java
