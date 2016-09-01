@@ -72,6 +72,9 @@ Ctrl+ALT+Insert     新建文件
 Ctrl+/     注释行（单行注释）
 Ctrl+Shift+/     添加注释（多行注释）
 
+Ctrl+Z     Undo
+Ctrl+Shift+Z     Redo
+
 Ctrl+Shift+C     复制绝对路径
 Ctrl+Shift+ALT+C     复制相对路径
 
