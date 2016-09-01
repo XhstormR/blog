@@ -9,6 +9,8 @@ title = "Android BaseAdapter"
 
 Updated on 2016-08-31
 
+> {{< image "/uploads/android-baseadapter.svg" "Adapter" >}}
+>
 > 数据适配器把复杂的数据绑定至指定控件，是数据源和控件之间的桥梁。
 
 ## MainActivity.java
@@ -73,7 +75,7 @@ public class MyBaseAdapter extends BaseAdapter {     自定义适配器
         return position;
     }
 
-    @Override
+    @Override                                                缓存页面
     public View getView(int position, View convertView, ViewGroup parent) {     获得页面
         ItemBean bean = list.get(position);     数据对象
         View view = inflater.inflate(R.layout.item, null);     Layout ➜ View
