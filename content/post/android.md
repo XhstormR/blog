@@ -9,7 +9,7 @@ title = "自学 Android"
 
 Updated on 2016-08-27
 
-> {{< image "/uploads/android.svg" "Android" >}}
+> {{< image "/uploads/android.svg" "Android" "1" "1" >}}
 >
 > https://developer.android.com/index.html
 >
