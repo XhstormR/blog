@@ -9,7 +9,7 @@ title = "uBlock Origin Filter"
 
 Updated on 2016-08-26
 
-> ![](/uploads/ublock.svg)
+> {{< image "/uploads/ublock.svg" "" "0" "1" >}}
 >
 > [uBlock Origin](https://github.com/gorhill/uBlock)
 >
@@ -19,8 +19,8 @@ Updated on 2016-08-26
 
 ```json
 {
-  "timeStamp": 1472365371165,
-  "version": "1.8.4",
+  "timeStamp": 1472908628657,
+  "version": "1.9.4",
   "userSettings": {
     "advancedUserEnabled": true,
     "autoUpdate": true,
@@ -32,6 +32,7 @@ Updated on 2016-08-26
     "externalLists": "https://code.csdn.net/i_square/i/blob/master/iFL.txt",
     "firewallPaneMinimized": true,
     "hyperlinkAuditingDisabled": true,
+    "ignoreGenericCosmeticFilters": false,
     "largeMediaSize": 50,
     "parseAllABPHideFilters": true,
     "prefetchingDisabled": true,
@@ -41,80 +42,80 @@ Updated on 2016-08-26
     "webrtcIPAddressHidden": false
   },
   "filterLists": {
-    "assets/user/filters.txt": {
-      "group": "default",
-      "off": false,
-      "entryCount": 0,
-      "entryUsedCount": 0
-    },
-    "https://code.csdn.net/i_square/i/blob/master/iFL.txt": {
-      "title": "iFL",
-      "group": "custom",
-      "external": true,
-      "off": false,
-      "entryCount": 214,
-      "entryUsedCount": 187
-    },
     "assets/thirdparties/easylist-downloads.adblockplus.org/easylist.txt": {
-      "title": "EasyList",
+      "entryCount": 66918,
+      "entryUsedCount": 66494,
       "group": "ads",
       "homeURL": "https://easylist.to/easylist/easylist.txt",
+      "off": false,
       "supportURL": "https://forums.lanik.us/",
-      "off": false,
-      "entryCount": 66703,
-      "entryUsedCount": 66279
-    },
-    "https://easylist-downloads.adblockplus.org/easylistchina.txt": {
-      "off": false,
-      "title": "CHN: EasyList China (中文)",
-      "group": "regions",
-      "lang": "zh",
-      "supportURL": "http://abpchina.org/forum/forum.php",
-      "entryCount": 13066,
-      "entryUsedCount": 13055
-    },
-    "https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjxlist.txt": {
-      "off": false,
-      "title": "CHN: CJX's EasyList Lite (main focus on Chinese sites)",
-      "group": "regions",
-      "supportURL": "https://github.com/cjx82630/cjxlist",
-      "entryCount": 433,
-      "entryUsedCount": 433
+      "title": "EasyList"
     },
     "assets/thirdparties/easylist-downloads.adblockplus.org/easyprivacy.txt": {
-      "title": "EasyPrivacy",
+      "entryCount": 11916,
+      "entryUsedCount": 11916,
       "group": "privacy",
       "homeURL": "https://easylist.to/easylist/easyprivacy.txt",
-      "supportURL": "https://forums.lanik.us/",
       "off": false,
-      "entryCount": 11905,
-      "entryUsedCount": 11905
+      "supportURL": "https://forums.lanik.us/",
+      "title": "EasyPrivacy"
     },
     "assets/thirdparties/mirror1.malwaredomains.com/files/justdomains": {
-      "title": "Malware domains",
+      "entryCount": 19217,
+      "entryUsedCount": 16476,
       "group": "malware",
       "homeURL": "https://mirror.cedia.org.ec/malwaredomains/justdomains",
-      "supportURL": "http://www.malwaredomains.com/",
       "off": true,
-      "entryCount": 19217,
-      "entryUsedCount": 16476
+      "supportURL": "http://www.malwaredomains.com/",
+      "title": "Malware domains"
     },
     "assets/thirdparties/pgl.yoyo.org/as/serverlist": {
-      "title": "Peter Lowe’s Ad server list",
+      "entryCount": 2402,
+      "entryUsedCount": 2397,
       "group": "ads",
       "homeURL": "https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=1&mimetype=plaintext",
-      "supportURL": "https://pgl.yoyo.org/adservers/",
       "off": true,
-      "entryCount": 2402,
-      "entryUsedCount": 2397
+      "supportURL": "https://pgl.yoyo.org/adservers/",
+      "title": "Peter Lowe’s Ad server list"
     },
     "assets/thirdparties/www.malwaredomainlist.com/hostslist/hosts.txt": {
-      "title": "Malware Domain List",
+      "entryCount": 1337,
+      "entryUsedCount": 1259,
       "group": "malware",
       "homeURL": "https://www.malwaredomainlist.com/hostslist/hosts.txt",
       "off": true,
-      "entryCount": 1337,
-      "entryUsedCount": 1259
+      "title": "Malware Domain List"
+    },
+    "assets/user/filters.txt": {
+      "entryCount": 0,
+      "entryUsedCount": 0,
+      "group": "default",
+      "off": false
+    },
+    "https://code.csdn.net/i_square/i/blob/master/iFL.txt": {
+      "entryCount": 214,
+      "entryUsedCount": 187,
+      "external": true,
+      "group": "custom",
+      "off": false,
+      "title": "iFL"
+    },
+    "https://easylist-downloads.adblockplus.org/easylistchina.txt": {
+      "entryCount": 13080,
+      "entryUsedCount": 13069,
+      "group": "regions",
+      "lang": "zh",
+      "off": false,
+      "supportURL": "http://abpchina.org/forum/forum.php",
+      "title": "CHN: EasyList China (中文)"
+    },
+    "https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjxlist.txt": {
+      "entryCount": 433,
+      "entryUsedCount": 433,
+      "group": "regions",
+      "off": false,
+      "supportURL": "https://github.com/cjx82630/cjxlist",
+      "title": "CHN: CJX's EasyList Lite (main focus on Chinese sites)"
     }
   },
   "netWhitelist": "192.168.1.1\nabout-scheme\nbehind-the-scene\nchrome-extension-scheme\nchrome-scheme\nlocalhost\nloopconversation.about-scheme\nopera-scheme\nxhstormr.tk",
