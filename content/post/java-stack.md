@@ -9,7 +9,7 @@ title = "栈"
 
 Updated on 2016-07-22
 
-> {{< image "/uploads/java-stack.svg" "Stack" >}}
+> {{< image "/uploads/java-stack.svg" "Stack" "1" "1" >}}
 
 * 数据结构：相互之间存在一种或多种特定 **关系** 的数据元素的 **集合**。
   * 队列：先进先出（FIFO, First In First Out），队头 ⟺ 队尾。

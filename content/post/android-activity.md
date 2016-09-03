@@ -9,7 +9,7 @@ title = "Android Activity"
 
 Updated on 2016-07-18
 
-> {{< image "/uploads/android-activity-life-cycle.svg" "Activity 生命周期方法" >}}
+> {{< image "/uploads/android-activity-life-cycle.svg" "Activity 生命周期方法" "1" "1" >}}
 
 ## Activity 的生命周期
 

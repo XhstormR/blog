@@ -11,7 +11,7 @@ Updated on 2016-04-14
 
 > https://tmux.github.io/
 >
-> {{< image "/uploads/tmux.png" "Tmux" >}}
+> {{< image "/uploads/tmux.png" "Tmux" "1" "1" >}}
 >
 > Tmux is a terminal multiplexer.It lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and reattach them to a different terminal.
 >

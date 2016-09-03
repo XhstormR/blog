@@ -9,7 +9,7 @@ title = "将文件伪装成图片"
 
 Updated on 2016-07-06
 
-> {{< image "/uploads/file-into-picture.png" "File" >}}
+> {{< image "/uploads/file-into-picture.png" "File" "1" "1" >}}
 
 CMD:
 ```
