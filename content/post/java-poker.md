@@ -192,4 +192,4 @@ class Initial {
 
 ## 实现效果
 
-![](/uploads/java-poker.png "Java")
+{{< image "/uploads/java-poker.png" "Java" "0" "1" >}}
