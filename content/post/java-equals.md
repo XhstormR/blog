@@ -15,7 +15,7 @@ Updated on 2016-07-16
 >
 > 打发时间的同时加深理解：)
 
-{{< image "/uploads/java-equals.svg" "== and equals" >}}
+{{< image "/uploads/java-equals.svg" "== and equals" "1" "1" >}}
 
 ![](/uploads/java-equals-object.png "Object 类")
 

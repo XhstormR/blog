@@ -9,7 +9,7 @@ title = "自学 Java"
 
 Updated on 2016-06-30
 
-> {{< image "/uploads/java.png" "Java" >}}
+> {{< image "/uploads/java.png" "Java" "1" "1" >}}
 >
 > http://www.tiobe.com/tiobe_index
 >

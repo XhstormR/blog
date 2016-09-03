@@ -9,7 +9,7 @@ title = "Android BaseAdapter"
 
 Updated on 2016-08-31
 
-> {{< image "/uploads/android-baseadapter.svg" "Adapter" >}}
+> {{< image "/uploads/android-baseadapter.svg" "Adapter" "1" "1" >}}
 >
 > 数据适配器把复杂的数据绑定至指定控件，是数据源和控件之间的桥梁。
 
