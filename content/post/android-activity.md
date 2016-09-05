@@ -26,9 +26,11 @@ Updated on 2016-07-18
 AndroidManifest.xml
 ⇳
 <application
-          android:label="@string/app_name"     应用名称
-          android:icon="@mipmap/ic_launcher"     应用图标
-          android:theme="@style/AppTheme">     应用主题
+        android:allowBackup="true"     允许导出备份文件
+        android:supportsRtl="true"     支持左右翻转布局
+        android:label="@string/app_name"     应用名称
+        android:icon="@mipmap/ic_launcher"     应用图标
+        android:theme="@style/AppTheme">     应用主题
 
     <activity android:name="com.example.system.myapplication.MainActivity">     注册 Activity
         <intent-filter>     标签
