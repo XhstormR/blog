@@ -148,14 +148,14 @@ ALT+Shift+R     重构 - 重命名
 ## CMD
 ```java
 ---------
-public class a{
+public class A{
     public static void main(String[] args){
         System.out.println("HelloWorld!");
     }
 }
 ---------
-D:\>javac a.java
-D:\>java a     java命令不跟文件后缀名
+D:\>javac A.java
+D:\>java A     java命令不跟文件后缀名
 HelloWorld!
 ```
 

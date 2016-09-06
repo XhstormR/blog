@@ -158,3 +158,5 @@ Updated on 2016-05-27
 兴趣一望无际的人。
 
 \- EOF -
+
+{{< audio "/uploads/audio/audio.mp3" "0" >}}
