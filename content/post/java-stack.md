@@ -70,7 +70,7 @@ LaTeX：https://latex.codecogs.com/eqneditor/editor.php
 ![](/uploads/java-stack.png "Stack")
 
 ```java
-10进制转化
+10进制 转 2进制
 ----
 public class A {
     public static void main(String[] args) {
