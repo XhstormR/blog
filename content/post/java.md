@@ -159,6 +159,19 @@ D:\>java A     java命令不跟文件后缀名
 HelloWorld!
 ```
 
+## JRE and JAR
+1. 复制 `JAVA_HOME` 下的 `jre` 目录到 `123` 目录。
+2. 导出源代码的 `jar` 包至 `123` 目录。
+3. 在 `123` 目录新建 `123.bat` 文件。
+
+{{< image "/uploads/java-jre.png" "" "0" "1" >}}
+
+```xml
+123.bat
+⇳
+jre\bin\java -jar 123.jar
+```
+
 ## Java 规范
 * 源文件名：源文件名应该和类名相同。
 * 程序入口：所有的 Java 程序由 `public static void main(String[] args)` 方法处开始执行。

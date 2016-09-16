@@ -242,7 +242,7 @@ quit     退出，可简写为 q
 
 ## 7z
 ```bash
-yum -y install p7zip* #安装 7z     p7zip，p7zip-plugins，7za是7z的精简版，建议使用7z
+yum -y install p7zip* #安装 7z     p7zip，p7zip-plugins，7za和7zr是7z的精简版，建议使用7z
 a     添加到压缩文件
 b     基准测试     Benchmark
 d     从压缩文件中删除
