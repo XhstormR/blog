@@ -23,6 +23,7 @@ Updated on 2016-06-30
 * Eclipse：http://www.eclipse.org/downloads/eclipse-packages/
   * 汉化包：http://www.eclipse.org/babel/downloads.php
 * IntelliJ IDEA：https://www.jetbrains.com/idea/download/
+  * 将系统时间调整至 1 年以后再点击试用（Evaluation）。
 
 ### IDEA 快捷键
 ```xml
