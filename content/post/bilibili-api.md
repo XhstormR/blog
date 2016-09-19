@@ -107,10 +107,10 @@ http://interface.bilibili.com/playurl?cid=8551612&appkey=6f90a59ac58a4123&otype=
          "order":1,
          "length":283324,
          "size":72450795,
-         "url":"http://cn-cq3-cu.acgvideo.com/vg2/8/a6/8551612-1.flv?expires=1474282200&ssig=awjQGykfKhmfNIyCKcHrqQ&oi=3708243307&rate=0",
+         "url":"http://cn-cq3-cu.acgvideo.com/vg2/8/a6/8551612-1.flv?expires=1474288500&ssig=GJ9c8OJUz3mZQT3OGT41UQ&oi=3708243307&rate=0",
          "backup_url":[
-            "http://cn-tj3-cu.acgvideo.com/vg6/a/9c/8551612-1.flv?expires=1474282200&ssig=DOAoPKoMxJcqRMfm-0Oo7A&oi=3708243307&rate=0",
-            "http://ws.acgvideo.com/0/22/8551612-1.flv?wsTime=1474282490&wsSecret2=7274a4f42cb564ec25c6a37e2a559e9e&oi=3708243307"
+            "http://cn-tj3-cu.acgvideo.com/vg6/a/9c/8551612-1.flv?expires=1474288500&ssig=ky9JegSFg9MwP-VBWMtBHw&oi=3708243307&rate=0",
+            "http://ws.acgvideo.com/0/22/8551612-1.flv?wsTime=1474288705&wsSecret2=4a18abf3b78cbcc277c5c1b814170bc2&oi=3708243307"
          ]
       }
    ]
