@@ -54,6 +54,9 @@ Ctrl+Shift+U     大小写转换
 Ctrl+Shift+Enter     完成声明
 Ctrl+Shift+F10     RUN
 
+Ctrl+Shift+加     展开所有代码块
+Ctrl+Shift+减     折叠所有代码块
+
 Ctrl+ALT+S     设置
 Ctrl+ALT+Shift+S     项目设置
 
@@ -170,7 +173,7 @@ HelloWorld!
 ```xml
 123.bat
 ⇳
-jre\bin\java -jar 123.jar
+cmd /K jre\bin\java -jar 123.jar
 ```
 
 ## Java 规范
