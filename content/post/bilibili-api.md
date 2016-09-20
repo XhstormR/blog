@@ -9,7 +9,9 @@ title = "BiliBili API"
 
 Updated on 2016-09-18
 
-> GetBilibili
+> [GetBilibili](https://github.com/XhstormR/GetBilibili)
+>
+> http://www.bilibili.com/video/av5262155/
 
 ```html
 http://interface.bilibili.com/player?id=cid:8551612
@@ -105,8 +107,8 @@ http://interface.bilibili.com/playurl?cid=8551612&appkey=6f90a59ac58a4123&otype=
    "durl":[
       {
          "order":1,
-         "length":283324,
-         "size":72450795,
+         "length":283324,     毫秒
+         "size":72450795,     字节
          "url":"http://cn-cq3-cu.acgvideo.com/vg2/8/a6/8551612-1.flv?expires=1474288500&ssig=GJ9c8OJUz3mZQT3OGT41UQ&oi=3708243307&rate=0",
          "backup_url":[
             "http://cn-tj3-cu.acgvideo.com/vg6/a/9c/8551612-1.flv?expires=1474288500&ssig=ky9JegSFg9MwP-VBWMtBHw&oi=3708243307&rate=0",
