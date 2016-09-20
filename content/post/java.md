@@ -165,7 +165,7 @@ HelloWorld!
 
 ## JRE and JAR
 1. 复制 `JAVA_HOME` 下的 `jre` 目录到 `123` 目录。
-2. 导出源代码的 `jar` 包至 `123` 目录。
+2. 导出项目的 `jar` 包至 `123` 目录。
 3. 在 `123` 目录新建 `123.bat` 文件。
 
 {{< image "/uploads/java-jre.png" "" "0" "1" >}}
@@ -673,6 +673,15 @@ System.nanoTime()     精确计时器，单位为毫微秒
      Some code ...
      long l2 = System.nanoTime();
      System.out.println(l2 - l1);
+
+-------------------------------------------------------
+
+System.getProperties().list(System.out);     获取系统属性
+
+Map<String, String> getenv = System.getenv();     获取环境变量
+for (String s : getenv.keySet()) {
+    System.out.println(s + "=" + getenv.get(s));
+}
 ```
 
 ### 继承初始化执行顺序
