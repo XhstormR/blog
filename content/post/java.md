@@ -52,7 +52,9 @@ Ctrl+ALT+O     清除无效包引用
 Ctrl+Shift+J     合并行
 Ctrl+Shift+U     大小写转换
 Ctrl+Shift+Enter     完成声明
-Ctrl+Shift+F10     RUN
+
+Ctrl+F9     Make Project
+Ctrl+Shift+F10     Run
 
 Ctrl+Shift+加     展开所有代码块
 Ctrl+Shift+减     折叠所有代码块
