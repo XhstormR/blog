@@ -7,7 +7,7 @@ title = "JAVA IO Stream"
 
 <!--more-->
 
-Updated on 2016-09-11
+Updated on 2016-09-24
 
 > [{{< image "/uploads/java-io.svg" "IO 流" "1" "0" >}}](/uploads/java-io.svg)
 
@@ -78,6 +78,13 @@ e5	a5	bd	41	31	0	0	0	e5	a5	bd	41	31
 13,13,13
 ```
 
+## 对象的序列化和反序列化
+* 序列化：Object ➜ Byte 序列-----ObjectOutputStream.writeObject
+* 反序列化：Byte 序列 ➜ Object-----ObjectInputStream.readObject
+* 对象所属的类必须实现序列化接口（Serializable），才能够被序列化。
+  * 如果所属的类的父类已实现序列化接口，则子类便不需要再实现序列化接口。
+  * 如果所属的类的父类没有没有实现序列化接口，其父类的构造函数会被调用。
+
 ## Code
 ```java
 public class Test {
@@ -145,4 +152,203 @@ public class Test {
         }
     }
 }
+
+-------------------------------------------------------
+
+public class Test {
+    public static void main(String[] args) throws IOException {
+    }
+
+    private static void read(String readName) throws IOException {
+        FileInputStream fileInputStream = new FileInputStream(readName);
+        for (int read, m = 1; (read = fileInputStream.read()) != -1; m++) {     读取一个字节填充至 int 的低 8 位，返回读到的内容
+            if (read <= 0xf) {
+                System.out.print("0");     前面补0
+            }
+            System.out.print(Integer.toHexString(read) + "\t");
+            if (m % 10 == 0) {
+                System.out.println();     换行
+            }
+        }
+        fileInputStream.close();
+
+        ----
+
+        FileInputStream fileInputStream = new FileInputStream(readName);
+        byte[] bytes = new byte[32 * 1024];     32KB (1KB=1024B) (1B=8b)
+        for (int read, m = 1; (read = fileInputStream.read(bytes)) != -1; ) {     读取字节填充至数组中，返回读到的个数
+            for (int i = 0; i < read; i++, m++) {
+                if ((bytes[i] & 0xff) <= 0xf) {
+                    System.out.print("0");     前面补0
+                }
+                System.out.print(Integer.toHexString(bytes[i] & 0xff) + "\t");
+                if (m % 10 == 0) {
+                    System.out.println();     换行
+                }
+            }
+        }
+        fileInputStream.close();
+    }
+
+    private static void write(String writeName) throws IOException {
+        byte[] bytes = "ABC123一二三".getBytes("utf8");
+        FileOutputStream fileOutputStream = new FileOutputStream(writeName, false);
+        fileOutputStream.write(bytes);     将字节数组写入
+        fileOutputStream.write(1);     将一个字节写入 (1B=8b)
+        fileOutputStream.close();
+
+        ----
+
+        DataOutputStream dataOutputStream = new DataOutputStream(new FileOutputStream(writeName, false));
+        DataInputStream dataInputStream = new DataInputStream(new FileInputStream(writeName));
+
+        dataOutputStream.writeUTF("ABC123一二三");     使用 utf-8 编码写入
+        System.out.println(dataInputStream.readUTF());     读取
+
+        dataOutputStream.writeChars("ABC123一二三");     使用 utf-16be 编码写入
+        byte[] bytes = new byte[((int) new File(writeName).length())];
+        dataInputStream.readFully(bytes);     读取
+        System.out.println(new String(bytes, "utf-16be"));
+
+        dataInputStream.close();
+        dataOutputStream.close();
+    }
+
+    private static void copy(String srcName, String destName) throws IOException {     复制文件
+        BufferedInputStream bufferedInputStream = new BufferedInputStream(new FileInputStream(srcName), 32 * 1024);
+        BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(destName, false), 32 * 1024);
+        byte[] bytes = new byte[32 * 1024];     32KB
+
+        for (int read; (read = bufferedInputStream.read(bytes)) != -1; ) {
+            bufferedOutputStream.write(bytes, 0, read);
+        }
+
+        bufferedOutputStream.close();
+        bufferedInputStream.close();
+    }
+
+    private static String string2Unicode(String str) {     字符串转为 Unicode
+        StringBuilder unicode = new StringBuilder();
+        char[] chars = str.toCharArray();
+        for (char c : chars) {
+            String hex = Integer.toHexString(c);
+            unicode.append("\\u").append(hex);
+        }
+        return unicode.toString();
+    }
+
+    private static String unicode2String(String unicode) {     Unicode 转为字符串
+        StringBuilder str = new StringBuilder();     第一种：纯 Unicode
+        String[] split = unicode.split("\\\\u");
+        for (String s : split) {
+            if (s.equals("")) {
+                continue;
+            }
+            int data = Integer.parseInt(s, 16);
+            str.append(((char) data));
+        }
+        return str.toString();
+
+        ----
+
+        StringBuilder str = new StringBuilder();     第二种：只转换了中文的 Unicode
+        for (int j = 0, i = 0; i != unicode.length(); ) {     j=指针缓存，i=指针
+            i = unicode.indexOf("\\u", i);
+            if (i == -1) {
+                return str.append(unicode.substring(j)).toString();
+            }
+            str.append(unicode.substring(j, i));
+            String hex = unicode.substring(i + 2, i + 6);
+            int data = Integer.parseInt(hex, 16);
+            str.append(((char) data));
+            j = i += 6;
+        }
+        return str.toString();
+    }
+}
+
+-------------------------------------------------------
+
+public class Student implements Serializable {     实现序列化接口
+    private int id;
+    private transient int age;     用 transient 修饰的属性不会自动进行序列化，但可以手动进行序列化
+    private String name;
+
+    public Student(int id, int age, String name) {
+        this.id = id;
+        this.age = age;
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", age=" + age +
+                ", name='" + name + '\'' +
+                '}';
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    private void writeObject(java.io.ObjectOutputStream s) throws java.io.IOException {     序列化方法
+        s.defaultWriteObject();     自动序列化属性
+        s.writeInt(age);     手动序列化 transient 修饰的属性
+    }
+
+    private void readObject(java.io.ObjectInputStream s) throws java.io.IOException, ClassNotFoundException {     反序列化方法
+        s.defaultReadObject();     自动反序列化属性
+        this.age = s.readInt();     手动反序列化 transient 修饰的属性
+    }
+}
+
+----
+
+public class Test {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        save();     保存（序列化）
+        load();     读取（反序列化）
+    }
+
+    private static void save() throws IOException {
+        Student student = new Student(1, 21, "张三");
+
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream("D:/student.dat"));
+        objectOutputStream.writeObject(student);     保存（序列化）
+        objectOutputStream.close();
+    }
+
+    private static void load() throws IOException, ClassNotFoundException {
+        ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("D:/student.dat"));
+        Student student = (Student) objectInputStream.readObject();     读取（反序列化）
+        objectInputStream.close();
+
+        System.out.println(student);
+    }
+}
+----
+输出：
+Student{id=1, age=21, name='张三'}
 ```
