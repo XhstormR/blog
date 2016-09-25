@@ -74,6 +74,8 @@ Ctrl+ALT+F12     查看文件路径
 
 ALT+Insert     生成方法
 Ctrl+ALT+Insert     新建文件
+Ctrl+Shift+Insert     历史复制板
+Ctrl+Shift+ALT+Insert     新建临时文件
 
 Ctrl+/     注释行（单行注释）
 Ctrl+Shift+/     添加注释（多行注释）
