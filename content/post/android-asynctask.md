@@ -44,7 +44,7 @@ public class MainActivity1 extends Activity {
             Log.i("Tag", "2doInBackground");
             for (int i = 0; i < 100; i++) {     模拟进度条加载
                 if (isCancelled()) {     是否为关闭状态
-                    break;     尽快结束任务
+                    return;     尽快结束任务
                 }
                 publishProgress(i);     更新执行进度
                 try {

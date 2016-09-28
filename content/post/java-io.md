@@ -37,6 +37,11 @@ file.getName();     获得文件(夹)名称，123
 file.getParent();     获得父路径，D:\
 file.getAbsolutePath();     获得文件(夹)的绝对路径，D:\123
 file.getCanonicalPath();     获得文件(夹)的绝对路径（规范后）
+
+1 B = 8 bit
+1 KB = 1024 B
+1 MB = 1024 KB
+1 GB = 1024 MB
 ```
 
 ## RandomAccessFile
