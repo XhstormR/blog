@@ -120,9 +120,10 @@ public class MyBaseAdapter extends BaseAdapter {     自定义适配器
             viewHolder.imageView = (ImageView) convertView.findViewById(R.id.imageView);     保存至 ViewHolder
 
             convertView.setTag(viewHolder);     绑定 ViewHolder
+        } else {
+            viewHolder = (ViewHolder) convertView.getTag();     取出 ViewHolder
         }
 
-        viewHolder = (ViewHolder) convertView.getTag();     取出 ViewHolder
         viewHolder.title.setText(bean.itemTitle);
         viewHolder.content.setText(bean.itemContent);
         viewHolder.imageView.setImageResource(bean.itemImage);
