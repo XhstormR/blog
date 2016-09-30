@@ -13,7 +13,7 @@ Updated on 2016-09-28
 >
 > LruCache 内存缓存图片
 >
-> ListView 加载图片（静止，滚动）
+> ListView 加载图片（滚动状态，静止状态）
 >
 > BaseAdapter 缓存页面（convertView，ViewHolder）
 
