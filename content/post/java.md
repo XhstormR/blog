@@ -90,8 +90,9 @@ Ctrl+N     查找类
 Ctrl+Shift+N     查找文件
 Ctrl+Shift+ALT+N     查找变量
 
-ALT+←→     切换文件
 ALT+↑↓     切换方法
+ALT+←→     切换文件
+ALT+Shift+←→     切换编辑框
 
 ALT+Shift+↑↓     移动行
 Ctrl+Shift+↑↓     移动方法

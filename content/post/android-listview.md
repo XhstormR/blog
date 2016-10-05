@@ -252,8 +252,8 @@ public class ImageLoader {
 
     public void cancelAllTask() {
         for (AsyncTask task : mTask) {
-            task.cancel(true);     Cancel 状态下 doInBackground 结束后不会调用 onPostExecute，而会调用 onCancelled
-        }
+            task.cancel(false);     Cancel 状态下 doInBackground 结束后不会调用 onPostExecute，而会调用 onCancelled
+        }                         ↳ false 代表不调用 Thread.interrupt()
     }
 
     private class DownloadImage extends AsyncTask<String, Void, Bitmap> {

@@ -60,6 +60,7 @@ IDEA ➜ File ➜ Project Structure ➜ SDKs ➜ Sourcepath
 ```html
 adb start-server     启动 ADB
 adb kill-server     停止 ADB
+adb root     使 ADBD 获得 ROOT 权限
 
 adb reboot     重启手机
 adb reboot recovery     重启至 Recovery 模式
