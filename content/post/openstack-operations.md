@@ -7,7 +7,7 @@ title = "OpenStack 不完全使用手册"
 
 <!--more-->
 
-Updated on 2016-06-07
+Updated on 2016-10-06
 
 > ![](/uploads/openstack-logo.svg)
 
@@ -29,7 +29,12 @@ Updated on 2016-06-07
 -x 10.34.3.71:808 #指定代理服务器
 -o "123.7z" #保存至本地
 -O #根据服务器上的文件名自动保存至本地
--c #断点续传
+-b "NAME1=VALUE1; NAME2=VALUE2" #设置 Cookie
+-b 123.txt #读取 Cookie
+-c 123.txt #保存 Cookie
+-C - #断点续传     Continue
+-L #自动重定向     Location
+--limit-rate 200K #限速
 
 curl -s -H "X-Auth-Token:123" http://0.0.0.0:35357/v2.0/tenants | python -mjson.tool #格式化输出 JSON
 

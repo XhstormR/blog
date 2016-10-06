@@ -272,3 +272,98 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
 ```
 
 ## File
+自定义数据文件。
+
+### MainActivity.java
+```java
+public class MainActivity extends Activity {
+    private EditText editText;
+    private TextView textView;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main_activity);
+        editText = (EditText) findViewById(R.id.editText);
+        textView = (TextView) findViewById(R.id.textView);
+        A();
+    }
+
+    public void onClick(View view) throws IOException {
+        switch (view.getId()) {
+            case R.id.button1:     保存
+                String string = editText.getText().toString();
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(openFileOutput("123.txt", MODE_APPEND), "utf-8"));
+                bufferedWriter.write(string);                       （/data/data/com.example.system.myapplication/files/123.txt，追加模式）
+                bufferedWriter.close();
+                break;
+            case R.id.button2:     读取
+                StringBuilder stringBuilder = new StringBuilder();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(openFileInput("123.txt"), "utf-8"));
+                for (String s; (s = bufferedReader.readLine()) != null; ) {     （/data/data/com.example.system.myapplication/files/123.txt）
+                    stringBuilder.append(s);
+                }
+                bufferedReader.close();
+                textView.setText(stringBuilder.toString());
+                break;
+        }
+    }
+
+    private void A() {
+        内部存储：
+        File filesDir = this.getFilesDir();
+        File cacheDir = this.getCacheDir();
+        File dir = this.getDir("123456", MODE_PRIVATE);
+        依次为：
+        /data/data/com.example.system.myapplication/files     数据目录
+        /data/data/com.example.system.myapplication/cache     缓存目录
+        /data/data/com.example.system.myapplication/app_123456
+
+        外部存储：
+        File externalFilesDir = this.getExternalFilesDir(null);
+        File externalCacheDir = this.getExternalCacheDir();
+        File externalDir = new File(Environment.getExternalStorageDirectory(), "123456");
+        依次为：
+        /storage/sdcard0/Android/data/com.example.system.myapplication/files     数据目录
+        /storage/sdcard0/Android/data/com.example.system.myapplication/cache     缓存目录
+        /storage/sdcard0/123456
+        操作外部存储需要权限：
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    }
+}
+```
+
+### main_activity.xml
+```xml
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:padding="16dp"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <EditText
+            android:gravity="center"
+            android:hint="输入"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText"/>
+    <Button
+            android:onClick="onClick"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="保存"
+            android:id="@+id/button1"/>
+    <Button
+            android:onClick="onClick"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="读取"
+            android:id="@+id/button2"/>
+    <TextView
+            android:gravity="center"
+            android:text="内容"
+            android:textSize="25sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"/>
+</LinearLayout>
+```
