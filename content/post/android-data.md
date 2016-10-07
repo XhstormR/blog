@@ -7,9 +7,15 @@ title = "Android 数据存储"
 
 <!--more-->
 
-Updated on 2016-10-02
+Updated on 2016-10-06
 
+> File
 >
+> SQLite
+>
+> ContentProvider
+>
+> SharedPreferences
 
 ## SharedPreferences
 一种轻型的数据存储方式，基于 XML 文件存储（Key-Value）键值对数据。
@@ -254,7 +260,7 @@ public class MainActivity extends Activity {
 
 ### MySQLiteOpenHelper.java
 ```java
-public class MySQLiteOpenHelper extends SQLiteOpenHelper {
+public class MySQLiteOpenHelper extends SQLiteOpenHelper {     继承 SQLiteOpenHelper
     public MySQLiteOpenHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
@@ -366,4 +372,141 @@ public class MainActivity extends Activity {
             android:layout_height="wrap_content"
             android:id="@+id/textView"/>
 </LinearLayout>
+```
+
+## ContentProvider
+用于实现不同应用程序之间共享数据的组件。
+
+* ContentProvider：内容提供器，通过 Uri 地址给外部应用程序访问来提供数据。`out`
+* ContentResolver：内容解析器，通过访问外部应用程序的 Uri 地址来获得数据。`in`
+* ContentResolver 通过指定 Uri 访问 ContentProvider，调用其提供的增删改查方法。
+
+### MainActivity.java
+```java
+import android.provider.ContactsContract.CommonDataKinds.Email;
+import android.provider.ContactsContract.CommonDataKinds.Phone;
+import android.provider.ContactsContract.CommonDataKinds.StructuredName;
+import android.provider.ContactsContract.Contacts;
+import android.provider.ContactsContract.Data;
+import android.provider.ContactsContract.RawContacts;
+....
+
+public class MainActivity extends Activity {
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main_activity);
+        A();     查
+        B();     增
+    }
+
+    private void A() {
+        ContentResolver contentResolver = getContentResolver();
+        查询联系人
+        String[] column = {Contacts._ID, Contacts.DISPLAY_NAME, Contacts.LAST_TIME_CONTACTED};     查询列
+        Cursor cursor = contentResolver.query(Contacts.CONTENT_URI, column, null, null, Contacts._ID);
+        if (cursor != null) {
+            Show(cursor);     解析游标
+        }
+        查询电话本
+        String[] column = {Phone._ID, Phone.DISPLAY_NAME, Phone.NUMBER};     查询列
+        Cursor cursor = contentResolver.query(Phone.CONTENT_URI, column, null, null, Phone._ID);
+        if (cursor != null) {
+            Show(cursor);     解析游标
+        }
+        查询邮箱
+        String[] column = {Email._ID, Email.NAME_RAW_CONTACT_ID, Email.DATA};     查询列
+        Cursor cursor = contentResolver.query(Email.CONTENT_URI, column, null, null, Email._ID);
+        if (cursor != null) {
+            Show(cursor);     解析游标
+        }
+        需要权限：
+        <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    }
+
+    private void B() {
+        ContentResolver contentResolver = getContentResolver();
+        新建联系人
+        Uri insert = contentResolver.insert(RawContacts.CONTENT_URI, new ContentValues());
+        long parseId = ContentUris.parseId(insert);     获得在表中的 ID
+        插入姓名
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(StructuredName.RAW_CONTACT_ID, parseId);     ID
+        contentValues.put(StructuredName.DISPLAY_NAME, "TEST");     姓名
+        contentValues.put(StructuredName.MIMETYPE, StructuredName.CONTENT_ITEM_TYPE);     类型为姓名
+        contentResolver.insert(Data.CONTENT_URI, contentValues);
+        插入电话
+        contentValues.clear();
+        contentValues.put(Phone.RAW_CONTACT_ID, parseId);     ID
+        contentValues.put(Phone.NUMBER, "123456");     电话
+        contentValues.put(Phone.MIMETYPE, Phone.CONTENT_ITEM_TYPE);     类型为电话
+        contentResolver.insert(Data.CONTENT_URI, contentValues);
+        需要权限：
+        <uses-permission android:name="android.permission.READ_CONTACTS"/>
+        <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    }
+
+    private void Show(Cursor cursor) {
+        String[] columnNames = cursor.getColumnNames();
+        String[] column = new String[columnNames.length];
+        while (cursor.moveToNext()) {     行
+            for (int i = 0; i < columnNames.length; i++) {
+                column[i] = cursor.getString(cursor.getColumnIndex(columnNames[i]));     列
+            }
+            Log.i("Tag", Arrays.toString(column));
+        }
+        cursor.close();
+    }
+}
+```
+
+### MyContentProvider.java
+```java
+public class MyContentProvider extends ContentProvider {     继承 ContentProvider
+    @Override
+    public boolean onCreate() {     应用启动时调用
+        return false;
+    }
+
+    @Nullable
+    @Override
+    public String getType(@NonNull Uri uri) {     返回 Uri 的 MIME 类型
+        return null;     （单条数据以 vnd.android.cursor.item/ 开头）
+    }                          （多条数据以 vnd.android.cursor.dir/ 开头）
+
+    @Nullable
+    @Override     增
+    public Uri insert(@NonNull Uri uri, @Nullable ContentValues values) {
+        return null;
+    }
+
+    @Override     删
+    public int delete(@NonNull Uri uri, @Nullable String selection, @Nullable String[] selectionArgs) {
+        return 0;
+    }
+
+    @Override     改
+    public int update(@NonNull Uri uri, @Nullable ContentValues values, @Nullable String selection, @Nullable String[] selectionArgs) {
+        return 0;
+    }
+
+    @Nullable
+    @Override     查（一般只需实现查询功能，也就是只给外部提供查询功能）
+    public Cursor query(@NonNull Uri uri, @Nullable String[] projection, @Nullable String selection, @Nullable String[] selectionArgs, @Nullable String sortOrder) {
+        return null;
+    }
+}
+
+AndroidManifest.xml
+⇳
+<application
+
+    其余组件
+
+    <provider
+            android:name="com.example.system.myapplication.MyContentProvider"
+            android:authorities="内容提供器">
+    </provider>
+</application>
 ```

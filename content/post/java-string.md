@@ -7,7 +7,7 @@ title = "关于Java中的 String"
 
 <!--more-->
 
-Updated on 2016-07-22
+Updated on 2016-10-06
 
 > {{< image "/uploads/java-string.svg" "String" "1" "1" >}}
 
@@ -100,7 +100,7 @@ public class A {
     public static void main(String[] args) {
         String str = "abcdef";
         for (char i : str.toCharArray()) {
-            System.out.println(i - 'a' + 1);
+            System.out.println(i - 'a' + 1);     eg. b ➜ 98 - 97 + 1 = 2
         }
     }
 }
@@ -112,4 +112,22 @@ public class A {
 4
 5
 6
+
+-------------------------------------------------------
+
+public class A {
+    public static void main(String[] args) {
+        String format = String.format("A=%s&B=%s", "1", "2");
+        String encode = URLEncoder.encode("中国ABC", "utf-8");
+        String decode = URLDecoder.decode(encode, "utf-8");
+        System.out.println(format);
+        System.out.println(encode);
+        System.out.println(decode);
+    }
+}
+----
+输出：
+A=1&B=2
+%E4%B8%AD%E5%9B%BDABC
+中国ABC
 ```
