@@ -465,7 +465,7 @@ public class MainActivity extends Activity {
 ```java
 public class MyContentProvider extends ContentProvider {     继承 ContentProvider
     @Override
-    public boolean onCreate() {     应用启动时调用
+    public boolean onCreate() {     应用启动时调用，不应包含耗时操作
         return false;
     }
 
