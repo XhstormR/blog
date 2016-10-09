@@ -679,6 +679,8 @@ System.nanoTime()     精确计时器，单位为毫微秒
      long l2 = System.nanoTime();
      System.out.println(l2 - l1);
 
+String date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.util.Date(1475819315880L));     //2016-10-07 13:48:35
+
 -------------------------------------------------------
 
 System.getProperties().list(System.out);     获取系统属性
