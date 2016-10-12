@@ -13,9 +13,9 @@ Updated on 2016-10-06
 >
 > SQLite
 >
-> ContentProvider
->
 > SharedPreferences
+>
+> ContentProvider (组件)
 
 ## SharedPreferences
 一种轻型的数据存储方式，基于 XML 文件存储（Key-Value）键值对数据。
@@ -465,7 +465,7 @@ public class MainActivity extends Activity {
 ```java
 public class MyContentProvider extends ContentProvider {     继承 ContentProvider
     @Override
-    public boolean onCreate() {     应用启动时调用，不应包含耗时操作
+    public boolean onCreate() {     初始化操作，应用启动时调用，不应包含耗时操作
         return false;
     }
 
