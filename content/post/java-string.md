@@ -7,7 +7,7 @@ title = "关于Java中的 String"
 
 <!--more-->
 
-Updated on 2016-10-06
+Updated on 2016-10-09
 
 > {{< image "/uploads/java-string.svg" "String" "1" "1" >}}
 
@@ -115,11 +115,12 @@ public class A {
 
 -------------------------------------------------------
 
-public class A {
+public class A {     URL 编码
     public static void main(String[] args) {
         String format = String.format("A=%s&B=%s", "1", "2");
         String encode = URLEncoder.encode("中国ABC", "utf-8");
         String decode = URLDecoder.decode(encode, "utf-8");
+
         System.out.println(format);
         System.out.println(encode);
         System.out.println(decode);
@@ -130,4 +131,53 @@ public class A {
 A=1&B=2
 %E4%B8%AD%E5%9B%BDABC
 中国ABC
+
+-------------------------------------------------------
+
+public class A {     Base64 编码
+    public static void main(String[] args) {
+        String str = "123ABC中国";
+        String encode = new BASE64Encoder().encode(str.getBytes("utf-8"));
+        byte[] decode = new BASE64Decoder().decodeBuffer(encode);
+
+        System.out.println(encode);
+        System.out.println(new String(decode, "utf-8"));
+    }
+}
+----
+输出：
+MTIzQUJD5Lit5Zu9
+123ABC中国
+
+-------------------------------------------------------
+
+public class A {     判断是否为回文
+    public static void main(String[] args) {
+        a();     第一种方式
+        b();     第二种方式
+    }
+
+    private static void a() {
+        String str = "12321";
+        String s = new StringBuilder(str).reverse().toString();
+        System.out.println(str.equals(s));
+    }
+
+    private static void b() {
+        String str = "12321";
+        int length = str.length();
+        int count = length % 2 == 0 ? length / 2 : (length - 1) / 2;
+        for (int x = 0, y = 1; count != 0; count--, x++, y++) {
+            if (str.charAt(x) != str.charAt(length - y)) {
+                System.out.println("false");
+                break;
+            }
+        }
+        System.out.println("true");
+    }
+}
+----
+输出：
+true
+true
 ```

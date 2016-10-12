@@ -92,10 +92,14 @@ cat /data/misc/wifi/*.conf     查看连接过的 WIFI 密码
 
 PackageManager
 pm list packages     显示所有应用     -d 禁用的应用     -e 启用的应用     -3 第三方应用     -s 系统应用
+pm list packages google     包名带 google 字段的应用
 pm clear com.baidu.mobile     清除数据和缓存
+（总应用个数 = 禁用+启用 = 系统+第三方）
 
 ActivityManager
-am start -n com.example.app/.ExampleActivity     调用 Activity
+am start -n com.example.app/.ExampleActivity -es str ABC     调用 Activity 并发送数据 extra string（Key-Value）
+am start -a android.intent.action.CALL -d tel:10086     发送 Intent（拨打电话）
+am start -a android.intent.action.VIEW -d http://xhstormr.tk/     发送 Intent（打开网站）
 am startservice ...     调用 Service
 am broadcast ...     发送广播
 am force-stop com.baidu.mobile     强制停止 App
