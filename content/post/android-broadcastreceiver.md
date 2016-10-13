@@ -11,7 +11,7 @@ Updated on 2016-10-10
 
 >
 
-* Broadcast（发）：发送 Broadcast 用于进程或线程间进行通信。
+* Broadcast（发）：发送 Broadcast（Intent）用于进程或线程间进行通信。
   * 普通广播：所有监听该广播的接收器都可以（理论上同时）接收到该广播。
       * 动态注册的接收器 **总是** 先于静态注册的接收器收到广播。
       * 并行处理。
@@ -34,7 +34,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         mMyBroadcastReceiver = new MyBroadcastReceiver();     广播接收器
-        IntentFilter intentFilter = new IntentFilter("action1");     过滤信息（接受行动）
+        IntentFilter intentFilter = new IntentFilter("action1");     过滤信息（匹配 Intent）
         intentFilter.setPriority(100);     优先级
         registerReceiver(mMyBroadcastReceiver, intentFilter);     动态注册（广播接收器，过滤信息）
     }
@@ -42,11 +42,12 @@ public class MainActivity extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        unregisterReceiver(mMyBroadcastReceiver);     取消动态注册
+        unregisterReceiver(mMyBroadcastReceiver);     取消动态注册（必须执行，以防内存泄漏）
     }
 
     public void onClick(View view) {
         Intent intent = new Intent("action1");     意图（行动）
+        intent.setPackage("com.example.myapp.myapplication");     只发送至此包中与之匹配的接收器（安全）
         switch (view.getId()) {
             case R.id.button1:
                 intent.putExtra("msg", "普通广播");
@@ -66,7 +67,7 @@ public class MainActivity extends Activity {
 public class MyBroadcastReceiver extends BroadcastReceiver {
 
     @Override
-    public void onReceive(Context context, Intent intent) {     不应包含耗时操作
+    public void onReceive(Context context, Intent intent) {     处理匹配到的广播（处在 UI 线程，不应包含耗时操作）
         Log.w("Tag", intent.getStringExtra("msg") + "_" + intent.getAction());
         Bundle bundle = new Bundle();
         bundle.putString("str", "新消息");
@@ -120,11 +121,51 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
     其余组件
 
     <receiver     静态注册
-            android:name=".MyBroadcastReceiver"
-            android:exported="false">     禁止跨进程使用（不接收外部广播）
+            android:name=".MyBroadcastReceiver"     类名
+            android:exported="false">     禁止跨 App 使用（以 user id 为界，不接收外部广播）（安全）
         <intent-filter android:priority="200">     优先级
-            <action android:name="action1"/>     过滤信息（接受行动）
+            <action android:name="action1"/>     过滤信息（匹配 Intent）
+        </intent-filter>
+        <intent-filter>
+            <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />     网络变化
+        </intent-filter>
+        <intent-filter>
+            <action android:name="android.intent.action.BOOT_COMPLETED" />     开机启动
         </intent-filter>
     </receiver>
 </application>
+```
+
+## LocalBroadcastManager
+* 应用内广播，更加安全，高效。
+
+```java
+public class MainActivity extends Activity {
+    private LocalBroadcastManager mLocalBroadcastManager;
+    private MyBroadcastReceiver mMyBroadcastReceiver;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        mLocalBroadcastManager = LocalBroadcastManager.getInstance(this);
+
+        mMyBroadcastReceiver = new MyBroadcastReceiver();
+        IntentFilter intentFilter = new IntentFilter("action1");
+        mLocalBroadcastManager.registerReceiver(mMyBroadcastReceiver, intentFilter);     注册应用内广播接收器
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mLocalBroadcastManager.unregisterReceiver(mMyBroadcastReceiver);     取消注册
+    }
+
+    public void onClick(View view) {
+        Intent intent = new Intent("action1");
+        intent.putExtra("msg", "应用内广播");
+        mLocalBroadcastManager.sendBroadcast(intent);     发送应用内广播
+    }
+}
 ```

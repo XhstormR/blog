@@ -94,6 +94,9 @@ PackageManager
 pm list packages     显示所有应用     -d 禁用的应用     -e 启用的应用     -3 第三方应用     -s 系统应用
 pm list packages google     包名带 google 字段的应用
 pm clear com.baidu.mobile     清除数据和缓存
+pm list users     查看用户
+pm list libraries     查看系统安装的库
+pm list features     查看系统支持的功能
 （总应用个数 = 禁用+启用 = 系统+第三方）
 
 ActivityManager
@@ -108,7 +111,22 @@ dumpsys activity activities | grep mFocusedActivity     查看前台 Activity
 /data/property/persist.sys.usb.config     配置 USB
 ⇳
 mtp,adb     作为媒体设备,开启调试模式
+
+远程 ADB
+adb devices -l
+    List of devices attached
+    10.32.17.39:1234       device product:2013023 model:2013023 device:HM2013023
+启动
+adb tcpip 1234     连接手机
+adb connect 10.32.17.39:1234
+停止
+adb disconnect
+adb usb     连接手机
 ```
+
+### Vysor
+* Link：[WebStore](https://chrome.google.com/webstore/detail/vysor/gidgenkbbabolejbgbpnhbimgjbffefm),[Github](https://github.com/koush/vysor.io/releases/latest)
+* 破解：uglify.js ➜ function e(){this.licensed=**true**;this.licenseCached=**true**}
 
 ## Android 规范
 * [Android Design](/uploads/android-design.png "Android Design")
