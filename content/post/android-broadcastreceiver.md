@@ -67,7 +67,7 @@ public class MainActivity extends Activity {
 public class MyBroadcastReceiver extends BroadcastReceiver {
 
     @Override
-    public void onReceive(Context context, Intent intent) {     处理匹配到的广播（处在 UI 线程，不应包含耗时操作）
+    public void onReceive(Context context, Intent intent) {     处理匹配到的广播（处在 UI 线程，不应包含耗时操作，可以传给 Service）
         Log.w("Tag", intent.getStringExtra("msg") + "_" + intent.getAction());
         Bundle bundle = new Bundle();
         bundle.putString("str", "新消息");
