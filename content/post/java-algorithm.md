@@ -80,9 +80,9 @@ public class A {
 ```java
 public class A {
     public static void main(String[] args) {
-        List<Integer> list = Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
-        Collections.shuffle(list);
-        Integer[] ints = list.toArray(new Integer[0]);
+        List<Integer> list = Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);     数组 ➜ 集合
+        Collections.shuffle(list);     打乱
+        Integer[] ints = list.toArray(new Integer[0]);     集合 ➜ 数组
 
         System.out.println(Arrays.toString(ints));     排序之前
         a(ints);
