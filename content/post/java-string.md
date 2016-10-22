@@ -117,7 +117,7 @@ public class A {
 
 public class A {     URL 编码
     public static void main(String[] args) {
-        String format = String.format("A=%s&B=%s", "1", "2");
+        String format = String.format("A=%s&B=%d&C=%.2f", "字", 123, 123.123);
         String encode = URLEncoder.encode("中国ABC", "utf-8");
         String decode = URLDecoder.decode(encode, "utf-8");
 
@@ -128,7 +128,7 @@ public class A {     URL 编码
 }
 ----
 输出：
-A=1&B=2
+A=字&B=123&C=123.12
 %E4%B8%AD%E5%9B%BDABC
 中国ABC
 
@@ -170,7 +170,7 @@ public class A {     判断是否为回文
         for (int x = 0, y = 1; count != 0; count--, x++, y++) {
             if (str.charAt(x) != str.charAt(length - y)) {
                 System.out.println("false");
-                break;
+                return;
             }
         }
         System.out.println("true");
