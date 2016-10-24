@@ -182,7 +182,7 @@ cmd /K jre\bin\java -jar 123.jar
 ```
 
 ## Java 规范
-* 源文件名：源文件名应该和类名相同。
+* 源文件名：源文件名应该和其中的 `public` 类名相同。
 * 程序入口：所有的 Java 程序由 `public static void main(String[] args)` 方法处开始执行。
 * 变量：包含变量类型、变量名、变量值 3 个元素。`String name="Dave";`
   * 常量：一种特殊的变量，由 final 修饰，值不能被改变。`final char SEX = '男';`

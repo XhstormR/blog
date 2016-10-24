@@ -7,14 +7,24 @@ title = "JAVA Thread"
 
 <!--more-->
 
-Updated on 2016-10-19
+Updated on 2016-10-24
 
+> {{< image "/uploads/java-thread.svg" "Thread 状态" "1" "1" >}}
 >
+> [Thread](http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/java/lang/Thread.html)
+>
+> [Thread.State](http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/java/lang/Thread.State.html)
+>
+> [Object.wait()](http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/java/lang/Object.html#wait())
+> |
+> [Object.notifyAll()](http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/java/lang/Object.html#notifyAll())
 
 * 进程：一块包含了某些资源的内存区域。
   * 一个进程中至少包含一个或多个线程（执行单元）。
+  * 进程的内存区域仅能被它所包含的线程访问。
 * 线程：进程的顺序执行流，系统中最小的执行单元。
-  * 所有线程共享同一个进程的资源。
+  * 线程只能归属于一个进程并且只能访问该进程的资源。
+  * 进程的所有线程共享同一块内存空间。
 * 并发：OS 的线程调度机制将时间划分为很多时间片（**分时**），尽可能均匀分配给正在运行的线程（**抢占**），获得 CPU 时间片的线程得以被执行，其他则等待；而 CPU 则在这些线程上来回切换运行。
   * 微观上走走停停，宏观上都在运行。
 
@@ -194,7 +204,7 @@ public class A {
         while (true) {
             System.out.println(simpleDateFormat.format(new Date()));
             try {
-                Thread.sleep(1000);     当前线程进入阻塞状态 1 秒，之后重新进入 Runnable 状态，等待获得时间片
+                Thread.sleep(1000);     当前线程进入阻塞状态 1 秒（不会释放锁），之后重新进入 Runnable 状态，等待获得时间片
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -383,7 +393,7 @@ Stop!
 -------------------------------------------------------
 
 public class A implements Runnable {     通过设置退出旗标
-    private volatile boolean mRunning = true;
+    private volatile boolean mRunning = true;     volatile 关键字保证了多线程同步中的可见性，使线程能够正确获得变量的最新值
 
     public static void main(String[] args) {
         Runnable runnable = new A();
@@ -423,7 +433,121 @@ Stop!
 ### 同步线程
 * 异步：多线程并发，各干各的。
 * 同步：有先后顺序，你干完我再干。
+  * synchronized 修饰的代码块或方法保证了 **可见性** 和 **原子性**。
+* 可见性：对变量的读操作，总是能看到对这个变量最后的写操作。
+  * volatile 修饰的变量强制线程每次读写的时候都需要与主内存进行同步。
+      * 读：直接读取主内存中的值。
+      * 写：立即刷新主内存中的值。
+* 原子性：操作不可分割，视作一个整体，且 **不会被线程调度机制打断**，则为原子操作。
 
 ```java
+public class A implements Runnable {
+    private final int[] mInts;     能量数组（锁对象应该用 final 修饰）
 
+    public A(int[] ints) {     构造函数
+        mInts = ints;
+    }
+
+    @Override
+    public void run() {     线程体
+        Random random = new Random();
+        while (true) {     无限循环
+            int from = ((int) (mInts.length * random.nextDouble()));     随机
+            int to = ((int) (mInts.length * random.nextDouble()));     随机
+            int i = ((int) (1000 * random.nextDouble()));     随机
+            transfer(from, to, i);
+            try {
+                Thread.sleep(10);     阻塞 10 毫秒
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void transfer(int from, int to, int i) {     转移能量
+        if (mInts[from] < i) {     能量不足
+            return;
+        }
+        synchronized (mInts) {     同步锁（多个需要同步的线程的同步锁应该是同一个锁对象的引用）
+            mInts[from] -= i;     减少
+            mInts[to] += i;     增加
+            DecimalFormat decimalFormat1 = new DecimalFormat("00");     格式化
+            DecimalFormat decimalFormat2 = new DecimalFormat("000");     格式化
+            System.out.printf("%s\t 从 %s 转移 %s 到 %s \t%d\n", Thread.currentThread().getName(), decimalFormat1.format(from), decimalFormat2.format(i), decimalFormat1.format(to), getAll());
+        }
+    }
+
+    private int getAll() {     获得总能量（应当守恒）
+        int sum = 0;
+        for (int i : mInts) {
+            sum += i;
+        }
+        return sum;
+    }
+}
+
+----
+
+public class Initial {
+    public static void main(String[] args) {
+        int[] ints = new int[100];     初始化能量数组（100 个单元，每个单元 1000 能量）
+        for (int i = 0; i < ints.length; i++) {
+            ints[i] = 1000;
+        }
+
+        DecimalFormat decimalFormat = new DecimalFormat("000");
+        for (int i = 0; i < ints.length; ) {     启动 100 个线程
+            Thread thread = new Thread(new A(ints), "A_" + decimalFormat.format(++i));     传入同一个数组，对其进行操作，并作为锁对象
+            thread.start();     启动线程
+        }
+    }
+}
+----
+输出：
+A_042	 从 39 转移 209 到 49 	100000
+A_056	 从 22 转移 017 到 31 	100000
+A_044	 从 29 转移 055 到 30 	100000
+A_068	 从 28 转移 717 到 66 	100000
+A_069	 从 85 转移 020 到 16 	100000
+A_070	 从 00 转移 380 到 54 	100000
+A_072	 从 67 转移 783 到 25 	100000
+A_034	 从 58 转移 377 到 02 	100000
+A_073	 从 04 转移 710 到 98 	100000
+A_074	 从 30 转移 499 到 57 	100000
+A_075	 从 95 转移 299 到 81 	100000
+...
+```
+
+```java
+public class A implements Runnable {
+    public int mInt = 0;     值（应当守恒）
+    public volatile boolean mRunning = true;     退出旗标
+
+    @Override
+    public void run() {
+        while (mRunning) {     无限循环
+            synchronized (this) {     同步锁
+                mInt++;
+                mInt--;
+            }
+        }
+    }
+}
+
+----
+
+public class Initial {
+    public static void main(String[] args) throws InterruptedException {
+        A a = new A();     线程体
+        for (int i = 0; i < 3; i++) {     启动 3 个线程
+            new Thread(a).start();     传入同一个线程体
+        }
+        Thread.sleep(1000);     当前线程进入阻塞状态 1 秒
+        a.mRunning = false;     标记为 false
+        System.out.println(a.mInt);     输出值
+    }
+}
+----
+输出：
+0
 ```
