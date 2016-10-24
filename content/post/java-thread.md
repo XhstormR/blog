@@ -434,7 +434,7 @@ Stop!
 * 异步一一一一：多线程并发，各干各的。
 * 同步（互斥）：有先后顺序，你干完我再干。
   * `synchronized` 给修饰的代码块或方法加上 **同步锁**，保证了 **可见性** 和 **原子性**。
-      * 同步锁：同时只允许一个线程持有，且此时只有该线程能够执行同步锁修饰的代码块或方法。
+      * 同步锁：同时只允许一个线程持有，且此时只有该线程能够执行该同步锁修饰的代码块或方法。
           * 静态方法锁：锁对象是类对象。`Man.class`
           * 非静态方法锁：锁对象是类的对象。`new Man()`
       * 线程进入同步代码块或方法时获得锁。
@@ -483,7 +483,7 @@ public class A implements Runnable {
     @Override
     public void run() {
         while (mRunning) {     无限循环
-            synchronized (this) {     同步锁
+            synchronized (this) {     同步锁（锁对象是类的对象）
                 mInt++;
                 mInt--;
             }
@@ -537,7 +537,7 @@ public class A implements Runnable {
         if (mInts[from] < i) {     能量不足
             return;
         }
-        synchronized (mInts) {     同步锁（多个需要同步的线程的同步锁应该是同一个锁对象的引用）
+        synchronized (mInts) {     同步锁（多个需要同步的线程的同步锁应该是同一个锁对象的引用，否则无法得到同步效果）
             mInts[from] -= i;     减少
             mInts[to] += i;     增加
             DecimalFormat decimalFormat1 = new DecimalFormat("00");     格式化
