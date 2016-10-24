@@ -431,14 +431,83 @@ Stop!
 ```
 
 ### 同步线程
-* 异步：多线程并发，各干各的。
-* 同步：有先后顺序，你干完我再干。
-  * synchronized 修饰的代码块或方法保证了 **可见性** 和 **原子性**。
+* 异步一一一一：多线程并发，各干各的。
+* 同步（互斥）：有先后顺序，你干完我再干。
+  * `synchronized` 给修饰的代码块或方法加上 **同步锁**，保证了 **可见性** 和 **原子性**。
+      * 同步锁：同时只允许一个线程持有，且此时只有该线程能够执行同步锁修饰的代码块或方法。
+          * 静态方法锁：锁对象是类对象。`Man.class`
+          * 非静态方法锁：锁对象是类的对象。`new Man()`
+      * 线程进入同步代码块或方法时获得锁。
+      * 线程退出同步代码块或方法时释放锁。
 * 可见性：对变量的读操作，总是能看到对这个变量最后的写操作。
-  * volatile 修饰的变量强制线程每次读写的时候都需要与主内存进行同步。
+  * happens-before 关系：确保程序语句之间的排序在内存中的写对其他语句都是可见的。
+  * `volatile`修饰的变量强制线程每次读写的时候都需要与主内存进行同步，保证了 **可见性**。
       * 读：直接读取主内存中的值。
       * 写：立即刷新主内存中的值。
-* 原子性：操作不可分割，视作一个整体，且 **不会被线程调度机制打断**，则为原子操作。
+* 原子性：操作不可分割，视作一个整体，且 **不会被线程调度机制打断**，则称为原子操作。
+
+---
+
+```java
+happens-before 关系
+-------------------------------------------------------
+定义变量
+----
+private int i1 = 1;
+private int i2 = 2;
+private int i3 = 3;
+private volatile boolean mBoolean = false;     用 volatile 修饰的变量
+
+读
+----
+（错）System.out.println(i1);     JVM 的重排序对普通变量的读操作不会排在对 volatile 变量的读操作之前，只会排在对 volatile 变量的读操作之后
+System.out.println(mBoolean);
+System.out.println(i1);
+System.out.println(i2);
+System.out.println(i3);
+
+写
+----
+i1 = 4;
+i2 = 5;
+i3 = 6;
+mBoolean = true;
+（错）i1 = 7;     JVM 的重排序对普通变量的写操作不会排在对 volatile 变量的写操作之后，只会排在对 volatile 变量的写操作之前
+```
+
+```java
+public class A implements Runnable {
+    public int mInt = 0;     值（应当守恒）
+    public volatile boolean mRunning = true;     退出旗标
+
+    @Override
+    public void run() {
+        while (mRunning) {     无限循环
+            synchronized (this) {     同步锁
+                mInt++;
+                mInt--;
+            }
+        }
+    }
+}
+
+----
+
+public class Initial {
+    public static void main(String[] args) throws InterruptedException {
+        A a = new A();     线程体
+        for (int i = 0; i < 3; i++) {     启动 3 个线程
+            new Thread(a).start();     传入同一个线程体
+        }
+        Thread.sleep(1000);     当前线程进入阻塞状态 1 秒
+        a.mRunning = false;     标记为 false
+        System.out.println(a.mInt);     输出值
+    }
+}
+----
+输出：
+0
+```
 
 ```java
 public class A implements Runnable {
@@ -516,38 +585,4 @@ A_073	 从 04 转移 710 到 98 	100000
 A_074	 从 30 转移 499 到 57 	100000
 A_075	 从 95 转移 299 到 81 	100000
 ...
-```
-
-```java
-public class A implements Runnable {
-    public int mInt = 0;     值（应当守恒）
-    public volatile boolean mRunning = true;     退出旗标
-
-    @Override
-    public void run() {
-        while (mRunning) {     无限循环
-            synchronized (this) {     同步锁
-                mInt++;
-                mInt--;
-            }
-        }
-    }
-}
-
-----
-
-public class Initial {
-    public static void main(String[] args) throws InterruptedException {
-        A a = new A();     线程体
-        for (int i = 0; i < 3; i++) {     启动 3 个线程
-            new Thread(a).start();     传入同一个线程体
-        }
-        Thread.sleep(1000);     当前线程进入阻塞状态 1 秒
-        a.mRunning = false;     标记为 false
-        System.out.println(a.mInt);     输出值
-    }
-}
-----
-输出：
-0
 ```
