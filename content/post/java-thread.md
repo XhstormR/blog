@@ -356,7 +356,7 @@ MyThread_1
 
 ### 停止线程
 ```java
-public class A implements Runnable {     通过调用 interrupt 方法
+public class A implements Runnable {     通过调用 interrupt 方法（实质为设置退出旗标）
     public static void main(String[] args) {
         Thread a = new Thread(new A());
         a.start();     启动线程
@@ -497,7 +497,7 @@ public class Initial {
     public static void main(String[] args) throws InterruptedException {
         A a = new A();     线程体
         for (int i = 0; i < 3; i++) {     启动 3 个线程
-            new Thread(a).start();     传入同一个线程体
+            new Thread(a).start();     传入同一个线程体，执行其中的 run 方法
         }
         Thread.sleep(1000);     当前线程进入阻塞状态 1 秒
         a.mRunning = false;     标记为 false
@@ -524,7 +524,7 @@ public class A implements Runnable {
             int from = ((int) (mInts.length * random.nextDouble()));     随机
             int to = ((int) (mInts.length * random.nextDouble()));     随机
             int i = ((int) (1000 * random.nextDouble()));     随机
-            transfer(from, to, i);
+            transfer(from, to, i);     转移能量
             try {
                 Thread.sleep(10);     阻塞 10 毫秒
             } catch (InterruptedException e) {
@@ -559,7 +559,7 @@ public class A implements Runnable {
 
 public class Initial {
     public static void main(String[] args) {
-        int[] ints = new int[100];     初始化能量数组（100 个单元，每个单元 1000 能量）
+        int[] ints = new int[100];     初始化能量数组（共 100 个单元，每个单元 1000 能量）
         for (int i = 0; i < ints.length; i++) {
             ints[i] = 1000;
         }
