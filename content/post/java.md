@@ -490,7 +490,6 @@ public class HelloWorld {
 		a1.close();     //关闭输入
 	}
 }
-----
 
 获取用户输入班级成绩并计算平均分
 ----
@@ -516,11 +515,11 @@ public class HelloWorld {
 		a1.close();     //关闭输入
 	}
 }
-----
 
 -------------------------------------------------------
 
 循环遍历数组
+----
 int[] nums = { 1, 2, 3 };
 for (int i = 0; i < nums.length; i++) {     //nums.length 获取数组长度
 	System.out.println(nums[i]);
@@ -532,6 +531,7 @@ for (int a : nums) {
 }
 
 循环遍历二维数组
+----
 int[][] nums = { { 1, 2, 3 }, { 4, 5, 6 } };
 for (int i = 0; i < nums.length; i++) {
 	for (int j = 0; j < nums[i].length; j++) {
@@ -552,7 +552,6 @@ public class HelloWorld {
 		System.out.println(a);
 	}
 }
-----
 
 根据用户输入数字，随机生成排序后的数组，并打印数组输出的成字符串
 ----
@@ -580,7 +579,6 @@ public class HelloWorld {
 		return arrays;     //返回数组
 	}
 }
-----
 
 遍历数组输出前三名并判断成绩有效性
 ----
@@ -605,7 +603,6 @@ public class HelloWorld {
 		}
 	}
 }
-----
 
 遍历数组输出学生年龄的最大值
 ----
@@ -625,11 +622,11 @@ public class HelloWorld2 {
 		return max;
 	}
 }
-----
 
 -------------------------------------------------------
 
 匿名内部类实现接口
+----
 IPlayGame i = new IPlayGame() {
 	public void playGame() {
 		System.out.println("匿名内部类实现接口的方式1");
@@ -646,6 +643,7 @@ new IPlayGame() {
 -------------------------------------------------------
 
 Scanner.nextLine() 的用法
+----
 Scanner scanner = new Scanner(System.in);
 while (true) {
     try {
@@ -657,12 +655,45 @@ while (true) {
         System.out.println("请重新输入!");
     }
 }
+----
+public class A {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        for (int i = 0; i < 5; i++) {
+            System.out.print("请输入：");
+            int num;
+            while (true) {
+                try {
+                    num = scanner.nextInt();
+                    break;
+                } catch (Exception e) {
+                    scanner.nextLine();
+                    System.out.print("请重新输入：");
+                }
+            }
+            switch (num) {
+                case 1:
+                    System.out.println("第一名");
+                    break;
+                case 2:
+                    System.out.println("第二名");
+                    break;
+                case 3:
+                    System.out.println("第三名");
+                    break;
+                default:
+                    System.out.println("无名次");
+                    break;
+            }
+        }
+    }
+}
 
 -------------------------------------------------------
 
 Math 类
-double i = 12.85;
 ----
+double i = 12.85;
 Math.ceil(i)       13.0     返回大于参数的最小整数（向上取整）     天花板
 Math.floor(i)     12.0     返回小于参数的最大整数（向下取整）     地板
 Math.round(i)     13     返回四舍五入后的整数
