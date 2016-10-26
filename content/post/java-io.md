@@ -84,7 +84,7 @@ e5	a5	bd	41	31	0	0	0	e5	a5	bd	41	31
 ```
 
 ## 对象的序列化和反序列化
-* 序列化：Object ➜ Byte 序列-----ObjectOutputStream.writeObject
+* 一序列化：Object ➜ Byte 序列-----ObjectOutputStream.writeObject
 * 反序列化：Byte 序列 ➜ Object-----ObjectInputStream.readObject
 * 对象所属的类必须实现序列化接口（Serializable），才能够被序列化。
   * 如果所属的类的父类已实现序列化接口，则子类便不需要再实现序列化接口。
