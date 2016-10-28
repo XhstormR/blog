@@ -7,7 +7,7 @@ title = "Algorithm"
 
 <!--more-->
 
-Updated on 2016-10-15
+Updated on 2016-10-28
 
 > 算法是解决问题的清晰指令，是用系统的方法描述解决问题的策略机制。
 
@@ -124,4 +124,139 @@ public class A {
 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 排序方向：从左至右
+```
+
+---
+
+![](/uploads/algorithm1.png "A")
+
+```java
+public class A {
+    public static void main(String[] args) {
+        a(9);
+    }
+
+    private static void a(int n) {
+        int[][] ints = new int[n][n];
+        int x = 0, y = 0;
+        int number = 1;
+        while (true) {
+            while (x < n && ints[y][x] == 0) {
+                ints[y][x] = number++;
+                x++;
+            }
+            b(ints);
+            y++;
+            x--;
+            while (y < n && ints[y][x] == 0) {
+                ints[y][x] = number++;
+                y++;
+            }
+            b(ints);
+            y--;
+            x--;
+            while (x >= 0 && ints[y][x] == 0) {
+                ints[y][x] = number++;
+                x--;
+            }
+            b(ints);
+            y--;
+            x++;
+            while (y >= 0 && ints[y][x] == 0) {
+                ints[y][x] = number++;
+                y--;
+            }
+            b(ints);
+            y++;
+            x++;
+            if (number > n * n) {
+                break;
+            }
+        }
+        b(ints);
+    }
+
+    private static void b(int[][] ints) {
+        for (int[] ints2 : ints) {
+            for (int i : ints2) {
+                System.out.print(i + "\t");
+            }
+            System.out.println();
+        }
+        System.out.println("----------------------");
+    }
+}
+```
+
+![](/uploads/algorithm2.png "B")
+
+```java
+public class B {
+    public static void main(String[] args) {
+        a(9);
+    }
+
+    private static void a(int n) {
+        int[][] ints = new int[n][n];
+        int x = 0, y = 0;
+        int number = 1;
+        ints[y][x] = number++;
+        while (true) {
+            if (x < n - 1 && y < n - 1) {
+                y++;
+                ints[y][x] = number++;
+                b(ints);
+                y--;
+                x++;
+                while (y >= 0) {
+                    ints[y][x] = number++;
+                    y--;
+                    x++;
+                }
+                b(ints);
+                y++;
+                while (x >= 0) {
+                    ints[y][x] = number++;
+                    y++;
+                    x--;
+                }
+                b(ints);
+                y--;
+                x++;
+            } else {
+                x++;
+                while (x < n) {
+                    ints[y][x] = number++;
+                    x++;
+                    y--;
+                }
+                x--;
+                y++;
+                y++;
+                while (y < n) {
+                    ints[y][x] = number++;
+                    x--;
+                    y++;
+                }
+                x++;
+                y--;
+                b(ints);
+            }
+            if (number > n * n) {
+                break;
+            }
+        }
+        b(ints);
+    }
+
+    private static void b(int[][] ints) {
+        for (int[] ints2 : ints) {
+            for (int i : ints2) {
+                System.out.print(i + "\t");
+            }
+            System.out.println();
+        }
+        System.out.println("----------------------");
+    }
+}
 ```
