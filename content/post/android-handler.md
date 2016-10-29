@@ -7,9 +7,15 @@ title = "Android Handler"
 
 <!--more-->
 
-Updated on 2016-10-25
+Updated on 2016-10-29
 
+> [ThreadLocal](http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/java/lang/ThreadLocal.html)
 >
+> [WeakReference](http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/java/lang/ref/WeakReference.html)
+
+* Handler：负责发送和处理 Message。
+* Looper：负责接收并转发 Message。
+  * MessageQueue：存储 Message 的容器。
 
 ## post ➜ Runnable
 ### MainActivity.java
@@ -17,7 +23,7 @@ Updated on 2016-10-25
 public class MainActivity extends Activity {
     private ImageView mImageView;
     private final Handler mHandler = new Handler();
-    private Runnable mRunnable = new Runnable() {     A：第一种（postDelayed）
+    private final Runnable mRunnable = new Runnable() {     A：第一种（postDelayed）
         private int[] colors = {Color.parseColor("red"), Color.parseColor("blue"), Color.parseColor("green")};     颜色
         private int index;     索引
 
@@ -108,7 +114,7 @@ public class MainActivity extends Activity {
             android:onClick="onClick"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="启动"
+            android:text="开始"
             android:id="@+id/button1"/>
     <Button
             android:onClick="onClick"
@@ -163,11 +169,11 @@ public class MainActivity extends Activity {
                         message.arg1 = 123;
                         message.arg2 = 456;
                         message.obj = "你好";
-                        mHandler.sendMessage(message);     发送 Message
+                        mHandler.sendMessage(message);     传递至 Looper 中的 MessageQueue，再发送给对应的 Handler 对象处理
 
                         第二种（推荐）
                         Message message = mHandler.obtainMessage(0, 123, 456, "你好");     重用 Message
-                        message.sendToTarget();     发送 Message
+                        message.sendToTarget();     传递至 Looper 中的 MessageQueue，再发送给对应的 Handler 对象处理
                     }
                 }.start();     启动线程
                 break;
@@ -200,15 +206,300 @@ public class MainActivity extends Activity {
 </LinearLayout>
 ```
 
-## 防止 Handler 内存泄漏
+## 防止 Handler 导致内存泄漏
 * 导致原因：
   * 非静态的内部类会隐式持有其外部类的引用。
   * Handler 对象发送的 Message 对象会持有此 Handler 对象的引用。
   * Message ➜ Handler ➜ Activity ➜ Activity 资源无法回收（内存泄漏）
 * 解决方案：
-  * 声明 Handler 为 `static` 或者为其新建类文件。
-  * 使用弱引用持有外部的 Activity。
+  * 声明 Handler 为 `static` 或者使用 `Handler.Callback` 接口或者为其新建类文件。
+  * 通过弱引用持有外部 Activity。
 
 ```java
+public class MainActivity extends Activity {
+    private static final Runnable mRunnable = new Runnable() {     静态匿名内部类
+        @Override
+        public void run() {
+            Log.w("Tag", Thread.currentThread().toString());
+        }
+    };
+    private final MyHandler mMyHandler = new MyHandler(this);
+    private TextView mTextView;
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        mTextView = (TextView) findViewById(R.id.textView);
+    }
+
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.button:
+                new Thread() {
+                    @Override
+                    public void run() {
+                        Message message = mMyHandler.obtainMessage(0, 123, 456, "你好");
+                        mMyHandler.sendMessage(message);     传递至 Looper 中的 MessageQueue，再发送给对应的 Handler 对象处理
+                        mMyHandler.post(mRunnable);     封装线程体为 Message 中的 callback，再传递至 Looper 中的 MessageQueue
+                    }
+                }.start();     启动线程
+                break;
+        }
+    }
+
+    private static class MyHandler extends Handler {     静态内部类
+        private final WeakReference<MainActivity> mActivity;     通过弱引用持有外部 Activity
+
+        private MyHandler(MainActivity activity) {     构造方法
+            mActivity = new WeakReference<>(activity);
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            MainActivity mainActivity = mActivity.get();
+            if (mainActivity != null) {     如果不为空
+                mainActivity.mTextView.setText(msg.what + ":" + msg.arg1 + ":" + msg.arg2 + ":" + msg.obj);
+            }
+        }
+    }
+}
+```
+
+## 自定义 Looper 线程
+```java
+public class MainActivity extends Activity {
+    private final MyHandler mMyHandler = new MyHandler();     与主线程进行关联
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        mMyHandler.sendEmptyMessage(1);     Message 在主线程进行处理
+
+        MyThread myThread = new MyThread();
+        myThread.start();     启动线程
+        try {
+            Thread.sleep(100);     阻塞 0.1 秒，等待线程体实例化 mMyHandler，避免空指针异常
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        myThread.mMyHandler.sendEmptyMessage(2);     Message 在子线程进行处理
+    }
+
+    private static class MyThread extends Thread {
+        private MyHandler mMyHandler;
+
+        @Override
+        public void run() {
+            Looper.prepare();     为当前线程创建 Looper 并与之绑定
+            mMyHandler = new MyHandler();          与子线程进行关联（实例化 Handler 的同时会自动绑定当前线程的 Looper）
+            Looper.loop();     Looper 开始工作，无限循环，阻塞方法
+        }
+
+        public void stopLoop() {
+            Looper.myLooper().quitSafely();     Looper 停止工作
+        }
+    }
+
+    private static class MyHandler extends Handler {     静态内部类
+        @Override
+        public void handleMessage(Message msg) {
+            Log.w("Tag", msg.what + "::" + Thread.currentThread().toString());
+        }
+    }
+}
+----
+输出：
+21106-21387/com.example.myapp.myapplication W/Tag: 2::Thread[Thread-214,5,main]
+21106-21106/com.example.myapp.myapplication W/Tag: 1::Thread[main,5,main]
+```
+
+### HandlerThread
+```java
+public class MainActivity extends Activity {
+    private final HandlerThread mHandlerThread = new HandlerThread("123");     已封装好的 Looper 线程，推荐这种方式
+    private MyHandler mMyHandler1;
+    private MyHandler mMyHandler2;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        mMyHandler1 = new MyHandler();     无参构造方法
+        mMyHandler1.sendEmptyMessage(0);     Message 在主线程进行处理
+
+        mHandlerThread.start();     启动线程
+        mMyHandler2 = new MyHandler(mHandlerThread.getLooper());     有参构造方法
+        mMyHandler2.sendEmptyMessage(0);     Message 在子线程进行处理
+    }
+
+    private static class MyHandler extends Handler {     静态内部类
+        private MyHandler() {     无参构造方法（实例化 Handler 的同时会自动绑定当前线程的 Looper）
+        }
+
+        private MyHandler(Looper looper) {     有参构造方法（指定 Looper 对象）
+            super(looper);
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            Log.w("Tag", msg.what + "::" + Thread.currentThread().toString());
+        }
+    }
+}
+----
+输出：
+2853-4062/com.example.myapp.myapplication W/Tag: 0::Thread[123,5,main]
+2853-2853/com.example.myapp.myapplication W/Tag: 0::Thread[main,5,main]
+```
+
+## 线程之间的交互
+```java
+public class MainActivity extends Activity {
+    private final HandlerThread mHandlerThread = new HandlerThread("123");
+    private MyHandler mMyHandler1;
+    private MyHandler mMyHandler2;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        mHandlerThread.start();     启动线程
+
+        mMyHandler1 = new MyHandler();     绑定主线程 Looper
+        mMyHandler2 = new MyHandler(mHandlerThread.getLooper());     绑定子线程 Looper
+    }
+
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.button1:
+                Message message1 = mMyHandler1.obtainMessage(1, "主线程发往子线程");
+                message1.setTarget(mMyHandler2);     指定目标 Handler
+                message1.sendToTarget();     传递至 Looper 中的 MessageQueue，再发送给对应的 Handler 对象处理
+                break;
+            case R.id.button2:
+                Message message2 = mMyHandler2.obtainMessage(2, "子线程发往主线程");
+                message2.setTarget(mMyHandler1);     指定目标 Handler
+                message2.sendToTarget();     传递至 Looper 中的 MessageQueue，再发送给对应的 Handler 对象处理
+                break;
+        }
+    }
+
+    private static class MyHandler extends Handler {     静态内部类
+        private MyHandler() {     无参构造方法（实例化 Handler 的同时会自动绑定当前线程的 Looper）
+        }
+
+        private MyHandler(Looper looper) {     有参构造方法（指定 Looper 对象）
+            super(looper);
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            Log.w("Tag", msg.what + "::" + msg.obj + "::" + Thread.currentThread().toString());
+        }
+    }
+}
+----
+输出：
+15749-18518/com.example.myapp.myapplication W/Tag: 1::主线程发往子线程::Thread[123,5,main]
+15749-15749/com.example.myapp.myapplication W/Tag: 2::子线程发往主线程::Thread[main,5,main]
+```
+
+## 更新 UI 的 4 种方式
+```java
+public class MainActivity extends Activity {
+    private final MyHandler mMyHandler = new MyHandler(this);
+    private final MyRunnable mMyRunnable = new MyRunnable(this);
+    private TextView mTextView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        mTextView = (TextView) findViewById(R.id.textView);
+    }
+
+    public void onClick(View view) {     这 4 种方法本质上都是通过 Handler 机制而运行在主线程
+        switch (view.getId()) {
+            case R.id.button1:
+                new Thread() {
+                    @Override
+                    public void run() {
+                        mMyHandler.obtainMessage(1, "你好").sendToTarget();     Handler 方法 sendMessage
+                    }
+                }.start();     启动新线程
+                break;
+            case R.id.button2:
+                new Thread() {
+                    @Override
+                    public void run() {
+                        mMyHandler.post(mMyRunnable);     Handler 方法 post
+                    }
+                }.start();     启动新线程
+                break;
+            case R.id.button3:
+                new Thread() {
+                    @Override
+                    public void run() {
+                        mTextView.post(mMyRunnable);     View 方法 post
+                    }
+                }.start();     启动新线程
+                break;
+            case R.id.button4:
+                new Thread() {
+                    @Override
+                    public void run() {
+                        MainActivity.this.runOnUiThread(mMyRunnable);     Activity 方法 runOnUiThread
+                    }
+                }.start();     启动新线程
+                break;
+        }
+    }
+
+    private static class MyHandler extends Handler {     静态内部类
+        private final WeakReference<MainActivity> mActivity;     通过弱引用持有外部 Activity
+
+        private MyHandler(MainActivity activity) {     构造方法
+            mActivity = new WeakReference<>(activity);
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            Log.w("Tag", Thread.currentThread().toString());     打印当前线程信息
+            MainActivity mainActivity = mActivity.get();
+            if (mainActivity != null) {     如果不为空
+                mainActivity.mTextView.setText(msg.obj.toString());
+            }
+        }
+    }
+
+    private static class MyRunnable implements Runnable {     静态内部类
+        private final WeakReference<MainActivity> mActivity;     通过弱引用持有外部 Activity
+
+        private MyRunnable(MainActivity activity) {     构造方法
+            mActivity = new WeakReference<>(activity);
+        }
+
+        @Override
+        public void run() {
+            Log.w("Tag", Thread.currentThread().toString());     打印当前线程信息
+            MainActivity mainActivity = mActivity.get();
+            if (mainActivity != null) {     如果不为空
+                mainActivity.mTextView.setText("你好");
+            }
+        }
+    }
+}
+----
+输出：
+25114-25114/com.example.myapp.myapplication W/Tag: Thread[main,5,main]
+25114-25114/com.example.myapp.myapplication W/Tag: Thread[main,5,main]
+25114-25114/com.example.myapp.myapplication W/Tag: Thread[main,5,main]
+25114-25114/com.example.myapp.myapplication W/Tag: Thread[main,5,main]
 ```
