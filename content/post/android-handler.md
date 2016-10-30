@@ -14,10 +14,13 @@ Updated on 2016-10-29
 > [ThreadLocal](http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/java/lang/ThreadLocal.html)
 >
 > [WeakReference](http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/java/lang/ref/WeakReference.html)
+>
+> [Source Insight](http://www.sourceinsight.com/down35.html)
 
 * Handler：负责发送和处理 Message。
-* Looper：负责接收并转发 Message。
-  * MessageQueue：存储 Message 的容器。
+* ThreadLocal：负责保存 Looper，作为线程的局部变量。
+  * Looper：负责接收并转发 Message。
+      * MessageQueue：负责存储 Message 的容器。
 
 ## post ➜ Runnable
 ### MainActivity.java
@@ -500,8 +503,8 @@ public class MainActivity extends Activity {
 }
 ----
 输出：
-25114-25114/com.example.myapp.myapplication W/Tag: Thread[main,5,main]
-25114-25114/com.example.myapp.myapplication W/Tag: Thread[main,5,main]
-25114-25114/com.example.myapp.myapplication W/Tag: Thread[main,5,main]
-25114-25114/com.example.myapp.myapplication W/Tag: Thread[main,5,main]
+3974-3974/com.example.myapp.myapplication W/Tag: Thread[main,5,main]
+3974-3974/com.example.myapp.myapplication W/Tag: Thread[main,5,main]
+3974-3974/com.example.myapp.myapplication W/Tag: Thread[main,5,main]
+3974-3974/com.example.myapp.myapplication W/Tag: Thread[main,5,main]
 ```
