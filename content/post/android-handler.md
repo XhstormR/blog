@@ -213,7 +213,7 @@ public class MainActivity extends Activity {
 
 ## 防止 Handler 导致内存泄漏
 * 导致原因：
-  * 非静态的内部类会隐式持有其外部类的引用。
+  * 非静态的内部类默认持有其外部类的引用。
   * Handler 对象发送的 Message 对象会持有此 Handler 对象的引用。
   * Message ➜ Handler ➜ Activity ➜ Activity 资源无法回收（内存泄漏）
 * 解决方案：
