@@ -1,7 +1,7 @@
 +++
 Categories = ["JAVA"]
 date = "2016-09-06T11:52:11+08:00"
-title = "JAVA IO Stream"
+title = "Java IO Stream"
 
 +++
 
