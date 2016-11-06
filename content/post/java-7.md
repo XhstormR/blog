@@ -40,11 +40,11 @@ switch (s) {
 }
 ```
 
-## catch 多重匹配
+## catch 支持多重匹配
 ```java
 try {
     throw new ArithmeticException();
-} catch (IllegalArgumentException | ArithmeticException | NullPointerException e) {     catch 多重匹配
+} catch (IllegalArgumentException | ArithmeticException | NullPointerException e) {     多重匹配
     System.out.println(1);
 } catch (Exception e) {
     System.out.println(2);
