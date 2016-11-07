@@ -315,7 +315,20 @@ source ~/.bashrc
 
 -------------------------------------------------------
 
-updatedb --output="D:\Download\GIT\123.db" --localpaths="D:\Download\GIT"
-locate --database="/d/Download/GIT/123.db" *java*md
-grep http `locate --database="/d/Download/GIT/123.db" *java*md`
+updatedb --output="D:\Download\GIT\123.db" --localpaths="D:\Download\GIT"     更新数据库
+locate --database="/d/Download/GIT/123.db" *java*md     查找文件
+grep http `locate --database="/d/Download/GIT/123.db" *java*md`     查找文字
+```
+
+---
+
+```xml
+vim ~/.ssh/config
+    Host github.com
+      Hostname ssh.github.com
+      Port 443
+
+-------------------------------------------------------
+
+git clone git@github.com:XhstormR/Hugo.git HUGO     SSH connections over HTTPS
 ```
