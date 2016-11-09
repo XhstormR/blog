@@ -7,7 +7,7 @@ title = "常用 Git 命令清单"
 
 <!--more-->
 
-Updated on 2016-08-27
+Updated on 2016-11-07
 
 > {{< image "/uploads/git2.png" "Git" "1" "1" >}}
 >
@@ -31,7 +31,7 @@ Updated on 2016-08-27
 
 * Workspace：工作区
 * Index / Stage：暂存区
-* Repository：仓库区（或本地仓库）
+* Repository：仓库区 / 本地仓库
 * Remote：远程仓库
 
 ## 1. 新建代码库
