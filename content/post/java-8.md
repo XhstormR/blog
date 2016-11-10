@@ -1,13 +1,13 @@
 +++
 Categories = ["JAVA"]
-date = "2016-11-01T10:08:22+08:00"
+date = "2016-11-04T10:08:22+08:00"
 title = "Java 8"
 
 +++
 
 <!--more-->
 
-Updated on 2016-11-01
+Updated on 2016-11-09
 
 > [StringJoiner](https://docs.oracle.com/javase/8/docs/api/java/util/StringJoiner.html)
 > |
