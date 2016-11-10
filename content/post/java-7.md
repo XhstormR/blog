@@ -21,12 +21,6 @@ int i = 0b1111;     15
 int i = 100_000_000;     100000000
 ```
 
-## 集合类型推断（Diamond）
-```java
-之前：List<String> list = new ArrayList<String>();
-之后：List<String> list = new ArrayList<>();
-```
-
 ## switch 支持字符串
 ```java
 String s = "A";
@@ -49,6 +43,12 @@ try {
 } catch (Exception e) {
     System.out.println(2);
 }
+```
+
+## 集合类型推断（Diamond）
+```java
+之前：List<String> list = new ArrayList<String>();
+之后：List<String> list = new ArrayList<>();
 ```
 
 ## 自动资源管理（ARM）
