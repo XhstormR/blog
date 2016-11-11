@@ -13,11 +13,13 @@ Updated on 2016-06-30
 >
 > http://www.tiobe.com/tiobe_index
 >
-> http://www.oracle.com/technetwork/java/index.html
+> https://www.oracle.com/technetwork/java/index.html
 >
 > https://docs.oracle.com/javase/8/docs/index.html
 >
-> https://docs.oracle.com/javase/8/docs/api/overview-frame.html | [中文版](http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/index.html)
+> https://docs.oracle.com/javase/8/docs/api/allclasses-frame.html
+> |
+> [中文版](http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/allclasses-frame.html)
 
 ## IDE
 * Eclipse：http://www.eclipse.org/downloads/eclipse-packages/

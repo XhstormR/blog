@@ -357,3 +357,22 @@ public class Test {
 输出：
 Student{id=1, age=21, name='张三'}
 ```
+
+# NIO
+用于替代原有的 IO 体系。
+
+## Path
+```java
+
+```
+
+## Files
+```java
+合并文件
+----
+Vector<InputStream> inputStreams = new Vector<>(Arrays.asList(Files.newInputStream(Paths.get("D:/1.txt")), Files.newInputStream(Paths.get("D:/2.txt")), Files.newInputStream(Paths.get("D:/3.txt"))));
+Enumeration<InputStream> elements = inputStreams.elements();     获得 Vector 中元素的枚举
+try (SequenceInputStream sequenceInputStream = new SequenceInputStream(elements)) {     传入枚举合并为一个输入流
+    Files.copy(sequenceInputStream, Paths.get("D:/4.txt"), StandardCopyOption.REPLACE_EXISTING);     InputStream ➜ Path
+}     自动关闭资源
+```
