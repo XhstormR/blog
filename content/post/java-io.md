@@ -7,9 +7,13 @@ title = "Java IO Stream"
 
 <!--more-->
 
-Updated on 2016-09-24
+Updated on 2016-11-11
 
 > [{{< image "/uploads/java-io.svg" "IO 流" "1" "0" >}}](/uploads/java-io.svg)
+>
+> https://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html
+>
+> https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html
 
 ## File
 用于代表文件(夹)，是文件(夹)的抽象化形式，不能用于对文件内容的访问。
@@ -362,17 +366,92 @@ Student{id=1, age=21, name='张三'}
 用于替代原有的 IO 体系。
 
 ## Path
-```java
+用于代表文件(夹)，是文件(夹)的抽象化形式，不能用于对文件内容的访问。
 
+```java
+Path path = Paths.get("D:/123/123");     D:\123\123
+Path name = path.getFileName();     123
+Path parent = path.getParent();     D:\123
+Path root = path.getRoot();     D:\
+
+int nameCount = path.getNameCount();     2
+Path name1 = path.getName(0);     123
+Path name2 = path.getName(1);     123
+
+Path path1 = path.resolve("1.txt");                D:\123\123\1.txt
+Path path2 = path.resolveSibling("1.txt");     D:\123\1.txt
+
+path.toFile().toPath();     相互转换
 ```
 
 ## Files
+包含一系列静态方法，用于对文件(夹)的具体操作。（注意 IO Stream 要关闭）
+
 ```java
+递归创建目录
+----
+Path path = Paths.get("D:/123/123");
+Files.createDirectories(path);
+
+创建文件
+----
+Path path = Paths.get("D:/123.txt");
+Files.createFile(path);
+
+直接获取文件的输入流、输出流
+----
+Path path = Paths.get("D:/123.txt");
+BufferedReader bufferedReader = Files.newBufferedReader(path, Charset.forName("utf-8"));
+BufferedWriter bufferedWriter = Files.newBufferedWriter(path, Charset.forName("utf-8"));
+
+直接将集合内容写入
+----
+Path path = Paths.get("D:/123.txt");
+List<String> list = Arrays.asList("AAA", "BBB");
+Files.write(path, list, Charset.forName("utf-8"), StandardOpenOption.CREATE, StandardOpenOption.APPEND);     不存在便创建，存在便追加
+
 合并文件
 ----
 Vector<InputStream> inputStreams = new Vector<>(Arrays.asList(Files.newInputStream(Paths.get("D:/1.txt")), Files.newInputStream(Paths.get("D:/2.txt")), Files.newInputStream(Paths.get("D:/3.txt"))));
-Enumeration<InputStream> elements = inputStreams.elements();     获得 Vector 中元素的枚举
+Enumeration<InputStream> elements = inputStreams.elements();     获得 Vector 中所有元素的枚举
 try (SequenceInputStream sequenceInputStream = new SequenceInputStream(elements)) {     传入枚举合并为一个输入流
-    Files.copy(sequenceInputStream, Paths.get("D:/4.txt"), StandardCopyOption.REPLACE_EXISTING);     InputStream ➜ Path
+    Files.copy(sequenceInputStream, Paths.get("D:/4.txt"), StandardCopyOption.REPLACE_EXISTING);     复制：InputStream ➜ Path
 }     自动关闭资源
+
+监视目录的增删改
+----
+WatchService watchService = FileSystems.getDefault().newWatchService();     监视服务
+Path dir = Paths.get("D:/1");     监视目录
+WatchKey watchKey = dir.register(watchService, ENTRY_CREATE, ENTRY_DELETE, ENTRY_MODIFY);     注册监视服务，返回监视事件
+while (true) {     无限轮询监视事件
+    watchKey.pollEvents().forEach(o -> {     轮询
+        WatchEvent.Kind<?> kind = o.kind();     事件类型
+        Path path = (Path) o.context();     事件路径
+        System.out.printf("%s__%s\n", kind, path);
+    });
+    if (!watchKey.isValid()) {
+        System.out.println("失效");
+        break;
+    }
+}
+
+遍历当前目录
+----
+Path path = Paths.get("D:/");
+Files.list(path).forEach(System.out::println);     只接收一个参数，不够强大
+
+Files.newDirectoryStream(path, "*.txt").forEach(System.out::println);     只显示 txt 文件（接收匹配字符串）
+Files.newDirectoryStream(path, Files::isRegularFile).forEach(System.out::println);     只显示文件（接收 Filter 函数式接口）
+
+递归遍历目录并访问文件属性
+----
+Path path = Paths.get("D:/123");
+Files.walk(path, 3, FileVisitOption.FOLLOW_LINKS).filter(Files::isRegularFile).forEach(o -> {     （递归目录，递归深度，访问软连接），只显示文件
+    try {
+        Map<String, Object> map = Files.readAttributes(o, "size,lastModifiedTime,lastAccessTime");     访问文件属性
+        System.out.println(map + "__" + o);
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+});
 ```
