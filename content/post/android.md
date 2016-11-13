@@ -1266,7 +1266,12 @@ RadioButton 做出 TAB 效果
 
 ---
 
-[Maven0](https://mvnrepository.com/),[Maven1](https://repo1.maven.org/maven2/),[Maven2](https://repo.maven.apache.org/maven2/),[JCenter](https://jcenter.bintray.com/),[Mirror](http://maven.aliyun.com/)
+[Maven0](https://mvnrepository.com/),
+[Maven1](https://repo1.maven.org/maven2/),
+[Maven2](https://repo.maven.apache.org/maven2/),
+[JCenter](https://jcenter.bintray.com/),
+[Mirror](http://maven.aliyun.com/),
+[Build](https://jcenter.bintray.com/com/android/tools/build/gradle/)
 
 Cache：
 [![](/uploads/file-into-picture2.png)](http://ww1.sinaimg.cn/large/a038ef72gw1f5lcbds6wvj203k03k1lf "Part1")
