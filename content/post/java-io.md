@@ -441,12 +441,12 @@ Path path = Paths.get("D:/");
 Files.list(path).forEach(System.out::println);     只接收一个参数，不够强大
 
 Files.newDirectoryStream(path, "*.txt").forEach(System.out::println);     只显示 txt 文件（接收匹配字符串）
-Files.newDirectoryStream(path, Files::isRegularFile).forEach(System.out::println);     只显示文件（接收 Filter 函数式接口）
+Files.newDirectoryStream(path, Files::isRegularFile).forEach(System.out::println);     只显示文件（接收 Filter 接口）
 
 递归遍历目录并访问文件属性
 ----
 Path path = Paths.get("D:/123");
-Files.walk(path, 3, FileVisitOption.FOLLOW_LINKS).filter(Files::isRegularFile).forEach(o -> {     （递归目录，递归深度，访问软连接），只显示文件
+Files.walk(path, 3, FileVisitOption.FOLLOW_LINKS).filter(Files::isRegularFile).forEach(o -> {     （递归目录，递归深度，跟随软连接），只显示文件
     try {
         Map<String, Object> map = Files.readAttributes(o, "size,lastModifiedTime,lastAccessTime");     访问文件属性
         System.out.println(map + "__" + o);
