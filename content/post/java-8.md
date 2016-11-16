@@ -149,28 +149,35 @@ IntStream.range(0, 3).forEach(System.out::println);     替代 for 循环
 
 -------------------------------------------------------
 
-Stream.of("A", "B", "C").filter(s -> {
-    System.out.println("filter: " + s);
-    return true;
-}).map(s -> {
-    System.out.println("map: " + s);
-    return s;
-});     没有调用终点操作
+Stream
+        .of("A", "B", "C")
+        .filter(s -> {
+            System.out.println("filter: " + s);
+            return true;
+        })
+        .map(s -> {
+            System.out.println("map: " + s);
+            return s;
+        });     没有调用终点操作
 ----
 输出：无
 
 ----
 
-Stream.of("A", "B", "C").filter(s -> {
-    System.out.println("filter: " + s);
-    return true;
-}).map(s -> {
-    System.out.println("map: " + s);
-    return s;
-}).anyMatch(s -> {     调用终点操作
-    System.out.println("anyMatch: " + s);
-    return s.startsWith("B");
-});
+Stream
+        .of("A", "B", "C")
+        .filter(s -> {
+            System.out.println("filter: " + s);
+            return true;
+        })
+        .map(s -> {
+            System.out.println("map: " + s);
+            return s;
+        })
+        .anyMatch(s -> {     调用终点操作
+            System.out.println("anyMatch: " + s);
+            return s.startsWith("B");
+        });
 ----
 输出：     （可以看出对元素的处理操作是垂直执行的，像在流水线依次经过每个操作，并通过短路求值尽可能减少操作次数）
 filter: A
@@ -226,7 +233,8 @@ false
 ## Code
 ```java
 public class A {
-    private static final List<Author> LIST = Arrays.asList(new Author("Adam", 23, Arrays.asList("Java1", "Java2")),
+    private static final List<Author> LIST = Arrays.asList(
+            new Author("Adam", 23, Arrays.asList("Java1", "Java2")),
             new Author("Bell", 19, Arrays.asList("Python1", "Python2")),
             new Author("Conan", 23, Arrays.asList("PHP1", "PHP2")),
             new Author("David", 26, Arrays.asList("Ruby1", "Ruby2")));     作家列表
