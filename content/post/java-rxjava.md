@@ -21,10 +21,10 @@ Updated on 2016-11-16
 
 ## Observable - 被观察者
 ```java
-Observable<String> observable = Observable.create(new Observable.OnSubscribe<String>() {
+Observable<String> observable = Observable.create(new Observable.OnSubscribe<String>() {     传入 OnSubscribe，描述事件
     @Override
     public void call(Subscriber<? super String> subscriber) {     作为参数传入的观察者
-        subscriber.onNext("A");
+        subscriber.onNext("A");     事件
         subscriber.onNext("B");
         subscriber.onNext("C");
         subscriber.onCompleted();
@@ -52,7 +52,9 @@ Observable<String> observable = Observable.from(list);     快捷方式
 -------------------------------------------------------
 
 observable.subscribe(observer);     被观察者订阅观察者
-一旦被观察者调用 subscribe() 方法订阅观察者，被观察者中的唯一成员 OnSubscribe 将执行 call() 方法并将观察者作为参数传入
+Note：
+1. 一旦被观察者调用 subscribe() 方法订阅观察者，被观察者中的唯一成员 OnSubscribe 将执行 call() 方法并将观察者作为参数传入。
+2. 调用 subscribe() 方法后会返回 Subscription 接口对象（仅含 2 个方法 unsubscribe 和 isUnsubscribed），代表被观察者与观察者之间的联系。
 ```
 
 ## Observer - 观察者
@@ -198,6 +200,11 @@ public class A {
                 .subscribe(integer -> System.out.print(integer + " "), System.out::println, () -> System.out.println("\n————————————"));
         Observable
                 .from(LIST)
+                .map(author -> author.mAge)     一对一
+                .reduce(0, (i1, i2) -> i1 + i2)     累加器，提供初始值
+                .subscribe(integer -> System.out.print(integer + " "), System.out::println, () -> System.out.println("\n————————————"));
+        Observable
+                .from(LIST)
                 .flatMap(author -> Observable.from(author.mArticle))     一对多（手动转换为 Observable）（推荐使用 concatMap，解决 flatMap 事件交叉问题）
                 .subscribe(System.out::println, System.out::println, () -> System.out.println("————————————"));
         Observable
@@ -233,6 +240,8 @@ public class A {
 19 23 23 26
 ————————————
 0 19 42 65 91
+————————————
+91
 ————————————
 Java1
 Java2
@@ -468,4 +477,52 @@ public class A {
         A0 A1 B1 C1 A2 B2 C2 D2 E2 A3 B3 C3 D3 E3 A4 B4 C4 D4 E4 A5 B5 C5 D5 E5 A6 B6 C6 D6 E6 A7 B7 C7 D7 E7 A8 B8 C8 D8 E8 A9 B9 C9 D9 E9
     }
 }
+```
+
+```java
+Observable
+        .just("A", "B", "C")
+        .doOnNext(s -> System.out.printf("%s__%s__%s\n", s, Thread.currentThread().getName(), "doOnNext"))     类似于 Java 8 中的 Stream 的 peek
+        .map(s -> {
+            System.out.printf("%s__%s__%s\n", s, Thread.currentThread().getName(), "map");
+            return s;
+        })
+        .subscribe(s -> System.out.printf("%s__%s__%s\n", s, Thread.currentThread().getName(), "onNext"), System.out::println, () -> System.exit(0));
+Thread.sleep(Integer.MAX_VALUE);
+----
+输出：     类似于 Java 8 中的 Stream 的垂直执行，像在流水线依次经过每个操作，并通过短路求值尽可能减少操作次数
+A__main__doOnNext
+A__main__map
+A__main__onNext
+B__main__doOnNext
+B__main__map
+B__main__onNext
+C__main__doOnNext
+C__main__map
+C__main__onNext
+
+-------------------------------------------------------
+
+Observable
+        .just("A", "B", "C")
+        .doOnNext(s -> System.out.printf("%s__%s__%s\n", s, Thread.currentThread().getName(), "doOnNext"))
+        .map(s -> {
+            System.out.printf("%s__%s__%s\n", s, Thread.currentThread().getName(), "map");
+            return s;
+        })
+        .observeOn(Schedulers.computation())     切换至计算线程 (2)
+        .subscribeOn(Schedulers.io())     指定最开始在IO线程中运行 (1)
+        .subscribe(s -> System.out.printf("%s__%s__%s\n", s, Thread.currentThread().getName(), "onNext"), System.out::println, () -> System.exit(0));
+Thread.sleep(Integer.MAX_VALUE);
+----
+输出：
+A__RxIoScheduler-2__doOnNext
+A__RxIoScheduler-2__map
+B__RxIoScheduler-2__doOnNext
+B__RxIoScheduler-2__map
+C__RxIoScheduler-2__doOnNext
+C__RxIoScheduler-2__map
+A__RxComputationScheduler-1__onNext
+B__RxComputationScheduler-1__onNext
+C__RxComputationScheduler-1__onNext
 ```

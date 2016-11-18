@@ -81,6 +81,11 @@ Integer.parseInt("ekf", 26);     26 ➜ 10
 
 -------------------------------------------------------
 
+int i1 = 14;               14
+int i2 = ~14 + 1;     -14
+
+-------------------------------------------------------
+
 public class Test {
     private static void radix(int num, int radix) {     显示任意进制转换过程
         for (; ; ) {
