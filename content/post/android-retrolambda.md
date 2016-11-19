@@ -12,12 +12,15 @@ Updated on 2016-11-12
 > https://github.com/evant/gradle-retrolambda
 >
 > https://github.com/ReactiveX/RxAndroid
+>
+> https://github.com/JakeWharton/RxBinding
 
 ## Project
 ```java
 build.gradle
 ⇳
-classpath 'me.tatarka:gradle-retrolambda:3.3.1'
+classpath 'com.android.tools.build:gradle:+'
+classpath 'me.tatarka:gradle-retrolambda:+'
 ```
 
 ## Module
@@ -41,4 +44,12 @@ build.gradle
 ⇳
 compile 'io.reactivex:rxandroid:+'
 compile 'io.reactivex:rxjava:+'
+```
+
+# RxBinding
+## Module
+```java
+build.gradle
+⇳
+compile 'com.jakewharton.rxbinding:rxbinding:+'
 ```

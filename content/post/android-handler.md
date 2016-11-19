@@ -219,6 +219,8 @@ public class MainActivity extends Activity {
 * 解决方案：
   * 声明 Handler 为 `static` 或者使用 `Handler.Callback` 接口或者为其新建类文件。
   * 通过弱引用持有外部 Activity。
+* 弱引用：只持有弱引用的对象随时都会被回收，用于防止内存泄漏。（WeakReference）
+* 软引用：只持有软引用的对象内存不足时回收，用于实现缓存机制。（SoftReference）
 
 ```java
 public class MainActivity extends Activity {
@@ -237,6 +239,12 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         mTextView = (TextView) findViewById(R.id.textView);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mHandler.removeCallbacksAndMessages(null);     移除 Looper 中的 MessageQueue 中所有等待处理的 Message
     }
 
     public void onClick(View view) {
