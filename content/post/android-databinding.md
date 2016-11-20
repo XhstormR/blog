@@ -10,3 +10,14 @@ title = "Data Binding"
 Updated on 2016-11-18
 
 > https://developer.android.com/topic/libraries/data-binding/index.html
+
+## 启用 Data Binding
+```java
+build.gradle
+⇳
+android {
+    dataBinding {
+        enabled = true
+    }
+}
+```

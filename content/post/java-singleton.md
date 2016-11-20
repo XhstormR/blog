@@ -42,7 +42,7 @@ public class A {     双重检验锁
     public static A getInstance() {
         if (Instance == null) {     第一次检查
             synchronized (A.class) {
-                if (Instance == null) {    第二次检查（防止因多个进程同时判断实例为 null，而进入同步块，而再次实例化）
+                if (Instance == null) {    第二次检查（防止多个进程因同时判断实例为 null，而进入同步块，而再次实例化）
                     Instance = new A();
                 }
             }
