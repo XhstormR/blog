@@ -7,8 +7,10 @@ title = "Algorithm"
 
 <!--more-->
 
-Updated on 2016-10-28
+Updated on 2016-11-20
 
+> {{< image "/uploads/algorithm1.svg" "12" "1" "1" >}}
+>
 > 算法是解决问题的清晰指令，是用系统的方法描述解决问题的策略机制。
 
 ## 冒泡排序算法
@@ -126,7 +128,7 @@ public class A {
 排序方向：从左至右
 ```
 
----
+## 数字矩形
 
 ![](/uploads/algorithm1.png "A")
 
@@ -187,6 +189,8 @@ public class A {
     }
 }
 ```
+
+---
 
 ![](/uploads/algorithm2.png "B")
 
@@ -259,4 +263,97 @@ public class B {
         System.out.println("----------------------");
     }
 }
+```
+
+## 使用位运算实现加减乘
+```java
+public class A {
+    public static void main(String[] args) {
+        int x = 456;
+        int y = 789;
+
+        System.out.println(x + y);
+        System.out.println(x - y);
+        System.out.println(x * 3);
+        System.out.println("—————————");
+        System.out.println(a(x, y));
+        System.out.println(b(x, y));
+        System.out.println(c(x, 3));
+    }
+
+    private static int a(int x, int y) {     加（关键）
+        int i;
+        while (((x & y) != 0)) {     有进位
+            i = x ^ y;
+            y = (x & y) << 1;
+            x = i;
+        }
+        i = x | y;     无进位
+        return i;
+    }
+
+    private static int b(int x, int y) {     减（加负数）
+        y = a(~y, 1);     转为负数
+        return a(x, y);
+    }
+
+    private static int c(int x, int i) {     乘（加多次）
+        int sum = 0;
+        for (int j = 0; j < i; j++) {
+            sum = a(sum, x);
+        }
+        return sum;
+    }
+}
+----
+输出：
+1245
+-333
+1368
+—————————
+1245
+-333
+1368
+
+-------------------------------------------------------
+
+public class Test {
+    public static void main(String[] args) {
+        a();
+        b();
+        c();
+    }
+
+    private static void a() {     有进位（一次）
+        int x = 1;     0001
+        int y = 1;     0001
+        int i = (x & y) << 1;     0010
+        System.out.println(i);
+    }
+
+    private static void b() {     无进位
+        int x = 2;     0010
+        int y = 1;     0001
+        int i = x | y;     0011
+        System.out.println(i);
+    }
+
+    private static void c() {     有进位（二次）
+        int x = 3;     0011
+        int y = 1;     0001
+        int i;
+        while (((x & y) != 0)) {     有进位
+            i = x ^ y;
+            y = (x & y) << 1;
+            x = i;
+        }
+        i = x | y;     无进位
+        System.out.println(i);     0100
+    }
+}
+----
+输出：
+2
+3
+4
 ```
