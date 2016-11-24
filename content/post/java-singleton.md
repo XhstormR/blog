@@ -33,7 +33,7 @@ public class A {
 实例在 **使用时** 才创建。
 
 ```java
-public class A {     双重检验锁
+public class A {     双重校验锁
     private static volatile A Instance;     禁止指令重排并保证可见性
 
     private A() {     私有构造方法

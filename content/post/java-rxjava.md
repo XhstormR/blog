@@ -9,7 +9,11 @@ title = "RxJava"
 
 Updated on 2016-11-16
 
+> {{< image "/uploads/java-rxjava.png" "RxJava" "1" "1" >}}
+>
 > 响应式编程
+> |
+> 函数式编程
 >
 > https://github.com/ReactiveX/RxJava
 >
@@ -18,6 +22,10 @@ Updated on 2016-11-16
 > [Operators](http://reactivex.io/documentation/operators.html)
 > |
 > [Operators](http://rxmarbles.com/)
+>
+> [Book](https://mcxiaoke.gitbooks.io/rxdocs/content/)
+> |
+> [Book](https://www.gitbook.com/book/yuxingxin/rxjava-essentials-cn/details)
 
 ## Observable - 被观察者
 ```java
@@ -51,22 +59,30 @@ Observable<String> observable = Observable.from(list);     快捷方式
 
 -------------------------------------------------------
 
-observable.subscribe(observer);     被观察者订阅观察者
+observable.subscribe(observer);     被观察者订阅观察者（观察者见下文）
+----
+输出：
+A
+B
+C
+onCompleted
+
 Note：
+0. 被观察者发出事件，观察者处理事件。
 1. 一旦被观察者调用 subscribe() 方法订阅观察者，被观察者中的唯一成员 OnSubscribe 将执行 call() 方法并将观察者作为参数传入。
-2. 调用 subscribe() 方法后会返回 Subscription 接口对象（仅含 2 个方法 unsubscribe 和 isUnsubscribed），代表被观察者与观察者之间的联系。
+2. 调用 subscribe() 方法后会返回 Subscription 接口对象（仅含 2 个方法 unsubscribe 和 isUnsubscribed），代表被观察者与观察者之间的订阅关系。
 ```
 
 ## Observer - 观察者
 ```java
-Observer<String> observer = new Observer<String>() {     接口
+Observer<String> observer = new Observer<String>() {     接口（最终会被包装为 Subscriber）
     @Override
-    public void onCompleted() {     完成事件
+    public void onCompleted() {     完成事件（调用链结束）
         System.out.println("onCompleted");
     }
 
     @Override
-    public void onError(Throwable e) {     出现异常，框架自动调用
+    public void onError(Throwable e) {     出现异常，框架自动调用（调用链结束）
         System.out.println("onError");
     }
 
@@ -78,14 +94,14 @@ Observer<String> observer = new Observer<String>() {     接口
 
 -------------------------------------------------------
 
-Subscriber<String> subscriber = new Subscriber<String>() {     抽象类（继承但未实现 Observer 接口）
+Subscriber<String> subscriber = new Subscriber<String>() {     抽象类（继承但未实现 Observer 接口，且可选择性重写 onStart 方法）
     @Override
-    public void onCompleted() {     完成事件
+    public void onCompleted() {     完成事件（调用链结束）
         System.out.println("onCompleted");
     }
 
     @Override
-    public void onError(Throwable e) {     出现异常，框架自动调用
+    public void onError(Throwable e) {     出现异常，框架自动调用（调用链结束）
         System.out.println("onError");
     }
 
@@ -95,6 +111,10 @@ Subscriber<String> subscriber = new Subscriber<String>() {     抽象类（继�
     }
 };
 
+调用链：onStart() --> onNext() --> onCompleted()
+     |            |                                ↳ onError()
+     |            ↳ 此方法只能在调用 subscribe() 的线程上执行
+     ↳ 调用链结束后，订阅关系自动解除（Subscription.isUnsubscribed = true）
 -------------------------------------------------------
 
 Action1<String> action1 = new Action1<String>() {     快捷方式（被观察者的 subscribe() 方法支持传入 Action1 接口充当 onNext）
@@ -111,11 +131,11 @@ Action1<String> action1 = System.out::println;     简化为方法引用
 ```
 
 ## Scheduler - 线程调度
-默认情况下事件流在调用 subscribe() 的线程上运行，可以通过以下 2 种方法指定运行线程：
+默认情况下调用链（事件流）在调用 subscribe() 的线程上运行，可以通过以下 2 种方法指定运行线程：
 
-* （一次）`subscribeOn()`：指定运行线程。
-* （多次）`observeOn()`：切换运行线程。
-  * `subscribeOn()` 用于指定最开始事件流的运行线程，后期可通过 `observeOn()` 随时切换其运行线程。
+* （一次）`subscribeOn()`：指定其运行线程。
+* （多次）`observeOn()`：切换其运行线程。
+  * `subscribeOn()` 用于指定最开始调用链（事件流）的运行线程，后期可通过 `observeOn()` 随时切换其运行线程。
 
 ```java
 Observable
@@ -205,7 +225,7 @@ public class A {
                 .subscribe(integer -> System.out.print(integer + " "), System.out::println, () -> System.out.println("\n————————————"));
         Observable
                 .from(LIST)
-                .flatMap(author -> Observable.from(author.mArticle))     一对多（手动转换为 Observable）（推荐使用 concatMap，解决 flatMap 事件交叉问题）
+                .flatMap(author -> Observable.from(author.mArticle))     一对多（手动转换为 Observable）（推荐使用 concatMap，解决 flatMap 事件交叉问题）（flatMap() 底层调用 merge()，concatMap 底层调用 concat()，下同）
                 .subscribe(System.out::println, System.out::println, () -> System.out.println("————————————"));
         Observable
                 .from(LIST)
@@ -479,6 +499,8 @@ public class A {
 }
 ```
 
+---
+
 ```java
 Observable
         .just("A", "B", "C")
@@ -525,4 +547,156 @@ C__RxIoScheduler-2__map
 A__RxComputationScheduler-1__onNext
 B__RxComputationScheduler-1__onNext
 C__RxComputationScheduler-1__onNext
+```
+
+```java
+通过 compose() 操作符重用操作链
+----
+public class A {
+    public static void main(String[] args) {
+        final Observable.Transformer<String, String> transformer = new Observable.Transformer<String, String>() {
+            @Override
+            public Observable<String> call(Observable<String> stringObservable) {     对传入的原始被观察者进行加工
+                return stringObservable.doOnUnsubscribe(() -> System.out.println("Unsubscribed")).map(s -> s + "1");
+            }
+        };     Transformer 对象
+
+        Observable
+                .just("A", "B", "C")
+                .compose(transformer)     重用 Transformer
+                .subscribe(System.out::println);
+        Observable
+                .just("1", "2", "3")
+                .compose(transformer)     重用 Transformer
+                .subscribe(System.out::println);
+    }
+}
+----
+输出：
+A1
+B1
+C1
+Unsubscribed
+11
+21
+31
+Unsubscribed
+
+Note：
+1. compose() 接收一个 Transformer 接口，此接口继承自 Func1，接收原始 Observable，返回新 Observable。
+2. compose() 作用于整个被观察者，flatMap() 作用于每个事件。
+
+-------------------------------------------------------
+
+实例：改进之前线程调度加载网络图片的例子
+----
+public class A {
+    private static final Observable.Transformer<Object, Object> mTransformer = observable ->     单例模式
+            observable
+                    .observeOn(AndroidSchedulers.mainThread())     切换至主线程 (2)
+                    .subscribeOn(Schedulers.io());     指定最开始在IO线程中运行 (1)
+
+    @SuppressWarnings("unchecked")     压制警告（强制类型转换）
+    public static <T> Observable.Transformer<T, T> applySchedulers() {
+       return ((Observable.Transformer<T, T>) mTransformer);   返回 Transformer 对象（为了不丢失类型信息便强制转换）
+    }
+}
+
+----
+
+Observable
+        .just("http://blog.xhstormr.tk/uploads/children-of-the-sun1.jpg")
+        .map(s -> {     下载 Bitmap（String ➜ Bitmap）
+            Bitmap bitmap = null;
+            try (BufferedInputStream bufferedInputStream = new BufferedInputStream(new URL(s).openStream())) {
+                bitmap = BitmapFactory.decodeStream(bufferedInputStream);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return bitmap;
+        })
+        .compose(applySchedulers())     只需调用 compose() 并传入 applySchedulers() 返回的对象，即可切换线程
+        .subscribe(bitmap -> mImageView.setImageBitmap(bitmap));     加载 Bitmap
+```
+
+```java
+通过 Observable.defer(Func0) 实现延迟订阅
+----
+public class A {
+    private static String s;
+
+    public static void main(String[] args) {
+        Observable<String> observable = Observable.just(s);     直接执行
+        s = "ABC";
+        observable.subscribe(System.out::println);
+        ----
+        输出：
+        null
+
+        Observable<String> observable = Observable.defer(() -> Observable.just(s));     Func0 接口中的代码将延迟执行
+        s = "ABC";
+        observable.subscribe(System.out::println);
+        ----
+        输出：
+        ABC
+    }
+}
+
+Note：
+1. defer() 接收一个 Func0 接口并显式声明此接口返回一个 Observable 对象。
+2. defer() 中的代码直到订阅才会执行。
+```
+
+```java
+通过 Schedulers 将耗时操作放到后台线程中执行
+----
+public class A {
+    public static void main(String[] args) throws InterruptedException {
+        Schedulers.io().createWorker().schedule(() -> {     Action0 接口中的代码将在 IO 线程中执行
+            System.out.println(Thread.currentThread());
+            System.exit(0);
+        });
+        Thread.sleep(Integer.MAX_VALUE);
+    }
+}
+----
+输出：
+Thread[RxIoScheduler-2,5,main]
+```
+
+```java
+Single
+----
+
+被观察者
+----
+Single<String> observable = Single.create(new Single.OnSubscribe<String>() {
+    @Override
+    public void call(SingleSubscriber<? super String> singleSubscriber) {
+        singleSubscriber.onSuccess("A");
+    }
+});
+
+Single<String> observable = Single.just("A");
+
+观察者
+----
+SingleSubscriber<String> subscriber = new SingleSubscriber<String>() {     SingleSubscriber
+    @Override
+    public void onSuccess(String value) {     成功
+        System.out.println(value);
+    }
+
+    @Override
+    public void onError(Throwable error) {     失败
+        System.out.println(error.toString());
+    }
+};
+
+实例
+----
+Single.just("A").subscribe(System.out::println);
+----
+输出：
+A
 ```
