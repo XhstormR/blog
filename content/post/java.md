@@ -393,7 +393,7 @@ if (score > 80) {
 条件语句 嵌套if
 String today = "周末";
 String weather = "晴朗";
-if (today.equals("周末")) {     //String 类的 equals() 用于判断字符串内容是否相同，也可用 today == "周末"
+if (today.equals("周末")) {     //String 类的 equals() 用于判断字符串内容是否相同
     //内层if 开始
     if (weather.equals("晴朗")) {
         System.out.println("去散步");
@@ -736,6 +736,7 @@ System.nanoTime()     精确计时器，单位为毫微秒
 
 String date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.util.Date(1475819315880L));
 //2016-10-07 13:48:35
+
 -------------------------------------------------------
 
 System.getProperties().list(System.out);     获取系统属性
