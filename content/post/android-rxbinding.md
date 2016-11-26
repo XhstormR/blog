@@ -19,7 +19,7 @@ Button button = activityMainBinding.button;
 
 RxView
         .clicks(button)     绑定单击事件
-        .throttleFirst(1, TimeUnit.SECONDS)     防止多次点击（1 秒内只发送一个点击事件）
+        .throttleFirst(1, TimeUnit.SECONDS)     防止多次点击（1 秒内只发送第一个点击事件）
         .subscribe(aVoid -> Log.w("Tag", "单击"));
 
 or

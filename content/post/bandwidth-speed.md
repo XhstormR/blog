@@ -7,7 +7,7 @@ title = "带宽测速"
 
 <!--more-->
 
-Updated on 2016-04-23
+Updated on 2016-11-26
 
 http://openspeedtest.com/
 
@@ -22,3 +22,5 @@ http://www.cnspeedtest.cn/speed/page/bandspeed.jsp
 电信:
 
 http://netreport.sh.189.cn/speed/main.html
+
+http://speed.sc.cninfo.net/chinatelcom/speedtest/sccs/download.shtml
