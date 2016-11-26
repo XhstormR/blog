@@ -117,7 +117,7 @@ public class A {
 
 public class A {     URL 编码
     public static void main(String[] args) {
-        String format = String.format("A=%s&B=%4d&C=%.2f", "字", 123, 123.123);
+        String format = String.format("A=%s&B=%04d&C=%.2f", "字", 123, 123.123);
         String encode = URLEncoder.encode("中国ABC", "utf-8");
         String decode = URLDecoder.decode(encode, "utf-8");
 
@@ -128,9 +128,16 @@ public class A {     URL 编码
 }
 ----
 输出：
-A=字&B= 123&C=123.12
+A=字&B=0123&C=123.12
 %E4%B8%AD%E5%9B%BDABC
 中国ABC
+
+Note：
+%d     Digital     123
+%f     Float     1.23
+%s     String     "ABC"
+%c     Char     'A'
+%b     Boolean     true
 
 -------------------------------------------------------
 

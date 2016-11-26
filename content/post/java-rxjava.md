@@ -7,9 +7,11 @@ title = "RxJava"
 
 <!--more-->
 
-Updated on 2016-11-16
+Updated on 2016-11-22
 
 > {{< image "/uploads/java-rxjava.png" "RxJava" "1" "1" >}}
+>
+> 观察者模式
 >
 > 响应式编程
 > |
@@ -113,8 +115,8 @@ Subscriber<String> subscriber = new Subscriber<String>() {     抽象类（继�
 
 调用链：onStart() --> onNext() --> onCompleted()
      |            |                                ↳ onError()
-     |            ↳ 此方法只能在调用 subscribe() 的线程上执行
-     ↳ 调用链结束后，订阅关系自动解除（Subscription.isUnsubscribed = true）
+     |            ↳ 此方法只能在调用 subscribe() 的线程上执行，可通过操作符 doOnSubscribe(Action0) 替代且可指定运行线程
+     ↳ 当调用链结束后，订阅关系自动解除（Subscription.isUnsubscribed = true）
 -------------------------------------------------------
 
 Action1<String> action1 = new Action1<String>() {     快捷方式（被观察者的 subscribe() 方法支持传入 Action1 接口充当 onNext）
@@ -324,7 +326,7 @@ public class A {
                 .subscribe(System.out::println, System.out::println, () -> System.out.println("————————————"));
         Observable
                 .from(LIST)
-                .first()     选取最前
+                .first()     选取最前（若无数据：first() 直接调用 onError()，takeFirst() 直接调用 onCompleted()，下同）
                 .subscribe(System.out::println, System.out::println, () -> System.out.println("————————————"));
         Observable
                 .from(LIST)
@@ -387,27 +389,6 @@ public class A {
         输出：
         0
         1
-    }
-
-    private static void b() throws InterruptedException {     debounce
-        Observable<Long> observable = Observable.interval(300, TimeUnit.MILLISECONDS);     每隔 300 毫秒发送数字
-        observable
-                .debounce(250, TimeUnit.MILLISECONDS)     过滤发送过快的事件（前后时间间隔小于 250 毫秒的事件将被过滤）
-                .take(10)
-                .subscribe(System.out::println, System.out::println, () -> System.exit(0));
-        Thread.sleep(Integer.MAX_VALUE);
-        ----
-        输出：
-        0
-        1
-        2
-        3
-        4
-        5
-        6
-        7
-        8
-        9
     }
 
     private static class Author {
@@ -551,7 +532,7 @@ C__RxComputationScheduler-1__onNext
 
 ```java
 通过 compose() 操作符重用操作链
-----
+-------------------------------------------------------
 public class A {
     public static void main(String[] args) {
         final Observable.Transformer<String, String> transformer = new Observable.Transformer<String, String>() {
@@ -598,7 +579,7 @@ public class A {
 
     @SuppressWarnings("unchecked")     压制警告（强制类型转换）
     public static <T> Observable.Transformer<T, T> applySchedulers() {
-       return ((Observable.Transformer<T, T>) mTransformer);   返回 Transformer 对象（为了不丢失类型信息便强制转换）
+       return ((Observable.Transformer<T, T>) mTransformer);   返回 Transformer 对象（为了不丢失类型信息而强制转换）
     }
 }
 
@@ -615,13 +596,13 @@ Observable
             }
             return bitmap;
         })
-        .compose(applySchedulers())     只需调用 compose() 并传入 applySchedulers() 返回的对象，即可切换线程
+        .compose(A.applySchedulers())     只需传入 A.applySchedulers() 返回的对象，即可后台处理，前台显示
         .subscribe(bitmap -> mImageView.setImageBitmap(bitmap));     加载 Bitmap
 ```
 
 ```java
 通过 Observable.defer(Func0) 实现延迟订阅
-----
+-------------------------------------------------------
 public class A {
     private static String s;
 
@@ -643,13 +624,14 @@ public class A {
 }
 
 Note：
+0. just() 和 from() 在创建 Observable 时就存储了对象的值，而 create() 创建的 Observable 在 subscribe() 时才访问对象。
 1. defer() 接收一个 Func0 接口并显式声明此接口返回一个 Observable 对象。
 2. defer() 中的代码直到订阅才会执行。
 ```
 
 ```java
 通过 Schedulers 将耗时操作放到后台线程中执行
-----
+-------------------------------------------------------
 public class A {
     public static void main(String[] args) throws InterruptedException {
         Schedulers.io().createWorker().schedule(() -> {     Action0 接口中的代码将在 IO 线程中执行
@@ -666,7 +648,7 @@ Thread[RxIoScheduler-2,5,main]
 
 ```java
 Single
-----
+-------------------------------------------------------
 
 被观察者
 ----
@@ -688,7 +670,7 @@ SingleSubscriber<String> subscriber = new SingleSubscriber<String>() {     Singl
     }
 
     @Override
-    public void onError(Throwable error) {     失败
+    public void onError(Throwable error) {     异常
         System.out.println(error.toString());
     }
 };
@@ -699,4 +681,128 @@ Single.just("A").subscribe(System.out::println);
 ----
 输出：
 A
+```
+
+```java
+延时执行
+-------------------------------------------------------
+public class A {
+    public static void main(String[] args) throws InterruptedException {
+        Observable<Integer> range = Observable.range(0, 3);
+        range
+                .delay(2, TimeUnit.SECONDS)     2 秒
+                .subscribe(System.out::println, System.out::println, () -> System.exit(0));
+        Thread.sleep(Integer.MAX_VALUE);
+        ----
+        输出：（延时 2 秒后执行）
+        0
+        1
+        2
+
+        Observable<Long> timer = Observable.timer(2, TimeUnit.SECONDS);    2 秒（timer 操作返回计时器 Observable）
+        timer
+                .delay(2, TimeUnit.SECONDS)     2 秒
+                .subscribe(System.out::println, System.out::println, () -> System.exit(0));
+        Thread.sleep(Integer.MAX_VALUE);
+        ----
+        输出：（延时 4 秒后执行）
+        0
+    }
+}
+```
+
+```java
+缓解 Backpressure（背部压力）
+-------------------------------------------------------
+
+缓冲事件
+----
+public class A {
+    public static void main(String[] args) throws InterruptedException {
+        Observable
+                .range(0, 10)
+                .buffer(2)     将多个事件包装为 List<T>，缓冲区大小为 2
+                .subscribe(System.out::println);
+        ----
+        输出：
+        [0, 1]
+        [2, 3]
+        [4, 5]
+        [6, 7]
+        [8, 9]
+
+        Observable
+                .range(0, 10)
+                .buffer(2, 3)     将多个事件包装为 List<T>，缓冲区大小为 2，每次都跳过第 3 个事件
+                .subscribe(System.out::println);
+        ----
+        输出：
+        [0, 1]
+        [3, 4]
+        [6, 7]
+        [9]
+    }
+}
+
+过滤事件
+----
+public class A {
+    public static void main(String[] args) throws InterruptedException {
+        Observable<Long> timer = Observable.timer(5, TimeUnit.SECONDS);     5 秒后发出事件（计时器）
+
+        Observable
+                .interval(500, TimeUnit.MILLISECONDS)     每隔 500 毫秒发出事件
+                .takeUntil(timer)     一直处理事件，直到 timer 发送了事件
+                .subscribe(System.out::println, System.out::println, () -> System.exit(0));
+        Thread.sleep(Integer.MAX_VALUE);
+        ----
+        输出：（CPU 时间不准，无过滤）
+        0
+        1
+        2
+        3
+        4
+        5
+        6
+        7
+        8
+
+        Observable
+                .interval(500, TimeUnit.MILLISECONDS)
+                .takeUntil(timer)
+                .throttleFirst(1, TimeUnit.SECONDS)     每隔 1 秒发出时间段中的第一个事件
+                .subscribe(System.out::println, System.out::println, () -> System.exit(0));
+        Thread.sleep(Integer.MAX_VALUE);
+        ----
+        输出：（CPU 时间不准）
+        0
+        3
+        5
+        7
+
+        Observable
+                .interval(500, TimeUnit.MILLISECONDS)
+                .takeUntil(timer)
+                .throttleLast(1, TimeUnit.SECONDS)     每隔 1 秒发出时间段中的最后一个事件（跟 sample() 行为一致）
+                .subscribe(System.out::println, System.out::println, () -> System.exit(0));
+        Thread.sleep(Integer.MAX_VALUE);
+        ----
+        输出：（CPU 时间不准）
+        0
+        2
+        4
+        6
+        8
+
+        Observable     debounce（去抖）
+                .interval(500, TimeUnit.MILLISECONDS)
+                .takeUntil(timer)
+                .debounce(1, TimeUnit.SECONDS)     1 秒无新事件后，再发送其接收到的最后一个事件
+                .subscribe(System.out::println, System.out::println, () -> System.exit(0));
+        Thread.sleep(Integer.MAX_VALUE);
+        ----
+        输出：（CPU 时间不准）
+        8
+    }
+}
 ```
