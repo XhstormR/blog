@@ -59,8 +59,8 @@ Ctrl+Shift+Enter     完成声明
 Ctrl+F9     Make Project
 Ctrl+Shift+F10     Run
 
-Ctrl+Shift+加     展开所有代码块
 Ctrl+Shift+减     折叠所有代码块
+Ctrl+Shift+加     展开所有代码块
 
 Ctrl+ALT+S     设置
 Ctrl+ALT+Shift+S     项目设置
@@ -645,6 +645,27 @@ new IPlayGame() {
 
 -------------------------------------------------------
 
+return 的用法
+----
+public class A {
+    public static void main(String[] args) {
+        b(a());
+    }
+
+    private static String a() {
+        return "ABC";     返回值
+    }
+
+    private static void b(String s) {
+        if (s == null) {     提前结束方法
+            return;
+        }
+        System.out.println(s);
+    }
+}
+
+-------------------------------------------------------
+
 Scanner.nextLine() 的用法
 ----
 Scanner scanner = new Scanner(System.in);
@@ -713,8 +734,8 @@ System.nanoTime()     精确计时器，单位为毫微秒
      long l2 = System.nanoTime();
      System.out.println(l2 - l1);
 
-String date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.util.Date(1475819315880L));     //2016-10-07 13:48:35
-
+String date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.util.Date(1475819315880L));
+//2016-10-07 13:48:35
 -------------------------------------------------------
 
 System.getProperties().list(System.out);     获取系统属性
