@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#2016-04-12 10:21
+#2016-04-12 13:25
 
 CACHE:
 favicon.ico
@@ -8,13 +8,13 @@ js/main.min.js
 js/zoom.min.js
 js/magic-canvas.min.js
 uploads/cursor.ico
-uploads/blog-cover.jpg
 uploads/file-into-picture2.png
 http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js
 http://apps.bdimg.com/libs/highlight.js/9.1.0/highlight.min.js
 http://apps.bdimg.com/libs/highlight.js/9.1.0/styles/monokai_sublime.min.css
 http://cdn.bootcss.com/gsap/1.19.0/TweenLite.min.js
 http://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js
+http://ww4.sinaimg.cn/large/a15b4afegw1fa6cijmoynj20zk0mygnz.jpg
 
 NETWORK:
 *
