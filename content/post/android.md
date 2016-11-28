@@ -32,7 +32,7 @@ Gradle：![](/uploads/android-gradle.png)
 ```html
 C:\Users\XhstormR\IntelliJIDEAProjects\MyApplication\gradle\wrapper\gradle-wrapper.properties
 ⇳
-distributionUrl=https\://services.gradle.org/distributions/gradle-2.8-all.zip
+distributionUrl=http\://android-mirror.bugly.qq.com:8080/gradle/gradle-3.2.1-all.zip
 ```
 
 Cache：![](/uploads/android-cache.png)
@@ -212,6 +212,7 @@ adb usb     连接手机
 ![](/uploads/android-layout.svg "Layout")
 
 ## Code
+
 ```java
 AutoCompleteTextView
 布局文件

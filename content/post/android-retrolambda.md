@@ -37,6 +37,13 @@ android {
 }
 ```
 
+## Gradle
+```xml
+gradle-wrapper.properties
+⇳
+distributionUrl=http\://android-mirror.bugly.qq.com:8080/gradle/gradle-3.2.1-all.zip
+```
+
 # RxAndroid
 ## Module
 ```java
