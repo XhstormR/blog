@@ -70,7 +70,7 @@ C
 onCompleted
 
 Note：
-0. 被观察者发出事件，观察者处理事件。
+0. 被观察者发出事件，观察者处理事件。（可一对多）
 1. 一旦被观察者调用 subscribe() 方法订阅观察者，被观察者中的唯一成员 OnSubscribe 将执行 call() 方法并将观察者作为参数传入。
 2. 调用 subscribe() 方法后会返回 Subscription 接口对象（仅含 2 个方法 unsubscribe 和 isUnsubscribed），代表被观察者与观察者之间的订阅关系。
 ```

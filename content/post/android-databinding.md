@@ -9,7 +9,23 @@ title = "Data Binding"
 
 Updated on 2016-11-26
 
+> Model（数据），View（界面），Controller（业务逻辑）
+>
+> MVC（Model - View - Controller）
+>
+> MVP（Model - View - Presenter）
+>
+> MVVM（Model - View - ViewModel）
+>
+> Model（数据），View（界面），ViewModel（双向绑定）
+>
 > https://developer.android.com/topic/libraries/data-binding/index.html
+
+## 双向绑定
+* View Listeners：将 View 响应事件产生的数据设置到 Model 中。
+  * 将 View 的事件映射到 Model 可以承载的数据格式。
+* Data Bindings：在 Model 发生变化时通知 View 作出响应。
+  * 将 Model 的数据映射到 View 的界面上。
 
 ## 启用 Data Binding
 ```java
@@ -28,15 +44,45 @@ android {
 protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     ActivityMainBinding activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-    User user = new User("A", 25);     Data Objects                                ↳ activity_main.xml ➜ ActivityMainBinding.java
+    User user = new User("A", 25);     Data Objects                         ↳ activity_main.xml ➜ ActivityMainBinding.java
     activityMainBinding.setUser(user);     Binding Data Objects
 }
 ```
 
-## Data Objects
+```xml
+<layout xmlns:android="http://schemas.android.com/apk/res/android">     <layout> 节点
+
+    <data>     <data> 节点（相当于 ViewModel，是 Model 和 View 之间的桥梁）
+        <import type="com.example.myapp.myapplication.User"/>
+        <variable
+                name="user"     user 初始为 null，所以各属性为各自的初始值，以防止 NullPointerException
+                type="User"/>
+    </data>
+
+    <LinearLayout     <ViewGroup> 节点
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
+        <TextView
+                android:text='@{""+user.name}'     @{表达式}
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView1"/>
+        <TextView
+                android:text="@{``+user.age,default=35}"     设计阶段预览值（,default=35）
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView2"/>
+    </LinearLayout>
+
+</layout>
+```
+
+## Data Objects（Data Bindings）
 ### 可观测对象
 ```java
-public class User extends BaseObservable {     继承 BaseObservable
+public class User extends BaseObservable {     继承已实现 Observable 接口的 BaseObservable
     private String name;
     private int age;
 
@@ -120,6 +166,8 @@ android:text='@{""+user.age}'
 
 ### 可观测集合
 #### ObservableArrayMap
+索引为对象
+
 ```java
 ObservableArrayMap<String, Object> user = new ObservableArrayMap<>();
 user.put("name", "A");
@@ -146,6 +194,8 @@ android:text='@{""+user["age"]}'
 ```
 
 #### ObservableArrayList
+索引为整数
+
 ```java
 ObservableArrayList<Object> user = new ObservableArrayList<>();
 user.add("A");
@@ -171,7 +221,7 @@ android:text='@{""+user[0]}'
 android:text='@{""+user[1]}'
 ```
 
-## Event Handling
+## Event Handling（View Listeners）
 ### Method References
 数据绑定时就评估表达式，方法签名需相同。
 ```java
@@ -202,7 +252,7 @@ public class A {
 ----
 
 <EditText
-        android:onClick="@{a.a}"     传入方法即可
+        android:onClick="@{a.a}"     传入对应方法即可
         android:onLongClick="@{a.b}"
         android:onTextChanged="@{a.c}"
         android:layout_width="match_parent"
@@ -247,6 +297,154 @@ public class A {
         android:onClick="@{()->a.a(user)}"
         android:onLongClick="@{()->a.b()}"
         android:onTextChanged="@{(s,i1,i2,i3)->a.c(user,s)}"     未省略参数列表
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"/>
+```
+
+## 注解
+### BindingAdapter
+将 XML 中定义的属性值与对应的实现方法绑定在一起。
+
+#### 绑定自定义属性
+**添加** 新的 XML 属性及其实现。
+
+```java
+@BindingAdapter("abc")     注解（该方法与自定义属性 app:abc 关联）
+public static void a(TextView view, int height) {     为控件设置高度（该方法可以写在任意位置）
+    ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+    layoutParams.height = height;
+    view.setLayoutParams(layoutParams);
+}
+
+-------------------------------------------------------
+
+@BindingAdapter("abc")
+public static void a(TextView view, int oldHeight, int newHeight) {     另外也可获取旧值（View，oldValue，newValue）（最初值为初始值，以防止 NullPointerException）
+    Log.w("Tag", String.format("旧值:%d,新值:%d", oldHeight, newHeight));
+}
+```
+
+```xml
+<data>
+    <variable
+            name="height"
+            type="Integer"/>     lang 包下的类自动导入
+</data>
+
+----
+
+<TextView
+        app:abc="@{height}"     使用自定义属性，传入 int，控件高度
+        android:text='@{``+user.name}'
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"/>
+```
+
+#### 绑定系统属性
+对原有 XML 属性进行 **重写**。
+
+```java
+@BindingAdapter("android:src")     注解（该方法与系统属性 android:src 关联）
+public static void b(ImageView view, String url) {     为 ImageView 加载图片（该方法可以写在任意位置）
+    Single
+            .just(url)
+            .map(s -> {
+                Bitmap bitmap = null;
+                try (BufferedInputStream bufferedInputStream = new BufferedInputStream(new URL(s).openStream())) {
+                    bitmap = BitmapFactory.decodeStream(bufferedInputStream);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return bitmap;
+            })
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
+            .subscribe(view::setImageBitmap);
+}
+```
+
+```xml
+<data>
+    <variable
+            name="url"
+            type="String"/>     lang 包下的类自动导入
+</data>
+
+----
+
+<ImageView
+        android:src="@{url}"     @{} 表达式中传入 String
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+<ImageView
+        android:src="@mipmap/ic_launcher"     普通表达式不受影响
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+```
+
+#### 组合
+```java
+注解（同时关联自定义属性 i1，i2，false 表示控件使用二者其一便可匹配该方法，缺失的属性用其初始值替代，默认为 true）
+例：
+若控件只使用了 i1，则 pic 为 0；
+若控件只使用了 i2，则 url 为 null。
+
+@BindingAdapter(value = {"i1", "i2"}, requireAll = false)
+public static void a(ImageView view, String url, int pic) {     图片加载完成之前显示占位图（该方法可以写在任意位置）
+    Single
+            .just(url)
+            .map(s -> {
+                Bitmap bitmap = null;
+                try (BufferedInputStream bufferedInputStream = new BufferedInputStream(new URL(url).openStream())) {
+                    bitmap = BitmapFactory.decodeStream(bufferedInputStream);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return bitmap;
+            })
+            .doOnSubscribe(() -> view.setImageResource(pic))     设置 resId 占位图（可在非 UI 线程）
+            .observeOn(AndroidSchedulers.mainThread())     切换至 UI 线程 (2)
+            .subscribeOn(Schedulers.io())     指定最开始在IO线程中运行 (1)
+            .subscribe(view::setImageBitmap);     设置 Bitmap（必须在 UI 线程）
+}
+```
+
+```xml
+<data>
+    <import type="com.example.myapp.myapplication.R"/>     导入资源类 R
+    <variable
+            name="url"
+            type="String"/>
+</data>
+
+----
+
+<ImageView
+        app:i1="@{url}"     使用自定义属性，传入 String，图片链接
+        app:i2="@{R.mipmap.ic_launcher}"     使用自定义属性，传入 int，占位图
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+```
+
+### BindingConversion
+```java
+@BindingConversion
+public static ColorDrawable a(int color) {     接收 int，转换为 ColorDrawable 对象（该方法可以写在任意位置）
+    Log.w("Tag", String.format("方法被调用，color = %d", color));
+    return new ColorDrawable(color);
+}
+```
+
+```xml
+<EditText
+        android:background="@{@color/colorAccent}"     @{} 表达式中传入 int，background 属性接收 ColorDrawable 对象
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"/>
+<EditText
+        android:background="@color/colorAccent"     普通表达式不受影响
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editText"/>
@@ -299,11 +497,11 @@ android:text="@{A.a(user.name)}"
 运算符
 （只有 this，super，new，<>泛型不支持）
 -------------------------------------------------------
-android:text='@{user.name ?? "无名氏"}'
+android:text='@{user.name ?? "无名氏"}'     "A" ?? "B"
 等同于
-android:text='@{user.name != null ? user.name : "无名氏"}'
+android:text='@{user.name != null ? user.name : "无名氏"}'     "A" != null ? "A" : "B"
 
-android:text="@{``+user.age}"
+android:text="@{``+user.age}"     "``"
 等同于
-android:text='@{""+user.age}'
+android:text='@{""+user.age}'     '""'
 ```
