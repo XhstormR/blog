@@ -357,3 +357,31 @@ public class Test {
 3
 4
 ```
+
+## 斐波那契数列
+```java
+public class A {
+    public static void main(String[] args) {
+        int x = 0;
+        int y = 1;
+
+        boolean b = true;
+        System.out.print(x + " ");
+        System.out.print(y + " ");
+        for (int i = 0; i < 10; i++) {
+            if (b) {
+                b = false;
+                x += y;
+                System.out.print(x + " ");
+            } else {
+                b = true;
+                y += x;
+                System.out.print(y + " ");
+            }
+        }
+    }
+}
+----
+输出：（斐波那契数列前 12 项）
+0 1 1 2 3 5 8 13 21 34 55 89
+```
