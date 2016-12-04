@@ -1,14 +1,16 @@
 +++
 Categories = ["Android"]
 date = "2016-11-26T23:15:56+08:00"
-title = "Data Binding"
+title = "Data Binding Framework"
 
 +++
 
 <!--more-->
 
-Updated on 2016-11-26
+Updated on 2016-12-03
 
+> {{< image "/uploads/android-databinding.svg" "Data Binding" "1" "1" >}}
+>
 > Model（数据），View（界面），Controller（业务逻辑）
 >
 > MVC（Model - View - Controller）
@@ -55,7 +57,7 @@ protected void onCreate(Bundle savedInstanceState) {
     <data>     <data> 节点（相当于 ViewModel，是 Model 和 View 之间的桥梁）
         <import type="com.example.myapp.myapplication.User"/>
         <variable
-                name="user"     user 初始为 null，所以各属性为各自的初始值，以防止 NullPointerException
+                name="user"     user 初始为 null，所以各属性为各自的初始值，以防止因 NullPointerException 而 Crash
                 type="User"/>
     </data>
 
@@ -91,12 +93,12 @@ public class User extends BaseObservable {     继承已实现 Observable 接口
         this.age = age;
     }
 
-    @Bindable     绑定数据
+    @Bindable     绑定数据（生成 BR.name）
     public String getName() {
         return name;
     }
 
-    @Bindable     绑定数据
+    @Bindable     绑定数据（生成 BR.age）
     public int getAge() {
         return age;
     }
@@ -252,7 +254,7 @@ public class A {
 ----
 
 <EditText
-        android:onClick="@{a.a}"     传入对应方法即可
+        android:onClick="@{a.a}"     传入对应方法即可，也可表达为 "@{a::a}"
         android:onLongClick="@{a.b}"
         android:onTextChanged="@{a.c}"
         android:layout_width="match_parent"
@@ -302,6 +304,51 @@ public class A {
         android:id="@+id/editText"/>
 ```
 
+### @={}
+仅支持 text、checked、year、mouth、hour、rating、progress 等属性。
+```xml
+<data>
+    <variable
+            name="s"
+            type="String"/>     lang 包下的类自动导入
+    <variable
+            name="b"
+            type="Boolean"/>     lang 包下的类自动导入
+</data>
+
+----
+
+<TextView
+        android:text="@{s}"     自动同步
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+<TextView
+        android:text="@{``+b}"     自动同步
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+<EditText
+        android:text="@={s}"     自动更新
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+<CheckBox
+        android:checked="@={b}"     自动更新
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+```
+
+### OnPropertyChangedCallback
+```java
+Observable.OnPropertyChangedCallback propertyChangedCallback = new Observable.OnPropertyChangedCallback() {     抽象类
+    @Override
+    public void onPropertyChanged(Observable sender, int propertyId) {     属性改变时调用
+        Log.w("Tag", propertyId + "_" + sender.toString());
+    }
+};
+
+user.name.addOnPropertyChangedCallback(propertyChangedCallback);     添加回调
+user.name.removeOnPropertyChangedCallback(propertyChangedCallback);     移除回调
+```
+
 ## 注解
 ### BindingAdapter
 将 XML 中定义的属性值与对应的实现方法绑定在一起。
@@ -320,7 +367,7 @@ public static void a(TextView view, int height) {     为控件设置高度（�
 -------------------------------------------------------
 
 @BindingAdapter("abc")
-public static void a(TextView view, int oldHeight, int newHeight) {     另外也可获取旧值（View，oldValue，newValue）（最初值为初始值，以防止 NullPointerException）
+public static void a(TextView view, int oldHeight, int newHeight) {     另外也可获取旧值（View，oldValue，newValue）（oldValue 最初为对应初始值，以防止 NullPointerException）
     Log.w("Tag", String.format("旧值:%d,新值:%d", oldHeight, newHeight));
 }
 ```
@@ -441,13 +488,11 @@ public static ColorDrawable a(int color) {     接收 int，转换为 ColorDrawa
 <EditText
         android:background="@{@color/colorAccent}"     @{} 表达式中传入 int，background 属性接收 ColorDrawable 对象
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText"/>
+        android:layout_height="wrap_content"/>
 <EditText
         android:background="@color/colorAccent"     普通表达式不受影响
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText"/>
+        android:layout_height="wrap_content"/>
 ```
 
 ## Code
@@ -497,11 +542,77 @@ android:text="@{A.a(user.name)}"
 运算符
 （只有 this，super，new，<>泛型不支持）
 -------------------------------------------------------
-android:text='@{user.name ?? "无名氏"}'     "A" ?? "B"
+android:text='@{user.name ?? "无名氏"}'     "A" ?? "B"     选取第一个非空值作为结果
 等同于
 android:text='@{user.name != null ? user.name : "无名氏"}'     "A" != null ? "A" : "B"
 
 android:text="@{``+user.age}"     "``"
 等同于
 android:text='@{""+user.age}'     '""'
+```
+
+```xml
+使用 ID
+-------------------------------------------------------
+
+<TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+<EditText
+        android:onTextChanged="@{(s,i1,i2,i3)->textView.setText(s)}"     textView 同步显示输入
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+-------------------------------------------------------
+
+<data>
+    <variable
+            name="b"
+            type="Boolean"/>     Boolean 初始值为 false
+</data>
+
+----
+
+<TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+<EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+<Button
+        android:enabled="@{b}"     自动同步
+        android:onClick="@{()->textView.setText(editText.getText())}"     使用 ID，直接在布局中处理逻辑
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="New Button"/>
+<CheckBox
+        android:checked="@={b}"     自动更新（勾选启用按钮）
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+-------------------------------------------------------
+
+<data>
+    <import type="android.view.View"/>
+</data>
+
+----
+
+<CheckBox
+        android:id="@+id/checkBox"     勾选显示图片并启用按钮
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+<ImageView
+        android:visibility="@{checkBox.checked?View.VISIBLE:View.GONE}"     显示或隐藏（隐式自动更新）
+        android:src="@mipmap/ic_launcher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+<Button
+        android:enabled="@{checkBox.checked}"     启用或禁用（隐式自动更新）
+        android:text="New Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 ```

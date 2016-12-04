@@ -44,6 +44,11 @@ repositories {
 }
 ```
 
+### 找不到主题文件
+```xml
+<style name="AppTheme" parent="@android:style/Theme.DeviceDefault.Light.NoActionBar">
+```
+
 ### 找不到资源文件
 IDEA ➜ Build ➜ `Make Project` or `Rebuild Project`（重新生成 R.java）
 

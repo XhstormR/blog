@@ -66,7 +66,8 @@ Comparator<Integer> comparator = Integer::compare;     方法引用（没有传�
 ```
 
 ## 函数式接口
-* 函数式接口：只含有一个抽象方法，因此可以被转换成 Lambda 表达式。
+只含有一个抽象方法，因此可以被转换成 Lambda 表达式。
+
 * 抽象方法：自己不实现，子类必须实现。`void a();`
 * 默认方法：自己已实现，子类可以重写。`default void b() { }`
 * 静态方法：自己已实现，直接通过接口名访问。`static void c() { }`
