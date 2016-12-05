@@ -606,13 +606,55 @@ android:text='@{""+user.age}'     '""'
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 <ImageView
-        android:visibility="@{checkBox.checked?View.VISIBLE:View.GONE}"     显示或隐藏（隐式自动更新）
+        android:visibility="@{checkBox.checked?View.VISIBLE:View.GONE}"     显示或隐藏（CheckBox 隐式自动更新）
         android:src="@mipmap/ic_launcher"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 <Button
-        android:enabled="@{checkBox.checked}"     启用或禁用（隐式自动更新）
+        android:enabled="@{checkBox.checked}"     启用或禁用（CheckBox 隐式自动更新）
         android:text="New Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+```
+
+```xml
+所有 EditText 的字段不为空才启用按钮
+-------------------------------------------------------
+
+public class Presenter {
+    public static boolean a(String s1, String s2) {
+        if (s1 == null || s2 == null) {
+            return false;
+        }
+        return !s1.equals("") && !s2.equals("");     所有 EditText 的字段不为空才启用按钮
+    }
+}
+
+-------------------------------------------------------
+
+<data>
+    <import type="com.example.myapp.myapplication.Presenter"/>
+    <variable
+            name="s1"
+            type="String"/>
+    <variable
+            name="s2"
+            type="String"/>
+</data>
+
+----
+
+<EditText
+        android:text="@={s1}"     自动更新
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+<EditText
+        android:text="@={s2}"     自动更新
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+<Button
+        android:enabled='@{Presenter.a(s1,s2)}'     所有 EditText 的字段不为空才启用按钮
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="New Button"/>
 ```
