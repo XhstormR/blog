@@ -11,6 +11,8 @@ Updated on 2016-08-27
 
 > {{< image "/uploads/android.svg" "Android" "1" "1" >}}
 >
+> https://developers.google.cn/
+>
 > https://developer.android.com/index.html
 >
 > https://developer.android.com/reference/classes.html

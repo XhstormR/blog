@@ -14,6 +14,8 @@ Updated on 2016-11-12
 > https://github.com/ReactiveX/RxAndroid
 >
 > https://github.com/JakeWharton/RxBinding
+>
+> https://github.com/square/retrofit
 
 ## Project
 ```java
@@ -59,4 +61,15 @@ compile 'io.reactivex:rxjava:+'
 build.gradle
 ⇳
 compile 'com.jakewharton.rxbinding:rxbinding:+'
+```
+
+# Retrofit
+## Module
+```java
+build.gradle
+⇳
+compile 'com.squareup.retrofit2:retrofit:+'
+compile 'com.squareup.retrofit2:converter-gson:+'     converter：JSON
+compile 'com.squareup.retrofit2:converter-scalars:+'     converter：String
+compile 'com.squareup.retrofit2:adapter-rxjava:+'     adapter：RxJava
 ```

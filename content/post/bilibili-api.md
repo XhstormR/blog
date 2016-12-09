@@ -263,3 +263,11 @@ http://interface.bilibili.com/playurl?cid=8551612&appkey=6f90a59ac58a4123&otype=
 ## Reference
 
 Format：https://jsonformatter.curiousconcept.com/
+
+Format：https://github.com/tulios/json-viewer
+
+Test：https://httpbin.org/
+
+Test：https://echo.getpostman.com/
+
+Test：https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop
