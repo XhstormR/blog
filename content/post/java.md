@@ -43,7 +43,7 @@ Ctrl+H     查看类结构
 Ctrl+P     方法参数提示
 Ctrl+J     自动代码（Live Templates）
 Ctrl+F4     关闭标签页
-ALT+。   内容辅助（自己设置）
+ALT+。   内容辅助（自己设置 Class Name Completion）
 ALT+/     文字补全
 ALT+1     打开或隐藏工程面板
 ALT+Enter     快速修正
