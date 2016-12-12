@@ -135,6 +135,29 @@ adb usb     连接手机
 * Link：[WebStore](https://chrome.google.com/webstore/detail/vysor/gidgenkbbabolejbgbpnhbimgjbffefm),[Github](https://github.com/koush/vysor.io/releases/latest)
 * 破解：uglify.js ➜ function e(){this.licensed=**true**;this.licenseCached=**true**}
 
+## SDK [Manager](https://developer.android.com/studio/command-line/sdkmanager.html)
+```bash
+nslookup g.cn
+
+sdkmanager.bat --no_https --proxy=http --proxy_host=203.208.39.242 --proxy_port=80 --list
+sdkmanager.bat --no_https --proxy=http --proxy_host=203.208.39.242 --proxy_port=80 --update
+sdkmanager.bat --no_https --proxy=http --proxy_host=203.208.39.242 --proxy_port=80 "platforms;android-24"
+sdkmanager.bat --no_https --proxy=http --proxy_host=203.208.39.242 --proxy_port=80 --uninstall "platforms;android-24"
+
+Installed packages:
+  Path                              | Version | Description                       | Location
+  -------                           | ------- | -------                           | -------
+  build-tools;25.0.1                | 25.0.1  | Android SDK Build-Tools 25.0.1    | build-tools\25.0.1\
+  extras;android;m2repository       | 40.0.0  | Android Support Repository        | extras\android\m2repository\
+  extras;google;m2repository        | 40      | Google Repository                 | extras\google\m2repository\
+  extras;m2reposi...ver;1.0.0-beta4 | 1       | Solver for ConstraintLayout 1.... | extras\m2reposi...er\1.0.0-beta4\
+  extras;m2reposi...out;1.0.0-beta4 | 1       | ConstraintLayout for Android 1... | extras\m2reposi...ut\1.0.0-beta4\
+  platform-tools                    | 25.0.1  | Android SDK Platform-Tools 25.0.1 | platform-tools\
+  platforms;android-24              | 2       | Android SDK Platform 24           | platforms\android-24\
+  sources;android-24                | 1       | Sources for Android 24            | sources\android-24\
+  tools                             | 25.2.3  | Android SDK Tools 25.2.3          | tools\
+```
+
 ## Android 规范
 * [Android Design](/uploads/android-design.png "Android Design")
 * Android 组件：所有组件都需要在 `AndroidManifest.xml ➜ application` 里进行注册。
