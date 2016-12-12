@@ -24,3 +24,9 @@ http://www.cnspeedtest.cn/speed/page/bandspeed.jsp
 http://netreport.sh.189.cn/speed/main.html
 
 http://speed.sc.cninfo.net/chinatelcom/speedtest/sccs/download.shtml
+
+```java
+1 MB = 1024 KB
+
+1 Mbps = 0.125 MB/S = 128 KB/S
+```
