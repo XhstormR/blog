@@ -15,7 +15,11 @@ Updated on 2016-06-30
 >
 > https://www.oracle.com/technetwork/java/index.html
 >
+> https://docs.oracle.com/javase/8/javase-books.htm
+>
 > https://docs.oracle.com/javase/8/docs/index.html
+>
+> https://docs.oracle.com/javase/8/javafx/api/allclasses-frame.html
 >
 > https://docs.oracle.com/javase/8/docs/api/allclasses-frame.html
 > |
