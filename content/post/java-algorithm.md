@@ -385,3 +385,59 @@ public class A {
 输出：（斐波那契数列前 12 项）
 0 1 1 2 3 5 8 13 21 34 55 89
 ```
+
+## Beautiful [String](https://hihocoder.com/contest/mstest2015oct/problem/1)
+```java
+public class A {
+    private static boolean isFirst = true;
+    private static boolean isBeautiful = true;
+    private static int count;
+    private static int i;
+
+    public static void main(String[] args) {
+        a("abc");
+        a("aaab");
+        a("abccde");
+        a("abb");
+    }
+
+    private static void a(String s) {
+        s.chars().forEach(value -> {
+            if (isBeautiful) {
+                if (isFirst) {
+                    isFirst = false;
+                    i = value;
+                    count = 1;
+                } else {
+                    if (i != value) {
+                        count++;
+                        i++;
+                        if (i != value) {
+                            isBeautiful = false;
+                        }
+                    }
+                }
+            }
+        });
+
+        if (isBeautiful) {
+            if (count >= 3) {
+                System.out.println("YES");
+            } else {
+                System.out.println("NO");
+            }
+        } else {
+            System.out.println("NO");
+        }
+
+        isFirst = true;
+        isBeautiful = true;
+    }
+}
+----
+输出：
+YES
+NO
+YES
+NO
+```
