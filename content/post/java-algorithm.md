@@ -420,12 +420,8 @@ public class A {
             }
         });
 
-        if (isBeautiful) {
-            if (count >= 3) {
-                System.out.println("YES");
-            } else {
-                System.out.println("NO");
-            }
+        if (isBeautiful && count >= 3) {
+            System.out.println("YES");
         } else {
             System.out.println("NO");
         }
