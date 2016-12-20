@@ -19,6 +19,8 @@ Updated on 2016-11-07
 >
 > https://marklodato.github.io/visual-git-guide/index-zh-cn.html
 >
+> https://www.atlassian.com/software/sourcetree
+>
 > https://github.com/git-for-windows/git/releases/latest
 >
 > 我把常用的 Git 命令按其类型整理在这里，以便查阅。
