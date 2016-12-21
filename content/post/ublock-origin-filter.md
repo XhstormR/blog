@@ -19,17 +19,18 @@ Updated on 2016-08-26
 
 ```json
 {
-  "timeStamp": 1472908628657,
-  "version": "1.9.4",
+  "timeStamp": 1482316273458,
+  "version": "1.10.4",
   "userSettings": {
     "advancedUserEnabled": true,
+    "alwaysDetachLogger": false,
     "autoUpdate": true,
     "cloudStorageEnabled": true,
     "collapseBlocked": true,
     "colorBlindFriendly": false,
-    "contextMenuEnabled": false,
+    "contextMenuEnabled": true,
     "dynamicFilteringEnabled": true,
-    "externalLists": "https://code.csdn.net/i_square/i/blob/master/iFL.txt",
+    "externalLists": "! Examples:\n! https://easylist-downloads.adblockplus.org/fb_annoyances_full.txt\n! https://easylist-downloads.adblockplus.org/yt_annoyances_full.txt\n",
     "firewallPaneMinimized": true,
     "hyperlinkAuditingDisabled": true,
     "ignoreGenericCosmeticFilters": false,
@@ -43,8 +44,8 @@ Updated on 2016-08-26
   },
   "filterLists": {
     "assets/thirdparties/easylist-downloads.adblockplus.org/easylist.txt": {
-      "entryCount": 66918,
-      "entryUsedCount": 66494,
+      "entryCount": 69814,
+      "entryUsedCount": 69336,
       "group": "ads",
       "homeURL": "https://easylist.to/easylist/easylist.txt",
       "off": false,
@@ -52,8 +53,8 @@ Updated on 2016-08-26
       "title": "EasyList"
     },
     "assets/thirdparties/easylist-downloads.adblockplus.org/easyprivacy.txt": {
-      "entryCount": 11916,
-      "entryUsedCount": 11916,
+      "entryCount": 12262,
+      "entryUsedCount": 12225,
       "group": "privacy",
       "homeURL": "https://easylist.to/easylist/easyprivacy.txt",
       "off": false,
@@ -61,29 +62,29 @@ Updated on 2016-08-26
       "title": "EasyPrivacy"
     },
     "assets/thirdparties/mirror1.malwaredomains.com/files/justdomains": {
-      "entryCount": 19217,
-      "entryUsedCount": 16476,
+      "entryCount": 14271,
+      "entryUsedCount": 14244,
       "group": "malware",
       "homeURL": "https://mirror.cedia.org.ec/malwaredomains/justdomains",
-      "off": true,
+      "off": false,
       "supportURL": "http://www.malwaredomains.com/",
       "title": "Malware domains"
     },
     "assets/thirdparties/pgl.yoyo.org/as/serverlist": {
-      "entryCount": 2402,
-      "entryUsedCount": 2397,
-      "group": "ads",
+      "entryCount": 2372,
+      "entryUsedCount": 2372,
+      "group": "multipurpose",
       "homeURL": "https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=1&mimetype=plaintext",
-      "off": true,
+      "off": false,
       "supportURL": "https://pgl.yoyo.org/adservers/",
-      "title": "Peter Lowe’s Ad server list"
+      "title": "Peter Lowe’s Ad and tracking server list"
     },
     "assets/thirdparties/www.malwaredomainlist.com/hostslist/hosts.txt": {
-      "entryCount": 1337,
-      "entryUsedCount": 1259,
+      "entryCount": 1218,
+      "entryUsedCount": 1218,
       "group": "malware",
       "homeURL": "https://www.malwaredomainlist.com/hostslist/hosts.txt",
-      "off": true,
+      "off": false,
       "title": "Malware Domain List"
     },
     "assets/user/filters.txt": {
@@ -92,17 +93,9 @@ Updated on 2016-08-26
       "group": "default",
       "off": false
     },
-    "https://code.csdn.net/i_square/i/blob/master/iFL.txt": {
-      "entryCount": 214,
-      "entryUsedCount": 187,
-      "external": true,
-      "group": "custom",
-      "off": false,
-      "title": "iFL"
-    },
     "https://easylist-downloads.adblockplus.org/easylistchina.txt": {
-      "entryCount": 13080,
-      "entryUsedCount": 13069,
+      "entryCount": 12935,
+      "entryUsedCount": 12918,
       "group": "regions",
       "lang": "zh",
       "off": false,
@@ -110,16 +103,17 @@ Updated on 2016-08-26
       "title": "CHN: EasyList China (中文)"
     },
     "https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjxlist.txt": {
-      "entryCount": 433,
-      "entryUsedCount": 433,
+      "entryCount": 440,
+      "entryUsedCount": 440,
       "group": "regions",
       "off": false,
       "supportURL": "https://github.com/cjx82630/cjxlist",
       "title": "CHN: CJX's EasyList Lite (main focus on Chinese sites)"
     }
   },
-  "netWhitelist": "192.168.1.1\nabout-scheme\nbehind-the-scene\nchrome-extension-scheme\nchrome-scheme\nlocalhost\nloopconversation.about-scheme\nopera-scheme\nxhstormr.tk",
-  "dynamicFilteringString": "* * inline-script block\n* * 1p-script block\n* * 3p-script block\n* * 3p-frame block\n* * image block\n* ajax.googleapis.com * block\n* bootstrapcdn.com * block\n* fonts.googleapis.com * block\n* imgur.com * noop\n* sinaimg.cn * noop\n* zythum.sinaapp.com * noop\nbilibili.com bilibili.com * noop\nbilibili.com hdslb.com * noop\npan.baidu.com baidupcs.com * noop\npan.baidu.com pan.baidu.com * noop\npan.baidu.com pcsdata.baidu.com * noop\npan.baidu.com s1.pan.bdstatic.com * noop\nw.mail.qq.com qq.com * noop\nwww.draw.io draw.io * noop\nwww.imooc.com imooc.com * noop\nwww.v2ex.com * 3p block\nyouku.com ykimg.com * noop\nyouku.com youku.com * noop\nzhihu.com zhihu.com * noop\nzhihu.com zhimg.com * noop",
+  "hiddenSettingsString": "ignoreRedirectFilters false\nignoreScriptInjectFilters false\npopupFontSize unset\nsuspendTabsUntilReady false",
+  "netWhitelist": "192.168.1.1\nabout-scheme\nbehind-the-scene\nchrome-extension-scheme\nchrome-scheme\nlocalhost\nloopconversation.about-scheme\nmoz-extension-scheme\nopera-scheme\nvivaldi-scheme\nxhstormr.tk",
+  "dynamicFilteringString": "* * inline-script block\n* * 1p-script block\n* * 3p-script block\n* * 3p-frame block\n* * image block\n* ajax.googleapis.com * block\n* bootstrapcdn.com * block\n* fonts.googleapis.com * block\n* github.com * noop\n* imgur.com * noop\n* sinaimg.cn * noop\n* zythum.sinaapp.com * noop\nbilibili.com bilibili.com * noop\nbilibili.com hdslb.com * noop\npan.baidu.com baidupcs.com * noop\npan.baidu.com pan.baidu.com * noop\npan.baidu.com pcsdata.baidu.com * noop\npan.baidu.com s1.pan.bdstatic.com * noop\nw.mail.qq.com qq.com * noop\nwww.draw.io draw.io * noop\nwww.imooc.com imooc.com * noop\nwww.v2ex.com * 3p block\nyouku.com ykimg.com * noop\nyouku.com youku.com * noop\nzhihu.com zhihu.com * noop\nzhihu.com zhimg.com * noop",
   "urlFilteringString": "",
   "hostnameSwitchesString": "no-remote-fonts: * true",
   "userFilters": ""
