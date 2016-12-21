@@ -9,6 +9,8 @@ title = "BiliBili API"
 
 Updated on 2016-09-18
 
+> {{< image "/uploads/bilibili-api.gif" "Doge" "1" "1" >}}
+>
 > [GetBilibili](https://github.com/XhstormR/GetBilibili)
 >
 > http://www.bilibili.com/video/av5262155/
