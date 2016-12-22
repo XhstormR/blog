@@ -191,7 +191,7 @@ https://github.com/mholt/caddy/releases/latest
 
 Serv-U：
 http://www.serv-u.com/releasenotes
-http://downloads.solarwinds.com/solarwinds/Release/SU/15.1.2/SU-FTP-Server-Windows-v15.1.2.zip
+http://downloads.solarwinds.com/solarwinds/Release/SU/15.1.4/SU-FTP-Server-Windows-v15.1.4.zip
 ```
 
 ## Nginx 开启目录索引
@@ -229,7 +229,7 @@ https://eternallybored.org/misc/wget/
 wget -e "http_proxy=10.34.3.71:808" www.baidu.com
 
 Aria2：
-https://github.com/tatsuhiro-t/aria2/releases/latest
+https://github.com/aria2/aria2/releases/latest
 aria2c --all-proxy="10.34.3.71:808" --max-connection-per-server=10 --min-split-size=10M http://www.baidu.com/
 
 https://www.gnu.org/software/wget/manual/wget.html
