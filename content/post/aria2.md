@@ -9,7 +9,7 @@ title = "Aria2 Configuration"
 
 Updated on 2016-08-23
 
-> [![](/uploads/file-into-picture2.png)](http://ww4.sinaimg.cn/large/a15b4afegw1f5lotqn7xfj203k03kb29)
+> [![](/uploads/file-into-picture2.png)](http://ww4.sinaimg.cn/large/a15b4afegw1fazh78ka4qj203k03ke81)
 >
 > https://aria2.github.io/
 >
@@ -26,7 +26,7 @@ file-allocation=falloc
 continue=true
 max-concurrent-downloads=3
 max-connection-per-server=10
-min-split-size=10M
+min-split-size=5M
 split=10
 disable-ipv6=true
 input-file=aria2.session
