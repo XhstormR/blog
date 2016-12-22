@@ -11,7 +11,9 @@ Updated on 2016-12-06
 
 > RESTful API
 >
-> Retrofit 封装参数，OkHttp 访问网络
+> 网络请求框架
+>
+> 1.Retrofit 封装参数，2.OkHttp 访问网络，3.Retrofit 解析结果
 >
 > https://github.com/square/retrofit
 >
@@ -186,7 +188,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        final OkHttpClient okHttpClient = new OkHttpClient.Builder()     自定义 OkHttpClient（OkHttpClient 应为单例）
+        final OkHttpClient okHttpClient = new OkHttpClient.Builder()     自定义 OkHttpClient（OkHttpClient 在整个 App 中应为单例）
                 .connectTimeout(10, TimeUnit.SECONDS)     设置超时时间
                 .retryOnConnectionFailure(true)     失败重连
                 .addInterceptor(chain -> {     添加拦截器
@@ -270,3 +272,7 @@ public class MainActivity extends Activity {
     }
 }
 ```
+
+## Reference
+
+https://zhuanlan.zhihu.com/p/21808012
