@@ -7,7 +7,7 @@ title = "Retrofit"
 
 <!--more-->
 
-Updated on 2016-12-06
+Updated on 2016-12-22
 
 > RESTful API
 >
@@ -18,6 +18,8 @@ Updated on 2016-12-06
 > https://github.com/square/retrofit
 >
 > https://github.com/square/okhttp
+>
+> https://github.com/square/okio
 >
 > https://jcenter.bintray.com/com/squareup/retrofit2/
 
@@ -275,4 +277,5 @@ public class MainActivity extends Activity {
 
 ## Reference
 
-https://zhuanlan.zhihu.com/p/21808012
+* https://zhuanlan.zhihu.com/p/21808012
+* https://realm.io/cn/news/droidcon-jake-wharton-simple-http-retrofit-2/
