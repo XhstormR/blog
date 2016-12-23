@@ -7,7 +7,7 @@ title = "Note"
 
 <!--more-->
 
->
+> {{< image "/uploads/note.png" "Kratos" "1" "1" >}}
 
 ## 特殊符号
 ```java
@@ -388,4 +388,9 @@ reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\TimeBrokerSvc /v St
 解析：https://www.cloudxns.net/
 解析：https://www.cloudflare.com/a
 解析：https://my.incapsula.com/mysites
+```
+
+## ImageMagick
+```html
+https://www.imagemagick.org/script/binary-releases.php
 ```

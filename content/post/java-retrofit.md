@@ -103,7 +103,7 @@ public class Book {     定义 JSON 对象
 
 ## Interceptor
 ```java
-OkHttpClient okHttpClient = new OkHttpClient.Builder()     自定义 OkHttpClient（OkHttpClient 应为单例）
+OkHttpClient okHttpClient = new OkHttpClient.Builder()     自定义 OkHttpClient（OkHttpClient 在整个 App 中应为单例）
         .addInterceptor(new Interceptor() {     添加拦截器
             @Override
             public Response intercept(Chain chain) throws IOException {
