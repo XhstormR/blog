@@ -230,7 +230,7 @@ wget -e "http_proxy=10.34.3.71:808" www.baidu.com
 
 Aria2：
 https://github.com/aria2/aria2/releases/latest
-aria2c --all-proxy="10.34.3.71:808" --max-connection-per-server=10 --min-split-size=10M http://www.baidu.com/
+aria2c --all-proxy="10.34.3.71:808" --max-connection-per-server=10 --min-split-size=5M http://www.baidu.com/
 
 https://www.gnu.org/software/wget/manual/wget.html
 ```
