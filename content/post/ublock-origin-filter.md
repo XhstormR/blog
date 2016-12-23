@@ -19,7 +19,7 @@ Updated on 2016-08-26
 
 ```json
 {
-  "timeStamp": 1482316273458,
+  "timeStamp": 1482465720197,
   "version": "1.10.4",
   "userSettings": {
     "advancedUserEnabled": true,
@@ -44,8 +44,8 @@ Updated on 2016-08-26
   },
   "filterLists": {
     "assets/thirdparties/easylist-downloads.adblockplus.org/easylist.txt": {
-      "entryCount": 69814,
-      "entryUsedCount": 69336,
+      "entryCount": 69852,
+      "entryUsedCount": 69374,
       "group": "ads",
       "homeURL": "https://easylist.to/easylist/easylist.txt",
       "off": false,
@@ -53,8 +53,8 @@ Updated on 2016-08-26
       "title": "EasyList"
     },
     "assets/thirdparties/easylist-downloads.adblockplus.org/easyprivacy.txt": {
-      "entryCount": 12262,
-      "entryUsedCount": 12225,
+      "entryCount": 12260,
+      "entryUsedCount": 12223,
       "group": "privacy",
       "homeURL": "https://easylist.to/easylist/easyprivacy.txt",
       "off": false,
@@ -62,8 +62,8 @@ Updated on 2016-08-26
       "title": "EasyPrivacy"
     },
     "assets/thirdparties/mirror1.malwaredomains.com/files/justdomains": {
-      "entryCount": 14271,
-      "entryUsedCount": 14244,
+      "entryCount": 12523,
+      "entryUsedCount": 12496,
       "group": "malware",
       "homeURL": "https://mirror.cedia.org.ec/malwaredomains/justdomains",
       "off": false,
@@ -71,8 +71,8 @@ Updated on 2016-08-26
       "title": "Malware domains"
     },
     "assets/thirdparties/pgl.yoyo.org/as/serverlist": {
-      "entryCount": 2372,
-      "entryUsedCount": 2372,
+      "entryCount": 2374,
+      "entryUsedCount": 2374,
       "group": "multipurpose",
       "homeURL": "https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=1&mimetype=plaintext",
       "off": false,
@@ -112,8 +112,8 @@ Updated on 2016-08-26
     }
   },
   "hiddenSettingsString": "ignoreRedirectFilters false\nignoreScriptInjectFilters false\npopupFontSize unset\nsuspendTabsUntilReady false",
-  "netWhitelist": "192.168.1.1\nabout-scheme\nbehind-the-scene\nchrome-extension-scheme\nchrome-scheme\nlocalhost\nloopconversation.about-scheme\nmoz-extension-scheme\nopera-scheme\nvivaldi-scheme\nxhstormr.tk",
-  "dynamicFilteringString": "* * inline-script block\n* * 1p-script block\n* * 3p-script block\n* * 3p-frame block\n* * image block\n* ajax.googleapis.com * block\n* bootstrapcdn.com * block\n* fonts.googleapis.com * block\n* github.com * noop\n* imgur.com * noop\n* sinaimg.cn * noop\n* zythum.sinaapp.com * noop\nbilibili.com bilibili.com * noop\nbilibili.com hdslb.com * noop\npan.baidu.com baidupcs.com * noop\npan.baidu.com pan.baidu.com * noop\npan.baidu.com pcsdata.baidu.com * noop\npan.baidu.com s1.pan.bdstatic.com * noop\nw.mail.qq.com qq.com * noop\nwww.draw.io draw.io * noop\nwww.imooc.com imooc.com * noop\nwww.v2ex.com * 3p block\nyouku.com ykimg.com * noop\nyouku.com youku.com * noop\nzhihu.com zhihu.com * noop\nzhihu.com zhimg.com * noop",
+  "netWhitelist": "127.0.0.1\n192.168.1.1\nabout-scheme\nbehind-the-scene\nchrome-extension-scheme\nchrome-scheme\nlocalhost\nloopconversation.about-scheme\nmoz-extension-scheme\nopera-scheme\nvivaldi-scheme\nxhstormr.tk",
+  "dynamicFilteringString": "* * inline-script block\n* * 1p-script block\n* * 3p-script block\n* * 3p-frame block\n* * image block\n* ajax.googleapis.com * block\n* bootstrapcdn.com * block\n* fonts.googleapis.com * block\n* github.com * noop\n* imgur.com * noop\n* sinaimg.cn * noop\nbilibili.com bilibili.com * noop\nbilibili.com hdslb.com * noop\npan.baidu.com baidupcs.com * noop\npan.baidu.com pan.baidu.com * noop\npan.baidu.com pcsdata.baidu.com * noop\npan.baidu.com s1.pan.bdstatic.com * noop\nw.mail.qq.com qq.com * noop\nwww.draw.io draw.io * noop\nwww.imooc.com imooc.com * noop\nwww.v2ex.com * 3p block\nyouku.com ykimg.com * noop\nyouku.com youku.com * noop\nzhihu.com zhihu.com * noop\nzhihu.com zhimg.com * noop",
   "urlFilteringString": "",
   "hostnameSwitchesString": "no-remote-fonts: * true",
   "userFilters": ""
