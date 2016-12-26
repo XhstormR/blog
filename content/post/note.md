@@ -378,7 +378,7 @@ HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PimIndexMaintenanceSvc* -> 
 HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\TimeBrokerSvc -> Start = 4
 HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\tiledatamodelsvc -> Start = 4
 
-CMD：
+CMD 操作示例：
 reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\TimeBrokerSvc /v Start /t REG_DWORD /d 4 /f
 ```
 
@@ -393,4 +393,9 @@ reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\TimeBrokerSvc /v St
 ## ImageMagick
 ```html
 https://www.imagemagick.org/script/binary-releases.php
+```
+
+## HSTS
+```html
+chrome://net-internals/#hsts
 ```
