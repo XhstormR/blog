@@ -13,6 +13,8 @@ Updated on 2016-12-22
 >
 > 网络请求框架
 >
+> Retrofitting OkHttp
+>
 > 1.Retrofit 封装参数，2.OkHttp 访问网络，3.Retrofit 解析结果
 >
 > https://github.com/square/retrofit
@@ -50,6 +52,14 @@ book
                 s -> Log.w("Tag", s),
                 error -> Log.w("Tag", error),
                 () -> Log.w("Tag", "onComplete"));     开始访问 "https://api.douban.com/v2/book/26840298"
+
+-------------------------------------------------------
+
+Call 原生回调：
+call.execute();     开始同步请求
+call.enqueue(Callback);     开始异步请求
+
+call.cancel();     取消请求
 ```
 
 ### JSON
@@ -64,7 +74,7 @@ public interface DoubanService {     定义服务接口
 Retrofit retrofit = new Retrofit.Builder()     ServiceFactory
         .baseUrl("https://api.douban.com/")
         .addCallAdapterFactory(RxJavaCallAdapterFactory.create())     使用 RxJava 回调
-        .addConverterFactory(GsonConverterFactory.create())     使用 JSON 格式
+        .addConverterFactory(GsonConverterFactory.create())     使用 JSON 格式（若要添加多个返回格式，converter 添加顺序：JSON 需在最后）
         .build();
 
 DoubanService service = retrofit.create(DoubanService.class);     创建服务实例
@@ -278,4 +288,3 @@ public class MainActivity extends Activity {
 ## Reference
 
 * https://zhuanlan.zhihu.com/p/21808012
-* https://realm.io/cn/news/droidcon-jake-wharton-simple-http-retrofit-2/

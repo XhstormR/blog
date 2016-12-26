@@ -13,6 +13,8 @@ Updated on 2016-12-25
 >
 > https://kotlinlang.org/api/latest/jvm/stdlib/alltypes/index.html
 >
+> https://kotlinlang.org/docs/kotlin-docs.pdf
+>
 > https://github.com/JetBrains/kotlin/releases/latest
 
 ## Code
