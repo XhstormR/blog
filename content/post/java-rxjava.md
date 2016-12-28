@@ -27,7 +27,7 @@ Updated on 2016-11-22
 >
 > [Book](https://mcxiaoke.gitbooks.io/rxdocs/content/)
 > |
-> [Book](https://www.gitbook.com/book/yuxingxin/rxjava-essentials-cn/details)
+> [Book](https://rxjava.yuxingxin.com/)
 
 ## Observable - 被观察者
 ```java
