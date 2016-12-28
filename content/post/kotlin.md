@@ -9,11 +9,15 @@ title = "Kotlin"
 
 Updated on 2016-12-25
 
+> {{< image "/uploads/kotlin.png" "Kotlin" "1" "1" >}}
+>
 > https://kotlinlang.org/
 >
 > https://kotlinlang.org/docs/reference/idioms.html
 >
 > https://kotlinlang.org/api/latest/jvm/stdlib/index.html
+>
+> https://try.kotlinlang.org/
 >
 > https://kotlinlang.org/docs/kotlin-docs.pdf
 >
