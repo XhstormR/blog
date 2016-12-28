@@ -393,6 +393,13 @@ reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\TimeBrokerSvc /v St
 ## ImageMagick
 ```html
 https://www.imagemagick.org/script/binary-releases.php
+
+https://pngquant.org/
+http://advsys.net/ken/utils.htm
+https://sourceforge.net/projects/optipng/files/OptiPNG/
+
+https://tinypng.com/
+http://m.2gei.com/bgremover/
 ```
 
 ## HSTS
