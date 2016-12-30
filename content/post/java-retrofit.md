@@ -60,6 +60,13 @@ call.execute();     开始同步请求
 call.enqueue(Callback);     开始异步请求
 
 call.cancel();     取消请求
+
+-------------------------------------------------------
+
+@Path     替换请求地址中的变量
+@Body     POST 请求中的请求体
+@Query     通过注解的名字指明 query 参数的名字
+@Header     通过注解的名字指明 header 参数的名字
 ```
 
 ### JSON
