@@ -15,6 +15,8 @@ Updated on 2016-12-25
 >
 > https://kotlinlang.org/
 >
+> https://devdocs.io/kotlin-reference/
+>
 > https://kotlinlang.org/docs/reference/idioms.html
 >
 > https://kotlinlang.org/api/latest/jvm/stdlib/index.html
