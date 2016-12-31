@@ -406,3 +406,10 @@ http://m.2gei.com/bgremover/
 ```html
 chrome://net-internals/#hsts
 ```
+
+## 使用 CMD 修改环境变量（暂时）
+```bash
+set /?
+set path
+set path=%path%;D:\Download\dir
+```
