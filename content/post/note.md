@@ -294,8 +294,8 @@ EXE：
 https://api.shuax.com/tools/getchrome
 https://repo.fdzh.org/chrome/exe/
 -
-https://commondatastorage.googleapis.com/chromium-browser-continuous/Win_x64/LAST_CHANGE
-https://commondatastorage.googleapis.com/chromium-browser-continuous/index.html?prefix=Win_x64/356774/
+https://commondatastorage.googleapis.com/chromium-browser-snapshots/Win_x64/LAST_CHANGE
+https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html?prefix=Win_x64/441049/
 http://gsdview.appspot.com/chromium-browser-continuous/Win_x64/356774/
 
 CRX：
@@ -412,4 +412,12 @@ chrome://net-internals/#hsts
 set /?
 set path
 set path=%path%;D:\Download\dir
+```
+
+## 迅雷启用边下边播
+```ini
+Program\Xmp.ini
+⇳
+[global]
+Path=C:\PotPlayer\PotPlayerMini.exe
 ```
