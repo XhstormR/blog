@@ -294,9 +294,11 @@ EXE：
 https://api.shuax.com/tools/getchrome
 https://repo.fdzh.org/chrome/exe/
 -
+https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html
+https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html?prefix=Android/441086/
+https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html?prefix=Win_x64/441085/
+https://commondatastorage.googleapis.com/chromium-browser-snapshots/Android/LAST_CHANGE
 https://commondatastorage.googleapis.com/chromium-browser-snapshots/Win_x64/LAST_CHANGE
-https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html?prefix=Win_x64/441049/
-http://gsdview.appspot.com/chromium-browser-continuous/Win_x64/356774/
 
 CRX：
 http://crx.2333.me/
