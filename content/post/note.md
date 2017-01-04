@@ -286,7 +286,8 @@ Windows：
 
 ## Google Hosts
 ```html
-https://ipv6.google.com/ncr
+https://duckduckgo.com/
+https://encrypted.google.com/ncr
 http://serve.netsh.org/pub/ipv4-hosts/
 https://raw.githubusercontent.com/racaljk/hosts/master/hosts
 
