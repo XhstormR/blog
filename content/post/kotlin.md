@@ -441,7 +441,7 @@ fun smartCast(x: Any): Boolean {     自动类型转换（智能转型）
     }
 }
 等同于
-fun smartCast(x: Any): Boolean {
+fun smartCast(x: Any): Boolean {     替代 if-else if 链
     when (x) {
         is Boolean -> return x
         is Int -> return x > 0
@@ -450,7 +450,7 @@ fun smartCast(x: Any): Boolean {
     }
 }
 等同于
-fun smartCast(x: Any): Boolean {
+fun smartCast(x: Any): Boolean {     作为返回值
     return when (x) {
         is Boolean -> x
         is Int -> x > 0
@@ -459,7 +459,7 @@ fun smartCast(x: Any): Boolean {
     }
 }
 等同于
-fun smartCast(x: Any) = when (x) {
+fun smartCast(x: Any) = when (x) {     简化表达式（省略函数体和返回值）
     is Boolean -> x
     is Int -> x > 0
     is String -> x.startsWith("Hello")
@@ -469,6 +469,7 @@ fun smartCast(x: Any) = when (x) {
 -------------------------------------------------------
 
 val any: Any = "ABC" as Any     强制类型转换（若转换失败，则抛出异常 java.lang.ClassCastException）
+----
 if (any is String) {     等同于 instanceof
     println(any.length)     自动类型转换（智能转型）
 }
@@ -503,6 +504,8 @@ Hello XhstormR!
 
 -------------------------------------------------------
 
+FileOutputStream("""D:\123.txt""", true).bufferedWriter().use { it.write("${LocalTime.now()}\n") }     写
+FileInputStream("""D:\123.txt""").bufferedReader().useLines { it.forEach(::println) }     读
 ```
 
 ## Script
