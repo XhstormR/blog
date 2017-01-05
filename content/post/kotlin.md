@@ -7,7 +7,7 @@ title = "Kotlin"
 
 <!--more-->
 
-Updated on 2016-12-25
+Updated on 2017-01-05
 
 > {{< image "/uploads/kotlin.png" "Kotlin" "1" "1" >}}
 >
