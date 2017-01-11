@@ -437,3 +437,69 @@ NO
 YES
 NO
 ```
+
+## 一个数的平方数的末三位等于其本身
+```java
+public class A {
+    private static int i;
+    private static int count;
+
+    public static void main(String[] args) {
+        for (; ; ) {
+            i++;
+            if (i == getInt(i)) {
+                count++;
+                System.out.println(i);
+            }
+            if (count > 1) {
+                break;
+            }
+        }
+    }
+
+    private static int getInt(int aInt) {
+        int tempInt = aInt * aInt;
+        String s = String.valueOf(tempInt);
+        try {
+            String tempStr = s.substring(s.length() - 3);
+            return Integer.valueOf(tempStr);
+        } catch (StringIndexOutOfBoundsException e) {
+            return 0;
+        }
+    }
+}
+----
+输出：
+376
+625
+```
+
+```kotlin
+fun main(args: Array<String>) {
+    var i = 0
+    var count = 0
+    while (true) {
+        i++
+        if (i == getInt(i)) {
+            count++
+            println(i)
+        }
+        if (count > 1) {
+            break
+        }
+    }
+}
+
+fun getInt(i: Int): Int {
+    val s = (i * i).toString()
+    try {
+        return s.substring(s.length - 3).toInt()
+    } catch (e: StringIndexOutOfBoundsException) {
+        return 0
+    }
+}
+----
+输出：
+376
+625
+```
