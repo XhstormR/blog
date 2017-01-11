@@ -9,7 +9,7 @@ title = "Kotlin"
 
 Updated on 2017-01-05
 
-> {{< image "/uploads/kotlin.png" "Kotlin" "1" "1" >}}
+> {{< image "/uploads/kotlin2.svg" "Kotlin" "1" "1" "225" >}}
 >
 > https://kotlin.link/
 >
@@ -64,8 +64,8 @@ val b = "$a 的长度为${a.length}"     字符串模板
 
 -------------------------------------------------------
 
-var a: String = null     编译器报错（不能为 null）
-var b: String? = null     通过 `?` 明确标识变量可为 null
+var a: String = null     编译器报错（不可空变量）
+var b: String? = null     通过 `?` 明确标识变量可为 null（可空变量）
 
 println(b.length)     编译器报错（不能直接访问可空变量）
 println(b?.length)     通过 `?.` 访问可空变量，返回 null
@@ -162,7 +162,7 @@ fun a(x: Int): Boolean {     (Int) -> Boolean（接收一个 Int，返回一个 
 fun a(x: Int) = x % 2 == 0
 
 val array = arrayOf(1, 2, 3, 4)
-array.filter { it % 2 == 0 }.forEach { System.out.println(it) }     未使用函数引用
+array.filter { it % 2 == 0 }.forEach { System.out.println(it) }     未使用函数引用（匿名函数）
 或者
 array.filter(::a).forEach(::println)     使用函数引用
 或者
@@ -191,9 +191,10 @@ println(list)
 [65, 66, 67, 68]
 
 高阶函数：一种使用函数作为参数或返回值的函数。
-匿名函数：只能作为高阶函数的参数或返回值，也称作 Lambda 表达式，跟 Java8 中的概念相同。
-命名函数：可以通过函数引用作为高阶函数的参数。
-函数引用：把命名函数作为参数传入，通过在函数名称前加入 `::` 操作符实现。
+    ↳ 函数参数：
+            ↳ 匿名函数：只能作为高阶函数的参数或返回值，也称作 Lambda 表达式，跟 Java8 中的概念相同。
+            ↳ 命名函数：可以通过函数引用作为高阶函数的参数。
+                    ↳ 函数引用：把命名函数作为参数传入，通过在函数名称前加入 `::` 操作符实现。
 
 -------------------------------------------------------
 
@@ -226,7 +227,7 @@ data class A(val id: Int, val name: String) : Closeable {     数据类：hashCo
 
 val a = A(1, "小明")     实例化对象
 val b = a.copy(name = "小张")     copy 函数
-val (x, y) = a     解构对象
+val (x, y) = a     解构声明
 
 println("$x $y")     字符串模板
 println(a)
@@ -270,7 +271,7 @@ A
 true
 0
 
-for ((k, v) in map) {
+for ((k, v) in map) {     解构声明
     println("$k -> $v")
 }
 ----
@@ -340,7 +341,7 @@ println(map)
 
 ```kotlin
 for：
-val intRange: IntRange = 1..5
+val intRange: IntRange = 1..5     范围表达式
 for (i in intRange) {
     print("$i ")
 }
@@ -353,11 +354,11 @@ for (i in 1 until 5) {     1 2 3 4
     print("$i ")
 }
 
-for (i in 2..10 step 2) {     2 4 6 8 10
+for (i in 2..10 step 2) {     2 4 6 8 10     （步长）
     print("$i ")
 }
 
-for (i in 10 downTo 5) {     10 9 8 7 6 5
+for (i in 10 downTo 5) {     10 9 8 7 6 5     （降序）
     print("$i ")
 }
 
@@ -471,13 +472,13 @@ fun smartCast(x: Any) = when (x) {     简化表达式（省略函数体和返�
 val any: Any = "ABC" as Any     强制类型转换（若转换失败，则抛出异常 java.lang.ClassCastException）
 ----
 if (any is String) {     等同于 instanceof
-    println(any.length)     自动类型转换（智能转型）
+    println(any.length)     自动类型转换（Smart Cast 智能转型）
 }
 
 -------------------------------------------------------
 
 fun String.abc(c: Char): String {     扩展函数（给一个类添加新的功能）
-    return this.filter { it != c }
+    return this.filter { it != c }     false 过滤，true 不过滤
 }
 
 println("Hello".abc('l'))
@@ -487,6 +488,124 @@ Heo
 
 -------------------------------------------------------
 
+FileOutputStream("""D:\123.txt""", true).bufferedWriter().use { it.write("${LocalTime.now()}\n") }     写
+FileInputStream("""D:\123.txt""").bufferedReader().useLines { it.forEach(::println) }     读
+
+-------------------------------------------------------
+
+val s1 = "ABC"
+val s2 = StringBuilder("ABC").toString()
+println(s1 == s2)     比较内容（调用 equals()）
+println(s1 === s2)     比较地址
+```
+
+```kotlin
+class A {
+    var name = ""
+    var age = 20
+}
+等同于
+class A constructor(var name: String = "", var age: Int = 20) {     主构造函数
+}
+等同于
+class A(var name: String = "", var age: Int = 20)     主构造函数无注解和修饰符，可省略 constructor；无类体，可省略 {}
+
+-------------------------------------------------------
+
+data class A(var name: String, var age: Int) {     Kotlin 中的类可以有一个主（要）构造函数和多个次（要）构造函数
+    init {
+        println("主构造函数 or 初始化块")
+    }
+
+    constructor(name: String) : this(name, 0) {     次构造函数都需要 委托 给主构造函数
+        println("次构造函数1")
+    }
+
+    constructor(age: Int) : this("无名氏", age) {
+        println("次构造函数2")
+    }
+}
+
+println(A("张三", 20))
+println(A("张三"))
+println(A(20))
+//println(A())     报错，没有无参构造函数
+----
+输出：
+主构造函数 or 初始化块
+A(name=张三, age=20)
+-
+主构造函数 or 初始化块
+次构造函数1
+A(name=张三, age=0)
+-
+主构造函数 or 初始化块
+次构造函数2
+A(name=无名氏, age=20)
+
+-------------------------------------------------------
+
+data class A private constructor(var name: String, var des: String) {     如果没有声明任何（主或次）构造函数，则默认生成 public 无参主构造函数；这里指定为 private
+    constructor(name: String) : this(name, "欢迎：$name")     默认 public
+}
+
+println(A("张三"))
+//println(A("张三", "ABC"))     报错，主构造函数为 private
+----
+输出：
+A(name=张三, des=欢迎：张三)
+```
+
+```kotlin
+interface A {     接口（跟 Java 一样，单继承多实现）
+    val i: Int     抽象属性
+    val j: Int     属性：已提供访问器实现（若属性修饰为 var，还需提供 set() 实现）
+        get() = 2
+
+    fun a()     抽象函数
+    fun b() {}     函数：已提供函数实现
+}
+
+class B : A {     通过类实现接口
+    override val i: Int
+        get() = 1
+    override fun a() {}
+}
+
+val a = object : A {     通过匿名内部类实现接口（对象表达式）
+    override val i: Int
+        get() = 1
+    override fun a() {}
+}
+
+-------------------------------------------------------
+
+对象表达式（匿名内部类）：
+val o = object {
+    val x = 1
+    val y = 2
+    val z = 3
+    operator fun component1() = x     解构方法
+    operator fun component2() = y     解构方法
+    operator fun component3() = z     解构方法
+}
+等同于
+val o = object : Any() {     Kotlin 中 Any 是所有类的父类
+    val x = 1
+    val y = 2
+    val z = 3
+    operator fun component1() = x
+    operator fun component2() = y
+    operator fun component3() = z
+}
+
+val (x, y, z) = o     解构声明
+println(x + y + z)     6
+println(o.x + o.y + o.z)     6
+
+-------------------------------------------------------
+
+对象声明（单例模式）：
 object MyObject {     单例对象（Singleton）
     val AUTHOR = "XhstormR"
 
@@ -504,8 +623,98 @@ Hello XhstormR!
 
 -------------------------------------------------------
 
-FileOutputStream("""D:\123.txt""", true).bufferedWriter().use { it.write("${LocalTime.now()}\n") }     写
-FileInputStream("""D:\123.txt""").bufferedReader().useLines { it.forEach(::println) }     读
+open class A     A 类
+
+interface B     B 接口
+
+class C : A(), B     C 继承 A 并实现 B（类默认生成无参主构造函数，接口无构造函数且默认开放）
+```
+
+```kotlin
+Java：
+class Test1 {
+    static {
+        System.out.println("1父类静态初始化块");
+    }
+
+    {
+        System.out.println("2父类初始化块");
+    }
+
+    Test1() {
+        System.out.println("3父类构造方法");
+    }
+}
+----
+class Test2 extends Test1 {
+    static {
+        System.out.println("1子类静态初始化块");
+    }
+
+    {
+        System.out.println("2子类初始化块");
+    }
+
+    Test2() {
+        System.out.println("3子类构造方法");
+    }
+}
+----
+class Initial {
+    public static void main(String[] args) {
+        Test1 a = new Test2();
+    }
+}
+----
+输出：
+1父类静态初始化块
+1子类静态初始化块
+2父类初始化块
+3父类构造方法
+2子类初始化块
+3子类构造方法
+
+-------------------------------------------------------
+
+Kotlin：
+open class Test1 {     Kotlin 跟 Java 相反，类和方法都默认为 final（最终），需用 open（开放）指明可以继承
+    companion object {     伴生对象（static 初始化块、方法、属性）
+        init {
+            println("1父类静态初始化块")
+        }
+    }
+
+    init {
+        println("2父类初始化块(主)")
+        println("3父类构造函数(主)")
+    }
+}
+----
+class Test2 : Test1() {     需显式调用父类的构造方法
+    companion object {     伴生对象（static 初始化块、方法、属性）
+        init {
+            println("1子类静态初始化块")
+        }
+    }
+
+    init {
+        println("2子类初始化块(主)")
+        println("3子类构造函数(主)")
+    }
+}
+----
+fun main(args: Array<String>) {
+    val a: Test1 = Test2()     多态
+    val companion = Test2.Companion     获得类中的伴生对象
+}
+----
+输出：
+1父类静态初始化块
+1子类静态初始化块
+2父类初始化块(主)
+3父类构造函数(主)
+2子类初始化块(主)
+3子类构造函数(主)
 ```
 
 ## Script

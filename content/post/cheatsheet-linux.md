@@ -888,6 +888,25 @@ tar -[cxt]f [打包解包文件名] [源文件]
 tar -xf 123.tar.gz -C /tmp/ #指定解包位置
 ```
 
+## CentOS 7
+
+### hostnamectl
+```bash
+hostnamectl set-hostname controller     设置主机名
+
+[root@controller ~]$ hostnamectl
+Static hostname: controller
+Icon name: computer-vm
+Chassis: vm
+Machine ID: 4c81baeee82945e8a47b4cdeb31bfc42
+Boot ID: 2a89be262fa347159bb7243922dee933
+Virtualization: vmware
+Operating System: CentOS Linux 7 (Core)
+CPE OS Name: cpe:/o:centos:centos:7
+Kernel: Linux 3.10.0-514.el7.x86_64
+Architecture: x86-64
+```
+
 ## 退出登录
 ```
 logout

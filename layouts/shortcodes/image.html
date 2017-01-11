@@ -1,2 +1,2 @@
-<p><img {{ if .Get 2 | eq "1" }}data-{{ end }}src="{{ index .Params 0 }}" alt="" title="{{ index .Params 1 }}" {{ if .Get 3 | eq "1" }}data-action="zoom"{{ end }}/></p>
+<p><img {{ if .Get 2 | eq "1" }}data-{{ end }}src="{{ index .Params 0 }}" alt="" title="{{ index .Params 1 }}" {{ if .Get 3 | eq "1" }}data-action="zoom"{{ end }} width="{{ index .Params 4 }}"/></p>
 {{ if .Get 2 | eq "1" }}<script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(a){a.setAttribute("src",a.getAttribute("data-src"));a.onload=function(){a.removeAttribute("data-src")}});</script>{{ end }}

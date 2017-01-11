@@ -245,6 +245,8 @@ https://www.google.com/search?newwindow=1&q=123
 ```bash
 https://www.netsarang.com/download/down_live.html?productcode=2
 https://www.netsarang.com/download/down_live.html?productcode=3
+
+Xshell：保持活动状态 -> 字符串 -> 0 \n
 ```
 
 ## Video Download
