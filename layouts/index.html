@@ -21,9 +21,8 @@
 </div>
 </div>
 {{ partial "script.html" .}}
-<canvas id="reactive-bg-canvas"></canvas>
 <script src="http://cdn.bootcss.com/gsap/1.19.0/TweenLite.min.js"></script>
 <script src="{{ .Site.BaseURL }}/js/magic-canvas.min.js"></script>
-<script>if(document.body.clientWidth>960){$.magicCanvas.draw({type:"random-move",rgb:function (circlePos) {var px = circlePos.x;var py = circlePos.y;return {r:0,g:0,b:0};}})}</script>
+<script>if(document.body.clientWidth>960){var canvas=document.createElement('canvas');canvas.id="reactive-bg-canvas";document.body.appendChild(canvas);$.magicCanvas.draw({type:"random-move",rgb:function (circlePos) {var px=circlePos.x;var py=circlePos.y;return {r:0,g:0,b:0};}})}</script>
 </body>
 </html>
