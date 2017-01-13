@@ -7,7 +7,7 @@ title = "Linux 命令不完全手册"
 
 <!--more-->
 
-Updated on 2016-08-25
+Updated on 2017-01-12
 
 > ![](/uploads/linux-centos.svg)
 >
@@ -16,6 +16,8 @@ Updated on 2016-08-25
 > 最近因为要参加全国云计算比赛，需要使用 Linux；所以我把关于 Linux 系统的一些命令整理在这里，以便查阅。
 >
 > Update：市赛以第一名出线，国赛获得二等奖。
+>
+> Update 2：学校要求我留下，继续参加下一届比赛。
 
 ```
 pwd #查看当前路径
@@ -400,7 +402,7 @@ yum -y install tree #安装 tree
 3 directories, 16 files
 ```
 
-## SSH
+## ssh
 ```
 yum -y install openssh-clients #安装 SSH 套件
 ssh-keygen #在 ~/.ssh 目录下生成公钥和私钥
