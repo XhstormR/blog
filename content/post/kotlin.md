@@ -495,8 +495,8 @@ FileInputStream("""D:\123.txt""").bufferedReader().useLines { it.forEach(::print
 
 val s1 = "ABC"
 val s2 = StringBuilder("ABC").toString()
-println(s1 == s2)     比较内容（调用 equals()）
-println(s1 === s2)     比较地址
+println(s1 == s2)     比较实际内容（调用 equals()）
+println(s1 === s2)     比较内存地址
 ```
 
 ```kotlin
