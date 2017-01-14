@@ -86,9 +86,9 @@ val b: Int = if (a != null) {     空检查
 } else {
     -1
 }
-等同于
+可简化为
 val c: Int = if (a != null) a.length else -1
-等同于
+可简化为
 val d: Int = a?.length ?: -1     `?:` 操作符：若左边表达式的返回值为 null 则执行右边表达式
 
 -------------------------------------------------------
@@ -96,11 +96,11 @@ val d: Int = a?.length ?: -1     `?:` 操作符：若左边表达式的返回值
 fun sum(x: Int = 1, y: Int = 1): Unit {     函数（参数可设定默认值，以减少重载）
     println("$x+$y=${x + y}")     字符串模板
 }
-等同于
+可简化为
 fun sum(x: Int = 1, y: Int = 1) {     若返回值为 Unit (void)，可省略返回值
     println("$x+$y=${x + y}")
 }
-等同于
+可简化为
 fun sum(x: Int = 1, y: Int = 1) = println("$x+$y=${x + y}")     若函数体只含有一句表达式，可省略函数体和返回值（自动推导类型）
 
 sum()
@@ -117,7 +117,7 @@ sum(y = 3)     命名参数
 fun hello(name: String): String {
     return "Hello,$name"
 }
-等同于
+可简化为
 fun hello(name: String) = "Hello,$name"     若函数体只含有一句表达式，可省略函数体和返回值（自动推导类型）
 
 -------------------------------------------------------
@@ -158,7 +158,7 @@ public inline fun println(message: Int) {     (Int) -> Unit（接收一个 Int�
 fun a(x: Int): Boolean {     (Int) -> Boolean（接收一个 Int，返回一个 Boolean）
     return x % 2 == 0
 }
-等同于
+可简化为
 fun a(x: Int) = x % 2 == 0
 
 val array = arrayOf(1, 2, 3, 4)
@@ -178,11 +178,11 @@ array.filter(aa).forEach(bb)
 
 val array: Array<Char> = arrayOf('A', 'B', 'C', 'D')
 val list: MutableList<Int> = array.mapTo(mutableListOf(), { c -> c.toInt() })     mapTo 为高阶函数，{} 为 Lambda 表达式（匿名函数）
-等同于
+可简化为
 val list: MutableList<Int> = array.mapTo(mutableListOf()) { c -> c.toInt() }     高阶函数中若最后一个参数是函数，可移至括号外；若只接收一个函数，可不需要括号
-等同于
+可简化为
 val list: MutableList<Int> = array.mapTo(mutableListOf()) { it.toInt() }     Lambda 表达式中若只接收一个参数，可用 `it` 替代
-等同于
+可简化为
 val list: MutableList<Int> = array.mapTo(mutableListOf(), Char::toInt)     Lambda 表达式转为函数引用
 
 println(list)
@@ -210,11 +210,11 @@ list.map { it * 2 }     匿名函数（没名字的函数）
 
 val list = listOf(1, 2, 3, 4, 5)
 list.map({ i -> i * 2 })     此高阶函数只接收一个函数
-等同于
+可简化为
 list.map() { i -> i * 2 }     移至括号外
-等同于
+可简化为
 list.map { i -> i * 2 }     省略括号
-等同于
+可简化为
 list.map { it * 2 }     使用 `it` 替代
 ```
 
@@ -271,7 +271,7 @@ A
 true
 0
 
-for ((k, v) in map) {     解构声明
+for ((k, v) in map) {     解构声明（Kotlin 中的 Map 存储的是 Pair）
     println("$k -> $v")
 }
 ----
@@ -345,7 +345,7 @@ val intRange: IntRange = 1..5     范围表达式
 for (i in intRange) {
     print("$i ")
 }
-等同于
+可简化为
 for (i in 1..5) {     1 2 3 4 5
     print("$i ")
 }
@@ -441,7 +441,7 @@ fun smartCast(x: Any): Boolean {     自动类型转换（智能转型）
         return false
     }
 }
-等同于
+可简化为
 fun smartCast(x: Any): Boolean {     替代 if-else if 链
     when (x) {
         is Boolean -> return x
@@ -450,7 +450,7 @@ fun smartCast(x: Any): Boolean {     替代 if-else if 链
         else -> return false
     }
 }
-等同于
+可简化为
 fun smartCast(x: Any): Boolean {     作为返回值
     return when (x) {
         is Boolean -> x
@@ -459,7 +459,7 @@ fun smartCast(x: Any): Boolean {     作为返回值
         else -> false
     }
 }
-等同于
+可简化为
 fun smartCast(x: Any) = when (x) {     简化表达式（省略函数体和返回值）
     is Boolean -> x
     is Int -> x > 0
@@ -480,6 +480,8 @@ if (any is String) {     等同于 instanceof
 fun String.abc(c: Char): String {     扩展函数（给一个类添加新的功能）
     return this.filter { it != c }     false 过滤，true 不过滤
 }
+可简化为
+fun String.abc(c: Char) = this.filter { it != c }
 
 println("Hello".abc('l'))
 ----
@@ -504,10 +506,10 @@ class A {
     var name = ""
     var age = 20
 }
-等同于
+可简化为
 class A constructor(var name: String = "", var age: Int = 20) {     主构造函数
 }
-等同于
+可简化为
 class A(var name: String = "", var age: Int = 20)     主构造函数无注解和修饰符，可省略 constructor；无类体，可省略 {}
 
 -------------------------------------------------------
@@ -585,9 +587,9 @@ val o = object {
     val x = 1
     val y = 2
     val z = 3
-    operator fun component1() = x     解构方法
-    operator fun component2() = y     解构方法
-    operator fun component3() = z     解构方法
+    operator fun component1() = x     解构函数
+    operator fun component2() = y     解构函数
+    operator fun component3() = z     解构函数
 }
 等同于
 val o = object : Any() {     Kotlin 中 Any 是所有类的父类
@@ -685,7 +687,7 @@ open class Test1 {     Kotlin 跟 Java 相反，类和方法都默认为 final�
     }
 
     init {
-        println("2父类初始化块(主)")
+        println("2父类初始化块")
         println("3父类构造函数(主)")
     }
 }
@@ -698,7 +700,7 @@ class Test2 : Test1() {     需显式调用父类的构造方法
     }
 
     init {
-        println("2子类初始化块(主)")
+        println("2子类初始化块")
         println("3子类构造函数(主)")
     }
 }
@@ -711,9 +713,9 @@ fun main(args: Array<String>) {
 输出：
 1父类静态初始化块
 1子类静态初始化块
-2父类初始化块(主)
+2父类初始化块
 3父类构造函数(主)
-2子类初始化块(主)
+2子类初始化块
 3子类构造函数(主)
 ```
 
