@@ -307,8 +307,6 @@ git diff head     工作区与仓库区比较
 git diff --cached     暂存区与仓库区比较
 ```
 
----
-
 ```bash
 vim ~/.bashrc
     alias ll='ls -lhF --color=auto'
@@ -322,8 +320,6 @@ locate --database="/d/Download/GIT/123.db" *java*md     查找文件
 grep http `locate --database="/d/Download/GIT/123.db" *java*md`     查找文字
 ```
 
----
-
 ```xml
 vim ~/.ssh/config
     Host github.com
@@ -333,4 +329,15 @@ vim ~/.ssh/config
 -------------------------------------------------------
 
 git clone git@github.com:XhstormR/Hugo.git HUGO     SSH connections over HTTPS
+```
+
+```xml
+git config --global A.B C
+
+-------------------------------------------------------
+
+C:\Users\XhstormR\.gitconfig
+⇳
+[A]
+	B = C
 ```
