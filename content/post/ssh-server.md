@@ -35,6 +35,10 @@ echo PrintMotd yes >> etc\ssh\sshd_config
 echo PermitRootLogin no >> etc\ssh\sshd_config
 echo PasswordAuthentication no >> etc\ssh\sshd_config
 echo Subsystem sftp internal-sftp >> etc\ssh\sshd_config
+
+PS：
+md .12     创建空文件夹（`.` 前缀）
+type nul > .123     创建空文件（`.` 前缀）
 ```
 
 ## 启动
@@ -44,15 +48,15 @@ D:\Work\BLOG\GIT\usr\bin\sshd
 
 ## 停止
 ```bash
-netstat -ano | find "0.0.0.0:22"
+netstat -ano | findstr "0.0.0.0:22"
 
-tasklist | find "16940"
+tasklist | findstr "16940"
 
 taskkill /f /t /im sshd.exe
 
 简化：
 
-netstat -ano | find "0.0.0.0:22"
+netstat -ano | findstr "0.0.0.0:22"
 
 taskkill /f /t /pid 16940
 

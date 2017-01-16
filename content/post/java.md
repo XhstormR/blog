@@ -163,15 +163,27 @@ ALT+Shift+R     重构 - 重命名
 
 ## CMD
 ```java
----------
-public class A{
-    public static void main(String[] args){
+public class A {
+    public static void main(String[] args) {
         System.out.println("HelloWorld!");
     }
 }
----------
+
 D:\>javac A.java
-D:\>java A     java命令不跟文件后缀名
+D:\>java A     java命令不跟文件名，而是跟完全类名限定符
+HelloWorld!
+
+-------------------------------------------------------
+
+package abc;
+public class A {
+    public static void main(String[] args) {
+        System.out.println("HelloWorld!");
+    }
+}
+
+D:\>javac abc\A.java
+D:\>java abc.A
 HelloWorld!
 ```
 
