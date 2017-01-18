@@ -22,7 +22,7 @@ Updated on 2016-08-27
   * ~~[Eclipse](https://eclipse.org/downloads/eclipse-packages/) + [ADT](https://developer.android.com/studio/tools/sdk/eclipse-adt.html) 已被 Google 弃用~~
 * Android SDK：https://developer.android.com/studio/index.html#win-tools2
   * [Mirror1](http://mirrors.neusoft.edu.cn/android/),[Mirror2](http://android-mirror.bugly.qq.com:8080/),[Mirror3](https://dsx.bugly.qq.com/repository/1),[Mirror4](http://3ba67e7c209a.repository.bugly.qq.com/)
-  * Gradle：https://services.gradle.org/distributions/
+  * [Gradle](https://services.gradle.org/versions/current)：https://services.gradle.org/distributions/
       * GRADLE_HOME ➜ D:\Download\Java\gradle-2.14
       * PATH ➜ %GRADLE_HOME%\bin
 * JDK：http://www.oracle.com/technetwork/java/javase/downloads/index.html

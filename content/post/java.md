@@ -185,11 +185,25 @@ public class A {
 D:\>javac abc\A.java
 D:\>java abc.A
 HelloWorld!
+
+-------------------------------------------------------
+
+fun main(args: Array<String>) {
+    println("HelloWorld!")
+}
+
+D:\kotlinc\bin>kotlinc A.kt
+D:\kotlinc\bin>java -cp kotlin-runtime.jar;kotlin-reflect.jar; AKt
+HelloWorld!
+or
+D:\kotlinc\bin>kotlinc -include-runtime -d 123.jar A.kt
+D:\kotlinc\bin>java -jar 123.jar
+HelloWorld!
 ```
 
 ## JRE and JAR
 1. 复制 `JAVA_HOME` 下的 `jre` 目录到 `123` 目录。
-2. 导出项目的 `jar` 包至 `123` 目录。
+2. 导出项目 JAR 文件至 `123` 目录。
 3. 在 `123` 目录新建 `123.bat` 文件。
 
 {{< image "/uploads/java-jre.png" "" "0" "1" >}}
@@ -199,6 +213,10 @@ HelloWorld!
 ⇳
 cmd /K jre\bin\java -jar 123.jar
 ```
+
+### 合并多个 JAR 文件
+1. 将所有 JAR 文件解压至同一个目录。
+2. 在此目录下执行 `jar -cfM 123.jar .`
 
 ## Java 规范
 * 源文件名：源文件名应该和其中的 `public` 类名相同。
