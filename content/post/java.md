@@ -203,7 +203,7 @@ HelloWorld!
 
 ## JRE and JAR
 1. 复制 `JAVA_HOME` 下的 `jre` 目录到 `123` 目录。
-2. 导出项目 JAR 文件至 `123` 目录。
+2. 复制项目 JAR 文件至 `123` 目录。
 3. 在 `123` 目录新建 `123.bat` 文件。
 
 {{< image "/uploads/java-jre.png" "" "0" "1" >}}

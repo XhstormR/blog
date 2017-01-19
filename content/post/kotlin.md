@@ -7,7 +7,7 @@ title = "Kotlin"
 
 <!--more-->
 
-Updated on 2017-01-05
+Updated on 2017-01-19
 
 > {{< image "/uploads/kotlin2.svg" "Kotlin" "1" "1" "225" >}}
 >
@@ -40,7 +40,7 @@ fun main(args: Array<String>) {     main 函数（程序入口）
 val a: String     先声明后赋值
 a = "ABC"
 ----
-val a: String = "ABC"     声明变量的同时进行初始化（显式声明类型）
+val a: String = "ABC"     声明对象的同时进行实例化（显式声明类型）
 ----
 val a = "ABC"     声明对象的同时进行实例化（自动推导类型）
 
@@ -97,7 +97,7 @@ fun sum(x: Int = 1, y: Int = 1): Unit {     函数（参数可设定默认值，
     println("$x+$y=${x + y}")     字符串模板
 }
 可简化为
-fun sum(x: Int = 1, y: Int = 1) {     若返回值为 Unit (void)，可省略返回值
+fun sum(x: Int = 1, y: Int = 1) {     若返回值为 Unit (void)，则可省略返回值
     println("$x+$y=${x + y}")
 }
 可简化为
@@ -122,7 +122,7 @@ fun hello(name: String) = "Hello,$name"     若函数体只含有一句表达式
 
 -------------------------------------------------------
 
-fun show(vararg str: String): Unit {     vararg：可变参数，视为数组（Array<out T>）
+fun show(vararg str: String): Unit {     vararg：可变长参数，视为数组（Array<out T>）
     for (s in str) {     str 为 Array<out String>
         print(s + " ")
     }
@@ -201,6 +201,8 @@ println(list)
 fun a(i: Int): Int {     命名函数（有名字的函数）
     return i * 2
 }
+可简化为
+fun a(i: Int) = i * 2
 
 val list = listOf(1, 2, 3, 4, 5)
 list.map(::a)     函数引用
@@ -227,7 +229,7 @@ data class A(val id: Int, val name: String) : Closeable {     数据类：hashCo
 
 val a = A(1, "小明")     实例化对象
 val b = a.copy(name = "小张")     copy 函数
-val (x, y) = a     解构声明
+val (x, y) = a     解构声明（component 函数）
 
 println("$x $y")     字符串模板
 println(a)
@@ -247,7 +249,9 @@ with(a) {     语法糖
 输出：
 [1, 小明]
 
-a.use {     由于继承自 Closeable，所以能够使用 use 函数（Closeable 接口的扩展函数，用于替代 Java7 的 ARM）
+-------------------------------------------------------
+
+a.use {     由于主动继承自 Closeable，所以能够使用 use 函数（Closeable 接口的扩展函数，用于替代 Java7 的 ARM）
     println("[${it.id}, ${it.name}]")
 }
 ----
@@ -259,7 +263,7 @@ close!
 ```kotlin
 val list = listOf("A", "B", "C")     生成不可变 List（元素不可被添加或删除，只读）
 val set = setOf("A", "B", "C")     生成不可变 Set
-val map = mapOf("A" to 0, "B" to 1, "C" to 2)     生成不可变 Map
+val map = mapOf("A" to 0, "B" to 1, "C" to 2)     生成不可变 Map（Kotlin 中的 Map 存储的是 Pair）
 val mutableList = mutableListOf("A", "B", "C")     生成可变 List
 
 println(list[0])
@@ -490,15 +494,19 @@ Heo
 
 -------------------------------------------------------
 
-FileOutputStream("""D:\123.txt""", true).bufferedWriter().use { it.write("${LocalTime.now()}\n") }     写
+FileOutputStream("""D:\123.txt""", true).bufferedWriter().use { it.write("${LocalDateTime.now()}\n") }     写
 FileInputStream("""D:\123.txt""").bufferedReader().useLines { it.forEach(::println) }     读
 
 -------------------------------------------------------
 
 val s1 = "ABC"
 val s2 = StringBuilder("ABC").toString()
-println(s1 == s2)     比较实际内容（调用 equals()）
-println(s1 === s2)     比较内存地址
+println(s1 == s2)     比较实际内容（ operator，调用 equals()）
+println(s1 === s2)     比较内存地址（Java 中的 `==`）
+----
+输出：
+true
+false
 ```
 
 ```kotlin
