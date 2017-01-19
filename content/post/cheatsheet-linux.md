@@ -415,6 +415,9 @@ Tips：
 6ae8592f578b0d2ec704a1ac347cdfc9205d41ede0f853eb15cb28786553
 [root@controller ~]$ openssl rand -base64 30 #Base64编码
 HTUKtp8wVb2m8ZIIsLtXkQDGKc+V8SeSWJg8yU0Z
+
+openssl enc -aes-256-cfb -k 123456 -e -in 1.txt -out 2.txt #加密文件
+openssl enc -aes-256-cfb -k 123456 -d -in 2.txt -out 3.txt #解密文件
 ```
 
 ## scp
@@ -911,8 +914,8 @@ Architecture: x86-64
 
 ## 退出登录
 ```
-logout
-exit
+logout #退出并执行 ~/.bash_logout
+exit #退出
 
 Tips :
 Ctrl+D #快捷键退出
