@@ -1,0 +1,1 @@
+<video src="{{ index .Params 0 }}" title="{{ index .Params 1 }}" autoplay loop {{ if .Get 2 | eq "1" }}controls{{ end }}></video>

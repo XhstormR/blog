@@ -46,8 +46,8 @@ val a = "ABC"     声明对象的同时进行实例化（自动推导类型）
 
 -------------------------------------------------------
 
-var a = 123     变量（可变）
-val b = 123     常量（只读）
+var a = 123     变量（可变 get/set）
+val b = 123     常量（只读 get）
 
 -------------------------------------------------------
 
@@ -64,12 +64,12 @@ val b = "$a 的长度为${a.length}"     字符串模板
 
 -------------------------------------------------------
 
-var a: String = null     编译器报错（不可空变量）
+var a: String = null     编译器报错：不可空变量
 var b: String? = null     通过 `?` 明确标识变量可为 null（可空变量）
 
-println(b.length)     编译器报错（不能直接访问可空变量）
+println(b.length)     编译器报错：不能直接访问可空变量
 println(b?.length)     通过 `?.` 访问可空变量，返回 null
-println(b!!.length)     通过 `!!.` 访问可空变量，抛出异常（KotlinNullPointerException）
+println(b!!.length)     通过 `!!.` 访问可空变量，抛出 KotlinNullPointerException 异常
 
 try {     try-catch
     println(b!!.length)
@@ -175,6 +175,11 @@ array.filter(aa).forEach(bb)
 4
 
 -------------------------------------------------------
+高阶函数：一种使用函数作为参数或返回值的函数。
+    ↳ 函数参数：
+            ↳ 匿名函数：只能作为高阶函数的参数或返回值，也称作 Lambda 表达式，跟 Java8 中的概念相同。
+            ↳ 命名函数：可以通过函数引用作为高阶函数的参数。
+                    ↳ 函数引用：把命名函数作为参数传入，通过在函数名称前加入 `::` 操作符实现。
 
 val array: Array<Char> = arrayOf('A', 'B', 'C', 'D')
 val list: MutableList<Int> = array.mapTo(mutableListOf(), { c -> c.toInt() })     mapTo 为高阶函数，{} 为 Lambda 表达式（匿名函数）
@@ -189,12 +194,6 @@ println(list)
 ----
 输出：
 [65, 66, 67, 68]
-
-高阶函数：一种使用函数作为参数或返回值的函数。
-    ↳ 函数参数：
-            ↳ 匿名函数：只能作为高阶函数的参数或返回值，也称作 Lambda 表达式，跟 Java8 中的概念相同。
-            ↳ 命名函数：可以通过函数引用作为高阶函数的参数。
-                    ↳ 函数引用：把命名函数作为参数传入，通过在函数名称前加入 `::` 操作符实现。
 
 -------------------------------------------------------
 
@@ -376,6 +375,24 @@ if (i in 1..10) {
     println("NO")
 }
 
+遍历对象并带有索引位置
+----
+val strs = arrayOf("A", "B", "C")
+for ((index, s) in strs.withIndex()) {     对 IndexedValue<T> 的解构声明
+    println("$index -> $s")
+}
+strs.forEachIndexed { index, s ->
+    println("$index -> $s")
+}
+----
+输出：
+0 -> A
+1 -> B
+2 -> C
+0 -> A
+1 -> B
+2 -> C
+
 -------------------------------------------------------
 
 while、do...while：
@@ -403,7 +420,7 @@ do {
 
 -------------------------------------------------------
 
-when（用于替代 Java 中的 switch）：
+when（和所有分支条件顺序比较，用于替代 Java 中的 switch）：
 
 val i = 8
 when {     不带参数，匹配布尔类型，可替代 if-else if 链
@@ -420,13 +437,15 @@ when (i) {     带参数，匹配对应参数类型，替代 switch
 
 -------------------------------------------------------
 
-val s = if (Math.random() - Math.random() > 0) {     if 可作为函数提供返回值
+val s = if (Math.random() - Math.random() > 0) {     if 可作为表达式提供返回值（替代三元运算符）
     "成功"
 } else {
     "失败"
 }
+可简化为
+val s = if (Math.random() - Math.random() > 0) "成功" else "失败"
 
-val s2 = when (Math.random() - Math.random() > 0) {     when 可作为函数提供返回值
+val s2 = when (Math.random() - Math.random() > 0) {     when 可作为表达式提供返回值
     true -> "成功"
     false -> "失败"
     else -> "失败"
@@ -492,6 +511,17 @@ println("Hello".abc('l'))
 输出：
 Heo
 
+fun String.Companion.abc() {     静态扩展函数（给一个类的伴生对象添加新的功能）
+    println("ABC")
+}
+可简化为
+fun String.Companion.abc() = println("ABC")
+
+String.abc()     直接调用而不通过对象
+----
+输出：
+ABC
+
 -------------------------------------------------------
 
 FileOutputStream("""D:\123.txt""", true).bufferedWriter().use { it.write("${LocalDateTime.now()}\n") }     写
@@ -507,6 +537,111 @@ println(s1 === s2)     比较内存地址（Java 中的 `==`）
 输出：
 true
 false
+
+-------------------------------------------------------
+var <propertyName>: <PropertyType> [= <property_initializer>]
+    [<getter>]
+    [<setter>]
+
+Kotlin 中的属性默认实现 set/get 函数，我们可对其进行自定义
+----
+class A {
+    var s: String = "Hi"
+        set(value) {     可设置为 private，另外 val 没有 set 函数
+            if (value.startsWith("H")) {
+                println("Set true")
+                field = value     field：当前属性 s；this：当前类 A
+            } else {
+                println("Set false")
+            }
+        }
+        get() {
+            println("Get")
+            return field
+        }
+}
+
+val a = A()
+a.s = "World"
+println(a.s)
+a.s = "Hello"
+println(a.s)
+----
+输出：
+Set false
+Get
+Hi
+Set true
+Get
+Hello
+
+-------------------------------------------------------
+
+委托属性（set/get 的工厂函数）
+----
+class A {
+    val s1: String by lazy {     延迟属性：只会在第一次访问 get 的时候执行该代码块，并赋值
+        println("123")                    ↳ 计算时为 synchronized，若不需要可关闭线程同步：by lazy(LazyThreadSafetyMode.NONE) {}
+        "AAA"
+    }
+    var s2: String by Delegates.observable("XXX") { prop, old, new ->     可观察属性：属性改变之后回调，afterChange
+        println("$old -> $new")                         ↳ 初始值
+    }
+    var s3: String by Delegates.vetoable("XXX") { prop, old, new ->     可观察属性：属性改变之前回调，beforeChange
+        println("$old -> $new")                     ↳ 初始值
+        return@vetoable true     true 接收，false 丢弃
+    }
+}
+
+val a = A()
+println(a.s1)
+a.s2 = "BBB"
+println(a.s2)
+a.s3 = "CCC"
+println(a.s3)
+----
+输出：
+123
+AAA
+XXX -> BBB
+BBB
+XXX -> CCC
+CCC
+
+委托属性：所有属性存储至 Map 中
+----
+class User(val map: Map<String, Any?>) {     var 属性则需换成 MutableMap
+    val name: String by map
+    val age: Int by map
+}
+
+val user = User(mapOf("name" to "ABC", "age" to 25))     Key-Value（Kotlin 中的 Map 存储的是 Pair）
+println("${user.name} ${user.age}")
+----
+输出：
+ABC 25
+
+-------------------------------------------------------
+
+属性延迟加载
+----
+class A {
+    val a: String by lazy {     val 使用委托属性 by lazy {}：只会在第一次访问 get 的时候执行该代码块，并赋值
+        println("123")
+        "AAA"
+    }
+    lateinit var b: String     var 使用关键字 lateinit：可稍后手动初始化（若访问 get 时未初始化，则抛出 UninitializedPropertyAccessException 异常）
+}
+
+val a = A()
+println(a.a)
+a.b = "BBB"
+println(a.b)
+----
+输出：
+123
+AAA
+BBB
 ```
 
 ```kotlin
@@ -582,7 +717,7 @@ class B : A {     通过类实现接口
     override fun a() {}
 }
 
-val a = object : A {     通过匿名内部类实现接口（对象表达式）
+val a = object : A {     通过对象表达式实现接口（匿名内部类）
     override val i: Int
         get() = 1
     override fun a() {}
@@ -725,7 +860,64 @@ fun main(args: Array<String>) {
 3父类构造函数(主)
 2子类初始化块
 3子类构造函数(主)
+
+-------------------------------------------------------
+
+class A {
+    companion object {
+        var i = 0
+        init {
+            println("静态初始化块")
+        }
+    }
+
+    init {
+        println("${++i} 初始化块 构造函数(主)")
+    }
+}
+
+A()
+A()
+A()
+A()
+----
+输出：
+静态初始化块
+1 初始化块 构造函数(主)
+2 初始化块 构造函数(主)
+3 初始化块 构造函数(主)
+4 初始化块 构造函数(主)
 ```
+
+```kotlin
+Kotlin：
+val a: Char = 'A'     在 Java 中为基本数据类型 char
+val b: Char? = 'B'     在 Java 中为引用数据类型 Character
+println(a)
+println(b)
+
+Convert to Java：
+char a = 65;
+Character b = Character.valueOf('B');
+System.out.println(a);
+System.out.println(b);
+```
+
+```kotlin
+val array = arrayOfNulls<Int>(5)     创建容量为 5 以 null 填充的空数组
+for (i in array.indices) {
+    println(array[i])
+}
+----
+输出：
+null
+null
+null
+null
+null
+```
+
+![](/uploads/kotlin-transform.png "Transform")
 
 ## Script
 ```

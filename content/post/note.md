@@ -169,13 +169,13 @@ https://download-installer.cdn.mozilla.net/pub/firefox/
 ## Pandoc
 ```bash
 将 Markdown 转化成 HTML：
-pandoc test.md -o test.html
+pandoc 123.md -o 123.html
 
 使用指定 CSS：
-pandoc -c test.css test.md -o test.html
+pandoc -c 123.css 123.md -o 123.html
 
 生成独立 HTML：
-pandoc --self-contained -c test.css test.md -o test.html
+pandoc --self-contained -c 123.css 123.md -o 123.html
 ```
 
 ## Server（Win）
@@ -294,6 +294,7 @@ http://serve.netsh.org/pub/ipv4-hosts/
 https://raw.githubusercontent.com/racaljk/hosts/master/hosts
 
 EXE：
+https://en.wikipedia.org/wiki/Google_Chrome
 https://api.shuax.com/tools/getchrome
 https://repo.fdzh.org/chrome/exe/
 -
@@ -315,11 +316,28 @@ http://apkleecher.com/
 http://www.apk4fun.com/
 ```
 
-## SQLite
+## SQL
 ```bash
+SQLite
+https://www.sqlite.org/index.html
+https://github.com/xerial/sqlite-jdbc
+
 sqlite3.exe 123.db ".mode column" ".header on" "select * from user;" > 1.txt
 
-https://www.sqlite.org/index.html
+compile 'org.xerial:sqlite-jdbc:3.16.1'
+
+PostgreSQL
+https://www.enterprisedb.com/download-postgresql-binaries
+https://jdbc.postgresql.org/download.html
+https://github.com/pgjdbc/pgjdbc
+https://jcenter.bintray.com/org/postgresql/postgresql/
+
+initdb.exe -A md5 -E UTF8 --no-locale --lc-messages="Chinese (Simplified)_China.936" -U 123 -W -D D:\12345
+pg_ctl.exe -l D:\log.txt -D D:\12345 start
+psql.exe -e -E -h 127.0.0.1 -p 5432 -U 123 -W -d postgres
+pg_ctl.exe -l D:\log.txt -D D:\12345 stop
+
+compile 'org.postgresql:postgresql:9.4.1212'
 ```
 
 ## Wget 递归下载
@@ -350,10 +368,19 @@ https://npm.taobao.org/mirrors
 http://mirrors.cnnic.cn/
 ```
 
-## FFmpeg m3u8
+## FFmpeg
 ```bash
 ffmpeg.exe -i http://example.com/1.m3u8 -c copy 123.mkv
 ffplay.exe "http://example.com/1.m3u8"
+
+H.264：
+ffmpeg.exe -i 123.gif -c:v libx264 -preset medium -crf 28 -c:a aac -b:a 128k 123.mp4
+H.265：
+ffmpeg.exe -i 123.gif -c:v libx265 -preset medium -crf 28 -c:a aac -b:a 128k 123.mp4
+VP9：
+ffmpeg.exe -i 123.gif -c:v libvpx-vp9 -crf 10 -b:v 0 -c:a libvorbis 123.webm
+H.264 to RAW：
+ffmpeg.exe -i 123.mp4 -vcodec copy -an -bsf:v h264_mp4toannexb 123.h264
 
 https://ffmpeg.zeranoe.com/builds/
 https://sourceforge.net/projects/mplayer-win32/files/MPlayer%20and%20MEncoder/
@@ -405,6 +432,7 @@ https://sourceforge.net/projects/optipng/files/OptiPNG/
 
 https://tinypng.com/
 http://m.2gei.com/bgremover/
+https://imageoptim.com/mozjpeg
 ```
 
 ## HSTS
@@ -412,11 +440,11 @@ http://m.2gei.com/bgremover/
 chrome://net-internals/#hsts
 ```
 
-## 使用 CMD 修改环境变量（暂时）
+## 修改 CMD 环境变量（暂时）
 ```bash
 set /?
 set path
-set path=%path%;D:\Download\dir
+set path=%path%;D:\Download\123
 ```
 
 ## 迅雷启用边下边播
