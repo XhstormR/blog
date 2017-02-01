@@ -7,7 +7,7 @@ Categories = ["JAVA"]
 
 <!--more-->
 
-Updated on 2017-01-26
+Updated on 2017-02-01
 
 > {{< image "/uploads/jooq.png" "jOOQ" "1" "0" >}}
 >
@@ -28,7 +28,7 @@ Updated on 2017-01-26
   * 数据查询语言（DQL）：Data Query Language
       * 用于查询（SELECT）所需要的数据。
   * 数据控制语言（DCL）：Data Control Language
-      * 用于执行权限的授予和收回操作、创建用户，包括授予（GRANT）语句，收回（REVOKE）语句。
+      * 用于权限的授予（GRANT）和收回（REVOKE），创建用户（CREATE USER）。
   * 事务控制语言（TCL）：Transaction Control Language
       * 用于维护数据一致性的语句，包括提交（COMMIT）、回滚（ROLLBACK）、保存点（SAVEPOINT）。
 * 增删改查（CRUD）：增加（Create），查询（Retrieve），修改（Update），删除（Delete）
@@ -39,8 +39,11 @@ Updated on 2017-01-26
   * 持久性（Durability）：对于系统的影响是永久性的。
 * 数据访问对象（DAO）：Data Access Object
   * 用于封装所有对数据库的访问，使数据访问逻辑和业务逻辑分开。
+  * 数据传递对象
+      * 值对象（Value Object）
+      * 实体对象（Entity）
 * 对象关系映射（ORM）：Object Relation Mapping
-      * **类**中的**对象**的**属性**（Java）<— 映射（ORM） —>**表**中的**关系**的**字段**（Database）
+      * **类**中的**对象**的**属性**（Java）<— 映射（ORM） —>**表**中的**记录**的**字段**（Database）
 
 ## Map
 ```bash
@@ -86,10 +89,7 @@ fun main(args: Array<String>) {
     System.setProperty("org.jooq.no-logo", "true")
     val dslContext = DSL.using("jdbc:postgresql://127.0.0.1:5432/postgres", "123", "123456")
     val result = dslContext.select().from(Weather.WEATHER).fetch()
-    or
-    val result = dslContext.resultQuery("select * from weather").fetch()
-    or
-    val result = dslContext.resultQuery("select {0},{1},{2},{3},{4} from {5}", DSL.name("city"), DSL.name("temp_lo"), DSL.name("temp_hi"), DSL.name("date"), DSL.name("prcp"), DSL.name("weather")).fetch()
+
     result.forEach {
         val str = it[Weather.WEATHER.CITY]
         val i1 = it[Weather.WEATHER.TEMP_LO]
@@ -101,6 +101,35 @@ fun main(args: Array<String>) {
     println("共 ${result.size} 条记录")
     dslContext.close()
 }
+
+val result = dslContext.resultQuery("select * from weather").fetch()
+val result = dslContext.resultQuery("select {0},{1},{2},{3},{4} from {5}", DSL.name("city"), DSL.name("temp_lo"), DSL.name("temp_hi"), DSL.name("date"), DSL.name("prcp"), DSL.name("weather")).fetch()
+
+DSL.name("abc")     "abc"
+DSL.inline("abc")      'abc'
+```
+
+```kotlin
+import org.jooq.impl.DSL
+import sql.generated.tables.Weather
+import sql.generated.tables.records.WeatherRecord
+
+fun main(args: Array<String>) {
+    System.setProperty("org.jooq.no-logo", "true")
+    val dslContext = DSL.using("jdbc:postgresql://127.0.0.1:5432/postgres", "123", "123456")
+    val result = dslContext.select().from(Weather.WEATHER).fetch {     RecordMapper（ORM）
+        val str = it[Weather.WEATHER.CITY]
+        val i1 = it[Weather.WEATHER.TEMP_LO]
+        val i2 = it[Weather.WEATHER.TEMP_HI]
+        val date = it[Weather.WEATHER.DATE]
+        val float = it[Weather.WEATHER.PRCP]
+        WeatherRecord(str, i1, i2, float, date)
+    }
+
+    result.forEach { println("|${it.city} |${it.tempLo} |${it.tempHi} |${it.date} |${it.prcp}") }
+    println("共 ${result.size} 条记录")
+    dslContext.close()
+}
 ```
 
 ```java
@@ -109,6 +138,24 @@ build.gradle
 compile 'org.jetbrains.kotlin:kotlin-stdlib:+'
 compile 'org.jooq:jooq:+'
 compile 'org.postgresql:postgresql:9.4.1212'
+```
+
+## Insert
+```kotlin
+import org.jooq.impl.DSL
+import sql.generated.tables.Weather.WEATHER
+import java.sql.Date
+
+fun main(args: Array<String>) {
+    System.setProperty("org.jooq.no-logo", "true")
+    val dslContext = DSL.using("jdbc:postgresql://127.0.0.1:5432/postgres", "123", "123456")
+    dslContext.insertInto(WEATHER,
+            WEATHER.CITY, WEATHER.TEMP_LO, WEATHER.TEMP_HI, WEATHER.DATE, WEATHER.PRCP)
+            .values("Chongqing", 25, 29, Date.valueOf("2017-01-27"), 0.25f)
+            .values("Chongqing", 25, 29, Date.valueOf("2017-01-28"), 0.25f)
+            .values("Chongqing", 25, 29, Date.valueOf("2017-01-29"), 0.25f)
+            .execute()     插入 3 条数据
+}
 ```
 
 ## JDBC Property
@@ -146,8 +193,8 @@ fun main(args: Array<String>) {
     val sql1 = "INSERT INTO weather VALUES ('San Francisco', 46, 50, 0.25, '1994-11-27')"
     val sql2 = "SELECT * FROM weather"
 
-    val i = statement.executeUpdate(sql1)     返回影响的记录数
-    val resultSet = statement.executeQuery(sql2)     返回查询的结果集
+    val i = statement.executeUpdate(sql1)     执行 DML 语句，返回影响的记录数
+    val resultSet = statement.executeQuery(sql2)     执行 DQL 语句，返回查询的结果集
 
     var c = 0
     while (resultSet.next()) {
@@ -173,7 +220,7 @@ import java.sql.Date
 import java.sql.DriverManager
 
 fun main(args: Array<String>) {
-    val sql1 = "INSERT INTO weather VALUES (?, ?, ?, ?, ?)"     设置占位符
+    val sql1 = "INSERT INTO weather VALUES (?, ?, ?, ?, ?);"     设置占位符
     val sql2 = "SELECT * FROM weather WHERE city = ?"
 
     val connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/postgres", "123", "123456")
@@ -213,7 +260,7 @@ import java.sql.ResultSet
 fun main(args: Array<String>) {
     val connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/postgres", "123", "123456")
     val statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE)     指定结果集可滚动并感知数据变化，可更新
-    val resultSet = statement.executeQuery("SELECT * FROM weather")
+    val resultSet = statement.executeQuery("SELECT * FROM weather;")
 
     val resultSetMetaData = resultSet.metaData     结果集元数据
     for (i in 1..resultSetMetaData.columnCount) {
@@ -251,10 +298,10 @@ fun main(args: Array<String>) {
     try {
         val b = connection.autoCommit     保存自动提交状态
         connection.autoCommit = false     关闭自动提交
-        statement.executeUpdate("UPDATE weather SET temp_hi = temp_hi - 2, temp_lo = temp_lo - 2 WHERE date > '1994-11-28'")
+        statement.executeUpdate("UPDATE weather SET temp_hi = temp_hi - 2, temp_lo = temp_lo - 2 WHERE date > '1994-11-28';")
         statement.executeUpdate("UPDATE weather SET prcp = 0.0 WHERE city = 'Hayward'")
         connection.commit()     统一提交事务，失败则回滚
-        connection.autoCommit = b     恢复自动提交状态
+        connection.autoCommit = b     恢复至原有提交状态
     } catch (e: SQLException) {
         connection.rollback()     失败时回滚事务
     }
@@ -264,20 +311,96 @@ fun main(args: Array<String>) {
 
 ### Batch
 ```kotlin
+Statement：
 fun main(args: Array<String>) {
     val connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/postgres", "123", "123456")
     val statement = connection.createStatement()
 
-    val sql = "INSERT INTO weather VALUES ('San Francisco', 46, 50, 0.25, '1994-11-27')"
-    for (i in 1..1005) {
+    val sql = "INSERT INTO weather VALUES ('San Francisco', 46, 50, 0.25, '1994-11-27');"
+    for (i in 0..1004) {     共 1005 条数据
         statement.addBatch(sql)     添加至批处理
-        if (i % 500 == 0) {     防止 Out Of Memory
-            statement.executeBatch()     统一提交批处理
+        if (i % 500 == 0) {     防止因存储过多待处理 SQL 语句，而导致 Out Of Memory
+            statement.executeBatch()     统一提交 SQL 语句，降低网络通信次数
             statement.clearBatch()     清空批处理
         }
     }
-    statement.executeBatch()     提交剩余批处理
+    statement.executeBatch()     提交剩余 SQL 语句
     statement.clearBatch()
     connection.close()
+}
+
+----
+
+PreparedStatement：
+fun main(args: Array<String>) {
+    val connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/postgres", "123", "123456")
+    val prepareStatement = connection.prepareStatement("INSERT INTO employee (id) VALUES (?);")
+
+    for (i in 0..1004) {
+        prepareStatement.setInt(1, i)
+        prepareStatement.addBatch()
+        if (i % 500 == 0) {
+            prepareStatement.executeBatch()
+            prepareStatement.clearBatch()
+        }
+    }
+    prepareStatement.executeBatch()
+    prepareStatement.clearBatch()
+    connection.close()
+}
+```
+
+### Paging
+```kotlin
+每次只请求 1 页数据量，对内存压力较小，适合大数据量的表：
+fun main(args: Array<String>) {
+    val connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/postgres", "123", "123456")
+    val prepareStatement = connection.prepareStatement("SELECT * FROM employee LIMIT 10 OFFSET ?;")     只取 10 条数据，偏移量每次递增 10
+
+    fun a(i: Int) = i * 10     偏移量每次递增 10
+
+    for (i in 0..4) {
+        prepareStatement.setInt(1, a(i))
+        val resultSet = prepareStatement.executeQuery()
+        while (resultSet.next()) {
+            val int = resultSet.getInt("id")
+            val str = resultSet.getString("name")
+            println("|$int |$str")
+        }
+        println("———————")
+    }
+    connection.close()
+}
+
+----
+
+一次性取出所有数据，对内存压力较大，适合小数据量的表：
+fun main(args: Array<String>) {
+    val connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/postgres", "123", "123456")
+    val statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE)     可滚动结果集
+    val resultSet = statement.executeQuery("SELECT * FROM employee;")     包含 1005 条记录
+
+    a(2, resultSet)     第 2 页（10 - 19）
+    a(1, resultSet)     第 1 页（00 - 09）
+    a(5, resultSet)     第 5 页（40 - 49）
+
+    connection.close()
+}
+
+fun a(p: Int, resultSet: ResultSet) {
+    val x = (p - 1) * 10
+    val y = p * 10
+    var j = 0
+    resultSet.beforeFirst()
+    while (resultSet.next()) {
+        if (x <= j && j < y) {
+            val int = resultSet.getInt("id")
+            val str = resultSet.getString("name")
+            println("|$int |$str")
+        } else if (j >= y) {
+            break
+        }
+        j++
+    }
 }
 ```

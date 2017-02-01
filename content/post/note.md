@@ -65,13 +65,6 @@ OpenDNS：
 208.67.220.220
 ```
 
-## Chrome CSS
-```css
-a{text-decoration:none !important}
-a:hover { text-decoration: underline !important;}
-*:not([class*="icon"]):not(i){font-family: "Microsoft YaHei","Symbol" !important;}
-```
-
 ## IDM
 ```java
 127.0.0.1 registeridm.com
@@ -274,6 +267,13 @@ https://tiansh.github.io/us-danmaku/bilibili/
 https://danmu2ass.codeplex.com/releases
 ```
 
+## Chrome CSS
+```css
+a{text-decoration:none !important}
+a:hover { text-decoration: underline !important;}
+*:not([class*="icon"]):not(i){font-family: "Microsoft YaHei","Symbol" !important;}
+```
+
 ## Chrome User Agent
 ```bash
 iPhone：
@@ -303,6 +303,8 @@ https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html?p
 https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html?prefix=Win_x64/441085/
 https://commondatastorage.googleapis.com/chromium-browser-snapshots/Android/LAST_CHANGE
 https://commondatastorage.googleapis.com/chromium-browser-snapshots/Win_x64/LAST_CHANGE
+-
+type nul > "D:\Program Files\Chrome\User Data\SwReporter"
 
 CRX：
 http://crx.2333.me/
@@ -316,11 +318,17 @@ http://apkleecher.com/
 http://www.apk4fun.com/
 ```
 
+## HSTS
+```html
+chrome://net-internals/#hsts
+```
+
 ## SQL
 ```bash
 SQLite
 https://www.sqlite.org/index.html
 https://github.com/xerial/sqlite-jdbc
+https://jcenter.bintray.com/org/xerial/sqlite-jdbc/
 
 sqlite3.exe 123.db ".mode column" ".header on" "select * from user;" > 1.txt
 
@@ -338,6 +346,12 @@ psql.exe -e -E -h 127.0.0.1 -p 5432 -U 123 -W -d postgres
 pg_ctl.exe -l D:\log.txt -D D:\12345 stop
 
 compile 'org.postgresql:postgresql:9.4.1212'
+
+Tool：
+http://www.heidisql.com/download.php
+https://www.postgresql.org/ftp/pgadmin3/pgadmin4/
+https://github.com/sosedoff/pgweb/releases/latest
+https://www.jetbrains.com/datagrip/
 ```
 
 ## Wget 递归下载
@@ -350,7 +364,7 @@ wget -m -k -E -np -c -N --no-if-modified-since -p -P ./123 https://java.sx/java/
 MSDN：
 http://msdn.itellyou.cn/
 
-CentOS：
+Linux（CentOS）：
 https://www.centos.org/download/
 https://mirrors.cqu.edu.cn/webin/simple.php
 https://mirrors.tuna.tsinghua.edu.cn/
@@ -435,11 +449,6 @@ http://m.2gei.com/bgremover/
 https://imageoptim.com/mozjpeg
 ```
 
-## HSTS
-```html
-chrome://net-internals/#hsts
-```
-
 ## 修改 CMD 环境变量（暂时）
 ```bash
 set /?
@@ -453,4 +462,10 @@ Program\Xmp.ini
 ⇳
 [global]
 Path=C:\PotPlayer\PotPlayerMini.exe
+```
+
+## WebX
+```html
+https://storage.googleapis.com/downloads.webmproject.org/releases/webm/index.html
+https://storage.googleapis.com/downloads.webmproject.org/releases/webp/index.html
 ```
