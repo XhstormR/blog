@@ -321,6 +321,8 @@ http://www.apk4fun.com/
 ## HSTS
 ```html
 chrome://net-internals/#hsts
+
+强制忽略证书错误：badidea
 ```
 
 ## SQL
@@ -363,6 +365,8 @@ wget -m -k -E -np -c -N --no-if-modified-since -p -P ./123 https://java.sx/java/
 ```bash
 MSDN：
 http://msdn.itellyou.cn/
+https://msdn.microsoft.com/en-us/subscriptions/downloads/
+https://msdn.microsoft.com/zh-cn/library/ms123401.aspx
 
 Linux（CentOS）：
 https://www.centos.org/download/

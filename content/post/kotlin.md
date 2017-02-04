@@ -7,7 +7,7 @@ title = "Kotlin"
 
 <!--more-->
 
-Updated on 2017-01-19
+Updated on 2017-02-03
 
 > {{< image "/uploads/kotlin2.svg" "Kotlin" "1" "1" "225" >}}
 >
@@ -150,41 +150,43 @@ OK!
 ```
 
 ```kotlin
-@kotlin.internal.InlineOnly
-public inline fun println(message: Int) {     (Int) -> Unit（接收一个 Int，返回一个 Unit）（类库自带函数）
-    System.out.println(message)
-}
-
-fun a(x: Int): Boolean {     (Int) -> Boolean（接收一个 Int，返回一个 Boolean）
+fun a(x: Int): Boolean {
     return x % 2 == 0
 }
 可简化为
-fun a(x: Int) = x % 2 == 0
+fun a(x: Int) = x % 2 == 0     函数类型：(Int) -> Boolean（需要 Int，返回 Boolean）
+
+@kotlin.internal.InlineOnly
+public inline fun println(message: Int) {     函数类型：(Int) -> Unit（需要 Int，返回 Unit）（类库自带函数）
+    System.out.println(message)
+}
 
 val array = arrayOf(1, 2, 3, 4)
-array.filter { it % 2 == 0 }.forEach { System.out.println(it) }     未使用函数引用（匿名函数）
-或者
+
 array.filter(::a).forEach(::println)     使用函数引用
-或者
-val aa: (Int) -> Boolean = ::a     将函数引用存储在变量中
+等同于
+array.filter { it % 2 == 0 }.forEach { System.out.println(it) }     使用匿名函数
+等同于
+val aa: (Int) -> Boolean = ::a     将函数引用存储在变量中，类型（声明）为 "函数类型"
 val bb: (Int) -> Unit = ::println
-array.filter(aa).forEach(bb)
+array.filter(aa).forEach(bb)     作为匿名函数使用
 ----
 输出：
 2
 4
 
 -------------------------------------------------------
-高阶函数：一种使用函数作为参数或返回值的函数。
+高阶函数：一种将函数作为参数或返回值的函数。
     ↳ 函数参数：
             ↳ 匿名函数：只能作为高阶函数的参数或返回值，也称作 Lambda 表达式，跟 Java8 中的概念相同。
             ↳ 命名函数：可以通过函数引用作为高阶函数的参数。
                     ↳ 函数引用：把命名函数作为参数传入，通过在函数名称前加入 `::` 操作符实现。
 
 val array: Array<Char> = arrayOf('A', 'B', 'C', 'D')
+
 val list: MutableList<Int> = array.mapTo(mutableListOf(), { c -> c.toInt() })     mapTo 为高阶函数，{} 为 Lambda 表达式（匿名函数）
 可简化为
-val list: MutableList<Int> = array.mapTo(mutableListOf()) { c -> c.toInt() }     高阶函数中若最后一个参数是函数，可移至括号外；若只接收一个函数，可不需要括号
+val list: MutableList<Int> = array.mapTo(mutableListOf()) { c -> c.toInt() }     高阶函数中若最后一个参数是函数参数，可移至括号外；若只需要一个函数参数，可省略括号
 可简化为
 val list: MutableList<Int> = array.mapTo(mutableListOf()) { it.toInt() }     Lambda 表达式中若只接收一个参数，可用 `it` 替代
 可简化为
@@ -197,26 +199,113 @@ println(list)
 
 -------------------------------------------------------
 
-fun a(i: Int): Int {     命名函数（有名字的函数）
+fun a(i: Int): Int {
     return i * 2
 }
 可简化为
-fun a(i: Int) = i * 2
+fun a(i: Int) = i * 2     命名函数（有名字的函数）
 
 val list = listOf(1, 2, 3, 4, 5)
-list.map(::a)     函数引用
+
+list.map(::a)     对命名函数使用函数引用
 list.map { it * 2 }     匿名函数（没名字的函数）
 
 -------------------------------------------------------
 
 val list = listOf(1, 2, 3, 4, 5)
-list.map({ i -> i * 2 })     此高阶函数只接收一个函数
+
+list.map({ i -> i * 2 })     此高阶函数只需要一个函数参数
 可简化为
 list.map() { i -> i * 2 }     移至括号外
 可简化为
 list.map { i -> i * 2 }     省略括号
 可简化为
 list.map { it * 2 }     使用 `it` 替代
+
+-------------------------------------------------------
+
+val stringBuilder = StringBuilder("123").apply a@ {     在 Lambda 表达式处显式声明标签，以区分重名标签和 this 对象
+    println(this@a)
+    "456".apply {
+        println(this@apply)
+        this@a.append(this@apply)
+    }
+}
+println(stringBuilder)
+----
+输出：
+123
+456
+123456
+
+-------------------------------------------------------
+有标签限制的 break 跳转至该标签指定的循环，继续后面的表达式。
+有标签限制的 continue 跳转至该标签指定的循环，继续下一次迭代。
+
+a@ for (x in 0..9) {
+    b@ for (y in 10..19) {
+        if (x == 5 && y == 15) {
+            break@a     跳转至最外层循环并结束，最后输出：5 14
+        }
+        println("$x $y")
+    }
+}
+
+-------------------------------------------------------
+无标签限制的 return 默认返回结果至最直接包含它的函数，带标签限制的 return 通常应用于 Lambda 表达式。
+Kotlin 中的大部分类库扩展函数都带有 inline 签名，成为内联函数；若其又为高阶函数，则导致 Lambda 表达式
+不会引入新作用域，函数体中的变量和外部环境中的变量具有相同的语义。
+
+fun main(args: Array<String>) {
+    a()
+    println("————————————")
+    b()
+    println("————————————")
+    c()
+}
+fun a() {
+    val list1 = listOf(1, 2, 3, 4)
+    println(list1)
+    val list2 = list1.filter {     Lambda 表达式：无标签限制，返回结果至包含此 Lambda 表达式的函数 fun a()
+        print("+ ")
+        it % 2 == 0
+        return
+    }
+    println()
+    println(list2)
+}
+fun b() {
+    val list1 = listOf(1, 2, 3, 4)
+    println(list1)
+    val list2 = list1.filter {     Lambda 表达式：有标签限制，返回结果至 filter
+        print("+ ")
+        return@filter it % 2 == 0     隐式标签（与接收该 Lambda 表达式的高阶函数同名）
+    }
+    println()
+    println(list2)
+}
+fun c() {
+    val list1 = listOf(1, 2, 3, 4)
+    println(list1)
+    val list2 = list1.filter(fun(i: Int): Boolean {     匿名函数（与普通函数一致，只是没名字）：返回结果至 filter
+        print("+ ")
+        return i % 2 == 0
+    })
+    println()
+    println(list2)
+}
+----
+输出：
+[1, 2, 3, 4]
++
+————————————
+[1, 2, 3, 4]
++ + + +
+[2, 4]
+————————————
+[1, 2, 3, 4]
++ + + +
+[2, 4]
 ```
 
 ```kotlin
@@ -287,7 +376,7 @@ C -> 2
 
 val list = listOf('A', 'B', 'C')
 
-list.asIterable()     Iterable：急性求值（多用于小型集合）（默认）
+list.asIterable()     Iterable：急性求值（Eager）（多用于小型集合）（默认）
         .filter {
             println("filter：$it")
             true
@@ -307,7 +396,7 @@ map：B
 map：C
 65
 
-list.asSequence()     Sequence：惰性求值（多用于大型集合）（类似于 Java8 中的数据流）
+list.asSequence()     Sequence：惰性求值（Lazy）（多用于大型集合）（类似于 Java8 中的数据流）
         .filter {
             println("filter：$it")
             true
@@ -423,16 +512,18 @@ do {
 when（和所有分支条件顺序比较，用于替代 Java 中的 switch）：
 
 val i = 8
-when {     不带参数，匹配布尔类型，可替代 if-else if 链
+when (i) {     提供参数，匹配对应参数类型，替代 switch
+    0, 21 -> println("0 or 21")
+    in 1..20 -> println("1 to 20")     在
+    !in 22..100 -> print("x<0 or x>100")     不在
+    is String -> print("is String")     是
+    !is String -> print("not String")     不是
+    else -> println("other")
+}
+when {     不提供参数，匹配布尔类型，可替代 if-else if 链
     i < 5 -> println("first block")
     i < 10 -> println("second block")
     else -> println("else block")
-}
-when (i) {     带参数，匹配对应参数类型，替代 switch
-    0, 21 -> println("0 or 21")
-    in 1..20 -> println("1 to 20")
-    !in 22..100 -> print("x<0 or x>100")
-    else -> println("other")
 }
 
 -------------------------------------------------------
@@ -689,8 +780,9 @@ A(name=张三, age=0)
 A(name=无名氏, age=20)
 
 -------------------------------------------------------
+如果没有声明任何（主或次）构造函数，则默认生成 public 无参主构造函数。
 
-data class A private constructor(var name: String, var des: String) {     如果没有声明任何（主或次）构造函数，则默认生成 public 无参主构造函数；这里指定为 private
+data class A private constructor(var name: String, var des: String) {     这里指定为 private
     constructor(name: String) : this(name, "欢迎：$name")     默认 public
 }
 
