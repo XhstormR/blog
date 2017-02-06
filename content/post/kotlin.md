@@ -7,7 +7,7 @@ title = "Kotlin"
 
 <!--more-->
 
-Updated on 2017-02-03
+Updated on 2017-02-06
 
 > {{< image "/uploads/kotlin2.svg" "Kotlin" "1" "1" "225" >}}
 >
@@ -87,7 +87,7 @@ val b: Int = if (a != null) {     空检查
     -1
 }
 可简化为
-val c: Int = if (a != null) a.length else -1
+val c: Int = if (a != null) a.length else -1     可用于替代 Java 中的三元运算符
 可简化为
 val d: Int = a?.length ?: -1     `?:` 操作符：若左边表达式的返回值为 null 则执行右边表达式
 
@@ -133,20 +133,6 @@ show("A", *array, "D")     spread 操作符：在数组前加 `*`
 ----
 输出：
 A B C D
-
--------------------------------------------------------
-
-infix fun Int.abc(x: Int): Int {     中缀函数条件：为成员函数或扩展函数，只接收一个参数，函数签名带有 infix 关键字
-    println("OK!")
-    return this + x
-}
-
-println(1 abc 2 abc 3)
-----
-输出：
-OK!
-OK!
-6
 ```
 
 ```kotlin
@@ -163,13 +149,19 @@ public inline fun println(message: Int) {     函数类型：(Int) -> Unit（需
 
 val array = arrayOf(1, 2, 3, 4)
 
-array.filter(::a).forEach(::println)     使用函数引用
+array     使用函数引用
+    .filter(::a)
+    .forEach(::println)
 等同于
-array.filter { it % 2 == 0 }.forEach { System.out.println(it) }     使用匿名函数
+array     使用 Lambda 表达式
+    .filter { it % 2 == 0 }
+    .forEach { System.out.println(it) }
 等同于
 val aa: (Int) -> Boolean = ::a     将函数引用存储在变量中，类型（声明）为 "函数类型"
 val bb: (Int) -> Unit = ::println
-array.filter(aa).forEach(bb)     作为匿名函数使用
+array
+    .filter(aa)
+    .forEach(bb)
 ----
 输出：
 2
@@ -178,13 +170,14 @@ array.filter(aa).forEach(bb)     作为匿名函数使用
 -------------------------------------------------------
 高阶函数：一种将函数作为参数或返回值的函数。
     ↳ 函数参数：
-            ↳ 匿名函数：只能作为高阶函数的参数或返回值，也称作 Lambda 表达式，跟 Java8 中的概念相同。
+            ↳ Lambda 表达式：跟 Java8 中的概念相同，只能作为高阶函数的参数或返回值。
+            ↳ 匿名函数：没名字的函数，只能作为高阶函数的参数或返回值。
             ↳ 命名函数：可以通过函数引用作为高阶函数的参数。
                     ↳ 函数引用：把命名函数作为参数传入，通过在函数名称前加入 `::` 操作符实现。
 
 val array: Array<Char> = arrayOf('A', 'B', 'C', 'D')
 
-val list: MutableList<Int> = array.mapTo(mutableListOf(), { c -> c.toInt() })     mapTo 为高阶函数，{} 为 Lambda 表达式（匿名函数）
+val list: MutableList<Int> = array.mapTo(mutableListOf(), { c -> c.toInt() })     mapTo 为高阶函数，{} 为 Lambda 表达式
 可简化为
 val list: MutableList<Int> = array.mapTo(mutableListOf()) { c -> c.toInt() }     高阶函数中若最后一个参数是函数参数，可移至括号外；若只需要一个函数参数，可省略括号
 可简化为
@@ -207,8 +200,15 @@ fun a(i: Int) = i * 2     命名函数（有名字的函数）
 
 val list = listOf(1, 2, 3, 4, 5)
 
+list.map(fun(i: Int): Int {
+    return i * 2
+})
+可简化为
+list.map(fun(i: Int) = i * 2)     匿名函数（没名字的函数）
+----
 list.map(::a)     对命名函数使用函数引用
-list.map { it * 2 }     匿名函数（没名字的函数）
+----
+list.map { it * 2 }     Lambda 表达式
 
 -------------------------------------------------------
 
@@ -252,9 +252,14 @@ a@ for (x in 0..9) {
 }
 
 -------------------------------------------------------
-无标签限制的 return 默认返回结果至最直接包含它的函数，带标签限制的 return 通常应用于 Lambda 表达式。
-Kotlin 中的大部分类库扩展函数都带有 inline 签名，成为内联函数；若其又为高阶函数，则导致 Lambda 表达式
-不会引入新作用域，函数体中的变量和外部环境中的变量具有相同的语义。
+无标签限制的 return 返回结果至最直接包含它的函数；
+带标签限制的 return 一般应用于高阶函数中的 Lambda 表达式。
+
+inline 签名一般与高阶函数搭配使用，以优化 Lambda 表达式，直接将代码写至调用处，来减少函数调用栈的层数，但
+会增加代码生成量。
+
+Kotlin 类库中的大部分高阶扩展函数都带有 inline 签名，使其成为内联高阶扩展函数，导致 Lambda 表达式不会引入
+新作用域，函数体中的变量和外部环境中的变量具有相同的语义。
 
 fun main(args: Array<String>) {
     a()
@@ -266,7 +271,7 @@ fun main(args: Array<String>) {
 fun a() {
     val list1 = listOf(1, 2, 3, 4)
     println(list1)
-    val list2 = list1.filter {     Lambda 表达式：无标签限制，返回结果至包含此 Lambda 表达式的函数 fun a()
+    val list2 = list1.filter {     Lambda 表达式：无标签限制，返回结果至 fun a()（最直接包含此 Lambda 表达式的函数）
         print("+ ")
         it % 2 == 0
         return
@@ -287,7 +292,7 @@ fun b() {
 fun c() {
     val list1 = listOf(1, 2, 3, 4)
     println(list1)
-    val list2 = list1.filter(fun(i: Int): Boolean {     匿名函数（与普通函数一致，只是没名字）：返回结果至 filter
+    val list2 = list1.filter(fun(i: Int): Boolean {     匿名函数：返回结果至 filter
         print("+ ")
         return i % 2 == 0
     })
@@ -306,6 +311,69 @@ fun c() {
 [1, 2, 3, 4]
 + + + +
 [2, 4]
+
+-------------------------------------------------------
+
+fun main(args: Array<String>) {
+    print(1)
+    a {     未内联高阶函数：return 有 1 个选项，返回结果至 a
+        print(2)
+        return@a     隐式标签（与接收该 Lambda 表达式的高阶函数同名）
+    }
+    print(3)
+    ----
+    输出：
+    123
+
+    print(1)
+    b {     已内联高阶函数：return 有 2 个选项，返回结果至 b 或 main（最直接包含此 Lambda 表达式的函数）
+        print(2)
+        return
+    }
+    print(3)
+    ----
+    输出：
+    12
+
+    print(1)
+    b {     已内联高阶函数
+        print(2)
+        return@b     隐式标签（与接收该 Lambda 表达式的高阶函数同名）
+    }
+    print(3)
+    ----
+    输出：
+    123
+}
+
+fun a(block: () -> Unit) {     未内联高阶函数
+    block()
+}
+
+inline fun b(block: () -> Unit) {     已内联高阶函数
+    block()
+}
+
+-------------------------------------------------------
+注意 inline 修饰函数，crossinline、noinline 修饰函数参数
+
+inline fun a1(block: () -> Unit) {
+    block()     作为函数调用
+}
+
+inline fun a2(crossinline block: () -> Unit) {     可以通过 crossinline 修饰函数参数，交叉内联此函数参数
+    thread { block() }     作为函数调用
+    等同于
+    thread(block = { block() })     移至括号内并命名参数
+}
+
+inline fun x(block: () -> Unit) {
+    thread(block = block)     编译器报错：不能将内联函数作为参数传入
+}
+
+inline fun b(noinline block: () -> Unit) {     可以通过 noinline 修饰函数参数，取消内联此函数参数，从而可以作为参数传入；但 inline 签名就没起到作用了
+    thread(block = block)     作为普通参数传入
+}
 ```
 
 ```kotlin
@@ -516,8 +584,8 @@ when (i) {     提供参数，匹配对应参数类型，替代 switch
     0, 21 -> println("0 or 21")
     in 1..20 -> println("1 to 20")     在
     !in 22..100 -> print("x<0 or x>100")     不在
-    is String -> print("is String")     是
-    !is String -> print("not String")     不是
+    is Int -> print("is Int")     是（Smart Cast）
+    !is Int -> print("not Int")     不是
     else -> println("other")
 }
 when {     不提供参数，匹配布尔类型，可替代 if-else if 链
@@ -585,9 +653,10 @@ fun smartCast(x: Any) = when (x) {     简化表达式（省略函数体和返�
 
 val any: Any = "ABC" as Any     强制类型转换（若转换失败，则抛出异常 java.lang.ClassCastException）
 ----
-if (any is String) {     等同于 instanceof
-    println(any.length)     自动类型转换（Smart Cast 智能转型）
+if (any is String) {     等同于 instanceof，若通过检查，则在代码块中进行智能转型（Smart Cast）
+    println(any.length)     类型：String
 }
+println(any.length)     类型：Any，无 length 属性，报错
 
 -------------------------------------------------------
 
@@ -614,6 +683,24 @@ String.abc()     直接调用而不通过对象
 ABC
 
 -------------------------------------------------------
+中缀函数条件：
+1. 为成员函数或扩展函数
+2. 函数签名带有 infix 关键字
+3. 只接收一个参数
+
+infix fun Int.abc(x: Int): Int {
+    println("OK!")
+    return this + x
+}
+
+println(1 abc 2 abc 3)
+----
+输出：
+OK!
+OK!
+6
+
+-------------------------------------------------------
 
 FileOutputStream("""D:\123.txt""", true).bufferedWriter().use { it.write("${LocalDateTime.now()}\n") }     写
 FileInputStream("""D:\123.txt""").bufferedReader().useLines { it.forEach(::println) }     读
@@ -634,21 +721,21 @@ var <propertyName>: <PropertyType> [= <property_initializer>]
     [<getter>]
     [<setter>]
 
-Kotlin 中的属性默认实现 set/get 函数，我们可对其进行自定义
+Kotlin 中的属性实现默认 set/get 函数，我们可对其进行自定义
 ----
 class A {
     var s: String = "Hi"
-        set(value) {     可设置为 private，另外 val 没有 set 函数
+        get() {     get 可见性与此属性可见性一致
+            println("Get")
+            return field
+        }
+        set(value) {     set 可见性可设置为 private；另外 val 没有 set 函数和后备 field
             if (value.startsWith("H")) {
                 println("Set true")
                 field = value     field：当前属性 s；this：当前类 A
             } else {
                 println("Set false")
             }
-        }
-        get() {
-            println("Get")
-            return field
         }
 }
 
@@ -782,7 +869,7 @@ A(name=无名氏, age=20)
 -------------------------------------------------------
 如果没有声明任何（主或次）构造函数，则默认生成 public 无参主构造函数。
 
-data class A private constructor(var name: String, var des: String) {     这里指定为 private
+data class A private constructor(var name: String, var des: String) {     指定主构造函数为 private
     constructor(name: String) : this(name, "欢迎：$name")     默认 public
 }
 
@@ -844,9 +931,9 @@ println(o.x + o.y + o.z)     6
 
 对象声明（单例模式）：
 object MyObject {     单例对象（Singleton）
-    val AUTHOR = "XhstormR"
+    val AUTHOR = "XhstormR"     属性为 static
 
-    fun hello(): String {
+    fun hello(): String {     函数不为 static，可加上 "@JvmStatic" 注解成为 static 函数，针对属性同样还有 "@JvmField"，仅对 Java 互操作有影响。
         return "Hello $AUTHOR!"
     }
 }
