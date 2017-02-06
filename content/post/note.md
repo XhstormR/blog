@@ -152,11 +152,16 @@ https://download-installer.cdn.mozilla.net/pub/firefox/
 
 ## Hosts
 ```bash
+"C:\Windows\System32\drivers\etc\hosts"
+⇳
 64.233.189.121 feeds.feedburner.com
 64.233.189.121 www.repacks.org
 64.233.189.121 www.draw.io
 54.231.66.16 s3.amazonaws.com
 209.99.20.16 dl.dumptruck.goldenfrog.com
+151.101.128.133 blog.xhstormr.tk
+151.101.128.133 assets-cdn.github.com
+151.101.128.133 raw.githubusercontent.com
 ```
 
 ## Pandoc
@@ -396,7 +401,7 @@ ffmpeg.exe -i 123.gif -c:v libx264 -preset medium -crf 28 -c:a aac -b:a 128k 123
 H.265：
 ffmpeg.exe -i 123.gif -c:v libx265 -preset medium -crf 28 -c:a aac -b:a 128k 123.mp4
 VP9：
-ffmpeg.exe -i 123.gif -c:v libvpx-vp9 -crf 10 -b:v 0 -c:a libvorbis 123.webm
+ffmpeg.exe -i 123.gif -c:v libvpx-vp9 -crf 45 -b:v 0 -c:a libvorbis 123.webm
 H.264 to RAW：
 ffmpeg.exe -i 123.mp4 -vcodec copy -an -bsf:v h264_mp4toannexb 123.h264
 
