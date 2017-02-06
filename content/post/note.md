@@ -150,20 +150,6 @@ https://download-origin.cdn.mozilla.net/pub/firefox/
 https://download-installer.cdn.mozilla.net/pub/firefox/
 ```
 
-## Hosts
-```bash
-"C:\Windows\System32\drivers\etc\hosts"
-⇳
-64.233.189.121 feeds.feedburner.com
-64.233.189.121 www.repacks.org
-64.233.189.121 www.draw.io
-54.231.66.16 s3.amazonaws.com
-209.99.20.16 dl.dumptruck.goldenfrog.com
-151.101.128.133 blog.xhstormr.tk
-151.101.128.133 assets-cdn.github.com
-151.101.128.133 raw.githubusercontent.com
-```
-
 ## Pandoc
 ```bash
 将 Markdown 转化成 HTML：
@@ -328,6 +314,20 @@ http://www.apk4fun.com/
 chrome://net-internals/#hsts
 
 强制忽略证书错误：badidea
+```
+
+## Hosts
+```bash
+"C:\Windows\System32\drivers\etc\hosts"
+⇳
+64.233.189.121 feeds.feedburner.com
+64.233.189.121 www.repacks.org
+64.233.189.121 www.draw.io
+54.231.66.16 s3.amazonaws.com
+209.99.20.16 dl.dumptruck.goldenfrog.com
+151.101.128.133 blog.xhstormr.tk
+151.101.128.133 assets-cdn.github.com
+151.101.128.133 raw.githubusercontent.com
 ```
 
 ## SQL
