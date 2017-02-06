@@ -609,9 +609,9 @@ val s2 = when (Math.random() - Math.random() > 0) {     when 可作为表达式�
     false -> "失败"
     else -> "失败"
 }
-```
 
-```kotlin
+-------------------------------------------------------
+
 fun smartCast(x: Any): Boolean {     自动类型转换（智能转型）
     if (x is Boolean) {     通过类型检查后自动转换类型
         return x
@@ -648,9 +648,9 @@ fun smartCast(x: Any) = when (x) {     简化表达式（省略函数体和返�
     is String -> x.startsWith("Hello")
     else -> false
 }
+```
 
--------------------------------------------------------
-
+```kotlin
 val any: Any = "ABC" as Any     强制类型转换（若转换失败，则抛出异常 java.lang.ClassCastException）
 ----
 if (any is String) {     等同于 instanceof，若通过检查，则在代码块中进行智能转型（Smart Cast）
@@ -699,22 +699,6 @@ println(1 abc 2 abc 3)
 OK!
 OK!
 6
-
--------------------------------------------------------
-
-FileOutputStream("""D:\123.txt""", true).bufferedWriter().use { it.write("${LocalDateTime.now()}\n") }     写
-FileInputStream("""D:\123.txt""").bufferedReader().useLines { it.forEach(::println) }     读
-
--------------------------------------------------------
-
-val s1 = "ABC"
-val s2 = StringBuilder("ABC").toString()
-println(s1 == s2)     比较实际内容（ operator，调用 equals()）
-println(s1 === s2)     比较内存地址（Java 中的 `==`）
-----
-输出：
-true
-false
 
 -------------------------------------------------------
 var <propertyName>: <PropertyType> [= <property_initializer>]
@@ -878,6 +862,22 @@ println(A("张三"))
 ----
 输出：
 A(name=张三, des=欢迎：张三)
+
+-------------------------------------------------------
+
+fun main(args: Array<String>) {
+    Application.launch(A::class.java, *args)     从 KClass 对象获得 Class 对象
+}
+
+class A : Application() {     继承 Application 抽象类（构造方法）
+    override fun start(primaryStage: Stage) {     实现抽象方法
+        primaryStage.title = "ABC"
+        primaryStage.width = 400.toDouble()
+        primaryStage.height = 300.toDouble()
+        primaryStage.scene = Scene(BorderPane())
+        primaryStage.show()
+    }
+}
 ```
 
 ```kotlin
@@ -1069,20 +1069,6 @@ A()
 ```
 
 ```kotlin
-Kotlin：
-val a: Char = 'A'     在 Java 中为基本数据类型 char
-val b: Char? = 'B'     在 Java 中为引用数据类型 Character
-println(a)
-println(b)
-
-Convert to Java：
-char a = 65;
-Character b = Character.valueOf('B');
-System.out.println(a);
-System.out.println(b);
-```
-
-```kotlin
 val array = arrayOfNulls<Int>(5)     创建容量为 5 以 null 填充的空数组
 for (i in array.indices) {
     println(array[i])
@@ -1094,6 +1080,45 @@ null
 null
 null
 null
+
+-------------------------------------------------------
+
+val s1 = "ABC"
+val s2 = StringBuilder("ABC").toString()
+println(s1 == s2)     比较实际内容（ operator，调用 equals()）
+println(s1 === s2)     比较内存地址（Java 中的 `==`）
+----
+输出：
+true
+false
+
+-------------------------------------------------------
+
+Kotlin：
+val a: Char = 'A'     在 Java 中为基本数据类型 char
+val b: Char? = 'B'     在 Java 中为引用数据类型 Character
+println(a)
+println(b)
+
+Convert to Java：
+char a = 65;
+Character b = Character.valueOf('B');
+System.out.println(a);
+System.out.println(b);
+
+-------------------------------------------------------
+
+FileOutputStream("""D:\123.txt""", true).bufferedWriter().use { it.write("${LocalDateTime.now()}\n") }     写
+FileInputStream("""D:\123.txt""").bufferedReader().useLines { it.forEach(::println) }     读
+
+-------------------------------------------------------
+
+println(String().javaClass)     从实例对象获得 Class 对象
+println(String::class.java)     从 KClass 对象获得 Class 对象
+----
+输出：
+class java.lang.String     完全类名限定符
+class java.lang.String
 ```
 
 ![](/uploads/kotlin-transform.png "Transform")

@@ -34,6 +34,8 @@ Updated on 2016-06-30
 ### IDEA 快捷键
 ```xml
 F2     查找错误
+F5     复制文件
+F6     移动文件
 
 Ctrl+[]     转至大括号处
 Ctrl+W     扩大选区
@@ -51,7 +53,6 @@ ALT+。   内容辅助（自己设置 Class Name Completion）
 ALT+/     文字补全
 ALT+1     打开或隐藏工程面板
 ALT+Enter     快速修正
-Shift+F6     重构 - 重命名
 
 Ctrl+ALT+T     代码包围
 Ctrl+ALT+L     格式化代码
@@ -59,6 +60,13 @@ Ctrl+ALT+O     清除无效包引用
 Ctrl+Shift+J     合并行
 Ctrl+Shift+U     大小写转换
 Ctrl+Shift+Enter     完成声明
+
+Shift+F6     重构 - 重命名（Rename）
+Ctrl+ALT+N     内联（Inline）
+Ctrl+ALT+V     解构为变量（Variable）（Extract）
+Ctrl+ALT+F     解构为属性（Field）
+Ctrl+ALT+P     解构为参数（Parameter）
+Ctrl+ALT+M     解构为方法（Method）
 
 Ctrl+F9     Make Project
 Ctrl+Shift+F10     Run
