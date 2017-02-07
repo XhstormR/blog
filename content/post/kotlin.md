@@ -31,13 +31,20 @@ Updated on 2017-02-06
 
 ## Code
 ```kotlin
+// ABC
+
+/* DEF
+    GHI */
+
+-------------------------------------------------------
+
 fun main(args: Array<String>) {     main 函数（程序入口）
     println("Hello World!")
 }
 
 -------------------------------------------------------
 
-val a: String     先声明后赋值
+val a: String     先声明后赋值（没有初始化时，必须显式声明类型）
 a = "ABC"
 ----
 val a: String = "ABC"     声明对象的同时进行实例化（显式声明类型）
@@ -45,9 +52,10 @@ val a: String = "ABC"     声明对象的同时进行实例化（显式声明类
 val a = "ABC"     声明对象的同时进行实例化（自动推导类型）
 
 -------------------------------------------------------
+Kotlin 中没有基本 （Primitive） 数据类型，一切皆为引用 （Reference） 数据类型。
 
-var a = 123     变量（可变 get/set）
-val b = 123     常量（只读 get）
+var a = 123     变量（引用可变 get/set）
+val b = 123     常量（引用只读 get）
 
 -------------------------------------------------------
 
@@ -122,14 +130,14 @@ fun hello(name: String) = "Hello,$name"     若函数体只含有一句表达式
 
 -------------------------------------------------------
 
-fun show(vararg str: String): Unit {     vararg：可变长参数，视为数组（Array<out T>）
+fun show(vararg str: String): Unit {     vararg：可变长参数，接收数量 [0,∞)，视为数组 Array<out T>
     for (s in str) {     str 为 Array<out String>
         print(s + " ")
     }
 }
 
 val array: Array<String> = arrayOf("B", "C")
-show("A", *array, "D")     spread 操作符：在数组前加 `*`
+show("A", *array, "D")     展开（spread）操作符：在数组前加上 `*`
 ----
 输出：
 A B C D
@@ -174,6 +182,10 @@ array
             ↳ 匿名函数：没名字的函数，只能作为高阶函数的参数或返回值。
             ↳ 命名函数：可以通过函数引用作为高阶函数的参数。
                     ↳ 函数引用：把命名函数作为参数传入，通过在函数名称前加入 `::` 操作符实现。
+
+Lambda 表达式会形成一个闭包（捕捉使用到的外部变量，形成一个作用域），可以通过 Inline，消除这种开销。
+对象是带方法的数据；
+闭包是带数据的方法。
 
 val array: Array<Char> = arrayOf('A', 'B', 'C', 'D')
 
@@ -497,6 +509,16 @@ println(map)
 ----
 输出：
 {奇数=[3, 9, 15], 偶数=[6, 12, 18]}
+
+-------------------------------------------------------
+
+val list: List<Any> = listOf("A", "B", "C", 1, 2, 3, 4)
+list.filter { it is Int && it % 2 != 0 }.forEach(::println)
+                    ↳ 判断类型    ↳ 自动转型                ↳ 函数引用
+----
+输出：
+1
+3
 ```
 
 ```kotlin
@@ -705,7 +727,7 @@ var <propertyName>: <PropertyType> [= <property_initializer>]
     [<getter>]
     [<setter>]
 
-Kotlin 中的属性实现默认 set/get 函数，我们可对其进行自定义
+Kotlin 中的属性实现默认 get/set 函数，我们可对其进行自定义
 ----
 class A {
     var s: String = "Hi"
@@ -738,9 +760,8 @@ Get
 Hello
 
 -------------------------------------------------------
+委托属性（get/set 的工厂函数）
 
-委托属性（set/get 的工厂函数）
-----
 class A {
     val s1: String by lazy {     延迟属性：只会在第一次访问 get 的时候执行该代码块，并赋值
         println("123")                    ↳ 计算时为 synchronized，若不需要可关闭线程同步：by lazy(LazyThreadSafetyMode.NONE) {}
@@ -851,6 +872,7 @@ A(name=张三, age=0)
 A(name=无名氏, age=20)
 
 -------------------------------------------------------
+如果主构造函数的所有参数都有默认值，则默认再生成一个无参次构造函数。
 如果没有声明任何（主或次）构造函数，则默认生成 public 无参主构造函数。
 
 data class A private constructor(var name: String, var des: String) {     指定主构造函数为 private
@@ -869,8 +891,8 @@ fun main(args: Array<String>) {
     Application.launch(A::class.java, *args)     从 KClass 对象获得 Class 对象
 }
 
-class A : Application() {     继承 Application 抽象类（构造方法）
-    override fun start(primaryStage: Stage) {     实现抽象方法
+class A : Application() {     继承 Application 抽象类（显式调用构造函数）
+    override fun start(primaryStage: Stage) {     实现抽象函数
         primaryStage.title = "ABC"
         primaryStage.width = 400.toDouble()
         primaryStage.height = 300.toDouble()
@@ -1085,8 +1107,8 @@ null
 
 val s1 = "ABC"
 val s2 = StringBuilder("ABC").toString()
-println(s1 == s2)     比较实际内容（ operator，调用 equals()）
-println(s1 === s2)     比较内存地址（Java 中的 `==`）
+println(s1 == s2)     比较实际内容（ operator，调用 equals()），对应 !=
+println(s1 === s2)     比较内存地址（Java 中的 `==`），对应 !==
 ----
 输出：
 true

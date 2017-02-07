@@ -1,5 +1,5 @@
 baseurl = "http://blog.xhstormr.tk"
-languageCode = "en-us"
+languageCode = "zh-cn"
 title = "XhstormR"
 
 [Params]
