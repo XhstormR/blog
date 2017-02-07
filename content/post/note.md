@@ -318,7 +318,7 @@ chrome://net-internals/#hsts
 
 ## Hosts
 ```bash
-"C:\Windows\System32\drivers\etc\hosts"
+C:\Windows\System32\drivers\etc\
 ⇳
 64.233.189.121 feeds.feedburner.com
 64.233.189.121 www.repacks.org
