@@ -102,9 +102,15 @@ fun main(args: Array<String>) {
     dslContext.close()
 }
 
+-------------------------------------------------------
+
+原生 SQL 语句
+----
 val result = dslContext.resultQuery("select * from weather").fetch()
 val result = dslContext.resultQuery("select {0},{1},{2},{3},{4} from {5}", DSL.name("city"), DSL.name("temp_lo"), DSL.name("temp_hi"), DSL.name("date"), DSL.name("prcp"), DSL.name("weather")).fetch()
 
+防止 SQL Injection
+----
 DSL.name("abc")     "abc"
 DSL.inline("abc")      'abc'
 ```
