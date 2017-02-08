@@ -52,7 +52,7 @@ val a: String = "ABC"     声明对象的同时进行实例化（显式声明类
 val a = "ABC"     声明对象的同时进行实例化（自动推导类型）
 
 -------------------------------------------------------
-Kotlin 中没有基本 （Primitive） 数据类型，一切皆为引用 （Reference） 数据类型。
+Kotlin 中没有（Primitive）基本数据类型，一切皆为（Reference）引用数据类型。
 
 var a = 123     变量（引用可变 get/set）
 val b = 123     常量（引用只读 get）
@@ -101,7 +101,7 @@ val d: Int = a?.length ?: -1     `?:` 操作符：若左边表达式的返回值
 
 -------------------------------------------------------
 
-fun sum(x: Int = 1, y: Int = 1): Unit {     函数（参数可设定默认值，以减少重载）
+fun sum(x: Int = 1, y: Int = 1): Unit {     函数（设置参数默认值，以减少重载）
     println("$x+$y=${x + y}")     字符串模板
 }
 可简化为
@@ -109,7 +109,7 @@ fun sum(x: Int = 1, y: Int = 1) {     若返回值为 Unit (void)，则可省略
     println("$x+$y=${x + y}")
 }
 可简化为
-fun sum(x: Int = 1, y: Int = 1) = println("$x+$y=${x + y}")     若函数体只含有一句表达式，可省略函数体和返回值（自动推导类型）
+fun sum(x: Int = 1, y: Int = 1) = println("$x+$y=${x + y}")     若函数体只含有一句表达式，则可省略函数体和返回值（自动推导类型）
 
 sum()
 sum(3)
@@ -130,14 +130,14 @@ fun hello(name: String) = "Hello,$name"     若函数体只含有一句表达式
 
 -------------------------------------------------------
 
-fun show(vararg str: String): Unit {     vararg：可变长参数，接收数量 [0,∞)，视为数组 Array<out T>
+fun show(vararg str: String): Unit {     vararg：可变长参数，参数数量 [0,∞)，视为数组 Array<out T>
     for (s in str) {     str 为 Array<out String>
         print(s + " ")
     }
 }
 
 val array: Array<String> = arrayOf("B", "C")
-show("A", *array, "D")     展开（spread）操作符：在数组前加上 `*`
+show("A", *array, "D")     （spread）展开操作符：在数组前加上 `*`
 ----
 输出：
 A B C D
@@ -185,7 +185,7 @@ array
 
 Lambda 表达式会形成一个闭包（捕捉使用到的外部变量，形成一个作用域），可以通过 Inline，消除这种开销。
 对象是带方法的数据；
-闭包是带数据的方法。
+闭包是带数据的方法。（Closure）
 
 val array: Array<Char> = arrayOf('A', 'B', 'C', 'D')
 
@@ -599,7 +599,7 @@ do {
 
 -------------------------------------------------------
 
-when（和所有分支条件顺序比较，用于替代 Java 中的 switch）：
+when（和所有分支条件进行顺序比较，用于替代 Java 中的 switch）：
 
 val i = 8
 when (i) {     提供参数，匹配对应参数类型，替代 switch
@@ -617,16 +617,17 @@ when {     不提供参数，匹配布尔类型，可替代 if-else if 链
 }
 
 -------------------------------------------------------
+流程控制语句可作为表达式提供返回值。
 
-val s = if (Math.random() - Math.random() > 0) {     if 可作为表达式提供返回值（替代三元运算符）
+val s = if (Math.random() - Math.random() > 0) {
     "成功"
 } else {
     "失败"
 }
 可简化为
-val s = if (Math.random() - Math.random() > 0) "成功" else "失败"
+val s = if (Math.random() - Math.random() > 0) "成功" else "失败"     替代三元运算符
 
-val s2 = when (Math.random() - Math.random() > 0) {     when 可作为表达式提供返回值
+val s2 = when (Math.random() - Math.random() > 0) {
     true -> "成功"
     false -> "失败"
     else -> "失败"
@@ -646,7 +647,7 @@ fun smartCast(x: Any): Boolean {     自动类型转换（智能转型）
     }
 }
 可简化为
-fun smartCast(x: Any): Boolean {     替代 if-else if 链
+fun smartCast(x: Any): Boolean {     用 when 替代 if-else if 链
     when (x) {
         is Boolean -> return x
         is Int -> return x > 0
@@ -655,7 +656,7 @@ fun smartCast(x: Any): Boolean {     替代 if-else if 链
     }
 }
 可简化为
-fun smartCast(x: Any): Boolean {     作为返回值
+fun smartCast(x: Any): Boolean {     用 when 作为返回值
     return when (x) {
         is Boolean -> x
         is Int -> x > 0
@@ -727,7 +728,7 @@ var <propertyName>: <PropertyType> [= <property_initializer>]
     [<getter>]
     [<setter>]
 
-Kotlin 中的属性实现默认 get/set 函数，我们可对其进行自定义
+Kotlin 中对属性的访问自动转为对应的 get/set，编译器自动生成默认 get/set，我们可对其进行自定义。
 ----
 class A {
     var s: String = "Hi"
@@ -793,7 +794,7 @@ CCC
 
 委托属性：所有属性存储至 Map 中
 ----
-class User(val map: Map<String, Any?>) {     var 属性则需换成 MutableMap
+class User(val map: Map<String, Any?>) {     属性包含 var 则需换成 MutableMap
     val name: String by map
     val age: Int by map
 }
@@ -887,7 +888,12 @@ A(name=张三, des=欢迎：张三)
 
 -------------------------------------------------------
 
-fun main(args: Array<String>) {
+import javafx.application.Application
+import javafx.scene.Scene
+import javafx.scene.layout.BorderPane
+import javafx.stage.Stage
+
+fun main(args: Array<String>) {     JavaFX
     Application.launch(A::class.java, *args)     从 KClass 对象获得 Class 对象
 }
 
@@ -1148,6 +1154,28 @@ class java.lang.String
 ## Script
 ```
 D:\Download\kotlinc\bin>kotlinc -script DeleteFile.kts
+```
+
+## JavaScript
+```
+D:\Download\kotlinc\bin>kotlinc-js -output 123.js A.kt
+```
+
+```
+D:\Download\kotlinc\lib\kotlin-jslib.jar\kotlin.js
+```
+
+```html
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>123</title>
+</head>
+<body>
+    <script type="text/javascript" src="kotlin.js"></script>
+    <script type="text/javascript" src="123.js"></script>
+</body>
+</html>
 ```
 
 ## Reference

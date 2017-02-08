@@ -370,6 +370,7 @@ wget -m -k -E -np -c -N --no-if-modified-since -p -P ./123 https://java.sx/java/
 ```bash
 MSDN：
 http://msdn.itellyou.cn/
+https://www.microsoft.com/zh-cn/software-download/windows10ISO
 https://msdn.microsoft.com/en-us/subscriptions/downloads/
 https://msdn.microsoft.com/zh-cn/library/ms123401.aspx
 
