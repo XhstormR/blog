@@ -349,8 +349,8 @@ https://jcenter.bintray.com/org/postgresql/postgresql/
 
 initdb.exe -A md5 -E UTF8 --no-locale --lc-messages="Chinese (Simplified)_China.936" -U 123 -W -D D:\12345
 pg_ctl.exe -l D:\log.txt -D D:\12345 start
-psql.exe -e -E -h 127.0.0.1 -p 5432 -U 123 -W -d postgres
 pg_ctl.exe -l D:\log.txt -D D:\12345 stop
+psql.exe -e -E -h 127.0.0.1 -p 5432 -U 123 -W -d postgres
 
 compile 'org.postgresql:postgresql:9.4.1212'
 
