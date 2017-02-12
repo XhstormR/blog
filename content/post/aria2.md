@@ -37,6 +37,8 @@ enable-rpc=true
 rpc-listen-all=true
 rpc-allow-origin-all=true
 rpc-secret=123456
+listen-port=51413
+enable-dht=true
 bt-enable-lpd=true
 follow-torrent=true
 http-no-cache=true
@@ -45,6 +47,7 @@ referer=http://pan.baidu.com/disk/home
 user-agent=netdisk;5.3.4.5;PC;PC-Windows;5.1.2600;WindowsBaiduYunGuanJia
 seed-time=0
 max-overall-upload-limit=10K
+content-disposition-default-utf8=true
 ```
 
 ## YAAW Header

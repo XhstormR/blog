@@ -71,6 +71,7 @@ val a = "ABC"
 val b = "$a 的长度为${a.length}"     字符串模板
 
 -------------------------------------------------------
+Kotlin 中尽量将变量声明为不可空，不可变。
 
 var a: String = null     编译器报错：不可空变量
 var b: String? = null     通过 `?` 明确标识变量可为 null（可空变量）
@@ -109,7 +110,7 @@ fun sum(x: Int = 1, y: Int = 1) {     若返回值为 Unit (void)，则可省略
     println("$x+$y=${x + y}")
 }
 可简化为
-fun sum(x: Int = 1, y: Int = 1) = println("$x+$y=${x + y}")     若函数体只含有一句表达式，则可省略函数体和返回值（自动推导类型）
+fun sum(x: Int = 1, y: Int = 1) = println("$x+$y=${x + y}")     若函数体只含有 1 句表达式，则可省略函数体和返回值（自动推导类型）
 
 sum()
 sum(3)
@@ -126,7 +127,7 @@ fun hello(name: String): String {
     return "Hello,$name"
 }
 可简化为
-fun hello(name: String) = "Hello,$name"     若函数体只含有一句表达式，可省略函数体和返回值（自动推导类型）
+fun hello(name: String) = "Hello,$name"     若函数体只含有 1 句表达式，可省略函数体和返回值（自动推导类型）
 
 -------------------------------------------------------
 
@@ -235,6 +236,7 @@ list.map { i -> i * 2 }     省略括号
 list.map { it * 2 }     使用 `it` 替代
 
 -------------------------------------------------------
+无标签限制的 this 指向包含当前代码的最内层。
 
 val stringBuilder = StringBuilder("123").apply a@ {     在 Lambda 表达式处显式声明标签，以区分重名标签和 this 对象
     println(this@a)
@@ -338,7 +340,7 @@ fun main(args: Array<String>) {
     123
 
     print(1)
-    b {     已内联高阶函数：return 有 2 个选项，返回结果至 b 或 main（最直接包含此 Lambda 表达式的函数）
+    b {     已内联高阶函数：return 有 2 个选项，返回结果至 b（带标签） 或 main（不带标签）（最直接包含此 Lambda 表达式的函数）
         print(2)
         return
     }
@@ -396,7 +398,7 @@ data class A(val id: Int, val name: String) : Closeable {     数据类：hashCo
 }
 
 val a = A(1, "小明")     实例化对象
-val b = a.copy(name = "小张")     copy 函数
+val b = a.copy(name = "小张")     copy 函数（深度复制）
 val (x, y) = a     解构声明（component 函数）
 
 println("$x $y")     字符串模板
@@ -705,18 +707,28 @@ String.abc()     直接调用而不通过对象
 输出：
 ABC
 
+val String.str1: String     扩展属性（只能为 val），同样也有静态扩展属性
+    get() = "Hello"
+
+println("".str1)
+----
+输出：
+Hello
+
 -------------------------------------------------------
 中缀函数条件：
 1. 为成员函数或扩展函数
 2. 函数签名带有 infix 关键字
-3. 只接收一个参数
+3. 只接收 1 个参数
 
 infix fun Int.abc(x: Int): Int {
     println("OK!")
     return this + x
 }
 
-println(1 abc 2 abc 3)
+println(1.abc(2).abc(3))     点号标记法
+等同于
+println(1 abc 2 abc 3)     中缀标记法
 ----
 输出：
 OK!
@@ -728,7 +740,7 @@ var <propertyName>: <PropertyType> [= <property_initializer>]
     [<getter>]
     [<setter>]
 
-Kotlin 中对属性的访问自动转为对应的 get/set，编译器自动生成默认 get/set，我们可对其进行自定义。
+Kotlin 中对属性的访问自动转为编译器自动生成的默认 get/set，我们可对其进行自定义。
 ----
 class A {
     var s: String = "Hi"
@@ -794,8 +806,8 @@ CCC
 
 委托属性：所有属性存储至 Map 中
 ----
-class User(val map: Map<String, Any?>) {     属性包含 var 则需换成 MutableMap
-    val name: String by map
+class User(val map: Map<String, Any?>) {     若属性包含 var 则需换成 MutableMap
+    val name: String by map     属性名作为 Key
     val age: Int by map
 }
 
@@ -826,6 +838,14 @@ println(a.b)
 123
 AAA
 BBB
+
+-------------------------------------------------------
+编译期常数值：属性值在编译期间就能够确定，需满足以下条件：
+1. 为顶级属性或者是 object 的成员
+2. 为 String 或者是基本类型
+3. 为 val 且没有自定义的 get 函数
+
+const val i = 5
 ```
 
 ```kotlin
@@ -961,7 +981,7 @@ println(o.x + o.y + o.z)     6
 object MyObject {     单例对象（Singleton）
     val AUTHOR = "XhstormR"     属性为 static
 
-    fun hello(): String {     函数不为 static，可加上 "@JvmStatic" 注解成为 static 函数，针对属性同样还有 "@JvmField"，仅对 Java 互操作有影响。
+    fun hello(): String {     函数不为 static，可加上 "@JvmStatic" 注解成为 static 函数，针对属性同样还有 "@JvmField"，都仅对 Java 互操作有影响。
         return "Hello $AUTHOR!"
     }
 }
@@ -980,6 +1000,54 @@ open class A     A 类
 interface B     B 接口
 
 class C : A(), B     C 继承 A 并实现 B（类默认生成无参主构造函数，接口无构造函数且默认开放）
+```
+
+```kotlin
+（operator）操作符重载
+----
+class A(var i: Int) {
+    operator fun inc(): A {     a++
+        i++
+        return this
+    }
+
+    operator fun dec(): A {     a--
+        i--
+        return this
+    }
+
+    operator fun invoke(): Int {     a()
+        return i
+    }
+
+    operator fun get(index: Int): Int {     a[0]
+        return i
+    }
+
+    operator fun set(index: Int, int: Int) {     a[0] = 123
+        i = int
+    }
+
+    operator fun compareTo(o: A): Int {     >,<,>=,<=
+        return i.compareTo(o.i)
+    }
+
+    override operator fun equals(other: Any?): Boolean {     ==,!=（IDE 生成）
+        if (this === other) return true
+        if (other?.javaClass != javaClass) return false
+        other as A
+        if (i != other.i) return false
+        return true
+    }
+
+    override fun hashCode(): Int {     IDE 生成
+        return i
+    }
+
+    override fun toString(): String {     IDE 生成
+        return "A(i=$i)"
+    }
+}
 ```
 
 ```kotlin
@@ -1030,7 +1098,7 @@ class Initial {
 
 Kotlin：
 open class Test1 {     Kotlin 跟 Java 相反，类和方法都默认为 final（最终），需用 open（开放）指明可以继承
-    companion object {     伴生对象（static 初始化块、方法、属性）
+    companion object {     伴生对象（静态内部类 Companion）（static 初始化块、方法、属性）
         init {
             println("1父类静态初始化块")
         }
@@ -1043,7 +1111,7 @@ open class Test1 {     Kotlin 跟 Java 相反，类和方法都默认为 final�
 }
 ----
 class Test2 : Test1() {     需显式调用父类的构造方法
-    companion object {     伴生对象（static 初始化块、方法、属性）
+    companion object {     伴生对象（静态内部类 Companion）（static 初始化块、方法、属性）
         init {
             println("1子类静态初始化块")
         }
@@ -1071,7 +1139,7 @@ fun main(args: Array<String>) {
 -------------------------------------------------------
 
 class A {
-    companion object {
+    companion object {     伴生对象（静态内部类 Companion）（static 初始化块、方法、属性）
         var i = 0
         init {
             println("静态初始化块")
@@ -1094,6 +1162,50 @@ A()
 2 初始化块 构造函数(主)
 3 初始化块 构造函数(主)
 4 初始化块 构造函数(主)
+
+-------------------------------------------------------
+
+class A {
+    companion object {     伴生对象（静态内部类 Companion）（static 初始化块、方法、属性）
+        val list = arrayListOf<A>()
+    }
+
+    init {
+        list.add(this)
+    }
+}
+
+A()
+A()
+A()
+println(A.list)
+----
+输出：
+[A@2f0e140b, A@7440e464, A@49476842]
+
+-------------------------------------------------------
+默认内部类静态化，可在一定程度上降低发生内存泄露的概率。
+很多时候内部类仅用来存储数据，并不需要访问外部类的成员。
+
+class Outer {
+    private val bar = 1
+    class Nested {     Java 中的静态内部类：相当于独立出来的类，不会持有其外部类的强引用。
+        fun foo() = 2
+    }
+}
+
+Outer.Nested().foo()     不需要实例化外部类
+
+----
+
+class Outer {
+    private val bar = 1
+    inner class Nested {     Java 中的内部类：默认持有其外部类的强引用。
+        fun foo() = bar     可以访问外部类的成员
+    }
+}
+
+Outer().Nested().foo()     需要实例化外部类
 ```
 
 ```kotlin
