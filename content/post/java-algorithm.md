@@ -293,7 +293,7 @@ public class A {
     }
 
     private static int b(int x, int y) {     减（加负数）
-        y = a(~y, 1);     转为负数
+        y = a(~y, 1);     转为负数（补码）
         return a(x, y);
     }
 
@@ -356,6 +356,8 @@ public class Test {
 2
 3
 4
+
+PS：除法最后没实现，因为解决不了小数点的问题。
 ```
 
 ## 斐波那契数列

@@ -58,7 +58,7 @@ public class A {     静态内部类
     }
 
     public static A getInstance() {
-        return InstanceHolder.Instance;
+        return InstanceHolder.Instance;     由 JVM 类加载机制来保证单例
     }
 
     private static class InstanceHolder {     静态内部类为饿汉方式

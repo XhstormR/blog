@@ -390,6 +390,8 @@ https://access.redhat.com/products/red-hat-enterprise-linux/
 
 https://npm.taobao.org/mirrors
 http://mirrors.cnnic.cn/
+
+https://download.lineageos.org/
 ```
 
 ## FFmpeg
