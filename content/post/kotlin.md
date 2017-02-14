@@ -7,7 +7,7 @@ title = "Kotlin"
 
 <!--more-->
 
-Updated on 2017-02-06
+Updated on 2017-02-13
 
 > {{< image "/uploads/kotlin2.svg" "Kotlin" "1" "1" "225" >}}
 >
@@ -819,7 +819,7 @@ ABC 25
 
 -------------------------------------------------------
 
-属性延迟加载
+属性延迟加载（延迟初始化）
 ----
 class A {
     val a: String by lazy {     val 使用委托属性 by lazy {}：只会在第一次访问 get 的时候执行该代码块，并赋值
