@@ -11,7 +11,7 @@ Updated on 2017-02-14
 
 >
 
-* Socket：**操作系统提供** 的一个 API 接口，**不属于** TCP/IP 协议栈，工作在应用层与传输层之间，由 **协议** 和 **地址** 共同确定。
+* Socket：属于 **操作系统提供** 的一个 API 接口，**不属于** TCP/IP 协议栈，工作在应用层与传输层之间，由 **协议** 和 **地址** 共同确定。
   * 协议：TCP（面向连接，可靠）、UDP（面向无连接，不可靠）。
   * 地址：
       * IP：IPv4（192.168.1.1）、IPv6。
@@ -72,7 +72,59 @@ http://blog.xhstormr.tk:80/post/jooq/index.html?abc=123&def=456#top
 * ServerSocket
 
 ```kotlin
+服务端（多线程）：
+----
+fun main(args: Array<String>) {
+    ServerSocket(4567).use {
+        while (true) {
+            Thread(A(it.accept())).start()     监听连接，阻塞方法
+        }
+    }
+}
 
+class A(val socket: Socket) : Runnable {     线程体
+    override fun run() {
+        socket.use {
+            println("运行线程：${Thread.currentThread()}")
+            println("本地地址：${it.localAddress} 端口：${it.localPort}")
+            println("远端地址：${it.inetAddress} 端口：${it.port}")
+            val `in` = DataInputStream(it.inputStream)
+            val out = DataOutputStream(it.outputStream)
+            println("Receive：${`in`.readUTF()}")     阻塞方法
+            out.writeUTF("Hello Client!")
+        }     通讯结束
+    }     子线程结束
+}
+
+----
+输出：
+运行线程：Thread[Thread-0,5,main]
+本地地址：/127.0.0.1 端口：4567
+远端地址：/127.0.0.1 端口：54569
+Receive：Hello Server!
+```
+
+```kotlin
+客户端：
+----
+fun main(args: Array<String>) {
+    Socket("127.0.0.1", 4567).use {
+        println("运行线程：${Thread.currentThread()}")
+        println("本地地址：${it.localAddress} 端口：${it.localPort}")
+        println("远端地址：${it.inetAddress} 端口：${it.port}")
+        val `in` = DataInputStream(it.inputStream)
+        val out = DataOutputStream(it.outputStream)
+        out.writeUTF("Hello Server!")
+        println("Receive：${`in`.readUTF()}")     阻塞方法
+    }     通讯结束
+}     主线程结束
+
+----
+输出：
+运行线程：Thread[main,5,main]
+本地地址：/127.0.0.1 端口：54569
+远端地址：/127.0.0.1 端口：4567
+Receive：Hello Client!
 ```
 
 ## UDP
@@ -80,5 +132,13 @@ http://blog.xhstormr.tk:80/post/jooq/index.html?abc=123&def=456#top
 * DatagramPacket
 
 ```kotlin
+服务端：
+----
+
+```
+
+```kotlin
+客户端：
+----
 
 ```

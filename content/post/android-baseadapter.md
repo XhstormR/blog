@@ -131,7 +131,7 @@ public class MyBaseAdapter extends BaseAdapter {     自定义适配器
         return convertView;     第三种使用了缓存页面并通过 ViewHolder 缓存页面布局
     }
 
-    private class ViewHolder {     定义内部类 ViewHolder 保存页面布局
+    private static class ViewHolder {     定义静态内部类 ViewHolder 保存页面布局
         private ImageView imageView;     保存的控件
         private TextView title;     保存的控件
         private TextView content;     保存的控件
