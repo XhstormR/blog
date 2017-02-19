@@ -890,7 +890,7 @@ tar -[cxt]f [打包解包文件名] [源文件]
 -z #直接打包为.tar.gz文件
 -j #直接打包为.tar.bz2文件
 
-tar -xf 123.tar.gz -C /tmp/ #指定解包位置
+tar -xvf 123.tar.gz -C /tmp/ #指定解包位置
 ```
 
 ## CentOS 7
