@@ -1,7 +1,7 @@
 +++
 Categories = ["SQL"]
 date = "2017-02-19T20:39:57+08:00"
-title = "PostgreSQL"
+title = "自学 PostgreSQL"
 
 +++
 
@@ -12,6 +12,12 @@ Updated on 2017-02-19
 > {{< image "/uploads/postgresql.svg" "PostgreSQL" "1" "1" "375" >}}
 >
 > https://www.postgresql.org/
+>
+> https://jdbc.postgresql.org/download.html
+>
+> https://github.com/pgjdbc/pgjdbc
+>
+> https://github.com/postgres/postgres
 >
 > https://jcenter.bintray.com/org/postgresql/postgresql/
 >
@@ -42,3 +48,19 @@ Updated on 2017-02-19
       * 实体对象（Entity）
 * 对象关系映射（ORM）：Object Relation Mapping
       * **类**中的**对象**的**属性**（Java）<— 映射（ORM） —>**表**中的**记录**的**字段**（Database）
+
+## Initial
+```bash
+initdb.exe -A md5 -E UTF8 --no-locale --lc-messages="Chinese (Simplified)_China.936" -U 123 -W -D D:\12345
+pg_ctl.exe -l D:\log.txt -D D:\12345 start
+pg_ctl.exe -l D:\log.txt -D D:\12345 stop
+psql.exe -e -E -h 127.0.0.1 -p 5432 -U 123 -W -d postgres
+
+compile 'org.postgresql:postgresql:42.0.0'
+```
+
+## Tool
+* http://www.heidisql.com/download.php
+* https://www.postgresql.org/ftp/pgadmin3/pgadmin4/
+* https://github.com/sosedoff/pgweb/releases/latest
+* https://www.jetbrains.com/datagrip/
