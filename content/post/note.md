@@ -340,25 +340,6 @@ https://jcenter.bintray.com/org/xerial/sqlite-jdbc/
 sqlite3.exe 123.db ".mode column" ".header on" "select * from user;" > 1.txt
 
 compile 'org.xerial:sqlite-jdbc:3.16.1'
-
-PostgreSQL
-https://www.enterprisedb.com/download-postgresql-binaries
-https://jdbc.postgresql.org/download.html
-https://github.com/pgjdbc/pgjdbc
-https://jcenter.bintray.com/org/postgresql/postgresql/
-
-initdb.exe -A md5 -E UTF8 --no-locale --lc-messages="Chinese (Simplified)_China.936" -U 123 -W -D D:\12345
-pg_ctl.exe -l D:\log.txt -D D:\12345 start
-pg_ctl.exe -l D:\log.txt -D D:\12345 stop
-psql.exe -e -E -h 127.0.0.1 -p 5432 -U 123 -W -d postgres
-
-compile 'org.postgresql:postgresql:9.4.1212'
-
-Tool：
-http://www.heidisql.com/download.php
-https://www.postgresql.org/ftp/pgadmin3/pgadmin4/
-https://github.com/sosedoff/pgweb/releases/latest
-https://www.jetbrains.com/datagrip/
 ```
 
 ## Wget 递归下载
