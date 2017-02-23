@@ -15,6 +15,8 @@ Updated on 2017-02-19
 >
 > https://jdbc.postgresql.org/download.html
 >
+> https://www.postgresql.org/docs/current/static/index.html
+>
 > https://github.com/pgjdbc/pgjdbc
 >
 > https://github.com/postgres/postgres
@@ -57,6 +59,270 @@ pg_ctl.exe -l D:\log.txt -D D:\12345 stop
 psql.exe -e -E -h 127.0.0.1 -p 5432 -U 123 -W -d postgres
 
 compile 'org.postgresql:postgresql:42.0.0'
+```
+
+## Operate
+```bash
+\c     切换数据库
+\l     列出数据库
+\d     列出表、序列、视图
+\du     列出角色
+\dn     列出模式
+\dx     列出扩展
+
+\g     执行查询缓存区
+\p     显示查询缓存区
+\r     重置查询缓存区
+\e     使用外部编辑器编辑查询缓存区
+\w     将当前查询缓存区写至文件
+\o     将所有查询结果写至文件
+\i     将文件写至查询缓存区
+
+\x     垂直显示查询结果（\x\g\x）
+\t     只显示查询结果（无页眉和页脚）
+\H     切换为 HTML 输出模式
+
+\q     退出 psql
+\h     SQL 语法说明
+\!     执行外部命令
+\set PROMPT1 123     设置提示符（https://www.postgresql.org/docs/current/static/app-psql.html#APP-PSQL-PROMPTING）
+\pset pager off     关闭分页
+\timing     计时
+\conninfo     显示连接信息
+\password     修改密码
+\encoding     修改客户端编码
+
+show all;     显示所有系统信息
+show config_file;     显示系统配置文件
+show server_version;     显示系统版本
+show server_encoding;     显示服务端编码
+show client_encoding;     显示客户端编码
+
+select version();     显示系统版本
+select now();     显示当前日期+时间
+select current_timestamp;     显示当前日期+时间
+select current_date;     显示当前日期
+select current_time;     显示当前时间
+select current_user;     显示当前用户
+select current_database();     显示当前数据库
+
+{}     必选项
+[]     可选项
+|     选择分隔符
+```
+
+## Table
+### Create
+```sql
+DROP TABLE a;
+
+-------------------------------------------------------
+
+CREATE TABLE a (
+  id    INTEGER,
+  name  TEXT,
+  price NUMERIC
+);
+
+-------------------------------------------------------
+缺省值字段
+
+CREATE TABLE a (
+  id    SERIAL,     整形自增
+  name  TEXT,
+  price NUMERIC DEFAULT 9.99     默认值
+);
+
+-------------------------------------------------------
+检查约束：字段需要满足某个布尔表达式。
+表约束和列约束的区别是声明的位置不一样。
+
+非空约束
+检查约束
+
+CREATE TABLE a (
+  id    INTEGER,
+  name  TEXT NOT NULL,     非空约束
+  price NUMERIC,
+  CHECK (price > 0),     "a_price_check"（检查约束）（表约束）（匿名）
+  CONSTRAINT abc CHECK (price > 0)     "abc"（检查约束）（表约束）（命名）
+);
+
+----
+唯一性约束
+
+CREATE TABLE a (
+  id    INTEGER UNIQUE,     "a_id_key"（唯一性约束）（列约束）（匿名）
+  name  TEXT,
+  price NUMERIC
+);
+等同于
+CREATE TABLE a (
+  id    INTEGER,
+  name  TEXT,
+  price NUMERIC,
+  UNIQUE (id)     "a_id_key"（唯一性约束）（表约束）（匿名）
+);
+等同于
+CREATE TABLE a (
+  id    INTEGER,
+  name  TEXT,
+  price NUMERIC,
+  CONSTRAINT abc UNIQUE (id)     "abc"（唯一性约束）（表约束）（命名）
+);
+
+----
+联合唯一性约束 = 列组 + 唯一性约束
+
+CREATE TABLE a (
+  id    INTEGER,
+  name  TEXT,
+  price NUMERIC,
+  UNIQUE (id, name)     "a_id_name_key"（联合唯一性约束）（表约束）（匿名）
+);
+
+-------------------------------------------------------
+主键 = 主键约束（列或列组）= 唯一且非空 = 唯一性约束 + 非空约束 = 记录的唯一标识符
+PRIMARY KEY = UNIQUE NOT NULL
+
+CREATE TABLE a (
+  id    INTEGER PRIMARY KEY,     "a_pkey"（匿名）
+  name  TEXT,
+  price NUMERIC
+);
+等同于
+CREATE TABLE a (
+  id    INTEGER CONSTRAINT abc PRIMARY KEY,     "abc"（命名）
+  name  TEXT,
+  price NUMERIC
+);
+等同于
+CREATE TABLE a (
+  id    INTEGER,
+  name  TEXT,
+  price NUMERIC,
+  PRIMARY KEY (id)     "a_pkey"（表约束）
+);
+
+----
+联合主键 = 列组 + 主键
+
+CREATE TABLE a (
+  id    INTEGER,
+  name  TEXT,
+  price NUMERIC,
+  PRIMARY KEY (id, name)     "a_pkey"
+);
+
+-------------------------------------------------------
+外键 = 外键约束（列或列组）= 匹配（引用）另一张表的主键 = 维持关联表之间的引用完整性（数据一致性）
+
+CREATE TABLE a (     主表
+  id    INTEGER PRIMARY KEY,     主键
+  name  TEXT,
+  price NUMERIC
+);
+
+CREATE TABLE b (     从表
+  id    INTEGER PRIMARY KEY,     主键
+  a_no  INTEGER REFERENCES a (id),     外键
+  count INTEGER
+);
+等同于
+CREATE TABLE b (
+  id    INTEGER PRIMARY KEY,
+  a_no  INTEGER REFERENCES a,     自动将被引用表的主键作为被引用列
+  count INTEGER
+);
+等同于
+CREATE TABLE b (
+  id    INTEGER PRIMARY KEY,
+  a_no  INTEGER,
+  count INTEGER,
+  FOREIGN KEY (a_no) REFERENCES a     表约束
+);
+等同于
+CREATE TABLE b (     从表
+  id    INTEGER,
+  a_no  INTEGER,
+  count INTEGER,
+  PRIMARY KEY (id),     主键（表约束）（匿名）
+  FOREIGN KEY (a_no) REFERENCES a     外键（表约束）（匿名）
+);
+
+-------------------------------------------------------
+当删除或更新主表中的某条记录中的主键字段时，由于该条记录的主键字段被从表中某条记录所引用，所以操作将会失败（缺省）。
+
+操作（主表）：
+ON DELETE
+ON UPDATE
+
+响应（从表）：
+NO ACTION     不允许该操作（事务晚些时候检查）（缺省）
+RESTRICT     不允许该操作（事务早些时候检查）（常用）
+CASCADE     递归操作（删除引用行、引用行字段置为更新值）（常用）
+SET DEFAULT     引用行字段置为默认值
+SET NULL     引用行字段置为 NULL
+
+CREATE TABLE b (     从表
+  id    INTEGER,
+  a_no  INTEGER,
+  count INTEGER,
+  PRIMARY KEY (id),     主键
+  FOREIGN KEY (a_no) REFERENCES a ON UPDATE CASCADE     外键（主表中被引用的记录不允许删除，但允许更新）
+);
+```
+
+### Alter
+```sql
+添加字段（列）
+-------------------------------------------------------
+ALTER TABLE a
+  ADD COLUMN description TEXT;     已存在的记录的新字段将自动填充 NULL
+
+ALTER TABLE a
+  ADD COLUMN description TEXT DEFAULT '未描述' CHECK (description != '');     可以使用 CREATE TABLE 中对字段的描述语法
+
+删除字段（列）
+-------------------------------------------------------
+ALTER TABLE a DROP COLUMN description;
+
+添加约束     表中的数据需在约束被添加之前就已经符合约束，否则将添加失败
+-------------------------------------------------------
+ALTER TABLE a ADD CHECK (name != '');     检查约束
+ALTER TABLE a ADD UNIQUE (name);     唯一性约束
+ALTER TABLE a ADD FOREIGN KEY (name) REFERENCES b;     外键约束
+ALTER TABLE a ALTER COLUMN name SET NOT NULL;     非空约束（没有表约束，只有列约束；并且没有名称）
+
+删除约束
+-------------------------------------------------------
+ALTER TABLE a DROP CONSTRAINT "a_name_check";     约束
+ALTER TABLE a ALTER COLUMN name DROP NOT NULL;     非空约束（没有表约束，只有列约束；并且没有名称）
+
+更改列的默认值     不会影响已存在的记录
+-------------------------------------------------------
+ALTER TABLE a ALTER COLUMN description SET DEFAULT '未描述';     添加
+ALTER TABLE a ALTER COLUMN description DROP DEFAULT;     删除（默认值为 NULL）
+
+更改列的数据类型     表中的数据需通过隐式转换才能成功，否则需要使用 USING 子句进行显式转换
+-------------------------------------------------------
+ALTER TABLE a ALTER COLUMN description TYPE VARCHAR;
+
+重命名字段
+-------------------------------------------------------
+ALTER TABLE a RENAME COLUMN description TO characterization;
+
+重命名表
+-------------------------------------------------------
+ALTER TABLE a RENAME TO b;
+```
+
+## Schema
+
+{{< image "/uploads/postgresql-schema.png" "PostgreSQL" "0" "1" >}}
+
+```sql
+
 ```
 
 ## Tool

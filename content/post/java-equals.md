@@ -17,9 +17,9 @@ Updated on 2016-07-16
 
 {{< image "/uploads/java-equals.svg" "== and equals" "1" "1" >}}
 
-![](/uploads/java-equals-object.png "Object 类")
+{{< image "/uploads/java-equals-object.png" "Object 类" "0" "1" >}}
 
-![](/uploads/java-equals-string.png "String 类")
+{{< image "/uploads/java-equals-string.png" "String 类" "0" "1" >}}
 
 ```java
 class Demo {

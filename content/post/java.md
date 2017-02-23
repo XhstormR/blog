@@ -54,7 +54,7 @@ ALT+/     文字补全
 ALT+1     打开或隐藏工程面板
 ALT+Enter     快速修正
 
-Ctrl+ALT+T     代码包围
+Ctrl+ALT+T     代码包围（try-catch）
 Ctrl+ALT+L     格式化代码
 Ctrl+ALT+O     清除无效包引用
 Ctrl+Shift+J     合并行
