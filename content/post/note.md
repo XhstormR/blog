@@ -260,6 +260,8 @@ https://danmu2ass.codeplex.com/releases
 
 ## Chrome CSS
 ```css
+正则排除网址：((?!localhost|xhstormr.tk).)*
+
 a{text-decoration:none !important}
 a:hover { text-decoration: underline !important;}
 *:not([class*="icon"]):not(i){font-family: "Microsoft YaHei","Symbol" !important;}
