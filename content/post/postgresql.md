@@ -109,6 +109,10 @@ select current_database();     显示当前数据库
 {}     必选项
 []     可选项
 |     选择分隔符
+
+''     表示字符串
+""     表示标识符（用于区分大小写和关键字；不常用，因为一般情况下标识符都为小写，并且不会与关键字重名，空格用 '_' 代替）
+     建议双引号要么都带，要么都不带。
 ```
 
 ## Table
@@ -134,11 +138,10 @@ CREATE TABLE a (
 );
 
 -------------------------------------------------------
-检查约束：字段需要满足某个布尔表达式。
 表约束和列约束的区别是声明的位置不一样。
 
 非空约束
-检查约束
+检查约束（字段需要满足某个布尔表达式）
 
 CREATE TABLE a (
   id    INTEGER,
@@ -322,7 +325,139 @@ ALTER TABLE a RENAME TO b;
 {{< image "/uploads/postgresql-schema.png" "PostgreSQL" "0" "1" >}}
 
 ```sql
+一个数据库集簇（Cluster）中的所有数据库只会共享 pg_database（数据库列表）、pg_group（用户组列表）、pg_shadow（有效用户列表）。
 
+一个数据库中又包含一个或多个模式（Schema）。
+
+一个模式中又包含表、函数、操作符、数据类型等其他对象。
+
+-------------------------------------------------------
+
+CREATE SCHEMA a;     创建模式
+
+-------------------------------------------------------
+
+DROP SCHEMA a;     删除模式（模式需清空）
+
+DROP SCHEMA a CASCADE;     递归删除模式
+
+-------------------------------------------------------
+PostgreSQL 会自动将不带限定名的访问指向 public 模式。
+
+CREATE TABLE a ();
+等同于
+CREATE TABLE public.a ();
+
+-------------------------------------------------------
+模式搜索路径
+
+SHOW search_path;     查看
+
+SET search_path TO a,public;     设置
+```
+
+## Inherit
+```sql
+CREATE TABLE a (     创建父表
+  a_id INTEGER
+);
+
+CREATE TABLE b (     创建子表
+  b_id INTEGER
+) INHERITS (a);     继承自 a 表（拥有 a 表的所有字段）
+
+----
+
+postgres=# \d+ a     查看父表属性
+                 数据表 "public.a"
+ 栏位 |  类型   | 修饰词 | 存储  | 统计目标 | 描述
+ a_id | integer |        | plain |          |
+子表: b
+
+postgres=# \d+ b     查看子表属性
+                 数据表 "public.b"
+ 栏位 |  类型   | 修饰词 | 存储  | 统计目标 | 描述
+ a_id | integer |        | plain |          |
+ b_id | integer |        | plain |          |
+继承: a
+
+-------------------------------------------------------
+
+INSERT INTO a VALUES (1);     父表插入记录
+INSERT INTO a VALUES (2);
+INSERT INTO a VALUES (3);
+INSERT INTO b VALUES (1, 101);     子表插入记录
+
+SELECT * FROM a;     默认包括所有子表记录
+ a_id
+------
+    1
+    2
+    3
+    1
+SELECT * FROM ONLY a;     显式声明只查看父表记录（SELECT、UPDATE、DELETE 都支持 ONLY 关键字;）
+ a_id
+------
+    1
+    2
+    3
+SELECT * FROM b;     查看子表记录
+ a_id | b_id
+------+------
+    1 |  101
+
+-------------------------------------------------------
+
+TRUNCATE TABLE a;     使用 TRUNCATE 清空父表记录时，子表记录会一同被清空
+SELECT * FROM a;     默认包括所有子表记录
+ a_id
+------
+
+-------------------------------------------------------
+确定记录来源
+
+SELECT
+  a.*,
+  a.TABLEOID     tableoid 为系统隐含字段
+FROM a;
+ a_id | tableoid
+------+----------
+    1 |    17126
+    2 |    17126
+    3 |    17126
+    1 |    17129
+
+SELECT
+  a.*,
+  p.relname
+FROM a, pg_class p
+WHERE a.TABLEOID = p.OID;     将 tableoid 与系统表 pg_class 进行关联以获得实际表名
+ a_id | relname
+------+---------
+    1 | a
+    2 | a
+    3 | a
+    1 | b
+
+----
+
+SELECT
+  a.*,
+  a.TABLEOID :: REGCLASS
+FROM a;
+ a_id | tableoid
+------+----------
+    1 | a
+    2 | a
+    3 | a
+    1 | b
+
+-------------------------------------------------------
+多表继承：一个表可以有多个父表，此时它拥有所有父表们的字段总和。
+                 若出现同名字段，则必须是相同数据类型，否则将继承失败；合并后的字段拥有它所继承的字段的所有约束（检查、非空）。
+
+约束：父表上的检查约束和非空约束都会被继承，而其他类型的约束（唯一、主键、外键）则不会被继承。
+访问权限：表的继承并不包括访问权限；因此，访问父表的用户还必须具有访问子表的权限，或者使用 ONLY 关键字显式声明只查看父表记录。
 ```
 
 ## Tool
