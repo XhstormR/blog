@@ -55,6 +55,7 @@ Updated on 2017-02-19
 ```bash
 initdb.exe -A md5 -E UTF8 --no-locale --lc-messages="Chinese (Simplified)_China.936" -U 123 -W -D D:\12345
 pg_ctl.exe -l D:\log.txt -D D:\12345 start
+pg_ctl.exe -l D:\log.txt -D D:\12345 status
 pg_ctl.exe -l D:\log.txt -D D:\12345 stop
 psql.exe -e -E -h 127.0.0.1 -p 5432 -U 123 -W -d postgres
 
@@ -68,6 +69,7 @@ compile 'org.postgresql:postgresql:42.0.0'
 \d     列出表、序列、视图
 \du     列出角色
 \dn     列出模式
+\df     列出函数
 \dx     列出扩展
 
 \g     执行查询缓存区
@@ -105,6 +107,7 @@ select current_date;     显示当前日期
 select current_time;     显示当前时间
 select current_user;     显示当前用户
 select current_database();     显示当前数据库
+select pg_postmaster_start_time();     显示系统启动日期
 
 {}     必选项
 []     可选项
@@ -329,7 +332,9 @@ ALTER TABLE a RENAME TO b;
 
 一个数据库中又包含一个或多个模式（Schema）。
 
-一个模式中又包含表、函数、操作符、数据类型等其他对象。
+一个模式中又包含表、函数、操作符、数据类型等其他类型。
+
+层次：服务器 -> 数据库 -> 模式 -> 对象（表...）
 
 -------------------------------------------------------
 
@@ -458,6 +463,550 @@ FROM a;
 
 约束：父表上的检查约束和非空约束都会被继承，而其他类型的约束（唯一、主键、外键）则不会被继承。
 访问权限：表的继承并不包括访问权限；因此，访问父表的用户还必须具有访问子表的权限，或者使用 ONLY 关键字显式声明只查看父表记录。
+```
+
+## Partition
+```sql
+分区：通过继承来实现数据分离。
+范围划分
+列表划分
+
+```
+
+## Function
+### SQL（查询语言函数）
+```sql
+函数：可重载，有多态。
+函数体：包含在字符文本中的 SQL 语句集合（''、$$$$（推荐））。
+参数修饰：IN（输入）（缺省），OUT（输出），INOUT（输入+输出），VARIADIC（可变长参数）。
+
+CREATE TABLE a (     测试表
+  name   TEXT,
+  age    INTEGER,
+  salary NUMERIC
+);
+
+INSERT INTO a VALUES ('小张', 25, 4999.9);     测试数据
+INSERT INTO a VALUES ('小陈', 23, 3999.9);
+
+-------------------------------------------------------
+若函数返回值不为 Void，则最后一条语句必须是 SELECT、INSERT、UPDATE、带有 RETURNING 子句的 DELETE。
+
+CREATE OR REPLACE FUNCTION a(IN INTEGER, OUT VOID) AS $$     接收 INTEGER，返回 Void（创建）
+$$ LANGUAGE SQL;
+等同于
+CREATE OR REPLACE FUNCTION a(INTEGER) RETURNS VOID AS $$     IN：缺省值，可省略；OUT：需显式声明（单个结果可在括号外声明）
+$$ LANGUAGE SQL;
+等同于
+CREATE OR REPLACE FUNCTION a(INTEGER) RETURNS VOID AS ''     使用 '' 替代 $$$$ 表示字符串
+LANGUAGE SQL;
+
+DROP FUNCTION a( INTEGER );     （删除）
+
+SELECT a(1);     返回 Void（NULL）（调用）
+
+-------------------------------------------------------
+基本类型
+
+CREATE OR REPLACE FUNCTION a(OUT INTEGER) AS $$     无参，返回 INTEGER
+SELECT 1;     返回 1
+$$ LANGUAGE SQL;
+
+DROP FUNCTION a();
+
+SELECT a();
+
+----
+
+CREATE OR REPLACE FUNCTION a(OUT VOID) AS $$     无参，返回 NULL
+DROP TABLE a CASCADE;     递归删除表 a
+$$ LANGUAGE SQL;
+
+DROP FUNCTION a();
+
+SELECT a();
+
+----
+
+CREATE OR REPLACE FUNCTION a(INTEGER, INTEGER, OUT INTEGER) AS $$
+SELECT $1 + $2;     通过 $n 调用入参
+$$ LANGUAGE SQL;
+
+DROP FUNCTION a( INTEGER, INTEGER );
+
+SELECT a(1, 2);     返回 3
+
+-------------------------------------------------------
+
+CREATE OR REPLACE FUNCTION a(a a, OUT INTEGER) AS $$
+SELECT (a.salary * 2) :: INTEGER;     NUMERIC ➜ INTEGER
+$$ LANGUAGE SQL;
+
+DROP FUNCTION a( a );
+
+SELECT name, a(a) dream FROM a;
+ name | dream
+------+-------
+ 小张 | 10000
+ 小陈 |  8000
+SELECT name, a(ROW (name, age, salary * 1.1)) dream FROM a;     ROW 构造函数
+ name | dream
+------+-------
+ 小张 | 11000
+ 小陈 |  8800
+
+-------------------------------------------------------
+返回值为复合类型（多个列（结果））
+
+CREATE OR REPLACE FUNCTION a(OUT a) AS $$     返回 a 类型
+SELECT ROW ('小红', 21, 3499.9) :: a;     Record ➜ a
+$$ LANGUAGE SQL;
+
+DROP FUNCTION a();
+
+SELECT ROW ('小红', 21, 3499.9) :: a;
+等同于
+SELECT a();
+       row
+------------------
+ (小红,21,3499.9)
+
+SELECT (a()).name;
+ name
+------
+ 小红
+SELECT * FROM a();
+ name | age | salary
+------+-----+--------
+ 小红 |  21 | 3499.9
+
+----
+
+CREATE OR REPLACE FUNCTION a(x INTEGER, y INTEGER, OUT sum INTEGER, OUT multiply INTEGER) AS $$     返回 Record 类型
+SELECT x + y, x * y;     命名参数
+$$ LANGUAGE SQL;
+
+DROP FUNCTION a( INTEGER, INTEGER );
+
+SELECT * FROM a(5, 10);
+等同于
+SELECT (a(5, 10)).*;
+ sum | multiply
+-----+----------
+  15 |       50
+
+-------------------------------------------------------
+返回值为多条记录，此类函数多用于 FROM 子句：SETOF、RETURNS TABLE
+若无以上关键字，则默认只取第一条记录。
+
+CREATE OR REPLACE FUNCTION a() RETURNS SETOF a AS $$     返回 a 类型
+SELECT * FROM a;
+$$ LANGUAGE SQL;
+
+DROP FUNCTION a();
+
+SELECT * FROM a();
+ name | age | salary
+------+-----+--------
+ 小张 |  25 | 4999.9
+ 小陈 |  23 | 3999.9
+
+----
+
+CREATE OR REPLACE FUNCTION a(OUT name TEXT, OUT salary NUMERIC) RETURNS SETOF RECORD AS $$     返回 Record 类型
+SELECT name, salary FROM a;
+$$ LANGUAGE SQL;
+
+DROP FUNCTION a();
+
+SELECT * FROM a();
+ name | salary
+------+--------
+ 小张 | 4999.9
+ 小陈 | 3999.9
+
+等同于
+
+CREATE OR REPLACE FUNCTION a() RETURNS TABLE(name TEXT, salary NUMERIC) AS $$     RETURNS TABLE 可用于替代 RETURNS SETOF 的 Record 类型，语法更简洁
+SELECT name, salary FROM a;
+$$ LANGUAGE SQL;
+
+DROP FUNCTION a();
+
+SELECT * FROM a();
+ name | salary
+------+--------
+ 小张 | 4999.9
+ 小陈 | 3999.9
+
+-------------------------------------------------------
+多态函数：ANYELEMENT、ANYARRAY、ANYNONARRAY、ANYENUM
+
+CREATE OR REPLACE FUNCTION a(ANYELEMENT, ANYELEMENT, OUT ANYARRAY) AS $$
+SELECT ARRAY [$1, $2];
+$$ LANGUAGE SQL;
+
+DROP FUNCTION a( ANYELEMENT, ANYELEMENT );
+
+SELECT a(1, 2), a('A' :: TEXT, 'B');     参数类型需一致，并且显式声明其类型
+   a   |   a
+-------+-------
+ {1,2} | {A,B}
+
+----
+
+CREATE OR REPLACE FUNCTION a(ANYELEMENT, ANYELEMENT, OUT BOOLEAN) AS $$
+SELECT $1 > $2;
+$$ LANGUAGE SQL;
+
+DROP FUNCTION a( ANYELEMENT, ANYELEMENT );
+
+SELECT a(2, 1), a(1, 2), a('A' :: TEXT, 'B');
+ a | a | a
+---+---+---
+ t | f | f
+
+----
+
+CREATE OR REPLACE FUNCTION a(i ANYELEMENT, OUT o1 ANYELEMENT, OUT o2 ANYARRAY) AS $$
+SELECT
+  i,
+  ARRAY [i, i];
+$$ LANGUAGE SQL;
+
+DROP FUNCTION a( ANYELEMENT );
+
+SELECT * FROM a(2);
+ o1 |  o2
+----+-------
+  2 | {2,2}
+
+-------------------------------------------------------
+默认参数值：DEFAULT
+
+CREATE OR REPLACE FUNCTION a(x INTEGER DEFAULT 1, y INTEGER DEFAULT 10, z INTEGER DEFAULT 100, OUT INTEGER) AS $$
+SELECT x + y + z;
+$$ LANGUAGE SQL;
+
+DROP FUNCTION a( INTEGER, INTEGER, INTEGER );
+
+SELECT a();
+  a
+-----
+ 111
+SELECT a(0);
+  a
+-----
+ 110
+SELECT a(0, 0);
+  a
+-----
+ 100
+SELECT a(0, 0, 0);
+ a
+---
+ 0
+SELECT a(z := 0);     命名参数
+ a
+----
+ 11
+
+-------------------------------------------------------
+可变长参数（数组）：VARIADIC
+
+CREATE OR REPLACE FUNCTION a(VARIADIC TEXT [], OUT INTEGER) AS $$
+SELECT array_length($1, 1);     返回（一维数组的）数组长度
+$$ LANGUAGE SQL;
+
+DROP FUNCTION a( TEXT [] );
+
+SELECT a('a', 'b', 'c');
+ a
+---
+ 3
+SELECT a(VARIADIC ARRAY ['a', 'b', 'c']);
+ a
+---
+ 3
+SELECT a(VARIADIC ARRAY []:: TEXT []);     返回 NULL
+
+----
+
+SELECT generate_subscripts(ARRAY ['a', 'b', 'c'], 1);     返回（一维数组的）数组下标
+ generate_subscripts
+---------------------
+                   1
+                   2
+                   3
+等同于
+SELECT * FROM generate_subscripts(ARRAY ['a', 'b', 'c'], 1) abc(def);
+ def
+-----
+   1
+   2
+   3
+
+CREATE OR REPLACE FUNCTION a(VARIADIC ANYARRAY, OUT ANYELEMENT) AS $$;
+SELECT min($1 [def]) FROM generate_subscripts($1, 1) abc(def);     利用多态和可变长参数求任意数组最小值
+$$ LANGUAGE SQL;
+Note：
+min($1 [def]) 通过数组下标 def 取出数组的所有元素，再通过系统函数 min() 求出列的最小值。
+
+DROP FUNCTION a( ANYARRAY );
+
+SELECT a(10, -1, 5, 4, 6);
+ a
+----
+ -1
+SELECT a('a' :: TEXT, 'b', 'c');
+ a
+---
+ a
+```
+
+### PL/pgSQL（程序语言函数）
+```sql
+块结构：
+[ <<label>> ]
+[ DECLARE
+    declarations ]
+BEGIN
+    statements
+END [ label ];
+
+-------------------------------------------------------
+
+CREATE OR REPLACE FUNCTION a() RETURNS INTEGER AS $$
+BEGIN
+  RAISE NOTICE '% %', 'ABC', 123;
+  RETURN 1;
+END;
+$$ LANGUAGE PLPGSQL;
+
+DROP FUNCTION a();
+
+SELECT a();
+注意:  ABC 123
+ a
+---
+ 1
+
+-------------------------------------------------------
+变量作用域
+
+CREATE OR REPLACE FUNCTION a() RETURNS INTEGER AS $$
+  << abc >>
+  DECLARE
+  a INTEGER := 30;
+BEGIN
+  RAISE NOTICE 'Out: a = %', a;     30
+  a := 50;
+
+    << def >>     子块开始
+    DECLARE
+    a INTEGER := 100;
+  BEGIN
+    RAISE NOTICE 'In: a = %', a;     100
+    RAISE NOTICE 'In: def.a = %', def.a;     100
+    RAISE NOTICE 'In: abc.a = %', abc.a;     50
+  END;     子块结束
+
+  RAISE NOTICE 'Out: a = %', a;     50
+  RETURN a;
+END;
+$$ LANGUAGE PLPGSQL;
+
+DROP FUNCTION a();
+
+SELECT a();
+注意:  Out: a = 30
+注意:  In: a = 100
+注意:  In: def.a = 100
+注意:  In: abc.a = 50
+注意:  Out: a = 50
+ a
+----
+ 50
+
+-------------------------------------------------------
+变量声明：PL/pgSQL 中的变量都需在 DECLARE 块中声明，声明格式：
+name [ CONSTANT ] type [ COLLATE collation_name ] [ NOT NULL ] [ { DEFAULT | := | = } expression ];
+
+CREATE OR REPLACE FUNCTION a() RETURNS VOID AS $$
+DECLARE
+  a          INTEGER;     NULL
+  b          INTEGER DEFAULT 1;     初始值（每次进入该块时都将重新赋值（计算））
+  c          INTEGER NOT NULL = 2;     不能赋值为 NULL
+  d          INTEGER = 3;     变量
+  e CONSTANT INTEGER = 4;     常量
+BEGIN
+  RAISE NOTICE '% % % % %', a, b, c, d, e;
+END;
+$$ LANGUAGE PLPGSQL;
+
+DROP FUNCTION a();
+
+SELECT a();
+注意:  <NULL> 1 2 3 4
+ a
+---
+
+----
+
+CREATE OR REPLACE FUNCTION a() RETURNS TEXT AS $$
+DECLARE
+  a TIMESTAMP DEFAULT now();     每次调用初始值都不一样
+BEGIN
+  RETURN a;
+END;
+$$ LANGUAGE PLPGSQL;
+
+DROP FUNCTION a();
+
+SELECT a();
+             a
+----------------------------
+ 2017-03-02 15:15:27.452181
+
+-------------------------------------------------------
+返回值
+
+单条复合类型：
+CREATE OR REPLACE FUNCTION a(INTEGER, INTEGER, OUT sum INTEGER, OUT multiply INTEGER) AS $$
+BEGIN
+  sum = $1 + $2;
+  multiply = $1 * $2;
+END;
+$$ LANGUAGE PLPGSQL;
+
+DROP FUNCTION a( INTEGER, INTEGER );
+
+SELECT * FROM a(5, 10);
+等同于
+SELECT (a(5, 10)).*;
+ sum | multiply
+-----+----------
+  15 |       50
+
+多条复合类型：
+CREATE OR REPLACE FUNCTION a() RETURNS TABLE(name TEXT, salary NUMERIC) AS $$
+BEGIN
+  RETURN QUERY SELECT abc.name, abc.salary FROM a abc;     设置别名避免与函数名冲突
+END;
+$$ LANGUAGE PLPGSQL;
+
+DROP FUNCTION a();
+
+SELECT * FROM a();
+ name | salary
+------+--------
+ 小张 | 4999.9
+ 小陈 | 3999.9
+
+多态类型：
+CREATE OR REPLACE FUNCTION a(ANYELEMENT, ANYELEMENT, ANYELEMENT, OUT o ANYELEMENT) AS $$
+BEGIN
+  o = $1 + $2 + $3;
+END;
+$$ LANGUAGE PLPGSQL;
+
+DROP FUNCTION a( ANYELEMENT, ANYELEMENT, ANYELEMENT );
+
+SELECT a(1, 2, 3);
+ a
+---
+ 6
+
+-------------------------------------------------------
+复制类型：%TYPE（基本类型），%ROWTYPE（复合类型）
+
+CREATE OR REPLACE FUNCTION a(a.age%TYPE, OUT s TEXT) AS $$
+DECLARE
+  o a%ROWTYPE;
+BEGIN
+  SELECT * INTO o FROM a WHERE age = $1;     装入 o 中
+  s = o.name || ' ' || o.age || ' ' || o.salary;
+END;
+$$ LANGUAGE PLPGSQL;
+
+DROP FUNCTION a( INTEGER );
+
+SELECT a(25);
+       a
+----------------
+ 小张 25 4999.9
+
+记录类型：
+name RECORD;
+
+-------------------------------------------------------
+PL/pgSQL 语句 'IF expression THEN ...' 执行时，将给主 SQL 引擎
+发送一个查询 'SELECT expression'' 来计算表达式的返回值。
+
+赋值：variable { := | = } expression;
+若数据类型不匹配，将强制转换；若转换失败，将以文本方式转换，否则发生异常。
+
+a = b * 0.06;
+my_record.user_id = 20;
+
+-------------------------------------------------------
+没有返回值的命令：PERFORM query;
+执行命令并忽略其返回值，与 SELECT 写法一致，只是将 SELECT 替换为 PERFORM。
+
+PERFORM create_mv('cs_session_page_requests_mv', my_query);
+
+-------------------------------------------------------
+返回一行结果的命令：INTO target
+除了 INTO 子句，SQL 语句的其他部分的语法不变。
+
+SELECT select_expressions INTO [STRICT] target FROM ...;
+INSERT ... RETURNING expressions INTO [STRICT] target;
+UPDATE ... RETURNING expressions INTO [STRICT] target;
+DELETE ... RETURNING expressions INTO [STRICT] target;
+
+无 STRICT：target 为该查询返回的第一个行，无结果则为 NULL。
+----
+SELECT * INTO myrec FROM emp WHERE empname = myname;
+IF NOT FOUND THEN     没有行（try-catch）
+    RAISE EXCEPTION 'employee % not found', myname;
+END IF;
+
+有 STRICT：该查询必须刚好返回一个行，否则发生异常；成功执行带 STRICT 的命令总是会将 FOUND 置为真。
+----
+BEGIN
+    SELECT * INTO STRICT myrec FROM emp WHERE empname = myname;
+    EXCEPTION
+        WHEN NO_DATA_FOUND THEN     没有行（try-catch）
+            RAISE EXCEPTION 'employee % not found', myname;
+        WHEN TOO_MANY_ROWS THEN     多于一行（try-catch）
+            RAISE EXCEPTION 'employee % not unique', myname;
+END;
+
+CREATE OR REPLACE FUNCTION a(INTEGER, OUT r a) AS $$
+BEGIN
+  SELECT * INTO STRICT r FROM a WHERE age = $1;
+  EXCEPTION
+  WHEN NO_DATA_FOUND
+    THEN
+      RAISE EXCEPTION 'age % not found', $1;
+  WHEN TOO_MANY_ROWS
+    THEN
+      RAISE EXCEPTION 'age % not unique', $1;
+END
+$$ LANGUAGE PLPGSQL;
+
+DROP FUNCTION a( INTEGER );
+
+SELECT * FROM a(25);
+ name | age | salary
+------+-----+--------
+ 小张 |  25 | 4999.9
+SELECT * FROM a(99);
+错误:  age 99 not found
+背景:  在RAISE的第10行的PL/pgSQL函数a(integer)
+
+-------------------------------------------------------
+
 ```
 
 ## Tool
