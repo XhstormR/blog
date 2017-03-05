@@ -1274,7 +1274,7 @@ D:\Download\kotlinc\bin>kotlinc-js -output 123.js A.kt
 ```
 
 ```
-D:\Download\kotlinc\lib\kotlin-jslib.jar\kotlin.js
+D:\Download\kotlinc\lib\kotlin-stdlib-js.jar\kotlin.js
 ```
 
 ```html
