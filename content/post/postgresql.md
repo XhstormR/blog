@@ -1006,6 +1006,31 @@ SELECT * FROM a(99);
 背景:  在RAISE的第10行的PL/pgSQL函数a(integer)
 
 -------------------------------------------------------
+占位语句（什么也不做）：NULL;
+能够指示 if/then/else 链中故意留出的空分支。
+
+CREATE OR REPLACE FUNCTION a() RETURNS VOID AS $$
+DECLARE
+  x INTEGER = 1;
+  y INTEGER;
+BEGIN
+  y = x / 0;
+
+  EXCEPTION
+  WHEN division_by_zero
+    THEN     忽略异常
+  等同于
+  EXCEPTION
+  WHEN division_by_zero
+    THEN
+      NULL;     忽略异常（更直观）
+
+END;
+$$ LANGUAGE PLPGSQL;
+
+DROP FUNCTION a();
+
+SELECT a();
 
 ```
 
