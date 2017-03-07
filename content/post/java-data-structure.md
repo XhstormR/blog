@@ -39,10 +39,10 @@ class TrieNode {
     public int strCount;     该节点路径下所存在的单词个数
     public boolean isStr;     该节点是否代表一个单词
 
-    public TrieNode() {     根节点
+    public TrieNode() {     根节点构造方法
     }
 
-    public TrieNode(char aChar) {     子节点
+    public TrieNode(char aChar) {     子节点构造方法
         this.aChar = aChar;
         this.strCount = 1;
     }

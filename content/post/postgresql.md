@@ -1031,7 +1031,6 @@ $$ LANGUAGE PLPGSQL;
 DROP FUNCTION a();
 
 SELECT a();
-
 ```
 
 ## Tool
