@@ -121,25 +121,47 @@ Ctrl+ALT+Enter     在当前行的上一行插入空行
 F2     显示工具提示
 F3     打开声明文件
 F6     调试 - 单步跳过
-F11     调试运行
 
-Ctrl+1     快速修正
-Ctrl+/     单行注释
-Ctrl+S     保存
-Ctrl+W     关闭文件
 Ctrl+D     删除行
 Ctrl+L     转至行
-ALT+↑↓     移动行
-ALT+/     内容辅助
-Shift+Enter     在当前行的下一行插入空行
-
-Ctrl+ALT+/     文字补全
-Ctrl+ALT+↑↓     复制行
-Ctrl+Shift+S     全部保存
 Ctrl+Shift+F     格式化代码
 Ctrl+Shift+O     自动导入需要的包
-ALT+Shift+J     生成文档注释
+
+Ctrl+.     快速查找
+Ctrl+1     快速修正
+Ctrl+2     快速帮助
+  L     分配为变量（Local）
+  F     分配为属性（Field）
+  M     解构为方法（Method）
+  R     重构 - 重命名（Rename）
+
+ALT+Shift+↑↓     扩大选区
+ALT+Shift+L     解构为变量（Variable）（Extract）
+ALT+Shift+M     解构为方法（Method）
 ALT+Shift+R     重构 - 重命名
+
+Ctrl+/     单行注释
+ALT+Shift+J     文档注释
+
+F11     调试运行
+Ctrl+F11     运行
+
+Ctrl+S     保存
+Ctrl+Shift+S     全部保存
+
+Ctrl+W     关闭
+Ctrl+Shift+W     全部关闭
+
+ALT+↑↓     移动行
+Ctrl+ALT+↑↓     复制行
+
+ALT+/     内容辅助
+Ctrl+ALT+/     文字补全
+
+Shift+Enter     在当前行的下一行插入空行
+Ctrl+Shift+Enter     在当前行的上一行插入空行
+
+Windows -> Preferences -> Java -> Editor -> Content Assist -> Auto Activation -> Trigger for Java     自动代码提示
 ```
 
 ## [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
