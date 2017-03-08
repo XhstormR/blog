@@ -117,7 +117,7 @@ for (Object i : list) {
 ## List 排序
 
 ```java
-生成10个不重复的10位以内的随机字符串并排序输出
+生成 10 个不重复的 10 位以内的随机字符串并排序输出
 ----
 public class A {
     private static List<String> list = new ArrayList<>();
@@ -135,7 +135,7 @@ public class A {
         for (int j = 0; j < 10; j++) {
             do {
                 string = "";     重置字符串
-                for (int i = 0, k = random.nextInt(10); i < k; i++) {     random.nextInt(10) 返回0到10以内的随机整数
+                for (int i = 0, k = random.nextInt(10); i < k; i++) {     random.nextInt(10) 返回 [0,10) 以内的随机整数
                     string += strings.charAt(random.nextInt(62));
                 }
             } while (list.contains(string));     确保字符串不重复

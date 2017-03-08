@@ -505,3 +505,70 @@ fun getInt(i: Int): Int {
 376
 625
 ```
+
+## 八皇后
+```java
+import java.util.Scanner;
+
+public class Main {
+    private static int[] ints;//下标为行，值为对应列
+    private static int count;//解法数
+
+    public static void main(String[] args) {
+        ints = new int[new Scanner(System.in).nextInt()];
+        queen(0);
+        System.out.println("共 " + count + " 种");
+    }
+
+    /**
+     * 递归放置皇后。
+     *
+     * @param k 当前放置行。
+     */
+    private static void queen(int k) {
+        if (k > ints.length - 1) {//所有行都已经放置完毕，解法数加一
+            count++;
+            show();
+        } else {
+            for (int i = 0; i < ints.length; i++) {//遍历测试行的每一列
+                ints[k] = i;
+                if (place(k)) {
+                    queen(k + 1);//当前行的行列位置可以放置皇后，递归前往下一行
+                }
+            }
+        }
+    }
+
+    /**
+     * 判断当前行的行列位置是否可以放置皇后（与之前的皇后是否冲突）。
+     *
+     * @param k 当前放置行。
+     * @return true 为可以放置，false 反之。
+     */
+    private static boolean place(int k) {
+        for (int j = 0; j < k; j++) {//遍历之前的行与其进行比较
+            if (ints[j] == ints[k] || Math.abs(ints[j] - ints[k]) == Math.abs(j - k)) {//皇后不能为同列，同对角线
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * 显示摆法。
+     */
+    private static void show() {
+        for (int i : ints) {
+            for (int j = 0; j < ints.length; j++) {
+                if (j == i) {
+                    System.out.print("⬤");//皇后
+                } else {
+                    System.out.print("◯");
+                }
+            }
+            System.out.println();
+        }
+        System.out.println("——————————————————");
+    }
+}
+```
