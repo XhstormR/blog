@@ -810,6 +810,27 @@ Map<String, String> getenv = System.getenv();     获取环境变量
 for (String s : getenv.keySet()) {
     System.out.println(s + "=" + getenv.get(s));
 }
+
+-------------------------------------------------------
+
+val list = ScriptEngineManager().engineFactories     查看已经安装的脚本引擎
+list.forEach {
+    println(it.engineName + " :: " + it.engineVersion)
+    println(it.languageName + " :: " + it.languageVersion)
+    println(it.scriptEngine)
+    println(it.extensions)
+    println(it.mimeTypes)
+    println(it.names)
+}
+
+----
+输出：
+Oracle Nashorn :: 1.8.0_112
+ECMAScript :: ECMA - 262 Edition 5.1
+jdk.nashorn.api.scripting.NashornScriptEngine@6c3708b3
+[js]
+[application/javascript, application/ecmascript, text/javascript, text/ecmascript]
+[nashorn, Nashorn, js, JS, JavaScript, javascript, ECMAScript, ecmascript]
 ```
 
 ### 继承初始化执行顺序

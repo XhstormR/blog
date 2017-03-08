@@ -117,7 +117,7 @@ build.gradle
 ⇳
 compile 'org.jetbrains.kotlin:kotlin-stdlib:+'
 compile 'org.jooq:jooq:+'
-compile 'org.postgresql:postgresql:9.4.1212'
+compile 'org.postgresql:postgresql:42.0.0'
 ```
 
 ## Insert
