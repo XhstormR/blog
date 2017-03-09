@@ -371,7 +371,7 @@ http://mirrors.yun-idc.com/
 RHEL：
 https://access.redhat.com/products/red-hat-enterprise-linux/
 
-https://npm.taobao.org/mirrors
+https://npm.taobao.org/mirrors/
 http://mirrors.cnnic.cn/
 
 https://download.lineageos.org/
