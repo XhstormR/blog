@@ -46,7 +46,7 @@ Ctrl+B     转至声明处
 Ctrl+R     替换文本
 Ctrl+O     重写方法
 Ctrl+H     查看类结构
-Ctrl+P     方法参数提示
+Ctrl+P     提示方法参数
 Ctrl+J     自动代码（Live Templates）
 Ctrl+F4     关闭标签页
 ALT+。   内容辅助（自己设置 Class Name Completion）
@@ -67,6 +67,11 @@ Ctrl+ALT+V     解构为变量（Variable）（Extract）
 Ctrl+ALT+F     解构为属性（Field）
 Ctrl+ALT+P     解构为参数（Parameter）
 Ctrl+ALT+M     解构为方法（Method）
+
+Ctrl+` 4 3     进入（退出）全屏
+
+Ctrl+Q     查看快速文档
+Ctrl+Shift+I     查看快速定义
 
 Ctrl+F9     Make Project
 Ctrl+Shift+F10     Run
