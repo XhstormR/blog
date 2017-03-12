@@ -416,8 +416,8 @@ Tips：
 [root@controller ~]$ openssl rand -base64 30 #Base64编码
 HTUKtp8wVb2m8ZIIsLtXkQDGKc+V8SeSWJg8yU0Z
 
-openssl enc -aes-256-cfb -k 123456 -e -in 1.txt -out 2.txt #加密文件
-openssl enc -aes-256-cfb -k 123456 -d -in 2.txt -out 3.txt #解密文件
+openssl enc -aes-256-cfb -k 123456 -a -p -e -in 1.txt -out 2.txt #加密文件
+openssl enc -aes-256-cfb -k 123456 -a -p -d -in 2.txt -out 3.txt #解密文件
 
 https://mirrors.ustc.edu.cn/apache/tomcat/tomcat-connectors/native/
 ```
