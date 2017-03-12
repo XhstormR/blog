@@ -74,7 +74,9 @@ Ctrl+Q     查看快速文档
 Ctrl+Shift+I     查看快速定义
 
 Ctrl+F9     Make Project
-Ctrl+Shift+F10     Run
+Ctrl+F10     Update Running JavaEE Application
+Shift+F10     Run
+Ctrl+Shift+F10     Run（Context）
 
 Ctrl+Shift+减     折叠所有代码块
 Ctrl+Shift+加     展开所有代码块
