@@ -11,7 +11,11 @@ Updated on 2017-01-14
 
 > http://man.openbsd.org/sshd_config
 >
+> https://www.openssh.com/manual.html
+>
 > https://github.com/git-for-windows/git/releases/latest
+>
+> https://the.earth.li/~sgtatham/putty/latest/w64/psftp.exe
 
 ## 配置
 ```bash
@@ -33,12 +37,17 @@ echo 你好！ >> etc\motd
 type nul > etc\ssh\sshd_config
 echo PrintMotd yes > etc\ssh\sshd_config
 echo PermitRootLogin no >> etc\ssh\sshd_config
-echo PasswordAuthentication no >> etc\ssh\sshd_config
 echo Subsystem sftp internal-sftp >> etc\ssh\sshd_config
-echo AuthorizedKeysFile .ssh/authorized_keys >> etc\ssh\sshd_config
 
+设置公钥登录
+----
 usr\bin\ssh-keygen
 copy /y "C:\Users\XhstormR\.ssh\id_rsa.pub" "C:\Users\XhstormR\.ssh\authorized_keys"
+echo AuthorizedKeysFile .ssh/authorized_keys >> etc\ssh\sshd_config
+
+禁止密码登录
+----
+echo PasswordAuthentication no >> etc\ssh\sshd_config
 
 PS：
 md .12     创建空文件夹（`.` 前缀）
