@@ -78,7 +78,7 @@ C:\Users\Administrator\.IntelliJIdea2016.3\system\tomcat\
 #### taglib
 
 ### 注释
-```jsp
+```
 客户端可见注释：
 
 <!-- HTML 注释 -->
@@ -96,7 +96,7 @@ C:\Users\Administrator\.IntelliJIdea2016.3\system\tomcat\
 ```
 
 ### 声明
-```jsp
+```
 <%!     Servlet 中的成员（可声明为 static）
     private String s = "ABC";     属性
 
@@ -107,7 +107,7 @@ C:\Users\Administrator\.IntelliJIdea2016.3\system\tomcat\
 ```
 
 ### 脚本
-```jsp
+```
 <%     Servlet 中的 jspService() 的方法代码
     System.out.println("你好");     输出至控制台
     out.println("你好");     输出至页面（out 是 JspWriter 的实例化对象）
@@ -115,7 +115,7 @@ C:\Users\Administrator\.IntelliJIdea2016.3\system\tomcat\
 ```
 
 ### 表达式
-```jsp
+```
 <%=s%>     调用属性（注意表达式不加分号）
 <br>
 <%=add(1, 2)%>     调用方法
@@ -128,7 +128,7 @@ ABC
 
 ---
 
-```java
+```
 输出九九乘法表
 ----
 <%!     声明方法
@@ -403,3 +403,311 @@ a.jsp
 </body>
 </html>
 ```
+
+---
+
+```
+index.jsp
+----
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>登录页面</title>
+</head>
+<body>
+<h1>登录页面</h1>
+<hr>
+<form action="doLogin.jsp" name="loginForm" method="post">
+    <table>
+        <tr>
+            <td>账号：</td>
+            <td><input type="text" name="account"></td>
+        </tr>
+        <tr>
+            <td>密码：</td>
+            <td><input type="password" name="password"></td>
+        </tr>
+        <tr>
+            <td><input type="reset" value="重置"></td>
+            <td><input type="submit" value="登录"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
+
+doLogin.jsp
+----
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    request.setCharacterEncoding("UTF-8");
+    String account = request.getParameter("account");
+    String password = request.getParameter("password");
+    if ("admin".equals(account) && "123456".equals(password)) {
+        request.getRequestDispatcher("login_successful.jsp").forward(request, response);     登录成功：请求转发
+    } else {
+        response.sendRedirect("login_failed.jsp");     登录失败：请求重定向
+    }
+%>
+
+login_successful.jsp
+----
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>登录成功</title>
+</head>
+<body>
+<h1>登录成功</h1>
+<hr>
+欢迎用户：<%=request.getParameter("account")%>
+</body>
+</html>
+
+login_failed.jsp
+----
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>登录失败</title>
+</head>
+<body>
+<h1>登录失败</h1>
+<hr>
+<a href="index.jsp">返回登录页面</a>
+</body>
+</html>
+```
+
+## JavaBean
+符合某种设计规范的类，用于封装业务数据和业务逻辑。
+
+### UserBean
+```java
+package a;
+
+public class User {     公有类
+    private String username;     私有属性
+    private String password;
+
+    public User() {     无参构造方法
+    }
+
+    public String getUsername() {     公有 get/set
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
+}
+```
+
+### JSP 动作元素：useBean、set（get）Property
+```
+<%@ page import="a.User" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+
+普通方式
+----
+<%
+    User a = new User();
+    a.setUsername("admin");
+    a.setPassword("123456");
+%>
+账户：<%=a.getUsername()%><br>
+密码：<%=a.getPassword()%><br>
+
+使用 JSP 动作元素
+----
+useBean
+<jsp:useBean id="b" class="a.User" scope="page"/>     在指定范围内实例化 JavaBean（默认范围为 page）
+
+setProperty
+<jsp:setProperty name="b" property="*"/>     根据表单自动匹配所有属性（跟表单关联）
+
+<jsp:setProperty name="b" property="username"/>     根据表单手动匹配部分属性（跟表单关联）
+<jsp:setProperty name="b" property="password"/>
+
+<jsp:setProperty name="b" property="username" value="admin"/>     手动设置属性值
+<jsp:setProperty name="b" property="password" value="123456"/>
+
+<jsp:setProperty name="b" property="username" param="abc"/>     根据 URL 参数给属性赋值
+<jsp:setProperty name="b" property="password" param="def"/>
+<!--http://localhost:8080/index.jsp?abc=123&def=456-->
+
+getProperty
+账户：<jsp:getProperty name="b" property="username"/><br>
+密码：<jsp:getProperty name="b" property="password"/><br>
+
+</body>
+</html>
+
+useBean 作用域范围
+----
+作用于单个页面的生命周期：page
+作用于单个请求的生命周期：request
+作用于整个会话的生命周期：session
+作用于整个应用的生命周期：application
+
+https://tomcat.apache.org/tomcat-9.0-doc/jspapi/javax/servlet/jsp/PageContext.html#PAGE_SCOPE
+https://tomcat.apache.org/tomcat-9.0-doc/jspapi/javax/servlet/jsp/JspContext.html#setAttribute-java.lang.String-java.lang.Object-int-
+```
+
+---
+
+```
+User.java     用封装业务数据
+----
+package a;
+
+public class User {
+    private String username;
+    private String password;
+
+    public User() {
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
+}
+
+UserDAO.java     用于封装业务逻辑
+----
+package a;
+
+public class UserDAO {
+    public boolean userLogin(User user) {
+        return "admin".equals(user.getUsername()) && "123456".equals(user.getPassword());
+    }
+}
+
+index.jsp
+----
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>登录页面</title>
+</head>
+<body>
+<h1>登录页面</h1>
+<hr>
+<form action="doLogin.jsp" name="loginForm" method="post">
+    <table>
+        <tr>
+            <td>账号：</td>
+            <td><input type="text" name="username"></td>
+        </tr>
+        <tr>
+            <td>密码：</td>
+            <td><input type="password" name="password"></td>
+        </tr>
+        <tr>
+            <td><input type="reset" value="重置"></td>
+            <td><input type="submit" value="登录"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
+
+doLogin.jsp
+----
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:useBean id="userDAO" class="a.UserDAO"/>     默认生命周期为 page
+<jsp:useBean id="loginUser" class="a.User" scope="session"/>     指定生命周期为 session
+<jsp:setProperty name="loginUser" property="*"/>     根据表单自动匹配所有属性
+<%
+    request.setCharacterEncoding("UTF-8");     指定输入字符集
+    if (userDAO.userLogin(loginUser)) {
+        request.getRequestDispatcher("login_successful.jsp").forward(request, response);     登录成功：请求转发
+    } else {
+        response.sendRedirect("login_failed.jsp");     登录失败：请求重定向
+    }
+%>
+
+login_successful.jsp
+----
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:useBean id="loginUser" class="a.User" scope="session"/>     在整个 Session 中只有同一个 loginUser
+<html>
+<head>
+    <title>登录成功</title>
+</head>
+<body>
+<h1>登录成功</h1>
+<hr>
+欢迎用户：<%=loginUser.getUsername()%>
+</body>
+</html>
+
+login_failed.jsp
+----
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>登录失败</title>
+</head>
+<body>
+<h1>登录失败</h1>
+<hr>
+<a href="/">返回登录页面</a>
+</body>
+</html>
+```
+
+## Cookie
+
+```
+```
+
+### Cookie 与 Session 的对比
+||Session|Cookie|
+|:--|:--|:--|
+|保存位置|服务端|客户端|
+|保存类型|Object 类|String 类|
+|保存数据|保存 **重要** 的数据|保存 **不重要** 的数据|
+|保存时间|随 **会话结束** 而结束|可以 **长期** 保存至客户端|
+|---------------|--------------------------|-----------------------------|

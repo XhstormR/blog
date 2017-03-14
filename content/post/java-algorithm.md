@@ -572,3 +572,33 @@ public class Main {
     }
 }
 ```
+
+## 是否为质数
+```java
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        int i = new Scanner(System.in).nextInt();
+        if (a(i)) {
+            System.out.println("yes");
+        } else {
+            System.out.println("no");
+        }
+    }
+
+    private static boolean a(int i) {
+        if (i <= 3) {
+            return i > 1;     2 和 3 是质数
+        }
+        for (int j = 2; j < Math.sqrt(i); j++) {
+            if (i % j == 0) {
+                return false;     能够被 1 和其本身之外的数整除的数不是质数
+            }
+        }
+        return true;
+    }
+}
+
+质数：除了 1 和其本身之外再无其他因数。（例如 2、3、5、7 是，4、6、8、9 不是）
+```
