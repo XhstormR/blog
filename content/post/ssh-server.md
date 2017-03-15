@@ -15,6 +15,8 @@ Updated on 2017-01-14
 >
 > https://github.com/git-for-windows/git/releases/latest
 >
+> https://winscp.net/eng/download.php
+>
 > https://the.earth.li/~sgtatham/putty/latest/w64/psftp.exe
 
 ## 配置

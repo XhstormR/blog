@@ -561,7 +561,7 @@ public class Main {
         for (int i : ints) {
             for (int j = 0; j < ints.length; j++) {
                 if (j == i) {
-                    System.out.print("⬤");//皇后
+                    System.out.print("✖");//皇后
                 } else {
                     System.out.print("◯");
                 }

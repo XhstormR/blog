@@ -519,7 +519,7 @@ public class User {     公有类
 }
 ```
 
-### JSP 动作元素：useBean、set（get）Property
+### JSP 动作：useBean、set（get）Property
 ```
 <%@ page import="a.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -539,7 +539,7 @@ public class User {     公有类
 账户：<%=a.getUsername()%><br>
 密码：<%=a.getPassword()%><br>
 
-使用 JSP 动作元素
+使用 JSP 动作
 ----
 useBean
 <jsp:useBean id="b" class="a.User" scope="page"/>     在指定范围内实例化 JavaBean（默认范围为 page）
@@ -701,6 +701,158 @@ login_failed.jsp
 ## Cookie
 
 ```
+index.jsp
+----
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String username = "";
+    String password = "";
+    Cookie[] cookies = request.getCookies();
+    if (cookies != null && cookies.length > 0) {
+        for (Cookie c : cookies) {
+            if (c.getName().equals("username")) {
+                username = c.getValue();
+            }
+            if (c.getName().equals("password")) {
+                password = c.getValue();
+            }
+        }
+    }
+%>
+<html>
+<head>
+    <title>登录页面</title>
+</head>
+<body>
+<h1>登录页面</h1>
+<hr>
+<form action="doLogin.jsp" name="loginForm" method="post">
+    <table>
+        <tr>
+            <td>账号：</td>
+            <td><input type="text" name="username" value="<%=username%>"></td>
+        </tr>
+        <tr>
+            <td>密码：</td>
+            <td><input type="password" name="password" value="<%=password%>"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="checkbox" name="isUseCookie" checked>记住登录状态</td>
+        </tr>
+        <tr>
+            <td><input type="reset" value="重置"></td>
+            <td><input type="submit" value="登录"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
+
+index.jsp
+----
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:useBean id="userDAO" class="a.UserDAO"/>
+<jsp:useBean id="loginUser" class="a.User" scope="session"/>
+<jsp:setProperty name="loginUser" property="*"/>
+<%
+    request.setCharacterEncoding("UTF-8");
+    if (userDAO.userLogin(loginUser)) {
+        request.getRequestDispatcher("login_successful.jsp").forward(request, response);
+    } else {
+        response.sendRedirect("login_failed.jsp");
+    }
+%>
+
+index.jsp
+----
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:useBean id="loginUser" class="a.User" scope="session"/>
+<%
+    String isUseCookie = request.getParameter("isUseCookie");
+    if (isUseCookie != null) {
+        Cookie username = new Cookie("username", loginUser.getUsername());
+        Cookie password = new Cookie("password", loginUser.getPassword());
+        username.setMaxAge(86400);
+        password.setMaxAge(86400);
+        response.addCookie(username);
+        response.addCookie(password);
+    } else {
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null && cookies.length > 0) {
+            for (Cookie c : cookies) {
+                if (c.getName().equals("username") || c.getName().equals("password")) {
+                    c.setMaxAge(0);
+                    response.addCookie(c);
+                }
+            }
+        }
+    }
+%>
+<html>
+<head>
+    <title>登录成功</title>
+</head>
+<body>
+<h1>登录成功</h1>
+<hr>
+<a href="user.jsp">查看用户信息</a>
+</body>
+</html>
+
+index.jsp
+----
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    Cookie[] cookies = request.getCookies();
+    if (cookies != null && cookies.length > 0) {
+        for (Cookie c : cookies) {
+            if (c.getName().equals("username") || c.getName().equals("password")) {
+                c.setMaxAge(0);
+                response.addCookie(c);
+            }
+        }
+    }
+%>
+<html>
+<head>
+    <title>登录失败</title>
+</head>
+<body>
+<h1>登录失败</h1>
+<hr>
+<a href="/">返回登录页面</a>
+</body>
+</html>
+
+index.jsp
+----
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String username = "";
+    String password = "";
+    Cookie[] cookies = request.getCookies();
+    if (cookies != null && cookies.length > 0) {
+        for (Cookie c : cookies) {
+            if (c.getName().equals("username")) {
+                username = c.getValue();
+            }
+            if (c.getName().equals("password")) {
+                password = c.getValue();
+            }
+        }
+    }
+%>
+<html>
+<head>
+    <title>用户信息</title>
+</head>
+<body>
+<h1>用户信息</h1>
+<hr>
+账户：<%=username%><br>
+密码：<%=password%><br>
+</body>
+</html>
 ```
 
 ### Cookie 与 Session 的对比

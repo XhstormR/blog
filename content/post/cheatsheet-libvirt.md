@@ -15,6 +15,8 @@ Updated on 2016-05-31
 >
 > http://www.linux-kvm.org/page/Main_Page
 >
+> https://qemu.weilnetz.de/w64/
+>
 > KVM 负责 CPU 和 RAM 的虚拟化；QEMU 则负责模拟 IO 设备，如网卡和硬盘；KVM 加上 QEMU 之后就能实现真正意义上的服务器虚拟化，称之为 QEMU-KVM。
 >
 > 而 Libvirt 则是调用 KVM 虚拟化技术的接口间接控制 QEMU-KVM，包含一个API库，一个守护程序 Libvirtd，一个命令行工具 virsh，如果直接用 QEMU-KVM 的接口会非常繁琐。另外 OpenStack 也是用 Libvirt 的库管理 VM，可以控制除了 QEMU 以外的模拟器，包括 VMWARE, VirtualBox, Xen等等。
