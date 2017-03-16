@@ -34,9 +34,9 @@ class Demo {
         System.out.println(a == c);
         System.out.println(a.equals(c));
 
+        System.out.println("--------------");
         A a1 = new A();
         A a2 = new A();
-        System.out.println("--------------");
         System.out.println((a1 == a2));
         System.out.println(a1.equals(a2));
     }
