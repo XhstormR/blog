@@ -68,13 +68,75 @@ C:\Users\Administrator\.IntelliJIdea2016.3\system\tomcat\
 ## JSP
 
 ### 指令
+
 #### page
 ```xml
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.Arrays" %>
 <%@ page import="java.util.HashMap" %>
 ```
+
 #### include
+```
+index.jsp
+----
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+<%@ include file="date.jsp" %>     声明需要包含的页面
+</body>
+</html>
+
+date.jsp     被包含的页面
+----
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Date" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+    out.print(date);
+%>
+```
+
+##### JSP 动作：include
+```
+index.jsp
+----
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+<jsp:include page="date.jsp" flush="false"/>     声明需要包含的页面（flush 是否使用缓冲区）
+</body>
+</html>
+
+date.jsp     被包含的页面
+----
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Date" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+    out.print(date);
+%>
+```
+
+##### include 指令与 include 动作的对比
+||include 指令|include 动作|
+|:--|:--|:--|
+|生成内容|文件内容|执行结果|
+|生成 Servlet|合并|独立|
+|编译时间|较慢|较快（不解析资源）|
+|执行时间|较快（不解析资源）|较慢|
+|作用时间|编译期间|请求期间|
+|适用页面|变化较少|经常变化|
+|------------------|------------------------------|-----------------------------|
+
 #### taglib
 
 ### 注释
@@ -244,6 +306,16 @@ doLogin.jsp
     response.sendRedirect("request.jsp");     请求重定向（response）
 
     request.getRequestDispatcher("request.jsp").forward(request, response);     请求转发（request）
+    等同于
+    <jsp:forward page="request.jsp"/>     JSP 动作：forward
+
+    关于 JSP 动作：forward
+    <jsp:forward page="a.jsp">
+        <jsp:param name="age" value="25"/>     添加参数
+        <jsp:param name="sex" value="男"/>
+    </jsp:forward>
+    <%=request.getParameter("age")%><br>     转发后的页面接收参数
+
 %>
 </body>
 </html>
@@ -480,7 +552,7 @@ login_failed.jsp
 ```
 
 ## JavaBean
-符合某种设计规范的类，用于封装业务数据和业务逻辑。
+符合某种设计规范的类，用于封装业务数据和业务逻辑，减少代码冗余，提高代码的可维护性。
 
 ### UserBean
 ```java
@@ -490,7 +562,7 @@ public class User {     公有类
     private String username;     私有属性
     private String password;
 
-    public User() {     无参构造方法
+    public User() {     公有的无参构造方法
     }
 
     public String getUsername() {     公有 get/set
@@ -862,4 +934,4 @@ index.jsp
 |保存类型|Object 类|String 类|
 |保存数据|保存 **重要** 的数据|保存 **不重要** 的数据|
 |保存时间|随 **会话结束** 而结束|可以 **长期** 保存至客户端|
-|---------------|--------------------------|-----------------------------|
+|---------------|--------------------------|--------------------------------|
