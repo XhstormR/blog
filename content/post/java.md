@@ -53,7 +53,7 @@ ALT+。   内容辅助（自己设置 Class Name Completion）
 ALT+/     文字补全
 ALT+1     打开或隐藏工程面板
 ALT+Enter     快速修正
-ALT+下划线字母     选择
+ALT+下划线字母     选中/取消
 
 Ctrl+ALT+T     代码包围（try-catch）
 Ctrl+ALT+L     格式化代码
