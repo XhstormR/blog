@@ -9,6 +9,8 @@ title = "Java Server Pages"
 
 Updated on 2017-03-09
 
+> {{< image "/uploads/java-jsp.png" "Java Server Pages" "1" "1" "275">}}
+>
 > https://tomcat.apache.org/index.html
 >
 > https://tomcat.apache.org/tomcat-9.0-doc/api/allclasses-noframe.html

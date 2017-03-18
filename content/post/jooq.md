@@ -167,7 +167,7 @@ jdbc.password=123456
 import java.sql.DriverManager
 
 fun main(args: Array<String>) {
-    Class.forName("org.postgresql.Driver");
+    Class.forName("org.postgresql.Driver")
     val connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/postgres", "123", "123456")
     val statement = connection.createStatement()
 
