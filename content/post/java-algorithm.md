@@ -7,7 +7,7 @@ title = "Algorithm"
 
 <!--more-->
 
-Updated on 2016-11-20
+Updated on 2017-03-19
 
 > {{< image "/uploads/algorithm1.svg" "12" "1" "1" >}}
 >
@@ -506,7 +506,7 @@ fun getInt(i: Int): Int {
 625
 ```
 
-## 八皇后
+## N 皇后（八皇后）
 ```java
 import java.util.Scanner;
 
@@ -569,6 +569,93 @@ public class Main {
             System.out.println();
         }
         System.out.println("——————————————————");
+    }
+}
+```
+
+## 2N 皇后
+```java
+import java.util.Scanner;
+
+public class Main {
+    private static int[][] ints;//棋盘
+    private static int[] b;//下标为行，值为对应列
+    private static int[] w;//下标为行，值为对应列
+    private static int count;//解法数
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int i = scanner.nextInt();
+        ints = new int[i][i];
+        b = new int[i];
+        w = new int[i];
+
+        for (int m = 0; m < i; m++) {
+            for (int n = 0; n < i; n++) {
+                if (scanner.nextInt() == 0) {
+                    ints[m][n] = -1;
+                }
+            }
+        }
+
+        queen(0, true);
+        System.out.println(count);
+    }
+
+    /**
+     * 递归放置皇后。
+     *
+     * @param k 当前放置行。
+     */
+    private static void queen(int k, boolean who) {
+        if (k > ints.length - 1) {//所有行都已经放置完毕，解法数加一
+            count++;
+        } else {
+            for (int i = 0; i < ints.length; i++) {//遍历测试行的每一列
+                if (who) {
+                    w[k] = i;
+                } else {
+                    b[k] = i;
+                }
+                if (place(k, who)) {
+                    if (who && k + 1 > ints.length - 1) {
+                        queen(0, false);
+                    } else {
+                        queen(k + 1, who);//当前行的行列位置可以放置皇后，递归前往下一行
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * 判断当前行的行列位置是否可以放置皇后（与之前的皇后是否冲突）。
+     *
+     * @param k 当前放置行。
+     * @return true 为可以放置，false 反之。
+     */
+    private static boolean place(int k, boolean who) {
+        if (who) {
+            if (ints[k][w[k]] == -1) {
+                return false;
+            }
+        } else {
+            if (ints[k][b[k]] == -1 || w[k] == b[k]) {
+                return false;
+            }
+        }
+        for (int j = 0; j < k; j++) {//遍历之前的行与其进行比较
+            if (who) {
+                if (w[j] == w[k] || Math.abs(w[j] - w[k]) == Math.abs(j - k)) {//皇后不能为同列，同对角线
+                    return false;
+                }
+            } else {
+                if (b[j] == b[k] || Math.abs(b[j] - b[k]) == Math.abs(j - k)) {//皇后不能为同列，同对角线
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }
 ```
