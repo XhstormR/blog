@@ -20,6 +20,8 @@ Updated on 2017-03-09
 > https://tomcat.apache.org/tomcat-9.0-doc/servletapi/allclasses-noframe.html
 
 ## Tomcat
+{{< image "/uploads/java-jsp-tomcat.png" "Tomcat" "1" "1" "275">}}
+
 ### 环境变量
 |变量值|变量名||
 |:--|:--|:--|
