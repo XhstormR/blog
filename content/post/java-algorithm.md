@@ -573,7 +573,7 @@ public class Main {
 }
 ```
 
-## 是否为质数
+## 质数判断
 ```java
 import java.util.Scanner;
 
@@ -601,4 +601,87 @@ public class Main {
 }
 
 质数：除了 1 和其本身之外再无其他因数。（例如 2、3、5、7 是，4、6、8、9 不是）
+```
+
+## 煤球数目
+```java
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        int i = new Scanner(System.in).nextInt();
+        int j = 0;
+        int x = 0;
+        long sum = 0;
+        for (int k = 0; k < i; k++) {
+            j++;
+            x += j;
+            sum += x;
+        }
+        System.out.println(sum);
+    }
+}
+```
+
+## 平方怪圈
+```java
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        int i = new Scanner(System.in).nextInt();
+        for (int j = 0; j < 100; j++) {
+            char[] chars = String.valueOf(i).toCharArray();
+            i = 0;
+            for (char c : chars) {
+                int temp = Integer.valueOf(String.valueOf(c));     此方法创建了多个对象，内存使用率较高
+                i += (temp * temp);
+            }
+            System.out.println(i);
+        }
+    }
+}
+
+-------------------------------------------------------
+
+public class Main {
+    public static void main(String[] args) {
+        int i = 1234567;
+
+        while (i > 0) {     遍历数的每一位
+            System.out.println(i % 10);
+            i /= 10;
+        }
+    }
+}
+----
+输出：
+7
+6
+5
+4
+3
+2
+1
+
+-------------------------------------------------------
+改进版本
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        int i = new Scanner(System.in).nextInt();
+        for (int j = 0; j < 100; j++) {
+            int sum = 0;
+            while (i > 0) {
+                int x = i % 10;
+                sum += (x * x);
+                i /= 10;
+            }
+            i = sum;
+            System.out.println(i);
+        }
+    }
+}
 ```

@@ -29,7 +29,7 @@ object ItemDAO {
                 .prepareStatement("SELECT * FROM item;")
                 .executeQuery()
                 .use {
-                    while (it.next()) {
+                    while (it.next()) {     遍历 ResultSet 并实例化 Item 实体
                         val item = Item(
                                 id = it.getInt("id"),
                                 name = it.getString("name"),
@@ -58,7 +58,7 @@ object ItemDAO {
             .prepareStatement("SELECT * FROM item WHERE id = ?;").apply { this.setInt(1, id) }
             .executeQuery()
             .use {
-                if (it.next()) {
+                if (it.next()) {     ID 存在
                     val item = Item(
                             id = it.getInt("id"),
                             name = it.getString("name"),
@@ -68,7 +68,7 @@ object ItemDAO {
                             picture = it.getString("picture")
                     )
                     item
-                } else {
+                } else {     ID 不存在
                     val item = Item(
                             id = 0,
                             name = "null",
@@ -124,10 +124,10 @@ package util
 object CookieHelp {
     @JvmStatic
     fun addCookie(cookie: String, id: Int) = cookie     添加 Cookie 并去重
-            .split('|')     String ➜ List
+            .split('|')     分解（String ➜ List）
             .toMutableList().apply { this.add(id.toString()) }     添加
             .distinct()     去重
-            .fold("") { str, s -> if (str == "") s else str + '|' + s }     List ➜ String
+            .fold("") { str, s -> if (str == "") s else str + '|' + s }     合并（List ➜ String）
 
     @JvmStatic
     fun cutCookie(cookie: String) = if (cookie.split('|').count() > 5) cookie.substring(cookie.indexOf('|') + 1) else cookie     字符串中只保留最近 5 个商品 ID
@@ -218,8 +218,8 @@ object CookieHelp {
     request.setCharacterEncoding("UTF-8");     指定输入字符集
 %>
 <%
-    final int id = Integer.valueOf(request.getParameter("id"));     获得正在游览的商品 ID
-    final Item item = ItemDAO.getItemById(id);     实例化实体
+    final int id = Integer.valueOf(request.getParameter("id"));     获得当前页面的商品 ID
+    final Item item = ItemDAO.getItemById(id);     实例化 Item 实体
 %>
 <%
     boolean hasCookie = false;
