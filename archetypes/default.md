@@ -1,6 +1,8 @@
-+++
-Categories = []
-+++
+---
+author: "XhstormR"
+categories:
+  -
+---
 
 <!--more-->
 

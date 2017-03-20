@@ -1,6 +1,7 @@
 baseurl = "http://blog.xhstormr.tk"
 languageCode = "zh-cn"
 title = "XhstormR"
+MetaDataFormat = "yaml"
 
 [Params]
   description = "On a dark desert highway Cool wind in my hair"
