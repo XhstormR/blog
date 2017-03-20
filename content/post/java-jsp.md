@@ -1,9 +1,11 @@
-+++
-Categories = ["JAVA"]
-date = "2017-03-09T23:30:26+08:00"
-title = "Java Server Pages"
+---
+categories:
+  - "JAVA"
+date: "2017-03-09T23:30:26+08:00"
+title: "Java Server Pages"
+author: "XhstormR"
 
-+++
+---
 
 <!--more-->
 
