@@ -1,8 +1,9 @@
 ---
 categories:
-- "JAVA"
+  - "JAVA"
 date: "2016-10-15T10:23:45+08:00"
 title: "Algorithm"
+author: "XhstormR"
 
 ---
 
