@@ -11,7 +11,7 @@ Updated on 2016-11-26
 
 http://openspeedtest.com/
 
-http://www.speedtest.net/
+http://beta.speedtest.net/
 
 http://speedtest.hkg02.softlayer.com/speedtest/
 
