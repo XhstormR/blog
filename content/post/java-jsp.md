@@ -177,7 +177,7 @@ date.jsp     被包含的页面
 ```
 <%     Servlet 中的 jspService() 的方法代码
     System.out.println("你好");     输出至控制台
-    out.println("你好");     输出至页面（out 是 JspWriter 的实例化对象）
+    out.println("你好");     输出至页面（out 是内置对象，是 JspWriter 的实例化对象）
 %>
 ```
 
@@ -200,10 +200,11 @@ ABC
 ----
 <%!     声明方法
     private String a() {
+        DecimalFormat format = new DecimalFormat("00");
         StringBuilder s = new StringBuilder();
         for (int i = 1; i <= 9; i++) {
             for (int j = 1; j <= i; j++) {
-                s.append(i).append('*').append(j).append('=').append(i * j).append("&nbsp;&nbsp;&nbsp;&nbsp;");     空格
+                s.append(i).append('*').append(j).append('=').append(format.format(i * j)).append("&nbsp;&nbsp;&nbsp;");     空格
             }
             s.append("<br>");     换行
         }
@@ -271,7 +272,7 @@ doLogin.jsp
 协议类型：<%=request.getProtocol()%><br>
 请求类型：<%=request.getContentType()%><br>
 请求大小：<%=request.getContentLength()%> 字节<br>
-相对路径：<%=request.getContextPath()%><br>
+虚拟路径：<%=request.getContextPath()%><br>
 请求路径：<%=request.getServletPath()%><br>
 真实路径：<%=request.getServletContext().getRealPath("doLogin.jsp")%><br>
 主机名称：<%=request.getServerName()%><br>
@@ -289,7 +290,7 @@ doLogin.jsp
 协议类型：HTTP/1.1
 请求类型：application/x-www-form-urlencoded
 请求大小：30 字节
-相对路径：
+虚拟路径：
 请求路径：/doLogin.jsp
 真实路径：C:\Users\Administrator\IdeaProjects\untitled1\out\artifacts\untitled1_war_exploded\doLogin.jsp
 主机名称：localhost
@@ -326,8 +327,8 @@ doLogin.jsp
 </html>
 
 Note：
-请求重定向（客户端行为）（共发起 2 次请求）（游览器地址会改变）（不传递原有请求对象）（302 临时跳转）
-请求转发一（服务端行为）（共发起 1 次请求）（游览器地址不改变）（会传递原有请求对象）
+请求重定向（客户端行为）（共发起 2 次请求）（游览器地址会改变）（不传递原有请求对象）（response）（302 临时跳转）
+请求转发一（服务端行为）（共发起 1 次请求）（游览器地址不改变）（会传递原有请求对象）（request）
 ```
 
 ### session
