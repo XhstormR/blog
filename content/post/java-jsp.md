@@ -297,6 +297,11 @@ doLogin.jsp
 主机端口：8080
 客户端 IP 地址：0:0:0:0:0:0:0:1
 服务端 IP 地址：0:0:0:0:0:0:0:1
+
+Note：
+真实路径：<%=request.getServletContext().getRealPath("doLogin.jsp")%><br>
+等同于
+真实路径：<%=application.getRealPath(request.getServletPath())%><br>
 ```
 
 ### response
@@ -392,7 +397,7 @@ Session 生命周期
 重置 Session 生存间隔时间。
 
 3. 销毁
-主动：session.invalidate()、重启 Tomcat、重启浏览器（JSESSIONID Cookie 重启游览器失效）。
+主动：session.invalidate()、重启 Tomcat、重启浏览器（JSESSIONID Cookie 失效，导致 Session 过期）。
 被动：Session 过期。
 
 设置 Session 超时时间（默认 30 分钟）
@@ -408,28 +413,50 @@ D:\Download\apache-tomcat-9.0.0\conf\web.xml（全局）
 
 ### application
 ```
-<%
-    application.getServerInfo();     Apache Tomcat/9.0.0.M17
-    application.setAttribute("str", "ABC");
-    application.getAttribute("str");
-%>
-
-Note：
 application 对象类似于 Java 中的 static 成员，属于 Web APP，由所有用户共享，可用于存放全局变量。
 application 对象始于服务器，终于服务器。
+
+----
+
+<%
+    application.setAttribute("str", "ABC");
+    application.getAttribute("str");
+    Enumeration<String> attributeNames = application.getAttributeNames();
+    while (attributeNames.hasMoreElements()) {
+        String k = attributeNames.nextElement();
+        Object v = application.getAttribute(k);
+        out.print(k + " = " + v + "<br><br>");
+    }
+%>
+
+<%=application.getRealPath(request.getServletPath())%><br>
+<%=application.getServerInfo()%><br>
+----
+输出：
+C:\Users\Administrator\IdeaProjects\untitled\out\artifacts\untitled_war_exploded\index.jsp
+Apache Tomcat/9.0.0.M18
 ```
 
 ### page
 ```
 page 对象类似于 Java 中的 this 指针，指代当前 JSP 页面本身，是 java.lang.Object 的实例。
+
+----
+
+<%=page%>
+----
+输出：
+org.apache.jsp.index_jsp@2445d4f1
 ```
 
 ### pageContext
 ```
 pageContext 对象提供了对 JSP 页面内所有的命名空间的访问，相当于页面中所有功能的集大成者。
 
-pageContext.forward("a.jsp");     使当前页面重定向至另一个页面（服务端重定向）
-pageContext.include("a.jsp");     使当前位置包含另一个页面的内容
+----
+
+pageContext.forward("a.jsp");     请求转发
+pageContext.include("a.jsp");     使当前位置包含另一个页面的内容（类似 include 动作，生成独立的 Servlet）
 ```
 
 ### config
@@ -518,7 +545,7 @@ doLogin.jsp
 ----
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    request.setCharacterEncoding("UTF-8");
+    request.setCharacterEncoding("UTF-8");     指定输入字符集
     String account = request.getParameter("account");
     String password = request.getParameter("password");
     if ("admin".equals(account) && "123456".equals(password)) {
