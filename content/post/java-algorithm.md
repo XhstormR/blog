@@ -773,3 +773,45 @@ public class Main {
     }
 }
 ```
+
+## 报数游戏
+```java
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+//        Scanner scanner = new Scanner(System.in);
+//        int n = scanner.nextInt();
+//        int m = scanner.nextInt();
+        int n = 15;
+        int m = 3;
+
+        int[] ints = new int[n];//0 未出局，1 已出局
+        int out = 0;//出局人数
+        int count = 0;//计数器
+        while (out < n - 1) {
+            for (int i = 0; i < ints.length; i++) {
+                if (ints[i] != 1) {
+                    count++;
+                    if (count == m) {
+                        ints[i] = 1;
+                        count = 0;
+                        out++;
+                    }
+                }
+            }
+        }
+
+        System.out.println(Arrays.toString(ints));
+        for (int i = 0; i < ints.length; i++) {
+            if (ints[i] == 0) {
+                System.out.println(i + 1);
+            }
+        }
+    }
+}
+----
+输出：
+[1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+5
+```
