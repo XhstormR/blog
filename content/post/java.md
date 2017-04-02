@@ -46,7 +46,6 @@ Ctrl+B     转至声明处
 Ctrl+R     替换文本
 Ctrl+O     重写方法
 Ctrl+H     查看类结构
-Ctrl+P     提示方法参数
 Ctrl+J     自动代码（Live Templates）
 Ctrl+F4     关闭标签页
 ALT+。   内容辅助（自己设置 Class Name Completion）
@@ -60,6 +59,7 @@ Ctrl+ALT+L     格式化代码
 Ctrl+ALT+O     清除无效包引用
 Ctrl+Shift+J     合并行
 Ctrl+Shift+U     大小写转换
+Ctrl+Shift+Space     智能提示
 Ctrl+Shift+Enter     完成声明
 
 Shift+F6     重构 - 重命名（Rename）
@@ -71,6 +71,7 @@ Ctrl+ALT+M     解构为方法（Method）
 
 Ctrl+` 4 3     进入（退出）全屏
 
+Ctrl+P     查看方法参数
 Ctrl+Q     查看快速文档
 Ctrl+Shift+I     查看快速定义
 

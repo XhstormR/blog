@@ -599,7 +599,7 @@ public class Main {
             }
         }
 
-        queen(0, true);
+        queen(0, true);//开始放置白皇后
         System.out.println(count);
     }
 
@@ -619,7 +619,7 @@ public class Main {
                     b[k] = i;
                 }
                 if (place(k, who)) {
-                    if (who && k + 1 > ints.length - 1) {
+                    if (who && k + 1 > ints.length - 1) {//白皇后的所有行都已经放置完毕，开始放置黑皇后
                         queen(0, false);
                     } else {
                         queen(k + 1, who);//当前行的行列位置可以放置皇后，递归前往下一行
@@ -736,7 +736,7 @@ public class Main {
     public static void main(String[] args) {
         int i = 1234567;
 
-        while (i > 0) {     遍历数的每一位
+        while (i != 0) {     遍历数的每一位
             System.out.println(i % 10);
             i /= 10;
         }
@@ -789,7 +789,7 @@ public class Main {
         int[] ints = new int[n];//0 未出局，1 已出局
         int out = 0;//出局人数
         int count = 0;//计数器
-        while (out < n - 1) {
+        while (out != n - 1) {
             for (int i = 0; i < ints.length; i++) {
                 if (ints[i] != 1) {
                     count++;
@@ -806,6 +806,7 @@ public class Main {
         for (int i = 0; i < ints.length; i++) {
             if (ints[i] == 0) {
                 System.out.println(i + 1);
+                break;
             }
         }
     }
@@ -814,4 +815,32 @@ public class Main {
 输出：
 [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 5
+```
+
+## 立方尾不变
+```java
+public class Main {
+    public static void main(String[] args) {
+        int count = 0;
+        for (int i = 1; i <= 10000; i++) {
+            long j = (long) Math.pow(i, 3);
+            if (i == j % (long) Math.pow(10, a(i))) {
+                count++;
+            }
+        }
+        System.out.println(count);
+    }
+
+    private static int a(int i) {//返回数字的位数
+        int n = 0;
+        while (i != 0) {
+            n++;
+            i /= 10;
+        }
+        return n;
+    }
+}
+----
+输出：
+36
 ```
