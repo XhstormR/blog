@@ -221,7 +221,6 @@ https://www.gnu.org/software/wget/manual/wget.html
 
 ## Search
 ```bash
-https://www.baidu.com/s?wd=123&tn=baidulocal
 https://www.google.com/search?newwindow=1&q=123
 ```
 
