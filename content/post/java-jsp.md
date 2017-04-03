@@ -853,7 +853,7 @@ index.jsp
 </body>
 </html>
 
-index.jsp
+doLogin.jsp
 ----
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:useBean id="userDAO" class="a.UserDAO"/>
@@ -868,25 +868,25 @@ index.jsp
     }
 %>
 
-index.jsp
+login_successful.jsp
 ----
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:useBean id="loginUser" class="a.User" scope="session"/>
 <%
     String isUseCookie = request.getParameter("isUseCookie");
     if (isUseCookie != null) {
-        Cookie username = new Cookie("username", loginUser.getUsername());
+        Cookie username = new Cookie("username", loginUser.getUsername());     创建
         Cookie password = new Cookie("password", loginUser.getPassword());
         username.setMaxAge(86400);
         password.setMaxAge(86400);
-        response.addCookie(username);
+        response.addCookie(username);     写入
         response.addCookie(password);
     } else {
-        Cookie[] cookies = request.getCookies();
+        Cookie[] cookies = request.getCookies();     读取
         if (cookies != null && cookies.length > 0) {
             for (Cookie c : cookies) {
                 if (c.getName().equals("username") || c.getName().equals("password")) {
-                    c.setMaxAge(0);
+                    c.setMaxAge(0);     删除
                     response.addCookie(c);
                 }
             }
@@ -904,7 +904,7 @@ index.jsp
 </body>
 </html>
 
-index.jsp
+login_failed.jsp
 ----
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
@@ -929,7 +929,7 @@ index.jsp
 </body>
 </html>
 
-index.jsp
+user.jsp
 ----
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
