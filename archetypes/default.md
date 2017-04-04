@@ -1,7 +1,7 @@
 ---
-author: "XhstormR"
+author: XhstormR
 categories:
-  -
+-
 ---
 
 <!--more-->
