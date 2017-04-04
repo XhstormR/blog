@@ -91,32 +91,13 @@ index.jsp
     <title>Title</title>
 </head>
 <body>
+
+include 指令：
 <%@ include file="date.jsp" %>     声明需要包含的页面
-</body>
-</html>
 
-date.jsp     被包含的页面
-----
-<%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="java.util.Date" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-    String date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
-    out.print(date);
-%>
-```
+include 动作：
+<jsp:include page="date.jsp" flush="false"/>     声明需要包含的页面（flush 是否刷新缓冲区）
 
-##### JSP 动作：include
-```
-index.jsp
-----
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
-<jsp:include page="date.jsp" flush="false"/>     声明需要包含的页面（flush 是否使用缓冲区）
 </body>
 </html>
 
@@ -134,6 +115,7 @@ date.jsp     被包含的页面
 ##### include 指令与 include 动作的对比
 ||include 指令|include 动作|
 |:--|:--|:--|
+||静态包含|动态包含|
 |生成内容|文件内容|执行结果|
 |生成 Servlet|合并|独立|
 |编译时间|较慢|较快（不解析资源）|
@@ -301,6 +283,8 @@ doLogin.jsp
 Note：
 真实路径：<%=request.getServletContext().getRealPath("doLogin.jsp")%><br>
 等同于
+真实路径：<%=request.getServletContext().getRealPath(request.getServletPath())%><br>
+等同于
 真实路径：<%=application.getRealPath(request.getServletPath())%><br>
 ```
 
@@ -320,12 +304,13 @@ Note：
     等同于
     <jsp:forward page="request.jsp"/>     JSP 动作：forward
 
-    关于 JSP 动作：forward
+    动作 forward 可添加参数：
     <jsp:forward page="a.jsp">
         <jsp:param name="age" value="25"/>     添加参数
         <jsp:param name="sex" value="男"/>
     </jsp:forward>
-    <%=request.getParameter("age")%><br>     转发后的页面接收参数
+    转发后的页面接收参数：
+    <%=request.getParameter("age")%><br>
 
 %>
 </body>
@@ -877,7 +862,7 @@ login_successful.jsp
     if (isUseCookie != null) {
         Cookie username = new Cookie("username", loginUser.getUsername());     创建
         Cookie password = new Cookie("password", loginUser.getPassword());
-        username.setMaxAge(86400);
+        username.setMaxAge(86400);     设置 Cookie 有效期为 1 天（单位：秒）（若未设置，默认为浏览会话结束时过期）
         password.setMaxAge(86400);
         response.addCookie(username);     写入
         response.addCookie(password);
@@ -886,8 +871,8 @@ login_successful.jsp
         if (cookies != null && cookies.length > 0) {
             for (Cookie c : cookies) {
                 if (c.getName().equals("username") || c.getName().equals("password")) {
-                    c.setMaxAge(0);     删除
-                    response.addCookie(c);
+                    c.setMaxAge(0);     使 Cookie 立即过期
+                    response.addCookie(c);     写入
                 }
             }
         }
