@@ -871,7 +871,7 @@ login_successful.jsp
         if (cookies != null && cookies.length > 0) {
             for (Cookie c : cookies) {
                 if (c.getName().equals("username") || c.getName().equals("password")) {
-                    c.setMaxAge(0);     使 Cookie 立即过期
+                    c.setMaxAge(0);     设置 Cookie 立即过期
                     response.addCookie(c);     写入
                 }
             }
