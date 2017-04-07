@@ -927,6 +927,13 @@ public class Main {
             System.out.println(i % 10);
             i /= 10;
         }
+//        System.out.println(i / 1 % 10);
+//        System.out.println(i / 10 % 10);
+//        System.out.println(i / 100 % 10);
+//        System.out.println(i / 1000 % 10);
+//        System.out.println(i / 10000 % 10);
+//        System.out.println(i / 100000 % 10);
+//        System.out.println(i / 1000000 % 10);
     }
 }
 ----

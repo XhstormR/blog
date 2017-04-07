@@ -146,6 +146,7 @@ Ctrl+2     快速帮助
   R     重构 - 重命名（Rename）
 
 ALT+Shift+↑↓     扩大选区
+ALT+Shift+I     内联（Inline）
 ALT+Shift+L     解构为变量（Variable）（Extract）
 ALT+Shift+M     解构为方法（Method）
 ALT+Shift+R     重构 - 重命名
