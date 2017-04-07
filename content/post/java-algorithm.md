@@ -661,6 +661,193 @@ public class Main {
 }
 ```
 
+## 全排列
+```java
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+//    private static char[] chars;
+    private static int[] ints;//放法
+    private static int count;//放法数
+
+    public static void main(String[] args) {
+//        chars = new Scanner(System.in).next().toCharArray();
+//        ints = new int[chars.length];
+        ints = new int[new Scanner(System.in).nextInt()];
+        permutation(0);
+        System.out.println("共 " + count + " 种");
+    }
+
+    /**
+     * 递归放置元素。
+     *
+     * @param k 当前索引位置。
+     */
+    private static void permutation(int k) {
+        if (k > ints.length - 1) {//所有索引位置（元素）都已经放置完毕，放法数加一
+            count++;
+            show();
+        } else {
+            for (int i = 0; i < ints.length; i++) {//测试当前索引位置，遍历放置每一个元素
+                ints[k] = i;
+                if (place(k)) {
+                    permutation(k + 1);//当前索引位置的元素可以放置，递归前往下一个索引位置
+                }
+            }
+        }
+    }
+
+    /**
+     * 判断当前索引位置的元素与之前索引位置的元素是否冲突（重复）。
+     *
+     * @param k 当前索引位置。
+     * @return true 为可以放置，false 反之。
+     */
+    private static boolean place(int k) {
+        for (int j = 0; j < k; j++) {//遍历之前的索引位置与其进行比较
+            if (ints[j] == ints[k]) {//元素不能重复
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * 显示放法。
+     */
+    private static void show() {
+//        for (int i : ints) {
+//            System.out.print(chars[i]);
+//        }
+//        System.out.println();
+        System.out.println(Arrays.toString(ints));
+    }
+}
+----
+输入：
+3
+输出：
+[0, 1, 2]
+[0, 2, 1]
+[1, 0, 2]
+[1, 2, 0]
+[2, 0, 1]
+[2, 1, 0]
+共 6 种
+```
+
+## 凑算式
+```java
+暴力解法
+----
+public class Main {
+    public static void main(String[] args) {
+        int count = 0;
+
+        for (double a = 1; a <= 9; a++) {
+            for (double b = 1; b <= 9; b++) {
+                if (b != a) {
+                    for (double c = 1; c <= 9; c++) {
+                        if (c != b && c != a) {
+                            for (double d = 1; d <= 9; d++) {
+                                if (d != c && d != b && d != a) {
+                                    for (double e = 1; e <= 9; e++) {
+                                        if (e != d && e != c && e != b && e != a) {
+                                            for (double f = 1; f <= 9; f++) {
+                                                if (f != e && f != d && f != c && f != b && f != a) {
+                                                    for (double g = 1; g <= 9; g++) {
+                                                        if (g != f && g != e && g != d && g != c && g != b && g != a) {
+                                                            for (double h = 1; h <= 9; h++) {
+                                                                if (h != g && h != f && h != e && h != d && h != c && h != b && h != a) {
+                                                                    for (double i = 1; i <= 9; i++) {
+                                                                        if (i != h && i != g && i != f && i != e && i != d && i != c && i != b && i != a) {
+
+//                                                                            double d1 = new BigDecimal(b / (double) c).setScale(4, BigDecimal.ROUND_HALF_UP).doubleValue();
+//                                                                            double d2 = new BigDecimal((d * 100 + e * 10 + f) / (double) (g * 100 + h * 10 + i)).setScale(4, BigDecimal.ROUND_HALF_UP).doubleValue();
+//                                                                            double m = a + d1 + d2;
+                                                                            double m = a + b / c + (d * 100 + e * 10 + f) / (g * 100 + h * 10 + i);
+                                                                            if (m == 10) {
+                                                                                count++;
+                                                                            }
+
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        System.out.println(count);
+    }
+}
+----
+输出：
+29
+
+-------------------------------------------------------
+使用全排列后：
+
+public class Main {
+    private static int[] ints = new int[9];
+    private static int count;
+
+    public static void main(String[] args) {
+        permutation(0);
+        System.out.println(count);
+    }
+
+    private static void permutation(int k) {
+        if (k > ints.length - 1) {
+            suitable();
+        } else {
+            for (int i = 0; i < ints.length; i++) {
+                ints[k] = i;
+                if (place(k)) {
+                    permutation(k + 1);
+                }
+            }
+        }
+    }
+
+    private static boolean place(int k) {
+        for (int j = 0; j < k; j++) {
+            if (ints[j] == ints[k]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static void suitable() {
+        double a = ints[0] + 1;
+        double b = ints[1] + 1;
+        double c = ints[2] + 1;
+        double d = ints[3] + 1;
+        double e = ints[4] + 1;
+        double f = ints[5] + 1;
+        double g = ints[6] + 1;
+        double h = ints[7] + 1;
+        double i = ints[8] + 1;
+        double m = a + b / c + (d * 100 + e * 10 + f) / (g * 100 + h * 10 + i);
+        if (m == 10) {
+//            System.out.println(Arrays.toString(ints));
+            count++;
+        }
+    }
+}
+```
+
 ## 质数判断
 ```java
 import java.util.Scanner;
