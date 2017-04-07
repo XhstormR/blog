@@ -69,6 +69,7 @@ Ctrl+ALT+F     解构为属性（Field）
 Ctrl+ALT+P     解构为参数（Parameter）
 Ctrl+ALT+M     解构为方法（Method）
 
+ALT+Q     查看上下文
 Ctrl+P     查看方法参数
 Ctrl+Q     查看快速文档
 Ctrl+Shift+I     查看快速定义
