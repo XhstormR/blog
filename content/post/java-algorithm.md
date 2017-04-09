@@ -848,6 +848,147 @@ public class Main {
 }
 ```
 
+## 猜算式
+```java
+public class Main {
+    private static int[] ints;
+
+    public static void main(String[] args) {
+        for (int x = 100; x <= 999; x++) {
+            for (int y = 100; y <= 999; y++) {
+                ints = new int[10];
+                int a = x * (y / 1 % 10);
+                int b = x * (y / 10 % 10);
+                int c = x * (y / 100 % 10);
+                if (a >= 100 && a < 1000 && b >= 100 && b < 1000 && c >= 100 && c < 1000 && x * y >= 10000 && x * y < 100000 && check(x) && check(y) && check(a) && check(b) && check(c) && check(x * y)) {
+                    System.out.println(x + " " + y + " " + a + " " + b + " " + c + " " + x * y);
+                }
+            }
+        }
+    }
+
+    private static boolean check(int i) {
+        for (; i != 0; i /= 10) {
+            int j = i % 10;
+            ints[j]++;
+            if (ints[j] == 3) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+----
+输出：
+179 224 716 358 358 40096
+
+-------------------------------------------------------
+
+public class Main {
+    private static int[] ints;
+
+    public static void main(String[] args) {
+        a(100);
+    }
+
+    private static void a(int x) {
+        if (x > 999) {
+            return;
+        } else {
+            for (int y = 100; y <= 999; y++) {
+                ints = new int[10];
+                int a = x * (y / 1 % 10);
+                int b = x * (y / 10 % 10);
+                int c = x * (y / 100 % 10);
+                if (a >= 100 && a < 1000 && b >= 100 && b < 1000 && c >= 100 && c < 1000 && x * y >= 10000 && x * y < 100000 && b(x) && b(y) && b(a) && b(b) && b(c) && b(x * y)) {
+                    System.out.println(x + " " + y + " " + a + " " + b + " " + c + " " + x * y);
+                }
+            }
+            a(x + 1);
+        }
+    }
+
+    private static boolean b(int i) {
+        for (; i != 0; i /= 10) {
+            int j = i % 10;
+            ints[j]++;
+            if (ints[j] == 3) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+----
+输出：
+179 224 716 358 358 40096
+```
+
+## 地产大亨
+```java
+public class Main {
+    private static int[] ints = new int[10];//下标为指数，值为个数
+
+    public static void main(String[] args) {
+        a(0);
+    }
+
+    private static void a(int k) {
+        if (k > ints.length - 1) {
+            return;
+        } else {
+            for (int i = 0; i < 6; i++) {
+                ints[k] = i;
+                if (b(k)) {
+                    a(k + 1);
+                }
+            }
+        }
+    }
+
+    private static boolean b(int k) {
+        double sum = 0;
+        for (int i = 0; i <= k; i++) {
+            sum += Math.pow(7, i) * ints[i];
+        }
+        if (sum == 1000000) {
+            StringBuilder s = new StringBuilder();
+            int n = 0;
+            for (int i = 0; i <= k; i++) {
+                s.append(ints[i]);
+                n += ints[i];
+            }
+            System.out.println(s);
+            System.out.println(n);
+            System.exit(0);//结束运行
+        }
+        return sum < 1000000;
+    }
+}
+----
+输出：
+11333311
+16
+
+-------------------------------------------------------
+
+public class Main {
+    public static void main(String[] args) {
+        String s = Integer.toString(1000000, 7);
+        int n = 0;
+        for (int i = Integer.parseInt(s); i != 0; i /= 10) {//遍历数的每一位
+            n += i % 10;
+        }
+        System.out.println(s);
+        System.out.println(n);
+    }
+}
+----
+输出：
+11333311
+16
+```
+
 ## 质数判断
 ```java
 import java.util.Scanner;
@@ -918,15 +1059,21 @@ public class Main {
 }
 
 -------------------------------------------------------
+遍历数的每一位
 
 public class Main {
     public static void main(String[] args) {
         int i = 1234567;
 
-        while (i != 0) {     遍历数的每一位
+        while (i != 0) {     第 1 种
             System.out.println(i % 10);
             i /= 10;
         }
+
+        for (; i != 0; i /= 10) {     第 2 种
+            System.out.println(i % 10);
+        }
+
 //        System.out.println(i / 1 % 10);
 //        System.out.println(i / 10 % 10);
 //        System.out.println(i / 100 % 10);
