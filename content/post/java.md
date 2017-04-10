@@ -803,6 +803,16 @@ Math.random()     0.6019044390548263     返回 [0,1) 之间的随机浮点数
 
 -------------------------------------------------------
 
+double d = 123456789.123456789;
+NumberFormat numberFormat = NumberFormat.getInstance();
+numberFormat.setGroupingUsed(true);     设置数字分组
+numberFormat.setMaximumIntegerDigits(4);     设置最大整数位
+numberFormat.setMaximumFractionDigits(4);     设置最大小数位
+numberFormat.setRoundingMode(RoundingMode.HALF_UP);     设置舍入模式
+String s = numberFormat.format(d);     6,789.1235
+
+-------------------------------------------------------
+
 System.currentTimeMillis()     返回 Unix 时间戳，单位为毫秒（除以 1000 即为标准 Unix 时间戳 (秒)）
 System.nanoTime()     精确计时器，单位为毫微秒
      long l1 = System.nanoTime();

@@ -24,10 +24,10 @@ class MyFilter1 : Filter {
         println("init---MyFilter1")
     }
 
-    override fun doFilter(p0: ServletRequest, p1: ServletResponse, p2: FilterChain) {
-        println("doFilter---MyFilter1---Start")
-        p2.doFilter(p0, p1)     不过滤（放行）：将请求传递给下一个过滤器（若为最后一个过滤器，则为目标资源）
-        println("doFilter---MyFilter1---End")
+    override fun doFilter(p0: ServletRequest, p1: ServletResponse, p2: FilterChain) {     核心方法
+        println("doFilter---MyFilter1---Start")     放行前
+        p2.doFilter(p0, p1)     不过滤（放行）：将请求传递给下一个过滤器（若已为最后一个过滤器，则为目标资源）
+        println("doFilter---MyFilter1---End")     放行后
 
         要过滤：通过请求转发（request）、请求重定向（response），跳转至其他资源。
     }
@@ -104,7 +104,7 @@ class MyFilter2 : Filter {
 
 </web-app>
 
-过滤器链：若有多个过滤器的 url-pattern 一致，则服务器会按照 web.xml 中定义过滤器的先后顺序将过滤器组装成一条链。
+过滤器链：若一个请求匹配有多个过滤器，则服务器会按照 web.xml 中定义过滤器的先后顺序将过滤器组装成一条链。
 ```
 
 ### Output
