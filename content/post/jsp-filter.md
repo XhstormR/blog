@@ -13,6 +13,8 @@ Updated on 2017-04-03
 > {{< image "/uploads/jsp-filter.svg" "Filter" "1" "1">}}
 
 ## 工作原理
+用于 **拦截** 客户端的 **请求** 信息和服务端的 **响应** 信息，并对这些信息进行 **过滤**。
+
 ### MyFilter1
 ```kotlin
 package a
@@ -90,7 +92,7 @@ class MyFilter2 : Filter {
     </filter>
     <filter-mapping>
         <filter-name>f1</filter-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>/*</url-pattern>     匹配所有路径
     </filter-mapping>
 
     <filter>     过滤器
@@ -99,7 +101,7 @@ class MyFilter2 : Filter {
     </filter>
     <filter-mapping>
         <filter-name>f2</filter-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>/*</url-pattern>     匹配所有路径
     </filter-mapping>
 
 </web-app>
@@ -123,7 +125,7 @@ destroy---MyFilter2
 ```
 
 ## Dispatcher
-* REQUEST：当目标资源是通过 **用户直接访问** 时，将调用该过滤器。
+* REQUEST：当目标资源是通过 **用户直接访问** 时，将调用该过滤器。（缺省值）
 * FORWARD：当目标资源是通过 **RequestDispatcher.forward()**访问时，将调用该过滤器。
 * INCLUDE：当目标资源是通过 **RequestDispatcher.include()** 访问时，将调用该过滤器。
 * ERROR：当目标资源是通过 **异常处理机制** 访问时，将调用该过滤器。
@@ -225,4 +227,133 @@ web.xml
 <hr>
 </body>
 </html>
+```
+
+## 登录页面案例
+### JSP
+```
+index.jsp
+----
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>登录页面</title>
+</head>
+<body>
+<h1>登录页面</h1>
+<hr>
+<form action="doLogin.jsp" name="loginForm" method="post">
+    <table>
+        <tr>
+            <td>账号：</td>
+            <td><input type="text" name="username"></td>
+        </tr>
+        <tr>
+            <td>密码：</td>
+            <td><input type="password" name="password"></td>
+        </tr>
+        <tr>
+            <td><input type="reset" value="重置"></td>
+            <td><input type="submit" value="登录"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
+
+doLogin.jsp
+----
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    request.setCharacterEncoding("UTF-8");
+    String username = request.getParameter("username");
+    String password = request.getParameter("password");
+    if ("admin".equals(username) && "123456".equals(password)) {
+        session.setAttribute("username", username);
+        response.sendRedirect("login_successful.jsp");
+    } else {
+        response.sendRedirect("login_failed.jsp");
+    }
+%>
+
+login_successful.jsp
+----
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>登录成功</title>
+</head>
+<body>
+<h1>登录成功</h1>
+<hr>
+欢迎用户：${username}     EL 表达式
+</body>
+</html>
+
+login_failed.jsp
+----
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>登录失败</title>
+</head>
+<body>
+<h1>登录失败</h1>
+<hr>
+<a href="/">返回登录页面</a>
+</body>
+</html>
+```
+
+### MyFilter
+```kotlin
+class MyFilter : Filter {
+    lateinit var noFilterList: List<String>
+
+    override fun init(filterConfig: FilterConfig) {
+        noFilterList = filterConfig.getInitParameter("noFilterList").split(";")     获取放行关键字
+    }
+
+    override fun doFilter(request: ServletRequest, response: ServletResponse, chain: FilterChain) {
+        val request1 = request as HttpServletRequest
+        val response1 = response as HttpServletResponse
+        request1.characterEncoding = "UTF-8"     统一指定输入字符集
+
+        val uri = request1.requestURI     请求路径
+        if (request1.session.getAttribute("username") != null || uri == "/" || check(uri)) {
+            chain.doFilter(request, response)     放行（通过）
+        } else {
+            response1.sendRedirect("/")     不放行（重定向至根目录）
+        }
+    }
+
+    override fun destroy() {
+    }
+
+    private fun check(s: String) = noFilterList.find { s.contains(it) } != null     若请求路径包含某个关键字，则返回 true
+}
+```
+
+### web.xml
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <filter>
+        <filter-name>f</filter-name>
+        <filter-class>a.MyFilter</filter-class>
+        <init-param>
+            <param-name>noFilterList</param-name>     放行关键字
+            <param-value>index.jsp;doLogin.jsp;login_failed.jsp</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>f</filter-name>
+        <url-pattern>/*</url-pattern>     匹配所有路径
+    </filter-mapping>
+
+</web-app>
 ```
