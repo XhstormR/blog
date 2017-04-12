@@ -463,3 +463,9 @@ Path=C:\PotPlayer\PotPlayerMini.exe
 https://storage.googleapis.com/downloads.webmproject.org/releases/webm/index.html
 https://storage.googleapis.com/downloads.webmproject.org/releases/webp/index.html
 ```
+
+## Translation
+```html
+https://www.bing.com/translator/
+https://translate.google.cn/m/translate
+```
