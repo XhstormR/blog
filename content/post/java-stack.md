@@ -1,25 +1,96 @@
 +++
-Categories = ["Stack"]
+Categories = ["JAVA"]
 date = "2016-07-21T13:17:17+08:00"
-title = "栈"
+title = "Queue and Stack"
 
 +++
 
 <!--more-->
 
-Updated on 2016-07-22
+Updated on 2017-04-12
 
 > {{< image "/uploads/java-stack.svg" "Stack" "1" "1" >}}
+>
+> {{< image "/uploads/java-stack2.svg" "Stack" "1" "1" >}}
+>
+> {{< image "/uploads/java-queue.svg" "Queue" "1" "1" >}}
+>
+> [双端队列](https://zh.wikipedia.org/wiki/双端队列)
+>
+> [双端队列 API](http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/java/util/Deque.html)
 
 * 数据结构：相互之间存在一种或多种特定 **关系** 的数据元素的 **集合**。
-  * 队列：先进先出（FIFO, First In First Out），队头 ⟺ 队尾。
+  * 队列（Queue）：**先进先出**（FIFO, First In First Out），队头 ⟺ 队尾。
       * 普通队列（劣），环形队列（优）。
-  * 堆栈：先进后出（LIFO, Last In First Out），栈顶 ⟺ 栈底。
+  * 堆栈（Stack）：**先进后出**（LIFO, Last In First Out），栈顶 ⟺ 栈底。
       * push：数据入栈。
       * pop：数据出栈，并作为此函数的值返回该对象。
       * peek：查看栈顶部的对象，但不从栈中移除它。
       * empty：测试栈是否为空。
       * search：返回对象在栈中的位置。
+
+```java
+import java.util.ArrayDeque;
+
+public class A {
+    private static ArrayDeque<Integer> deque = new ArrayDeque<>();
+
+    public static void main(String[] args) {
+        System.out.println("队列");
+        deque.offerLast(1);
+        deque.offerLast(2);
+        deque.offerLast(3);
+        deque.offerLast(4);
+        show();
+        deque.offerLast(deque.pollFirst());
+        show();
+        deque.offerLast(deque.pollFirst());
+        show();
+        deque.offerLast(deque.pollFirst());
+        show();
+        deque.offerLast(deque.pollFirst());
+        show();
+
+        System.out.println("————————");
+        deque.clear();
+
+        System.out.println("堆栈");
+        deque.offerFirst(1);
+        deque.offerFirst(2);
+        deque.offerFirst(3);
+        deque.offerFirst(4);
+        show();
+        deque.offerFirst(deque.pollFirst());
+        show();
+        deque.offerFirst(deque.pollFirst());
+        show();
+        deque.offerFirst(deque.pollFirst());
+        show();
+        deque.offerFirst(deque.pollFirst());
+        show();
+    }
+
+    private static void show() {
+        deque.forEach(i -> System.out.print(i + " "));
+        System.out.println();
+    }
+}
+----
+输出：
+队列
+1 2 3 4
+2 3 4 1
+3 4 1 2
+4 1 2 3
+1 2 3 4
+————————
+堆栈
+4 3 2 1
+4 3 2 1
+4 3 2 1
+4 3 2 1
+4 3 2 1
+```
 
 ### 固定顺序进栈，求出栈顺序总数
 1 个元素进栈有 1 种出栈顺序，2 个元素进栈有 2 种出栈顺序，3 个元素进栈有 5 种出栈顺序
