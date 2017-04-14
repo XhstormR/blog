@@ -7,7 +7,7 @@ title = "Kotlin"
 
 <!--more-->
 
-Updated on 2017-02-13
+Updated on 2017-04-13
 
 > {{< image "/uploads/kotlin2.svg" "Kotlin" "1" "1" "225" >}}
 >
@@ -137,6 +137,11 @@ fun show(vararg str: String): Unit {     vararg：可变长参数，参数数量
     }
 }
 
+show()
+----
+输出：
+无
+
 val array: Array<String> = arrayOf("B", "C")
 show("A", *array, "D")     （spread）展开操作符：在数组前加上 `*`
 ----
@@ -158,13 +163,13 @@ public inline fun println(message: Int) {     函数类型：(Int) -> Unit（需
 
 val array = arrayOf(1, 2, 3, 4)
 
-array     使用函数引用
-    .filter(::a)
-    .forEach(::println)
-等同于
 array     使用 Lambda 表达式
     .filter { it % 2 == 0 }
     .forEach { System.out.println(it) }
+等同于
+array     使用函数引用
+    .filter(::a)
+    .forEach(::println)
 等同于
 val aa: (Int) -> Boolean = ::a     将函数引用存储在变量中，类型（声明）为 "函数类型"
 val bb: (Int) -> Unit = ::println
@@ -177,12 +182,12 @@ array
 4
 
 -------------------------------------------------------
-高阶函数：一种将函数作为参数或返回值的函数。
+高阶函数：一种将函数作为参数或者返回值的函数。
     ↳ 函数参数：
             ↳ Lambda 表达式：跟 Java8 中的概念相同，只能作为高阶函数的参数或返回值。
             ↳ 匿名函数：没名字的函数，只能作为高阶函数的参数或返回值。
             ↳ 命名函数：可以通过函数引用作为高阶函数的参数。
-                    ↳ 函数引用：把命名函数作为参数传入，通过在函数名称前加入 `::` 操作符实现。
+                    ↳ 函数引用：通过在函数名称前加上 `::` 操作符，把命名函数作为参数传入。
 
 Lambda 表达式会形成一个闭包（捕捉使用到的外部变量，形成一个作用域），可以通过 Inline，消除这种开销。
 对象是带方法的数据；
@@ -412,7 +417,7 @@ A(id=1, name=小张)
 
 -------------------------------------------------------
 
-with(a) {     语法糖
+with(a) {     高阶函数
     println("[${this.id}, ${this.name}]")
 }
 ----
@@ -421,7 +426,7 @@ with(a) {     语法糖
 
 -------------------------------------------------------
 
-a.use {     由于主动继承自 Closeable，所以能够使用 use 函数（Closeable 接口的扩展函数，用于替代 Java7 的 ARM）
+a.use {     由于主动继承自 Closeable，所以能够使用 use 高阶函数（Closeable 接口的扩展函数，用于替代 Java7 的 ARM）
     println("[${it.id}, ${it.name}]")
 }
 ----
@@ -516,7 +521,7 @@ println(map)
 
 val list: List<Any> = listOf("A", "B", "C", 1, 2, 3, 4)
 list.filter { it is Int && it % 2 != 0 }.forEach(::println)
-                    ↳ 判断类型    ↳ 自动转型                ↳ 函数引用
+                  ↳ 判断类型    ↳ 自动转型（Smart Cast）  ↳ 函数引用
 ----
 输出：
 1
@@ -600,7 +605,6 @@ do {
 9
 
 -------------------------------------------------------
-
 when（和所有分支条件进行顺序比较，用于替代 Java 中的 switch）：
 
 val i = 8
