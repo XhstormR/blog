@@ -20,9 +20,9 @@ Updated on 2017-04-12
 > [双端队列 API](http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/java/util/Deque.html)
 
 * 数据结构：相互之间存在一种或多种特定 **关系** 的数据元素的 **集合**。
-  * 队列（Queue）：**先进先出**（FIFO, First In First Out），队头 ⟺ 队尾。
+  * 队列（两个口）（Queue）：**先进先出**（FIFO, First In First Out），队头 ⟺ 队尾。
       * 普通队列（劣），环形队列（优）。
-  * 堆栈（Stack）：**先进后出**（LIFO, Last In First Out），栈顶 ⟺ 栈底。
+  * 堆栈（一个口）（Stack）：**先进后出**（LIFO, Last In First Out），栈顶 ⟺ 栈底。
       * push：数据入栈。
       * pop：数据出栈，并作为此函数的值返回该对象。
       * peek：查看栈顶部的对象，但不从栈中移除它。
@@ -33,7 +33,7 @@ Updated on 2017-04-12
 import java.util.ArrayDeque;
 
 public class A {
-    private static ArrayDeque<Integer> deque = new ArrayDeque<>();
+    private static ArrayDeque<Integer> deque = new ArrayDeque<>();     双端队列
 
     public static void main(String[] args) {
         System.out.println("队列");
@@ -52,7 +52,7 @@ public class A {
         show();
 
         System.out.println("————————");
-        deque.clear();
+        deque.clear();     清空双端队列
 
         System.out.println("堆栈");
         deque.offerFirst(1);
@@ -138,7 +138,7 @@ Regex：http://help.mythicsoft.com/filelocatorpro/cn/quickstart.htm , [Java](htt
 
 LaTeX：https://latex.codecogs.com/eqneditor/editor.php
 
-![](/uploads/java-stack.png "Stack")
+{{< image "/uploads/java-stack.png" "Stack" "0" "1" >}}
 
 ```java
 10进制 转 2进制
