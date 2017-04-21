@@ -468,4 +468,7 @@ https://storage.googleapis.com/downloads.webmproject.org/releases/webp/index.htm
 ```html
 https://www.bing.com/translator/
 https://translate.google.cn/m/translate
+
+http://m.dict.cn/
+https://dict.youdao.com/m
 ```
