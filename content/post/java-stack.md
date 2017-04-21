@@ -18,6 +18,8 @@ Updated on 2017-04-12
 > [双端队列](https://zh.wikipedia.org/wiki/双端队列)
 >
 > [双端队列 API](http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/java/util/Deque.html)
+>
+> [双端同步阻塞队列 API](http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/java/util/concurrent/BlockingDeque.html)
 
 * 数据结构：相互之间存在一种或多种特定 **关系** 的数据元素的 **集合**。
   * 队列（两个口）（Queue）：**先进先出**（FIFO, First In First Out），队头 ⟺ 队尾。
@@ -33,7 +35,7 @@ Updated on 2017-04-12
 import java.util.ArrayDeque;
 
 public class A {
-    private static ArrayDeque<Integer> deque = new ArrayDeque<>();     双端队列
+    private static ArrayDeque<Integer> deque = new ArrayDeque<>();     双端队列（ArrayDeque 非线程同步，LinkedBlockingDeque 线程同步）
 
     public static void main(String[] args) {
         System.out.println("队列");

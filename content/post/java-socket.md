@@ -77,7 +77,7 @@ http://blog.xhstormr.tk:80/post/jooq/index.html?abc=123&def=456#top
 fun main(args: Array<String>) {
     ServerSocket(4567).use {
         while (true) {
-            Thread(A(it.accept())).start()     监听连接，阻塞方法
+            Thread(A(it.accept())).start()     开始监听连接，阻塞方法
         }
     }
 }
@@ -86,8 +86,8 @@ class A(val socket: Socket) : Runnable {     线程体
     override fun run() {
         socket.use {
             println("运行线程：${Thread.currentThread()}")
-            println("本地地址：${it.localAddress} 端口：${it.localPort}")
-            println("远端地址：${it.inetAddress} 端口：${it.port}")
+            println("本地地址：${it.localAddress} 本地端口：${it.localPort}")
+            println("远端地址：${it.inetAddress} 远端端口：${it.port}")
             val `in` = DataInputStream(it.inputStream)     输入流
             val out = DataOutputStream(it.outputStream)     输出流
             println("Receive：${`in`.readUTF()}")     阻塞方法
@@ -99,8 +99,8 @@ class A(val socket: Socket) : Runnable {     线程体
 ----
 输出：
 运行线程：Thread[Thread-0,5,main]
-本地地址：/127.0.0.1 端口：4567
-远端地址：/127.0.0.1 端口：54569
+本地地址：/127.0.0.1 本地端口：4567
+远端地址：/127.0.0.1 远端端口：54569
 Receive：Hello Server!
 ```
 
@@ -110,8 +110,8 @@ Receive：Hello Server!
 fun main(args: Array<String>) {
     Socket("127.0.0.1", 4567).use {
         println("运行线程：${Thread.currentThread()}")
-        println("本地地址：${it.localAddress} 端口：${it.localPort}")
-        println("远端地址：${it.inetAddress} 端口：${it.port}")
+        println("本地地址：${it.localAddress} 本地端口：${it.localPort}")
+        println("远端地址：${it.inetAddress} 远端端口：${it.port}")
         val `in` = DataInputStream(it.inputStream)     输入流
         val out = DataOutputStream(it.outputStream)     输出流
         out.writeUTF("Hello Server!")
@@ -122,8 +122,8 @@ fun main(args: Array<String>) {
 ----
 输出：
 运行线程：Thread[main,5,main]
-本地地址：/127.0.0.1 端口：54569
-远端地址：/127.0.0.1 端口：4567
+本地地址：/127.0.0.1 本地端口：54569
+远端地址：/127.0.0.1 远端端口：4567
 Receive：Hello Client!
 ```
 
