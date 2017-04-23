@@ -114,9 +114,9 @@ Subscriber<String> subscriber = new Subscriber<String>() {     抽象类（继�
 };
 
 调用链：onStart() --> onNext() --> onCompleted()
-     |            |                                ↳ onError()
-     |            ↳ 此方法只能在调用 subscribe() 的线程上执行，可通过操作符 doOnSubscribe(Action0) 替代且可指定运行线程
-     ↳ 当调用链结束后，订阅关系自动解除（Subscription.isUnsubscribed = true）
+   |       |                   ↳ onError()
+   |       ↳ 此方法只能在调用 subscribe() 的线程上执行，可通过操作符 doOnSubscribe(Action0) 替代且可指定运行线程
+   ↳ 当调用链结束后，订阅关系自动解除（Subscription.isUnsubscribed = true）
 -------------------------------------------------------
 
 Action1<String> action1 = new Action1<String>() {     快捷方式（被观察者的 subscribe() 方法支持传入 Action1 接口充当 onNext）
