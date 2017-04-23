@@ -374,6 +374,8 @@ https://npm.taobao.org/mirrors/
 http://mirrors.cnnic.cn/
 
 https://download.lineageos.org/
+
+https://mirrors.ustc.edu.cn/rust-static/dist/rust-1.16.0-x86_64-pc-windows-gnu.msi
 ```
 
 ## FFmpeg
