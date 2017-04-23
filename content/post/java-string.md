@@ -120,10 +120,12 @@ public class A {     URL 编码
         String format = String.format("A=%s&B=%04d&C=%.2f", "字", 123, 123.123);
         String encode = URLEncoder.encode("中国ABC", "utf-8");
         String decode = URLDecoder.decode(encode, "utf-8");
+        String s = String.format("%-15s", "A");
 
         System.out.println(format);
         System.out.println(encode);
         System.out.println(decode);
+        System.out.println(s + "B");
     }
 }
 ----
@@ -131,6 +133,7 @@ public class A {     URL 编码
 A=字&B=0123&C=123.12
 %E4%B8%AD%E5%9B%BDABC
 中国ABC
+A              B
 
 Note：
 %d     Digital     123
