@@ -77,8 +77,8 @@ var a: String = null     编译器报错：不可空变量
 var b: String? = null     通过 `?` 明确标识变量可为 null（可空变量）
 
 println(b.length)     编译器报错：不能直接访问可空变量
-println(b?.length)     通过 `?.` 访问可空变量，返回 null
-println(b!!.length)     通过 `!!.` 访问可空变量，抛出 KotlinNullPointerException 异常
+println(b?.length)     通过 `?.` 访问可空变量，若为 null，则停止继续调用
+println(b!!.length)     通过 `!!.` 访问可空变量，若为 null，则抛出 KotlinNullPointerException 异常
 
 try {     try-catch
     println(b!!.length)
@@ -207,6 +207,10 @@ println(list)
 ----
 输出：
 [65, 66, 67, 68]
+
+-------------------------------------------------------
+
+(1..5).reduce { _, _ -> 0 }     0（若不需要 Lambda 表达式中提供的参数，可用 `_` 占位）
 
 -------------------------------------------------------
 
@@ -519,6 +523,23 @@ println(map)
 
 -------------------------------------------------------
 
+val list1 = listOf(1..3, 4..6)     [1..3, 4..6]
+val list2 = list1.flatMap { it }     [1, 2, 3, 4, 5, 6]     平铺
+val list3 = list2.map { it * 2 }     [2, 4, 6, 8, 10, 12]     映射
+
+-------------------------------------------------------
+
+val intRange = 1..4
+val i = intRange.reduce { acc, i -> acc + i }     10（不带初始值）
+val j = intRange.fold(-5) { acc, i -> acc + i }     5（带有初始值）
+
+-------------------------------------------------------
+
+val intRange = 1..10
+val list = intRange.takeWhile { it % 5 != 0 }     [1, 2, 3, 4]（一直获取，直到元素不符合条件为止）
+
+-------------------------------------------------------
+
 val list: List<Any> = listOf("A", "B", "C", 1, 2, 3, 4)
 list.filter { it is Int && it % 2 != 0 }.forEach(::println)
                   ↳ 判断类型    ↳ 自动转型（Smart Cast）  ↳ 函数引用
@@ -780,16 +801,16 @@ Hello
 委托属性（get/set 的工厂函数）
 
 class A {
-    val s1: String by lazy {     延迟属性：只会在第一次访问 get 的时候执行该代码块，并赋值
-        println("123")                    ↳ 计算时为 synchronized，若不需要可关闭线程同步：by lazy(LazyThreadSafetyMode.NONE) {}
+    val s1: String by lazy {     延迟属性：只会在第一次访问 get 的时候执行该代码块，并赋值（延迟加载）
+        println("123")                    ↳ 计算时默认为线程同步 （synchronized），若不需要可关闭：by lazy(LazyThreadSafetyMode.NONE) {}
         "AAA"
     }
     var s2: String by Delegates.observable("XXX") { prop, old, new ->     可观察属性：属性改变之后回调，afterChange
-        println("$old -> $new")                         ↳ 初始值
+        println("$old -> $new")              ↳ 初始值
     }
     var s3: String by Delegates.vetoable("XXX") { prop, old, new ->     可观察属性：属性改变之前回调，beforeChange
-        println("$old -> $new")                     ↳ 初始值
-        return@vetoable true     true 接收，false 丢弃
+        println("$old -> $new")            ↳ 初始值
+        return@vetoable true     true 接受，false 丢弃
     }
 }
 
@@ -1249,6 +1270,17 @@ char a = 65;
 Character b = Character.valueOf('B');
 System.out.println(a);
 System.out.println(b);
+
+----
+
+Kotlin：
+val arrayOf = arrayOf(1, 2, 3)
+val intArrayOf = intArrayOf(4, 5, 6)     避免装箱，提高性能
+
+Convert to Java：
+Object[] elements$iv = new Integer[]{Integer.valueOf(1), Integer.valueOf(2), Integer.valueOf(3)};
+Integer[] arrayOf = (Integer[])((Object[])elements$iv);
+int[] var10000 = new int[]{4, 5, 6};
 
 -------------------------------------------------------
 
