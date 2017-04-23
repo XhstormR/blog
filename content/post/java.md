@@ -843,7 +843,6 @@ list.forEach {
     println(it.mimeTypes)
     println(it.names)
 }
-
 ----
 输出：
 Oracle Nashorn :: 1.8.0_112
@@ -852,6 +851,21 @@ jdk.nashorn.api.scripting.NashornScriptEngine@6c3708b3
 [js]
 [application/javascript, application/ecmascript, text/javascript, text/ecmascript]
 [nashorn, Nashorn, js, JS, JavaScript, javascript, ECMAScript, ecmascript]
+
+-------------------------------------------------------
+
+  int i = 5;
+  while (i --> 0) {     5 先与 0 比较，之后再自减 1
+//while (i-- > 0) {
+      System.out.println(i);
+  }
+----
+输出：
+4
+3
+2
+1
+0
 ```
 
 ### 继承初始化执行顺序
