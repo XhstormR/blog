@@ -37,7 +37,11 @@ Updated on 2017-02-19
       * 用于权限的授予（GRANT）和收回（REVOKE），创建用户（CREATE USER）。
   * 事务控制语言（TCL）：Transaction Control Language
       * 用于维护数据一致性的语句，包括提交（COMMIT）、回滚（ROLLBACK）、保存点（SAVEPOINT）。
-* 增删改查（CRUD）：增加（Create），查询（Retrieve），修改（Update），删除（Delete）
+* 增删改查（CRUD）： SQL；HTTP
+  * **增**加（**C**reate）：INSERT；POST
+  * **查**询（**R**etrieve）：SELECT；GET
+  * 修**改**（**U**pdate）：UPDATE；PUT
+  * **删**除（**D**elete）：DELETE；DELETE
 * 事务（Transaction）：数据库中 **保证交易可靠** 的机制（ACID）。
   * 原子性（Atomicity）：对于数据修改，要么全都执行，要么全都不执行。
   * 一致性（Consistency）：所有的数据都保持一致状态。
