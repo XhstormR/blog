@@ -24,8 +24,16 @@
 {{ partial "script.html" .}}
 <div id="backtop"><a href="#" title="">TOP</a></div>
 <script>
+window.addEventListener("load", function(event) {
+    if (document.documentElement.scrollTop + document.body.scrollTop > 800) {
+        document.getElementById("backtop").style.display = "block";
+    }
+    else {
+        document.getElementById("backtop").style.display = "none";
+    }
+});
 window.onscroll = function () {
-    if (document.documentElement.scrollTop + document.body.scrollTop > 200) {
+    if (document.documentElement.scrollTop + document.body.scrollTop > 800) {
         document.getElementById("backtop").style.display = "block";
     }
     else {
