@@ -1250,7 +1250,7 @@ null
 
 val s1 = "ABC"
 val s2 = StringBuilder("ABC").toString()
-println(s1 == s2)     比较实际内容（ operator，调用 equals()），对应 !=
+println(s1 == s2)      比较实际内容（operator 重载，调用 equals()），对应 !=
 println(s1 === s2)     比较内存地址（Java 中的 `==`），对应 !==
 ----
 输出：

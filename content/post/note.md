@@ -376,6 +376,21 @@ http://mirrors.cnnic.cn/
 https://download.lineageos.org/
 
 https://mirrors.ustc.edu.cn/rust-static/dist/rust-1.16.0-x86_64-pc-windows-gnu.msi
+
+PSP：
+https://www.ppsspp.org/downloads.html
+https://github.com/hrydgard/ppsspp
+http://buildbot.orphis.net/ppsspp/
+
+PS2：
+http://pcsx2.net/download/releases/windows/category/40-windows.html
+https://github.com/PCSX2/pcsx2
+http://buildbot.orphis.net/pcsx2/
+
+PS3：
+https://rpcs3.net/download
+https://github.com/RPCS3/rpcs3
+https://ci.appveyor.com/project/rpcs3/rpcs3/branch/master/artifacts
 ```
 
 ## FFmpeg
