@@ -153,13 +153,13 @@ https://download-installer.cdn.mozilla.net/pub/firefox/
 ## Pandoc
 ```bash
 将 Markdown 转化成 HTML：
-pandoc 123.md -o 123.html
+pandoc -o 123.html 123.md
 
 使用指定 CSS：
-pandoc -c 123.css 123.md -o 123.html
+pandoc -c 123.css -o 123.html 123.md
 
 生成独立 HTML：
-pandoc --self-contained -c 123.css 123.md -o 123.html
+pandoc --self-contained -c 123.css -o 123.html 123.md
 ```
 
 ## Server（Win）
@@ -175,7 +175,7 @@ https://github.com/mholt/caddy/releases/latest
 
 Serv-U：
 http://www.serv-u.com/releasenotes
-http://downloads.solarwinds.com/solarwinds/Release/SU/15.1.4/SU-FTP-Server-Windows-v15.1.4.zip
+http://downloads.solarwinds.com/solarwinds/Release/SU/15.1.5/SU-FTP-Server-Windows-v15.1.5.zip
 ```
 
 ## Nginx 开启目录索引
@@ -381,6 +381,8 @@ PSP：
 https://www.ppsspp.org/downloads.html
 https://github.com/hrydgard/ppsspp
 http://buildbot.orphis.net/ppsspp/
+----
+模拟手柄：https://github.com/RetroPie/RetroPie-Setup/wiki/PSP-FuSa-gamepad
 
 PS2：
 http://pcsx2.net/download/releases/windows/category/40-windows.html
@@ -397,6 +399,8 @@ https://ci.appveyor.com/project/rpcs3/rpcs3/branch/master/artifacts
 ```bash
 ffmpeg.exe -i http://example.com/1.m3u8 -c copy 123.mkv
 ffplay.exe "http://example.com/1.m3u8"
+
+ffplay.exe -v -8 -t 0.5 -loop 3 -nodisp -autoexit 123.mp3
 
 H.264：
 ffmpeg.exe -i 123.gif -c:v libx264 -preset medium -crf 28 -c:a aac -b:a 128k 123.mp4
