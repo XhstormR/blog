@@ -1014,10 +1014,10 @@ ls && echo yes || echo no #判断命令是否执行成功
 
 ## 后台进程
 ```
-Ctrl+Z     暂停进程并放入后台
-jobs #显示暂停的进程
-bg %N #使第N个进程在后台运行     back
-fg %N #使第N个进程在前台运行     front
+Ctrl+Z     挂起当前命令
+jobs #显示挂起的命令
+bg %N #使第 N 个进程在后台运行     back
+fg %N #使第 N 个进程在前台运行     front
 
 Tips : bg 和 fg 不带 %N 时默认对最后一个进程进行操作
 ```
@@ -1064,8 +1064,8 @@ echo -e "\e[1;36m 123456 \e[0m"
 
 ## Linux 快捷键
 ```
-Ctrl+L     清屏     (BTW，CMD 下的清屏命令是 `cls`)
-Ctrl+Z     暂停进程并放入后台
+Ctrl+L     清屏     （另外 CMD 下的清屏命令是 `cls`）
+Ctrl+Z     挂起当前命令
 Ctrl+C     终止当前命令
 Ctrl+D     退出登录
 Ctrl+A     光标移动到行首
