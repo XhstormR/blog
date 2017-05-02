@@ -70,6 +70,11 @@ D:\Download\apache-tomcat-9.0.0\conf\web.xml
 C:\Users\Administrator\.IntelliJIdea2016.3\system\tomcat\
 ```
 
+### IDEA Dependence
+```
+Project Structure -> Modules -> Dependencies -> Add -> Library -> Tomcat
+```
+
 ## JSP
 
 ### 指令
