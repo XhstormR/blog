@@ -21,7 +21,7 @@ package a
 
 import javax.servlet.*
 
-class MyFilter1 : Filter {
+class MyFilter1 : Filter {     继承 Filter
     override fun init(filterConfig: FilterConfig) {     用于读取 web.xml 中过滤器的配置参数（<init-param>）
         println("init---MyFilter1")
     }
