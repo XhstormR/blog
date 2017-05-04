@@ -17,10 +17,13 @@ Updated on 2017-04-11
 ```kotlin
 package a
 
+import javax.servlet.annotation.WebInitParam
+import javax.servlet.annotation.WebServlet
 import javax.servlet.http.HttpServlet
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
+@WebServlet(urlPatterns = arrayOf("/abc"), initParams = arrayOf(WebInitParam(name = "name", value = "Tom")), loadOnStartup = 1)     //通过注解方式配置 Servlet
 class MyServlet : HttpServlet() {     继承 HttpServlet
     init {
         println("实例化")
@@ -50,62 +53,6 @@ class MyServlet : HttpServlet() {     继承 HttpServlet
         out.use { it.write("<strong>ABC</strong><br>") }
     }
 }
-
--------------------------------------------------------
-通过注解方式配置 Servlet
-
-MyServlet
-⇳
-package a
-
-import javax.servlet.annotation.WebInitParam
-import javax.servlet.annotation.WebServlet
-import javax.servlet.http.HttpServlet
-import javax.servlet.http.HttpServletRequest
-import javax.servlet.http.HttpServletResponse
-
-@WebServlet(urlPatterns = arrayOf("/abc"), initParams = arrayOf(WebInitParam(name = "name", value = "Tom")), loadOnStartup = 1)
-class MyServlet : HttpServlet() {
-    init {
-        println("实例化")
-    }
-
-    override fun init() {
-        println("初始化")
-        val s = getInitParameter("name")
-        println(s)
-    }
-
-    override fun destroy() {
-        println("销毁")
-    }
-
-    override fun doGet(req: HttpServletRequest, resp: HttpServletResponse) {
-        println("处理请求 Get")
-        resp.contentType = "text/html;charset=UTF-8"
-        val out = resp.writer
-        out.use { it.write("<strong>ABC</strong><br>") }
-    }
-
-    override fun doPost(req: HttpServletRequest, resp: HttpServletResponse) {
-        println("处理请求 Post")
-        resp.contentType = "text/html;charset=UTF-8"
-        val out = resp.writer
-        out.use { it.write("<strong>ABC</strong><br>") }
-    }
-}
-
-----
-
-web.xml
-⇳
-<?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
-         version="3.1">
-
-</web-app>
 
 若 WebApp 的上下文不为 "/"，则使用绝对路径时需要加上 request.getContextPath()
 例：<a href="<%=request.getContextPath()%>/abc">链接</a>
