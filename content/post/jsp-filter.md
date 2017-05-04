@@ -155,8 +155,8 @@ destroy---MyFilter2
 
 </web-app>
 
-http://localhost:8080/error.jsp     对 f1 过滤器无效（用户直接访问）
-http://localhost:8080/15735.jsp     对 f1 过滤器有效（异常处理机制）
+直接访问 http://localhost:8080/error.jsp，对 f1 过滤器无效（用户直接访问）
+直接访问 http://localhost:8080/15735.jsp，对 f1 过滤器有效（异常处理机制，404）
 ```
 
 ### MyFilter1
@@ -164,55 +164,19 @@ http://localhost:8080/15735.jsp     对 f1 过滤器有效（异常处理机制�
 package a
 
 import javax.servlet.*
-
-class MyFilter1 : Filter {
-    override fun init(filterConfig: FilterConfig) {}
-
-    override fun doFilter(p0: ServletRequest, p1: ServletResponse, p2: FilterChain) {
-        println("记录错误!")
-        p2.doFilter(p0, p1)     放行
-    }
-
-    override fun destroy() {}
-}
-
--------------------------------------------------------
-通过注解方式配置过滤器
-
-MyFilter1
-⇳
-package a
-
-import javax.servlet.*
 import javax.servlet.annotation.WebFilter
 
-@WebFilter(urlPatterns = arrayOf("/error.jsp"), dispatcherTypes = arrayOf(DispatcherType.ERROR))
+@WebFilter(urlPatterns = arrayOf("/error.jsp"), dispatcherTypes = arrayOf(DispatcherType.ERROR))     //通过注解方式配置过滤器
 class MyFilter1 : Filter {
     override fun init(filterConfig: FilterConfig) {}
 
     override fun doFilter(p0: ServletRequest, p1: ServletResponse, p2: FilterChain) {
-        println("记录错误!")
+        println("发生错误!")
         p2.doFilter(p0, p1)     放行
     }
 
     override fun destroy() {}
 }
-
-----
-
-web.xml
-⇳
-<?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
-         version="3.1">
-
-    <error-page>
-        <location>/error.jsp</location>
-    </error-page>
-
-</web-app>
 ```
 
 ### error.jsp
