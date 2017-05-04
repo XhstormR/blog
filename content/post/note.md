@@ -493,3 +493,9 @@ https://translate.google.cn/m/translate
 http://m.dict.cn/
 https://dict.youdao.com/m
 ```
+
+## Bilibili HTML5
+```html
+http://www.bilibili.com/blackboard/help.html#p
+http://live.bilibili.com/help/#uh5
+```

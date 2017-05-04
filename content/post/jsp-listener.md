@@ -110,16 +110,16 @@ class MyListener : ServletContextListener, ServletRequestListener, HttpSessionLi
         println("会话销毁：" + se.session)
     }
 
-    override fun attributeAdded(se: HttpSessionBindingEvent) {
-        println("会话添加属性：${se.name} :: ${se.value}")
+    override fun attributeAdded(sbe: HttpSessionBindingEvent) {
+        println("会话添加属性：${sbe.name} :: ${sbe.value}")
     }
 
-    override fun attributeReplaced(se: HttpSessionBindingEvent) {
-        println("会话替换属性：${se.name} :: ${se.value}")
+    override fun attributeReplaced(sbe: HttpSessionBindingEvent) {
+        println("会话替换属性：${sbe.name} :: ${sbe.value}")
     }
 
-    override fun attributeRemoved(se: HttpSessionBindingEvent) {
-        println("会话移除属性：${se.name} :: ${se.value}")
+    override fun attributeRemoved(sbe: HttpSessionBindingEvent) {
+        println("会话移除属性：${sbe.name} :: ${sbe.value}")
     }
 }
 ```
