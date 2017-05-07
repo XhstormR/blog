@@ -156,7 +156,7 @@ destroy---MyFilter2
 </web-app>
 
 直接访问 http://localhost:8080/error.jsp，对 f1 过滤器无效（用户直接访问）
-直接访问 http://localhost:8080/15735.jsp，对 f1 过滤器有效（异常处理机制，404）
+直接访问 http://localhost:8080/1574.jsp，对 f1 过滤器有效（异常处理机制，404）
 ```
 
 ### MyFilter1

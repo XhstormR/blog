@@ -854,6 +854,22 @@ jdk.nashorn.api.scripting.NashornScriptEngine@6c3708b3
 
 -------------------------------------------------------
 
+GraphicsEnvironment graphicsEnvironment = GraphicsEnvironment.getLocalGraphicsEnvironment();
+
+String[] familyNames = graphicsEnvironment.getAvailableFontFamilyNames();     获取所有字体系列名称
+int i = 0;
+for (String s : familyNames) {
+    System.out.println(++i + "：" + s);
+}
+
+Font[] fonts = graphicsEnvironment.getAllFonts();     获取所有字体
+i = 0;
+for (Font font : fonts) {
+    System.out.println(++i + "：" + font);
+}
+
+-------------------------------------------------------
+
   int i = 5;
   while (i --> 0) {     5 先与 0 比较，之后再自减 1
 //while (i-- > 0) {

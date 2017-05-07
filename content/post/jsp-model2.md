@@ -161,14 +161,6 @@ class MyServlet : HttpServlet() {
         }
     }
 
-    private fun deleteFormCart(request: HttpServletRequest): Boolean {
-        val id = request.getParameter("id").toInt()
-        val item = ItemDAO.getItemById(id)
-        val cart = request.session.getAttribute("cart") as Cart
-        val flag = cart.remove(item)
-        return flag
-    }
-
     private fun addToCart(request: HttpServletRequest): Boolean {
         val id = request.getParameter("id").toInt()
         val num = request.getParameter("num").toInt()
@@ -182,6 +174,14 @@ class MyServlet : HttpServlet() {
             cart = Cart().apply { request.session.setAttribute("cart", this) }
             flag = cart.add(item, num)
         }
+        return flag
+    }
+
+    private fun deleteFormCart(request: HttpServletRequest): Boolean {
+        val id = request.getParameter("id").toInt()
+        val item = ItemDAO.getItemById(id)
+        val cart = request.session.getAttribute("cart") as Cart
+        val flag = cart.remove(item)
         return flag
     }
 }
