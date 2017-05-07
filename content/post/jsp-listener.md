@@ -140,3 +140,92 @@ class MyListener : ServletContextListener, ServletRequestListener, HttpSessionLi
 
 加载顺序：监听器 > 过滤器 > Servlet
 ```
+
+## 在线用户案例
+### JSP
+```
+index.jsp
+----
+<%@ page import="a.User" %>
+<%@ page import="java.util.List" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>A</title>
+</head>
+<body>
+<%
+    final List<User> users = (List<User>) application.getAttribute("users");
+%>
+当前在线用户人数：<%=users.size()%><br>
+<%
+    for (User user : users) {
+%>
+ID：<%=user.getId()%>，IP：<%=user.getIp()%>，FirstAccessTime：<%=user.getFirstAccessTime()%><br>
+<%
+    }
+%>
+</body>
+</html>
+```
+
+### MyListener
+```kotlin
+package a
+
+import java.text.SimpleDateFormat
+import java.util.*
+import javax.servlet.ServletContextEvent
+import javax.servlet.ServletContextListener
+import javax.servlet.ServletRequestEvent
+import javax.servlet.ServletRequestListener
+import javax.servlet.annotation.WebListener
+import javax.servlet.http.HttpServletRequest
+import javax.servlet.http.HttpSessionEvent
+import javax.servlet.http.HttpSessionListener
+
+@WebListener
+class MyListener : ServletContextListener, HttpSessionListener, ServletRequestListener {
+    val users = arrayListOf<User>()
+    val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+
+    override fun contextInitialized(sce: ServletContextEvent) {
+        sce.servletContext.setAttribute("users", users)
+    }
+
+    override fun contextDestroyed(sce: ServletContextEvent) {
+        sce.servletContext.removeAttribute("users")
+    }
+
+    override fun sessionCreated(se: HttpSessionEvent) {
+        //Do nothing
+    }
+
+    override fun sessionDestroyed(se: HttpSessionEvent) {
+        val id = se.session.id
+        users.removeAll { it.id == id }
+    }
+
+    override fun requestInitialized(sre: ServletRequestEvent) {
+        val request = sre.servletRequest as HttpServletRequest
+        val session = request.session
+        val id = session.id
+        if (!users.map { it.id }.contains(id)) {
+            val ip = request.remoteAddr
+            val time = sdf.format(Date(session.creationTime))
+            users.add(User(id, ip, time))
+        }
+    }
+
+    override fun requestDestroyed(sre: ServletRequestEvent) {
+        //Do nothing
+    }
+}
+```
+
+### User
+```kotlin
+package a
+
+data class User(val id: String, val ip: String, val firstAccessTime: String)
+```
