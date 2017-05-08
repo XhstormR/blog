@@ -11,7 +11,9 @@ Updated on 2016-06-30
 
 > {{< image "/uploads/java.png" "Java" "1" "1" >}}
 >
-> http://www.tiobe.com/tiobe_index
+> https://www.tiobe.com/tiobe-index/
+>
+> http://www.javarepl.com/term.html
 >
 > https://www.oracle.com/technetwork/java/index.html
 >
