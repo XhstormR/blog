@@ -1,9 +1,9 @@
-+++
-Categories = ["Kotlin"]
-date = "2016-12-25T10:31:02+08:00"
-title = "Kotlin"
-
-+++
+---
+Categories:
+- Kotlin
+date: 2016-12-25T10:31:02+08:00
+title: Kotlin
+---
 
 <!--more-->
 

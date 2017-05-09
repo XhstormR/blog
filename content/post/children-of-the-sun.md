@@ -1,9 +1,9 @@
-+++
-Categories = ["Blog"]
-date = "2016-08-16T22:51:51+08:00"
-title = "Children of the Sun"
-
-+++
+---
+Categories:
+- Blog
+date: 2016-08-16T22:51:51+08:00
+title: Children of the Sun
+---
 
 <!--more-->
 

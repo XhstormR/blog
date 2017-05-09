@@ -1,9 +1,9 @@
-+++
-Categories = ["Hadoop"]
-date = "2016-04-14T21:45:01+08:00"
-title = "自学 Hadoop"
-
-+++
+---
+Categories:
+- Hadoop
+date: 2016-04-14T21:45:01+08:00
+title: 自学 Hadoop
+---
 
 <!--more-->
 

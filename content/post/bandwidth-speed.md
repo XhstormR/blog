@@ -1,9 +1,9 @@
-+++
-categories = ["Notes"]
-date = "2016-02-10T14:02:01+08:00"
-title = "带宽测速"
-
-+++
+---
+categories:
+- Notes
+date: 2016-02-10T14:02:01+08:00
+title: 带宽测速
+---
 
 <!--more-->
 

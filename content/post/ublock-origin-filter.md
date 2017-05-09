@@ -1,9 +1,9 @@
-+++
-Categories = ["Notes"]
-date = "2016-02-27T22:12:44+08:00"
-title = "uBlock Origin Filter"
-
-+++
+---
+Categories:
+- Notes
+date: 2016-02-27T22:12:44+08:00
+title: uBlock Origin Filter
+---
 
 <!--more-->
 

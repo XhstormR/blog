@@ -1,9 +1,9 @@
-+++
-Categories = ["JAVA"]
-date = "2016-09-06T11:52:11+08:00"
-title = "Java IO Stream"
-
-+++
+---
+Categories:
+- JAVA
+date: 2016-09-06T11:52:11+08:00
+title: Java IO Stream
+---
 
 <!--more-->
 

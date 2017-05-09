@@ -1,9 +1,9 @@
-+++
-Categories = ["CheatSheet"]
-date = "2016-03-23T16:40:02+08:00"
-title = "Linux 命令不完全手册"
-
-+++
+---
+Categories:
+- CheatSheet
+date: 2016-03-23T16:40:02+08:00
+title: Linux 命令不完全手册
+---
 
 <!--more-->
 

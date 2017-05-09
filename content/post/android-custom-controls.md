@@ -1,9 +1,9 @@
-+++
-Categories = ["Android"]
-date = "2016-07-13T16:48:22+08:00"
-title = "自定义 Android 控件"
-
-+++
+---
+Categories:
+- Android
+date: 2016-07-13T16:48:22+08:00
+title: 自定义 Android 控件
+---
 
 <!--more-->
 

@@ -1,9 +1,9 @@
-+++
-Categories = ["SQL"]
-date = "2017-02-19T20:39:57+08:00"
-title = "自学 PostgreSQL"
-
-+++
+---
+Categories:
+- SQL
+date: 2017-02-19T20:39:57+08:00
+title: 自学 PostgreSQL
+---
 
 <!--more-->
 

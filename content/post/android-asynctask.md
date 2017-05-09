@@ -1,9 +1,9 @@
-+++
-Categories = ["Android"]
-date = "2016-09-02T09:10:56+08:00"
-title = "Android AsyncTask"
-
-+++
+---
+Categories:
+- Android
+date: 2016-09-02T09:10:56+08:00
+title: Android AsyncTask
+---
 
 <!--more-->
 
