@@ -1,9 +1,9 @@
-+++
-Categories = ["Blog"]
-date = "2016-05-26T21:51:47+08:00"
-title = "Loner"
-
-+++
+---
+Categories:
+- Blog
+date: 2016-05-26T21:51:47+08:00
+title: Loner
+---
 
 <!--more-->
 

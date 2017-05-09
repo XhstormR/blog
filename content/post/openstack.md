@@ -1,9 +1,9 @@
-+++
-Categories = ["OpenStack"]
-date = "2016-05-03T15:54:58+08:00"
-title = "自学 OpenStack"
-
-+++
+---
+Categories:
+- OpenStack
+date: 2016-05-03T15:54:58+08:00
+title: 自学 OpenStack
+---
 
 <!--more-->
 

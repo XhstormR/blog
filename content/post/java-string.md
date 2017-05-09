@@ -1,9 +1,9 @@
-+++
-Categories = ["JAVA"]
-date = "2016-07-20T10:26:13+08:00"
-title = "关于 Java 中的 String"
-
-+++
+---
+Categories:
+- JAVA
+date: 2016-07-20T10:26:13+08:00
+title: 关于 Java 中的 String
+---
 
 <!--more-->
 

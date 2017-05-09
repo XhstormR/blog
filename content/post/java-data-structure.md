@@ -1,9 +1,9 @@
-+++
-Categories = ["JAVA"]
-date = "2016-10-15T10:24:45+08:00"
-title = "Data Structure"
-
-+++
+---
+Categories:
+- JAVA
+date: 2016-10-15T10:24:45+08:00
+title: Data Structure
+---
 
 <!--more-->
 

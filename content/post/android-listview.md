@@ -1,9 +1,9 @@
-+++
-Categories = ["Android"]
-date = "2016-09-28T15:18:02+08:00"
-title = "Android 异步加载"
-
-+++
+---
+Categories:
+- Android
+date: 2016-09-28T15:18:02+08:00
+title: Android 异步加载
+---
 
 <!--more-->
 

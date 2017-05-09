@@ -1,9 +1,9 @@
-+++
-Categories = ["JAVA"]
-date = "2016-07-01T16:17:53+08:00"
-title = "通过 Java 实现租车系统"
-
-+++
+---
+Categories:
+- JAVA
+date: 2016-07-01T16:17:53+08:00
+title: 通过 Java 实现租车系统
+---
 
 <!--more-->
 

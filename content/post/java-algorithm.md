@@ -1,9 +1,9 @@
 ---
-author: "XhstormR"
+author: XhstormR
 categories:
-  - "JAVA"
-date: "2016-10-15T10:23:45+08:00"
-title: "Algorithm"
+- JAVA
+date: 2016-10-15T10:23:45+08:00
+title: Algorithm
 ---
 
 <!--more-->

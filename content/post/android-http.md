@@ -1,9 +1,9 @@
-+++
-Categories = ["Android"]
-date = "2016-10-31T08:00:57+08:00"
-title = "Android HTTP (待)"
-
-+++
+---
+Categories:
+- Android
+date: 2016-10-31T08:00:57+08:00
+title: Android HTTP (待)
+---
 
 <!--more-->
 

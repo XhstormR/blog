@@ -1,9 +1,9 @@
-+++
-Categories = ["Notes"]
-date = "2016-03-27T16:28:03+08:00"
-title = "CMD 使用 UTF-8 编码"
-
-+++
+---
+Categories:
+- Notes
+date: 2016-03-27T16:28:03+08:00
+title: CMD 使用 UTF-8 编码
+---
 
 <!--more-->
 

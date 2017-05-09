@@ -1,9 +1,9 @@
 ---
 author: XhstormR
 categories:
-- "JSP"
+- JSP
 date: 2017-05-05T18:43:44+08:00
-title: "JSP 实例"
+title: JSP 实例
 ---
 
 <!--more-->

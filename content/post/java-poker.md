@@ -1,9 +1,9 @@
-+++
-Categories = ["JAVA"]
-date = "2016-08-02T09:41:40+08:00"
-title = "通过 Java 实现扑克牌游戏"
-
-+++
+---
+Categories:
+- JAVA
+date: 2016-08-02T09:41:40+08:00
+title: 通过 Java 实现扑克牌游戏
+---
 
 <!--more-->
 

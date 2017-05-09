@@ -1,9 +1,9 @@
-+++
-Categories = ["Android"]
-date = "2016-07-12T11:25:48+08:00"
-title = "实现 Android 监听事件"
-
-+++
+---
+Categories:
+- Android
+date: 2016-07-12T11:25:48+08:00
+title: 实现 Android 监听事件
+---
 
 <!--more-->
 

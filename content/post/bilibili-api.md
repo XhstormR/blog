@@ -1,9 +1,9 @@
-+++
-Categories = ["Notes"]
-date = "2016-09-18T14:27:24+08:00"
-title = "BiliBili API"
-
-+++
+---
+Categories:
+- Notes
+date: 2016-09-18T14:27:24+08:00
+title: BiliBili API
+---
 
 <!--more-->
 

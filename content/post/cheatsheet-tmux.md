@@ -1,9 +1,9 @@
-+++
-Categories = ["CheatSheet"]
-date = "2016-04-10T12:16:09+08:00"
-title = "Tmux 不完全使用手册"
-
-+++
+---
+Categories:
+- CheatSheet
+date: 2016-04-10T12:16:09+08:00
+title: Tmux 不完全使用手册
+---
 
 <!--more-->
 

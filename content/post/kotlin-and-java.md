@@ -1,9 +1,9 @@
-+++
-Categories = ["Kotlin"]
-date = "2017-02-13T13:33:59+08:00"
-title = "函数式编程：Kotlin 与 Java"
-
-+++
+---
+Categories:
+- Kotlin
+date: 2017-02-13T13:33:59+08:00
+title: 函数式编程：Kotlin 与 Java
+---
 
 <!--more-->
 

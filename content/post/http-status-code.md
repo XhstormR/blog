@@ -1,9 +1,9 @@
-+++
-Categories = ["Notes"]
-date = "2016-05-12T07:02:01+08:00"
-title = "HTTP Status Code"
-
-+++
+---
+Categories:
+- Notes
+date: 2016-05-12T07:02:01+08:00
+title: HTTP Status Code
+---
 
 <!--more-->
 

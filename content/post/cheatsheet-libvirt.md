@@ -1,9 +1,9 @@
-+++
-Categories = ["CheatSheet"]
-date = "2016-04-06T11:28:51+08:00"
-title = "Libvirt 不完全使用手册"
-
-+++
+---
+Categories:
+- CheatSheet
+date: 2016-04-06T11:28:51+08:00
+title: Libvirt 不完全使用手册
+---
 
 <!--more-->
 

@@ -1,9 +1,9 @@
-+++
-Categories = ["Android"]
-date = "2016-11-19T14:11:15+08:00"
-title = "RxBus"
-
-+++
+---
+Categories:
+- Android
+date: 2016-11-19T14:11:15+08:00
+title: RxBus
+---
 
 <!--more-->
 

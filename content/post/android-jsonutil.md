@@ -1,9 +1,9 @@
-+++
-Categories = ["Android"]
-date = "2016-11-19T08:00:39+08:00"
-title = "JsonUtil"
-
-+++
+---
+Categories:
+- Android
+date: 2016-11-19T08:00:39+08:00
+title: JsonUtil
+---
 
 <!--more-->
 
