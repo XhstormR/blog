@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 categories:
-- "JAVA"
+- "JSP"
 date: 2017-05-02T15:08:50+08:00
 title: "JSP Listener"
 ---
