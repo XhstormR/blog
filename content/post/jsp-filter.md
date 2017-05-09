@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 categories:
-- "JAVA"
+- "JSP"
 date: 2017-04-03T16:12:58+08:00
 title: "JSP Filter"
 ---

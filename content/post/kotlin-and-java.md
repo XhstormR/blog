@@ -27,7 +27,7 @@ fun main(args: Array<String>) = a(::println)     函数体只含有 1 句表达�
 
 ----
 
-fun a(block: (String) -> Unit): Unit {     高阶函数（函数参数使用函数类型表达）
+fun a(block: (String) -> Unit): Unit {     高阶函数（函数参数使用函数类型表达）（函数为一等公民）
     block("ABC")
 }
 等同于
@@ -63,7 +63,7 @@ public class Main {
         a(System.out::println);     使用方法引用
     }
 
-    private static void a(A a) {     假：高阶函数（函数参数使用接口表达）
+    private static void a(A a) {     假：高阶函数（函数参数使用接口表达）（只支持传递对象，不支持传递方法）
         a.a("ABC");
     }
 }
@@ -100,7 +100,7 @@ ABC
 Kotlin：
 fun main(args: Array<String>) = a(::println)
 
-fun a(block: (String) -> Unit) = block("ABC")     函数类型表达
+fun a(block: (String) -> Unit) = block("ABC")     函数类型表达（函数为一等公民）
 ```
 
 ```java
@@ -110,7 +110,7 @@ public class Main {
         a(System.out::println);
     }
 
-    private static void a(A a) {     接口表达
+    private static void a(A a) {     接口表达（只支持传递对象，不支持传递方法）
         a.a("ABC");
     }
 }

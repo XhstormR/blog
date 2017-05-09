@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 categories:
-- "JAVA"
+- "JSP"
 date: 2017-04-11T18:15:43+08:00
 title: "JSP Servlet"
 ---
