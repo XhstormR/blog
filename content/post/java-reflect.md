@@ -10,7 +10,9 @@ title: "Java Reflect"
 
 Updated on 2017-05-08
 
+> {{< image "/uploads/java-reflect.png" "Reflect" "1" "1" >}}
 >
+> [反射 API](http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/java/lang/reflect/package-summary.html)
 
 ## Class 对象
 类是 java.lang.Class 的实例对象。
