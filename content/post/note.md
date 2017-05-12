@@ -28,6 +28,13 @@ title: Note
 
 希腊字母：
 ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩαβγδεζνξοπρσηθικλμτυφχψω
+
+✔️ ✔
+✖️ ✖
+❌
+http://emojipedia.org/heavy-check-mark/
+http://emojipedia.org/heavy-multiplication-x/
+http://emojipedia.org/cross-mark/
 ```
 
 ## DOTA2
@@ -284,6 +291,7 @@ https://duckduckgo.com/
 https://encrypted.google.com/ncr
 http://serve.netsh.org/pub/ipv4-hosts/
 https://raw.githubusercontent.com/racaljk/hosts/master/hosts
+https://raw.githubusercontent.com/sy618/hosts/master/y
 
 EXE：
 https://en.wikipedia.org/wiki/Google_Chrome
@@ -496,6 +504,6 @@ https://dict.youdao.com/m
 
 ## Bilibili HTML5
 ```html
-http://www.bilibili.com/blackboard/help.html#p
-http://live.bilibili.com/help/#uh5
+https://www.bilibili.com/blackboard/help.html#p
+https://live.bilibili.com/help/#uh5
 ```
