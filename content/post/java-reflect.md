@@ -52,6 +52,8 @@ a.A
 A
 true
 true
+
+Java 中的静态成员和基本数据类型不是面向对象的。
 ```
 
 ## Method 对象
@@ -122,6 +124,9 @@ public class A {
         System.out.println(o1);
         System.out.println(o2);
         System.out.println(o3);
+
+        正常调用方法：A.B(C);
+        反射调用方法：B.invoke(A,C);
     }
 
     public void print() {
