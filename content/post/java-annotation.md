@@ -144,64 +144,64 @@ public @interface Column {
 @Table("user")
 public class Filter {
     @Column("id")
-    private Integer i1;
+    private Object o1;
     @Column("age")
-    private Integer i2;
-
-    private Integer i3;
+    private Object o2;
     @Column("name")
-    private String s1;
+    private Object o3;
     @Column("city")
-    private String s2;
+    private Object o4;
     @Column("email")
-    private String s3;
+    private Object o5;
 
-    public Integer getI1() {
-        return i1;
+    private Object o6;
+
+    public Object getO1() {
+        return o1;
     }
 
-    public void setI1(Integer i1) {
-        this.i1 = i1;
+    public void setO1(Object o1) {
+        this.o1 = o1;
     }
 
-    public Integer getI2() {
-        return i2;
+    public Object getO2() {
+        return o2;
     }
 
-    public void setI2(Integer i2) {
-        this.i2 = i2;
+    public void setO2(Object o2) {
+        this.o2 = o2;
     }
 
-    public Integer getI3() {
-        return i3;
+    public Object getO3() {
+        return o3;
     }
 
-    public void setI3(Integer i3) {
-        this.i3 = i3;
+    public void setO3(Object o3) {
+        this.o3 = o3;
     }
 
-    public String getS1() {
-        return s1;
+    public Object getO4() {
+        return o4;
     }
 
-    public void setS1(String s1) {
-        this.s1 = s1;
+    public void setO4(Object o4) {
+        this.o4 = o4;
     }
 
-    public String getS2() {
-        return s2;
+    public Object getO5() {
+        return o5;
     }
 
-    public void setS2(String s2) {
-        this.s2 = s2;
+    public void setO5(Object o5) {
+        this.o5 = o5;
     }
 
-    public String getS3() {
-        return s3;
+    public Object getO6() {
+        return o6;
     }
 
-    public void setS3(String s3) {
-        this.s3 = s3;
+    public void setO6(Object o6) {
+        this.o6 = o6;
     }
 }
 ```
@@ -215,12 +215,12 @@ import java.lang.reflect.Method;
 public class A {
     public static void main(String[] args) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         Filter filter1 = new Filter();
-        filter1.setI2(10);
-        filter1.setS1("Tom");
+        filter1.setO2(10);
+        filter1.setO3("Tom");
 
         Filter filter2 = new Filter();
-        filter2.setI1(1);
-        filter2.setS2("Chongqing");
+        filter2.setO1(1);
+        filter2.setO4("Chongqing");
 
         System.out.println(query(filter1));
         System.out.println(query(filter2));
@@ -252,11 +252,11 @@ public class A {
                 continue;
             }
             Column column = field.getAnnotation(Column.class);
-            fieldName = column.value();
+            String columnName = column.value();
             if (fieldValue instanceof String) {
-                sb.append(" and ").append(fieldName).append("=").append('\'').append(fieldValue).append('\'');
+                sb.append(" and ").append(columnName).append("=").append('\'').append(fieldValue).append('\'');
             } else {
-                sb.append(" and ").append(fieldName).append("=").append(fieldValue);
+                sb.append(" and ").append(columnName).append("=").append(fieldValue);
             }
         }
 
