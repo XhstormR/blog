@@ -461,7 +461,11 @@ reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\TimeBrokerSvc /v St
 
 ## ImageMagick
 ```html
-https://www.imagemagick.org/script/binary-releases.php
+magick.exe convert -size 1000x1000 123.svg 123.png     svg ➜ png
+
+https://www.imagemagick.org/script/download.php#windows
+
+https://pirbot.com/mirrors/gimp/gimp/v2.8/windows/
 
 https://pngquant.org/
 http://advsys.net/ken/utils.htm

@@ -49,29 +49,29 @@ Ctrl+R     替换文本
 Ctrl+O     重写方法
 Ctrl+H     查看类结构
 Ctrl+J     自动代码（Live Templates）
-Ctrl+F4     关闭标签页
-ALT+。   内容辅助（自己设置 Class Name Completion）
-ALT+/     文字补全
-ALT+1     打开或隐藏工程面板
-ALT+Enter     快速修正
-ALT+下划线字母     选中/取消
+Alt+。   内容辅助（自己设置 Class Name Completion）
+Alt+/     文字补全
+Alt+1     打开或隐藏工程面板
+Alt+Enter     快速修正
+Alt+下划线字母     选中/取消
 
-Ctrl+ALT+T     代码包围（try-catch）
-Ctrl+ALT+L     格式化代码
-Ctrl+ALT+O     清除无效包引用
+Ctrl+Alt+T     代码包围（try-catch）
+Ctrl+Alt+L     格式化代码
+Ctrl+Alt+O     清除无效包引用
+Ctrl+Shift+T     测试
 Ctrl+Shift+J     合并行
 Ctrl+Shift+U     大小写转换
 Ctrl+Shift+Space     智能提示
 Ctrl+Shift+Enter     完成声明
 
 Shift+F6     重构 - 重命名（Rename）
-Ctrl+ALT+N     内联（Inline）
-Ctrl+ALT+V     解构为变量（Variable）（Extract）
-Ctrl+ALT+F     解构为属性（Field）
-Ctrl+ALT+P     解构为参数（Parameter）
-Ctrl+ALT+M     解构为方法（Method）
+Ctrl+Alt+N     内联（Inline）
+Ctrl+Alt+V     解构为变量（Variable）（Extract）
+Ctrl+Alt+F     解构为属性（Field）
+Ctrl+Alt+P     解构为参数（Parameter）
+Ctrl+Alt+M     解构为方法（Method）
 
-ALT+Q     查看上下文
+Alt+Q     查看上下文
 Ctrl+P     查看方法参数
 Ctrl+Q     查看快速文档
 Ctrl+Shift+I     查看快速定义
@@ -86,23 +86,26 @@ Ctrl+Shift+F10     Run（Context）
 Ctrl+Shift+减     折叠所有代码块
 Ctrl+Shift+加     展开所有代码块
 
-Ctrl+ALT+S     设置
-Ctrl+ALT+Shift+S     项目设置
+Ctrl+Alt+S     设置
+Ctrl+Alt+Shift+S     项目设置
 
 Esc     返回编辑器
 Shift+Esc     隐藏最近使用的工具窗口
 
+Ctrl+F4     关闭文件
+Alt+F4     关闭窗口
+
 F3     搜索关键字
-ALT+F3     高亮选中文本（same as Ctrl+F）
+Alt+F3     高亮选中文本（same as Ctrl+F）
 
 F12     查看最近使用的工具窗口
 Ctrl+F12     查看文件结构
-Ctrl+ALT+F12     查看文件路径
+Ctrl+Alt+F12     查看文件路径
 
-ALT+Insert     生成方法
-Ctrl+ALT+Insert     新建文件
+Alt+Insert     生成方法
+Ctrl+Alt+Insert     新建文件
 Ctrl+Shift+Insert     历史复制板
-Ctrl+Shift+ALT+Insert     新建临时文件（Scratch）
+Ctrl+Shift+Alt+Insert     新建临时文件（Scratch）
 
 Ctrl+/     注释行（单行注释）
 Ctrl+Shift+/     添加注释（多行注释）
@@ -111,21 +114,22 @@ Ctrl+Z     Undo
 Ctrl+Shift+Z     Redo
 
 Ctrl+Shift+C     复制绝对路径
-Ctrl+Shift+ALT+C     复制相对路径
+Ctrl+Shift+Alt+C     复制相对路径
 
 Ctrl+N     查找类
 Ctrl+Shift+N     查找文件
-Ctrl+Shift+ALT+N     查找变量
+Ctrl+Shift+Alt+N     查找变量
 
-ALT+↑↓     切换方法
-ALT+←→     切换文件
-ALT+Shift+←→     切换编辑框
+Alt+↑↓     切换方法
+Alt+←→     切换文件
+Alt+Shift+←→     切换编辑框
+Alt+Ctrl+←→     后向/向前
 
-ALT+Shift+↑↓     移动行
+Alt+Shift+↑↓     移动行
 Ctrl+Shift+↑↓     移动方法
 
 Shift+Enter     在当前行的下一行插入空行
-Ctrl+ALT+Enter     在当前行的上一行插入空行
+Ctrl+Alt+Enter     在当前行的上一行插入空行
 ```
 
 ### Eclipse 快捷键
@@ -147,14 +151,14 @@ Ctrl+2     快速帮助
   M     解构为方法（Method）
   R     重构 - 重命名（Rename）
 
-ALT+Shift+↑↓     扩大选区
-ALT+Shift+I     内联（Inline）
-ALT+Shift+L     解构为变量（Variable）（Extract）
-ALT+Shift+M     解构为方法（Method）
-ALT+Shift+R     重构 - 重命名
+Alt+Shift+↑↓     扩大选区
+Alt+Shift+I     内联（Inline）
+Alt+Shift+L     解构为变量（Variable）（Extract）
+Alt+Shift+M     解构为方法（Method）
+Alt+Shift+R     重构 - 重命名
 
 Ctrl+/     单行注释
-ALT+Shift+J     文档注释
+Alt+Shift+J     文档注释
 
 F11     调试运行
 Ctrl+F11     运行
@@ -165,11 +169,11 @@ Ctrl+Shift+S     全部保存
 Ctrl+W     关闭
 Ctrl+Shift+W     全部关闭
 
-ALT+↑↓     移动行
-Ctrl+ALT+↑↓     复制行
+Alt+↑↓     移动行
+Ctrl+Alt+↑↓     复制行
 
-ALT+/     内容辅助
-Ctrl+ALT+/     文字补全
+Alt+/     内容辅助
+Ctrl+Alt+/     文字补全
 
 Shift+Enter     在当前行的下一行插入空行
 Ctrl+Shift+Enter     在当前行的上一行插入空行
