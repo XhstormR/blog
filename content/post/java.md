@@ -58,7 +58,7 @@ Alt+下划线字母     选中/取消
 Ctrl+Alt+T     代码包围（try-catch）
 Ctrl+Alt+L     格式化代码
 Ctrl+Alt+O     清除无效包引用
-Ctrl+Shift+T     测试
+Ctrl+Shift+T     测试用例
 Ctrl+Shift+J     合并行
 Ctrl+Shift+U     大小写转换
 Ctrl+Shift+Space     智能提示

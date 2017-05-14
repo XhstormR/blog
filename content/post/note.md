@@ -215,6 +215,8 @@ Curl：
 https://curl.haxx.se/download.html#Win64
 curl -x 10.34.3.71:808 www.baidu.com
 
+curl -Oku XhstormR:123456 "sftp://127.0.0.1/d/download/123.txt"
+
 Wget：
 https://eternallybored.org/misc/wget/
 wget -e "http_proxy=10.34.3.71:808" www.baidu.com

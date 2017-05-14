@@ -16,11 +16,11 @@ Updated on 2016-10-06
 ```bash
 -X [HEAD,POST,GET,PUT,DELETE] # 指定 HTTP 的请求类型     Request
 -H "name:123" #添加 HTTP 请求头     Header
--D [123,-] #将 HTTP 响应头输出到[文件或终端]     Dump
+-D [123,-] #将 HTTP 响应头输出到[文件,终端]     Dump
 -i #同时显示 HTTP 响应头     Include
 -I #只显示文档信息     Head
--u admin:pass #登录授权页面     User
--k #忽略 HTTPS 的证书     Insecure
+-u admin:pass #登录验证     User
+-k #忽略主机密钥（SSL 证书）     Insecure
 -s #不显示进度条     Silent
 -v #显示详细信息     Verbose
 -------------------------------------------------------
