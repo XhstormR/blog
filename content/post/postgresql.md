@@ -71,6 +71,7 @@ compile 'org.postgresql:postgresql:42.0.0'
 \c     切换数据库
 \l     列出数据库
 \d     列出表、序列、视图
+\dt     列出表
 \du     列出角色
 \dn     列出模式
 \df     列出函数
