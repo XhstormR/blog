@@ -476,6 +476,23 @@ FROM a;
 范围划分
 列表划分
 
+CREATE TABLE a (
+  id     INTEGER,
+  gender TEXT,
+  name   TEXT
+);
+
+CREATE TABLE b1 (
+  PRIMARY KEY (id),
+  CHECK (gender = '男')
+)
+  INHERITS (a);
+
+CREATE TABLE b2 (
+  PRIMARY KEY (id),
+  CHECK (gender = '女')
+)
+  INHERITS (a);
 ```
 
 ## Function
