@@ -113,7 +113,7 @@ import org.hibernate.boot.MetadataSources
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder
 import java.util.*
 
-val sessionFactory: SessionFactory by lazy {
+val sessionFactory: SessionFactory by lazy {     会话工厂
     val registry = StandardServiceRegistryBuilder().configure().build()
     MetadataSources(registry).buildMetadata().buildSessionFactory()
 }
