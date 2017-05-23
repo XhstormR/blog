@@ -140,7 +140,7 @@ F6     调试 - 单步跳过
 
 Ctrl+D     删除行
 Ctrl+L     转至行
-Ctrl+Shift+F     格式化代码
+Ctrl+Shift+F     格式化代码（最好改为 Ctrl+Alt+L）
 Ctrl+Shift+O     自动导入需要的包
 
 Ctrl+.     快速查找

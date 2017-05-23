@@ -463,9 +463,13 @@ reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\TimeBrokerSvc /v St
 
 ## ImageMagick
 ```html
-magick.exe convert -size 1000x1000 123.svg 123.png     svg ➜ png
+magick.exe convert -size 1000 123.svg 123.png     svg ➜ png
+magick.exe convert -density 300 123.pdf 123.png     pdf ➜ png
 
 https://www.imagemagick.org/script/download.php#windows
+----
+转换 PDF：https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/latest     将 gswin64c.exe 更名为 gs.exe
+查看 PDF：https://ghostscript.com/download/mupdfdnld.html
 
 https://pirbot.com/mirrors/gimp/gimp/v2.8/windows/
 
