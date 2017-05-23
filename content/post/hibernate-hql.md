@@ -111,7 +111,7 @@ query.list().forEach { println(it.name) }
 
 集合运算：
 
-元素是否属于集合（参数为集合）（value in ?）：
+元素是否属于集合（参数为集合，value in ?）：
 [not] in (v1, v2, v3)
 ----
 val query = it.createQuery("from Customer c where c.age in (20,35)", Customer::class.java)     底层使用 Statement 接口
@@ -121,7 +121,7 @@ val query = it.createQuery("from Customer c where c.age in :values", Customer::c
 query.setParameter("values", arrayListOf(20, 35))     设置参数
 query.list().forEach { println(it.age) }
 
-元素是否属于集合（参数为元素）（? in list）：
+元素是否属于集合（参数为元素，? in list）：
 [not] member of -> [not] in
 ----
 val orderForm = it.get(OrderForm::class.java, 1)
