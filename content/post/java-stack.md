@@ -31,6 +31,7 @@ Updated on 2017-04-12
       * empty：测试栈是否为空。
       * search：返回对象在栈中的位置。
 
+## 双端队列
 ```java
 import java.util.ArrayDeque;
 
@@ -77,6 +78,7 @@ public class A {
         System.out.println();
     }
 }
+
 ----
 输出：
 队列
@@ -94,7 +96,104 @@ public class A {
 4 3 2 1
 ```
 
-### 固定顺序进栈，求出栈顺序总数
+## 同步阻塞队列（生产者-消费者模式）
+
+### Producer
+```java
+import java.util.concurrent.BlockingQueue;
+
+public class Producer implements Runnable {
+    private final BlockingQueue<Integer> queue;
+
+    public Producer(BlockingQueue<Integer> queue) {
+        this.queue = queue;
+    }
+
+    @Override
+    public void run() {
+        try {
+            for (int i = 0; i < 10; i++) {
+                Thread.sleep(25);
+                queue.put(i);
+                System.out.println("生产:" + i);
+            }
+            queue.put(-1);
+            System.out.println("生产结束");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Consumer
+```java
+import java.util.concurrent.BlockingQueue;
+
+public class Consumer implements Runnable {
+    private final BlockingQueue<Integer> queue;
+
+    public Consumer(BlockingQueue<Integer> queue) {
+        this.queue = queue;
+    }
+
+    @Override
+    public void run() {
+        try {
+            int i;
+            while ((i = queue.take()) != -1) {
+                Thread.sleep(50);
+                System.out.println("消费:" + i);
+            }
+            System.out.println("消费结束");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### A
+```java
+import java.util.concurrent.ArrayBlockingQueue;
+
+public class A {
+    public static void main(String[] args) {
+        ArrayBlockingQueue<Integer> queue = new ArrayBlockingQueue<>(10);
+        Producer producer = new Producer(queue);
+        Consumer consumer = new Consumer(queue);
+        new Thread(producer).start();
+        new Thread(consumer).start();
+    }
+}
+
+----
+输出：
+生产:0
+生产:1
+生产:2
+消费:0
+生产:3
+消费:1
+生产:4
+生产:5
+生产:6
+消费:2
+生产:7
+消费:3
+生产:8
+生产:9
+生产结束
+消费:4
+消费:5
+消费:6
+消费:7
+消费:8
+消费:9
+消费结束
+```
+
+## 固定顺序进栈，求出栈顺序总数
 1 个元素进栈有 1 种出栈顺序，2 个元素进栈有 2 种出栈顺序，3 个元素进栈有 5 种出栈顺序
 
 把 `n` 个元素的出栈顺序数记为 `f(n)`，则对于 `1`、 `2`、 `3` 元素可得出：
@@ -124,7 +223,7 @@ public class A {
 
 ![](/uploads/java-stack-catalan2.png "Catalan")
 
-### 中缀表达式转后缀表达式的思路
+## 中缀表达式转后缀表达式的思路
 * stack1 ⟺ 操作符；stack2 ⟺ 操作数
 * 操作符：若 stack1 为空栈，则直接进栈 stack1。
   * 若优先级比 stack1 栈顶元素高，则进栈 stack1。
@@ -166,6 +265,7 @@ public class A {
 1
 1
 0   ➜   [0, 1, 1]   ➜   ]1 ,1 ,0[
+
 ----
 输出：
 ]1 ,1 ,0[
@@ -207,6 +307,7 @@ public class A {
         return stack.empty();     判断栈是否为空（其实到这步可以直接返回 true）
     }
 }
+
 ----
 输出：
 false
@@ -279,6 +380,7 @@ public class A {
         return strings;
     }
 }
+
 ----
 输出：
 1.8 + 5 / 8 * 1.6
@@ -333,6 +435,7 @@ public class A {
         return stack.pop();
     }
 }
+
 ----
 输出：
 2.8
