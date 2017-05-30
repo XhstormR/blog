@@ -448,61 +448,25 @@ public class A {
     private static int count;
 
     public static void main(String[] args) {
-        for (; ; ) {
+        while (true) {
             i++;
             if (i == getInt(i)) {
                 count++;
                 System.out.println(i);
             }
-            if (count > 1) {
+            if (count == 3) {
                 break;
             }
         }
     }
 
-    private static int getInt(int aInt) {
-        int tempInt = aInt * aInt;
-        String s = String.valueOf(tempInt);
-        try {
-            String tempStr = s.substring(s.length() - 3);
-            return Integer.valueOf(tempStr);
-        } catch (StringIndexOutOfBoundsException e) {
-            return 0;
-        }
+    private static int getInt(int i) {
+        return (i * i) % 1000;
     }
 }
 ----
 输出：
-376
-625
-```
-
-```kotlin
-fun main(args: Array<String>) {
-    var i = 0
-    var count = 0
-    while (true) {
-        i++
-        if (i == getInt(i)) {
-            count++
-            println(i)
-        }
-        if (count > 1) {
-            break
-        }
-    }
-}
-
-fun getInt(i: Int): Int {
-    val s = (i * i).toString()
-    try {
-        return s.substring(s.length - 3).toInt()
-    } catch (e: StringIndexOutOfBoundsException) {
-        return 0
-    }
-}
-----
-输出：
+1
 376
 625
 ```
@@ -846,6 +810,85 @@ public class Main {
         }
     }
 }
+```
+
+## 1 到 16 分出两组数字使其和、平方和、立方和都相等
+
+```java
+public class Main {
+    private static int[] ints = new int[7];     每组肯定都是 8 个数字，只需求出包含 1 的那一组
+    private static int a, b, c;
+
+    public static void main(String[] args) {
+        for (int i = 1; i <= 16; i++) {
+            a += i;     和
+            b += i * i;     平方和
+            c += i * i * i;     立方和
+        }
+        a /= 2;     一个组的和
+        b /= 2;     一个组的平方和
+        c /= 2;     一个组的立方和
+
+        a(0);
+    }
+
+    private static void a(int k) {
+        if (k > ints.length - 1) {
+            c();
+        } else {
+            for (int i = 2; i <= 16; i++) {     枚举 2 到 16
+                ints[k] = i;
+                if (b(k)) {
+                    a(k + 1);
+                }
+            }
+        }
+    }
+
+    private static boolean b(int k) {
+        for (int j = 0; j < k; j++) {
+            if (ints[j] == ints[k]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static void c() {
+        int temp = 1;
+        for (int i : ints) {
+            temp += i;
+        }
+        if (temp != a) {
+            return;     和不等
+        }
+
+        temp = 1;
+        for (int i : ints) {
+            temp += i * i;
+        }
+        if (temp != b) {
+            return;     平方和不等
+        }
+
+        temp = 1;
+        for (int i : ints) {
+            temp += i * i * i;
+        }
+        if (temp != c) {
+            return;     立方和不等
+        }
+
+        System.out.print(1 + " ");
+        for (int i : ints) {
+            System.out.print(i + " ");
+        }
+        System.exit(0);     结束程序
+    }
+}
+----
+输出：
+1 4 6 7 10 11 13 16
 ```
 
 ## 猜算式

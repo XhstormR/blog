@@ -159,14 +159,19 @@ https://download-installer.cdn.mozilla.net/pub/firefox/
 
 ## Pandoc
 ```bash
-将 Markdown 转化成 HTML：
+Markdown ➜ HTML：
 pandoc -o 123.html 123.md
 
 使用指定 CSS：
-pandoc -c 123.css -o 123.html 123.md
+pandoc -o 123.html -c 123.css 123.md
 
 生成独立 HTML：
-pandoc --self-contained -c 123.css -o 123.html 123.md
+pandoc -o 123.html -c 123.css --self-contained 123.md
+
+----
+
+DOCX ➜ PDF（需要 wkhtmltopdf）：
+pandoc -o 123.pdf -t html5 -c 123.css 123.docx
 ```
 
 ## Server（Win）
@@ -469,7 +474,7 @@ magick.exe convert -density 300 123.pdf 123.png     pdf ➜ png
 https://www.imagemagick.org/script/download.php#windows
 ----
 转换 PDF：https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/latest     将 gswin64c.exe 更名为 gs.exe
-查看 PDF：https://ghostscript.com/download/mupdfdnld.html
+查看 PDF：https://mupdf.com/downloads/
 
 https://pirbot.com/mirrors/gimp/gimp/v2.8/windows/
 
