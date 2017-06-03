@@ -444,10 +444,9 @@ NO
 ## 一个数的平方数的末三位等于其本身
 ```java
 public class A {
-    private static int i;
-    private static int count;
-
     public static void main(String[] args) {
+        int i = 0;
+        int count = 0;
         while (true) {
             i++;
             if (i == getInt(i)) {
@@ -816,7 +815,7 @@ public class Main {
 
 ```java
 public class Main {
-    private static int[] ints = new int[7];     每组肯定都是 8 个数字，只需求出包含 1 的那一组
+    private static int[] ints = new int[7];     每组肯定都是 8 个数字，只需求出包含 1 的那一组数字
     private static int a, b, c;
 
     public static void main(String[] args) {

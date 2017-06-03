@@ -142,7 +142,7 @@ fun main(args: Array<String>) {
 ```kotlin
 val properties = Properties().apply { this.load(File("db.properties").inputStream()) }
 println(properties["jdbc.url"])
-println(properties["jdbc.user"])
+println(properties["jdbc.username"])
 println(properties["jdbc.password"])
 ----
 输出：
@@ -155,7 +155,7 @@ jdbc:postgresql://127.0.0.1:5432/postgres
 db.properties
 ⇳
 jdbc.url=jdbc:postgresql://127.0.0.1:5432/postgres
-jdbc.user=123
+jdbc.username=123
 jdbc.password=123456
 ```
 

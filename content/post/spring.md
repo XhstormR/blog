@@ -17,6 +17,8 @@ Updated on 2017-05-21
 > https://github.com/spring-projects/spring-framework
 >
 > https://docs.spring.io/spring/docs/current/javadoc-api/allclasses-noframe.html
+>
+> https://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/
 
 ## Concept
 * 控制反转（IOC）：应用程序本身不负责依赖对象的创建与维护，而是**由外部容器负责管理**。
