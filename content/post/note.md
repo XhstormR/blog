@@ -386,7 +386,8 @@ RHEL：
 https://access.redhat.com/products/red-hat-enterprise-linux/
 
 https://npm.taobao.org/mirrors/
-http://mirrors.cnnic.cn/
+----
+npm --registry=https://registry.npm.taobao.org install -g test
 
 https://download.lineageos.org/
 
@@ -408,6 +409,9 @@ PS3：
 https://rpcs3.net/download
 https://github.com/RPCS3/rpcs3
 https://ci.appveyor.com/project/rpcs3/rpcs3/branch/master/artifacts
+
+Wii U：
+http://cemu.info/index.html
 ```
 
 ## FFmpeg

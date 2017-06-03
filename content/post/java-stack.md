@@ -96,6 +96,43 @@ public class A {
 4 3 2 1
 ```
 
+```java
+import java.util.ArrayDeque;
+
+public class A {
+    public static void main(String[] args) {
+        String[] strs = new String[]{"A", "B", "C"};
+        ArrayDeque<String> deque = new ArrayDeque<>();
+        final int k = 2;
+
+        for (String s : strs) {
+            deque.addFirst(s);
+            System.out.printf(space(k * deque.size()) + "<%s>\n", s);
+        }
+        for (int j = 0, n = deque.size(); j < n; j++) {
+            System.out.printf(space(k * deque.size()) + "</%s>\n", deque.removeFirst());
+        }
+    }
+
+    private static String space(int i) {
+        StringBuilder sb = new StringBuilder();
+        for (int j = 0; j < i; j++) {
+            sb.append(" ");
+        }
+        return sb.toString();
+    }
+}
+
+----
+输出：
+  <A>
+    <B>
+      <C>
+      </C>
+    </B>
+  </A>
+```
+
 ## 同步阻塞队列（生产者-消费者模式）
 
 ### Producer
