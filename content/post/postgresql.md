@@ -63,7 +63,10 @@ pg_ctl.exe -l D:\log.txt -D D:\12345 status
 pg_ctl.exe -l D:\log.txt -D D:\12345 stop
 psql.exe -e -E -h 127.0.0.1 -p 5432 -U 123 -W -d postgres
 
-compile 'org.postgresql:postgresql:42.0.0'
+compile 'org.postgresql:postgresql:+'
+
+导出：pg_dump.exe -h 127.0.0.1 -p 5432 -U 123 -W -d postgres -f data.sql
+导入：psql.exe -h 127.0.0.1 -p 5432 -U 123 -W -d postgres -f data.sql
 ```
 
 ## Operate

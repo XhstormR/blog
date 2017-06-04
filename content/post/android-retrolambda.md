@@ -71,5 +71,5 @@ build.gradle
 compile 'com.squareup.retrofit2:retrofit:+'
 compile 'com.squareup.retrofit2:converter-gson:+'     converter：JSON
 compile 'com.squareup.retrofit2:converter-scalars:+'     converter：String
-compile 'com.squareup.retrofit2:adapter-rxjava:+'     adapter：RxJava
+compile 'com.squareup.retrofit2:adapter-rxjava2:+'     adapter：RxJava
 ```

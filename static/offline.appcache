@@ -10,10 +10,10 @@ js/magic-canvas.min.js
 uploads/cursor.ico
 uploads/file-into-picture2.png
 http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js
-http://cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js
-http://cdn.bootcss.com/highlight.js/9.11.0/languages/kotlin.min.js
-http://cdn.bootcss.com/highlight.js/9.11.0/styles/monokai-sublime.min.css
-http://cdn.bootcss.com/gsap/1.19.0/TweenLite.min.js
+http://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js
+http://cdn.bootcss.com/highlight.js/9.12.0/languages/kotlin.min.js
+http://cdn.bootcss.com/highlight.js/9.12.0/styles/monokai-sublime.min.css
+http://cdn.bootcss.com/gsap/1.19.1/TweenLite.min.js
 http://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js
 http://ww4.sinaimg.cn/large/a15b4afegw1fa6cijmoynj20zk0mygnz.jpg
 https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg
