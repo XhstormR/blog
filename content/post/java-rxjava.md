@@ -19,7 +19,7 @@ Updated on 2016-11-22
 >
 > https://github.com/ReactiveX/RxJava
 >
-> http://reactivex.io/RxJava/javadoc/rx/Observable.html
+> http://reactivex.io/RxJava/2.x/javadoc/io/reactivex/Observable.html
 >
 > [Operators](http://reactivex.io/documentation/operators.html)
 > |
