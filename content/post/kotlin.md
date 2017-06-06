@@ -44,7 +44,7 @@ fun main(args: Array<String>) {     main 函数（程序入口）
 
 -------------------------------------------------------
 
-val a: String     先声明后赋值（没有初始化时，必须显式声明类型）
+val a: String     先声明后赋值（只适用于变量，没有赋值时，必须显式声明类型；作为属性时，必须在声明的同时进行赋值）
 a = "ABC"
 ----
 val a: String = "ABC"     声明对象的同时进行实例化（显式声明类型）
@@ -400,7 +400,7 @@ inline fun b(noinline block: () -> Unit) {     可以通过 noinline 修饰函�
 ```
 
 ```kotlin
-data class A(val id: Int, val name: String) : Closeable {     数据类：hashCode、equals、toString、copy 等函数将自动生成
+data class A(val id: Int, val name: String) : Closeable {     数据类：自动生成 hashCode、equals、toString、copy 函数
     override fun close() {
         println("close!")
     }
@@ -851,7 +851,7 @@ class A {
         println("123")
         "AAA"
     }
-    lateinit var b: String     var 使用关键字 lateinit：可稍后手动初始化（若访问 get 时未初始化，则抛出 UninitializedPropertyAccessException 异常）
+    lateinit var b: String      var 使用关键字 lateinit：可稍后手动初始化（若访问 get 时未初始化，则抛出 UninitializedPropertyAccessException 异常）
 }
 
 val a = A()
