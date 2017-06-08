@@ -184,6 +184,9 @@ http://nginx.org/en/download.html
 
 Caddy：
 https://github.com/mholt/caddy/releases/latest
+----
+Browse Template：
+https://github.com/mholt/caddy/blob/master/caddyhttp/browse/setup.go#L101
 
 Serv-U：
 http://www.serv-u.com/releasenotes
@@ -474,6 +477,7 @@ reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\TimeBrokerSvc /v St
 ```html
 magick.exe convert -size 1000 123.svg 123.png     svg ➜ png
 magick.exe convert -density 300 123.pdf 123.png     pdf ➜ png
+magick.exe convert -extent +0+10 -crop 0x2000 123.png 456.png     分割图片
 
 https://www.imagemagick.org/script/download.php#windows
 ----
