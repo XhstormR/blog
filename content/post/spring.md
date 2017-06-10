@@ -23,7 +23,13 @@ Updated on 2017-05-21
 ## Concept
 * 控制反转（IOC）：应用程序本身不负责依赖对象的创建与维护，而是**由外部容器负责管理**。
   * 依赖注入（DI）是其实现方式。
-  * 作用：**创建** 对象并 **维护** 对象之间的依赖关系。
+  * 依赖对象通过接口了解注入对象（面向接口编程）。
+  * 作用：负责 **创建** 对象并 **维护** 对象之间的依赖关系，使应用对象彼此之间保持 **低耦合**。
+  * 对象解耦。
+* 装配：Wiring。
+* 感知：Aware。
+* 面向切面（AOP）
+  * 功能解耦。
 
 ## Configuration
 ### build.gradle.kts
@@ -66,6 +72,8 @@ public class SgtPeppers implements CompactDisc {
         System.out.println("Playing " + title + " by " + artist);
     }
 }
+
+Bean 的名称的缺省值为类名（首字母小写）（@Component）。
 ```
 ##### **CDPlayer**
 ```java
@@ -79,7 +87,7 @@ public class CDPlayer implements MediaPlayer {
     private CompactDisc cd;
 
     @Autowired     自动装配（Java 规范中的 Inject 作用与其相同）
-    public CDPlayer(CompactDisc cd) {
+    public CDPlayer(CompactDisc cd) {     构造注入
         this.cd = cd;
     }
 
@@ -94,7 +102,7 @@ public class CDPlayer implements MediaPlayer {
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+@Configuration     指示为配置类
 @ComponentScan(basePackages = {"soundsystem"})     组件扫描
 public class AppConfig {
 }
@@ -178,18 +186,20 @@ import soundsystem.CompactDisc;
 import soundsystem.MediaPlayer;
 import soundsystem.SgtPeppers;
 
-@Configuration
+@Configuration     指示为配置类
 public class AppConfig {
-    @Bean     指示该方法返回 Bean 对象
+    @Bean     指示该方法返回 Bean 对象并在容器中注册
     public CompactDisc sgtPeppers() {
         return new SgtPeppers();
     }
 
-    @Bean     指示该方法返回 Bean 对象
+    @Bean     指示该方法返回 Bean 对象并在容器中注册
     public MediaPlayer cdPlayer(CompactDisc cd) {     从容器中获取依赖对象
         return new CDPlayer(cd);     并注入（装配）
     }
 }
+
+Bean 的名称的缺省值为方法名（@Bean）。
 ```
 #### Main
 ```java
@@ -288,12 +298,12 @@ Playing Sgt. Pepper's Lonely Hearts Club Band by The Beatles
         "-//SPRING//DTD BEAN 2.0//EN"
         "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
 <beans>
-    <bean id="sgtPeppers" class="soundsystem.SgtPeppers"/>     声明 Bean 并设置名称
+    <bean id="sgtPeppers" class="soundsystem.SgtPeppers"/>     声明 Bean 并指定名称
 
-    <bean class="soundsystem.CDPlayer">     声明 Bean
-        <constructor-arg ref="sgtPeppers"/>     强依赖的注入可使用构造方法
+    <bean class="soundsystem.CDPlayer">     声明 Bean，缺省名称为 "soundsystem.CDPlayer#0"
+        <constructor-arg ref="sgtPeppers"/>     强制依赖的注入可使用构造方法（构造注入）
         ----
-        <property name="cd" ref="sgtPeppers"/>     弱依赖的注入可使用 Setter
+        <property name="cd" ref="sgtPeppers"/>     可选依赖的注入可使用 Setter（设值注入）
         对应 Setter：
         public void setCd(CompactDisc cd) {
             this.cd = cd;
@@ -321,7 +331,7 @@ import soundsystem.CDPlayer;
 import soundsystem.CompactDisc;
 import soundsystem.MediaPlayer;
 
-@Configuration
+@Configuration     指示为配置类
 public class PlayerConfig {
     @Bean
     public MediaPlayer cdPlayer(CompactDisc cd) {
