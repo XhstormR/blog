@@ -11,6 +11,10 @@ title: Spring Framework
 Updated on 2017-06-07
 
 > {{< image "/uploads/spring.png" "Spring Framework" "1" "1" >}}
+>
+> -
+>
+> {{< image "/uploads/spring.svg" "Bean 的生命周期" "1" "1" >}}
 
 ## Bean 的条件化注册
 ### MyCondition
