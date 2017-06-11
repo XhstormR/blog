@@ -123,7 +123,7 @@ import org.springframework.context.annotation.Scope;
 @Configuration
 public class AppConfig {
     @Bean
-    @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)     每次注入都创建一个（也可用在 @Component 上）
+    @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)    指示每次注入都新创建一个（也可用在 @Component 上）
     public String str() {
         return new String("ABC");
     }
@@ -201,4 +201,34 @@ public class Main {
 David
 David
 David
+```
+
+## 加载外部资源
+### Main
+```java
+import org.springframework.context.support.GenericXmlApplicationContext;
+import org.springframework.core.io.Resource;
+
+import java.io.IOException;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        GenericXmlApplicationContext context = new GenericXmlApplicationContext("123.xml");
+
+        Resource resource = context.getResource("classpath:123.xml");
+//      Resource resource = context.getResource("file:C:\\123.txt");
+//      Resource resource = context.getResource("http://localhost/spring.png");
+        System.out.println(resource.getFilename());
+        System.out.println(resource.contentLength());
+
+        context.destroy();
+    }
+}
+
+----
+输出：
+123.xml
+190
+
+https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/core/io/ResourceLoader.html#getResource-java.lang.String-
 ```

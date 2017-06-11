@@ -73,7 +73,7 @@ public class SgtPeppers implements CompactDisc {
     }
 }
 
-Bean 的名称的缺省值为类名（首字母小写）（@Component）。
+Bean 名称的缺省值为类名（首字母小写）（@Component）。
 ```
 ##### **CDPlayer**
 ```java
@@ -199,7 +199,7 @@ public class AppConfig {
     }
 }
 
-Bean 的名称的缺省值为方法名（@Bean）。
+Bean 名称的缺省值为方法名（@Bean）。
 ```
 #### Main
 ```java
