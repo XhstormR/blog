@@ -15,6 +15,10 @@ Updated on 2017-06-07
 > -
 >
 > {{< image "/uploads/spring.svg" "Bean 的生命周期" "1" "1" >}}
+>
+> -
+>
+> {{< image "/uploads/spring-aop.svg" "面向切面编程" "1" "1" >}}
 
 ## Bean 的条件化注册
 ### MyCondition
@@ -236,3 +240,210 @@ public class Main {
 
 https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/core/io/ResourceLoader.html#getResource-java.lang.String-
 ```
+
+## 面向切面编程
+### 方法包装
+#### 无参
+##### concert
+###### Performance
+```java
+package concert;
+
+public interface Performance {
+    void perform();
+}
+```
+###### Concert
+```java
+package concert;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class Concert implements Performance {
+    @Override
+    public void perform() {
+        System.out.println("音乐会演奏..");
+    }
+}
+```
+###### **Audience**
+```java
+package concert;
+
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.*;
+import org.springframework.stereotype.Component;
+
+@Aspect     指示该类为切面
+@Component     指示该类为组件（Bean）
+public class Audience {     切面
+    @Pointcut("execution(* concert.Performance.perform(..))")     切点
+    public void performance() {
+    }
+
+    -------------------------------------------------------
+    第一种方式
+
+    @Before("performance()")     前置通知
+    public void a() {
+        System.out.println("观众入场就座");
+    }
+
+    @Before("performance()")     前置通知
+    public void b() {
+        System.out.println("观众关闭手机");
+    }
+
+    @AfterReturning("performance()")     后置通知（成功返回）
+    public void c() {
+        System.out.println("观众鼓掌喝彩");
+    }
+
+    @AfterThrowing("performance()")     后置通知（发生异常）
+    public void d() {
+        System.out.println("观众要求退款");
+    }
+
+    -------------------------------------------------------
+    第二种方式
+
+    @Around("performance()")     环绕通知
+    public Object x(ProceedingJoinPoint pjp) {
+        Object o = null;
+        try {
+            System.out.println("观众入场就座");
+            System.out.println("观众关闭手机");
+            o = pjp.proceed();
+            System.out.println("观众鼓掌喝彩");
+        } catch (Throwable e) {
+            System.out.println("观众要求退款");
+        }
+        return o;
+    }
+}
+
+execution 匹配执行方法（连接点）。
+```
+##### **AppConfig**
+```java
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+
+@Configuration
+@EnableAspectJAutoProxy     启用 AspectJ 自动代理
+@ComponentScan("concert")
+public class AppConfig {
+}
+```
+##### Main
+```java
+import concert.Performance;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+public class Main {
+    public static void main(String[] args) {
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+
+        Performance performance = context.getBean(Performance.class);
+        performance.perform();
+
+        System.out.println(performance.getClass());
+
+        context.destroy();
+    }
+}
+
+----
+输出：
+观众入场就座
+观众关闭手机
+音乐会演奏..
+观众鼓掌喝彩
+class com.sun.proxy.$Proxy16     使用基于接口的代理（推荐）
+```
+#### 有参
+##### log
+###### Log
+```java
+package log;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class Log {
+    public void print(Object o) {
+        System.out.println(o);
+    }
+}
+```
+###### **LogInterceptor**
+```java
+package log;
+
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.stereotype.Component;
+
+@Aspect
+@Component     组件（Bean）
+public class LogInterceptor {     切面
+    @Pointcut("execution(* log.Log.print(Object)) && args(i)")     切点
+    public void logged(Object i) {
+    }
+
+    @Before("logged(j)")     前置通知
+    public void capture(Object j) {
+        System.out.println("捕获:" + j);
+    }
+}
+
+execution 匹配执行方法（连接点）。
+args 指示将被通知方法的入参传递给通知方法。（Arguments）
+```
+##### **AppConfig**
+```java
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+
+@Configuration
+@EnableAspectJAutoProxy     启用 AspectJ 自动代理
+@ComponentScan("log")
+public class AppConfig {
+}
+```
+##### Main
+```java
+import log.Log;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+public class Main {
+    public static void main(String[] args) {
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+
+        Log log = context.getBean(Log.class);
+        log.print(1);
+        log.print(2);
+        log.print("A");
+
+        System.out.println(log.getClass());
+
+        context.destroy();
+    }
+}
+
+----
+输出：
+捕获:1
+1
+捕获:2
+2
+捕获:A
+A
+class log.Log$$EnhancerBySpringCGLIB$$72b5a387     由于 Bean 未实现任何接口，使用 CGLib 生成基于类的代理（不推荐）
+```
+### 方法引入
+Kotlin 原生支持扩展函数。
