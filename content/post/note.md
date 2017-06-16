@@ -358,7 +358,7 @@ https://jcenter.bintray.com/org/xerial/sqlite-jdbc/
 
 sqlite3.exe 123.db ".mode column" ".header on" "select * from user;" > 1.txt
 
-compile 'org.xerial:sqlite-jdbc:3.16.1'
+compile 'org.xerial:sqlite-jdbc:+'
 ```
 
 ## Wget 递归下载
