@@ -42,11 +42,12 @@ Updated on 2017-02-19
   * **查**询（**R**etrieve）：SELECT；GET
   * 修**改**（**U**pdate）：UPDATE；PUT
   * **删**除（**D**elete）：DELETE；DELETE
-* 事务（Transaction）：数据库中 **保证交易可靠** 的机制（ACID）。
-  * 原子性（Atomicity）：对于数据修改，要么全都执行，要么全都不执行。
-  * 一致性（Consistency）：所有的数据都保持一致状态。
-  * 隔离性（Isolation）：与其它并发事务所作的修改隔离。
-  * 持久性（Durability）：对于系统的影响是永久性的。
+* 事务（Transaction）：逻辑上的 **一组操作**，这组操作只能一起成功或者一起失败。
+  * 数据库中 **保证事务可靠** 的机制（ACID）。
+      * 原子性（**A**tomicity）：对于数据修改，要么全都执行，要么全都不执行。
+      * 一致性（**C**onsistency）：所有的数据都保持一致状态。
+      * 隔离性（**I**solation）：与其它并发事务所作的修改隔离。
+      * 持久性（**D**urability）：对于系统的影响是永久性的。
 * 数据访问对象（DAO）：Data Access Object
   * 用于封装所有对数据库的访问，使数据访问逻辑和业务逻辑分开。
   * 数据传递对象
