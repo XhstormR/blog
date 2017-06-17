@@ -26,7 +26,7 @@ Updated on 2017-06-15
   * 在 **嵌套** 事务中：NESTED
 * 事务的隔离级别：Isolation
 * 只读事务：readOnly
-  * 作用：不允许 **增删改** 操作。
+  * 作用：禁止 **增删改** 操作。
 * 发生异常一回滚事务：-Exception
 * 发生异常不回滚事务：+Exception
 
