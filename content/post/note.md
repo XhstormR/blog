@@ -376,7 +376,7 @@ https://msdn.microsoft.com/zh-cn/library/ms123401.aspx
 
 Linux（CentOS）：
 https://www.centos.org/download/
-https://mirrors.cqu.edu.cn/webin/simple.php
+https://mirrors.cqu.edu.cn/
 https://mirrors.tuna.tsinghua.edu.cn/
 https://mirrors.ustc.edu.cn/
 http://mirrors.hust.edu.cn/
