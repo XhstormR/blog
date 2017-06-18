@@ -350,7 +350,7 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager
 import org.springframework.transaction.annotation.EnableTransactionManagement
 
 @Configuration
-@EnableTransactionManagement     启用支持注解驱动的事务管理
+@EnableTransactionManagement     启用注解驱动的事务管理
 @ComponentScan(basePackages = arrayOf("dao", "service"))
 open class AppConfig {
     @Bean
