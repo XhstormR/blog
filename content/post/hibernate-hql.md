@@ -31,6 +31,9 @@ sessionFactory.currentSession.use {
 
     it.transaction.commit()
 }
+
+list()   ：无视缓存并加载整个数据，发送  1  条 SQL 语句。
+iterate()：检索缓存并延迟加载数据，发送 1+N 条 SQL 语句。
 ```
 
 ## 选择属性：select
