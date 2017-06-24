@@ -68,6 +68,7 @@ import org.springframework.web.multipart.support.StandardServletMultipartResolve
 import org.springframework.web.servlet.ViewResolver
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer
 import org.springframework.web.servlet.config.annotation.EnableWebMvc
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.thymeleaf.spring4.SpringTemplateEngine
 import org.thymeleaf.spring4.view.ThymeleafViewResolver
@@ -102,6 +103,10 @@ open class WebConfig : WebMvcConfigurerAdapter() {
     open fun multipartResolver(): MultipartResolver = StandardServletMultipartResolver()     提供文件上传支持
 
     override fun configureDefaultServletHandling(configurer: DefaultServletHandlerConfigurer) = configurer.enable()     提供静态资源访问
+
+    override fun addInterceptors(registry: InterceptorRegistry) {
+        registry.addInterceptor(MyInterceptor()).addPathPatterns("/**")     注册拦截器
+    }
 }
 ```
 ### RootConfig
@@ -110,6 +115,30 @@ import org.springframework.context.annotation.Configuration
 
 @Configuration
 open class RootConfig
+```
+### MyInterceptor
+```kotlin
+import org.springframework.web.servlet.ModelAndView
+import org.springframework.web.servlet.handler.HandlerInterceptorAdapter
+import java.lang.Exception
+import javax.servlet.http.HttpServletRequest
+import javax.servlet.http.HttpServletResponse
+
+class MyInterceptor : HandlerInterceptorAdapter() {     拦截器
+    override fun preHandle(request: HttpServletRequest, response: HttpServletResponse, handler: Any): Boolean {
+        println("预处理")
+        return true     是否放行请求（true 放行，false 拦截）
+    }
+
+    override fun postHandle(request: HttpServletRequest, response: HttpServletResponse, handler: Any, modelAndView: ModelAndView) {
+        println("后处理")
+        modelAndView.model["msg"] = "信息"
+    }
+
+    override fun afterCompletion(request: HttpServletRequest, response: HttpServletResponse, handler: Any, ex: Exception) {
+        println("请求结束")
+    }
+}
 ```
 ### entity
 #### Account
@@ -167,7 +196,7 @@ import javax.validation.Valid
 @RequestMapping("/a")
 class AController {
     查询参数：127.0.0.1:8080/a?username=张三&password=123456&age=20
-    @RequestMapping(method = arrayOf(RequestMethod.GET))
+    @RequestMapping(method = arrayOf(RequestMethod.GET))     可简化为 @GetMapping
     fun a(@RequestParam(defaultValue = "张三") username: String,
           @RequestParam(defaultValue = "123456") password: String,
           @RequestParam(defaultValue = "20") age: Int,
@@ -228,7 +257,7 @@ class AController {
     }
 
     文件上传
-    @RequestMapping(path = arrayOf("/upload"), method = arrayOf(RequestMethod.POST))
+    @RequestMapping(path = arrayOf("/upload"), method = arrayOf(RequestMethod.POST))     可简化为 @PostMapping
     fun d(@RequestPart myPic: MultipartFile): String {
         myPic.transferTo(File("D:/TEMP2/${myPic.originalFilename}"))
         return "redirect:/"
