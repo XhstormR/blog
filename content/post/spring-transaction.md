@@ -42,6 +42,9 @@ compile("org.postgresql:postgresql:+")
 
 compile("org.hibernate:hibernate-core:+")
 compile("org.hibernate:hibernate-hikaricp:+")
+
+compile("com.hazelcast:hazelcast:+")
+compile("com.hazelcast:hazelcast-hibernate52:+")
 ```
 
 ### hibernate.properties
@@ -59,6 +62,9 @@ hibernate.hikari.username=123
 hibernate.hikari.password=123456
 #hibernate.hikari.driverClassName=org.postgresql.Driver
 #hibernate.hikari.jdbcUrl=jdbc:postgresql://127.0.0.1:5432/postgres
+
+hibernate.cache.use_query_cache=true
+hibernate.cache.region.factory_class=com.hazelcast.hibernate.HazelcastLocalCacheRegionFactory
 ```
 
 ### hibernate.cfg.xml
@@ -81,9 +87,12 @@ hibernate.hikari.password=123456
 ```kotlin
 package entity
 
+import org.hibernate.annotations.Cache
+import org.hibernate.annotations.CacheConcurrencyStrategy
 import javax.persistence.*
 
 @Entity
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)     使用缓存
 data class Account(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
