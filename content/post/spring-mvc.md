@@ -11,13 +11,8 @@ title: Spring MVC
 Updated on 2017-06-22
 
 > {{< image "/uploads/spring.png" "Spring Framework" "1" "1" >}}
-
-## Concept
-### Thymeleaf
-* 变量表达式：`${ }`，基于 SpEL 表达式。
-* 选择表达式：`*{ }`，基于选中对象。
-* 路径表达式：`@{ }`。
-* 对象表达式：`#{ }`。
+>
+> https://github.com/thymeleaf/thymeleaf
 
 ## Configuration
 ### build.gradle.kts
@@ -50,7 +45,7 @@ class AppConfig : AbstractAnnotationConfigDispatcherServletInitializer() {
 
     override fun getServletConfigClasses(): Array<Class<*>> = arrayOf(WebConfig::class.java)
 
-    override fun getServletFilters(): Array<Filter> = arrayOf(CharacterEncodingFilter("UTF-8", true))
+    override fun getServletFilters(): Array<Filter> = arrayOf(CharacterEncodingFilter("UTF-8", true))     添加过滤器
 
     override fun customizeRegistration(registration: ServletRegistration.Dynamic) {
         val mb = 1024 * 1024L     限制文件最大为 2 MB，请求最大为 4 MB
@@ -108,6 +103,9 @@ open class WebConfig : WebMvcConfigurerAdapter() {
         registry.addInterceptor(MyInterceptor()).addPathPatterns("/**")     注册拦截器
     }
 }
+
+过滤器：依赖 Servlet 容器，基于回调函数，能够过滤所有请求。（Filter）
+拦截器：依赖 Spring  容器，基于反射机制，只能拦截部分请求。（Interceptor）
 ```
 ### RootConfig
 ```kotlin
@@ -297,6 +295,11 @@ class AppErrorHandler {
 <p th:text="${account}"></p>
 </body>
 </html>
+
+变量表达式：${ }，基于 SpEL 表达式。
+选择表达式：*{ }，基于选中对象。
+路径表达式：@{ }。
+对象表达式：#{ }。
 ```
 ### b.html
 ```html
