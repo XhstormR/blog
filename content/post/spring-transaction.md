@@ -42,9 +42,7 @@ compile("org.postgresql:postgresql:+")
 
 compile("org.hibernate:hibernate-core:+")
 compile("org.hibernate:hibernate-hikaricp:+")
-
-compile("com.hazelcast:hazelcast:+")
-compile("com.hazelcast:hazelcast-hibernate52:+")
+compile("org.hibernate:hibernate-infinispan:+")
 ```
 
 ### hibernate.properties
@@ -64,7 +62,7 @@ hibernate.hikari.password=123456
 #hibernate.hikari.jdbcUrl=jdbc:postgresql://127.0.0.1:5432/postgres
 
 hibernate.cache.use_query_cache=true
-hibernate.cache.region.factory_class=com.hazelcast.hibernate.HazelcastLocalCacheRegionFactory
+hibernate.cache.region.factory_class=org.hibernate.cache.infinispan.InfinispanRegionFactory
 ```
 
 ### hibernate.cfg.xml
@@ -216,6 +214,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import service.AccountService
 
 fun main(args: Array<String>) {
+    System.setProperty("java.net.preferIPv4Stack", "true")
     val context = AnnotationConfigApplicationContext(AppConfig::class.java)
 
     context.getBean(SessionFactory::class.java).openSession().use {
@@ -307,6 +306,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import service.AccountService
 
 fun main(args: Array<String>) {
+    System.setProperty("java.net.preferIPv4Stack", "true")
     val context = AnnotationConfigApplicationContext(AppConfig::class.java)
 
     context.getBean(SessionFactory::class.java).openSession().use {
@@ -387,6 +387,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import service.AccountService
 
 fun main(args: Array<String>) {
+    System.setProperty("java.net.preferIPv4Stack", "true")
     val context = AnnotationConfigApplicationContext(AppConfig::class.java)
 
     context.getBean(SessionFactory::class.java).openSession().use {
