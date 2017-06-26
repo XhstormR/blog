@@ -103,9 +103,6 @@ open class WebConfig : WebMvcConfigurerAdapter() {
         registry.addInterceptor(MyInterceptor()).addPathPatterns("/**")     注册拦截器
     }
 }
-
-过滤器：依赖 Servlet 容器，基于回调函数，能够过滤所有请求。（Filter）
-拦截器：依赖 Spring  容器，基于反射机制，只能拦截部分请求。（Interceptor）
 ```
 ### RootConfig
 ```kotlin
@@ -137,6 +134,9 @@ class MyInterceptor : HandlerInterceptorAdapter() {     拦截器
         println("请求结束")
     }
 }
+
+过滤器：依赖 Servlet 容器，基于回调函数，能够过滤所有请求。（Filter）
+拦截器：依赖 Spring  容器，基于反射机制，只能拦截部分请求。（Interceptor）
 ```
 ### entity
 #### Account
