@@ -19,7 +19,7 @@ Updated on 2016-08-16
 
 [{{< image "/uploads/children-of-the-sun1.jpg" "Children of the Sun" "1" "0" >}}](/uploads/children-of-the-sun2.jpg)
 
-{{< iframe "http://www.bilibili.com/html/html5player.html?cid=8551612" >}}
+{{< iframe "v1" "http://www.bilibili.com/html/html5player.html?cid=8551612" >}}
 
 ---
 
