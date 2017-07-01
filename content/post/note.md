@@ -180,30 +180,33 @@ Apache：
 https://www.apachehaus.com/cgi-bin/download.plx
 
 Nginx：
-http://nginx.org/en/download.html
+https://nginx.org/en/download.html
 
 Caddy：
 https://github.com/mholt/caddy/releases/latest
-----
-Browse Template：
-https://github.com/mholt/caddy/blob/master/caddyhttp/browse/setup.go#L101
 
 Serv-U：
 http://www.serv-u.com/releasenotes
 http://downloads.solarwinds.com/solarwinds/Release/SU/15.1.5/SU-FTP-Server-Windows-v15.1.5.zip
 ```
 
-## Nginx 开启目录索引
+## 目录索引
 ```
-http or server 段中加入：
-
+Nginx：
+nginx.exe -s reload
+nginx.exe -s quit
+----
+http or server 中写入：
 autoindex on;
 autoindex_localtime on;
 autoindex_exact_size off;
-access_log off;     #关闭访问日志
+access_log off;
 
-nginx.exe -s reload
-nginx.exe -s quit
+Caddy：
+Caddy.exe -host 0.0.0.0 -port 80 "browse / ./1.txt" "gzip"
+----
+Browse Template：
+https://github.com/mholt/caddy/blob/master/caddyhttp/browse/setup.go#L101
 ```
 
 ## 善用佳软
@@ -500,6 +503,11 @@ https://imageoptim.com/mozjpeg
 set /?
 set path
 set path=%path%;D:\Download\123
+
+----
+
+calc
+SnippingTool
 ```
 
 ## 迅雷启用边下边播
