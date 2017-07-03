@@ -24,19 +24,12 @@
 {{ partial "script.html" .}}
 <div id="backtop"><a href="#" title="">TOP</a></div>
 <script>
-window.addEventListener("load", function(event) {
+window.addEventListener("load", show);
+window.onscroll = show;
+function show() {
     if (document.documentElement.scrollTop + document.body.scrollTop > 700) {
         document.getElementById("backtop").style.display = "block";
-    }
-    else {
-        document.getElementById("backtop").style.display = "none";
-    }
-});
-window.onscroll = function () {
-    if (document.documentElement.scrollTop + document.body.scrollTop > 700) {
-        document.getElementById("backtop").style.display = "block";
-    }
-    else {
+    } else {
         document.getElementById("backtop").style.display = "none";
     }
 }
