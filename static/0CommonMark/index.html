@@ -1,14 +1,14 @@
-<!DOCTYPE html>
-<!-- saved from url=(0034)http://spec.commonmark.org/dingus/ -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
   <title>commonmark.js demo</title>
-  <link href="./commonmark.js demo_files/bootstrap.min.css" rel="stylesheet">
-  <link href="./commonmark.js demo_files/dingus.css" rel="stylesheet">
-  <script src="./commonmark.js demo_files/jquery.min.js"></script>
-  <script src="./commonmark.js demo_files/bootstrap.min.js"></script>
-  <script src="./commonmark.js demo_files/lodash.min.js"></script>
-  <script src="./commonmark.js demo_files/commonmark.js"></script>
+  <link href="bootstrap.min.css" rel="stylesheet">
+  <link href="dingus.css" rel="stylesheet">
+  <script src="jquery.min.js"></script>
+  <script src="bootstrap.min.js"></script>
+  <script src="lodash.min.js"></script>
+  <script src="commonmark.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -19,9 +19,10 @@
   </div>
   <div class="row">
     <div class="col-md-6">
-      <p id="text-controls"><a id="clear-text-box">clear</a>&nbsp;<a id="permalink">permalink</a>&nbsp;&nbsp;&nbsp;
+      <p id="text-controls"><a id="clear-text-box">clear</a>&nbsp;<a
+      id="permalink">permalink</a>&nbsp;&nbsp;&nbsp;
       <label for="smart">Smart punctuation</label>
-      <input type="checkbox" id="smart">
+      <input type="checkbox" id="smart"/>
       </p>
       <textarea id="text">## Try CommonMark
 
@@ -39,80 +40,25 @@ JavaScript reference implementation.
     </div>
     <div class="col-md-6">
       <ul id="result-tabs" class="nav nav-tabs" role="tablist">
-        <li class="active"><a href="http://spec.commonmark.org/dingus/#preview" role="tab" data-toggle="tab">Preview</a></li>
-        <li><a href="http://spec.commonmark.org/dingus/#result" role="tab" data-toggle="tab">HTML</a></li>
-        <li><a href="http://spec.commonmark.org/dingus/#result-ast" role="tab" data-toggle="tab">AST</a></li>
+        <li class="active"><a href="#preview" role="tab" data-toggle="tab">Preview</a></li>
+        <li><a href="#result" role="tab" data-toggle="tab">HTML</a></li>
+        <li><a href="#result-ast" role="tab" data-toggle="tab">AST</a></li>
       </ul>
       <div class="tab-content">
         <div id="preview" class="tab-pane active">
-          <iframe src="./commonmark.js demo_files/preview.html" frameborder="0" sandbox="allow-same-origin"></iframe>
+          <iframe src="preview.html" frameborder="0" sandbox="allow-same-origin allow-scripts"></iframe>
         </div>
         <div id="result" class="tab-pane">
-          <pre id="htmlpre"><code id="html">&lt;h2&gt;Try CommonMark&lt;/h2&gt;
-&lt;p&gt;You can try CommonMark here.  This dingus is powered by
-&lt;a href="https://github.com/jgm/commonmark.js"&gt;commonmark.js&lt;/a&gt;, the
-JavaScript reference implementation.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;item one&lt;/li&gt;
-&lt;li&gt;item two
-&lt;ul&gt;
-&lt;li&gt;sublist&lt;/li&gt;
-&lt;li&gt;sublist&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-</code></pre>
+          <pre id="htmlpre"><code id="html"></code></pre>
         </div>
         <div id="result-ast" class="tab-pane">
-          <pre id="astpre"><code id="ast">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;!DOCTYPE CommonMark SYSTEM "CommonMark.dtd"&gt;
-&lt;document xmlns="http://commonmark.org/xml/1.0"&gt;
-  &lt;heading level="2"&gt;
-    &lt;text&gt;Try CommonMark&lt;/text&gt;
-  &lt;/heading&gt;
-  &lt;paragraph&gt;
-    &lt;text&gt;You can try CommonMark here.  This dingus is powered by&lt;/text&gt;
-    &lt;softbreak /&gt;
-    &lt;link destination="https://github.com/jgm/commonmark.js" title=""&gt;
-      &lt;text&gt;commonmark.js&lt;/text&gt;
-    &lt;/link&gt;
-    &lt;text&gt;, the&lt;/text&gt;
-    &lt;softbreak /&gt;
-    &lt;text&gt;JavaScript reference implementation.&lt;/text&gt;
-  &lt;/paragraph&gt;
-  &lt;list type="ordered" start="1" tight="true" delimiter="period"&gt;
-    &lt;item&gt;
-      &lt;paragraph&gt;
-        &lt;text&gt;item one&lt;/text&gt;
-      &lt;/paragraph&gt;
-    &lt;/item&gt;
-    &lt;item&gt;
-      &lt;paragraph&gt;
-        &lt;text&gt;item two&lt;/text&gt;
-      &lt;/paragraph&gt;
-      &lt;list type="bullet" tight="true"&gt;
-        &lt;item&gt;
-          &lt;paragraph&gt;
-            &lt;text&gt;sublist&lt;/text&gt;
-          &lt;/paragraph&gt;
-        &lt;/item&gt;
-        &lt;item&gt;
-          &lt;paragraph&gt;
-            &lt;text&gt;sublist&lt;/text&gt;
-          &lt;/paragraph&gt;
-        &lt;/item&gt;
-      &lt;/list&gt;
-    &lt;/item&gt;
-  &lt;/list&gt;
-&lt;/document&gt;
-</code></pre>
+          <pre id="astpre"><code id="ast"></code></pre>
         </div>
     </div>
-      <div class="timing" style="visibility: visible;">Parsed in <span class="timing" id="parsetime" style="visibility: visible;">7</span>
-      ms.  Rendered in <span class="timing" id="rendertime" style="visibility: visible;">1</span> ms.</div>
+      <div class="timing">Parsed in <span class="timing" id="parsetime"></span>
+      ms.  Rendered in <span class="timing" id="rendertime"></span> ms.</div>
   </div>
 </div>
-<script src="./commonmark.js demo_files/dingus.js"></script>
-
-
-</div></body></html>
+<script src="dingus.js"></script>
+</body>
+</html>
