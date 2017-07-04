@@ -203,7 +203,7 @@ autoindex_exact_size off;
 access_log off;
 
 Caddy：
-Caddy.exe -host 0.0.0.0 -port 80 "browse / ./1.txt" "gzip"
+Caddy.exe -host 0.0.0.0 -port 80 "browse / ./1.txt" "log stdout" "errors stdout" "gzip" "root ."
 ----
 Browse Template：
 https://github.com/mholt/caddy/blob/master/caddyhttp/browse/setup.go#L101
