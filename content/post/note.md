@@ -111,10 +111,10 @@ regsvr32 C:\WINDOWS\syswow64\aliedit\npAliSecCtrl.dll
 ## Clevo mirror
 ```bash
 BIOS：
-http://repo.palkeo.com/clevo-mirror/
+https://repo.palkeo.com/clevo-mirror/
 
 DRIVERS：
-http://www.sagernotebook.com/drivers.php?cat=580
+https://www.sagernotebook.com/drivers.php?cat=580
 ```
 
 ## VPN
@@ -397,7 +397,7 @@ npm --registry=https://registry.npm.taobao.org install -g test
 
 https://download.lineageos.org/
 
-https://mirrors.ustc.edu.cn/rust-static/dist/rust-1.16.0-x86_64-pc-windows-gnu.msi
+https://mirrors.ustc.edu.cn/rust-static/dist/rust-1.18.0-x86_64-pc-windows-gnu.msi
 
 PSP：
 https://www.ppsspp.org/downloads.html
@@ -437,7 +437,6 @@ H.264 to RAW：
 ffmpeg.exe -i 123.mp4 -vcodec copy -an -bsf:v h264_mp4toannexb 123.h264
 
 https://ffmpeg.zeranoe.com/builds/
-https://sourceforge.net/projects/mplayer-win32/files/MPlayer%20and%20MEncoder/
 ```
 
 ## Win10 禁用 OneDrive、Defender 等组件
