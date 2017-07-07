@@ -135,8 +135,9 @@ class MyInterceptor : HandlerInterceptorAdapter() {     拦截器
     }
 }
 
-过滤器：依赖 Servlet 容器，基于回调函数，能够过滤所有请求。（Filter）
-拦截器：依赖 Spring  容器，基于反射机制，只能拦截部分请求。（Interceptor）
+基于切面思想的应用：
+过滤器：基于 Servlet 容器，能够过滤所有请求，使用回调函数。（Filter）
+拦截器：基于 Spring  容器，只能拦截部分请求，使用反射机制。（Interceptor）
 ```
 ### entity
 #### Account
@@ -286,7 +287,7 @@ class AppErrorHandler {
 ## HTML
 ### a.html
 ```html
-<html xmlns:th="http://www.w3.org/1999/xhtml">     Thymeleaf 命名空间
+<html xmlns:th="http://www.thymeleaf.org">     Thymeleaf 命名空间
 <head>
     <meta charset="UTF-8">
     <title>Title</title>

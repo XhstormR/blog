@@ -63,6 +63,7 @@ hibernate.hikari.password=123456
 
 hibernate.cache.use_query_cache=true
 hibernate.cache.region.factory_class=org.hibernate.cache.infinispan.InfinispanRegionFactory
+hibernate.cache.infinispan.cfg=org/hibernate/cache/infinispan/builder/infinispan-configs-local.xml
 ```
 
 ### hibernate.cfg.xml
@@ -90,7 +91,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy
 import javax.persistence.*
 
 @Entity
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)     使用缓存
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)     使用二级缓存
 data class Account(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -98,6 +99,10 @@ data class Account(
         var name: String? = null,
         var money: Int = 0
 )
+
+Hibernate 缓存策略：
+一级缓存：强制开启，以 Session        为单位。
+二级缓存：默认关闭，以 SessionFactory 为单位。
 ```
 #### dao
 ##### AccountDao

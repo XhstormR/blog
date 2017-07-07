@@ -186,7 +186,7 @@ query.list().forEach { println("${it.seller?.id}  ${it.price}  ${it.name}") }
 4  30  《hibernate编程》
 ```
 
-## Source
+## Code
 
 ### Seller（商家）
 ```kotlin
