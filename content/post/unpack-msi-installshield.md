@@ -11,6 +11,10 @@ title: 解包 MSI IS 文件
 
     msiexec /a "D:\test.msi" /qb TARGETDIR=D:\dir
 
+## InnoSetup
+
+    "test.exe" /VERYSILENT /NORESTART /NOICONS /DIR="D:\dir"
+
 ## InstallShield
 
     "test.exe" /a /s /v"/qn TARGETDIR=D:\
@@ -26,4 +30,5 @@ title: 解包 MSI IS 文件
 [lessmsi](https://github.com/activescott/lessmsi/releases/latest)
 
 ## Reference
-[StackOverflow](https://stackoverflow.com/questions/8681252/programmatically-extract-contents-of-installshield-setup-exe)
+[InnoSetup](http://www.jrsoftware.org/ishelp/topic_setupcmdline.htm),
+[InstallShield](https://stackoverflow.com/questions/8681252/programmatically-extract-contents-of-installshield-setup-exe)
