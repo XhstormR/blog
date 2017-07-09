@@ -17,7 +17,7 @@ title: 解包 MSI IS 文件
 
 ## InstallShield
 
-    "test.exe" /a /s /v"/qn TARGETDIR=D:\
+    "test.exe" /a /s /v"/qn TARGETDIR=D:\dir
 
 ## [SourceTree](https://www.atlassian.com/software/sourcetree)
 

@@ -495,6 +495,8 @@ https://sourceforge.net/projects/optipng/files/OptiPNG/
 https://tinypng.com/
 http://m.2gei.com/bgremover/
 https://imageoptim.com/mozjpeg
+
+http://editor.method.ac/
 ```
 
 ## 修改 CMD 环境变量（暂时）

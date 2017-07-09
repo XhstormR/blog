@@ -12,6 +12,8 @@ Updated on 2017-03-19
 
 > {{< image "/uploads/algorithm1.svg" "12" "1" "1" >}}
 >
+> https://visualgo.net/zh
+>
 > 算法是解决问题的清晰指令，是用系统的方法描述解决问题的策略机制。
 
 ## 冒泡排序算法
@@ -525,9 +527,9 @@ public class Main {
         for (int i : ints) {
             for (int j = 0; j < ints.length; j++) {
                 if (j == i) {
-                    System.out.print("✖");//皇后
+                    System.out.print("● ");//皇后
                 } else {
-                    System.out.print("◯");
+                    System.out.print("○ ");
                 }
             }
             System.out.println();
