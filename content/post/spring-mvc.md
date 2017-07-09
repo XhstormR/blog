@@ -13,6 +13,13 @@ Updated on 2017-06-22
 > {{< image "/uploads/spring.png" "Spring Framework" "1" "1" >}}
 >
 > https://github.com/thymeleaf/thymeleaf
+>
+> [MappingJackson2HttpMessageConverter](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/http/converter/json/MappingJackson2HttpMessageConverter.html)
+
+## Concept
+* REST：将资源以 **适合** 客户端的 **格式** 从服务端 **转移** 至客户端（或者反过来）。
+  * [CRUD](/post/postgresql/#concept)
+      * 幂等：**同一操作** 执行 **任意次数** 所产生的影响或结果 **相同**。
 
 ## Configuration
 ### build.gradle.kts
@@ -130,7 +137,7 @@ class MyInterceptor : HandlerInterceptorAdapter() {     拦截器
         modelAndView.model["msg"] = "信息"
     }
 
-    override fun afterCompletion(request: HttpServletRequest, response: HttpServletResponse, handler: Any, ex: Exception) {
+    override fun afterCompletion(request: HttpServletRequest, response: HttpServletResponse, handler: Any, ex: Exception?) {
         println("请求结束")
     }
 }
@@ -182,6 +189,7 @@ class HomeController {
 ```kotlin
 package controller
 
+import entity.Account
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.validation.Errors
