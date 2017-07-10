@@ -264,14 +264,11 @@ http://interface.bilibili.com/playurl?cid=8551612&appkey=6f90a59ac58a4123&otype=
 
 ## Reference
 
-Format：https://jsonformatter.curiousconcept.com/
-
-Format：http://www.jsonschema2pojo.org/
-
-Format：https://github.com/tulios/json-viewer
-
-Test：https://httpbin.org/
-
-Test：https://echo.getpostman.com/
-
-Test：https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop
+* Format：
+  * https://jsonformatter.curiousconcept.com/
+  * https://github.com/tulios/json-viewer
+  * http://www.jsonschema2pojo.org/
+* Test：
+  * https://httpbin.org/
+  * https://docs.postman-echo.com/
+  * https://www.getpostman.com/apps

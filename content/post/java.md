@@ -78,7 +78,7 @@ Ctrl+Shift+I     查看快速定义
 
 Ctrl+` 4 3     进入（退出）全屏
 
-Ctrl+F9     Make Project
+Ctrl+F9     Build Project
 Ctrl+F10     Update Running JavaEE Application
 Shift+F10     Run
 Ctrl+Shift+F10     Run（Context）
