@@ -1313,6 +1313,18 @@ D:\Download\kotlinc\bin>kotlinc-js -output 123.js A.kt
 D:\Download\kotlinc\lib\kotlin-stdlib-js.jar\kotlin.js
 ```
 
+```kotlin
+@JsName("main")
+fun main(args: Array<String>) {
+    js("""document.write(message+"<br/>")""")
+    alert(message)
+}
+
+val message = "Hello JavaScript."
+
+external fun alert(message: Any?)//暴露外部 API
+```
+
 ```html
 <html>
 <head>
@@ -1331,3 +1343,6 @@ D:\Download\kotlinc\lib\kotlin-stdlib-js.jar\kotlin.js
 * https://realm.io/cn/news/droidcon-michael-pardo-kotlin/
 * https://realm.io/cn/news/getting-started-with-kotlin-and-anko/
 * https://realm.io/cn/news/oredev-jake-wharton-kotlin-advancing-android-dev/
+* JavaScript：
+  * https://github.com/Kotlin/ts2kt
+  * https://www.nuget.org/profiles/DefinitelyTyped

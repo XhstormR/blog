@@ -17,9 +17,11 @@ Updated on 2017-06-22
 > [MappingJackson2HttpMessageConverter](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/http/converter/json/MappingJackson2HttpMessageConverter.html)
 
 ## Concept
-* REST：将资源以 **适合** 客户端的 **格式** 从服务端 **转移** 至客户端（或者反过来）。
-  * [CRUD](/post/postgresql/#concept)
-      * 幂等：**同一操作** 执行 **任意次数** 所产生的影响或结果 **相同**。
+* REST：将资源的 **状态** 以 **适合** 客户端的 **格式** 从服务端 **转移** 至客户端（或者反过来）。
+  * 资源采用 URL 进行标识，使用 HTTP 方法进行管理，以适合客户端的格式进行表述。
+      * 资源：URL（统一资源定位器）
+      * 行为：[CRUD](/post/postgresql/#concept)（增删改查）
+          * 幂等：**同一操作** 执行 **任意次数** 所产生的影响或结果 **相同**。
 
 ## Configuration
 ### build.gradle.kts
@@ -34,6 +36,8 @@ compile("org.hibernate:hibernate-validator:5.+")
 
 compile("org.thymeleaf:thymeleaf-spring4:+")
 compile("org.slf4j:slf4j-jdk14:+")
+
+compile("com.fasterxml.jackson.core:jackson-databind:+")
 ```
 
 ## Code
@@ -104,7 +108,7 @@ open class WebConfig : WebMvcConfigurerAdapter() {
     @Bean
     open fun multipartResolver(): MultipartResolver = StandardServletMultipartResolver()     提供文件上传支持
 
-    override fun configureDefaultServletHandling(configurer: DefaultServletHandlerConfigurer) = configurer.enable()     提供静态资源访问
+    override fun configureDefaultServletHandling(configurer: DefaultServletHandlerConfigurer) = configurer.enable()     提供静态资源访问（启用 DefaultServletHttpRequestHandler）
 
     override fun addInterceptors(registry: InterceptorRegistry) {
         registry.addInterceptor(MyInterceptor()).addPathPatterns("/**")     注册拦截器
@@ -201,7 +205,7 @@ import javax.validation.Valid
 
 @Controller
 @RequestMapping("/a")
-class AController {
+class AController {     视图
     查询参数：127.0.0.1:8080/a?username=张三&password=123456&age=20
     @RequestMapping(method = arrayOf(RequestMethod.GET))     可简化为 @GetMapping
     fun a(@RequestParam(defaultValue = "张三") username: String,
@@ -276,6 +280,52 @@ class AController {
         return "error"
     }
 }
+```
+#### BController
+```kotlin
+package controller
+
+import entity.Account
+import org.springframework.http.HttpStatus
+import org.springframework.http.MediaType
+import org.springframework.validation.Errors
+import org.springframework.web.bind.annotation.*
+import javax.validation.Valid
+
+@RestController     转换响应体(类级别)
+@RequestMapping("/b")
+class BController {     REST API
+    //@ResponseBody     转换响应体(方法级别)
+    @RequestMapping(path = arrayOf("/jsonOut"), method = arrayOf(RequestMethod.GET), produces = arrayOf(MediaType.APPLICATION_JSON_UTF8_VALUE))     限制 Accept 头部信息
+    @ResponseStatus(HttpStatus.OK)     指定 HTTP 状态码
+    fun a(): Account {
+        return Account("张三", "123456", 20)
+    }
+
+    @RequestMapping(path = arrayOf("/jsonInOut"), method = arrayOf(RequestMethod.POST), consumes = arrayOf(MediaType.APPLICATION_JSON_UTF8_VALUE))     限制 Content-Type 头部信息
+    @ResponseStatus(HttpStatus.CREATED)
+    fun b(@RequestBody @Valid account: Account, errors: Errors): Account {     转换请求体
+        if (errors.hasErrors()) {
+            throw AccountNotFoundException(9527)
+        }
+        return account.apply { this.username = "李四" }
+    }
+
+    @ExceptionHandler(AccountNotFoundException::class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    fun handleError(e: AccountNotFoundException): Error {
+        return Error(4, "账户 ${e.accountId} 未找到")
+    }
+}
+
+data class AccountNotFoundException(
+        val accountId: Int
+) : RuntimeException()
+
+data class Error(
+        val code: Int,
+        val message: String
+)
 ```
 #### AppErrorHandler
 ```kotlin
