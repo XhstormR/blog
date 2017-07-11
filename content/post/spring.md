@@ -8,7 +8,7 @@ title: Spring Framework
 
 <!--more-->
 
-Updated on 2017-05-21
+Updated on 2017-07-11
 
 > {{< image "/uploads/spring.png" "Spring Framework" "1" "1" >}}
 >
@@ -26,13 +26,17 @@ Updated on 2017-05-21
   * 依赖对象 **通过接口** 了解注入对象并 **表明依赖关系**。（面向接口编程）
   * 作用：负责 **创建** 对象并 **维护** 对象之间的依赖关系，使应用对象彼此之间保持 **低耦合**。
   * 对象解耦。
-* 装配：Wiring。
-* 感知：Aware。
 * 面向切面编程（AOP）：用另一种编程架构的思想来 **补充面向对象编程**（OOP）的思想。
   * AOP 进行 **提取**，OOP 进行 **封装**。
   * AOP 主要的模块单元是 **切面**（Aspect），而 OOP 主要的模块单元是 **类**（Class）。
   * 作用：使诸如日志管理等分散在各个应用对象的 **逻辑（横切关注点）模块化为切面**。
   * 功能解耦。
+* 装配：Wiring。
+* 感知：Aware。
+* 组件：@Component
+  * 控制层：@Controller
+  * 业务层：@Service
+  * 持久层：@Repository
 
 ## Configuration
 ### build.gradle.kts
