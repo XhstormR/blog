@@ -242,6 +242,12 @@ https://www.gnu.org/software/wget/manual/wget.html
 ## Search
 ```bash
 https://www.google.com/search?newwindow=1&q=123
+----
+site:example.com filetype:pdf "电子书没有采用专有" -去除关键字
+----
+inurl:链接
+intext:正文
+intitle:标题
 ```
 
 ## Xshell & Xftp
