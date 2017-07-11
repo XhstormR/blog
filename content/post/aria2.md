@@ -9,7 +9,7 @@ title: Aria2 Configuration
 
 Updated on 2016-08-23
 
-> [![](/uploads/file-into-picture2.png)](http://ww4.sinaimg.cn/large/a15b4afegw1fazh78ka4qj203k03ke81)
+> [![](/uploads/file-into-picture2.png)](http://ww4.sinaimg.cn/large/a15b4afegy1fhg25phkjkj203k03ke81)
 >
 > https://aria2.github.io/
 >
@@ -46,6 +46,7 @@ referer=http://pan.baidu.com/disk/home
 user-agent=netdisk;5.3.4.5;PC;PC-Windows;5.1.2600;WindowsBaiduYunGuanJia
 seed-time=0
 max-overall-upload-limit=10K
+remote-time=true
 content-disposition-default-utf8=true
 ```
 
