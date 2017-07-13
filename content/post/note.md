@@ -12,7 +12,7 @@ title: Note
 ## 特殊符号
 ```java
 特殊符号：
-·⊙①?◎Θ⊙●○¤㊣㈱＠の■□★☆◆◇◣◢◤◥▲△▼▽⊿◢▂▃▄▅▆▇█▉▊▋▌▍▎▏■□〓≡↑↓→←↘↙♀♂┇┅‖$@* amp;#※卍卐∞Ψ§∮№⌒＊◆◇◎●☉
+·⊙①◎Θ⊙●○¤㊣㈱＠の■□★☆◆◇◣◢◤◥▲△▼▽⊿◢▂▃▄▅▆▇█▉▊▋▌▍▎▏■□〓≡↑↓→←↘↙♀♂┇┅‖$@* amp;#※卍卐∞Ψ§∮№⌒＊◆◇◎●☉
 
 标点符号：
 ．。，、；：？！ˉˇ¨`~々～‖∶＂＇｀｜·…—～-〃‘’“”〝〞〔〕〈〉《》「」『』〖〗【】（）［］｛｝︻︼﹄﹃
@@ -241,6 +241,8 @@ https://www.gnu.org/software/wget/manual/wget.html
 
 ## Search
 ```bash
+https://duckduckgo.com/
+
 https://www.google.com/search?newwindow=1&q=123
 ----
 site:example.com filetype:pdf "电子书没有采用专有" -去除关键字
@@ -304,9 +306,22 @@ Windows：
 --User-Agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 Linux Nexus"
 ```
 
+## Hosts
+```bash
+C:\Windows\System32\drivers\etc\
+⇳
+64.233.189.121 feeds.feedburner.com
+64.233.189.121 www.repacks.org
+64.233.189.121 www.draw.io
+54.231.66.16 s3.amazonaws.com
+209.99.20.16 dl.dumptruck.goldenfrog.com
+151.101.128.133 blog.xhstormr.tk
+151.101.128.133 assets-cdn.github.com
+151.101.128.133 raw.githubusercontent.com
+```
+
 ## Google Hosts
 ```html
-https://duckduckgo.com/
 https://encrypted.google.com/ncr
 http://serve.netsh.org/pub/ipv4-hosts/
 https://raw.githubusercontent.com/racaljk/hosts/master/hosts
@@ -332,9 +347,9 @@ http://chrome-extension-downloader.com/
 
 APK：
 https://apps.evozi.com/apk-downloader/
-http://m.apkpure.com/
-http://apkleecher.com/
-http://www.apk4fun.com/
+https://apkleecher.com/
+https://m.apkpure.com/
+https://www.apk4fun.com/
 ```
 
 ## HSTS
@@ -342,20 +357,6 @@ http://www.apk4fun.com/
 chrome://net-internals/#hsts
 
 强制忽略证书错误：badidea
-```
-
-## Hosts
-```bash
-C:\Windows\System32\drivers\etc\
-⇳
-64.233.189.121 feeds.feedburner.com
-64.233.189.121 www.repacks.org
-64.233.189.121 www.draw.io
-54.231.66.16 s3.amazonaws.com
-209.99.20.16 dl.dumptruck.goldenfrog.com
-151.101.128.133 blog.xhstormr.tk
-151.101.128.133 assets-cdn.github.com
-151.101.128.133 raw.githubusercontent.com
 ```
 
 ## SQL
@@ -397,6 +398,7 @@ http://mirrors.yun-idc.com/
 RHEL：
 https://access.redhat.com/products/red-hat-enterprise-linux/
 
+https://nodejs.org/dist/latest/node-v8.1.4-win-x64.7z
 https://npm.taobao.org/mirrors/
 ----
 npm --registry=https://registry.npm.taobao.org install -g test
@@ -473,6 +475,11 @@ CMD 操作示例：
 reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\TimeBrokerSvc /v Start /t REG_DWORD /d 4 /f
 ```
 
+## Win10 输入法切换简繁体快捷键
+```
+Ctrl+Shift+F
+```
+
 ## Domain
 ```bash
 注册：https://my.freenom.com/
@@ -486,6 +493,7 @@ reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\TimeBrokerSvc /v St
 magick.exe convert -size 1000 123.svg 123.png     svg ➜ png
 magick.exe convert -density 300 123.pdf 123.png     pdf ➜ png
 magick.exe convert -extent +0+10 -crop 0x2000 123.png 456.png     分割图片
+magick.exe convert -transparent white -fuzz 25% 123.png 456.png     透明图片
 
 https://www.imagemagick.org/script/download.php#windows
 ----
@@ -515,14 +523,6 @@ set path=%path%;D:\Download\123
 
 calc
 SnippingTool
-```
-
-## 迅雷启用边下边播
-```ini
-Program\Xmp.ini
-⇳
-[global]
-Path=C:\PotPlayer\PotPlayerMini.exe
 ```
 
 ## WebX

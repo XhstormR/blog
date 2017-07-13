@@ -1345,4 +1345,5 @@ external fun alert(message: Any?)//暴露外部 API
 * https://realm.io/cn/news/oredev-jake-wharton-kotlin-advancing-android-dev/
 * JavaScript：
   * https://github.com/Kotlin/ts2kt
-  * https://www.nuget.org/profiles/DefinitelyTyped
+  * https://github.com/vuejs/vue/tree/dev/types
+  * https://microsoft.github.io/TypeSearch/

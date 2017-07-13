@@ -234,10 +234,8 @@ class AController {     视图
           @PathVariable password: String,
           @PathVariable age: Int,
           model: Model): String {
-        if (!model.containsAttribute("account")) {     跨重定向请求传递复杂数据
-            model.addAttribute("account", Account(username, password, age))
-            可简化为
-            model.addAttribute(Account(username, password, age))     根据对象类型推断 Key
+        if (!model.containsAttribute("account")) {
+            model.addAttribute(Account(username, password, age))
         }
         return "a"
     }
@@ -259,9 +257,9 @@ class AController {     视图
 
     跨重定向请求传递复杂数据：
     @RequestMapping(path = arrayOf("/form"), method = arrayOf(RequestMethod.POST))
-    fun c(@Valid account: Account, errors: Errors, model: RedirectAttributes): String {     校验属性
-        if (errors.hasErrors()) {     检查校验是否出错
-            return "redirect:/"     重定向（redirect:），请求转发（forward:）
+    fun c(@Valid account: Account, errors: Errors, model: RedirectAttributes): String {
+        if (errors.hasErrors()) {
+            return "redirect:/"
         }
         model.addFlashAttribute(account)     跨重定向请求传递复杂数据
         return "redirect:/a"     通过 flash 属性传递复杂数据
