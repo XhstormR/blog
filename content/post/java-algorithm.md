@@ -8,7 +8,7 @@ title: Algorithm
 
 <!--more-->
 
-Updated on 2017-03-19
+Updated on 2017-07-13
 
 > {{< image "/uploads/algorithm1.svg" "12" "1" "1" >}}
 >
@@ -626,22 +626,64 @@ public class Main {
 }
 ```
 
-## 全排列
+## 组合算法
+```java
+public class Main {
+    private static int[] ints = {1, 2, 3, 4};//数据
+    private static int[] temp = new int[3];//放法
+    private static int count;//放法数
+
+    public static void main(String[] args) {
+        combination(0, temp.length, temp);
+        System.out.printf("C %d %d 共 %d 种\n", ints.length, temp.length, count);
+    }
+
+    private static void combination(int i, int n, int[] temp) {//动态规划
+        if (n == 0) {
+            count++;
+            show();
+            return;
+        }
+        if (i == ints.length) {
+            return;
+        }
+        temp[n - 1] = ints[i];
+        combination(i + 1, n - 1, temp);
+        combination(i + 1, n, temp);
+    }
+
+    /**
+     * 显示放法。
+     */
+    private static void show() {
+        for (int i = temp.length - 1; i >= 0; i--) {
+            System.out.print(temp[i] + " ");
+        }
+        System.out.println();
+    }
+}
+----
+输出：
+1 2 3
+1 2 4
+1 3 4
+2 3 4
+C 4 3 共 4 种
+```
+
+## 排列算法（全排列）
 ```java
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
-//    private static char[] chars;
     private static int[] ints;//放法
     private static int count;//放法数
 
     public static void main(String[] args) {
-//        chars = new Scanner(System.in).next().toCharArray();
-//        ints = new int[chars.length];
         ints = new int[new Scanner(System.in).nextInt()];
         permutation(0);
-        System.out.println("共 " + count + " 种");
+        System.out.printf("A %d %d 共 %d 种\n", ints.length, ints.length, count);
     }
 
     /**
@@ -682,10 +724,6 @@ public class Main {
      * 显示放法。
      */
     private static void show() {
-//        for (int i : ints) {
-//            System.out.print(chars[i]);
-//        }
-//        System.out.println();
         System.out.println(Arrays.toString(ints));
     }
 }
@@ -699,7 +737,66 @@ public class Main {
 [1, 2, 0]
 [2, 0, 1]
 [2, 1, 0]
-共 6 种
+A 3 3 共 6 种
+```
+
+## 排列组合算法
+```java
+public class Main {
+    private static int[] ints = {1, 2, 3, 4};//数据
+    private static int[] temp = new int[3];//放法
+    private static int count;//放法数
+    private static boolean flag = true;//排列：true；组合：false
+
+    public static void main(String[] args) {
+        a(0);
+        System.out.printf("%s %d %d 共 %d 种\n", flag ? "A" : "C", ints.length, temp.length, count);
+    }
+
+    /**
+     * 递归放置元素。
+     *
+     * @param k 当前索引位置。
+     */
+    private static void a(int k) {
+        if (k > temp.length - 1) {//所有索引位置（元素）都已经放置完毕，放法数加一
+            count++;
+            show();
+        } else {
+            for (int i = 0; i < ints.length; i++) {//测试当前索引位置，遍历放置每一个元素
+                temp[k] = i;
+                if (place(k)) {
+                    a(k + 1);//当前索引位置的元素可以放置，递归前往下一个索引位置
+                }
+            }
+        }
+    }
+
+    /**
+     * 判断当前索引位置的元素与之前索引位置的元素是否冲突。
+     *
+     * @param k 当前索引位置。
+     * @return true 为可以放置，false 反之。
+     */
+    private static boolean place(int k) {
+        for (int j = 0; j < k; j++) {//遍历之前的索引位置与其进行比较
+            if (flag ? temp[j] == temp[k] : temp[j] >= temp[k]) {//排列：元素索引不能重复；组合：元素索引只能递增
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * 显示放法。
+     */
+    private static void show() {
+        for (int i : temp) {
+            System.out.print(ints[i] + " ");
+        }
+        System.out.println();
+    }
+}
 ```
 
 ## 凑算式
@@ -728,9 +825,9 @@ public class Main {
                                                                     for (double i = 1; i <= 9; i++) {
                                                                         if (i != h && i != g && i != f && i != e && i != d && i != c && i != b && i != a) {
 
-//                                                                            double d1 = new BigDecimal(b / (double) c).setScale(4, BigDecimal.ROUND_HALF_UP).doubleValue();
-//                                                                            double d2 = new BigDecimal((d * 100 + e * 10 + f) / (double) (g * 100 + h * 10 + i)).setScale(4, BigDecimal.ROUND_HALF_UP).doubleValue();
-//                                                                            double m = a + d1 + d2;
+//                                                                          double d1 = new BigDecimal(b / (double) c).setScale(4, BigDecimal.ROUND_HALF_UP).doubleValue();
+//                                                                          double d2 = new BigDecimal((d * 100 + e * 10 + f) / (double) (g * 100 + h * 10 + i)).setScale(4, BigDecimal.ROUND_HALF_UP).doubleValue();
+//                                                                          double m = a + d1 + d2;
                                                                             double m = a + b / c + (d * 100 + e * 10 + f) / (g * 100 + h * 10 + i);
                                                                             if (m == 10) {
                                                                                 count++;
@@ -806,7 +903,7 @@ public class Main {
         double i = ints[8] + 1;
         double m = a + b / c + (d * 100 + e * 10 + f) / (g * 100 + h * 10 + i);
         if (m == 10) {
-//            System.out.println(Arrays.toString(ints));
+//          System.out.println(Arrays.toString(ints));
             count++;
         }
     }

@@ -170,8 +170,31 @@ public class Test {
 
 -------------------------------------------------------
 
-int i1 = 0b1111;     15（2 进制）
-int i2 = 01111;     585（8 进制）
-int i3 = 1111;     1111（10 进制）
-int i4 = 0x1111;     4369（16 进制）
+int i1 = 0b1111;   15  （2  进制）
+int i2 =  01111;   585 （8  进制）
+int i3 =   1111;   1111（10 进制）
+int i4 = 0x1111;   4369（16 进制）
+
+-------------------------------------------------------
+
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] ints = {5, 10};
+        System.out.println(Arrays.toString(ints));
+        swap(0, 1, ints);
+        System.out.println(Arrays.toString(ints));
+    }
+
+    private static void swap(int x, int y, int[] ints) {     使用异或运算进行交换
+        ints[x] = ints[x] ^ ints[y];
+        ints[y] = ints[x] ^ ints[y];
+        ints[x] = ints[x] ^ ints[y];
+    }
+}
+----
+输出：
+[5, 10]
+[10, 5]
 ```
