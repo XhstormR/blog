@@ -70,6 +70,7 @@ class AppConfig : AbstractAnnotationConfigDispatcherServletInitializer() {
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.ComponentScan
 import org.springframework.context.annotation.Configuration
+import org.springframework.format.FormatterRegistry
 import org.springframework.web.multipart.MultipartResolver
 import org.springframework.web.multipart.support.StandardServletMultipartResolver
 import org.springframework.web.servlet.ViewResolver
@@ -114,6 +115,11 @@ open class WebConfig : WebMvcConfigurerAdapter() {
     override fun addInterceptors(registry: InterceptorRegistry) {
         registry.addInterceptor(MyInterceptor()).addPathPatterns("/**")     注册拦截器
     }
+
+    override fun addFormatters(registry: FormatterRegistry) {
+        registry.addFormatter(MyDateFormatter())             注册 Formatter
+        registry.addConverter(MyStringToDateConverter())     注册 Converter
+    }
 }
 ```
 ### RootConfig
@@ -137,9 +143,11 @@ class MyInterceptor : HandlerInterceptorAdapter() {     拦截器
         return true     是否放行请求（true 放行，false 拦截）
     }
 
-    override fun postHandle(request: HttpServletRequest, response: HttpServletResponse, handler: Any, modelAndView: ModelAndView) {
+    override fun postHandle(request: HttpServletRequest, response: HttpServletResponse, handler: Any, modelAndView: ModelAndView?) {
         println("后处理")
-        modelAndView.model["msg"] = "信息"
+        if (modelAndView != null) {
+            modelAndView.model["msg"] = "信息"
+        }
     }
 
     override fun afterCompletion(request: HttpServletRequest, response: HttpServletResponse, handler: Any, ex: Exception?) {
@@ -150,6 +158,32 @@ class MyInterceptor : HandlerInterceptorAdapter() {     拦截器
 基于切面思想的应用：
 过滤器：基于 Servlet 容器，能够过滤所有请求，使用回调函数。（Filter）
 拦截器：基于 Spring  容器，只能拦截部分请求，使用反射机制。（Interceptor）
+```
+### MyDateFormatter
+```kotlin
+import org.springframework.format.Formatter
+import java.text.SimpleDateFormat
+import java.util.*
+
+class MyDateFormatter : Formatter<Date> {     Formatter：String <-> T
+    private val sdf = SimpleDateFormat("yyyy-MM-dd")
+
+    override fun parse(text: String, locale: Locale): Date = sdf.parse(text)
+
+    override fun print(`object`: Date, locale: Locale): String = sdf.format(`object`)
+}
+```
+### MyStringToDateConverter
+```kotlin
+import org.springframework.core.convert.converter.Converter
+import java.text.SimpleDateFormat
+import java.util.*
+
+class MyStringToDateConverter : Converter<String, Date> {     Converter：S --> T
+    private val sdf = SimpleDateFormat("yyyy-MM-dd")
+
+    override fun convert(source: String): Date = sdf.parse(source)
+}
 ```
 ### entity
 #### Account
@@ -325,6 +359,84 @@ data class Error(
         val code: Int,
         val message: String
 )
+```
+#### CController
+```kotlin
+package controller
+
+import entity.Account
+import org.springframework.format.annotation.DateTimeFormat
+import org.springframework.web.bind.annotation.*
+import java.util.*
+
+@RestController
+@RequestMapping("/c")
+class CController {
+    http://localhost:8080/c/base.do?age=123
+    Int ：Kotlin 编译为原始类型，参数必选
+    Int?：Kotlin 编译为包装类型，参数可选
+    @GetMapping("/base.do")
+    fun base(age: Int?) = age.toString()
+
+    http://localhost:8080/c/array.do?names=Tom&names=Lucy&names=Jim
+    @GetMapping("/array.do")
+    fun array(names: Array<String>) = Arrays.toString(names)
+
+    http://localhost:8080/c/date.do?date=2017-07-15
+    默认时间格式为 DateFormat.SHORT：15/07/17 14:30
+    @GetMapping("/date.do")
+    fun date(@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) date: Date) = date
+
+    Object
+    http://localhost:8080/c/object.do
+    /*
+    {
+        "username": "张三",
+        "password": "123456",
+        "age": 20
+    }
+    */
+    @PostMapping("/object.do")
+    fun `object`(@RequestBody account: Account) = account
+
+    List,Set
+    http://localhost:8080/c/list.do
+    /*
+    [
+        {
+            "username": "张三",
+            "password": "123456",
+            "age": 20
+        },
+        {
+            "username": "张三",
+            "password": "123456",
+            "age": 20
+        }
+    ]
+    */
+    @PostMapping("/list.do")
+    fun list(@RequestBody accounts: List<Account>) = accounts
+
+    Map
+    http://localhost:8080/c/map.do
+    /*
+    {
+        "a": {
+            "username": "张三",
+            "password": "123456",
+            "age": 20
+        },
+        "b": {
+            "username": "张三",
+            "password": "123456",
+            "age": 20
+        }
+    }
+    */
+    @PostMapping("/map.do")
+    fun map(@RequestBody accounts: Map<String, Account>) = accounts
+}
 ```
 #### AppErrorHandler
 ```kotlin

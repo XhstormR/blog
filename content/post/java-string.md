@@ -145,10 +145,14 @@ Note：
 -------------------------------------------------------
 
 public class A {     Base64 编码
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         String str = "123ABC中国";
-        String encode = new BASE64Encoder().encode(str.getBytes("utf-8"));
-        byte[] decode = new BASE64Decoder().decodeBuffer(encode);
+
+        BASE64Encoder base64Encoder = new BASE64Encoder();
+        BASE64Decoder base64Decoder = new BASE64Decoder();
+
+        String encode = base64Encoder.encode(str.getBytes("utf-8"));
+        byte[] decode = base64Decoder.decodeBuffer(encode);
 
         System.out.println(encode);
         System.out.println(new String(decode, "utf-8"));
