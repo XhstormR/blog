@@ -17,10 +17,11 @@ Updated on 2017-06-22
 > [MappingJackson2HttpMessageConverter](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/http/converter/json/MappingJackson2HttpMessageConverter.html)
 
 ## Concept
-* REST：将资源的 **状态** 以 **适合** 客户端的 **格式** 从服务端 **转移** 至客户端（或者反过来）。
-  * 资源采用 URL 进行标识，使用 HTTP 方法进行管理，以适合客户端的格式进行表述。
+* REST：将资源的 **状态** 以 **适合** 客户端的 **格式** 从服务端 **传递** 至客户端（或者反过来）。
+  * 资源通过 URL 进行标识，通过 HTTP Method 进行管理，通过 HTTP Header 表述格式。
       * 资源：URL（统一资源定位器）
-      * 行为：[CRUD](/post/postgresql/#concept)（增删改查）
+      * 格式：Accept、Content-Type 头部信息。
+      * 动词：[CRUD](/post/postgresql/#concept)（增删改查）
           * 幂等：**同一操作** 执行 **任意次数** 所产生的影响或结果 **相同**。
 
 ## Configuration

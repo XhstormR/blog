@@ -91,7 +91,7 @@ try {     try-catch
 val a: String? = null
 
 val b: Int = if (a != null) {     空检查
-    a.length     不需要通过 `?.` 访问可空变量
+    a.length     不需要通过 `?.` 访问可空变量（Smart Cast）
 } else {
     -1
 }
@@ -542,7 +542,7 @@ val list = intRange.takeWhile { it % 5 != 0 }     [1, 2, 3, 4]（一直获取，
 
 val list: List<Any> = listOf("A", "B", "C", 1, 2, 3, 4)
 list.filter { it is Int && it % 2 != 0 }.forEach(::println)
-                  ↳ 判断类型    ↳ 自动转型（Smart Cast）  ↳ 函数引用
+                  ↳ 判断类型   ↳ 自动转型（Smart Cast）  ↳ 函数引用
 ----
 输出：
 1
@@ -891,7 +891,7 @@ data class A(var name: String, var age: Int) {     Kotlin 中的类可以有一�
         println("主构造函数 or 初始化块")
     }
 
-    constructor(name: String) : this(name, 0) {     次构造函数都需要 委托 给主构造函数
+    constructor(name: String) : this(name, 0) {     声明次构造函数
         println("次构造函数1")
     }
 

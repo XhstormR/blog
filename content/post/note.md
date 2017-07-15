@@ -203,7 +203,7 @@ autoindex_exact_size off;
 access_log off;
 
 Caddy：
-Caddy.exe -host 0.0.0.0 -port 80 "browse / ./1.txt" "log stdout" "errors stdout" "gzip" "root ."
+Caddy.exe -host 0.0.0.0 -port 80 "browse / ./1.txt" "gzip" "log stdout" "errors stdout" "header / -Server" "root ."
 ----
 Browse Template：
 https://github.com/mholt/caddy/blob/master/caddyhttp/browse/setup.go#L101
@@ -241,9 +241,11 @@ https://www.gnu.org/software/wget/manual/wget.html
 
 ## Search
 ```bash
-https://duckduckgo.com/
+https://duckduckgo.com/?q=123
 
 https://www.google.com/search?newwindow=1&q=123
+
+https://encrypted.google.com/ncr
 ----
 site:example.com filetype:pdf "电子书没有采用专有" -去除关键字
 ----
@@ -322,7 +324,6 @@ C:\Windows\System32\drivers\etc\
 
 ## Google Hosts
 ```html
-https://encrypted.google.com/ncr
 http://serve.netsh.org/pub/ipv4-hosts/
 https://raw.githubusercontent.com/racaljk/hosts/master/hosts
 https://raw.githubusercontent.com/sy618/hosts/master/y
@@ -402,6 +403,8 @@ https://nodejs.org/dist/latest/node-v8.1.4-win-x64.7z
 https://npm.taobao.org/mirrors/
 ----
 npm --registry=https://registry.npm.taobao.org install -g test
+
+https://bellard.org/tcc/
 
 https://download.lineageos.org/
 
@@ -498,6 +501,7 @@ magick.exe convert -transparent white -fuzz 25% 123.png 456.png     透明图片
 https://www.imagemagick.org/script/download.php#windows
 ----
 转换 PDF：https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/latest     将 gswin64c.exe 更名为 gs.exe
+操作 PDF：https://github.com/coherentgraphics/cpdf-binaries
 查看 PDF：https://mupdf.com/downloads/
 
 https://pirbot.com/mirrors/gimp/gimp/v2.8/windows/
