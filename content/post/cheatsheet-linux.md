@@ -112,11 +112,12 @@ rm -rf *
 rm -rf `ls | grep -v word` #删除除了 word 之外的所有文件
 
 删除文件名前带有特殊字符的文件
-    rm -rf -- -123
-    rm -rf ./-123
+    rm -rf -- -1
+    rm -rf ./-1
 
-cp -- 1 -1     -1
-cp 1 \\1     \1
+创建文件名前带有特殊字符的文件
+    cp -- 1 -1     -1
+    cp 1 \\1     \1
 ```
 
 ## chattr
@@ -191,8 +192,8 @@ yum -y install mlocate #安装 locate
 locate [文件名] #在数据库中搜索文件名，速度非常快
 updatedb #手动更新数据库
 
-/var/lib/mlocate     数据库位置,默认一天一更新
-/etc/updatedb.conf     locate配置文件
+/var/lib/mlocate     数据库位置，默认更新周期为 1 天
+/etc/updatedb.conf     locate 配置文件
 ```
 
 ## ZModem
@@ -561,7 +562,7 @@ echo [选项] [输出内容]
      \a 发出警告声
      \f 换行但光标仍旧停留在原来的位置
      \n 换行且光标移至行首
-     \t 插入制表符     TAB键
+     \t 插入制表符     Tab 键
      \\ 插入 \
 
 echo -e "\e[1;31m 123456 \e[0m" #输出红颜色 (31m)
@@ -669,14 +670,14 @@ yum clean all #删除缓存
 chmod [选项] [参数]
 -R #操作文件夹下的所有文件     Recursive(递归)
 
+chmod 764 file01 #把 file01 的权限改为 rwx rw- r--
+
 rwx rw- r--(333)
 r=读取     值 = 4
 w=写入     值 = 2
 x=执行     值 = 1
 
-chmod 764 file01 #把 file01 的权限改为 rwx rw- r--
-
-Tips : 预设的情況下，系统中所有的帐号与一般身份使用者的相关信息都是记录在 /etc/passwd  文件中；每个人的密码则是记录在 /etc/shadow 文件下；所有的组群名称记录在 /etc/group 內。
+Tips：所有帐号记录在 /etc/passwd；所有密码记录在 /etc/shadow；所有组群记录在 /etc/group。
 ```
 
 ## chown
@@ -723,9 +724,9 @@ history [选项]
   100  exit
   101  history 10
 
-!n 重复执行第n条历史命令
-!! 重复执行上一条命令
-!abc 重复执行最后一条以abc开头的命令
+!n 执行第 n 条历史命令
+!! 执行上一条命令
+!abc 执行最后一条以 abc 开头的历史命令
 ```
 
 ## uname
@@ -853,7 +854,7 @@ runlevel #查询系统当前运行级别
 0关机     1单用户     2不完全多用户(不含NFS服务)     3完全多用户(默认字符界面)     4未分配     5图形界面(X11)     6重启
 
 Tips :
-Ctrl+ALT+F1~7 #在图形界面和字符界面中切换
+Ctrl+Alt+F1~7 #在图形界面和字符界面中切换
 ```
 
 ## zip 压缩
@@ -945,7 +946,7 @@ man -f [命令]
 ```
 
 ## 查看用户登录信息
-```
+```bash
 当前登录用户：
 w
 who
@@ -964,7 +965,7 @@ root     pts/1        2016-03-24 07:47 (192.168.100.151)
 last #过去登录用户
 last命令默认读取 /var/log/wtmp 文件
 
-lastlog #查询所有用户的最后一次登录时间
+lastlog #查询所有用户最后的登录时间
 lastlog命令默认读取 /var/log/lastlog 文件
 ```
 
@@ -990,16 +991,17 @@ ps -e | grep nova | awk '{print $4}' | sort -u
 ## 重定向
 ```
 标准输出重定向
-命令 > 文件
-ls > test.log #以覆盖方式把本该输出至屏幕的信息保存至文件当中
-ls >> test.log #以追加方式把本该输出至屏幕的信息保存至文件当中
+命令 [>,>>] 文件
+----
+ls [>,>>] test.log #以[覆盖,追加]方式，把本该输出至屏幕的信息，保存至文件当中
 
 标准错误输出重定向
 错误命令 2[>,>>] 文件
-lsss 2[>,>>] test.log #以[覆盖,追加]方式把本该输出至屏幕的错误信息保存至文件当中
+----
+lsss 2[>,>>] test.log #以[覆盖,追加]方式，把本该输出至屏幕的错误信息，保存至文件当中
 
-- 命令 &>> 文件     正确输出和错误输出同时追加保存
-- 命令 >> 文件1 2>> 文件2     正确输出和错误输出分开保存
+正确输出和错误输出同时保存：命令 &>> 文件
+正确输出和错误输出分开保存：命令  >> 文件1 2>> 文件2
 ```
 
 ## 多命令顺序执行
@@ -1080,20 +1082,20 @@ Ctrl+R     在历史命令中搜索
 Ctrl+M     回车键 (Enter)
 Ctrl+S     暂停屏幕输出
 Ctrl+Q     恢复屏幕输出
-Ctrl+ALT+F1~7     在图形界面和字符界面中切换
-Ctrl+ALT+T     在图形界面中打开终端（CentOS 需要自己设置快捷键）
+Ctrl+Alt+F1~7     在图形界面和字符界面中切换
+Ctrl+Alt+T     在图形界面中打开终端（CentOS 需要自己设置快捷键）
 
-~+TAB*2     All Present Users on system from "/etc/passwd"
-@+TAB*2     Entries from "/etc/hosts"
-$+TAB*2     All Sys variables
+~+Tab*2     All Present Users on system from "/etc/passwd"
+@+Tab*2     Entries from "/etc/hosts"
+$+Tab*2     All Sys variables
 ```
 
 ## SecureCRT 快捷键
 ```bash
-ALT+B     新建选项卡
-Ctrl+TAB     切换选项卡
-ALT+2     切换至第 2 个选项卡
-ALT+Enter     全屏
+Alt+B     新建选项卡
+Ctrl+Tab     切换选项卡
+Alt+2     切换至第 2 个选项卡
+Alt+Enter     全屏
 Ctrl+Shift+V     粘贴
 Shift+Insert     粘贴
 ```

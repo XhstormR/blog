@@ -40,7 +40,7 @@ Updated on 2017-02-19
 * 增删改查（CRUD）： SQL；HTTP
   * **增**加（**C**reate）：INSERT；POST（非幂等）
   * **查**询（**R**etrieve）：SELECT；GET
-  * 修**改**（**U**pdate）：UPDATE；PATCH（非幂等），PUT（Replace：幂等）
+  * 修**改**（**U**pdate）：UPDATE；PATCH（更新资源：非幂等），PUT（替换资源：幂等）
   * **删**除（**D**elete）：DELETE；DELETE
 * 事务（Transaction）：逻辑上的 **一组操作**，这组操作只能一起成功或者一起失败。
   * 数据库中 **保证事务可靠** 的机制（ACID）。
