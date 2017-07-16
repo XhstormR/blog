@@ -515,6 +515,7 @@ http://m.2gei.com/bgremover/
 https://imageoptim.com/mozjpeg
 
 http://editor.method.ac/
+http://127.0.0.1/draw/war/index.html?lang=zh&https=0&local=1&demo=1
 ```
 
 ## 修改 CMD 环境变量（暂时）

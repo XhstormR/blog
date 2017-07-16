@@ -17,7 +17,7 @@ Updated on 2016-08-23
 >
 > 我把我自定义的 Aria2 整理在这里，以便查阅。
 
-```
+```ini
 dir=D:\Download
 disk-cache=32M
 enable-mmap=true
