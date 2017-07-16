@@ -325,7 +325,7 @@ import org.springframework.validation.Errors
 import org.springframework.web.bind.annotation.*
 import javax.validation.Valid
 
-@RestController     转换响应体(类级别)
+@RestController     转换响应体(类级别)(ResponseBody + Controller)
 @RequestMapping("/b")
 class BController {     REST API
     //@ResponseBody     转换响应体(方法级别)
@@ -378,10 +378,12 @@ class CController {
     @GetMapping("/base.do")
     fun base(age: Int?) = age.toString()
 
+    Array
     http://localhost:8080/c/array.do?names=Tom&names=Lucy&names=Jim
     @GetMapping("/array.do")
     fun array(names: Array<String>) = Arrays.toString(names)
 
+    Date
     http://localhost:8080/c/date.do?date=2017-07-15
     默认时间格式为 DateFormat.SHORT：15/07/17 14:30
     @GetMapping("/date.do")

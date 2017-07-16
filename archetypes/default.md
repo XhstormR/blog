@@ -2,6 +2,8 @@
 author: XhstormR
 categories:
 -
+date: {{ .Date }}
+title: "{{ replace .TranslationBaseName "-" " " | title }}"
 ---
 
 <!--more-->
