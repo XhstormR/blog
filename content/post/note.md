@@ -398,6 +398,7 @@ http://mirrors.yun-idc.com/
 
 RHEL：
 https://access.redhat.com/products/red-hat-enterprise-linux/
+https://developers.redhat.com/auth/realms/rhd/account/
 
 https://nodejs.org/dist/latest/node-v8.1.4-win-x64.7z
 https://npm.taobao.org/mirrors/
