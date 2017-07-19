@@ -51,7 +51,8 @@ Ctrl+H     查看类结构
 Ctrl+J     自动代码（Live Templates）
 Alt+。   内容辅助（自己设置 Class Name Completion）
 Alt+/     文字补全
-Alt+1     打开或隐藏工程面板
+Alt+1     显示/隐藏工程面板
+Alt+4     显示/隐藏运行面板
 Alt+J     多选关键字
 Alt+Enter     快速修正
 Alt+下划线字母     选中/取消
