@@ -519,6 +519,22 @@ http://editor.method.ac/
 http://127.0.0.1/draw/war/index.html?lang=zh&https=0&local=1&demo=1
 ```
 
+## 回车和换行
+```html
+回车（CR）：\r
+换行（LF）：\n
+
+Unix：\n
+Mac ：\r
+Dos ：\r\n
+
+CMD：
+for /R %G in (*.md) do unix2dos.exe -q "%G"
+
+http://www.efgh.com/software/unix2dos.htm
+https://waterlan.home.xs4all.nl/dos2unix.html
+```
+
 ## 修改 CMD 环境变量（暂时）
 ```bash
 set /?

@@ -343,3 +343,8 @@ C:\Users\XhstormR\.gitconfig
 [A]
 	B = C
 ```
+
+```xml
+git rm -r --cached .
+git add .
+```
