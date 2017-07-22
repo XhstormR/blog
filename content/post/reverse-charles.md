@@ -47,6 +47,8 @@ java -noverify -jar charles.jar
 ## Reference
 * https://github.com/skylot/jadx
 * https://github.com/java-decompiler/jd-gui
+* https://github.com/Konloch/bytecode-viewer
+* [https://github.com/JetBrains/intellij-community/tree/master/plugins](https://github.com/JetBrains/intellij-community/tree/master/plugins/java-decompiler/engine)
 * https://set.ee/jbe/
   * https://github.com/ingokegel/jclasslib
   * https://github.com/apache/commons-bcel
