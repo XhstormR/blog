@@ -141,6 +141,8 @@ shapes.forEach(s -> s.setColor(RED));     内部迭代（优）
 
 -------------------------------------------------------
 
+int[] array = IntStream.range(0, 3).toArray();     生成数组 [0, 1, 2]
+
 IntStream.range(0, 3).forEach(System.out::println);     替代 for 循环
 ----
 输出：

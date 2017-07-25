@@ -400,7 +400,7 @@ RHEL：
 https://access.redhat.com/products/red-hat-enterprise-linux/
 https://developers.redhat.com/auth/realms/rhd/account/
 
-https://nodejs.org/dist/latest/node-v8.1.4-win-x64.7z
+https://nodejs.org/dist/latest/node-v8.2.1-win-x64.7z
 https://npm.taobao.org/mirrors/
 ----
 npm --registry=https://registry.npm.taobao.org install -g test
@@ -409,7 +409,9 @@ https://bellard.org/tcc/
 
 https://download.lineageos.org/
 
-https://mirrors.ustc.edu.cn/rust-static/dist/rust-1.18.0-x86_64-pc-windows-gnu.msi
+https://mirrors.ustc.edu.cn/rust-static/dist/rust-1.19.0-x86_64-pc-windows-gnu.msi
+
+https://github.com/Aegisub/Aegisub/releases/latest
 
 PSP：
 https://www.ppsspp.org/downloads.html
