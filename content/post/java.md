@@ -32,6 +32,7 @@ Updated on 2016-06-30
   * 汉化包：http://www.eclipse.org/babel/downloads.php
 * [IntelliJ IDEA](https://confluence.jetbrains.com/collector/pages.action?key=IDEADEV)：https://www.jetbrains.com/idea/download/
   * 将系统时间调整至 1 年以后再点击试用（Evaluation）。
+* Scene Builder：https://gluonhq.com/products/scene-builder/
 
 ### IDEA 快捷键
 ```xml

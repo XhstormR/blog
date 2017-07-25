@@ -14,6 +14,10 @@ Updated on 2017-07-13
 >
 > https://visualgo.net/zh
 >
+> https://www.cs.usfca.edu/~galles/visualization/Algorithms.html
+>
+> http://panthema.net/2013/sound-of-sorting/
+>
 > 算法是解决问题的清晰指令，是用系统的方法描述解决问题的策略机制。
 
 ## 冒泡排序算法

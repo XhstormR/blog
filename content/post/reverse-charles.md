@@ -10,8 +10,6 @@ title: 逆向 Charles
 
 Updated on 2017-07-18
 
-> [![](/uploads/file-into-picture2.png)](http://ww4.sinaimg.cn/large/a15b4afely1fhpf98jnuxj203k03k4r4)
->
 > {{< image "/uploads/reverse-charles0.png" "Charles" "1" "1" >}}
 >
 > https://www.charlesproxy.com/
@@ -53,3 +51,5 @@ java -noverify -jar charles.jar
   * https://github.com/ingokegel/jclasslib
   * https://github.com/apache/commons-bcel
 * http://www.benf.org/other/cfr/index.html
+
+[{{< image "/uploads/file-into-picture2.png" "" "0" "0" >}}](http://ww4.sinaimg.cn/large/a15b4afely1fhpf98jnuxj203k03k4r4)
