@@ -8,7 +8,7 @@ title: Java Concurrency
 
 <!--more-->
 
-Updated on 2017-07-16
+Updated on 2017-07-29
 
 > {{< image "/uploads/java-concurrency1.svg" "Executor" "1" "1" >}}
 >
@@ -18,17 +18,28 @@ Updated on 2017-07-16
 >
 > -
 >
-> {{< image "/uploads/java-concurrency3.svg" "" "1" "1" >}}
+> {{< image "/uploads/java-concurrency3.svg" "Queue" "1" "1" >}}
+>
+> -
+>
+> {{< image "/uploads/java-concurrency4.svg" "" "1" "1" >}}
 >
 > -
 >
 > [https://docs.oracle.com/javase/8/docs/api/java/util/concurrent](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/package-summary.html)
+> |
+> [中文](http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/java/util/concurrent/package-summary.html)
 
 ## Concept
 * 串行：多个线程 **按照顺序** 使用同一个核心。（单核心）（Serial）
 * 并发：多个线程 **共同轮流** 使用同一个核心。（单核心）（线程 **同时存在**）（Concurrent）
 * 并行：多个线程 **各自分别** 使用一一个核心。（多核心）（线程 **同时执行**）（Parallel）
   * 并行是并发的一个 **子集**，区别在于 CPU 是否为多核心。
+
+---
+
+* `Blocking___`：一阻塞并发，内部使用 **锁**。
+* `Concurrent`：非阻塞并发，内部使用 **CAS 指令**。
 
 ## Code
 ### 线程体
@@ -179,7 +190,7 @@ import java.util.concurrent.ForkJoinTask;
 import java.util.concurrent.RecursiveAction;
 
 public class ComputeAction extends RecursiveAction {
-    private final static int THRESHOLD = 200;
+    private final static int THRESHOLD = 200;     影响任务个数
     private final double[] array;
     private final int from, to;
 
@@ -258,6 +269,290 @@ public class Main {
 
 ForkJoinPool.commonPool() 的并行度默认减 1
 ```
+### 并发队列
+#### ArrayBlockingQueue
+* **先入先出** 队列，内部实现为数组，支持 **公平访问策略**。
+
+#### LinkedBlockingQueue
+* **先入先出** 队列，内部实现为链表。
+* 生产者-消费者实现：
+  * 生产者向队列 **添加元素**：当队列 **已满** 时，生产者会被阻塞；
+  * 消费者从队列 **移除元素**：当队列 **为空** 时，消费者会被阻塞。
+
+##### Producer
+```java
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
+
+public class Producer implements Runnable {
+    private final static AtomicInteger productID = new AtomicInteger();     原子 int
+    private final BlockingQueue<Integer> queue;
+
+    public Producer(BlockingQueue<Integer> queue) {
+        this.queue = queue;
+    }
+
+    @Override
+    public void run() {
+        try {
+            for (int i = 0; i < 10; i++) {
+                TimeUnit.MILLISECONDS.sleep(25);
+                int id = productID.getAndIncrement();
+                queue.put(id);     队列满时阻塞
+                System.out.println("生产:" + id);
+            }
+            queue.put(-1);     队列满时阻塞
+            System.out.println("生产结束");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+##### Consumer
+```java
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.TimeUnit;
+
+public class Consumer implements Runnable {
+    private final BlockingQueue<Integer> queue;
+
+    public Consumer(BlockingQueue<Integer> queue) {
+        this.queue = queue;
+    }
+
+    @Override
+    public void run() {
+        try {
+            int i;
+            while ((i = queue.take()) != -1) {     队列空时阻塞
+                TimeUnit.MILLISECONDS.sleep(50);
+                System.out.println("消费:" + i);
+            }
+            System.out.println("消费结束");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+##### Main
+```java
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingQueue;
+
+public class Main {
+    public static void main(String[] args) {
+        BlockingQueue<Integer> queue = new LinkedBlockingQueue<>(10);     指定队列容量为 10
+        ExecutorService executorService = Executors.newCachedThreadPool();
+        for (int i = 0; i < 5; i++) {
+            executorService.execute(new Producer(queue));
+            executorService.execute(new Consumer(queue));
+        }
+        executorService.shutdown();
+    }
+}
+```
+#### PriorityBlockingQueue
+* 队列中的元素会 **根据给定规则进行排序**。
+
+#### DelayQueue
+* 队列内部持有一个 PriorityBlockingQueue，用于存储元素并 **根据延迟时间进行排序**。
+* 队列中的元素需要 **实现 Delayed 接口**。
+  * `getDelay` 方法用于获取剩余延迟。
+  * `compareTo` 方法对元素进行比较。
+
+##### DelayObject
+```java
+import java.util.concurrent.Delayed;
+import java.util.concurrent.TimeUnit;
+
+public class DelayObject implements Delayed {
+    private final static TimeUnit TIME_UNIT = TimeUnit.MILLISECONDS;     内部计时单位
+    private final long delay;      延迟时间
+    private final long submit;     提交时间
+    private final long expired;    到期时间
+
+    public DelayObject(long delay, TimeUnit unit) {
+        this.delay = TIME_UNIT.convert(delay, unit);
+        this.submit = System.currentTimeMillis();
+        this.expired = this.submit + this.delay;
+    }
+
+    @Override
+    public long getDelay(TimeUnit unit) {
+        return unit.convert(expired - System.currentTimeMillis(), TIME_UNIT);
+    }
+
+    @Override
+    public int compareTo(Delayed o) {
+        long l1 = this.getDelay(TIME_UNIT);
+        long l2 = o.getDelay(TIME_UNIT);
+        return Long.compare(l1, l2);
+    }
+
+    @Override
+    public String toString() {
+        return "DelayObject{" +
+                "submit=" + submit +
+                ", expired=" + expired +
+                ", delay=" + delay +
+                '}';
+    }
+}
+```
+##### Main
+```java
+import java.util.concurrent.DelayQueue;
+import java.util.concurrent.TimeUnit;
+
+public class Main {
+    public static void main(String[] args) throws InterruptedException {
+        DelayQueue<DelayObject> queue = new DelayQueue<>();
+        for (int i = 0; i < 5; i++) {
+            queue.put(new DelayObject(i, TimeUnit.SECONDS));
+        }
+        while (!queue.isEmpty()) {
+            System.out.println(queue.take());
+        }
+    }
+}
+----
+输出：
+DelayObject{submit=1501135689170, expired=1501135689170, delay=0}
+DelayObject{submit=1501135689170, expired=1501135690170, delay=1000}
+DelayObject{submit=1501135689170, expired=1501135691170, delay=2000}
+DelayObject{submit=1501135689170, expired=1501135692170, delay=3000}
+DelayObject{submit=1501135689170, expired=1501135693170, delay=4000}
+```
+
+#### SynchronousQueue
+* 提供线程间进行 **信息传递的场所**，支持 **公平访问策略**。
+* 调用其插入方法时，必须 **等待另一个线程调用其移除方法**，队列本身 **不存储任何元素**。
+
+#### LinkedTransferQueue（推荐）
+* SynchronousQueue、ConcurrentLinkedQueue、LinkedBlockingQueue 的超集。
+
+##### Producer
+```java
+import java.util.concurrent.TransferQueue;
+import java.util.concurrent.atomic.AtomicInteger;
+
+public class Producer implements Runnable {
+    private final static AtomicInteger productID = new AtomicInteger();
+    private final TransferQueue<Integer> queue;
+
+    public Producer(TransferQueue<Integer> queue) {
+        this.queue = queue;
+    }
+
+    @Override
+    public void run() {
+        try {
+            for (int i = 0; i < 10; i++) {
+                int id = productID.getAndIncrement();
+                queue.transfer(id);     等待另一个线程调用其移除方法
+                System.out.println("生产:" + id);
+            }
+            queue.transfer(-1);     等待另一个线程调用其移除方法
+            System.out.println("生产结束");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+void       transfer(E e)
+boolean tryTransfer(E e)
+boolean tryTransfer(E e, long timeout, TimeUnit unit)
+----
+若没有线程调用其移除方法，则等待另一个线程调用其移除方法。
+若没有线程调用其移除方法，一一一一一一一一一一一一一一则丢弃该元素，并立即返回 false。
+若没有线程调用其移除方法，则在指定时间内等待；若超时，则丢弃该元素，并立即返回 false。
+```
+##### Consumer
+```java
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TransferQueue;
+
+public class Consumer implements Runnable {
+    private final TransferQueue<Integer> queue;
+
+    public Consumer(TransferQueue<Integer> queue) {
+        this.queue = queue;
+    }
+
+    @Override
+    public void run() {
+        try {
+            int i;
+            while ((i = queue.take()) != -1) {
+                TimeUnit.SECONDS.sleep(1);
+                System.out.println("消费:" + i);
+            }
+            System.out.println("消费结束");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+##### Main
+```java
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedTransferQueue;
+import java.util.concurrent.TransferQueue;
+
+public class Main {
+    public static void main(String[] args) {
+        TransferQueue<Integer> queue = new LinkedTransferQueue<>();
+        ExecutorService executorService = Executors.newCachedThreadPool();
+        for (int i = 0; i < 2; i++) {
+            executorService.execute(new Producer(queue));
+            executorService.execute(new Consumer(queue));
+        }
+        executorService.shutdown();
+    }
+}
+----
+输出：
+生产:0
+生产:1
+消费:0
+消费:1
+生产:2
+生产:3
+消费:2
+消费:3
+生产:4
+生产:5
+消费:5
+消费:4
+...
+生产:16
+生产:17
+消费:16
+消费:17
+生产:18
+生产:19
+消费:18
+消费:19
+消费结束
+生产结束
+生产结束
+消费结束
+```
+### 原子变量
+```java
+```
+```java
+```
+```java
+```
 ```java
 ```
 
@@ -269,7 +564,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         ExecutorService executorService = Executors.newCachedThreadPool();
 
         executorService.execute(() -> {
@@ -285,11 +580,9 @@ public class Main {
 
         System.out.println(executorService.isShutdown());
         System.out.println(executorService.isTerminated());
-        while (true) {
-            if (executorService.isTerminated()) {
-                break;
-            }
-        }
+
+        executorService.awaitTermination(1, TimeUnit.DAYS);     阻塞当前线程，等待执行中的线程结束
+
         System.out.println(executorService.isShutdown());
         System.out.println(executorService.isTerminated());
     }
@@ -322,7 +615,7 @@ public class Main {
     private final static int[][] bucketArr = new int[bucketCount][bucketSize];
 
     public static void main(String[] args) {
-        //分桶(可以多线程，但效益不大)
+        //分桶(可以使用多线程，但效益不大)
         long l1 = System.currentTimeMillis();
         for (int i : array) {
             int j = i / bucketInterval;
@@ -412,7 +705,7 @@ public class Main {
 }
 ----
 输出：
-略
+...
 分桶:1571
 排序:1697
 合并:94

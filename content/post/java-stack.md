@@ -18,8 +18,6 @@ Updated on 2017-04-12
 > [双端队列](https://zh.wikipedia.org/wiki/双端队列)
 >
 > [双端队列 API](http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/java/util/Deque.html)
->
-> [双端同步阻塞队列 API](http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/java/util/concurrent/BlockingDeque.html)
 
 * 数据结构：相互之间存在一种或多种特定 **关系** 的数据元素的 **集合**。
   * 队列（两个口）（Queue）：**先进先出**（FIFO, First In First Out），队头 ⟺ 队尾。
@@ -36,7 +34,7 @@ Updated on 2017-04-12
 import java.util.ArrayDeque;
 
 public class A {
-    private static ArrayDeque<Integer> deque = new ArrayDeque<>();     双端队列（ArrayDeque 非线程同步，LinkedBlockingDeque 线程同步）
+    private static ArrayDeque<Integer> deque = new ArrayDeque<>();     双端队列（ArrayDeque 非线程安全，LinkedBlockingDeque 线程安全）
 
     public static void main(String[] args) {
         System.out.println("队列");
@@ -131,103 +129,6 @@ public class A {
       </C>
     </B>
   </A>
-```
-
-## 同步阻塞队列（生产者-消费者模式）
-
-### Producer
-```java
-import java.util.concurrent.BlockingQueue;
-
-public class Producer implements Runnable {
-    private final BlockingQueue<Integer> queue;
-
-    public Producer(BlockingQueue<Integer> queue) {
-        this.queue = queue;
-    }
-
-    @Override
-    public void run() {
-        try {
-            for (int i = 0; i < 10; i++) {
-                Thread.sleep(25);
-                queue.put(i);
-                System.out.println("生产:" + i);
-            }
-            queue.put(-1);
-            System.out.println("生产结束");
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Consumer
-```java
-import java.util.concurrent.BlockingQueue;
-
-public class Consumer implements Runnable {
-    private final BlockingQueue<Integer> queue;
-
-    public Consumer(BlockingQueue<Integer> queue) {
-        this.queue = queue;
-    }
-
-    @Override
-    public void run() {
-        try {
-            int i;
-            while ((i = queue.take()) != -1) {
-                Thread.sleep(50);
-                System.out.println("消费:" + i);
-            }
-            System.out.println("消费结束");
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### A
-```java
-import java.util.concurrent.ArrayBlockingQueue;
-
-public class A {
-    public static void main(String[] args) {
-        ArrayBlockingQueue<Integer> queue = new ArrayBlockingQueue<>(10);
-        Producer producer = new Producer(queue);
-        Consumer consumer = new Consumer(queue);
-        new Thread(producer).start();
-        new Thread(consumer).start();
-    }
-}
-
-----
-输出：
-生产:0
-生产:1
-生产:2
-消费:0
-生产:3
-消费:1
-生产:4
-生产:5
-生产:6
-消费:2
-生产:7
-消费:3
-生产:8
-生产:9
-生产结束
-消费:4
-消费:5
-消费:6
-消费:7
-消费:8
-消费:9
-消费结束
 ```
 
 ## 固定顺序进栈，求出栈顺序总数
