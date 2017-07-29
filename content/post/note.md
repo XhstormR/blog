@@ -186,7 +186,7 @@ Caddy：
 https://github.com/mholt/caddy/releases/latest
 
 Serv-U：
-https://www.serv-u.com/releasenotes
+https://support.solarwinds.com/Success_Center/Serv-U_Managed_File_Transfer_Serv-U_FTP_Server/release_notes
 https://downloads.solarwinds.com/solarwinds/Release/SU/15.1.5/SU-FTP-Server-Windows-v15.1.5.zip
 ```
 
