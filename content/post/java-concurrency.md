@@ -39,7 +39,7 @@ Updated on 2017-07-29
 ---
 
 * `Blocking___`：一阻塞并发，内部使用 **锁**。
-* `Concurrent`：非阻塞并发，内部使用 **CAS 指令**。
+* `Concurrent`：非阻塞并发，内部使用 **CAS 操作**。
 
 ## Code
 ### 线程体
@@ -547,13 +547,163 @@ public class Main {
 消费结束
 ```
 ### 原子变量
+* 原子性 -> Unsafe 类 -> CAS 操作 -> cmpxchg 指令
+
+#### 基本数据类型：AtomicInteger
 ```java
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
+
+public class Main {
+    public static void main(String[] args) throws InterruptedException {
+        AtomicInteger i = new AtomicInteger();
+
+        ExecutorService executorService = Executors.newCachedThreadPool();
+        for (int n = 0; n < 5; n++) {
+            executorService.execute(() -> {
+                for (int j = 0; j < 1000; j++) {
+                    i.getAndIncrement();     原子操作
+                }
+            });
+        }
+        executorService.shutdown();
+        executorService.awaitTermination(1, TimeUnit.DAYS);
+
+        System.out.println(i.get());
+    }
+}
+----
+输出：
+5000
 ```
+#### 引用数据类型：AtomicReference
 ```java
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicReference;
+
+public class Main {
+    public static void main(String[] args) throws InterruptedException {
+        AtomicReference<Element> reference = new AtomicReference<>(new Element(0, 0));
+
+        ExecutorService executorService = Executors.newCachedThreadPool();
+        for (int n = 0; n < 5; n++) {
+            executorService.execute(() -> {
+                for (int j = 0; j < 1000; j++) {
+                    boolean flag = false;
+                    while (!flag) {     自旋锁
+                        Element oldElement = reference.get();
+                        Element newElement = new Element(oldElement.x + 1, oldElement.y + 1);
+                        flag = reference.compareAndSet(oldElement, newElement);     原子替换
+                    }
+                }
+            });
+        }
+        executorService.shutdown();
+        executorService.awaitTermination(1, TimeUnit.DAYS);
+
+        System.out.println(reference.get());
+    }
+}
+----
+输出：
+Element{x=5000, y=5000}
+
+class Element {
+    public int x;
+    public int y;
+
+    public Element(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    @Override
+    public String toString() {
+        return "Element{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
+    }
+}
 ```
+#### 属性原子更新：AtomicIntegerFieldUpdater
 ```java
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
+
+public class Main {
+    public static void main(String[] args) throws InterruptedException {
+        AtomicIntegerFieldUpdater<Element> fieldUpdater = AtomicIntegerFieldUpdater.newUpdater(Element.class, "id");     内部使用反射
+        Element element = new Element(0);
+
+        ExecutorService executorService = Executors.newCachedThreadPool();
+        for (int n = 0; n < 5; n++) {
+            executorService.execute(() -> {
+                for (int j = 0; j < 1000; j++) {
+                    fieldUpdater.getAndIncrement(element);     原子更新属性
+                }
+            });
+        }
+        executorService.shutdown();
+        executorService.awaitTermination(1, TimeUnit.DAYS);
+
+        System.out.println(element);
+    }
+}
+----
+输出：
+Element{id=5000}
+
+class Element {
+    public volatile int id;     应用原子更新的属性必须为 volatile（保证可见性）
+
+    public Element(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Element{" +
+                "id=" + id +
+                '}';
+    }
+}
 ```
+#### 一一原子数组：AtomicIntegerArray
 ```java
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicIntegerArray;
+
+public class Main {
+    public static void main(String[] args) throws InterruptedException {
+        AtomicIntegerArray ints = new AtomicIntegerArray(5);
+        ints.set(0, 1);
+
+        ExecutorService executorService = Executors.newCachedThreadPool();
+        for (int n = 0; n < 5; n++) {
+            executorService.execute(() -> {
+                for (int j = 0; j < 1000; j++) {
+                    ints.getAndIncrement(4);
+                }
+            });
+        }
+        executorService.shutdown();
+        executorService.awaitTermination(1, TimeUnit.DAYS);
+
+        System.out.println(ints);
+    }
+}
+----
+输出：
+[1, 0, 0, 0, 5000]
 ```
 
 ---

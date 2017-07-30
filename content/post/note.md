@@ -411,6 +411,8 @@ https://download.lineageos.org/
 
 https://mirrors.ustc.edu.cn/rust-static/dist/rust-1.19.0-x86_64-pc-windows-gnu.msi
 
+http://free.nchc.org.tw/tdf/libreoffice/stable/5.4.0/win/x86_64/LibreOffice_5.4.0_Win_x64.msi
+
 https://github.com/Aegisub/Aegisub/releases/latest
 
 PSP：
@@ -481,9 +483,10 @@ CMD 操作示例：
 reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\TimeBrokerSvc /v Start /t REG_DWORD /d 4 /f
 ```
 
-## Win10 输入法切换简繁体快捷键
+## Win10 输入法
 ```
-Ctrl+Shift+F
+切换半全角：Shift+Space
+切换简繁体：Ctrl+Shift+F
 ```
 
 ## Domain
