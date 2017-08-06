@@ -302,10 +302,10 @@ iPhone：
 --User-Agent="Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X; en-us) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53"
 
 Android：
---User-Agent="Mozilla/5.0 (Linux; Android 5.1.1; Nexus 6 Build/LYZ28E) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.20 Mobile Safari/537.36"
+--User-Agent="Mozilla/5.0 (Linux; Android 5.1.1; Nexus 6 Build/LYZ28E) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.2403.20 Mobile Safari/537.36"
 
 Windows：
---User-Agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 Linux Nexus"
+--User-Agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.2403.20 Safari/537.36 Linux Nexus"
 ```
 
 ## Hosts
@@ -409,6 +409,8 @@ https://bellard.org/tcc/
 
 https://download.lineageos.org/
 
+https://mirrors.ustc.edu.cn/kde/stable/krita/3.1.4/krita-3.1.4-x64.zip
+
 https://mirrors.ustc.edu.cn/rust-static/dist/rust-1.19.0-x86_64-pc-windows-gnu.msi
 
 http://free.nchc.org.tw/tdf/libreoffice/stable/5.4.0/win/x86_64/LibreOffice_5.4.0_Win_x64.msi
@@ -451,6 +453,8 @@ VP9：
 ffmpeg.exe -i 123.gif -c:v libvpx-vp9 -crf 45 -b:v 0 -c:a libvorbis 123.webm
 H.264 to RAW：
 ffmpeg.exe -i 123.mp4 -vcodec copy -an -bsf:v h264_mp4toannexb 123.h264
+Clip Video：
+ffmpeg.exe -i 123.mp4 -ss 5.0 -t 3.0 1234.mp4
 
 https://ffmpeg.zeranoe.com/builds/
 ```

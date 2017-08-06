@@ -54,7 +54,6 @@ Alt+。   内容辅助（自己设置 Class Name Completion）
 Alt+/     文字补全
 Alt+1     显示/隐藏工程面板
 Alt+4     显示/隐藏运行面板
-Alt+J     多选关键字
 Alt+Enter     快速修正
 Alt+下划线字母     选中/取消
 
@@ -81,6 +80,7 @@ Ctrl+Shift+I     查看快速定义
 
 Ctrl+` 4 3     进入（退出）全屏
 
+Ctrl+F5     Rerun
 Ctrl+F9     Build Project
 Ctrl+F10     Update Running JavaEE Application
 Shift+F10     Run
@@ -89,8 +89,11 @@ Ctrl+Shift+F10     Run（Context）
 Ctrl+Shift+减     折叠所有代码块
 Ctrl+Shift+加     展开所有代码块
 
+Alt+J     多选关键字
+Ctrl+Shift+Alt+J     全选关键字
+
 Ctrl+Alt+S     设置
-Ctrl+Alt+Shift+S     项目设置
+Ctrl+Shift+Alt+S     项目设置
 
 Esc     返回编辑器
 Shift+Esc     隐藏最近使用的工具窗口
