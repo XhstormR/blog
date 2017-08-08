@@ -29,6 +29,12 @@ title: Note
 希腊字母：
 ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩαβγδεζνξοπρσηθικλμτυφχψω
 
+占位符号：
+一　一
+一&#8195;一
+一&#12288;一
+https://en.m.wikipedia.org/wiki/Whitespace_character
+
 ✔️ ✔
 ✖️ ✖
 ❌
