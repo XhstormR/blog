@@ -405,7 +405,12 @@ https://npm.taobao.org/mirrors/
 ----
 npm --registry=https://registry.npm.taobao.org install -g test
 
+https://live.sysinternals.com/
+https://docs.microsoft.com/en-us/sysinternals/downloads/
+
 https://bellard.org/tcc/
+
+https://frippery.org/files/busybox/busybox64.exe
 
 https://download.lineageos.org/
 

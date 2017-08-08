@@ -17,7 +17,7 @@ Updated on 2016-11-09
 >
 > https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html
 
-## Lambda 表达式
+## Lambda
 * Lambda 表达式（匿名方法 or 闭包）：由 `参数列表`、`->`、`函数体` 组成。
   * 参数列表：可以省略参数类型，编译器会根据上下文推导。
   * 函数体：引用的局部变量会被隐式声明为 final。
@@ -65,12 +65,12 @@ Comparator<Integer> comparator = (x, y) -> Integer.compare(x, y);     表达式
 Comparator<Integer> comparator = Integer::compare;     方法引用（没有传入额外参数）
 ```
 
-## 函数式接口
+## Functional Interface
 只含有一个抽象方法，因此可以被转换成 Lambda 表达式。
 
-* 抽象方法：自己不实现，子类必须实现。`void a();`
-* 默认方法：自己已实现，子类可以重写。`default void b() { }`
-* 静态方法：自己已实现，直接通过接口名访问。`static void c() { }`
+* 抽象方法：自己 **未实现**，子类必须实现。`void a();`
+* 默认方法：自己 **已实现**，子类可以重写。`default void b() { }`
+* 静态方法：自己 **已实现**，直接可以访问。`static void c() { }`
 
 ```java
 @FunctionalInterface     注解：声明为函数式接口
@@ -110,8 +110,8 @@ public class Test {
     * 中间操作（惰性求值）：不会立即执行，而是加入任务队列中，在终点操作时一并执行。
         * 有限数据 ➜ 优化作用，无限数据 ➜ 决定作用（没有短路求值，操作无法停止）。
     * 终点操作（急性求值）：通过短路求值的优化一并执行所有操作，以提供更高效的性能。
-* 串行流（串行处理）：单线程，`list.stream()` `stream.sequential()`
-* 并行流（并行处理）：多线程，`list.parallelStream()` `stream.parallel()`
+* 串行流（串行处理）：单线程。`list.stream()` `stream.sequential()`
+* 并行流（并行处理）：多线程。`list.parallelStream()` `stream.parallel()`
 * 中间操作：
   * 过滤：filter。
   * 排序：sorted。
@@ -126,9 +126,9 @@ public class Test {
   * 收集：collect。
   * 归约：reduce。
   * 消耗：forEach。
-  * 且（全部元素符合返回 true）：allMatch。
-  * 或（任一元素符合返回 true）：anyMatch。
-  * 非（没有元素符合返回 true）：noneMatch。
+  * 且（**全部** 元素符合返回 true）：allMatch。
+  * 或（**任一** 元素符合返回 true）：anyMatch。
+  * 非（**没有** 元素符合返回 true）：noneMatch。
 
 ```java
 for (Shape shape : shapes){     外部迭代
@@ -194,7 +194,7 @@ Note：filter 操作尽可能排在最前（短路求值），sorted 操作尽�
 ```
 
 ## Optional
-一种用于封装对象的容器，封装的对象可以是 `null`，并且对 `null` 加以判断并处理。
+一种用于封装对象的容器，封装的对象可以为空，并且对空值进行处理。
 
 ```java
 public class A {
@@ -208,18 +208,18 @@ public class A {
         String s = "ABC";
         Optional<String> optional = Optional.ofNullable(s);     对象不为空
 
-        System.out.println(optional.isPresent());     true
-        System.out.println(optional.orElse("123"));     接受一个默认值
-        System.out.println(optional.orElseGet(() -> "123"));     接受一个 Supplier 函数式接口
+        System.out.println(optional.isPresent());
+        System.out.println(optional.orElse("123"));     接收一个缺省值
+        System.out.println(optional.orElseGet(() -> "123"));     接收一个 Supplier 函数式接口
     }
 
     private static void b() {
         String s = null;
         Optional<String> optional = Optional.ofNullable(s);     对象为空
 
-        System.out.println(optional.isPresent());     false
-        System.out.println(optional.orElse("123"));     接受一个默认值
-        System.out.println(optional.orElseGet(() -> "123"));     接受一个 Supplier 函数式接口
+        System.out.println(optional.isPresent());
+        System.out.println(optional.orElse("123"));
+        System.out.println(optional.orElseGet(() -> "123"));
     }
 }
 ----
@@ -236,11 +236,11 @@ false
 ## Code
 ```java
 public class A {
-    private static final List<Author> LIST = Arrays.asList(
+    private static final List<Author> LIST = Arrays.asList(     作家列表
             new Author("Adam", 23, Arrays.asList("Java1", "Java2")),
             new Author("Bell", 19, Arrays.asList("Python1", "Python2")),
             new Author("Conan", 23, Arrays.asList("PHP1", "PHP2")),
-            new Author("David", 26, Arrays.asList("Ruby1", "Ruby2")));     作家列表
+            new Author("David", 26, Arrays.asList("Ruby1", "Ruby2")));
 
     public static void main(String[] args) {
         Supplier<Stream<Author>> supplier = () -> LIST.stream().onClose(() -> System.out.println("——————————————"));     供应器
@@ -377,10 +377,10 @@ public class A {
         [A, B, C, D, E, F, J]
     }
 
-    private static class Author {     作家
-        private String mName;     姓名
-        private int mAge;     年龄
-        private List<String> mArticle;     文章列表
+    private static class Author {        作家
+        private String mName;            姓名
+        private int mAge;                年龄
+        private List<String> mArticle;   文章列表
 
         private Author(String name, int age, List<String> article) {
             mName = name;

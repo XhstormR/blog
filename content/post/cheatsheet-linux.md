@@ -20,23 +20,23 @@ Updated on 2017-01-12
 > Update 2：学校要求我留下，继续参加下一届比赛。
 
 ```
-pwd #查看当前路径
+pwd  #查看当前路径
 date #查看当前时间
 type #查看命令类型
 file #查看文件类型 -i 显示MIME类别
 stat #查看文件属性
-cat #查看文件内容     Concatenate
-head #查看文件头10行内容
-tail #查看文件末尾10行内容 -f 监视文件最新增加的内容     Follow
-ifconfig #查看网卡信息
+cat  #查看文件内容     Concatenate
+head #查看文件内容头10行
+tail #查看文件内容尾10行 -f 监视文件最新增加的内容     Follow
 touch #创建空文件
+ifconfig #查看网卡信息
 grep service #取带有 service 字符的行
 awk '{print $2}' #取第 2 列     /123/ 模拟grep取行     NR==5 第5行
      ll | awk -F ' ' '/read/ {print $9}' #以空格为列分隔符，取带有 read 字符的行，取第 9 列
 sort #排序文本     -u 去重     -k 2 以第二列为目标     -t : 以 `:` 为分隔符     -r 以相反顺序来排序（降序）     -c 检查文本是否已排序     -o123 将结果存入 123 文件中
-wc #统计文本     行数 单词数 字节数     -l -w -c
+wc   #统计文本     -l -w -c     行数 单词数 字节数
 less #分屏显示 -5 每次显示5行 -N 显示行号
-more #分页显示 -5 每次显示5行     推荐用 less
+more #分页显示 -5 每次显示5行     推荐使用 less
 reset #初始化终端
 ```
 
