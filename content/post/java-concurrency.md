@@ -33,12 +33,12 @@ Updated on 2017-07-29
 ## Concept
 * 串行：多个线程 **按照顺序** 使用同一个核心。（单核心）（Serial）
 * 并发：多个线程 **共同轮流** 使用同一个核心。（单核心）（线程 **同时存在**）（Concurrent）
-* 并行：多个线程 **各自分别** 使用一一个核心。（多核心）（线程 **同时执行**）（Parallel）
+* 并行：多个线程 **各自分别** 使用　一个核心。（多核心）（线程 **同时执行**）（Parallel）
   * 并行是并发的一个 **子集**，区别在于 CPU 是否为多核心。
 
 ---
 
-* `Blocking___`：一阻塞并发，内部使用 **锁**。
+* `Blocking　`：　阻塞并发，内部使用 **锁**。
 * `Concurrent`：非阻塞并发，内部使用 **CAS 操作**。
 
 ## Code
@@ -675,7 +675,7 @@ class Element {
     }
 }
 ```
-#### 一一原子数组：AtomicIntegerArray
+#### 　　原子数组：AtomicIntegerArray
 ```java
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
