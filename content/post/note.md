@@ -245,21 +245,6 @@ aria2c --all-proxy="10.34.3.71:808" --max-connection-per-server=10 --min-split-s
 https://www.gnu.org/software/wget/manual/wget.html
 ```
 
-## Search
-```bash
-https://duckduckgo.com/?q=123
-
-https://www.google.com/search?newwindow=1&q=123
-
-https://encrypted.google.com/ncr
-----
-site:example.com filetype:pdf "电子书没有采用专有" -去除关键字
-----
-inurl:链接
-intext:正文
-intitle:标题
-```
-
 ## Xshell & Xftp
 ```bash
 https://www.netsarang.com/download/down_live.html?productcode=2
@@ -314,6 +299,33 @@ Windows：
 --User-Agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.2403.20 Safari/537.36 Linux Nexus"
 ```
 
+## Chrome HSTS
+```html
+chrome://net-internals/#hsts
+
+强制忽略证书错误：badidea
+```
+
+## Chrome Screenshot
+```html
+F12 -> Ctrl+Shift+P -> full size screenshot
+```
+
+## Search
+```bash
+https://duckduckgo.com/?q=123
+
+https://www.google.com/search?newwindow=1&q=123
+
+https://encrypted.google.com/ncr
+----
+site:example.com filetype:pdf "电子书没有采用专有" -去除关键字
+----
+inurl:链接
+intext:正文
+intitle:标题
+```
+
 ## Hosts
 ```bash
 C:\Windows\System32\drivers\etc\
@@ -328,7 +340,7 @@ C:\Windows\System32\drivers\etc\
 151.101.128.133 raw.githubusercontent.com
 ```
 
-## Google Hosts
+## Google（Mirrors）
 ```html
 http://serve.netsh.org/pub/ipv4-hosts/
 https://raw.githubusercontent.com/racaljk/hosts/master/hosts
@@ -357,13 +369,6 @@ https://apps.evozi.com/apk-downloader/
 https://apkleecher.com/
 https://m.apkpure.com/
 https://www.apk4fun.com/
-```
-
-## HSTS
-```html
-chrome://net-internals/#hsts
-
-强制忽略证书错误：badidea
 ```
 
 ## SQL
