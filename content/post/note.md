@@ -560,11 +560,11 @@ http://www.efgh.com/software/unix2dos.htm
 https://waterlan.home.xs4all.nl/dos2unix.html
 ```
 
-## 修改 CMD 环境变量（暂时）
+## 修改环境变量
 ```bash
-set /?
-set path
-set path=%path%;D:\Download\123
+set
+echo %path%
+setx path "%path%;D:\Download\123" /m
 
 ----
 
