@@ -10,4 +10,4 @@ title: Java CompletableFuture
 
 Updated on 2017-08-07
 
->
+> [CompletableFuture API](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html)

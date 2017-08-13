@@ -183,7 +183,7 @@ ln [原文件]  [目标文件]
 echo '. /root/z.sh' >> .bashrc #安装 z
 
 https://github.com/rupa/z
-https://github.com/rupa/z/raw/master/z.sh
+https://raw.githubusercontent.com/rupa/z/master/z.sh
 ```
 
 ## locate
