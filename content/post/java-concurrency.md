@@ -243,7 +243,7 @@ public class FindTask extends RecursiveTask<Double> {
             int mid = (from + to) >>> 1;
             FindTask l = new FindTask(array, from, mid);
             FindTask r = new FindTask(array, mid, to);
-            ForkJoinTask.invokeAll(l, r);     阻塞
+            ForkJoinTask.invokeAll(l, r);
             return Math.max(l.join(), r.join());
         }
     }

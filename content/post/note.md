@@ -530,7 +530,7 @@ https://www.imagemagick.org/script/download.php#windows
 操作 PDF：https://github.com/coherentgraphics/cpdf-binaries
 查看 PDF：https://mupdf.com/downloads/
 
-https://pirbot.com/mirrors/gimp/gimp/v2.8/windows/
+https://pirbot.com/mirrors/gimp/gimp/stable/windows/
 
 https://pngquant.org/
 http://advsys.net/ken/utils.htm
