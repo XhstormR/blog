@@ -30,7 +30,6 @@ Updated on 2017-06-22
 plugin("war")
 
 compile("org.springframework:spring-webmvc:+")
-
 compile("javax.servlet:javax.servlet-api:+")
 
 compile("org.hibernate:hibernate-validator:5.+")
