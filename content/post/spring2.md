@@ -170,7 +170,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 
 @Configuration
-@PropertySource("123.properties")     指示加载属性文件至 Spring 中的 Environment
+@PropertySource("classpath:/123.properties")     指示加载属性文件至 Spring 中的 Environment
 public class AppConfig {
     @Bean
     public String str1(Environment environment) {     方式一：通过检索 Environment 获取属性
