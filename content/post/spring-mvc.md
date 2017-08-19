@@ -12,9 +12,11 @@ Updated on 2017-06-22
 
 > {{< image "/uploads/spring.png" "Spring Framework" "1" "1" >}}
 >
+> [MappingJackson2HttpMessageConverter](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/http/converter/json/MappingJackson2HttpMessageConverter.html)
+>
 > https://github.com/thymeleaf/thymeleaf
 >
-> [MappingJackson2HttpMessageConverter](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/http/converter/json/MappingJackson2HttpMessageConverter.html)
+> http://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html
 
 ## Concept
 * REST：将资源的 **状态** 以 **适合** 客户端的 **格式** 从服务端 **传递** 至客户端（或者反过来）。
@@ -32,10 +34,10 @@ plugin("war")
 compile("org.springframework:spring-webmvc:+")
 compile("javax.servlet:javax.servlet-api:+")
 
-compile("org.hibernate:hibernate-validator:5.+")
-
 compile("org.thymeleaf:thymeleaf-spring4:+")
 compile("org.slf4j:slf4j-jdk14:+")
+
+compile("org.hibernate:hibernate-validator:5.+")
 
 compile("com.fasterxml.jackson.core:jackson-databind:+")
 ```

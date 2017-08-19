@@ -16,9 +16,13 @@ Updated on 2017-07-11
 >
 > https://github.com/spring-projects/spring-framework
 >
-> https://docs.spring.io/spring/docs/current/javadoc-api/allclasses-noframe.html
+> [Spring Doc](https://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/)
+> |
+> [Spring API](https://docs.spring.io/spring/docs/current/javadoc-api/allclasses-noframe.html)
 >
-> https://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/
+> [Spring Boot Doc](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)
+> |
+> [Spring Boot API](https://docs.spring.io/spring-boot/docs/current/api/allclasses-noframe.html)
 
 ## Concept
 * 控制反转（IOC）：应用程序本身不负责依赖对象的创建与维护，而是**由外部容器负责管理**。
@@ -195,7 +199,7 @@ import soundsystem.CompactDisc;
 import soundsystem.MediaPlayer;
 import soundsystem.SgtPeppers;
 
-@Configuration     指示为配置类
+@Configuration     指示为配置类（用于定义 Bean）
 public class AppConfig {
     @Bean     指示该方法返回 Bean 对象并在容器中注册
     public CompactDisc sgtPeppers() {
