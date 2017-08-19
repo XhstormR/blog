@@ -592,3 +592,12 @@ https://dict.youdao.com/m
 https://www.bilibili.com/blackboard/help.html#p
 https://live.bilibili.com/help/#uh5
 ```
+
+## SumatraPDF
+```html
+TextColor = #a9b7c6
+BackgroundColor = #2b2b2b
+SelectionColor = #b3d4fc
+
+https://www.sumatrapdfreader.org/settings.html
+```
