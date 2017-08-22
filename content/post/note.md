@@ -140,17 +140,17 @@ javascript:void(document.body.appendChild(document.createElement('script')).src=
 ## 无界
 ```bash
 无界：
-http://ultrasurf.us/index.html
+https://ultrasurf.us/index.html
 
 自由：
-http://dongtaiwang.com/loc/download.en.php
+https://dongtaiwang.com/loc/download.en.php
 
 汇总：
-http://forums.internetfreedom.org/index.php?wap2
+https://forums.internetfreedom.org/index.php?wap2
 
 Psiphon：
-https://psiphon.ca
-https://www.psiphon3.com
+https://psiphon.ca/zh/download.html
+https://psiphon3.com/zh/download.html
 
 lantern：
 https://getlantern.org
@@ -423,6 +423,8 @@ https://bellard.org/tcc/
 
 https://frippery.org/files/busybox/busybox64.exe
 
+https://www.cs.princeton.edu/~bwk/btl.mirror/index.html
+
 https://download.lineageos.org/
 
 https://mirrors.ustc.edu.cn/kde/stable/krita/3.1.4/krita-3.1.4-x64.zip
@@ -570,6 +572,7 @@ setx path "%path%;D:\Download\123" /m
 
 calc
 SnippingTool
+ping z.cn
 ```
 
 ## WebX
