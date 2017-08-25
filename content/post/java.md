@@ -894,6 +894,27 @@ for (Font font : fonts) {
 2
 1
 0
+
+-------------------------------------------------------
+
+private static String formatFileSize(long size) {     格式化文件大小
+    NumberFormat numberFormat = NumberFormat.getInstance();
+    numberFormat.setMaximumFractionDigits(1);
+    numberFormat.setMinimumFractionDigits(1);
+    int divisor;
+    String unit;
+    if (size > (divisor = 1024 * 1024 * 1024)) {
+        unit = "GB";
+    } else if (size > (divisor = 1024 * 1024)) {
+        unit = "MB";
+    } else if (size > (divisor = 1024)) {
+        unit = "KB";
+    } else {
+        divisor = 1;
+        unit = "B";
+    }
+    return numberFormat.format(size * 1.0 / divisor) + " " + unit;
+}
 ```
 
 ### 继承初始化执行顺序

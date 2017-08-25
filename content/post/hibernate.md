@@ -84,6 +84,8 @@ data class Student(
         var temp: String? = null
 )
 
+@Table(name = "t_student")     定义表
+
 @Column(nullable = false, columnDefinition = "timestamp|time|date")     定义字段
 timestamp  时间+日期
 time       时间
