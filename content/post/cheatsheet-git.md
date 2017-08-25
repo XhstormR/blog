@@ -347,4 +347,8 @@ C:\Users\XhstormR\.gitconfig
 ```xml
 git rm -r --cached .
 git add .
+
+git clean -fdxn
+
+git gc --prune=all
 ```

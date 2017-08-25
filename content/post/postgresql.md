@@ -275,7 +275,7 @@ ON UPDATE
 响应（从表）：
 NO ACTION     不允许该操作（事务晚些时候检查）（缺省）
 RESTRICT     不允许该操作（事务早些时候检查）（常用）
-CASCADE     递归操作（删除引用行、引用行字段置为更新值）（常用）
+CASCADE     递归操作（删除引用行 or 引用行字段置为更新值）（常用）
 SET DEFAULT     引用行字段置为默认值
 SET NULL     引用行字段置为 NULL
 
