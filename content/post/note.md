@@ -411,7 +411,7 @@ RHEL：
 https://access.redhat.com/products/red-hat-enterprise-linux/
 https://developers.redhat.com/auth/realms/rhd/account/
 
-https://nodejs.org/dist/latest/node-v8.2.1-win-x64.7z
+https://nodejs.org/dist/latest/node-v8.4.0-win-x64.7z
 https://npm.taobao.org/mirrors/
 ----
 npm --registry=https://registry.npm.taobao.org install -g test

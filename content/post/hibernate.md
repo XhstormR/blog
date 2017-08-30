@@ -87,6 +87,8 @@ data class Student(
 @Table(name = "t_student")     定义表
 
 @Column(nullable = false, columnDefinition = "timestamp|time|date")     定义字段
+
+@Temporal(TemporalType.DATE)
 timestamp  时间+日期
 time       时间
 date       日期
