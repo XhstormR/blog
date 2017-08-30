@@ -18,6 +18,8 @@ Updated on 2017-07-11
 >
 > https://github.com/spring-projects/spring-boot
 >
+> [Dependency](https://raw.githubusercontent.com/spring-projects/spring-boot/master/spring-boot-dependencies/pom.xml)
+>
 > [Spring Doc](https://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/)
 > |
 > [Spring API](https://docs.spring.io/spring/docs/current/javadoc-api/allclasses-noframe.html)
@@ -25,6 +27,10 @@ Updated on 2017-07-11
 > [Spring Boot Doc](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)
 > |
 > [Spring Boot API](https://docs.spring.io/spring-boot/docs/current/api/allclasses-noframe.html)
+>
+> [Spring Data JPA Doc](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation)
+> |
+> [Spring Data JPA API](https://docs.spring.io/spring-data/jpa/docs/current/api/allclasses-noframe.html)
 
 ## Concept
 * 控制反转（IOC）：应用程序本身不负责依赖对象的创建与维护，而是**由外部容器负责管理**。
@@ -118,7 +124,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration     指示为配置类
-@ComponentScan(basePackages = {"soundsystem"})     组件扫描
+@ComponentScan(basePackages = {"soundsystem"})     组件扫描（搜寻其他 Component 和 Configuration）
 public class AppConfig {
 }
 ```

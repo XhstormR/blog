@@ -556,11 +556,11 @@ for (i in intRange) {
     print("$i ")
 }
 可简化为
-for (i in 1..5) {     1 2 3 4 5
+for (i in 1..5) {     1 2 3 4 5     （全包含）
     print("$i ")
 }
 
-for (i in 1 until 5) {     1 2 3 4
+for (i in 1 until 5) {     1 2 3 4     （半包含）
     print("$i ")
 }
 
