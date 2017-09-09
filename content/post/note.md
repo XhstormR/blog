@@ -427,6 +427,8 @@ https://www.cs.princeton.edu/~bwk/btl.mirror/index.html
 
 https://download.lineageos.org/
 
+https://mirrors.ustc.edu.cn/apache/tika/tika-app-1.16.jar
+
 https://mirrors.ustc.edu.cn/kde/stable/krita/3.1.4/krita-3.1.4-x64.zip
 
 https://mirrors.ustc.edu.cn/rust-static/dist/rust-1.19.0-x86_64-pc-windows-gnu.msi
