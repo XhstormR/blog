@@ -428,6 +428,8 @@ https://www.cs.princeton.edu/~bwk/btl.mirror/index.html
 https://download.lineageos.org/
 
 https://mirrors.ustc.edu.cn/apache/tika/tika-app-1.16.jar
+----
+java -jar tika-app-1.16.jar -h 123.doc > 123.html
 
 https://mirrors.ustc.edu.cn/kde/stable/krita/3.1.4/krita-3.1.4-x64.zip
 
