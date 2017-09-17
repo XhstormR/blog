@@ -343,7 +343,7 @@ C:\Windows\System32\drivers\etc\
 ## Google（Mirrors）
 ```html
 http://serve.netsh.org/pub/ipv4-hosts/
-https://raw.githubusercontent.com/racaljk/hosts/master/hosts
+https://raw.githubusercontent.com/googlehosts/hosts/master/hosts-files/hosts
 https://raw.githubusercontent.com/sy618/hosts/master/y
 
 EXE：
