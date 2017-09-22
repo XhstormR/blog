@@ -31,4 +31,4 @@ botan.exe rng 25
 ## Reference
 * [cli](https://botan.randombit.net/manual/cli.html)
 
-[{{< image "/uploads/file-into-picture2.png" "" "0" "0" >}}](http://ww4.sinaimg.cn/large/a15b4afegy1fjrn1rzmqpj203k03k4pn)
+[{{< image "/uploads/file-into-picture2.png" "" "0" "0" >}}](http://ww4.sinaimg.cn/large/a15b4afegy1fjsksn4s1kj203k03k7wh)
