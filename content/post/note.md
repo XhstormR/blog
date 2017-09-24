@@ -393,6 +393,7 @@ wget -m -k -E -np -c -N --no-if-modified-since -p -P ./123 https://java.sx/java/
 MSDN：
 http://msdn.itellyou.cn/
 https://www.microsoft.com/zh-cn/software-download/windows10ISO
+https://www.microsoft.com/zh-cn/download/confirmation.aspx?id=55167
 https://msdn.microsoft.com/zh-cn/library/ms123401.aspx
 https://msdn.microsoft.com/zh-cn/subscriptions/downloads/
 ----
@@ -414,6 +415,7 @@ https://access.redhat.com/products/red-hat-enterprise-linux/
 https://developers.redhat.com/auth/realms/rhd/account/
 
 https://nodejs.org/dist/latest/node-v8.4.0-win-x64.7z
+https://cdn.npm.taobao.org/primer-markdown/-/primer-markdown-3.6.0.tgz
 https://npm.taobao.org/mirrors/
 ----
 npm --registry=https://registry.npm.taobao.org install -g test
