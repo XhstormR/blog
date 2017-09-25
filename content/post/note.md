@@ -373,14 +373,21 @@ https://www.apk4fun.com/
 
 ## SQL
 ```bash
-SQLite
+SQLite：
 https://www.sqlite.org/index.html
 https://github.com/xerial/sqlite-jdbc
 https://jcenter.bintray.com/org/xerial/sqlite-jdbc/
-
+----
 sqlite3.exe 123.db ".mode column" ".header on" "select * from user;" > 1.txt
-
+----
 compile 'org.xerial:sqlite-jdbc:+'
+
+MySQL：
+https://dev.mysql.com/downloads/mysql/
+----
+mysqld --initialize-insecure
+mysqld
+mysql -uroot -p123456
 ```
 
 ## Wget 递归下载
@@ -611,4 +618,29 @@ BackgroundColor = #2b2b2b
 SelectionColor = #b3d4fc
 
 https://www.sumatrapdfreader.org/settings.html
+```
+
+## .NET Core
+```html
+dotnet new console -n hello && cd hello
+-----
+dotnet publish -c abc
+dotnet hello.dll
+-----
+dotnet publish -c abc -r win-x64
+hello.exe
+
+Core：
+https://www.microsoft.com/net/download/core
+Framework：
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe
+```
+
+```cs
+class Hello {
+    public static void Main(string[] args) {
+        System.Console.WriteLine("Hello World!");
+        System.Console.ReadLine();
+    }
+}
 ```
