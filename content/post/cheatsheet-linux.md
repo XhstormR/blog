@@ -507,7 +507,8 @@ grep -vn -e ^井 -e '^$' /etc/vsftpd/vsftpd.conf #使用正则表达式取反去
 d #删除
 
 sed -i -e '/^$/d' -e '/^#/d' openrc.sh #删除 空白行 和 注释行
-sed -i 's/123/456/g' index.html #替换 index.html 中的 123 为 456
+sed -i 's/123/456/g' 123.txt   #每一行中的 123 替换为 456
+sed -i "s/\(^\)/TEST/" 123.txt #每一行的开头写入 TEST
 ```
 
 ## mount
