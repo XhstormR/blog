@@ -352,3 +352,11 @@ git clean -fdxn
 
 git gc --prune=all
 ```
+
+```
+java -jar bfg.jar --delete-folders "bin" HUGO
+cd HUGO
+git reflog expire --expire=now --all && git gc --prune=now --aggressive
+
+https://rtyley.github.io/bfg-repo-cleaner/
+```
