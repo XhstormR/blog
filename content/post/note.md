@@ -634,6 +634,10 @@ Core：
 https://www.microsoft.com/net/download/core
 Framework：
 C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe
+
+API：
+https://docs.microsoft.com/zh-cn/dotnet/api/index?view=netframework-4.7
+https://docs.microsoft.com/zh-cn/dotnet/api/system.math.sqrt?view=netframework-4.7
 ```
 
 ```cs
