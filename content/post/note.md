@@ -421,7 +421,7 @@ RHEL：
 https://access.redhat.com/products/red-hat-enterprise-linux/
 https://developers.redhat.com/auth/realms/rhd/account/
 
-https://nodejs.org/dist/latest/node-v8.4.0-win-x64.7z
+https://mirrors.ustc.edu.cn/node/latest/node-v8.6.0-win-x64.7z
 https://cdn.npm.taobao.org/primer-markdown/-/primer-markdown-3.6.0.tgz
 https://npm.taobao.org/mirrors/
 ----
@@ -438,13 +438,15 @@ https://www.cs.princeton.edu/~bwk/btl.mirror/index.html
 
 https://download.lineageos.org/
 
-https://mirrors.ustc.edu.cn/apache/tika/tika-app-1.16.jar
-----
-java -jar tika-app-1.16.jar -h 123 > 123.html
+https://mirrors.ustc.edu.cn/eclipse/technology/epp/downloads/release/oxygen/1/eclipse-java-oxygen-1-win32-x86_64.zip
 
 https://mirrors.ustc.edu.cn/kde/stable/krita/3.1.4/krita-3.1.4-x64.zip
 
 https://mirrors.ustc.edu.cn/rust-static/dist/rust-1.19.0-x86_64-pc-windows-gnu.msi
+
+https://mirrors.ustc.edu.cn/apache/tika/tika-app-1.16.jar
+----
+java -jar tika-app-1.16.jar -h 123 > 123.html
 
 http://free.nchc.org.tw/tdf/libreoffice/stable/5.4.0/win/x86_64/LibreOffice_5.4.0_Win_x64.msi
 
@@ -647,4 +649,39 @@ class Hello {
         System.Console.ReadLine();
     }
 }
+```
+
+## Office
+```bash
+http://blog.sina.com.cn/s/blog_17b2ea0820102x7ds.html
+
+123.bat
+⇳
+FOR /r "%CD%\key" %%i in (*.xrm-ms) do (
+CSCRIPT.exe //Nologo %Windir%\System32\slmgr.vbs /ilc "%%i"
+)
+CSCRIPT.exe //Nologo "%CD%\Office16\OSPP.vbs" /inpkey:XQNVK-8JYDB-WJ9W3-YJ8YR-WFG99
+CSCRIPT.exe //Nologo "%CD%\Office16\OSPP.vbs" /sethst:kms.shuax.com
+CSCRIPT.exe //Nologo "%CD%\Office16\OSPP.vbs" /act
+CSCRIPT.exe //Nologo "%CD%\Office16\OSPP.vbs" /dstatus
+
+Office16\office.dat
+⇳
+http://ww4.sinaimg.cn/large/a15b4afegy1fk3opedx7sj203k03kt99
+```
+
+### Excel
+```bash
+https://support.office.com/zh-cn/article/Excel-函数（按字母顺序）-b3944572-255d-4efb-bb96-c6d90033e188
+https://support.office.com/zh-cn/article/面向-Windows-的-Excel-键盘快捷方式和功能键-1798d9d5-842a-42b8-9c99-9b7213f0040f
+https://support.office.com/zh-cn/article/在相对引用、绝对引用和混合引用间切换-dfec08cd-ae65-4f56-839e-5f0d8d0baca9
+
+F2     编辑
+F4     切换引用类型
+Ctrl+D     向下填充
+
+拼接字符串：
+="String"&A1&"String"
+判断奇偶数：
+=IF(MOD(A1,2),"奇数","偶数")
 ```

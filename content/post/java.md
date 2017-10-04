@@ -28,8 +28,8 @@ Updated on 2016-06-30
 > [中文](http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/allclasses-noframe.html)
 
 ## IDE
-* Eclipse：http://www.eclipse.org/downloads/eclipse-packages/
-  * 汉化包：http://www.eclipse.org/babel/downloads.php
+* Eclipse：https://www.eclipse.org/downloads/eclipse-packages/
+  * 汉化包：https://www.eclipse.org/babel/downloads.php
 * [IntelliJ IDEA](https://confluence.jetbrains.com/collector/pages.action?key=IDEADEV)：https://www.jetbrains.com/idea/download/
   * 将系统时间调整至 1 年以后再点击试用（Evaluation）。
 * Scene Builder：https://gluonhq.com/products/scene-builder/
