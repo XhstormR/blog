@@ -421,12 +421,6 @@ RHEL：
 https://access.redhat.com/products/red-hat-enterprise-linux/
 https://developers.redhat.com/auth/realms/rhd/account/
 
-https://mirrors.ustc.edu.cn/node/latest/node-v8.6.0-win-x64.7z
-https://cdn.npm.taobao.org/primer-markdown/-/primer-markdown-3.6.0.tgz
-https://npm.taobao.org/mirrors/
-----
-npm --registry=https://registry.npm.taobao.org install -g test
-
 https://live.sysinternals.com/
 https://docs.microsoft.com/en-us/sysinternals/downloads/
 
@@ -436,21 +430,31 @@ https://frippery.org/files/busybox/busybox64.exe
 
 https://www.cs.princeton.edu/~bwk/btl.mirror/index.html
 
-https://download.lineageos.org/
+https://github.com/Aegisub/Aegisub/releases/latest
+
+http://free.nchc.org.tw/tdf/libreoffice/stable/5.4.1/win/x86_64/LibreOffice_5.4.1_Win_x64.msi
 
 https://mirrors.ustc.edu.cn/eclipse/technology/epp/downloads/release/oxygen/1/eclipse-java-oxygen-1-win32-x86_64.zip
 
-https://mirrors.ustc.edu.cn/kde/stable/krita/3.1.4/krita-3.1.4-x64.zip
+https://mirrors.ustc.edu.cn/gimp/stable/windows/gimp-2.8.22-setup.exe
+
+https://mirrors.ustc.edu.cn/kde/stable/krita/3.3.0/krita-3.3.0-x64.zip
 
 https://mirrors.ustc.edu.cn/rust-static/dist/rust-1.19.0-x86_64-pc-windows-gnu.msi
+
+https://mirrors.ustc.edu.cn/lineageos/full/
+----
+https://download.lineageos.org/
 
 https://mirrors.ustc.edu.cn/apache/tika/tika-app-1.16.jar
 ----
 java -jar tika-app-1.16.jar -h 123 > 123.html
 
-http://free.nchc.org.tw/tdf/libreoffice/stable/5.4.0/win/x86_64/LibreOffice_5.4.0_Win_x64.msi
-
-https://github.com/Aegisub/Aegisub/releases/latest
+https://mirrors.ustc.edu.cn/node/latest/node-v8.6.0-win-x64.7z
+https://cdn.npm.taobao.org/primer-markdown/-/primer-markdown-3.6.0.tgz
+https://npm.taobao.org/mirrors/
+----
+npm --registry=https://registry.npm.taobao.org install -g test
 
 PSP：
 https://www.ppsspp.org/downloads.html
@@ -548,8 +552,6 @@ https://www.imagemagick.org/script/download.php#windows
 转换 PDF：https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/latest     将 gswin64c.exe 更名为 gs.exe
 操作 PDF：https://github.com/coherentgraphics/cpdf-binaries
 查看 PDF：https://mupdf.com/downloads/
-
-https://pirbot.com/mirrors/gimp/gimp/stable/windows/
 
 https://pngquant.org/
 http://advsys.net/ken/utils.htm
