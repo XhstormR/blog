@@ -347,7 +347,7 @@ https://raw.githubusercontent.com/googlehosts/hosts/master/hosts-files/hosts
 https://raw.githubusercontent.com/sy618/hosts/master/y
 
 EXE：
-https://en.wikipedia.org/wiki/Google_Chrome
+https://en.m.wikipedia.org/wiki/Google_Chrome
 https://api.shuax.com/tools/getchrome
 https://repo.fdzh.org/chrome/exe/
 -
@@ -672,6 +672,11 @@ Office16\office.dat
 http://ww4.sinaimg.cn/large/a15b4afegy1fk3opedx7sj203k03kt99
 ```
 
+```bash
+多窗口切换：视图 -> 切换窗口
+快捷键设置：选项 -> 自定义功能区 -> 键盘快捷方式 -> 视图选项卡 -> WindowList -> Alt+Shift+Q
+```
+
 ### Excel
 ```bash
 https://support.office.com/zh-cn/article/Excel-函数（按字母顺序）-b3944572-255d-4efb-bb96-c6d90033e188
@@ -686,4 +691,12 @@ Ctrl+D     向下填充
 ="String"&A1&"String"
 判断奇偶数：
 =IF(MOD(A1,2),"奇数","偶数")
+```
+
+## Photoshop
+```html
+1. 仿制图章
+2. 栅格化文字
+3. 滤镜 -> 杂色 -> 添加杂色 -> 单色 30%
+4. 滤镜 -> 模糊 -> 高斯模糊 -> 0.4
 ```
