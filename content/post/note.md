@@ -637,7 +637,7 @@ hello.exe
 Core：
 https://www.microsoft.com/net/download/core
 Framework：
-C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe
 
 API：
 https://docs.microsoft.com/zh-cn/dotnet/api/index?view=netframework-4.7
@@ -654,24 +654,6 @@ class Hello {
 ```
 
 ## Office
-```bash
-http://blog.sina.com.cn/s/blog_17b2ea0820102x7ds.html
-
-123.bat
-⇳
-FOR /r "%CD%\key" %%i in (*.xrm-ms) do (
-CSCRIPT.exe //Nologo %Windir%\System32\slmgr.vbs /ilc "%%i"
-)
-CSCRIPT.exe //Nologo "%CD%\Office16\OSPP.vbs" /inpkey:XQNVK-8JYDB-WJ9W3-YJ8YR-WFG99
-CSCRIPT.exe //Nologo "%CD%\Office16\OSPP.vbs" /sethst:kms.shuax.com
-CSCRIPT.exe //Nologo "%CD%\Office16\OSPP.vbs" /act
-CSCRIPT.exe //Nologo "%CD%\Office16\OSPP.vbs" /dstatus
-
-Office16\office.dat
-⇳
-http://ww4.sinaimg.cn/large/a15b4afegy1fk3opedx7sj203k03kt99
-```
-
 ```bash
 多窗口切换：视图 -> 切换窗口
 快捷键设置：选项 -> 自定义功能区 -> 键盘快捷方式 -> 视图选项卡 -> WindowList -> Alt+Shift+Q
@@ -691,6 +673,55 @@ Ctrl+D     向下填充
 ="String"&A1&"String"
 判断奇偶数：
 =IF(MOD(A1,2),"奇数","偶数")
+```
+
+### Install
+#### C2R（零售版）
+```html
+setup.exe /download 123.xml
+setup.exe /configure 123.xml
+
+https://www.microsoft.com/en-us/download/confirmation.aspx?id=49117
+https://support.office.com/zh-cn/article/d3879f0d-766c-469c-9440-0a9a2a905ca8
+https://support.microsoft.com/zh-cn/help/257757
+-----
+PS：4 天死磕的教训，软件编程方面少跟 **微软的系统组件** 打交道，特别是关于注册表、DCOM、Office 之类的。
+```
+
+```xml
+123.xml
+⇳
+<Configuration>
+    <Add SourcePath="D:\Download\Office\" OfficeClientEdition="32" Channel="Monthly">
+        <Product ID="WordRetail">
+            <Language ID="zh-cn"/>
+        </Product>
+        <Product ID="ExcelRetail">
+            <Language ID="zh-cn"/>
+        </Product>
+    </Add>
+    <Display Level="Full" AcceptEULA="TRUE"/>
+    <Logging Level="Standard" Path="D:\Download\Office\"/>
+</Configuration>
+```
+
+#### MSI（批量授权版）
+```bash
+http://blog.sina.com.cn/s/blog_17b2ea0820102x7ds.html
+
+123.bat
+⇳
+FOR /r "%CD%\key" %%i in (*.xrm-ms) do (
+CSCRIPT.exe //Nologo %Windir%\System32\slmgr.vbs /ilc "%%i"
+)
+CSCRIPT.exe //Nologo "%CD%\Office16\OSPP.vbs" /inpkey:XQNVK-8JYDB-WJ9W3-YJ8YR-WFG99
+CSCRIPT.exe //Nologo "%CD%\Office16\OSPP.vbs" /sethst:kms.shuax.com
+CSCRIPT.exe //Nologo "%CD%\Office16\OSPP.vbs" /act
+CSCRIPT.exe //Nologo "%CD%\Office16\OSPP.vbs" /dstatus
+
+Office16\office.dat
+⇳
+http://ww4.sinaimg.cn/large/a15b4afegy1fk3opedx7sj203k03kt99
 ```
 
 ## Photoshop
