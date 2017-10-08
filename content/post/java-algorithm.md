@@ -1330,3 +1330,31 @@ public class Main {
 输出：
 36
 ```
+
+## 汉诺塔
+```java
+public class Main {
+    public static void main(String[] args) {
+        move(3, 1, 3);
+    }
+
+    private static void move(int n, int start, int end) {
+        if (n == 0) {
+            return;
+        }
+        int auxiliary = 6 - start - end;
+        move(n - 1, start, auxiliary);
+        System.out.printf("Move %d from %d -> %d\n", n, start, end);
+        move(n - 1, auxiliary, end);
+    }
+}
+----
+输出：
+Move 1 from 1 -> 3
+Move 2 from 1 -> 2
+Move 1 from 3 -> 2
+Move 3 from 1 -> 3
+Move 1 from 2 -> 1
+Move 2 from 2 -> 3
+Move 1 from 1 -> 3
+```
