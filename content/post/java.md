@@ -204,9 +204,15 @@ Windows -> Preferences -> Java -> Editor -> Content Assist -> Auto Activation ->
 |变量值|变量名||
 |:--|:--|:--|
 |JAVA_HOME|C:\Program Files\Java\jdk1.8.0_92|配置JDK安装路径|
-|PATH|%JAVA_HOME%\bin|配置命令文件位置|
+|PATH|%JAVA_HOME%\bin|配置执行文件位置|
 |CLASSPATH|.;%JAVA_HOME%\lib|配置类库文件位置|
 |---------------------|------------------------------------------------|-----------------------|
+
+```bash
+setx JAVA_HOME "C:\Program Files\Java\jdk1.8.0_92" /m
+setx PATH "%PATH%;%JAVA_HOME%\bin" /m
+setx CLASSPATH ".;%JAVA_HOME%\lib" /m
+```
 
 ## 跨平台原理
 |a.java|javac|a.class|java|JVM|HelloWorld!|
