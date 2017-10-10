@@ -735,3 +735,24 @@ http://ww4.sinaimg.cn/large/a15b4afegy1fk3opedx7sj203k03kt99
 3. 滤镜 -> 杂色 -> 添加杂色 -> 单色 30%
 4. 滤镜 -> 模糊 -> 高斯模糊 -> 0.4
 ```
+
+## Hacker
+```html
+漏洞渗透：Burp Suite
+https://portswigger.net/burp/freedownload
+
+网络扫描：Nmap
+https://nmap.org/download.html
+
+SQL 注入：sqlmap
+https://github.com/sqlmapproject/sqlmap/archive/master.zip
+
+API 测试：Postman
+https://www.getpostman.com/apps
+```
+
+```bash
+set PYTHONHOME=D:\Download\python
+set PATH=%PATH%;%PYTHONHOME%
+set PYTHONPATH=%PYTHONHOME%\Lib
+```
