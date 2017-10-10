@@ -585,6 +585,10 @@ https://waterlan.home.xs4all.nl/dos2unix.html
 ```bash
 set
 echo %path%
+
+临时生效：
+set  path=%path%;D:\Download\123
+永久生效：
 setx path "%path%;D:\Download\123" /m
 
 ----
