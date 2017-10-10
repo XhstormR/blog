@@ -14,7 +14,7 @@ Updated on 2017-09-21
 >
 > [git](https://github.com/git-for-windows/git/releases/latest)
 >
-> [python](https://www.python.org/ftp/python/3.6.2/python-3.6.2-embed-amd64.zip)
+> [python](https://www.python.org/ftp/python/3.6.3/python-3.6.3-embed-amd64.zip)
 >
 > [botan](https://github.com/randombit/botan/archive/master.zip)
 
