@@ -574,11 +574,20 @@ Unix：\n
 Mac ：\r
 Dos ：\r\n
 
-CMD：
-for /R %G in (*.md) do unix2dos.exe -q "%G"
+FOR /R %G IN (*.md) DO (unix2dos.exe -q "%G")
 
 http://www.efgh.com/software/unix2dos.htm
 https://waterlan.home.xs4all.nl/dos2unix.html
+```
+
+## 代码格式化
+```html
+FOR /R "D:\Download\code" %%i IN (*) DO (uncrustify.exe -c 123.cfg --no-backup "%%i")
+
+http://astyle.sourceforge.net/
+https://github.com/uncrustify/uncrustify
+
+http://ww4.sinaimg.cn/large/a15b4afegy1fkfjyuhmvlj203k03kaor
 ```
 
 ## 修改环境变量
@@ -715,7 +724,7 @@ http://blog.sina.com.cn/s/blog_17b2ea0820102x7ds.html
 
 123.bat
 ⇳
-FOR /r "%CD%\key" %%i in (*.xrm-ms) do (
+FOR /R "%CD%\key" %%i IN (*.xrm-ms) DO (
 CSCRIPT.exe //Nologo %Windir%\System32\slmgr.vbs /ilc "%%i"
 )
 CSCRIPT.exe //Nologo "%CD%\Office16\OSPP.vbs" /inpkey:XQNVK-8JYDB-WJ9W3-YJ8YR-WFG99
