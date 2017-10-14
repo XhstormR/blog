@@ -451,7 +451,7 @@ https://mirrors.ustc.edu.cn/apache/tika/tika-app-1.16.jar
 java -jar tika-app-1.16.jar -h 123 > 123.html
 
 https://mirrors.ustc.edu.cn/node/latest/node-v8.6.0-win-x64.7z
-https://cdn.npm.taobao.org/primer-markdown/-/primer-markdown-3.6.0.tgz
+https://cdn.npm.taobao.org/primer-markdown/-/primer-markdown-3.7.0.tgz
 https://npm.taobao.org/mirrors/
 ----
 npm --registry=https://registry.npm.taobao.org install -g test
@@ -764,4 +764,6 @@ https://www.getpostman.com/apps
 set PYTHONHOME=D:\Download\python
 set PATH=%PATH%;%PYTHONHOME%
 set PYTHONPATH=%PYTHONHOME%\Lib
+
+python sqlmap.py -r 123.log -p id --dbms=oracle --risk=3 --level=5 --tamper=space2comment --timeout=10 --code=200 --string="200 OK"
 ```
