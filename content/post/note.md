@@ -434,7 +434,7 @@ https://github.com/Aegisub/Aegisub/releases/latest
 
 http://free.nchc.org.tw/tdf/libreoffice/stable/5.4.1/win/x86_64/LibreOffice_5.4.1_Win_x64.msi
 
-https://mirrors.ustc.edu.cn/eclipse/technology/epp/downloads/release/oxygen/1/eclipse-java-oxygen-1-win32-x86_64.zip
+https://mirrors.ustc.edu.cn/eclipse/technology/epp/downloads/release/oxygen/1a/eclipse-java-oxygen-1a-win32-x86_64.zip
 
 https://mirrors.ustc.edu.cn/gimp/stable/windows/gimp-2.8.22-setup.exe
 

@@ -23,7 +23,11 @@ Updated on 2017-02-19
 >
 > https://jcenter.bintray.com/org/postgresql/postgresql/
 >
-> https://www.enterprisedb.com/download-postgresql-binaries
+> [Step 1](https://www.enterprisedb.com/download-postgresql-binaries)
+> |
+> [Step 2](https://www.enterprisedb.com/thank-you?anid=1255499)
+> |
+> [Step 3](https://get.enterprisedb.com/postgresql/postgresql-10.0-1-windows-x64-binaries.zip)
 
 ## Concept
 * 结构化查询语言（SQL）：Structured Query Language

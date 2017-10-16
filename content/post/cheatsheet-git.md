@@ -322,7 +322,7 @@ locate --database="/d/Download/GIT/123.db" *java*md     查找文件
 grep http `locate --database="/d/Download/GIT/123.db" *java*md`     查找文字
 ```
 
-```xml
+```bash
 vim ~/.ssh/config
     Host github.com
       Hostname ssh.github.com
@@ -333,7 +333,7 @@ vim ~/.ssh/config
 git clone git@github.com:XhstormR/Hugo.git HUGO     SSH connections over HTTPS
 ```
 
-```xml
+```bash
 git config --global A.B C
 
 -------------------------------------------------------
@@ -344,7 +344,7 @@ C:\Users\XhstormR\.gitconfig
 	B = C
 ```
 
-```xml
+```bash
 git rm -r --cached .
 git add .
 
@@ -353,10 +353,16 @@ git clean -fdxn
 git gc --prune=all
 ```
 
-```
+```bash
 java -jar bfg.jar --delete-folders "bin" HUGO
 cd HUGO
 git reflog expire --expire=now --all && git gc --prune=now --aggressive
 
 https://rtyley.github.io/bfg-repo-cleaner/
+```
+
+```bash
+git config --global user.name "XhstormR"
+git config --global user.email "10527522+XhstormR@users.noreply.github.com"
+git rebase -i 123b394c9c7f45e9d8a04c4b138c805cd7dd7419 -x "git commit --amend --allow-empty-message --author 'XhstormR <10527522+XhstormR@users.noreply.github.com>' -CHEAD"
 ```
