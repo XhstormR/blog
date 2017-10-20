@@ -398,9 +398,9 @@ wget -m -k -E -np -c -N --no-if-modified-since -p -P ./123 https://java.sx/java/
 ## Operating System（Mirrors）
 ```bash
 MSDN：
-http://msdn.itellyou.cn/
+https://msdn.itellyou.cn/
 https://www.microsoft.com/zh-cn/software-download/windows10ISO
-https://www.microsoft.com/zh-cn/download/confirmation.aspx?id=55167
+https://www.microsoft.com/zh-cn/download/confirmation.aspx?id=56116
 https://msdn.microsoft.com/zh-cn/library/ms123401.aspx
 https://msdn.microsoft.com/zh-cn/subscriptions/downloads/
 ----
@@ -605,6 +605,7 @@ setx path "%path%;D:\Download\123" /m
 calc
 SnippingTool
 ping z.cn
+fc /n /w 1.txt 2.txt
 ```
 
 ## WebX
@@ -637,7 +638,30 @@ SelectionColor = #b3d4fc
 https://www.sumatrapdfreader.org/settings.html
 ```
 
-## .NET Core
+## C
+```html
+C：
+https://zh.m.wikipedia.org/zh-cn/C语言
+https://en.wikibooks.org/wiki/C_Programming
+https://code.google.com/archive/p/msys-cn/
+
+CMake：
+https://cmake.org/Wiki/CMake_Useful_Variables
+
+GCC：
+https://gcc.gnu.org/onlinedocs/gcc/Option-Index.html
+
+IDE：
+https://www.jetbrains.com/clion/download/
+https://sourceforge.net/projects/orwelldevcpp/
+
+Templates：
+https://svn.code.sf.net/p/codeblocks/code/trunk/src/templates/
+https://sourceforge.net/p/orwelldevcpp/code/ci/master/tree/Templates/
+https://git.eclipse.org/c/cdt/org.eclipse.cdt.git/plain/build/org.eclipse.cdt.managedbuilder.gnu.ui/templates/projecttemplates/
+```
+
+## C\#（.NET Core）
 ```html
 dotnet new console -n hello && cd hello
 -----
