@@ -648,6 +648,9 @@ https://code.google.com/archive/p/msys-cn/
 CMake：
 https://cmake.org/Wiki/CMake_Useful_Variables
 
+MFC：
+https://msdn.microsoft.com/zh-cn/library/d06h2x6e.aspx
+
 GCC：
 https://gcc.gnu.org/onlinedocs/gcc/Option-Index.html
 
