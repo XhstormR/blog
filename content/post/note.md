@@ -648,6 +648,9 @@ https://code.google.com/archive/p/msys-cn/
 CMake：
 https://cmake.org/Wiki/CMake_Useful_Variables
 
+MFC：
+https://msdn.microsoft.com/zh-cn/library/d06h2x6e.aspx
+
 GCC：
 https://gcc.gnu.org/onlinedocs/gcc/Option-Index.html
 
@@ -771,6 +774,10 @@ http://ww4.sinaimg.cn/large/a15b4afegy1fk3opedx7sj203k03kt99
 
 ## Hacker
 ```html
+漏洞：
+https://drops.tuisec.win/
+https://paper.tuisec.win/
+
 漏洞渗透：Burp Suite
 https://portswigger.net/burp/freedownload
 

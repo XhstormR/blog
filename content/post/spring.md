@@ -18,7 +18,7 @@ Updated on 2017-07-11
 >
 > https://github.com/spring-projects/spring-boot
 >
-> [Dependency](https://raw.githubusercontent.com/spring-projects/spring-boot/master/spring-boot-dependencies/pom.xml)
+> [Dependency](https://raw.githubusercontent.com/spring-projects/spring-boot/master/spring-boot-project/spring-boot-dependencies/pom.xml)
 >
 > [Spring Doc](https://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/)
 > |

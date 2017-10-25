@@ -19,6 +19,8 @@ Updated on 2017-04-13
 >
 > https://kotlinlang.org/docs/reference/idioms.html
 >
+> https://kotlinlang.org/docs/reference/basic-syntax.html
+>
 > https://kotlinlang.org/api/latest/jvm/stdlib/index.html
 >
 > https://try.kotlinlang.org/
