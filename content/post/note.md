@@ -450,7 +450,7 @@ https://mirrors.ustc.edu.cn/apache/tika/tika-app-1.16.jar
 ----
 java -jar tika-app-1.16.jar -h 123 > 123.html
 
-https://mirrors.ustc.edu.cn/node/latest/node-v8.6.0-win-x64.7z
+https://mirrors.ustc.edu.cn/node/latest/node-v8.8.0-win-x64.7z
 https://cdn.npm.taobao.org/primer-markdown/-/primer-markdown-3.7.0.tgz
 https://npm.taobao.org/mirrors/
 ----
