@@ -26,7 +26,7 @@ vim file1 file2 file3 #打开3个文件，按 `:n` 切换至下一个文件，`:
 
   <----- a、i、o   ↓↓   : ----->
 输入模式         命令模式        底行模式
-      ESC ----->       <----- ESC
+       ESC ----->      <----- ESC
 
 输入模式常用指令
 Ctrl+N     自动补全     next
@@ -40,8 +40,9 @@ Ctrl+U     删除光标所在行
 :w 123     将当前编辑的文件保存到 123 文件中
 :q     退出
 :q!     强制退出不保存
-:wq     保存并退出
 :x     保存并退出
+:wq    保存并退出
+:wqa    全部保存并退出
 :15     跳到第15行
 :e 123     打开 123 文件
 :e!     放弃修改重新编辑
@@ -61,7 +62,7 @@ Ctrl+U     删除光标所在行
 :%TOhtml     把全文转化为 HTML 网页
 
 命令模式常用指令
-h     j     k     l
+h    j    k    l
 左   下   上   右
 a     在光标后进入输入模式     append(追加)
 A     在行尾进入输入模式
@@ -130,6 +131,9 @@ Vim 的配置文件为 /etc/vimrc
     set is     开启实时检索
     set number     显示行号
     set cursorline     高亮当前行
+    set encoding=utf-8     设置文件编码
+    set laststatus=2     总是显式状态栏
+    set statusline=%F%m     设置状态栏
     nmap <F2> :nohlsearch<CR>     在命令模式下按 F2 相当于输入 `:nohlsearch` 跟一个回车，取消搜索加亮
 
 Tips：
