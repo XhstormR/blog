@@ -354,7 +354,7 @@ git gc --prune=all
 ```
 
 ```bash
-java -jar bfg.jar --delete-folders "bin" HUGO
+java -jar bfg.jar --no-blob-protection --delete-folders "bin" HUGO
 cd HUGO
 git reflog expire --expire=now --all && git gc --prune=now --aggressive
 

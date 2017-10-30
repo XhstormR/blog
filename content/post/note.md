@@ -434,6 +434,12 @@ https://github.com/Aegisub/Aegisub/releases/latest
 
 http://free.nchc.org.tw/tdf/libreoffice/stable/5.4.1/win/x86_64/LibreOffice_5.4.1_Win_x64.msi
 
+https://cloud.bluestacks.com/api/getdownloadnow
+
+https://mirrors.tuna.tsinghua.edu.cn/virtualbox/virtualbox-Win-latest.exe
+
+https://mirrors.ustc.edu.cn/vim/pc/vim80w32.zip
+
 https://mirrors.ustc.edu.cn/eclipse/technology/epp/downloads/release/oxygen/1a/eclipse-java-oxygen-1a-win32-x86_64.zip
 
 https://mirrors.ustc.edu.cn/gimp/stable/windows/gimp-2.8.22-setup.exe
@@ -472,6 +478,10 @@ PS3：
 https://rpcs3.net/download
 https://github.com/RPCS3/rpcs3
 https://ci.appveyor.com/project/rpcs3/rpcs3/branch/master/artifacts
+
+N64：
+http://www.pj64-emu.com/windows-downloads
+https://github.com/project64/project64
 
 Wii U：
 http://cemu.info/index.html
@@ -602,9 +612,12 @@ setx path "%path%;D:\Download\123" /m
 
 ----
 
+cls
+pause
 calc
 SnippingTool
 ping z.cn
+date /t && time /t
 fc /n /w 1.txt 2.txt
 ```
 
@@ -642,8 +655,12 @@ https://www.sumatrapdfreader.org/settings.html
 ```html
 C：
 https://zh.m.wikipedia.org/zh-cn/C语言
+
 https://en.wikibooks.org/wiki/C_Programming
 https://code.google.com/archive/p/msys-cn/
+
+http://zh.cppreference.com/w/c
+http://www.cplusplus.com/reference/clibrary/
 
 CMake：
 https://cmake.org/Wiki/CMake_Useful_Variables

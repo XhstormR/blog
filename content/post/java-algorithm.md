@@ -914,8 +914,46 @@ public class Main {
 }
 ```
 
-## 1 到 16 分出两组数字使其和、平方和、立方和都相等
+## 百钱买百鸡
+```java
+import java.util.Arrays;
 
+public class Main {
+    // ints[0] 公鸡数量
+    // ints[1] 母鸡数量
+    // ints[2] 小鸡数量
+    private static int[] ints = new int[3];
+
+    public static void main(String[] args) {
+        permutation(0);
+    }
+
+    private static void permutation(int k) {
+        if (k > ints.length - 1) {
+            suitable();
+        } else {
+            for (int i = 0; i <= 100; i++) {
+                ints[k] = i;
+                permutation(k + 1);
+            }
+        }
+    }
+
+    private static void suitable() {
+        if (ints[2] % 3 == 0 && ints[0] + ints[1] + ints[2] == 100 && ints[0] * 5 + ints[1] * 3 + ints[2] / 3 == 100) {
+            System.out.println(Arrays.toString(ints));
+        }
+    }
+}
+----
+输出：
+[0, 25, 75]
+[4, 18, 78]
+[8, 11, 81]
+[12, 4, 84]
+```
+
+## 1 到 16 分出两组数字使其和、平方和、立方和都相等
 ```java
 public class Main {
     private static int[] ints = new int[7];     每组肯定都是 8 个数字，只需求出包含 1 的那一组数字
