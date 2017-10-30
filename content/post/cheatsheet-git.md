@@ -364,5 +364,5 @@ https://rtyley.github.io/bfg-repo-cleaner/
 ```bash
 git config --global user.name "XhstormR"
 git config --global user.email "10527522+XhstormR@users.noreply.github.com"
-git rebase -i 123b394c9c7f45e9d8a04c4b138c805cd7dd7419 -x "git commit --amend --allow-empty-message --author 'XhstormR <10527522+XhstormR@users.noreply.github.com>' -CHEAD"
+git rebase -i 123b394c9c7f45e9d8a04c4b138c805cd7dd7419 -x "git commit --amend --allow-empty --allow-empty-message --author 'XhstormR <10527522+XhstormR@users.noreply.github.com>' -CHEAD"
 ```
