@@ -77,11 +77,11 @@ HOME     移动到行首
 END     移动到行尾
 PgUp     向上翻页
 PgDn     向下翻页
-Ctrl+B     向上翻页 back
-Ctrl+F     向下翻页 front
+Ctrl+B     向上翻页 Back
+Ctrl+F     向下翻页 Front
 D     删除所在行光标之后的内容
 dd     删除(剪切)光标所在的一整行
-5dd     删除(剪切)光标处开始的5行     [number 执行次数，默认1] d [object 操作对象]
+5dd     删除(剪切)光标处开始的5行     [number 执行次数，缺省1] d [object 操作对象]
 yy     复制光标所在的一整行     yank(猛拉)
 5yy     复制光标处开始的5行
 p     在光标后粘贴     paste(贴)     可粘贴最后一次删除的内容
@@ -117,12 +117,13 @@ Ctrl+^     在打开的文件中切换
 Ctrl+G     显示正在编辑的文本信息
 
 分割窗口
+:sp  123       水平分割窗口并打开文件123
+:vsp 123       垂直分割窗口并打开文件123
 Ctrl+W - S     水平分割窗口
 Ctrl+W - V     垂直分割窗口
 Ctrl+W - Q     退出当前窗口
 Ctrl+W - W     切换窗口
-Ctrl+W - 方向键     自由选择窗口
-:sp 1     分割窗口并打开文件1
+Ctrl+W - 方向键     选择窗口
 
 Vim 的配置文件为 /etc/vimrc
     set nocp     关闭 Vi 兼容模式
