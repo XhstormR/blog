@@ -42,7 +42,7 @@ Ctrl+U     删除光标所在行
 :q!     强制退出不保存
 :x     保存并退出
 :wq    保存并退出
-:wqa    全部保存并退出
+:wqa   全部保存并退出
 :15     跳到第15行
 :e 123     打开 123 文件
 :e!     放弃修改重新编辑
@@ -128,12 +128,23 @@ Ctrl+W - 方向键     选择窗口
 
 Vim 的配置文件为 /etc/vimrc
     set nocp     关闭 Vi 兼容模式
-    set is     开启实时检索
+    set hlsearch     高亮搜索结果
+    set smartcase     智能区分大小写
+    set ignorecase     始终不区分大小写
+    set incsearch     开启实时搜索
+    set ruler     显示行列信息
     set number     显示行号
     set cursorline     高亮当前行
     set encoding=utf-8     设置文件编码
     set laststatus=2     总是显式状态栏
     set statusline=%F%m     设置状态栏
+    set backspace=eol,start,indent     使退格键工作
+    set tabstop=4     4空格
+    set shiftwidth=4     4空格
+    set smarttab     智能TAB
+    set expandtab     使用空格而不是制表符
+    set autoindent     自动缩进
+    set smartindent     智能缩进
     nmap <F2> :nohlsearch<CR>     在命令模式下按 F2 相当于输入 `:nohlsearch` 跟一个回车，取消搜索加亮
 
 Tips：
@@ -145,4 +156,7 @@ vim /root/.bashrc #设置别名，替换系统默认编辑器
 关于它俩的区别：
 https://zh.m.wikipedia.org/zh-cn/Vi
 https://zh.m.wikipedia.org/zh-cn/Vim
+
+https://raw.githubusercontent.com/amix/vimrc/master/vimrcs/basic.vim
+https://raw.githubusercontent.com/vim/vim/master/runtime/doc/options.txt
 ```
