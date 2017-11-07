@@ -132,11 +132,6 @@ https://wk.dxtl.net/dokuwiki/doku.php/start
 https://www.imfreevpn.com/
 ```
 
-## 在线输入法（书签）
-```bash
-javascript:void(document.body.appendChild(document.createElement('script')).src='https://www.baidu.com/olime/bdime_open.js')
-```
-
 ## 无界
 ```bash
 无界：
@@ -154,6 +149,11 @@ https://psiphon3.com/zh/download.html
 
 lantern：
 https://getlantern.org
+```
+
+## 在线输入法（书签）
+```bash
+javascript:void(document.body.appendChild(document.createElement('script')).src='https://www.baidu.com/olime/bdime_open.js')
 ```
 
 ## Firefox
@@ -442,6 +442,8 @@ https://mirrors.ustc.edu.cn/vim/pc/vim80w32.zip
 
 https://mirrors.ustc.edu.cn/eclipse/technology/epp/downloads/release/oxygen/1a/eclipse-java-oxygen-1a-win32-x86_64.zip
 
+https://mirrors.ustc.edu.cn/qtproject/official_releases/qtcreator/4.4/4.4.1/installer_source/windows_vs2015_64/qtcreator.7z
+
 https://mirrors.ustc.edu.cn/gimp/stable/windows/gimp-2.8.22-setup.exe
 
 https://mirrors.ustc.edu.cn/kde/stable/krita/3.3.0/krita-3.3.0-x64.zip
@@ -456,7 +458,7 @@ https://mirrors.ustc.edu.cn/apache/tika/tika-app-1.16.jar
 ----
 java -jar tika-app-1.16.jar -h 123 > 123.html
 
-https://mirrors.ustc.edu.cn/node/latest/node-v8.8.0-win-x64.7z
+https://mirrors.ustc.edu.cn/node/latest/node-v9.0.0-win-x64.7z
 https://cdn.npm.taobao.org/primer-markdown/-/primer-markdown-3.7.0.tgz
 https://npm.taobao.org/mirrors/
 ----
