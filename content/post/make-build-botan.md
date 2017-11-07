@@ -10,7 +10,7 @@ title: 构建 botan
 
 Updated on 2017-09-21
 
-> [gcc](https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/7.1.0/threads-posix/seh/)
+> [gcc](https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/7.2.0/threads-posix/seh/)
 >
 > [git](https://github.com/git-for-windows/git/releases/latest)
 >

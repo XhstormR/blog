@@ -10,9 +10,9 @@ title: 构建 cmark
 
 Updated on 2017-08-31
 
-> [gcc](https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/7.1.0/threads-win32/seh/)
+> [gcc](https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/7.2.0/threads-win32/seh/)
 >
-> [cmake](https://cmake.org/files/LatestRelease/cmake-3.9.4-win64-x64.zip)
+> [cmake](https://cmake.org/files/LatestRelease/cmake-3.9.5-win64-x64.zip)
 >
 > [cmark](https://github.com/commonmark/cmark/archive/master.zip)
 

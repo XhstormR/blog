@@ -10,7 +10,7 @@ title: 构建 jq
 
 Updated on 2017-09-01
 
-> [gcc](https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/7.1.0/threads-win32/seh/)
+> [gcc](https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/7.2.0/threads-win32/seh/)
 >
 > [git](https://github.com/git-for-windows/git/releases/latest)
 >
