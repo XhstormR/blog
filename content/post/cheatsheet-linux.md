@@ -13,6 +13,8 @@ Updated on 2017-01-12
 >
 > https://www.centos.org/
 >
+> http://man7.org/linux/man-pages/dir_all_alphabetic.html
+>
 > 最近因为要参加全国云计算比赛，需要使用 Linux；所以我把关于 Linux 系统的一些命令整理在这里，以便查阅。
 >
 > Update：市赛以第一名出线，国赛获得二等奖。

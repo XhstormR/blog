@@ -15,6 +15,8 @@ Updated on 2016-11-07
 >
 > http://ndpsoftware.com/git-cheatsheet.html
 >
+> https://backlog.com/git-tutorial/cn/contents/
+>
 > https://rogerdudler.github.io/git-guide/index.zh.html
 >
 > https://marklodato.github.io/visual-git-guide/index-zh-cn.html

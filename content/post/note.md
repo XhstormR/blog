@@ -448,7 +448,9 @@ https://mirrors.ustc.edu.cn/gimp/stable/windows/gimp-2.8.22-setup.exe
 
 https://mirrors.ustc.edu.cn/kde/stable/krita/3.3.0/krita-3.3.0-x64.zip
 
-https://mirrors.ustc.edu.cn/rust-static/dist/rust-1.19.0-x86_64-pc-windows-gnu.msi
+https://mirrors.ustc.edu.cn/rust-static/dist/rust-1.21.0-x86_64-pc-windows-gnu.msi
+
+https://mirrors.ustc.edu.cn/golang/go1.9.2.windows-amd64.zip
 
 https://mirrors.ustc.edu.cn/lineageos/full/
 ----
@@ -458,7 +460,7 @@ https://mirrors.ustc.edu.cn/apache/tika/tika-app-1.16.jar
 ----
 java -jar tika-app-1.16.jar -h 123 > 123.html
 
-https://mirrors.ustc.edu.cn/node/latest/node-v9.0.0-win-x64.7z
+https://mirrors.ustc.edu.cn/node/latest/node-v9.1.0-win-x64.7z
 https://cdn.npm.taobao.org/primer-markdown/-/primer-markdown-3.7.0.tgz
 https://npm.taobao.org/mirrors/
 ----
