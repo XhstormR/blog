@@ -367,34 +367,6 @@ public class Test {
 PS：除法最后没实现，因为解决不了小数点的问题。
 ```
 
-## 斐波那契数列
-```java
-public class A {
-    public static void main(String[] args) {
-        int x = 0;
-        int y = 1;
-
-        boolean b = true;
-        System.out.print(x + " ");
-        System.out.print(y + " ");
-        for (int i = 0; i < 10; i++) {
-            if (b) {
-                b = false;
-                x += y;
-                System.out.print(x + " ");
-            } else {
-                b = true;
-                y += x;
-                System.out.print(y + " ");
-            }
-        }
-    }
-}
-----
-输出：（斐波那契数列前 12 项）
-0 1 1 2 3 5 8 13 21 34 55 89
-```
-
 ## Beautiful [String](https://hihocoder.com/contest/mstest2015oct/problem/1)
 ```java
 public class A {
@@ -1395,4 +1367,89 @@ Move 3 from 1 -> 3
 Move 1 from 2 -> 1
 Move 2 from 2 -> 3
 Move 1 from 1 -> 3
+```
+
+## 斐波那契数列
+```java
+public class A {
+    public static void main(String[] args) {
+        int x = 1;
+        int y = 1;
+        boolean b = true;
+
+        System.out.print(x + " ");
+        System.out.print(y + " ");
+        for (int i = 0; i < 10; i++) {     朴素解法
+            if (b) {
+                b = false;
+                x += y;
+                System.out.print(x + " ");
+            } else {
+                b = true;
+                y += x;
+                System.out.print(y + " ");
+            }
+        }
+    }
+}
+----
+输出：（前 12 项斐波那契数列）
+1 1 2 3 5 8 13 21 34 55 89 144
+```
+
+```java
+public class A {
+    public static void main(String[] args) {
+        System.out.println(fib(12));
+    }
+
+    private static int fib(int i) {     递归
+        return i == 1 || i == 2 ? 1 : fib(i - 1) + fib(i - 2);
+    }
+}
+----
+输出：
+144
+```
+
+```java
+public class A {
+    private static final int[] ints = new int[12];
+
+    public static void main(String[] args) {
+        ints[0] = 1;
+        ints[1] = 1;
+        System.out.println(fib(ints.length - 1));
+    }
+
+    private static int fib(int i) {     动态规划（DP）
+        if (ints[i] == 0) {
+            ints[i] = fib(i - 1) + fib(i - 2);
+        }
+        return ints[i];
+    }
+}
+----
+输出：
+144
+```
+
+```c
+#include <stdio.h>
+#define N 12
+
+int ints[N];
+
+int fib(int i){     C 语言版动态规划
+    if (ints[i] == 0) {
+        ints[i] = fib(i - 1) + fib(i - 2);
+    }
+    return ints[i];
+}
+
+int main(){
+    ints[0] = 1;
+    ints[1] = 1;
+    printf("%d\n", fib(N - 1));
+}
 ```
