@@ -1037,6 +1037,13 @@ Tips : bg 和 fg 不带 %N 时默认对最后一个进程进行操作
 登录后 /etc/motd     Message Of The Day
 ```
 
+## 配置 DNS
+```bash
+vim /etc/resolv.conf
+    nameserver 223.5.5.5
+    nameserver 223.6.6.6
+```
+
 ## 脚本
 ```
 vi hello.sh
