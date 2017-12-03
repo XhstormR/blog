@@ -1453,3 +1453,98 @@ int main(){
     printf("%d\n", fib(N - 1));
 }
 ```
+
+## 01 背包
+```java
+import java.util.Scanner;
+
+/*
+3 50
+10 60
+20 100
+30 120
+
+http://www.importnew.com/13072.html
+https://github.com/tianyicui/pack
+*/
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();//物品数量
+        int m = scanner.nextInt();//背包体积
+        int[] w = new int[n];//物品体积
+        int[] v = new int[n];//物品价值
+
+        for (int i = 0; i < n; i++) {
+            w[i] = scanner.nextInt();
+            v[i] = scanner.nextInt();
+        }
+
+        System.out.println(a(w, v, n, m));
+        System.out.println(b(w, v, n, m));
+    }
+
+    private static int a(int[] w, int[] v, int N, int W) {//v1
+        int[][] F = new int[N + 1][W + 1];
+
+        for (int i = 1; i <= N; i++) {
+            for (int j = 1; j <= W; j++) {
+                if (w[i - 1] <= j) {
+                    F[i][j] = Math.max(F[i - 1][j - w[i - 1]] + v[i - 1], F[i - 1][j]);
+                } else {
+                    F[i][j] = F[i - 1][j];
+                }
+            }
+        }
+
+//      for (int i = 1; i <= N; i++) {//v1.5 过渡版本，有错误 (当 w_i > j 时，应当把 F[i - 1][j] 复制到 F[i][j])
+//          for (int j = w[i - 1]; j <= W; j++) {
+//              F[i][j] = Math.max(F[i - 1][j - w[i - 1]] + v[i - 1], F[i - 1][j]);
+//          }
+//      }
+
+        print(F);
+
+        return F[N][W];
+    }
+
+    private static int b(int[] w, int[] v, int N, int W) {//v2
+        int[] F = new int[W + 1];
+
+        for (int i = 1; i <= N; i++) {
+            for (int j = W; j >= w[i - 1]; j--) {
+                F[j] = Math.max(F[j - w[i - 1]] + v[i - 1], F[j]);
+            }
+        }
+
+        print(F);
+
+        return F[W];
+    }
+
+    private static void print(int[] ints) {
+        for (int i : ints) {
+            System.out.printf("%d\t", i);
+        }
+        System.out.println();
+    }
+
+    private static void print(int[][] ints) {
+        for (int[] anInt : ints) {
+            for (int i : anInt) {
+                System.out.printf("%d\t", i);
+            }
+            System.out.println();
+        }
+    }
+}
+----
+输出：
+0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+0	0	0	0	0	0	0	0	0	0	60	60	60	60	60	60	60	60	60	60	60	60	60	60	60	60	60	60	60	60	60	60	60	60	60	60	60	60	60	60	60	60	60	60	60	60	60	60	60	60	60
+0	0	0	0	0	0	0	0	0	0	60	60	60	60	60	60	60	60	60	60	100	100	100	100	100	100	100	100	100	100	160	160	160	160	160	160	160	160	160	160	160	160	160	160	160	160	160	160	160	160	160
+0	0	0	0	0	0	0	0	0	0	60	60	60	60	60	60	60	60	60	60	100	100	100	100	100	100	100	100	100	100	160	160	160	160	160	160	160	160	160	160	180	180	180	180	180	180	180	180	180	180	220
+220
+0	0	0	0	0	0	0	0	0	0	60	60	60	60	60	60	60	60	60	60	100	100	100	100	100	100	100	100	100	100	160	160	160	160	160	160	160	160	160	160	180	180	180	180	180	180	180	180	180	180	220
+220
+```
