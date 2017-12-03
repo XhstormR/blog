@@ -20,6 +20,8 @@ Updated on 2017-01-14
 > https://winscp.net/eng/download.php
 >
 > https://the.earth.li/~sgtatham/putty/latest/w64/psftp.exe
+>
+> https://the.earth.li/~sgtatham/putty/latest/w64/putty.exe
 
 ## 配置
 ```bash
