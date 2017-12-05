@@ -14,6 +14,8 @@ Updated on 2017-07-13
 >
 > https://visualgo.net/zh
 >
+> https://cpbook.net/#downloads
+>
 > https://www.cs.usfca.edu/~galles/visualization/Algorithms.html
 >
 > http://panthema.net/2013/sound-of-sorting/
@@ -1547,4 +1549,157 @@ public class Main {
 220
 0	0	0	0	0	0	0	0	0	0	60	60	60	60	60	60	60	60	60	60	100	100	100	100	100	100	100	100	100	100	160	160	160	160	160	160	160	160	160	160	180	180	180	180	180	180	180	180	180	180	220
 220
+```
+
+## 最长递增子序列
+```java
+import java.util.Scanner;
+
+/*
+9
+2 4 3 5 1 7 6 9 8
+*/
+public class Main {
+    public static void main(String[] args) {//v1
+        Scanner scanner = new Scanner(System.in);
+        int N = scanner.nextInt();
+        int[] S = new int[N + 1];//元素
+        int[] L = new int[N + 1];//长度
+        int[] P = new int[N + 1];//前驱
+
+        S[0] = -1;
+        P[0] = -1;
+
+        for (int i = 1; i <= N; i++) {
+            S[i] = scanner.nextInt();
+        }
+
+        for (int i = 1; i <= N; i++) {
+            for (int j = 0; j < i; j++) {
+                if (S[j] < S[i] && L[j] >= L[i]) {
+                    L[i] = L[j] + 1;
+                    P[i] = j;
+                }
+            }
+        }
+
+        print(S);
+        print(L);
+        print(P);
+
+        b(S, P, a(L));
+    }
+
+    private static int a(int[] L) {
+        int max = -1;//最大长度
+        int pre = -1;//对应下标
+        for (int i = 0; i < L.length; i++) {//找到最大长度的下标
+            if (max < L[i]) {
+                max = L[i];
+                pre = i;
+            }
+        }
+        return pre;
+    }
+
+    private static void b(int[] S, int[] P, int pre) {
+        while (true) {//根据前驱还原序列
+            System.out.print(S[pre]);
+            pre = P[pre];
+            if (P[pre] == -1) {
+                System.out.println();
+                break;
+            }
+        }
+    }
+
+    private static void print(int[] ints) {
+        for (int i : ints) {
+            System.out.printf("%d\t", i);
+        }
+        System.out.println();
+    }
+}
+----
+输出：
+-1	2	4	3	5	1	7	6	9	8
+0	1	2	2	3	1	4	4	5	5
+-1	0	1	1	2	0	4	4	6	6
+97542
+```
+
+```java
+import java.util.Scanner;
+
+/*
+9
+2 4 3 5 1 7 6 9 8
+*/
+public class Main {
+    public static void main(String[] args) {//v2，不用初始位
+        Scanner scanner = new Scanner(System.in);
+        int N = scanner.nextInt();
+        int[] S = new int[N];//元素
+        int[] L = new int[N];//长度
+        int[] P = new int[N];//前驱
+
+        L[0] = 1;
+        P[0] = -1;
+
+        for (int i = 0; i < N; i++) {
+            S[i] = scanner.nextInt();
+        }
+
+        for (int i = 1; i < N; i++) {
+            for (int j = 0; j < i; j++) {
+                if (S[j] < S[i] && L[j] >= L[i]) {
+                    L[i] = L[j] + 1;
+                    P[i] = j;
+                }
+            }
+        }
+
+        print(S);
+        print(L);
+        print(P);
+
+        b(S, P, a(L));
+    }
+
+    private static int a(int[] L) {
+        int max = -1;//最大长度
+        int pre = -1;//对应下标
+        for (int i = 0; i < L.length; i++) {//找到最大长度的下标
+            if (max < L[i]) {
+                max = L[i];
+                pre = i;
+            }
+        }
+        return pre;
+    }
+
+    private static void b(int[] S, int[] P, int pre) {
+        while (true) {//根据前驱还原序列
+            System.out.print(S[pre]);
+            pre = P[pre];
+            if (pre == -1) {
+                System.out.println();
+                break;
+            }
+        }
+    }
+
+    private static void print(int[] ints) {
+        for (int i : ints) {
+            System.out.printf("%d\t", i);
+        }
+        System.out.println();
+    }
+}
+----
+输出：
+2	4	3	5	1	7	6	9	8
+1	2	2	3	0	4	4	5	5
+-1	0	0	1	0	3	3	5	5
+97542
 ```
