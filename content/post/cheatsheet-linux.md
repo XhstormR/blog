@@ -758,7 +758,7 @@ Distributor ID: CentOS
 Description:    CentOS release 6.5 (Final)
 Release:        6.5
 Codename:       Final
-                                   标准     基础
+                     标准   基础
 Tips：LSB 是 Linux Standard Base 的缩写
 ```
 

