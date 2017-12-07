@@ -392,13 +392,37 @@ mysql -uroot -p123456
 Oracle：
 http://www.oracle.com/technetwork/database/features/instant-client/index.html
 ----
-export ORACLE_HOME=/u01/oracle/product/11.2.0/db_1
-export PATH=$PATH:$ORACLE_HOME/bin
-----
 sqlplus username/password@127.0.0.1:1521/cqsfjwdb
 
 Navicat：
 http://download3.navicat.com/download/navicat120_premium_cs_x64.exe
+```
+
+```sql
+su - oracle
+export ORACLE_HOME=/u01/oracle/product/11.2.0/db_1
+export PATH=$PATH:$ORACLE_HOME/bin
+sqlplus / as sysdba
+
+CREATE USER admin
+IDENTIFIED BY "123456"
+DEFAULT TABLESPACE system;
+
+GRANT
+CONNECT,
+RESOURCE,
+CREATE SESSION,
+DBA,
+SYSDBA,
+SYSOPER TO admin;
+
+SELECT *
+FROM SYS.USER$
+WHERE NAME = 'ADMIN';
+
+SELECT *
+FROM SYS.DBA_USERS
+WHERE USERNAME = 'ADMIN';
 ```
 
 ## Wget 递归下载
