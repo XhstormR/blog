@@ -352,8 +352,8 @@ https://api.shuax.com/tools/getchrome
 https://repo.fdzh.org/chrome/exe/
 -
 https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html
-https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html?prefix=Android/441086/
-https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html?prefix=Win_x64/441085/
+https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html?prefix=Android/523313/
+https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html?prefix=Win_x64/523309/
 https://commondatastorage.googleapis.com/chromium-browser-snapshots/Android/LAST_CHANGE
 https://commondatastorage.googleapis.com/chromium-browser-snapshots/Win_x64/LAST_CHANGE
 -
@@ -369,6 +369,36 @@ https://apps.evozi.com/apk-downloader/
 https://apkleecher.com/
 https://m.apkpure.com/
 https://www.apk4fun.com/
+```
+
+```bash
+http://code.taobao.org/svn/mychrome/trunk/MyChrome.au3
+https://github.com/google/omaha/blob/master/doc/ServerProtocolV3.md
+
+curl -k -X POST https://update.googleapis.com/service/update2 -T 123.txt
+⬇️
+type 123.txt | curl -k https://update.googleapis.com/service/update2 -d @-
+⬇️
+curl -k https://update.googleapis.com/service/update2 -d @- < 123.txt
+⬇️
+curl -k https://update.googleapis.com/service/update2 -d @123.txt
+⬇️
+curl -k https://update.googleapis.com/service/update2 -d @123.txt | xmllint --format - > 123.xml
+
+123.txt
+⇳
+<request protocol="3.0" installsource="update3web-ondemand">
+  <os platform="win" version="10.0.14393.693" arch="x64"/>
+  <app appid="{8A69D345-D564-463C-AFF1-A69D9E530F96}" ap="x64-stable-multi-chrome">
+    <updatecheck/>
+  </app>
+  <app appid="{8A69D345-D564-463C-AFF1-A69D9E530F96}" ap="x64-beta-multi-chrome">
+    <updatecheck/>
+  </app>
+  <app appid="{8A69D345-D564-463C-AFF1-A69D9E530F96}" ap="x64-dev-statsdef_1">
+    <updatecheck/>
+  </app>
+</request>
 ```
 
 ## SQL
@@ -480,7 +510,7 @@ https://mirrors.ustc.edu.cn/vim/pc/vim80w32.zip
 
 https://mirrors.ustc.edu.cn/eclipse/technology/epp/downloads/release/oxygen/1a/eclipse-java-oxygen-1a-win32-x86_64.zip
 
-https://mirrors.ustc.edu.cn/qtproject/official_releases/qtcreator/4.4/4.4.1/installer_source/windows_vs2015_64/qtcreator.7z
+https://mirrors.ustc.edu.cn/qtproject/official_releases/qtcreator/4.5/4.5.0/installer_source/windows_vs2015_64/qtcreator.7z
 
 https://mirrors.ustc.edu.cn/gimp/stable/windows/gimp-2.8.22-setup.exe
 
