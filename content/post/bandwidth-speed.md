@@ -11,6 +11,8 @@ Updated on 2016-11-26
 
 http://openspeedtest.com/
 
+http://speedtest.xfinity.com/
+
 http://beta.speedtest.net/
 
 http://speedtest.hkg02.softlayer.com/speedtest/

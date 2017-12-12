@@ -1499,7 +1499,9 @@ public class Main {
             }
         }
 
-//      for (int i = 1; i <= N; i++) {//v1.5 过渡版本，有错误 (当 w_i > j 时，应当把 F[i - 1][j] 复制到 F[i][j])
+// https://github.com/tianyicui/pack/issues/6
+// v1.5 过渡版本，有错误 (当 w_i > j 时，应当把 F[i - 1][j] 复制到 F[i][j])
+//      for (int i = 1; i <= N; i++) {
 //          for (int j = w[i - 1]; j <= W; j++) {
 //              F[i][j] = Math.max(F[i - 1][j - w[i - 1]] + v[i - 1], F[i - 1][j]);
 //          }
