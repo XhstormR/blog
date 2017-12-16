@@ -32,7 +32,7 @@ Detach     分离
 2: 1 windows (created Sun Apr 10 13:32:15 2016) [83x47]
 haha: 1 windows (created Sun Apr 10 13:32:07 2016) [83x47]
 [root@controller ~]$ tmux a -t 2 #连接到 2 号会话，没有指定目标会自动连接到上一次使用的会话     Target(目标)
-[root@controller ~]$ tmux killl-server #关闭所有会话
+[root@controller ~]$ tmux kill-server #关闭所有会话
 
 Ctrl+D or `exit`     退出
 Ctrl+B - ?     列出所有快捷键
