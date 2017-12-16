@@ -476,11 +476,11 @@ https://www.centos.org/download/
 https://mirrors.cqu.edu.cn/
 https://mirrors.tuna.tsinghua.edu.cn/
 https://mirrors.ustc.edu.cn/
+https://mirrors.aliyun.com/
 http://mirrors.hust.edu.cn/
 http://mirror.bit.edu.cn/web/
 http://mirrors.163.com/
 http://mirrors.sohu.com/
-http://mirrors.aliyun.com/
 http://mirrors.yun-idc.com/
 
 RHEL：
