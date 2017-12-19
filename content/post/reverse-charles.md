@@ -52,4 +52,14 @@ java -noverify -jar charles.jar
   * https://github.com/apache/commons-bcel
 * http://www.benf.org/other/cfr/index.html
 
+```bash
+jclasslib
+----
+java -cp i4jruntime.jar;jclasslib-browser.jar;jclasslib-library.jar;annotations-13.0.jar;kotlin-stdlib-1.1.50.jar;kotlinx.dom-0.0.10.jar;miglayout-core-5.0.jar;miglayout-swing-5.0.jar; org.gjt.jclasslib.browser.BrowserApplication
+
+cfr
+----
+java -jar cfr_0_123.jar 123.jar --caseinsensitivefs true --outputdir 123
+```
+
 [{{< image "/uploads/file-into-picture2.png" "4.1.4" "0" "0" >}}](http://ww4.sinaimg.cn/large/a15b4afely1fhpf98jnuxj203k03k4r4)

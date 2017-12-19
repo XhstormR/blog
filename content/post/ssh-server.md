@@ -56,8 +56,8 @@ echo AuthorizedKeysFile .ssh/authorized_keys >> etc\ssh\sshd_config
 echo PasswordAuthentication no >> etc\ssh\sshd_config
 
 PS：
-md .12     创建空文件夹（`.` 前缀）
-type nul > .123     创建空文件（`.` 前缀）
+md .12            创建 '.' 前缀文件夹
+type nul > .123   创建 '.' 前缀文件
 ```
 
 ## 启动

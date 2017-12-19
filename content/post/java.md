@@ -90,7 +90,8 @@ Ctrl+Shift+减     折叠所有代码块
 Ctrl+Shift+加     展开所有代码块
 
 Alt+J     多选关键字
-Ctrl+Shift+Alt+J     全选关键字
+Alt+Shift+J     退选关键字
+Alt+Shift+Ctrl+J     全选关键字
 
 Ctrl+Alt+S     设置
 Ctrl+Shift+Alt+S     项目设置
@@ -911,16 +912,76 @@ private static String formatFileSize(long size) {     格式化文件大小
     String unit;
     if (size > (divisor = 1024 * 1024 * 1024)) {
         unit = "GB";
-    } else if (size > (divisor = 1024 * 1024)) {
+    } else if (size > (divisor /= 1024)) {
         unit = "MB";
-    } else if (size > (divisor = 1024)) {
+    } else if (size > (divisor /= 1024)) {
         unit = "KB";
     } else {
-        divisor = 1;
+        divisor /= 1024;
         unit = "B";
     }
     return numberFormat.format(size * 1.0 / divisor) + " " + unit;
 }
+
+-------------------------------------------------------
+
+布尔集合
+----
+BitSet set = new BitSet();
+set.set(0);
+set.set(1);
+set.set(2);
+set.set(5, false);
+set.set(6, true);
+set.set(7, true);
+set.flip(6);     反转
+System.out.println(set);
+System.out.println(set.cardinality());     真值数量
+System.out.println(set.length());     从最开始到最后 1(true) 位的位置的长度
+System.out.println(set.size());     总数量
+for (int i = set.nextSetBit(0); i >= 0; i = set.nextSetBit(i + 1)) {
+    System.out.printf("%d ", i);
+}
+----
+输出：
+{0, 1, 2, 7}
+4
+8
+64
+0 1 2 7
+
+判断字符串使用了哪些字符
+----
+String str = "How do you do";
+BitSet set = new BitSet();
+for (char c : str.toCharArray()) {
+    set.set(c);
+}
+set.clear(32); //将空格置为 false
+for (int i = set.nextSetBit(0); i >= 0; i = set.nextSetBit(i + 1)) {
+    System.out.print((char) i);
+}
+----
+输出：
+Hdouwy
+
+判断有几组成对数字
+----
+int[] ints = {1, 2, 2, 1, 1, 3, 5, 1, 2, 3};
+int pair = 0;
+BitSet set = new BitSet();
+for (int i : ints) {
+    if (set.get(i)) {
+        pair++;
+    }
+    set.flip(i);
+}
+System.out.println(set);     落单数字
+System.out.println(pair);    成对数字组数
+----
+输出：
+{2, 5}
+4
 ```
 
 ### 继承初始化执行顺序

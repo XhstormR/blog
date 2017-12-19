@@ -35,7 +35,7 @@ ifconfig #查看网卡信息
 grep service #取带有 service 字符的行
 awk '{print $2}' #取第 2 列     /123/ 模拟grep取行     NR==5 第5行
      ll | awk -F ' ' '/read/ {print $9}' #以空格为列分隔符，取带有 read 字符的行，取第 9 列
-sort #排序文本     -u 去重     -k 2 以第二列为目标     -t : 以 `:` 为分隔符     -r 以相反顺序来排序（降序）     -c 检查文本是否已排序     -o123 将结果存入 123 文件中
+sort #排序文本     -u 去重     -k 2 以第二列为目标     -t : 以 `:` 为分隔符     -r 以相反顺序来排序（降序）     -c 检查文本是否已排序     -o 123 将结果写入 123 文件
 wc   #统计文本     -l -w -c     行数 单词数 字节数
 less #分屏显示 -5 每次显示5行 -N 显示行号
 more #分页显示 -5 每次显示5行     推荐使用 less
@@ -201,8 +201,8 @@ updatedb #手动更新数据库
 ## ZModem
 ```
 yum -y install lrzsz #安装 ZModem
-rz #上传文件     对于 Linux Receive(收到)
-sz #下载文件     对于 Linux Send(发送)
+rz #上传文件     对于 Linux Receive（接收）
+sz #下载文件     对于 Linux Send（发送）
 ```
 
 ## parted
