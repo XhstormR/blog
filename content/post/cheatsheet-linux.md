@@ -32,14 +32,17 @@ head #查看文件内容头10行
 tail #查看文件内容尾10行 -f 监视文件最新增加的内容     Follow
 touch #创建空文件
 ifconfig #查看网卡信息
-grep service #取带有 service 字符的行
-awk '{print $2}' #取第 2 列     /123/ 模拟grep取行     NR==5 第5行
-     ll | awk -F ' ' '/read/ {print $9}' #以空格为列分隔符，取带有 read 字符的行，取第 9 列
+grep service #打印带有 service 字符的行
+awk '{print $2}' #打印第 2 列     /123/ 模拟grep取行     NR==5 第5行
+     ll | awk -F ' ' '/read/ {print $9}' #以空格为列分隔符，取带有 read 字符的行，打印第 9 列
 sort #排序文本     -u 去重     -k 2 以第二列为目标     -t : 以 `:` 为分隔符     -r 以相反顺序来排序（降序）     -c 检查文本是否已排序     -o 123 将结果写入 123 文件
 wc   #统计文本     -l -w -c     行数 单词数 字节数
-less #分屏显示 -5 每次显示5行 -N 显示行号
-more #分页显示 -5 每次显示5行     推荐使用 less
+less #分屏显示     -5 每次显示5行     -N 显示行号
+more #分页显示     -5 每次显示5行     推荐使用 less
 reset #初始化终端
+
+awk '/必修/ {sum+=$3} END {print sum}' 1.txt #取带有 必修 字符的行，求和第 3 列
+https://www.ibm.com/developerworks/cn/education/aix/au-gawk/index.html
 ```
 
 ## ls
@@ -1083,8 +1086,8 @@ Ctrl+C     终止当前命令
 Ctrl+D     退出登录
 Ctrl+A     光标移动到行首
 Ctrl+E     光标移动到行尾
-Ctrl+U     剪切光标之前的内容
-Ctrl+K     剪切光标之后的内容
+Ctrl+U     剪切光标前的内容
+Ctrl+K     剪切光标后的内容
 Ctrl+W     剪切光标前的一个字段
 Ctrl+Y     粘贴上一次快捷键剪切的内容
 Ctrl+?     撤消前一次动作
