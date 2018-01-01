@@ -7,7 +7,7 @@ title: Vim 命令不完全手册
 
 <!--more-->
 
-Updated on 2016-06-28
+Updated on 2018-01-02
 
 > https://github.com/vim/vim
 >
@@ -33,8 +33,9 @@ Ctrl+C     ESC
 Ctrl+N     自动补全     next
 Ctrl+P     自动补全     previous
 Ctrl+Y     自动输入与上一行相对应的字符
-Ctrl+U     删除光标前的内容
-Ctrl+W     删除光标前的一个字段
+Ctrl+W     删除光标前的一个单词
+Ctrl+U     删除光标前的所有字符
+Ctrl+R     插入寄存器内容
 
 底行模式常用指令
 :w     保存
@@ -47,7 +48,8 @@ Ctrl+W     删除光标前的一个字段
 :15    跳到第15行
 :e 123     打开 123 文件
 :e!     放弃修改重新编辑
-:bn     切换至下一缓冲区(文件)     (推荐)
+:b1     选择缓冲区(文件)     (推荐)
+:bn     切换至下一缓冲区
 :bN     切换至上一缓冲区
 :bd     关闭当前缓冲区
 :n     切换至下一个文件
@@ -126,12 +128,18 @@ Ctrl+^     在打开的文件中切换
 Ctrl+G     显示文本信息
 g+Ctrl+G     显示全局文本信息
 
+v     可视
+V     可视行
+Ctrl+Q     可视块 -> Shift+I     批量插入
+
+za     折叠 <-> 展开
+zM     折叠所有代码
+zR     展开所有代码
+
 di(     删除 () 中的内容     inner
 da[     删除 [] 中的内容，包括 []     all
 dtA     删除从光标处至 A 之间的内容     to
 dfA     删除从光标处至 A 之间的内容，包括 A     found
-----
-https://github.com/vim/vim/blob/master/runtime/doc/motion.txt#L692
 
 分割窗口
 :sp  123       水平分割窗口并打开文件123
@@ -142,23 +150,48 @@ Ctrl+W - Q     退出当前窗口
 Ctrl+W - W     切换窗口
 Ctrl+W - 方向键     选择窗口
 
-配置文件 /etc/vimrc
-----
-set nocp     "关闭 Vi 兼容模式
+Tips：
+大部分 Linux 发行版默认编辑器是 Vi，Vim 是它的升级版。
+二者的区别：
+https://zh.m.wikipedia.org/zh-cn/Vi
+https://zh.m.wikipedia.org/zh-cn/Vim
+
+配置文件：
+/etc/vimrc
+
+yum -y install vim #安装 Vim
+vim /root/.bashrc #设置别名，替换系统默认编辑器
+    alias vi=vim
+
+https://raw.githubusercontent.com/amix/vimrc/master/vimrcs/basic.vim
+
+https://raw.githubusercontent.com/vim/vim/master/runtime/rgb.txt
+https://raw.githubusercontent.com/vim/vim/master/runtime/doc/motion.txt
+https://raw.githubusercontent.com/vim/vim/master/runtime/doc/options.txt
+```
+
+## vimrc
+```
+set nocp     "取消兼容 Vi
 set hlsearch     "高亮搜索
 set incsearch     "实时搜索
 set smartcase     "智能区分大小写
 set ignorecase     "始终不区分大小写
-set ruler     "显示行列信息
-set number     "显示行号
+set ruler      "显示行列信息
+set number     "显示行号信息
 set showcmd     "显示命令
 set showmode     "显示模式
+set showmatch     "显示配对括号
+set matchtime=10     "显示 1s
+set linebreak     "整词换行
 set wildmenu     "显示补全行
 set cursorline     "高亮当前行
 set encoding=utf-8     "设置文件编码
+set fileencoding=utf-8     "设置文件编码
 set scrolloff=5     "滚动缓冲区
 set laststatus=2     "总是显示状态栏
-set statusline=%F%m     "设置状态栏
+"set statusline=%F%m     "设置状态栏
+set colorcolumn=78     "对齐线
 set backspace=indent,eol,start     "使退格键工作
 set tabstop=4     "4 空格
 set shiftwidth=4     "4 空格
@@ -168,38 +201,64 @@ set expandtab     "使用空格而不是 TAB
 set cindent     "使用 C 系缩进
 set autoindent     "自动缩进
 set smartindent     "智能缩进
-set showmatch     "显示配对括号
-set matchtime=15     "显示 1.5s
+set foldmethod=syntax     "开启代码折叠
+set nofoldenable     "不自动进行代码折叠
+set virtualedit=block     "启用虚拟编辑
+
+setf c     "设置文件类型
 syntax on     "开启语法高亮
+syntax enable     "开启语法高亮
 filetype on     "开启文件类型检测
 filetype indent on     "开启缩进规则
-setf c     "设置文件类型
-:autocmd InsertEnter,InsertLeave * set cursorline!     "高亮当前行切换显示
-nmap <F2> :nohlsearch<CR>     "在命令模式下按 F2 相当于输入 `:nohlsearch` 跟一个回车，取消搜索高亮
-nmap <F8> :w <CR> :!gcc % -o %< && %< <CR>     "保存 -> 编译 -> 运行
+
+autocmd InsertEnter,InsertLeave * set cursorline!     "高亮当前行切换显示
+
+nmap <silent> <F2> :nohlsearch <CR>     "在命令模式下按 F2 相当于输入 `:nohlsearch` 跟一个回车，取消搜索高亮
+nmap <silent> <F8> :w <CR> :!gcc % -o %< && %< <CR>     "保存 -> 编译 -> 运行
+
+nmap <silent> <C-H> <C-W>h     "快速选择窗口
+nmap <silent> <C-J> <C-W>j
+nmap <silent> <C-K> <C-W>k
+nmap <silent> <C-L> <C-W>l
+
+let mapleader=";"     "定义 <Leader>
+vmap <Leader>y "+y     "vim 复制至系统剪贴板
+nmap <Leader>p "+p     "系统剪贴板粘贴至 vim
+
 if has("gui_running")     "GUI
   colorscheme evening     "配色方案
-  set lines=45 columns=120     "窗口大小
-  set guifont=Consolas:h12:cANSI     ""字体大小
+  set lines=50 columns=120     "窗口大小
+  set guifont=Consolas:h10:cANSI     "字体大小
+  set guicursor+=a:blinkon0     "取消光标闪烁
+  set guioptions-=m     "取消菜单栏
+  set guioptions-=T     "取消工具栏
+  set guioptions-=l     "取消左滚动条
+  set guioptions-=L     "取消左滚动条
+
+  nmap <silent> <F3> :call ToggleScreen()<CR>
+  nmap <silent> <F4> :call ToggleMenu()<CR>
+
+  let s:flag_screen = 0
+  let s:flag_menu = 0
+
+  function ToggleScreen()
+    if s:flag_screen
+      simalt ~r~     "窗口还原
+    else
+      simalt ~x~     "窗口最大化
+    endif
+    let s:flag_screen = !s:flag_screen     "取反
+  endfunction
+  function ToggleMenu()
+    if s:flag_menu
+      set guioptions-=m
+      set guioptions-=T
+    else
+      set guioptions+=m
+      set guioptions+=T
+    endif
+    let s:flag_menu = !s:flag_menu
+  endfunction
+
 endif
-
-Tips：
-yum -y install vim #安装 Vim
-vim /root/.bashrc #设置别名，替换系统默认编辑器
-    alias vi=vim
-
-大部分 Linux 发行版默认编辑器是 Vi，Vim 是它的升级版。
-二者的区别：
-https://zh.m.wikipedia.org/zh-cn/Vi
-https://zh.m.wikipedia.org/zh-cn/Vim
-
-语法高亮文件：
-https://raw.githubusercontent.com/vim/vim/master/runtime/rgb.txt
-https://raw.githubusercontent.com/vim/vim/master/runtime/syntax/c.vim
-https://raw.githubusercontent.com/vim/vim/master/runtime/syntax/syntax.vim
-https://raw.githubusercontent.com/vim/vim/master/runtime/syntax/synload.vim
-https://raw.githubusercontent.com/vim/vim/master/runtime/syntax/syncolor.vim
-
-https://raw.githubusercontent.com/amix/vimrc/master/vimrcs/basic.vim
-https://raw.githubusercontent.com/vim/vim/master/runtime/doc/options.txt
 ```

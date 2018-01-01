@@ -11,9 +11,9 @@ Updated on 2016-11-07
 
 > {{< image "/uploads/git2.png" "Git" "1" "1" >}}
 >
-> https://git-scm.com/book/zh/v2
+> https://git-scm.com/book/zh
 >
-> http://ndpsoftware.com/git-cheatsheet.html
+> https://ndpsoftware.com/git-cheatsheet.html
 >
 > https://backlog.com/git-tutorial/cn/contents/
 >
