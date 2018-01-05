@@ -247,14 +247,13 @@ D:\>java abc.A
 HelloWorld!
 
 -------------------------------------------------------
-Kotlin：
 
 fun main(args: Array<String>) {
     println("HelloWorld!")
 }
 
 D:\kotlinc\bin>kotlinc A.kt
-D:\kotlinc\bin>java -cp kotlin-runtime.jar;kotlin-reflect.jar; AKt
+D:\kotlinc\bin>java -cp kotlin-stdlib.jar; AKt
 HelloWorld!
 or
 D:\kotlinc\bin>kotlinc -include-runtime -d 123.jar A.kt

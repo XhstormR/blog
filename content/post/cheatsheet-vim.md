@@ -176,7 +176,7 @@ set nocp     "取消兼容 Vi
 set hlsearch     "高亮搜索
 set incsearch     "实时搜索
 set smartcase     "智能区分大小写
-set ignorecase     "始终不区分大小写
+set ignorecase     "不区分大小写
 set ruler      "显示行列信息
 set number     "显示行号信息
 set showcmd     "显示命令

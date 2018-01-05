@@ -470,7 +470,7 @@ https://mirrors.ustc.edu.cn/apache/tika/tika-app-1.17.jar
 java -jar tika-app-1.17.jar -h 123 > 123.html
 
 https://mirrors.ustc.edu.cn/node/latest/node-v9.3.0-win-x64.7z
-https://cdn.npm.taobao.org/primer-markdown/-/primer-markdown-3.7.3.tgz
+https://cdn.npm.taobao.org/primer-markdown/-/primer-markdown-3.7.4.tgz
 https://npm.taobao.org/mirrors/
 ----
 npm --registry=https://registry.npm.taobao.org install -g test
@@ -524,7 +524,7 @@ http://www.oracle.com/technetwork/database/features/instant-client/index.html
 sqlplus username/password@127.0.0.1:1521/cqsfjwdb
 
 Navicat：
-http://download3.navicat.com/download/navicat120_premium_cs_x64.exe
+http://download.navicat.com/download/navicat120_premium_cs_x64.exe
 ```
 
 ```sql
@@ -690,6 +690,7 @@ pause
 calc
 SnippingTool
 ping z.cn
+doskey /history
 date /t && time /t
 fc /n /w 1.txt 2.txt
 ```
@@ -765,7 +766,7 @@ dotnet publish -c abc -r win-x64
 hello.exe
 
 Core：
-https://www.microsoft.com/net/download/core
+https://www.microsoft.com/net/download/windows
 Framework：
 C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe
 
