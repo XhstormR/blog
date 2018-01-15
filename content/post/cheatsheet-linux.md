@@ -33,16 +33,11 @@ tail #查看文件内容尾10行 -f 监视文件最新增加的内容     Follow
 touch #创建空文件
 ifconfig #查看网卡信息
 grep service #打印带有 service 字符的行
-awk '{print $2}' #打印第 2 列     /123/ 模拟grep取行     NR==5 第5行
-     ll | awk -F ' ' '/read/ {print $9}' #以空格为列分隔符，取带有 read 字符的行，打印第 9 列
 sort #排序文本     -u 去重     -k 2 以第二列为目标     -t : 以 `:` 为分隔符     -r 以相反顺序来排序（降序）     -c 检查文本是否已排序     -o 123 将结果写入 123 文件
 wc   #统计文本     -l -w -c     行数 单词数 字节数
 less #分屏显示     -5 每次显示5行     -N 显示行号
 more #分页显示     -5 每次显示5行     推荐使用 less
 reset #初始化终端
-
-awk '/必修/ {sum+=$3} END {print sum}' 1.txt #取带有 必修 字符的行，求和第 3 列
-https://www.ibm.com/developerworks/cn/education/aix/au-gawk/index.html
 ```
 
 ## ls
@@ -503,6 +498,16 @@ grep ^[a-z] /etc/nova/nova.conf #使用正则表达式去掉注释
 grep -vn -e ^井 -e '^$' /etc/vsftpd/vsftpd.conf #使用正则表达式取反去掉注释和空行并显示行号
 ```
 
+## awk
+```bash
+awk '{print $2}' 1.txt #打印第 2 列
+awk 'NR==1,NR==2 {print $2}' 1.txt #打印第 1、2 行的第 2 列
+awk '/必修/ {sum+=$3} END {print sum}' 1.txt #取带有 必修 字符的行，求和第 3 列     /123/ 模拟grep取行
+awk -F ' ' '/read/ {print $2}' 1.txt #以空格为列分隔符，取带有 read 字符的行，打印第 2 列
+
+https://www.ibm.com/developerworks/cn/education/aix/au-gawk/index.html
+```
+
 ## sed
 ```
 -i #将修改写入文件
@@ -511,9 +516,9 @@ grep -vn -e ^井 -e '^$' /etc/vsftpd/vsftpd.conf #使用正则表达式取反去
 命令
 d #删除
 
-sed -i -e '/^$/d' -e '/^#/d' openrc.sh #删除 空白行 和 注释行
-sed -i 's/123/456/g' 123.txt   #每一行中的 123 替换为 456
-sed -i "s/\(^\)/TEST/" 123.txt #每一行的开头写入 TEST
+sed -i 's/123/456/g'  1.txt #每一行中的 123 替换为 456
+sed -i 's/\(^\)/123/' 1.txt #每一行的开头写入 123
+sed -i -e '/^$/d' -e '/^#/d' 1.txt #删除 空白行 和 注释行
 ```
 
 ## mount

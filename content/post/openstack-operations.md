@@ -25,7 +25,7 @@ Updated on 2016-10-06
 -v #显示详细信息     Verbose
 -------------------------------------------------------
 -A "Mozilla/5.0 (Linux; Android 5.1.1; Nexus 6 Build/LYZ28E) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.20 Mobile Safari/537.36" #指定 User-Agent
--e "www.qq.com" #指定 Referer URL
+-e "www.qq.com" #指定 Referrer URL
 -x 10.34.3.71:808 #指定代理服务器
 -o "123.7z" #保存至本地
 -O #根据服务器上的文件名自动保存至本地
