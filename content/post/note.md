@@ -735,24 +735,26 @@ https://code.google.com/archive/p/msys-cn/
 
 http://zh.cppreference.com/w/c
 http://www.cplusplus.com/reference/clibrary/
+http://pubs.opengroup.org/onlinepubs/9699919799/idx/index.html
+https://docs.microsoft.com/zh-cn/cpp/c-runtime-library/run-time-routines-by-category
 
 CMake：
-https://cmake.org/Wiki/CMake_Useful_Variables
+https://cmake.org/cmake/help/latest/
 
 MFC：
-https://msdn.microsoft.com/zh-cn/library/d06h2x6e.aspx
+https://docs.microsoft.com/zh-cn/cpp/mfc/mfc-desktop-applications
 
 GCC：
 https://gcc.gnu.org/onlinedocs/gcc/Option-Index.html
 
 IDE：
+qtcreator
 https://www.jetbrains.com/clion/download/
 https://sourceforge.net/projects/orwelldevcpp/
 
 Templates：
 https://svn.code.sf.net/p/codeblocks/code/trunk/src/templates/
 https://sourceforge.net/p/orwelldevcpp/code/ci/master/tree/Templates/
-https://git.eclipse.org/c/cdt/org.eclipse.cdt.git/plain/build/org.eclipse.cdt.managedbuilder.gnu.ui/templates/projecttemplates/
 ```
 
 ## C\#（.NET Core）
