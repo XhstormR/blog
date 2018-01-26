@@ -9,7 +9,7 @@ title: Aria2 Configuration
 
 Updated on 2016-08-23
 
-> [![](/uploads/file-into-picture2.png)](http://ww4.sinaimg.cn/large/a15b4afegy1fhg25phkjkj203k03ke81)
+> [![](/uploads/file-into-picture2.png)](https://i.loli.net/2018/01/26/5a6a9d7640095.png)
 >
 > https://aria2.github.io/
 >

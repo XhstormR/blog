@@ -266,6 +266,7 @@ http://interface.bilibili.com/playurl?cid=8551612&appkey=6f90a59ac58a4123&otype=
 
 * Format：
   * http://www.jsonschema2pojo.org/
+  * https://prettier.io/playground/
   * https://jsonformatter.curiousconcept.com/
   * https://github.com/tulios/json-viewer
   * https://github.com/stedolan/jq/releases/latest
