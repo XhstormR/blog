@@ -433,6 +433,8 @@ https://docs.microsoft.com/en-us/sysinternals/downloads/
 
 https://bellard.org/tcc/
 
+http://prereleases.llvm.org/win-snapshots/clang-format-r323406.exe
+
 https://frippery.org/files/busybox/busybox64.exe
 
 https://www.wireshark.org/download.html
