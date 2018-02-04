@@ -353,6 +353,10 @@ git add .
 git clean -fdxn
 
 git gc --prune=all
+
+git reset --soft HEAD^
+
+git submodule update --remote
 ```
 
 ```bash
