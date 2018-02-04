@@ -230,7 +230,7 @@ https://github.com/mholt/caddy/blob/master/caddyhttp/browse/setup.go#L101
 ```html
 Curl：
 https://curl.haxx.se/download.html#Win64
-curl -x 10.34.3.71:808 www.baidu.com
+curl -x socks5://127.0.0.1:1080 www.baidu.com
 
 curl -Oku XhstormR:123456 "sftp://127.0.0.1/d/download/123.txt"
 
