@@ -29,6 +29,53 @@ Updated on 2016-11-22
 > |
 > [Book](https://rxjava.yuxingxin.com/)
 
+## Java Native
+```java
+import java.util.Observable;
+import java.util.Observer;
+
+public class Main {
+    public static void main(String[] args) {
+        Subject subject = new Subject();
+        Consumer consumer = new Consumer();
+
+        subject.addObserver(consumer); // 被观察者添加观察者
+
+        subject.setData("123");
+        subject.setData("123");
+        subject.setData("456");
+        subject.setData("456");
+    }
+
+    private static class Subject extends Observable { // 被观察者需要继承类
+        private String data = "";
+
+        public String getData() {
+            return data;
+        }
+
+        public void setData(String data) {
+            if (data == null || this.data.equals(data)) return; // 过滤无效数据
+
+            this.data = data;
+            setChanged(); // 设置 flag
+            notifyObservers(data); // 通知观察者
+        }
+    }
+
+    private static class Consumer implements Observer { // 观察者需要实现接口
+        @Override
+        public void update(Observable o, Object arg) {
+            System.out.println("Update: " + arg);
+        }
+    }
+}
+----
+输出：
+Update: 123
+Update: 456
+```
+
 ## Observable - 被观察者
 ```java
 Observable<String> observable = Observable.create(new Observable.OnSubscribe<String>() {     传入 OnSubscribe，描述事件

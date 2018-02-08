@@ -18,7 +18,7 @@ Updated on 2017-05-14
 >
 > https://www.postgresql.org/docs/current/static/index.html
 >
-> https://dl.bintray.com/hibernate/bundles/org/hibernate/hibernate-release/
+> https://jcenter.bintray.com/org/hibernate/hibernate-core/
 
 ## Configuration
 ### build.gradle.kts
