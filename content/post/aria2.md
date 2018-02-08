@@ -9,7 +9,7 @@ title: Aria2 Configuration
 
 Updated on 2016-08-23
 
-> [![](/uploads/file-into-picture2.png)](https://i.loli.net/2018/01/26/5a6a9d7640095.png)
+> [![](/uploads/file-into-picture2.png)](https://i.loli.net/2018/02/08/5a7bcbdc94dec.png)
 >
 > https://aria2.github.io/
 >
@@ -42,17 +42,10 @@ bt-enable-lpd=true
 follow-torrent=true
 http-no-cache=true
 check-certificate=false
-referer=http://pan.baidu.com/disk/home
-user-agent=netdisk;5.3.4.5;PC;PC-Windows;5.1.2600;WindowsBaiduYunGuanJia
 seed-time=0
 max-overall-upload-limit=10K
 remote-time=true
 content-disposition-default-utf8=true
-```
-
-## YAAW Header
-```
-User-Agent: netdisk;5.3.4.5;PC;PC-Windows;5.1.2600;WindowsBaiduYunGuanJia
-Referer: http://pan.baidu.com/disk/home
-Cookie: BDUSS=R5NkU3VpqfnphNk1QSmxYQVFBQUTjYhaUDlCVDhWVHJ5YjR5bWX-aEJYQVFBQUFBJCQAAAAAAAAAAAEAAAC21z4NZTY3NDA4MDg5NAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJcleVR3JXcE;pcsett=1472103419-44b9b9655323f1c99f6a0bd8e5cb58cc
+user-agent=Windows
+referer=https://www.bilibili.com/
 ```

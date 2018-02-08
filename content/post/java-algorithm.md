@@ -1705,3 +1705,82 @@ public class Main {
 -1	0	0	1	0	3	3	5	5
 97542
 ```
+
+## String reorder
+```java
+import java.util.Scanner;
+
+public class Main {
+    private static final int[] MAP = new int[36]; // 下标为哈希后的元素，值为出现次数
+
+    public static void main(String[] args) {
+        try (Scanner scanner = new Scanner(System.in)) {
+            while (scanner.hasNextLine()) {
+                String s = scanner.nextLine();
+                if (initHash(s)) {
+                    print();
+                } else {
+                    System.out.println(false);
+                }
+                reset();
+            }
+        }
+    }
+
+    private static boolean initHash(String s) { // 初始化哈希表
+        final int len = s.length();
+
+        for (int i = 0; i < len; i++) {
+            int pos = hash(s.charAt(i));
+            if (pos == -1) {
+                return false;
+            } else {
+                MAP[pos]++;
+            }
+        }
+
+        return true;
+    }
+
+    private static int hash(char c) { // 计算元素在哈希表中的位置
+        if (c >= '0' && c <= '9') {
+            return c - '0';
+        } else if (c >= 'a' && c <= 'z') {
+            return c - 'a' + 10;
+        } else {
+            return -1;
+        }
+    }
+
+    private static void print() { // 轮询哈希表输出字符
+        final int len = MAP.length;
+        boolean printed;
+
+        do {
+            printed = false;
+
+            for (int i = 0; i < len; i++) {
+                if (MAP[i] > 0) {
+                    MAP[i]--;
+                    printed = true;
+                    if (i < 10) {
+                        System.out.print((char) (i + '0'));
+                    } else {
+                        System.out.print((char) (i + 'a' - 10));
+                    }
+                }
+            }
+        } while (printed);
+
+        System.out.println();
+    }
+
+    private static void reset() { // 重置哈希表
+        final int len = MAP.length;
+
+        for (int i = 0; i < len; i++) {
+            MAP[i] = 0;
+        }
+    }
+}
+```

@@ -480,14 +480,14 @@ npm --registry=https://registry.npm.taobao.org install -g test
 PSP：
 https://www.ppsspp.org/downloads.html
 https://github.com/hrydgard/ppsspp
-http://buildbot.orphis.net/ppsspp/
+https://buildbot.orphis.net/ppsspp/
 ----
 模拟手柄：https://github.com/RetroPie/RetroPie-Setup/wiki/PSP-FuSa-gamepad
 
 PS2：
 http://pcsx2.net/download/releases/windows/category/40-windows.html
 https://github.com/PCSX2/pcsx2
-http://buildbot.orphis.net/pcsx2/
+https://buildbot.orphis.net/pcsx2/
 
 PS3：
 https://rpcs3.net/download
@@ -750,7 +750,7 @@ GCC：
 https://gcc.gnu.org/onlinedocs/gcc/Option-Index.html
 
 IDE：
-qtcreator
+https://www1.qt.io/offline-installers/#section-11
 https://www.jetbrains.com/clion/download/
 https://sourceforge.net/projects/orwelldevcpp/
 
