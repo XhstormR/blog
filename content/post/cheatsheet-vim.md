@@ -247,8 +247,9 @@ if has("gui_running")     "GUI
     else
       simalt ~x~     "窗口最大化
     endif
-    let s:flag_screen = !s:flag_screen     "取反
+    let s:flag_screen = !s:flag_screen     ""取反
   endfunction
+
   function ToggleMenu()
     if s:flag_menu
       set guioptions-=m

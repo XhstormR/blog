@@ -163,23 +163,6 @@ https://download-origin.cdn.mozilla.net/pub/firefox/
 https://download-installer.cdn.mozilla.net/pub/firefox/
 ```
 
-## Pandoc
-```bash
-Markdown ➜ HTML：
-pandoc -o 123.html 123.md
-
-使用指定 CSS：
-pandoc -o 123.html -c 123.css 123.md
-
-生成独立 HTML：
-pandoc -o 123.html -c 123.css --self-contained 123.md
-
-----
-
-DOCX ➜ PDF（需要 wkhtmltopdf）：
-pandoc -o 123.pdf -t html5 -c 123.css 123.docx
-```
-
 ## Server（Win）
 ```bash
 Apache：
@@ -212,7 +195,7 @@ Caddy：
 Caddy.exe -host 0.0.0.0 -port 80 "browse / ./1.txt" "gzip" "log stdout" "errors stdout" "header / -Server" "root ."
 ----
 Browse Template：
-https://github.com/mholt/caddy/blob/master/caddyhttp/browse/setup.go#L101
+https://github.com/mholt/caddy/blob/master/caddyhttp/browse/setup.go#L116
 ```
 
 ## 善用佳软
@@ -471,8 +454,8 @@ https://mirrors.ustc.edu.cn/apache/tika/tika-app-1.17.jar
 ----
 java -jar tika-app-1.17.jar -h 123 > 123.html
 
-https://mirrors.ustc.edu.cn/node/latest/node-v9.3.0-win-x64.7z
-https://cdn.npm.taobao.org/primer-markdown/-/primer-markdown-3.7.4.tgz
+https://mirrors.ustc.edu.cn/node/latest/node-v9.5.0-win-x64.7z
+https://cdn.npm.taobao.org/primer-markdown/-/primer-markdown-3.7.5.tgz
 https://npm.taobao.org/mirrors/
 ----
 npm --registry=https://registry.npm.taobao.org install -g test
@@ -624,6 +607,35 @@ reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\TimeBrokerSvc /v St
 解析：https://my.incapsula.com/mysites
 ```
 
+## Pandoc
+```bash
+Markdown ➜ HTML：
+pandoc -s -o 123.html --self-contained 123.md
+
+Markdown ➜ PDF（需要 wkhtmltopdf）：
+pandoc -s -o 123.pdf -c file:///D:/Download/123.css -f commonmark -t html5 ^
+-V papersize:a4 ^
+-M pagetitle:123 ^
+-B 1.txt ^
+-A 2.txt ^
+123.md
+
+123.css: primer-markdown
+1.txt: <div class="markdown-body">
+2.txt: </div>
+
+https://github.com/jgm/pandoc
+https://github.com/wkhtmltopdf/wkhtmltopdf
+https://raw.githubusercontent.com/jgm/pandoc-templates/master/default.html5
+```
+
+## Xpdf
+```bash
+pdftotext -layout -nopgbrk -enc UTF-8 123.pdf - | grep 123
+
+https://www.xpdfreader.com/pdftotext-man.html
+```
+
 ## ImageMagick
 ```html
 magick.exe convert -size 1000 123.svg 123.png     svg ➜ png
@@ -633,9 +645,9 @@ magick.exe convert -transparent white -fuzz 25% 123.png 456.png     透明图片
 
 https://www.imagemagick.org/script/download.php#windows
 ----
-转换 PDF：https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/latest     将 gswin64c.exe 更名为 gs.exe
-操作 PDF：https://github.com/coherentgraphics/cpdf-binaries
-查看 PDF：https://mupdf.com/downloads/
+转换 PDF: https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/latest     将 gswin64c.exe 更名为 gs.exe
+操作 PDF: https://github.com/coherentgraphics/cpdf-binaries
+查看 PDF: https://mupdf.com/downloads/
 
 https://pngquant.org/
 http://advsys.net/ken/utils.htm
