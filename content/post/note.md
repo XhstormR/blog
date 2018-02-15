@@ -661,6 +661,11 @@ http://editor.method.ac/
 http://127.0.0.1/draw/war/index.html?lang=zh&https=0&local=1&demo=1
 ```
 
+## UTF-8 with BOM
+```bash
+(busybox printf "\xEF\xBB\xBF" & iconv -f UTF-16 -t UTF-8 123.txt) > 456.txt
+```
+
 ## 回车和换行
 ```html
 回车（CR）：\r

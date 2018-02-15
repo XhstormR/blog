@@ -20,11 +20,12 @@ Updated on 2017-09-01
 ```
 D:\Work\Download>
 
-git clone https://github.com/stedolan/jq.git
+git clone --recursive https://github.com/stedolan/jq.git
 cd jq
-git submodule update --init
 
-autoreconf -fi && ./configure --with-oniguruma=builtin && make -j8
+mkdir build ; cd build
+autoreconf -fi ..
+../configure --with-oniguruma=builtin --enable-shared=no --enable-static=yes CFLAGS='-s -static -Os' && make -j4
 ```
 
 ## Reference
@@ -34,6 +35,6 @@ autoreconf -fi && ./configure --with-oniguruma=builtin && make -j8
 * 构建：
   * libtool：[src](https://ftp.gnu.org/gnu/libtool/?C=M;O=D) | [bin](https://mirrors.ustc.edu.cn/msys2/msys/x86_64/libtool-2.4.6-2-x86_64.pkg.tar.xz)
   * make：[src](https://ftp.gnu.org/gnu/make/?C=M;O=D) | [bin](https://mirrors.ustc.edu.cn/msys2/msys/x86_64/make-4.2.1-1-x86_64.pkg.tar.xz)
-  * automake：[src](https://ftp.gnu.org/gnu/automake/?C=M;O=D) | [bin](https://mirrors.ustc.edu.cn/msys2/msys/x86_64/automake1.15-1.15-2-any.pkg.tar.xz)
+  * automake：[src](https://ftp.gnu.org/gnu/automake/?C=M;O=D) | [bin](https://mirrors.ustc.edu.cn/msys2/msys/x86_64/automake1.15-1.15.1-1-any.pkg.tar.xz)
       * autoconf：[src](https://ftp.gnu.org/gnu/autoconf/?C=M;O=D) | [bin](https://mirrors.ustc.edu.cn/msys2/msys/x86_64/autoconf-2.69-3-any.pkg.tar.xz)
           * m4：[src](https://ftp.gnu.org/gnu/m4/?C=M;O=D) | [bin](https://mirrors.ustc.edu.cn/msys2/msys/x86_64/m4-1.4.18-1-x86_64.pkg.tar.xz)

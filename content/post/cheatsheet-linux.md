@@ -526,11 +526,14 @@ https://www.ibm.com/developerworks/cn/education/aix/au-gawk/index.html
 -e #执行多条编辑命令
 
 命令
+s #替换
 d #删除
 
 sed -i 's/123/456/g'  1.txt #每一行中的 123 替换为 456
 sed -i 's/\(^\)/123/' 1.txt #每一行的开头写入 123
 sed -i -e '/^$/d' -e '/^#/d' 1.txt #删除 空白行 和 注释行
+
+https://www.gnu.org/software/sed/manual/html_node/sed-commands-list.html#sed-commands-list
 ```
 
 ## mount
