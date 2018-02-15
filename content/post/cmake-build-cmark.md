@@ -26,7 +26,7 @@ echo set(CMAKE_INSTALL_PREFIX "456" CACHE PATH "" FORCE) >> PreLoad.cmake
 
 md 123 && cd 123 && cmake .. && mingw32-make && mingw32-make install
 
-strip -sv cmark.exe -o 123.exe   #清除所有标记
+strip -sv -o 123.exe cmark.exe   #清除所有标记
 objdump -p cmark.exe | more      #查看程序信息
 ```
 
