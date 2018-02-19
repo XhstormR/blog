@@ -28,7 +28,8 @@ Updated on 2016-10-06
 -e "www.qq.com" #指定 Referrer URL
 -x 10.34.3.71:808 #指定代理服务器
 -o "123.7z" #保存至本地
--O #根据服务器上的文件名自动保存至本地
+-O #使用服务器上的文件名
+-R #使用服务器上的文件修改时间
 -b "NAME1=VALUE1; NAME2=VALUE2" #设置 Cookie
 -b 123.txt #读取 Cookie
 -c 123.txt #保存 Cookie
