@@ -300,7 +300,7 @@ https://duckduckgo.com/?q=123
 
 https://www.google.com/search?newwindow=1&q=123
 
-https://encrypted.google.com/ncr
+https://www.google.com/ncr
 ----
 site:example.com filetype:pdf "电子书没有采用专有" -去除关键字
 ----
@@ -358,15 +358,15 @@ https://www.apk4fun.com/
 http://code.taobao.org/svn/mychrome/trunk/MyChrome.au3
 https://github.com/google/omaha/blob/master/doc/ServerProtocolV3.md
 
-curl -k -X POST https://update.googleapis.com/service/update2 -T 123.txt
+curl -sk -X POST https://update.googleapis.com/service/update2 -T 123.txt
 ⬇️
-type 123.txt | curl -k https://update.googleapis.com/service/update2 -d @-
+type 123.txt | curl -sk https://update.googleapis.com/service/update2 -d @-
 ⬇️
-curl -k https://update.googleapis.com/service/update2 -d @- < 123.txt
+curl -sk https://update.googleapis.com/service/update2 -d @- < 123.txt
 ⬇️
-curl -k https://update.googleapis.com/service/update2 -d @123.txt
+curl -sk https://update.googleapis.com/service/update2 -d @123.txt
 ⬇️
-curl -k https://update.googleapis.com/service/update2 -d @123.txt | xmllint --format - > 123.xml
+curl -sk https://update.googleapis.com/service/update2 -d @123.txt | xmllint --format -o 123.xml -
 
 123.txt
 ⇳
@@ -626,7 +626,8 @@ pandoc -s -o 123.pdf -c file:///D:/Download/123.css -f commonmark -t html5 ^
 
 https://github.com/jgm/pandoc
 https://github.com/wkhtmltopdf/wkhtmltopdf
-https://raw.githubusercontent.com/jgm/pandoc-templates/master/default.html5
+https://github.com/jgm/pandoc-templates/blob/master/default.html5
+https://github.com/JetBrains/kotlin-web-site/blob/master/src/pdf.py
 ```
 
 ## Xpdf
@@ -876,8 +877,16 @@ Office16\office.dat
 http://ww4.sinaimg.cn/large/a15b4afegy1fk3opedx7sj203k03kt99
 ```
 
+## Replace Notepad
+```bash
+Install:
+reg add "HKLM\Software\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\notepad.exe" /v "Debugger" /t REG_SZ /d "\"%~dp0Notepad2.exe\" /z" /f
+Uninstall:
+reg delete "HKLM\Software\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\notepad.exe" /f
+```
+
 ## Photoshop
-```html
+```
 1. 仿制图章
 2. 栅格化文字
 3. 滤镜 -> 杂色 -> 添加杂色 -> 单色 30%
