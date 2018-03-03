@@ -176,7 +176,7 @@ https://github.com/mholt/caddy/releases/latest
 
 Serv-U：
 https://support.solarwinds.com/Success_Center/Serv-U_Managed_File_Transfer_Serv-U_FTP_Server/release_notes
-https://downloads.solarwinds.com/solarwinds/Release/SU/15.1.5/SU-FTP-Server-Windows-v15.1.5.zip
+https://downloads.solarwinds.com/solarwinds/Release/SU/15.1.6/SU-FTP-Server-Windows-v15.1.6.zip
 ```
 
 ## 目录索引
@@ -218,7 +218,7 @@ curl -x socks5://127.0.0.1:1080 www.baidu.com
 curl -Oku XhstormR:123456 "sftp://127.0.0.1/d/download/123.txt"
 
 Wget：
-https://eternallybored.org/misc/wget/current/wget64.exe
+https://eternallybored.org/misc/wget/current/wget.exe
 wget -e "http_proxy=10.34.3.71:808" www.baidu.com
 
 Aria2：
@@ -226,6 +226,11 @@ https://github.com/aria2/aria2/releases/latest
 aria2c --all-proxy="10.34.3.71:808" --max-connection-per-server=10 --min-split-size=5M http://www.baidu.com/
 
 https://www.gnu.org/software/wget/manual/wget.html
+```
+
+## Wget 递归下载
+```bash
+wget -m -k -E -np -c -N --no-if-modified-since -p -P ./123 https://java.sx/java/index.html
 ```
 
 ## Xshell & Xftp
@@ -355,7 +360,7 @@ https://www.apk4fun.com/
 ```
 
 ```bash
-http://code.taobao.org/svn/mychrome/trunk/MyChrome.au3
+https://github.com/cnjackchen/my-chrome/blob/master/MyChrome.au3#L2680
 https://github.com/google/omaha/blob/master/doc/ServerProtocolV3.md
 
 curl -sk -X POST https://update.googleapis.com/service/update2 -T 123.txt
@@ -426,7 +431,7 @@ https://www.cs.princeton.edu/~bwk/btl.mirror/index.html
 
 https://github.com/Aegisub/Aegisub/releases/latest
 
-http://free.nchc.org.tw/tdf/libreoffice/stable/5.4.1/win/x86_64/LibreOffice_5.4.1_Win_x64.msi
+https://free.nchc.org.tw/tdf/libreoffice/stable/6.0.1/win/x86_64/LibreOffice_6.0.1_Win_x64.msi
 
 https://cloud.bluestacks.com/api/getdownloadnow
 
@@ -537,11 +542,6 @@ WHERE NAME = 'ADMIN';
 SELECT *
 FROM SYS.DBA_USERS
 WHERE USERNAME = 'ADMIN';
-```
-
-## Wget 递归下载
-```bash
-wget -m -k -E -np -c -N --no-if-modified-since -p -P ./123 https://java.sx/java/index.html
 ```
 
 ## FFmpeg
@@ -736,6 +736,12 @@ https://www.bilibili.com/blackboard/help.html#p
 https://live.bilibili.com/help/#uh5
 ```
 
+## Bilibili 专栏取消复制限制
+```html
+$(".article-holder").removeClass("unable-reprint");
+$(".article-holder").off("copy");
+```
+
 ## SumatraPDF
 ```html
 TextColor = #a9b7c6
@@ -845,16 +851,21 @@ PS：4 天死磕的教训，软件编程方面少跟 **微软的系统组件** �
 123.xml
 ⇳
 <Configuration>
-    <Add SourcePath="D:\Download\Office\" OfficeClientEdition="32" Channel="Monthly">
+    <Add SourcePath="D:\Download\Office\" OfficeClientEdition="64" Channel="Monthly">
         <Product ID="WordRetail">
             <Language ID="zh-cn"/>
         </Product>
         <Product ID="ExcelRetail">
             <Language ID="zh-cn"/>
         </Product>
+        <Product ID="PowerPointRetail">
+            <Language ID="zh-cn"/>
+        </Product>
     </Add>
+    <Updates Enabled="FALSE"/>
     <Display Level="Full" AcceptEULA="TRUE"/>
     <Logging Level="Standard" Path="D:\Download\Office\"/>
+    <Property Name="AUTOACTIVATE" Value="1"/>
 </Configuration>
 ```
 
@@ -862,19 +873,11 @@ PS：4 天死磕的教训，软件编程方面少跟 **微软的系统组件** �
 ```bash
 http://blog.sina.com.cn/s/blog_17b2ea0820102x7ds.html
 
-123.bat
-⇳
-FOR /R "%CD%\key" %%i IN (*.xrm-ms) DO (
-CSCRIPT.exe //Nologo %Windir%\System32\slmgr.vbs /ilc "%%i"
-)
-CSCRIPT.exe //Nologo "%CD%\Office16\OSPP.vbs" /inpkey:XQNVK-8JYDB-WJ9W3-YJ8YR-WFG99
-CSCRIPT.exe //Nologo "%CD%\Office16\OSPP.vbs" /sethst:kms.shuax.com
-CSCRIPT.exe //Nologo "%CD%\Office16\OSPP.vbs" /act
-CSCRIPT.exe //Nologo "%CD%\Office16\OSPP.vbs" /dstatus
-
-Office16\office.dat
-⇳
-http://ww4.sinaimg.cn/large/a15b4afegy1fk3opedx7sj203k03kt99
+FOR /R "%CD%\key" %%i IN (*.xrm-ms) DO (cscript.exe //Nologo "%Windir%\System32\slmgr.vbs" /ilc "%%i")
+cscript.exe //Nologo "%CD%\Office16\OSPP.vbs" /inpkey:XQNVK-8JYDB-WJ9W3-YJ8YR-WFG99
+cscript.exe //Nologo "%CD%\Office16\OSPP.vbs" /sethst:kms.shuax.com
+cscript.exe //Nologo "%CD%\Office16\OSPP.vbs" /act
+cscript.exe //Nologo "%CD%\Office16\OSPP.vbs" /dstatus
 ```
 
 ## Replace Notepad
@@ -891,6 +894,12 @@ reg delete "HKLM\Software\Microsoft\Windows NT\CurrentVersion\Image File Executi
 2. 栅格化文字
 3. 滤镜 -> 杂色 -> 添加杂色 -> 单色 30%
 4. 滤镜 -> 模糊 -> 高斯模糊 -> 0.4
+```
+
+## Warcraft III CD-Key
+```bash
+   Reign of Chaos: K30EKC-XZ85-6FHWP5-QNY3-314OF6
+The Frozen Throne: WGZPYW-V6CY-7P7JTR-YH4F-8ZH9PC
 ```
 
 ## Hacker

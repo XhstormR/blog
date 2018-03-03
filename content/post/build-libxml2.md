@@ -15,7 +15,7 @@ Updated on 2018-02-18
 > [libxml2](https://github.com/GNOME/libxml2/archive/master.zip)
 
 ## Step
-```
+```bash
 D:\Work\Download\libxml2-master\win32>
 
 https://github.com/GNOME/libxml2/blob/master/win32/Makefile.mingw#L334
