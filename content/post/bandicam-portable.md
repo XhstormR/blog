@@ -8,7 +8,7 @@ title: Bandicam Portable
 
 <!--more-->
 
-Updated on 2018-02-14
+Updated on 2018-02-27
 
 >
 
@@ -98,4 +98,10 @@ Windows Registry Editor Version 5.00
 
 [HKEY_CURRENT_USER\SOFTWARE\BANDISOFT\BANDICAM\OPTION]
 "sOutputFolder"="D:\\Download\\Data"
+```
+
+```bash
+tChecked
+⇳
+busybox sh -c "printf '%x\n' `date +%s`"
 ```
