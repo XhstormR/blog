@@ -39,8 +39,14 @@ export.bat
 ```bash
 import.bat
 ⇳
-@ reg import D:\Download\6.reg
-@ D:\Download\Bandicam\bdcam_nonadmin.exe
+@ echo off
+pushd .
+cd D:\Download\
+for /f %%i in ('busybox sh -c "printf '%%x\n' `date +%%s`"') do (set n=%%i)
+busybox sed -i "s/12345678/%n%/" 6.reg
+reg import 6.reg
+start Bandicam\bdcam_nonadmin.exe
+popd
 ```
 
 ## Hosts
@@ -94,7 +100,7 @@ Windows Registry Editor Version 5.00
   36,00,36,00,65,00,34,00,35,00,35,00,38,00,38,00,31,00,36,00,31,00,64,00,31,\
   00,31,00,62,00,31,00,34,00,62,00,36,00,31,00,61,00,33,00,62,00,36,00,64,00,\
   32,00,30,00,00,00,00,00
-"tChecked"=dword:5a841d4f
+"tChecked"=dword:12345678
 
 [HKEY_CURRENT_USER\SOFTWARE\BANDISOFT\BANDICAM\OPTION]
 "sOutputFolder"="D:\\Download\\Data"
