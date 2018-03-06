@@ -713,6 +713,7 @@ ping z.cn
 doskey /history
 date /t && time /t
 fc /n /w 1.txt 2.txt
+mstsc /admin
 ```
 
 ## WebX
