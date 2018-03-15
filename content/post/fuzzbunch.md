@@ -22,7 +22,7 @@ Updated on 2017-12-17
 
 ## Step
 ```bash
-123.reg
+reg import 123.reg
 pywin32-221.win32-py2.6.exe
 
 set PYTHONHOME=D:\Download\python
