@@ -49,3 +49,9 @@ content-disposition-default-utf8=true
 user-agent=Windows
 referer=https://www.bilibili.com/
 ```
+
+```
+YAAW Header
+⇳
+Cookie: abcd
+```

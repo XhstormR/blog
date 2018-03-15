@@ -356,6 +356,7 @@ git gc --prune=all
 
 git reset --soft HEAD^
 
+git submodule add -b master https://github.com/openssl/openssl.git
 git submodule update --remote
 ```
 

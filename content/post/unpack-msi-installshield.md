@@ -9,15 +9,15 @@ title: 解包 MSI IS 文件
 
 ## MSI
 
-    msiexec /a "D:\test.msi" /qb TARGETDIR=D:\dir
+    msiexec.exe /a D:\test.msi /passive TARGETDIR=D:\dir
 
 ## InnoSetup
 
-    "test.exe" /VERYSILENT /NORESTART /NOICONS /DIR="D:\dir"
+    test.exe /VERYSILENT /NORESTART /NOICONS /DIR="D:\dir"
 
 ## InstallShield
 
-    "test.exe" /a /s /v"/qn TARGETDIR=D:\dir
+    test.exe /a /s /v"/passive TARGETDIR=D:\dir
 
 ## [SourceTree](https://www.atlassian.com/software/sourcetree)
 
@@ -25,8 +25,8 @@ title: 解包 MSI IS 文件
     SourceTreeSetup_1.9.10.0.exe /extract
 
 ## More
-[7zr](http://blog.xhstormr.tk/uploads/bin/7zr.exe),
-[innounp](http://blog.xhstormr.tk/uploads/bin/innounp.exe),
+[7zr](https://blog.xhstormr.tk/uploads/bin/7zr.exe),
+[innounp](https://blog.xhstormr.tk/uploads/bin/innounp.exe),
 [lessmsi](https://github.com/activescott/lessmsi/releases/latest)
 
 ## Reference
