@@ -8,7 +8,7 @@ title: 逆向 DBeaver
 
 <!--more-->
 
-Updated on 2017-12-07
+Updated on 2018-03-15
 
 > {{< image "/uploads/dbeaver.png" "DBeaver" "1" "1" "325" >}}
 >
@@ -21,12 +21,22 @@ Updated on 2017-12-07
 
 ## Code
 ```
+通过修改字节码：
 iconst_1
 ireturn
+
+通过修改 16 进制代码：
+04 AC 03 AC
+    ⬇️
+04 AC 04 AC
 ```
 
 ```
 jar -cfM org.jkiss.lm_1.0.17.jar -C org.jkiss.lm_1.0.17/ .
 ```
 
-[{{< image "/uploads/file-into-picture2.png" "4.2.0" "0" "0" >}}](http://ww4.sinaimg.cn/large/a15b4afegy1fm8fc49ep6j203k03kq3d)
+```
+echo hasProductLicense | busybox xxd
+```
+
+[{{< image "/uploads/file-into-picture2.png" "5.0.1" "0" "0" >}}](https://i.loli.net/2018/03/15/5aaa83d430291.png)

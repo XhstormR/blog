@@ -8,9 +8,9 @@ title: Bandicam Portable
 
 <!--more-->
 
-Updated on 2018-02-27
+Updated on 2018-03-15
 
->
+> https://sg-dl.bandicam.com/bdcamsetup.exe
 
 ## Export
 ```bash

@@ -223,14 +223,40 @@ wget -e "http_proxy=10.34.3.71:808" www.baidu.com
 
 Aria2：
 https://github.com/aria2/aria2/releases/latest
-aria2c --all-proxy="10.34.3.71:808" --max-connection-per-server=10 --min-split-size=5M http://www.baidu.com/
-
-https://www.gnu.org/software/wget/manual/wget.html
+aria2c --all-proxy="10.34.3.71:808" --max-connection-per-server=10 --min-split-size=4M http://www.baidu.com/
 ```
 
-## Wget 递归下载
+## Wget 镜像网站
 ```bash
-wget -m -k -E -np -c -N --no-if-modified-since -p -P ./123 https://java.sx/java/index.html
+@ curl -so 123.html http://pdf7.tarena.com.cn/tts8_source/ttsPage/VIP/VIP_ESD00/index/mytts.html
+
+@ busybox sed -i ^
+-e "s/http:\/\/tts8.tmooc.cn\/ttsPage\//http:\/\/pdf7.tarena.com.cn\/tts8_source\/ttsPage\//g" ^
+-e "s/\/EXERCISE\/01\/index.html/\/EXERCISE\/01\/index_answer.html/g" ^
+123.html
+
+@ wget ^
+--mirror ^
+--continue ^
+--convert-links ^
+--page-requisites ^
+--adjust-extension ^
+--no-parent ^
+--no-verbose ^
+--no-if-modified-since ^
+--reject=js,css ^
+--local-encoding=UTF-8 ^
+--output-file=123.log ^
+--directory-prefix=123 ^
+--span-hosts --domains=pdf7.tarena.com.cn ^
+--input-file=123.html --force-html
+
+http://pdf7.tarena.com.cn/tts8_source/ttsPage/WEB/WEB_V05/index/mytts.html
+http://pdf7.tarena.com.cn/tts8_source/ttsPage/EMBED/ESD_V05/index/mytts.html
+http://pdf7.tarena.com.cn/tts8_source/ttsPage/LINUX/NSD_V05/index/mytts.html
+http://pdf7.tarena.com.cn/tts8_source/ttsPage/JAVA/JSD_V05/index/mytts.html
+
+https://www.gnu.org/software/wget/manual/wget.html
 ```
 
 ## Xshell & Xftp
@@ -930,6 +956,8 @@ SQL 注入：sqlmap
 https://github.com/sqlmapproject/sqlmap/archive/master.zip
 -----
 python sqlmap.py -r 123.log -p id --dbms=oracle --risk=3 --level=5 --tamper=space2comment --timeout=10 --code=200 --string="200 OK"
+-----
+'or '1'='1
 
 API 测试：Postman
 https://www.getpostman.com/apps
