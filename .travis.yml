@@ -1,5 +1,9 @@
+language: c
+
 install:
-  - cd scripts && bash ./install.sh
+  - cd scripts
+  - bash ./jq.sh
+  - bash ./hugo.sh
 
 script:
   - ./hugo
