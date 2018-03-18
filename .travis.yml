@@ -4,6 +4,7 @@ install:
   - cd scripts
   - bash ./jq.sh
   - bash ./hugo.sh
+  - cd ..
 
 script:
   - ./hugo
