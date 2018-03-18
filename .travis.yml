@@ -1,0 +1,15 @@
+install:
+  - cd scripts && bash ./install.sh
+
+script:
+  - ./hugo
+
+deploy:
+  provider: pages
+  repo: XhstormR/Blog
+  target-branch: master
+  local-dir: public
+  github-token: $GITHUB_TOKEN
+  skip-cleanup: true
+  on:
+    branch: master
