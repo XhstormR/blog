@@ -7,7 +7,7 @@ install:
   - cd ..
 
 script:
-  - ./hugo
+  - ./bin/hugo
 
 deploy:
   provider: pages
@@ -18,3 +18,7 @@ deploy:
   skip-cleanup: true
   on:
     branch: master
+
+cache:
+  directories:
+    - bin
