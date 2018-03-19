@@ -2,6 +2,7 @@
 
 if [ -f ../bin/jq ] ; then
     echo "Cached!"
+    ../bin/jq --version
     exit 0
 else
     echo "Not cached!"
