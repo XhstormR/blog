@@ -1,5 +1,7 @@
 language: c
 
+sudo: false
+
 install:
   - cd scripts
   - bash ./jq.sh
@@ -25,3 +27,4 @@ deploy:
 cache:
   directories:
     - bin
+    - /home/travis/.rvm/
