@@ -1,11 +1,11 @@
 #!/bin/bash
 
 if [ -f ../bin/jq ] ; then
-    echo "Cached!"
+    echo 'Cached!'
     ../bin/jq --version
     exit 0
 else
-    echo "Not cached!"
+    echo 'Not cached!'
 fi
 
 git clone --depth 1 --recurse-submodules -j2 https://github.com/stedolan/jq.git jq_git && \

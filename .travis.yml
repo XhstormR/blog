@@ -6,6 +6,9 @@ install:
   - bash ./hugo.sh
   - cd ..
 
+before_script:
+  - ls -lhAF bin
+
 script:
   - ./bin/hugo
 
