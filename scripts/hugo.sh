@@ -1,11 +1,11 @@
 #!/bin/bash
 
 if [ -f ../bin/hugo ] ; then
-    echo "Cached!"
+    echo 'Cached!'
     ../bin/hugo version
     exit 0
 else
-    echo "Not cached!"
+    echo 'Not cached!'
 fi
 
 ../bin/jq --rawfile abc graphql.txt '.query=$abc' template.json | \
