@@ -7,7 +7,7 @@ title: uBlock Origin Filter
 
 <!--more-->
 
-Updated on 2016-08-26
+Updated on 2018-03-23
 
 > {{< image "/uploads/ublock.svg" "" "0" "1" >}}
 >
@@ -19,8 +19,8 @@ Updated on 2016-08-26
 
 ```json
 {
-  "timeStamp": 1501985946537,
-  "version": "1.13.8",
+  "timeStamp": 1521787919293,
+  "version": "1.15.18",
   "userSettings": {
     "advancedUserEnabled": true,
     "alwaysDetachLogger": false,
@@ -40,73 +40,39 @@ Updated on 2016-08-26
     "requestLogMaxEntries": 1000,
     "showIconBadge": true,
     "tooltipsDisabled": false,
-    "webrtcIPAddressHidden": false
+    "webrtcIPAddressHidden": true
   },
   "selectedFilterLists": [
     "CHN-0",
     "CHN-1",
-    "CHN-2",
     "plowe-0",
-    "malware-1",
-    "malware-0",
     "easyprivacy",
     "easylist",
     "user-filters",
     "ublock-unbreak",
+    "ublock-abuse",
     "ublock-privacy",
     "ublock-experimental",
     "ublock-badware",
+    "ublock-annoyances",
     "ublock-filters"
   ],
-  "hiddenSettingsString": "assetFetchTimeout 30\nautoUpdateAssetFetchPeriod 120\nautoUpdatePeriod 7\nignoreRedirectFilters false\nignoreScriptInjectFilters false\nmanualUpdateAssetFetchPeriod 2000\npopupFontSize unset\nsuspendTabsUntilReady false\nuserResourcesLocation unset",
+  "hiddenSettings": {
+    "assetFetchTimeout": 30,
+    "autoUpdateAssetFetchPeriod": 120,
+    "autoUpdatePeriod": 7,
+    "ignoreRedirectFilters": false,
+    "ignoreScriptInjectFilters": false,
+    "streamScriptInjectFilters": false,
+    "manualUpdateAssetFetchPeriod": 2000,
+    "popupFontSize": "unset",
+    "suspendTabsUntilReady": false,
+    "userResourcesLocation": "unset"
+  },
   "netWhitelist": "127.0.0.1\n192.168.1.1\nabout-scheme\nbehind-the-scene\nchrome-extension-scheme\nchrome-scheme\nlocalhost\nloopconversation.about-scheme\nmoz-extension-scheme\nopera-scheme\nvivaldi-scheme\nxhstormr.tk",
-  "dynamicFilteringString": "* * inline-script block\n* * 1p-script block\n* * 3p-script block\n* * 3p-frame block\n* * image block\n* ajax.googleapis.com * block\n* bootstrapcdn.com * block\n* duckduckgo.com * noop\n* fonts.googleapis.com * block\n* github.com * noop\n* imgur.com * noop\n* sinaimg.cn * noop\nbilibili.com bilibili.com * noop\nbilibili.com hdslb.com * noop\npan.baidu.com baidupcs.com * noop\npan.baidu.com pan.baidu.com * noop\npan.baidu.com pcsdata.baidu.com * noop\npan.baidu.com s1.pan.bdstatic.com * noop\ntranslate.google.com google.com * noop\nw.mail.qq.com qq.com * noop\nwww.draw.io draw.io * noop\nwww.imooc.com imooc.com * noop\nwww.v2ex.com * 3p block\nyouku.com ykimg.com * noop\nyouku.com youku.com * noop\nzhihu.com zhihu.com * noop\nzhihu.com zhimg.com * noop",
+  "dynamicFilteringString": "* * inline-script block\n* * 1p-script block\n* * 3p-script block\n* * 3p-frame block\n* * image block\n* fonts.googleapis.com * block\n* github.com * noop\n* imgur.com * noop\n* sinaimg.cn * noop\nbilibili.com bilibili.com * noop\nbilibili.com hdslb.com * noop\npan.baidu.com baidupcs.com * noop\npan.baidu.com pan.baidu.com * noop\npan.baidu.com pcsdata.baidu.com * noop\ntranslate.google.cn google.cn * noop\nw.mail.qq.com qq.com * noop\nwww.imooc.com imooc.com * noop\nzhihu.com zhihu.com * noop\nzhihu.com zhimg.com * noop\nduckduckgo.com duckduckgo.com * noop",
   "urlFilteringString": "",
-  "hostnameSwitchesString": "no-remote-fonts: * true",
-  "userFilters": "",
-  "filterLists": {
-    "https://easylist-downloads.adblockplus.org/easylistchina.txt": {
-      "off": false
-    },
-    "https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjxlist.txt": {
-      "off": false
-    },
-    "https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjx-annoyance.txt": {
-      "off": false
-    },
-    "assets/thirdparties/pgl.yoyo.org/as/serverlist": {
-      "off": false
-    },
-    "assets/thirdparties/mirror1.malwaredomains.com/files/justdomains": {
-      "off": false
-    },
-    "assets/thirdparties/www.malwaredomainlist.com/hostslist/hosts.txt": {
-      "off": false
-    },
-    "assets/thirdparties/easylist-downloads.adblockplus.org/easyprivacy.txt": {
-      "off": false
-    },
-    "assets/thirdparties/easylist-downloads.adblockplus.org/easylist.txt": {
-      "off": false
-    },
-    "assets/user/filters.txt": {
-      "off": false
-    },
-    "assets/ublock/unbreak.txt": {
-      "off": false
-    },
-    "assets/ublock/privacy.txt": {
-      "off": false
-    },
-    "assets/ublock/experimental.txt": {
-      "off": false
-    },
-    "assets/ublock/badware.txt": {
-      "off": false
-    },
-    "assets/ublock/filters.txt": {
-      "off": false
-    }
-  }
+  "hostnameSwitchesString": "no-remote-fonts: * true\nno-csp-reports: * true\nno-remote-fonts: bilibili.com false",
+  "userFilters": ""
 }
 ```

@@ -589,8 +589,12 @@ VP9：
 ffmpeg.exe -i 123.gif -c:v libvpx-vp9 -crf 45 -b:v 0 -c:a libvorbis 123.webm
 H.264 to RAW：
 ffmpeg.exe -i 123.mp4 -vcodec copy -an -bsf:v h264_mp4toannexb 123.h264
+30 FPS：
+ffmpeg.exe -i 123.mp4 -r 30 1234.mp4
 Clip Video：
 ffmpeg.exe -i 123.mp4 -ss 5.0 -t 3.0 1234.mp4
+Capture Video：
+ffmpeg.exe -f gdigrab -i desktop 123.mp4
 
 https://ffmpeg.zeranoe.com/builds/
 ```
