@@ -22,7 +22,7 @@ Updated on 2017-07-13
 >
 > 算法是解决问题的清晰指令，是用系统的方法描述解决问题的策略机制。
 
-## 冒泡排序算法
+## 冒泡排序
 通过交换相邻数据来达到排序目的。
 ```java
 public class A {
@@ -86,7 +86,7 @@ public class A {
 排序方向：从右至左
 ```
 
-## 选择排序算法
+## 选择排序
 每次从数组中选取最小值来排列。
 ```java
 public class A {
@@ -135,6 +135,52 @@ public class A {
 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 排序方向：从左至右
+```
+
+## 快速排序
+分区 + 递归
+```java
+public class Main {
+    private static void qSort(int[] arr, int head, int tail) {
+        if (head >= tail || arr == null || arr.length <= 1) {
+            return;
+        }
+        int i = head;
+        int j = tail;
+        int k = arr[(head + tail) / 2];
+        while (true) {
+            while (arr[i] < k) {
+                i++;
+            }
+            while (arr[j] > k) {
+                j--;
+            }
+            if (i < j) {
+                swap(arr, i, j);
+                i++;
+                j--;
+            } else if (i == j) { // arr[i]=arr[j]=k
+                i++; // 步进 1 -> 跳出循环
+            } else {
+                break;
+            }
+        }
+        qSort(arr, head, j);
+        qSort(arr, i, tail);
+    }
+
+    private static void swap(int[] arr, int i, int j) { // 交换位置
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 4, 8, 2, 55, 3, 4, 8, 6, 90, 0, 11, 34, 4, 23, 54, 77, 9, 2, 10, 4, 9};
+        qSort(arr, 0, arr.length - 1);
+        System.out.println(java.util.Arrays.toString(arr));
+    }
+}
 ```
 
 ## 数字矩形

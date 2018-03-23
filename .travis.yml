@@ -10,6 +10,8 @@ install:
 
 before_script:
   - ls -lhAF bin
+  - ./bin/jq --version
+  - ./bin/hugo version
 
 script:
   - ./bin/hugo

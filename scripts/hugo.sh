@@ -2,7 +2,6 @@
 
 if [ -f ../bin/hugo ] ; then
     echo 'Cached!'
-    ../bin/hugo version
     exit 0
 else
     echo 'Not cached!'

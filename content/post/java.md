@@ -17,7 +17,7 @@ Updated on 2016-06-30
 >
 > https://www.oracle.com/technetwork/java/index.html
 >
-> https://docs.oracle.com/javase/8/javase-books.htm
+> https://docs.oracle.com/javase/10/
 >
 > https://docs.oracle.com/javase/8/docs/index.html
 >
@@ -33,6 +33,17 @@ Updated on 2016-06-30
 * [IntelliJ IDEA](https://confluence.jetbrains.com/collector/pages.action?key=IDEADEV)：https://www.jetbrains.com/idea/download/
   * 将系统时间调整至 1 年以后再点击试用（Evaluation）。
 * Scene Builder：https://gluonhq.com/products/scene-builder/
+
+### IDEA 无限试用
+```bash
+@ echo off
+pushd .
+cd %USERPROFILE%/.IntelliJIdea2017.3/config/
+busybox rm -rf eval
+busybox sed -i "/evlsprt/d" options/options.xml
+reg delete HKEY_CURRENT_USER\SOFTWARE\JavaSoft\Prefs\jetbrains\idea /f
+popd
+```
 
 ### IDEA 快捷键
 ```xml
