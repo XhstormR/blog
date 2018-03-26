@@ -461,6 +461,8 @@ https://www.cs.princeton.edu/~bwk/btl.mirror/index.html
 
 https://github.com/Aegisub/Aegisub/releases/latest
 
+https://jcenter.bintray.com/com/google/javascript/closure-compiler/v20180204/closure-compiler-v20180204.jar
+
 https://free.nchc.org.tw/tdf/libreoffice/stable/6.0.1/win/x86_64/LibreOffice_6.0.1_Win_x64.msi
 
 https://cloud.bluestacks.com/api/getdownloadnow
@@ -471,15 +473,15 @@ https://mirrors.ustc.edu.cn/vim/pc/vim80w32.zip
 
 https://mirrors.ustc.edu.cn/eclipse/technology/epp/downloads/release/oxygen/1a/eclipse-java-oxygen-1a-win32-x86_64.zip
 
-https://mirrors.ustc.edu.cn/qtproject/official_releases/qtcreator/4.5/4.5.0/installer_source/windows_vs2015_64/qtcreator.7z
+https://mirrors.ustc.edu.cn/qtproject/official_releases/qtcreator/4.5/4.5.2/installer_source/windows_vs2015_64/qtcreator.7z
 
 https://mirrors.ustc.edu.cn/gimp/stable/windows/gimp-2.8.22-setup.exe
 
-https://mirrors.ustc.edu.cn/kde/stable/krita/3.3.0/krita-3.3.0-x64.zip
+https://mirrors.ustc.edu.cn/kde/stable/krita/4.0.0/krita-x64-4.0.0.zip
 
-https://mirrors.ustc.edu.cn/rust-static/dist/rust-1.21.0-x86_64-pc-windows-gnu.msi
+https://mirrors.ustc.edu.cn/rust-static/dist/rust-1.24.1-x86_64-pc-windows-gnu.msi
 
-https://mirrors.ustc.edu.cn/golang/go1.9.2.windows-amd64.zip
+https://mirrors.ustc.edu.cn/golang/go1.10.windows-amd64.zip
 
 https://mirrors.ustc.edu.cn/lineageos/full/
 ----
@@ -489,7 +491,7 @@ https://mirrors.ustc.edu.cn/apache/tika/tika-app-1.17.jar
 ----
 java -jar tika-app-1.17.jar -h 123 > 123.html
 
-https://mirrors.ustc.edu.cn/node/latest/node-v9.5.0-win-x64.7z
+https://mirrors.ustc.edu.cn/node/latest/node-v9.9.0-win-x64.7z
 https://cdn.npm.taobao.org/primer-markdown/-/primer-markdown-3.7.5.tgz
 https://npm.taobao.org/mirrors/
 ----
