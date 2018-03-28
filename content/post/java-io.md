@@ -11,9 +11,9 @@ Updated on 2016-11-11
 
 > [{{< image "/uploads/java-io.svg" "IO 流" "1" "0" >}}](/uploads/java-io.svg)
 >
-> https://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html
+> https://docs.oracle.com/javase/10/docs/api/java/nio/file/Path.html
 >
-> https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html
+> https://docs.oracle.com/javase/10/docs/api/java/nio/file/Files.html
 
 ## File
 用于代表文件(夹)，是文件(夹)的抽象化形式，不能用于对文件内容的访问。

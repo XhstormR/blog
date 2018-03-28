@@ -10,7 +10,7 @@ title: Java CompletableFuture
 
 Updated on 2017-08-07
 
-> [CompletableFuture API](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html)
+> [CompletableFuture API](https://docs.oracle.com/javase/10/docs/api/java/util/concurrent/CompletableFuture.html)
 >
 > [Stream API](/post/java-8/#stream)
 

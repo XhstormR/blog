@@ -9,13 +9,13 @@ title: Java 8
 
 Updated on 2016-11-09
 
-> [StringJoiner](https://docs.oracle.com/javase/8/docs/api/java/util/StringJoiner.html)
+> [StringJoiner](https://docs.oracle.com/javase/10/docs/api/java/util/StringJoiner.html)
 > |
-> [Optional](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html)
+> [Optional](https://docs.oracle.com/javase/10/docs/api/java/util/Optional.html)
 >
-> https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html
+> https://docs.oracle.com/javase/10/docs/api/java/util/stream/Stream.html
 >
-> https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html
+> https://docs.oracle.com/javase/10/docs/api/java/util/stream/Collectors.html
 
 ## Lambda
 * Lambda 表达式（匿名方法 or 闭包）：由 `参数列表`、`->`、`函数体` 组成。
