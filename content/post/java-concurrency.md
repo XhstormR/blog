@@ -26,7 +26,7 @@ Updated on 2017-07-29
 >
 > -
 >
-> [https://docs.oracle.com/javase/8/docs/api/java/util/concurrent](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/package-summary.html)
+> [https://docs.oracle.com/javase/10/docs/api/java/util/concurrent](https://docs.oracle.com/javase/10/docs/api/java/util/concurrent/package-summary.html)
 > |
 > [中文](http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/java/util/concurrent/package-summary.html)
 

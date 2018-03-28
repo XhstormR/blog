@@ -19,6 +19,8 @@ Updated on 2017-02-19
 >
 > https://github.com/pgjdbc/pgjdbc
 >
+> https://github.com/postgis/postgis
+>
 > https://github.com/postgres/postgres
 >
 > https://jcenter.bintray.com/org/postgresql/postgresql/
