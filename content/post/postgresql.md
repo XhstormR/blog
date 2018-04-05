@@ -29,7 +29,7 @@ Updated on 2017-02-19
 > |
 > [Step 2](https://www.enterprisedb.com/thank-you?anid=1255499)
 > |
-> [Step 3](https://get.enterprisedb.com/postgresql/postgresql-10.2-1-windows-x64-binaries.zip)
+> [Step 3](https://get.enterprisedb.com/postgresql/postgresql-10.3-1-windows-x64-binaries.zip)
 
 ## Concept
 * 结构化查询语言（SQL）：Structured Query Language
@@ -64,7 +64,7 @@ Updated on 2017-02-19
 
 ## Initial
 ```bash
-initdb.exe -A md5 -E UTF8 --no-locale --lc-messages="Chinese (Simplified)_China.936" -U 123 -W -D D:\12345
+initdb.exe -A scram-sha-256 -E UTF8 --no-locale --lc-messages="Chinese (Simplified)_China.936" -U 123 -W -D D:\12345
 pg_ctl.exe -l D:\log.txt -D D:\12345 start
 pg_ctl.exe -l D:\log.txt -D D:\12345 status
 pg_ctl.exe -l D:\log.txt -D D:\12345 stop
