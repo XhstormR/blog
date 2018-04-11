@@ -415,6 +415,15 @@ curl -sk https://update.googleapis.com/service/update2 -d @123.txt | xmllint --f
 </request>
 ```
 
+```bash
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallSources]
+"1"="<all_urls>"
+[HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallWhitelist]
+"1"="nihdlpmjaedafkmiicoadjdlggakghmh"
+```
+
 ## Operating System（Mirrors）
 ```bash
 MSDN：
