@@ -772,14 +772,8 @@ https://storage.googleapis.com/downloads.webmproject.org/releases/webp/index.htm
 https://www.bing.com/translator/
 https://translate.google.cn/m/translate
 
-http://m.dict.cn/
+https://m.dict.cn/
 https://dict.youdao.com/m
-```
-
-## Bilibili HTML5
-```html
-https://www.bilibili.com/blackboard/help.html#p
-https://live.bilibili.com/help/#uh5
 ```
 
 ## Bilibili 专栏取消复制限制
