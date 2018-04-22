@@ -11,11 +11,7 @@ Updated on 2016-05-31
 
 > https://libvirt.org/
 >
-> http://wiki.qemu.org/Main_Page
->
 > http://www.linux-kvm.org/page/Main_Page
->
-> https://qemu.weilnetz.de/w64/
 >
 > KVM 负责 CPU 和 RAM 的虚拟化；QEMU 则负责模拟 IO 设备，如网卡和硬盘；KVM 加上 QEMU 之后就能实现真正意义上的服务器虚拟化，称之为 QEMU-KVM。
 >

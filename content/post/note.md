@@ -523,6 +523,9 @@ https://rpcs3.net/download
 https://github.com/RPCS3/rpcs3
 https://ci.appveyor.com/project/rpcs3/rpcs3/branch/master/artifacts
 
+PSV：
+https://github.com/Vita3K/Vita3K
+
 N64：
 http://www.pj64-emu.com/windows-downloads
 https://github.com/project64/project64
@@ -741,12 +744,12 @@ http://ww4.sinaimg.cn/large/a15b4afegy1fkfjyuhmvlj203k03kaor
 ## 修改环境变量
 ```bash
 set
-echo %path%
+echo %PATH%
 
 临时生效：
-set  path=%path%;D:\Download\123
+set  PATH=%PATH%;D:\Download\123
 永久生效：
-setx path "%path%;D:\Download\123" /m
+setx PATH "%PATH%;D:\Download\123" /m
 
 ----
 
