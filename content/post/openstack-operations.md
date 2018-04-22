@@ -12,7 +12,9 @@ Updated on 2016-10-06
 > ![](/uploads/openstack-logo.svg)
 
 ## curl - *命令行浏览器*
+
 *OpenStack 服务提供 RESTful API，而 curl 能通过命令行直接发送和接收 HTTP 的请求和响应*
+
 ```bash
 -X [HEAD,POST,GET,PUT,DELETE] # 指定 HTTP 的请求类型     Request
 -H "name:123" #添加 HTTP 请求头     Header
@@ -101,8 +103,8 @@ glance image-update centos6.5 --name centos6.5_scsi     更新镜像
      hw_cdrom_bus=ide
 -------------------------------------------------------
 CirrOS
-http://download.cirros-cloud.net/
-user:cirros     password:cubswin:)
+https://download.cirros-cloud.net/
+user:cirros     password:gocubsgo
 glance image-create --name cirros --disk-format qcow2 --container-format bare < cirros-0.3.4-x86_64-disk.img
 ```
 
