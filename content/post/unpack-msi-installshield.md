@@ -18,6 +18,7 @@ title: 解包 MSI IS 文件
 ## InstallShield
 
     test.exe /a /s /v"/passive TARGETDIR=D:\dir
+    test.exe /extract_all:D:\dir
 
 ## [SourceTree](https://www.atlassian.com/software/sourcetree)
 
@@ -30,5 +31,7 @@ title: 解包 MSI IS 文件
 [lessmsi](https://github.com/activescott/lessmsi/releases/latest)
 
 ## Reference
+[MSI](http://helpnet.flexerasoftware.com/installshield24helplib/helplibrary/IHelpCmdLineMSI.htm),
 [InnoSetup](http://www.jrsoftware.org/ishelp/topic_setupcmdline.htm),
+[InstallShield](http://helpnet.flexerasoftware.com/installshield24helplib/helplibrary/IHelpSetup_EXECmdLine.htm),
 [InstallShield](https://stackoverflow.com/questions/8681252/programmatically-extract-contents-of-installshield-setup-exe)
