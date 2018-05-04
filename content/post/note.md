@@ -263,6 +263,7 @@ https://www.gnu.org/software/wget/manual/wget.html
 ```bash
 https://www.netsarang.com/download/down_live.html?productcode=2
 https://www.netsarang.com/download/down_live.html?productcode=3
+https://www.netsarang.com/download/down_live.html?productcode=7
 
 Xshell：保持活动状态 -> 字符串 -> 0 \n
 ```
