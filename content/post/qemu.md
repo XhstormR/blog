@@ -29,7 +29,7 @@ Updated on 2018-04-22
 
 ## TAP
 
-* https://build.openvpn.net/downloads/releases/tap-windows-9.21.2.zip
+* https://build.openvpn.net/downloads/releases/tap-windows-9.22.1.zip
 
 ```bash
 安装：tapinstall install OemVista.inf TAP0901

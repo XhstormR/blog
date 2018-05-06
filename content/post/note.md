@@ -471,7 +471,7 @@ https://www.cs.princeton.edu/~bwk/btl.mirror/index.html
 
 https://github.com/Aegisub/Aegisub/releases/latest
 
-https://jcenter.bintray.com/com/google/javascript/closure-compiler/v20180204/closure-compiler-v20180204.jar
+https://jcenter.bintray.com/com/google/javascript/closure-compiler/v20180402/closure-compiler-v20180402.jar
 
 https://free.nchc.org.tw/tdf/libreoffice/stable/6.0.1/win/x86_64/LibreOffice_6.0.1_Win_x64.msi
 
@@ -497,14 +497,16 @@ https://mirrors.ustc.edu.cn/lineageos/full/
 ----
 https://download.lineageos.org/
 
-https://mirrors.ustc.edu.cn/apache/tika/tika-app-1.17.jar
+https://mirrors.ustc.edu.cn/apache/tika/tika-app-1.18.jar
 ----
 java -jar tika-app-1.17.jar -h 123 > 123.html
 
-https://mirrors.ustc.edu.cn/node/latest/node-v9.9.0-win-x64.7z
+https://mirrors.ustc.edu.cn/node/latest/node-v10.0.0-win-x64.7z
+https://cdn.npm.taobao.org/yarn/-/yarn-1.6.0.tgz
 https://cdn.npm.taobao.org/primer-markdown/-/primer-markdown-3.7.5.tgz
 https://npm.taobao.org/mirrors/
 ----
+yarn config set registry https://registry.npm.taobao.org
 npm --registry=https://registry.npm.taobao.org install -g test
 
 PSP：
