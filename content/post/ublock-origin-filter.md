@@ -19,8 +19,8 @@ Updated on 2018-03-23
 
 ```json
 {
-  "timeStamp": 1521787919293,
-  "version": "1.15.18",
+  "timeStamp": 1525574244910,
+  "version": "1.16.4",
   "userSettings": {
     "advancedUserEnabled": true,
     "alwaysDetachLogger": false,
@@ -63,14 +63,13 @@ Updated on 2018-03-23
     "autoUpdatePeriod": 7,
     "ignoreRedirectFilters": false,
     "ignoreScriptInjectFilters": false,
-    "streamScriptInjectFilters": false,
-    "manualUpdateAssetFetchPeriod": 2000,
+    "manualUpdateAssetFetchPeriod": 500,
     "popupFontSize": "unset",
     "suspendTabsUntilReady": false,
     "userResourcesLocation": "unset"
   },
-  "netWhitelist": "127.0.0.1\n192.168.1.1\nabout-scheme\nbehind-the-scene\nchrome-extension-scheme\nchrome-scheme\nlocalhost\nloopconversation.about-scheme\nmoz-extension-scheme\nopera-scheme\nvivaldi-scheme\nxhstormr.tk",
-  "dynamicFilteringString": "* * inline-script block\n* * 1p-script block\n* * 3p-script block\n* * 3p-frame block\n* * image block\n* fonts.googleapis.com * block\n* github.com * noop\n* imgur.com * noop\n* sinaimg.cn * noop\nbilibili.com bilibili.com * noop\nbilibili.com hdslb.com * noop\npan.baidu.com baidupcs.com * noop\npan.baidu.com pan.baidu.com * noop\npan.baidu.com pcsdata.baidu.com * noop\ntranslate.google.cn google.cn * noop\nw.mail.qq.com qq.com * noop\nwww.imooc.com imooc.com * noop\nzhihu.com zhihu.com * noop\nzhihu.com zhimg.com * noop\nduckduckgo.com duckduckgo.com * noop",
+  "netWhitelist": "127.0.0.1\n192.168.1.1\nabout-scheme\nchrome-extension-scheme\nchrome-scheme\nlocalhost\nloopconversation.about-scheme\nmoz-extension-scheme\nopera-scheme\nvivaldi-scheme\nxhstormr.tk",
+  "dynamicFilteringString": "* * inline-script block\n* * 1p-script block\n* * 3p-script block\n* * 3p-frame block\n* * image block\n* fonts.googleapis.com * block\n* github.com * noop\n* imgur.com * noop\n* sinaimg.cn * noop\nbilibili.com bilibili.com * noop\nbilibili.com hdslb.com * noop\npan.baidu.com baidupcs.com * noop\npan.baidu.com pan.baidu.com * noop\npan.baidu.com pcsdata.baidu.com * noop\ntranslate.google.cn google.cn * noop\nw.mail.qq.com qq.com * noop\nwww.imooc.com imooc.com * noop\nzhihu.com zhihu.com * noop\nduckduckgo.com duckduckgo.com * noop\nzhihu.com zhimg.com * noop\nzhihu.com vzuu.com * noop",
   "urlFilteringString": "",
   "hostnameSwitchesString": "no-remote-fonts: * true\nno-csp-reports: * true\nno-remote-fonts: bilibili.com false",
   "userFilters": ""
