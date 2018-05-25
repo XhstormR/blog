@@ -29,7 +29,7 @@ Updated on 2017-02-19
 > |
 > [Step 2](https://www.enterprisedb.com/thank-you?anid=1255499)
 > |
-> [Step 3](https://get.enterprisedb.com/postgresql/postgresql-10.3-1-windows-x64-binaries.zip)
+> [Step 3](https://get.enterprisedb.com/postgresql/postgresql-10.4-1-windows-x64-binaries.zip)
 
 ## Concept
 * 结构化查询语言（SQL）：Structured Query Language
