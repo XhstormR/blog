@@ -479,7 +479,7 @@ https://cloud.bluestacks.com/api/getdownloadnow
 
 https://mirrors.tuna.tsinghua.edu.cn/virtualbox/virtualbox-Win-latest.exe
 
-https://mirrors.ustc.edu.cn/vim/pc/vim80w32.zip
+https://mirrors.ustc.edu.cn/vim/pc/vim81w32.zip
 
 https://mirrors.ustc.edu.cn/eclipse/technology/epp/downloads/release/oxygen/1a/eclipse-java-oxygen-1a-win32-x86_64.zip
 
@@ -501,8 +501,8 @@ https://mirrors.ustc.edu.cn/apache/tika/tika-app-1.18.jar
 ----
 java -jar tika-app-1.17.jar -h 123 > 123.html
 
-https://mirrors.ustc.edu.cn/node/latest/node-v10.0.0-win-x64.7z
-https://cdn.npm.taobao.org/yarn/-/yarn-1.6.0.tgz
+https://mirrors.ustc.edu.cn/node/latest/node-v10.2.1-win-x64.7z
+https://cdn.npm.taobao.org/yarn/-/yarn-1.7.0.tgz
 https://cdn.npm.taobao.org/primer-markdown/-/primer-markdown-3.7.5.tgz
 https://npm.taobao.org/mirrors/
 ----
