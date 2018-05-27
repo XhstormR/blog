@@ -483,27 +483,29 @@ https://mirrors.ustc.edu.cn/vim/pc/vim81w32.zip
 
 https://mirrors.ustc.edu.cn/eclipse/technology/epp/downloads/release/oxygen/1a/eclipse-java-oxygen-1a-win32-x86_64.zip
 
-https://mirrors.ustc.edu.cn/qtproject/official_releases/qtcreator/4.5/4.5.2/installer_source/windows_vs2015_64/qtcreator.7z
+https://mirrors.ustc.edu.cn/qtproject/official_releases/qtcreator/4.6/4.6.1/installer_source/windows_vs2015_64/qtcreator.7z
 
-https://mirrors.ustc.edu.cn/gimp/stable/windows/gimp-2.8.22-setup.exe
+https://mirrors.ustc.edu.cn/gimp/stable/windows/gimp-2.10.0-x64-setup.exe
 
-https://mirrors.ustc.edu.cn/kde/stable/krita/4.0.0/krita-x64-4.0.0.zip
+https://mirrors.ustc.edu.cn/kde/stable/krita/4.0.3/krita-x64-4.0.3.zip
 
-https://mirrors.ustc.edu.cn/rust-static/dist/rust-1.24.1-x86_64-pc-windows-gnu.msi
+https://mirrors.ustc.edu.cn/rust-static/dist/rust-1.26.0-x86_64-pc-windows-gnu.msi
 
-https://mirrors.ustc.edu.cn/golang/go1.10.windows-amd64.zip
+https://mirrors.ustc.edu.cn/golang/go1.10.2.windows-amd64.zip
+
+https://mirrors.ustc.edu.cn/apache/maven/maven-3/3.5.3/binaries/apache-maven-3.5.3-bin.zip
+
+https://mirrors.ustc.edu.cn/apache/tika/tika-app-1.18.jar
+----
+java -jar tika-app-1.18.jar -h 123 > 123.html
 
 https://mirrors.ustc.edu.cn/lineageos/full/
 ----
 https://download.lineageos.org/
 
-https://mirrors.ustc.edu.cn/apache/tika/tika-app-1.18.jar
-----
-java -jar tika-app-1.17.jar -h 123 > 123.html
-
 https://mirrors.ustc.edu.cn/node/latest/node-v10.2.1-win-x64.7z
 https://cdn.npm.taobao.org/yarn/-/yarn-1.7.0.tgz
-https://cdn.npm.taobao.org/primer-markdown/-/primer-markdown-3.7.5.tgz
+https://cdn.npm.taobao.org/primer-markdown/-/primer-markdown-3.7.6.tgz
 https://npm.taobao.org/mirrors/
 ----
 yarn config set registry https://registry.npm.taobao.org
