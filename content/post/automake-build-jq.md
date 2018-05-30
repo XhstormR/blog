@@ -20,7 +20,7 @@ Updated on 2017-09-01
 ```
 D:\Work\Download>
 
-git clone --depth 1 --recurse-submodules -j2 https://github.com/stedolan/jq.git
+git clone --depth 1 --recurse-submodules --shallow-submodules -j2 https://github.com/stedolan/jq.git
 cd jq
 
 mkdir build ; cd build
