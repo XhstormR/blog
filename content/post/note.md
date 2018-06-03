@@ -78,35 +78,10 @@ OpenDNS：
 208.67.220.220
 ```
 
-## IDM
-```java
-127.0.0.1 registeridm.com
-127.0.0.1 www.registeridm.com
-127.0.0.1 www.internetdownloadmanager.com
-
-R2C1T-O0KQO-JAVU2-4MMYP
-```
-
 ## 磁盘分区空间量设置
 ```java
 100 G：
 100 * 1024 + 615 = 103015
-```
-
-## 提取支付宝安全登录控件
-```java
-解压 aliedit.exe，找到以下 6 个文件：Alidcp.dll、aliedit.dll、npalidcp.dll、npaliedit.dll、npAlipaydhc.dll、npAliSecCtrl.dll。
-
-IE内核浏览器：
-需要这 4 个文件：Alidcp.dll、aliedit.dll、npAlipaydhc.dll、npAliSecCtrl.dll，64 位系统放置于 C:\WINDOWS\syswow64\aliedit 下。
-以管理员身份运行如下命令：
-regsvr32 C:\WINDOWS\syswow64\aliedit\alidcp.dll
-regsvr32 C:\WINDOWS\syswow64\aliedit\aliedit.dll
-regsvr32 C:\WINDOWS\syswow64\aliedit\npAlipaydhc.dll
-regsvr32 C:\WINDOWS\syswow64\aliedit\npAliSecCtrl.dll
-
-非IE内核浏览器：
-需要这 3 个文件：npalidcp.dll、npaliedit.dll、npAliSecCtrl.dll，将这 3 个文件拷贝到浏览器的 Plugins 目录下即可。
 ```
 
 ## Git-GUI
