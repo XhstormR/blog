@@ -442,6 +442,8 @@ https://frippery.org/files/busybox/busybox64.exe
 
 https://www.wireshark.org/download.html
 
+https://zeroturnaround.com/software/jrebel/download/prev-releases/
+
 https://www.cs.princeton.edu/~bwk/btl.mirror/index.html
 
 https://github.com/Aegisub/Aegisub/releases/latest
