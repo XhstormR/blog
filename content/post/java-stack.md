@@ -17,7 +17,7 @@ Updated on 2017-04-12
 >
 > [双端队列](https://zh.wikipedia.org/wiki/双端队列)
 >
-> [双端队列 API](http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/java/util/Deque.html)
+> [双端队列 API](https://docs.oracle.com/javase/10/docs/api/java/util/Deque.html)
 
 * 数据结构：相互之间存在一种或多种特定 **关系** 的数据元素的 **集合**。
   * 队列（两个口）（Queue）：**先进先出**（FIFO, First In First Out），队头 ⟺ 队尾。
