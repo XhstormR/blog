@@ -358,6 +358,8 @@ git reset --soft HEAD^
 
 git submodule add -b master https://github.com/openssl/openssl.git
 git submodule update --remote
+
+git archive -o 123.zip HEAD
 ```
 
 ```bash
