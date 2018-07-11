@@ -44,6 +44,7 @@ java -noverify -jar charles.jar
 
 ## Reference
 * https://github.com/skylot/jadx
+* https://github.com/GraxCode/JByteMod-Beta
 * https://github.com/java-decompiler/jd-gui
 * https://github.com/Konloch/bytecode-viewer
 * https://github.com/jboss-javassist/javassist
@@ -52,6 +53,8 @@ java -noverify -jar charles.jar
   * https://github.com/ingokegel/jclasslib
   * https://github.com/apache/commons-bcel
 * http://www.benf.org/other/cfr/index.html
+### 反混淆器
+* https://github.com/java-deobfuscator/deobfuscator
 
 ```bash
 jclasslib
@@ -61,6 +64,21 @@ java -cp i4jruntime.jar;jclasslib-browser.jar;jclasslib-library.jar;annotations-
 cfr
 ----
 java -jar cfr_0_123.jar 123.jar --caseinsensitivefs true --outputdir 123
+
+deobfuscator
+----
+java -jar deobfuscator-1.0.0.jar --config config.yml
+----
+input: iMybatis-3.67.jar
+output: output.jar
+path:
+ - C:\Program Files\Java\jdk1.8.0_152\jre\lib\rt.jar
+ - C:\Program Files\Java\jdk1.8.0_152\jre\lib\jce.jar
+ - C:\Program Files\Java\jdk1.8.0_152\jre\lib\ext\jfxrt.jar
+ - C:\Program Files\Java\jdk1.8.0_152\lib\tools.jar
+transformers:
+ - com.javadeobfuscator.deobfuscator.transformers.zelix.string.SimpleStringEncryptionTransformer
+ - com.javadeobfuscator.deobfuscator.transformers.zelix.string.EnhancedStringEncryptionTransformer
 ```
 
 [{{< image "/uploads/file-into-picture2.png" "4.1.4" "0" "0" >}}](http://ww4.sinaimg.cn/large/a15b4afely1fhpf98jnuxj203k03k4r4)
