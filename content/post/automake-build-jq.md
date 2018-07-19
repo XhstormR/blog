@@ -38,3 +38,4 @@ autoreconf -fi ..
   * automake：[src](https://ftp.gnu.org/gnu/automake/?C=M;O=D) | [bin](https://mirrors.ustc.edu.cn/msys2/msys/x86_64/automake1.15-1.15.1-1-any.pkg.tar.xz)
       * autoconf：[src](https://ftp.gnu.org/gnu/autoconf/?C=M;O=D) | [bin](https://mirrors.ustc.edu.cn/msys2/msys/x86_64/autoconf-2.69-3-any.pkg.tar.xz)
           * m4：[src](https://ftp.gnu.org/gnu/m4/?C=M;O=D) | [bin](https://mirrors.ustc.edu.cn/msys2/msys/x86_64/m4-1.4.18-1-x86_64.pkg.tar.xz)
+* 使用：https://www.ibm.com/developerworks/cn/linux/1612_chengg_jq/
