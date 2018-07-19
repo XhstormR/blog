@@ -788,6 +788,7 @@ http://zh.cppreference.com/w/c
 http://www.cplusplus.com/reference/clibrary/
 http://pubs.opengroup.org/onlinepubs/9699919799/idx/index.html
 https://docs.microsoft.com/zh-cn/cpp/c-runtime-library/run-time-routines-by-category
+https://docs.microsoft.com/zh-cn/cpp/c-language/organization-of-the-c-language-reference
 
 CMake：
 https://cmake.org/cmake/help/latest/
