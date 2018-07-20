@@ -759,6 +759,8 @@ https://translate.google.cn/m/translate
 
 https://m.dict.cn/
 https://dict.youdao.com/m
+
+简繁转换：https://github.com/BYVoid/OpenCC
 ```
 
 ## Bilibili 专栏取消复制限制
