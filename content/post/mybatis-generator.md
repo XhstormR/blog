@@ -15,8 +15,8 @@ Updated on 2018-07-20
 ## start.bat
 ```bash
 @ echo off
-curl -LROk https://jcenter.bintray.com/org/mybatis/generator/mybatis-generator-core/1.3.7/mybatis-generator-core-1.3.7.jar
-curl -LROk https://jcenter.bintray.com/org/postgresql/postgresql/42.2.4/postgresql-42.2.4.jar
+if not exist mybatis-generator-core-1.3.7.jar curl -LROk https://jcenter.bintray.com/org/mybatis/generator/mybatis-generator-core/1.3.7/mybatis-generator-core-1.3.7.jar
+if not exist postgresql-42.2.4.jar curl -LROk https://jcenter.bintray.com/org/postgresql/postgresql/42.2.4/postgresql-42.2.4.jar
 md src\main\java
 md src\main\resources
 javac -cp mybatis-generator-core-1.3.7.jar; MyCommentGenerator.java
@@ -193,7 +193,8 @@ public class MyCommentGenerator implements CommentGenerator {
 
     @Override
     public void addFieldAnnotation(Field field, IntrospectedTable introspectedTable, IntrospectedColumn introspectedColumn, Set<FullyQualifiedJavaType> imports) {
-
+        String remarks = introspectedColumn.getRemarks();
+        addRemark(field, remarks);
     }
 
     @Override
