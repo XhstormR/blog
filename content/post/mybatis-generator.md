@@ -203,3 +203,6 @@ public class MyCommentGenerator implements CommentGenerator {
     }
 }
 ```
+
+## Reference
+* http://www.mybatis.org/mybatis-3/zh/dynamic-sql.html
