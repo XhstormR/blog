@@ -1830,3 +1830,162 @@ public class Main {
     }
 }
 ```
+
+## 图
+
+![](/uploads/algorithm-graph.png)
+
+### BFS/DFS
+```java
+import java.util.*;
+
+public class Main {
+    private static final Map<String, List<String>> GRAPH = new HashMap<>();
+
+    static {
+        GRAPH.put("A", Arrays.asList("B", "C"));
+        GRAPH.put("B", Arrays.asList("A", "C", "D"));
+        GRAPH.put("C", Arrays.asList("A", "B", "D", "E"));
+        GRAPH.put("D", Arrays.asList("B", "C", "E", "F"));
+        GRAPH.put("E", Arrays.asList("C", "D"));
+        GRAPH.put("F", Arrays.asList("D"));
+    }
+
+    public static void main(String[] args) {
+        String start = "A";
+        String end = "D";
+        Map<String, String> parent = run(GRAPH, start, true);
+
+        System.out.println(parent);
+        while (end != null) {
+            System.out.println(end);
+            end = parent.get(end);
+        }
+    }
+
+    /**
+     * flag:
+     * true  -> 作为队列 -> BFS（广度优先搜索）
+     * false -> 作为堆栈 -> DFS（深度优先搜索）
+     */
+    private static Map<String, String> run(final Map<String, List<String>> graph, String vertex, final boolean flag) {
+        final Deque<String> deque = new ArrayDeque<>();
+        final Set<String> seen = new HashSet<>();
+        final Map<String, String> parent = new HashMap<>();
+
+        deque.offerLast(vertex);
+        seen.add(vertex);
+        parent.put(vertex, null);
+
+        while (!deque.isEmpty()) {
+            vertex = flag ? deque.pollFirst() : deque.pollLast();
+            for (String node : graph.get(vertex)) {
+                if (!seen.contains(node)) {
+                    deque.offerLast(node);
+                    seen.add(node);
+                    parent.put(node, vertex);
+                }
+            }
+        }
+
+        return parent;
+    }
+}
+----
+输出：
+{A=null, B=A, C=A, D=B, E=C, F=D}
+D
+B
+A
+```
+
+### Dijkstra
+```java
+import java.util.*;
+
+public class Main {
+    private static final Map<String, List<Node>> GRAPH = new HashMap<>();
+    private static final String PARENT = "PARENT";
+    private static final String DISTANCE = "DISTANCE";
+
+    static {
+        GRAPH.put("A", Arrays.asList(new Node("B", 5), new Node("C", 1)));
+        GRAPH.put("B", Arrays.asList(new Node("A", 5), new Node("C", 2), new Node("D", 1)));
+        GRAPH.put("C", Arrays.asList(new Node("A", 1), new Node("B", 2), new Node("D", 4), new Node("E", 8)));
+        GRAPH.put("D", Arrays.asList(new Node("B", 1), new Node("C", 4), new Node("E", 3), new Node("F", 6)));
+        GRAPH.put("E", Arrays.asList(new Node("C", 8), new Node("D", 3)));
+        GRAPH.put("F", Arrays.asList(new Node("D", 6)));
+    }
+
+    public static void main(String[] args) {
+        String start = "A";
+        String end = "D";
+        Map<String, Map<String, ?>> map = run(GRAPH, new Node(start, 0));
+
+        System.out.println(map);
+        System.out.println(map.get(DISTANCE).get(end));
+        while (end != null) {
+            System.out.println(end);
+            end = (String) map.get(PARENT).get(end);
+        }
+    }
+
+    private static Map<String, Map<String, ?>> run(final Map<String, List<Node>> graph, Node vertex) {
+        final Queue<Node> queue = new PriorityQueue<>();
+        final Set<String> seen = new HashSet<>();
+        final Map<String, String> parent = new HashMap<>();
+        final Map<String, Integer> distance = new HashMap<>();
+
+        //init distance
+        graph.keySet().forEach(node -> distance.put(node, Integer.MAX_VALUE));
+
+        queue.offer(vertex);
+        parent.put(vertex.name, null);
+        distance.put(vertex.name, vertex.dist);
+
+        while (!queue.isEmpty()) {
+            vertex = queue.poll();
+            seen.add(vertex.name);
+            for (Node node : graph.get(vertex.name)) {
+                if (!seen.contains(node.name)) {
+                    int dist = node.dist + vertex.dist;
+                    if (dist < distance.get(node.name)) {
+                        node.dist = dist;
+                        queue.offer(node);
+                        parent.put(node.name, vertex.name);
+                        distance.put(node.name, node.dist);
+                    }
+                }
+            }
+        }
+
+        Map<String, Map<String, ?>> result = new HashMap<>();
+        result.put(PARENT, parent);
+        result.put(DISTANCE, distance);
+        return Collections.unmodifiableMap(result);
+    }
+
+    private static class Node implements Comparable<Node> {
+        final String name;
+        Integer dist;
+
+        Node(String name, Integer dist) {
+            this.name = name;
+            this.dist = dist;
+        }
+
+        @Override
+        public int compareTo(Node o) {
+            return this.dist - o.dist;
+        }
+    }
+}
+----
+输出：
+{DISTANCE={A=0, B=3, C=1, D=4, E=7, F=10}, PARENT={A=null, B=C, C=A, D=B, E=D, F=D}}
+4
+D
+B
+C
+A
+```
