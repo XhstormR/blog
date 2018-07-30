@@ -219,6 +219,8 @@ WHERE order_num = 20005;
 
 -- 创建分组
 -- GROUP BY 子句指示 DBMS 进行数据分组，然后对每个组进行聚集，而不是对整个结果集
+-- GROUP BY x 根据 x 列进行分组
+-- GROUP BY x, y 根据 x 列和 y 列进行分组（将 x 列和 y 列的值视为一个整体来分组）
 SELECT
   vend_id,
   COUNT(*) AS num_prods
@@ -572,3 +574,8 @@ CREATE TRIGGER emp_stamp
   ON emp
   FOR EACH ROW EXECUTE PROCEDURE emp_stamp();
 ```
+
+## Reference
+* SQL 风格
+  * https://www.sqlstyle.guide/zh/
+  * https://launchbylunch.com/posts/2014/Feb/16/sql-naming-conventions/
