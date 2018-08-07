@@ -759,6 +759,7 @@ https://translate.google.cn/m/translate
 
 https://m.dict.cn/
 https://dict.youdao.com/m
+https://www.collinsdictionary.com/zh/
 
 简繁转换：https://github.com/BYVoid/OpenCC
 ```
