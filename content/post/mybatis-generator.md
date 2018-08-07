@@ -20,6 +20,7 @@ if not exist postgresql-42.2.4.jar curl -LROk https://jcenter.bintray.com/org/po
 md src\main\java
 md src\main\resources
 javac -cp mybatis-generator-core-1.3.7.jar; MyCommentGenerator.java
+javac -cp mybatis-generator-core-1.3.7.jar; MyResultMapGenerator.java
 java -cp mybatis-generator-core-1.3.7.jar; org.mybatis.generator.api.ShellRunner -configfile generatorConfig.xml -overwrite
 ```
 
@@ -33,10 +34,11 @@ java -cp mybatis-generator-core-1.3.7.jar; org.mybatis.generator.api.ShellRunner
 <generatorConfiguration>
     <classPathEntry location="postgresql-42.2.4.jar" />
 
-    <context id="abc" targetRuntime="MyBatis3">
+    <context id="abc" targetRuntime="MyBatis3DynamicSql">
         <property name="autoDelimitKeywords" value="true" />
         <property name="javaFileEncoding" value="UTF-8" />
 
+        <plugin type="MyResultMapGenerator" />
         <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
         <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin" />
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
@@ -204,5 +206,62 @@ public class MyCommentGenerator implements CommentGenerator {
 }
 ```
 
+## MyResultMapGenerator.java
+```java
+import org.mybatis.generator.api.GeneratedXmlFile;
+import org.mybatis.generator.api.IntrospectedTable;
+import org.mybatis.generator.api.PluginAdapter;
+import org.mybatis.generator.api.dom.xml.Attribute;
+import org.mybatis.generator.api.dom.xml.Document;
+import org.mybatis.generator.api.dom.xml.XmlElement;
+import org.mybatis.generator.codegen.XmlConstants;
+import org.mybatis.generator.codegen.mybatis3.xmlmapper.elements.AbstractXmlElementGenerator;
+import org.mybatis.generator.codegen.mybatis3.xmlmapper.elements.ResultMapWithoutBLOBsElementGenerator;
+
+import java.util.Collections;
+import java.util.List;
+
+/**
+ * @author zhangzf
+ * @create 2018/8/7 13:20
+ */
+public class MyResultMapGenerator extends PluginAdapter {
+    @Override
+    public boolean validate(List<String> list) {
+        return true;
+    }
+
+    @Override
+    public List<GeneratedXmlFile> contextGenerateAdditionalXmlFiles(IntrospectedTable introspectedTable) {
+        Document document = new Document(XmlConstants.MYBATIS3_MAPPER_PUBLIC_ID, XmlConstants.MYBATIS3_MAPPER_SYSTEM_ID);
+        XmlElement root = new XmlElement("mapper");
+        document.setRootElement(root);
+
+        root.addAttribute(new Attribute("namespace", introspectedTable.getMyBatis3SqlMapNamespace()));
+
+        initializeAndExecuteGenerator(root, introspectedTable, new ResultMapWithoutBLOBsElementGenerator(false));
+
+        GeneratedXmlFile xmlFile = new GeneratedXmlFile(
+                document,
+                introspectedTable.getMyBatis3XmlMapperFileName(),
+                properties.getProperty("targetPackage", "mapper"),
+                properties.getProperty("targetProject", "src/main/resources"),
+                false,
+                context.getXmlFormatter());
+
+        return Collections.singletonList(xmlFile);
+    }
+
+    private void initializeAndExecuteGenerator(XmlElement parentElement,
+                                               IntrospectedTable introspectedTable,
+                                               AbstractXmlElementGenerator elementGenerator) {
+        elementGenerator.setContext(context);
+        elementGenerator.setIntrospectedTable(introspectedTable);
+        elementGenerator.addElements(parentElement);
+    }
+}
+```
+
 ## Reference
 * http://www.mybatis.org/mybatis-3/zh/dynamic-sql.html
+* https://github.com/mybatis/mybatis-dynamic-sql/releases/latest
