@@ -101,7 +101,7 @@ import java.util.Set;
 
 public class MyCommentGenerator implements CommentGenerator {
     private static void addRemark(JavaElement element, String remarks) {
-        if (remarks != null) {
+        if (remarks != null && !remarks.trim().isEmpty()) {
             element.addJavaDocLine("/**");
             String[] remarkLines = remarks.split(System.getProperty("line.separator"));
             for (String remarkLine: remarkLines) {
