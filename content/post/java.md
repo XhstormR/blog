@@ -52,7 +52,6 @@ F5     复制文件
 F6     移动文件
 
 Ctrl+[]     转至大括号处
-Ctrl+W     扩大选区
 Ctrl+Y     删除行
 Ctrl+D     复制行
 Ctrl+G     转至行
@@ -79,10 +78,10 @@ Ctrl+Shift+Enter     完成声明
 
 Shift+F6     重构 - 重命名（Rename）
 Ctrl+Alt+N     内联（Inline）
-Ctrl+Alt+V     解构为变量（Variable）（Extract）
-Ctrl+Alt+F     解构为属性（Field）
-Ctrl+Alt+P     解构为参数（Parameter）
-Ctrl+Alt+M     解构为方法（Method）
+Ctrl+Alt+V     提取为变量（Variable）（Extract）
+Ctrl+Alt+F     提取为属性（Field）
+Ctrl+Alt+P     提取为参数（Parameter）
+Ctrl+Alt+M     提取为方法（Method）
 
 Alt+Q     查看上下文
 Ctrl+P     查看方法参数
@@ -116,6 +115,12 @@ Alt+F4     关闭窗口
 F3     搜索关键字
 Alt+F3     高亮选中文本（same as Ctrl+F）
 
+Ctrl+W     扩大选区
+Ctrl+Shift+W     缩小选区
+
+F11     添加书签
+Shift+F11     显示书签
+
 F12     查看最近使用的工具窗口
 Ctrl+F12     查看文件结构
 Ctrl+Alt+F12     查看文件路径
@@ -127,6 +132,9 @@ Ctrl+Shift+Alt+Insert     新建临时文件（Scratch）
 
 Ctrl+/     注释行（单行注释）
 Ctrl+Shift+/     添加注释（多行注释）
+
+Ctrl+E     最近访问文件
+Ctrl+Shift+E     最近编辑文件
 
 Ctrl+Z     Undo
 Ctrl+Shift+Z     Redo
@@ -166,13 +174,13 @@ Ctrl+1     快速修正
 Ctrl+2     快速帮助
   L     分配为变量（Local）
   F     分配为属性（Field）
-  M     解构为方法（Method）
+  M     提取为方法（Method）
   R     重构 - 重命名（Rename）
 
 Alt+Shift+↑↓     扩大选区
 Alt+Shift+I     内联（Inline）
-Alt+Shift+L     解构为变量（Variable）（Extract）
-Alt+Shift+M     解构为方法（Method）
+Alt+Shift+L     提取为变量（Variable）（Extract）
+Alt+Shift+M     提取为方法（Method）
 Alt+Shift+R     重构 - 重命名
 
 Ctrl+/     单行注释
