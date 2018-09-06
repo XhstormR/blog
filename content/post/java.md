@@ -115,9 +115,6 @@ Alt+F4     关闭窗口
 F3     搜索关键字
 Alt+F3     高亮选中文本（same as Ctrl+F）
 
-Ctrl+W     扩大选区
-Ctrl+Shift+W     缩小选区
-
 F11     添加书签
 Shift+F11     显示书签
 
@@ -135,6 +132,9 @@ Ctrl+Shift+/     添加注释（多行注释）
 
 Ctrl+E     最近访问文件
 Ctrl+Shift+E     最近编辑文件
+
+Ctrl+W     扩大选区
+Ctrl+Shift+W     缩小选区
 
 Ctrl+Z     Undo
 Ctrl+Shift+Z     Redo
