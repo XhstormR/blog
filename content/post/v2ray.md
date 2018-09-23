@@ -14,7 +14,7 @@ Updated on 2017-11-29
 
 ## 客户端
 
-### socks
+### socks -> socks
 ```json
 {
   "log": {
@@ -48,7 +48,7 @@ Updated on 2017-11-29
 }
 ```
 
-### socks + shadowsocks
+### socks -> socks, shadowsocks
 ```json
 {
   "log": {
@@ -105,6 +105,51 @@ Updated on 2017-11-29
           "ip": [
             "219.221.10.0/24",
             "172.31.0.0/24"
+          ]
+        }
+      ]
+    }
+  }
+}
+```
+
+### socks, http -> vmess
+```json
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbound": {
+    "port": 1080,
+    "listen": "127.0.0.1",
+    "protocol": "socks",
+    "settings": {
+      "auth": "noauth"
+    }
+  },
+  "inboundDetour": [
+    {
+      "port": 1081,
+      "listen": "127.0.0.1",
+      "protocol": "http",
+      "settings": {
+        "allowTransparent": false,
+        "userLevel": 0
+      }
+    }
+  ],
+  "outbound": {
+    "protocol": "vmess",
+    "settings": {
+      "vnext": [
+        {
+          "address": "1.1.1.1",
+          "port": 8080,
+          "users": [
+            {
+              "id": "e735afb1-b608-4eb6-b1b1-b0042cb897e8",
+              "alterId": 64
+            }
           ]
         }
       ]
