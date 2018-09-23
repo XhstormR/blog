@@ -453,6 +453,8 @@ https://jcenter.bintray.com/com/google/javascript/closure-compiler/v20180402/clo
 https://free.nchc.org.tw/tdf/libreoffice/stable/6.0.1/win/x86_64/LibreOffice_6.0.1_Win_x64.msi
 
 https://cloud.bluestacks.com/api/getdownloadnow
+----
+https://forum.xda-developers.com/general/general/bluestacks-tweaker-2-tool-modifing-t3622681
 
 https://mirrors.tuna.tsinghua.edu.cn/virtualbox/virtualbox-Win-latest.exe
 
