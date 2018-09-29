@@ -455,8 +455,8 @@ https://free.nchc.org.tw/tdf/libreoffice/stable/6.0.1/win/x86_64/LibreOffice_6.0
 https://cloud.bluestacks.com/api/getdownloadnow
 ----
 https://forum.xda-developers.com/general/general/bluestacks-tweaker-2-tool-modifing-t3622681
-https://play.google.com/store/apps/details?id=net.jolivier.cert.Importer
 https://repo.xposed.info/module/de.robv.android.xposed.installer
+https://play.google.com/store/apps/details?id=net.jolivier.cert.Importer
 https://www.proxifier.com/download/ProxifierPE.zip
 
 https://mirrors.tuna.tsinghua.edu.cn/virtualbox/virtualbox-Win-latest.exe
@@ -949,8 +949,9 @@ https://windows.metasploit.com/
 漏洞扫描：Nessus
 https://www.tenable.com/products/nessus/select-your-operating-system
 
-漏洞渗透：Burp Suite
+漏洞渗透：Burp Suite、Zed Attack Proxy
 https://portswigger.net/burp/freedownload
+https://github.com/zaproxy/zaproxy
 
 网络扫描：Nmap
 https://nmap.org/download.html
