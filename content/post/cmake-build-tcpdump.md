@@ -26,6 +26,7 @@ D:\Work\Download\tcpdump-master>
 
 https://github.com/the-tcpdump-group/tcpdump/blob/master/netdissect-stdinc.h#L332
 __VA_ARGS__ -> ## __VA_ARGS__
+fixed: https://github.com/the-tcpdump-group/tcpdump/issues/713
 
 type nul > PreLoad.cmake
 echo set(CMAKE_C_STANDARD 11 CACHE INTERNAL "" FORCE) > PreLoad.cmake
