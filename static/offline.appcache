@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#2018-01-05 13:50
+#2018-01-01 13:50
 
 CACHE:
 favicon.ico
@@ -9,12 +9,12 @@ js/zoom.min.js
 js/magic-canvas.min.js
 uploads/cursor.ico
 uploads/file-into-picture2.png
-https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js
-https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js
-https://cdn.bootcss.com/highlight.js/9.12.0/languages/kotlin.min.js
-https://cdn.bootcss.com/highlight.js/9.12.0/styles/monokai-sublime.min.css
-https://cdn.bootcss.com/gsap/1.20.2/TweenLite.min.js
-https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js
+https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js
+https://cdn.jsdelivr.net/npm/highlight.js/lib/highlight.min.js
+https://cdn.jsdelivr.net/npm/highlight.js/lib/languages/kotlin.min.js
+https://cdn.jsdelivr.net/npm/highlight.js/styles/monokai-sublime.min.css
+https://cdn.jsdelivr.net/npm/gsap/TweenLite.min.js
+https://cdn.jsdelivr.net/npm/canvas-nest.js/canvas-nest.min.js
 https://ww4.sinaimg.cn/large/a15b4afegy1fkn9tclcmgj20zk0mygma.jpg
 https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg
 
