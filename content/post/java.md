@@ -17,13 +17,13 @@ Updated on 2016-06-30
 >
 > https://www.oracle.com/technetwork/java/index.html
 >
-> https://docs.oracle.com/javase/10/
+> https://docs.oracle.com/en/java/javase/11/
 >
 > https://docs.oracle.com/javase/8/docs/index.html
 >
 > https://docs.oracle.com/javase/8/javafx/api/allclasses-noframe.html
 >
-> https://docs.oracle.com/javase/10/docs/api/allclasses-noframe.html
+> https://docs.oracle.com/en/java/javase/11/docs/api/allclasses.html
 > |
 > [中文](http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/allclasses-noframe.html)
 
