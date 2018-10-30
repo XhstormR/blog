@@ -100,11 +100,10 @@ https://www.sagernotebook.com/drivers.php?cat=580
 
 ## VPN
 ```bash
-http://www.ipmana.com
-http://vpn.wwdhz.com
-https://code.google.com/p/goagent
-https://wk.dxtl.net/dokuwiki/doku.php/start
-https://www.imfreevpn.com/
+http://www.ipmana.com/
+
+https://github.com/openconnect/openconnect
+echo '123456' | sudo openconnect --juniper --background --syslog --passwd-on-stdin --script=/etc/vpnc/vpnc-script.in --user=123 --authgroup=教师组 https://sslvpn.fudan.edu.cn/
 ```
 
 ## 无界
@@ -749,6 +748,7 @@ doskey /history
 date /t && time /t
 fc /n /w /a 1.txt 2.txt
 mstsc /admin
+certutil -hashfile 1.txt SHA1
 ```
 
 ## WebX
