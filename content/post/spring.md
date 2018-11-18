@@ -28,6 +28,10 @@ Updated on 2017-07-11
 > |
 > [Spring Boot API](https://docs.spring.io/spring-boot/docs/current/api/allclasses-noframe.html)
 >
+> [Spring Security Doc](https://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/)
+> |
+> [Spring Security API](https://docs.spring.io/spring-security/site/docs/current/api/allclasses-noframe.html)
+>
 > [Spring Data JPA Doc](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation)
 > |
 > [Spring Data JPA API](https://docs.spring.io/spring-data/jpa/docs/current/api/allclasses-noframe.html)
