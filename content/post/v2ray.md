@@ -96,7 +96,6 @@ Updated on 2017-11-29
     }
   ],
   "routing": {
-    "strategy": "rules",
     "settings": {
       "rules": [
         {
@@ -105,6 +104,13 @@ Updated on 2017-11-29
           "ip": [
             "219.221.10.0/24",
             "172.31.0.0/24"
+          ]
+        },
+        {
+          "outboundTag": "school",
+          "type": "field",
+          "domain": [
+            "fudan.edu.cn"
           ]
         }
       ]
