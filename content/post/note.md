@@ -522,6 +522,11 @@ http://cemu.info/index.html
 
 ## SQL
 ```bash
+osquery：
+https://github.com/facebook/osquery
+----
+select t1.*, t2.name from process_open_sockets t1, processes t2 where t1.pid = t2.pid;
+
 SQLite：
 https://www.sqlite.org/index.html
 https://github.com/xerial/sqlite-jdbc
