@@ -492,6 +492,10 @@ https://npm.taobao.org/mirrors/
 yarn config set registry https://registry.npm.taobao.org
 npm --registry=https://registry.npm.taobao.org install -g test
 
+世界地图：
+https://planet.osm.org/
+https://www.openstreetmap.org/
+
 PSP：
 https://www.ppsspp.org/downloads.html
 https://github.com/hrydgard/ppsspp
