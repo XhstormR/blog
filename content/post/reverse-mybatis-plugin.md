@@ -61,6 +61,7 @@ exit
 
 ## AspectJ 拦截方法
 * https://search.maven.org/#search%7Cga%7C1%7Cg%3A"org.aspectj"
+* https://www.eclipse.org/aspectj/doc/released/progguide/semantics.html
 * https://www.eclipse.org/aspectj/doc/released/devguide/ltw-configuration.html
 * 使用加载时编织（Load-time Weaving），兼容性比较好。
 
