@@ -48,6 +48,7 @@ java -noverify -jar charles.jar
 * https://github.com/JesusFreke/smali
 * https://github.com/iBotPeaches/Apktool
 * https://github.com/GraxCode/JByteMod-Beta
+* https://github.com/deathmarine/Luyten
 * https://github.com/java-decompiler/jd-gui
 * https://github.com/Konloch/bytecode-viewer
 * https://github.com/jboss-javassist/javassist
