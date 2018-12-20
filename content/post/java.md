@@ -58,6 +58,7 @@ Ctrl+G     转至行
 Ctrl+B     转至声明处
 Ctrl+R     替换文本
 Ctrl+O     重写方法
+Ctrl+I     实现方法
 Ctrl+H     查看类结构
 Ctrl+J     自动代码（Live Templates）
 Alt+。   内容辅助（自己设置 Class Name Completion）
@@ -67,7 +68,7 @@ Alt+4     显示/隐藏运行面板
 Alt+Enter     快速修正
 Alt+下划线字母     选中/取消
 
-Ctrl+Alt+T     代码包围（try-catch）
+Ctrl+Alt+T     代码包围
 Ctrl+Alt+L     格式化代码
 Ctrl+Alt+O     清除无效包引用
 Ctrl+Shift+T     测试用例
@@ -106,6 +107,7 @@ Alt+Shift+Ctrl+J     全选关键字
 Ctrl+Alt+S     设置
 Ctrl+Shift+Alt+S     项目设置
 
+F12     查看最近使用的工具窗口
 Esc     返回编辑器
 Shift+Esc     隐藏最近使用的工具窗口
 
@@ -118,7 +120,6 @@ Alt+F3     高亮选中文本（same as Ctrl+F）
 F11     添加书签
 Shift+F11     显示书签
 
-F12     查看最近使用的工具窗口
 Ctrl+F12     查看文件结构
 Ctrl+Alt+F12     查看文件路径
 
