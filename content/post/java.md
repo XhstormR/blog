@@ -47,6 +47,9 @@ popd
 
 ### IDEA 快捷键
 ```xml
+Ctrl+Ctrl     Run Anything
+Shift+Shift     Search Everywhere
+
 F2     查找错误
 F5     复制文件
 F6     移动文件
