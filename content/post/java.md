@@ -62,8 +62,8 @@ Ctrl+B     转至声明处
 Ctrl+R     替换文本
 Ctrl+O     重写方法
 Ctrl+I     实现方法
-Ctrl+H     查看类结构
-Ctrl+J     自动代码（Live Templates）
+Ctrl+H     查看类继承树
+Ctrl+J     自动代码（Live Template）
 Alt+。   内容辅助（自己设置 Class Name Completion）
 Alt+/     文字补全
 Alt+1     显示/隐藏工程面板
@@ -88,8 +88,8 @@ Ctrl+Alt+P     提取为参数（Parameter）
 Ctrl+Alt+M     提取为方法（Method）
 
 Alt+Q     查看上下文
-Ctrl+P     查看方法参数
 Ctrl+Q     查看快速文档
+Ctrl+P     查看方法参数
 Ctrl+Shift+I     查看快速定义
 
 Ctrl+` 4 3     进入（退出）全屏
