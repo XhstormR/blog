@@ -56,7 +56,7 @@ F6     移动文件
 
 Ctrl+[]     转至大括号处
 Ctrl+Y     删除行
-Ctrl+D     复制行
+Ctrl+D     复制行 or 文件比较
 Ctrl+G     转至行
 Ctrl+B     转至声明处
 Ctrl+R     替换文本
@@ -89,7 +89,7 @@ Ctrl+Alt+M     提取为方法（Method）
 
 Alt+Q     查看上下文
 Ctrl+Q     查看快速文档
-Ctrl+P     查看方法参数
+Ctrl+P     查看参数信息
 Ctrl+Shift+I     查看快速定义
 
 Ctrl+` 4 3     进入（退出）全屏
