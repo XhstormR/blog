@@ -123,6 +123,9 @@ Alt+F3     高亮选中文本（same as Ctrl+F）
 F11     添加书签
 Shift+F11     显示书签
 
+滚轮     垂直滚动
+Shift+滚轮     水平滚动
+
 Ctrl+F12     查看文件结构
 Ctrl+Alt+F12     查看文件路径
 
