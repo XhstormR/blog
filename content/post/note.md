@@ -349,7 +349,6 @@ https://commondatastorage.googleapis.com/chromium-browser-snapshots/Win_x64/LAST
 type nul > "D:\Program Files\Chrome\User Data\SwReporter"
 
 CRX：
-http://crx.2333.me/
 http://yurl.sinaapp.com/crx.php
 http://chrome-extension-downloader.com/
 
