@@ -64,7 +64,7 @@ Ctrl+O     重写方法
 Ctrl+I     实现方法
 Ctrl+H     查看类继承树
 Ctrl+J     自动代码（Live Template）
-Alt+。   内容辅助（自己设置 Class Name Completion）
+Alt+。   内容辅助（Ctrl+Space 被输入法占用，自己设置 Class Name Completion）
 Alt+/     文字补全
 Alt+1     显示/隐藏工程面板
 Alt+4     显示/隐藏运行面板
@@ -106,6 +106,7 @@ Ctrl+Shift+加     展开所有代码块
 Alt+J     多选关键字
 Alt+Shift+J     退选关键字
 Alt+Shift+Ctrl+J     全选关键字
+Alt+Shift+Ctrl+点击     多选模式
 
 Ctrl+Alt+S     设置
 Ctrl+Shift+Alt+S     项目设置
@@ -158,8 +159,9 @@ Alt+←→     切换文件
 Alt+Shift+←→     切换编辑框
 Alt+Ctrl+←→     后向/向前
 
-Alt+Shift+↑↓     移动行
-Ctrl+Shift+↑↓     移动方法
+Shift+Alt+↑↓     移动行
+Shift+Ctrl+↑↓     移动方法
+Shift+Ctrl+Alt+←→     移动方法参数
 
 Shift+Enter     在当前行的下一行插入空行
 Ctrl+Alt+Enter     在当前行的上一行插入空行
