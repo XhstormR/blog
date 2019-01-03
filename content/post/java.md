@@ -19,6 +19,8 @@ Updated on 2016-06-30
 >
 > https://docs.oracle.com/en/java/javase/11/
 >
+> https://docs.oracle.com/javase/specs/index.html
+>
 > https://docs.oracle.com/javase/8/docs/index.html
 >
 > https://docs.oracle.com/javase/8/javafx/api/allclasses-noframe.html
