@@ -66,7 +66,6 @@ Ctrl+O     重写方法
 Ctrl+I     实现方法
 Ctrl+H     查看类继承树
 Ctrl+J     自动代码（Live Template）
-Alt+。   内容辅助（Ctrl+Space 被输入法占用，自己设置 Class Name Completion）
 Alt+/     文字补全
 Alt+1     显示/隐藏工程面板
 Alt+4     显示/隐藏运行面板
@@ -79,7 +78,6 @@ Ctrl+Alt+O     清除无效包引用
 Ctrl+Shift+T     测试用例
 Ctrl+Shift+J     合并行
 Ctrl+Shift+U     大小写转换
-Ctrl+Shift+Space     智能提示
 Ctrl+Shift+Enter     完成声明
 
 Shift+F6     重构 - 重命名（Rename）
@@ -139,6 +137,9 @@ Ctrl+Shift+Alt+Insert     新建临时文件（Scratch）
 
 Ctrl+/     注释行（单行注释）
 Ctrl+Shift+/     添加注释（多行注释）
+
+Ctrl+Space   内容辅助（Class Name Completion 已被输入法占用，推荐设置为 Alt+。）
+Ctrl+Shift+Space     智能提示
 
 Ctrl+E     最近访问文件
 Ctrl+Shift+E     最近编辑文件

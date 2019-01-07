@@ -331,9 +331,7 @@ C:\Windows\System32\drivers\etc\
 
 ## Google（Mirrors）
 ```html
-http://serve.netsh.org/pub/ipv4-hosts/
 https://raw.githubusercontent.com/googlehosts/hosts/master/hosts-files/hosts
-https://raw.githubusercontent.com/sy618/hosts/master/y
 
 EXE：
 https://en.m.wikipedia.org/wiki/Google_Chrome
@@ -528,7 +526,7 @@ http://cemu.info/index.html
 osquery：
 https://github.com/facebook/osquery
 ----
-select t1.*, t2.name from process_open_sockets t1, processes t2 where t1.pid = t2.pid;
+select t1.*, t2.name from process_open_sockets t1, processes t2 where t1.pid = t2.pid order by t2.name;
 
 SQLite：
 https://www.sqlite.org/index.html
