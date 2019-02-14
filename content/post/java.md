@@ -42,7 +42,7 @@ Updated on 2016-06-30
 pushd .
 cd %USERPROFILE%/.IntelliJIdea2017.3/config/
 busybox rm -rf eval
-busybox sed -i "/evlsprt/d" options/options.xml
+busybox sed -i "/evlsprt/d" options/other.xml
 reg delete HKEY_CURRENT_USER\SOFTWARE\JavaSoft\Prefs\jetbrains\idea /f
 popd
 ```
