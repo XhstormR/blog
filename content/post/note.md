@@ -513,6 +513,9 @@ https://ci.appveyor.com/project/rpcs3/rpcs3/branch/master/artifacts
 PSV：
 https://github.com/Vita3K/Vita3K
 
+Xbox360：
+https://github.com/xenia-project/xenia
+
 N64：
 http://www.pj64-emu.com/windows-downloads
 https://github.com/project64/project64
