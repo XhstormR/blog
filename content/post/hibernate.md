@@ -16,6 +16,10 @@ Updated on 2017-05-14
 >
 > https://github.com/hibernate/hibernate-orm
 >
+> https://docs.jboss.org/hibernate/orm/current/javadocs/allclasses-noframe.html
+>
+> https://docs.jboss.org/hibernate/orm/current/userguide/html_single/Hibernate_User_Guide.html
+>
 > https://www.postgresql.org/docs/current/static/index.html
 >
 > https://jcenter.bintray.com/org/hibernate/hibernate-core/
@@ -350,14 +354,13 @@ data class Phone(     从表
 
 ## Reference
 * https://en.wikibooks.org/wiki/Java_Persistence/Relationships
-* https://docs.jboss.org/hibernate/orm/current/userguide/html_single/Hibernate_User_Guide.html
-  * domain
-      * [associations](https://docs.jboss.org/hibernate/orm/current/userguide/html_single/chapters/domain/associations.html)
-      * [collections](https://docs.jboss.org/hibernate/orm/current/userguide/html_single/chapters/domain/collections.html)
-  * appendices
-      * [Annotations](https://docs.jboss.org/hibernate/orm/current/userguide/html_single/appendices/Annotations.html)
-      * [BestPractices](https://docs.jboss.org/hibernate/orm/current/userguide/html_single/appendices/BestPractices.html)
-      * [Configurations](https://docs.jboss.org/hibernate/orm/current/userguide/html_single/appendices/Configurations.html)
+* domain
+  * [associations](https://docs.jboss.org/hibernate/orm/current/userguide/html_single/chapters/domain/associations.html)
+  * [collections](https://docs.jboss.org/hibernate/orm/current/userguide/html_single/chapters/domain/collections.html)
+* appendices
+  * [Annotations](https://docs.jboss.org/hibernate/orm/current/userguide/html_single/appendices/Annotations.html)
+  * [BestPractices](https://docs.jboss.org/hibernate/orm/current/userguide/html_single/appendices/BestPractices.html)
+  * [Configurations](https://docs.jboss.org/hibernate/orm/current/userguide/html_single/appendices/Configurations.html)
 * JPA API
   * https://www.oracle.com/webfolder/technetwork/jsc/xml/ns/persistence/index.html
   * https://www.oracle.com/technetwork/cn/middleware/ias/toplink-jpa-annotations-100895-zhs.html
