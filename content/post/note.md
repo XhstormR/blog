@@ -454,6 +454,7 @@ https://forum.xda-developers.com/general/general/bluestacks-tweaker-2-tool-modif
 https://repo.xposed.info/module/de.robv.android.xposed.installer
 https://play.google.com/store/apps/details?id=net.jolivier.cert.Importer
 https://www.proxifier.com/download/ProxifierPE.zip
+https://github.com/Fuzion24/JustTrustMe
 
 https://mirrors.tuna.tsinghua.edu.cn/virtualbox/virtualbox-Win-latest.exe
 
