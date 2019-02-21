@@ -60,6 +60,8 @@ java -noverify -jar charles.jar
   * https://github.com/cglib/cglib
   * https://github.com/raphw/byte-buddy
   * https://github.com/jboss-javassist/javassist
+* Android：
+  * https://github.com/CalebFenton/simplify
 
 ```bash
 jclasslib
