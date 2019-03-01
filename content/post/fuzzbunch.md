@@ -57,6 +57,6 @@ Windows Registry Editor Version 5.00
 ## Reference
 * http://bobao.360.cn/learning/detail/3743.html
 * https://danderspritz.com/
-* https://github.com/nixawk/Equation_Group_Hacking_Tools/issues/2
+* https://github.com/nixawk/labs
 * [https://github.com/rapid7/metasploit-framework/wiki/How-to-use-a-reverse-shell](https://github.com/rapid7/metasploit-framework/wiki/How-to-use-a-reverse-shell-in-Metasploit)
 * [https://github.com/rapid7/metasploit-payloads/blob/master/java/javapayload](https://github.com/rapid7/metasploit-payloads/blob/master/java/javapayload/src/main/java/metasploit/Payload.java)
