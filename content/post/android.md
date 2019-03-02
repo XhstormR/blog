@@ -13,11 +13,9 @@ Updated on 2016-08-27
 >
 > https://developers.google.cn/
 >
-> https://developer.android.google.cn/index.html
+> https://developer.android.google.cn/
 >
-> https://developer.android.com/index.html
->
-> https://developer.android.com/reference/classes.html
+> https://developer.android.google.cn/reference/classes.html
 
 ## 开发环境
 * IntelliJ IDEA：https://www.jetbrains.com/idea/download/
@@ -1304,8 +1302,7 @@ RadioButton 做出 TAB 效果
 [Maven2](https://repo1.maven.org/maven2/),
 [Maven3](https://repo.maven.apache.org/maven2/),
 [JCenter](https://jcenter.bintray.com/),
-[Mirror](http://maven.aliyun.com/),
-[Build](https://jcenter.bintray.com/com/android/tools/build/gradle/)
+[Mirror](http://maven.aliyun.com/)
 
 Cache：
 [![](/uploads/file-into-picture2.png)](http://ww1.sinaimg.cn/large/a038ef72gw1f5lcbds6wvj203k03k1lf "Part1")
