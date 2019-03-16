@@ -64,7 +64,6 @@ Ctrl+B     转至声明处
 Ctrl+R     替换文本
 Ctrl+O     重写方法
 Ctrl+I     实现方法
-Ctrl+H     查看类继承树
 Ctrl+J     自动代码（Live Template）
 Alt+/     文字补全
 Alt+1     显示/隐藏工程面板
@@ -129,6 +128,9 @@ Shift+滚轮     水平滚动
 
 Ctrl+F12     查看文件结构
 Ctrl+Alt+F12     查看文件路径
+
+Ctrl+H     查看类型层级
+Ctrl+Alt+H     查看调用层级
 
 Alt+Insert     生成方法
 Ctrl+Alt+Insert     新建文件
