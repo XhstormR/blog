@@ -73,9 +73,12 @@ http://malu.me/cpu/
 
 ## DNS
 ```bash
-OpenDNS：
+OpenDNS:
 208.67.222.222
 208.67.220.220
+
+SDNS:
+http://public.sdns.cn/
 ```
 
 ## 磁盘分区空间量设置
