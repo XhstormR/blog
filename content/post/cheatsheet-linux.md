@@ -31,7 +31,7 @@ cat  #查看文件内容     Concatenate
 head #查看文件内容头10行
 tail #查看文件内容尾10行 -f 监视文件最新增加的内容     Follow
 touch #创建空文件
-ifconfig #查看网卡信息
+ip -s -h address #查看网卡信息
 wc   #统计文本     -l -w -c     行数 单词数 字节数
 less #分屏显示     -5 每次显示5行     -N 显示行号
 more #分页显示     -5 每次显示5行     推荐使用 less
@@ -46,6 +46,7 @@ reset #初始化终端
 -F #显示类型标识符     /目录 *可执行文件 @符号链接 =Sockets套接字 |FIFO命令管道 普通文件无标识符     Classify(分类)
 -h #人性化显示大小
 -i #显示inode
+-I #排除匹配文件
 -r #反向排序     Reverse(相反)
 -R #操作文件夹下的所有文件     Recursive(递归)
 -S #按文件大小降序排列     Size
@@ -695,21 +696,6 @@ yum clean all #删除缓存
 移除源：remove <repo> from /etc/yum.repos.d/
 ```
 
-## chmod
-```
-chmod [选项] [参数]
--R #操作文件夹下的所有文件     Recursive(递归)
-
-chmod 764 file01 #把 file01 的权限改为 rwx rw- r--
-
-rwx rw- r--(333)
-r=读取     值 = 4
-w=写入     值 = 2
-x=执行     值 = 1
-
-Tips：所有帐号记录在 /etc/passwd；所有密码记录在 /etc/shadow；所有组群记录在 /etc/group。
-```
-
 ## chown
 ```
 chown [选项] [参数]
@@ -720,6 +706,33 @@ chown [选项] [参数]
 文件：指定要改变所有者和工作组的文件列表。支持多个文件和目标，支持shell通配符。
 
 chown user:market file01 #把 file01 给 user，并添加到 market 组中
+```
+
+## chmod
+```
+chmod [选项] [参数]
+-R #操作文件夹下的所有文件     Recursive(递归)
+
+chmod +x file01 #添加可执行权限
+chmod 764 file01 #把 file01 的权限改为 rwx rw- r--
+
+rwx rw- r--(333)
+r=读取     值 = 4
+w=写入     值 = 2
+x=执行     值 = 1
+
+Tips：
+所有用户记录在 /etc/passwd；
+所有密码记录在 /etc/shadow；
+所有组群记录在 /etc/group。
+```
+
+## getent
+```bash
+getent passwd #查看用户
+getent shadow #查看密码
+getent group #查看用户组
+getent hosts #查看主机
 ```
 
 ## passwd
@@ -852,7 +865,8 @@ nmap -p 80,443 192.168.1.1-254 #扫描此网段的 80、443 端口
 所属用户 进程ID 父进程ID                                进程名
 root      7207  2965  0 11:30 pts/1    00:00:00 vim
 root      7542  2965  0 11:30 pts/1    00:00:00 grep vim
-[root@controller ~]$ kill -9 7207 #强制终止进程，默认终止进程发送信号15
+[root@controller ~]$  kill -9 7207 #根据进程 ID 强制终止进程，默认终止进程发送信号15
+[root@controller ~]$ pkill -9 -t pts/1 #根据终端 ID 强制终止进程
 
 [root@controller ~]$ kill -l #列出信号
  1) SIGHUP       2) SIGINT       3) SIGQUIT      4) SIGILL       5) SIGTRAP
