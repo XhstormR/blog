@@ -17,6 +17,7 @@ Updated on 2019-04-04
 curl -o /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-7.repo
 yum makecache
 yum update -y
+
 timedatectl set-timezone Asia/Shanghai
 ```
 
@@ -59,12 +60,6 @@ docker-compose logs -f #查看容器日志
 docker-compose exec gitlab sh #获得容器 Shell
 ```
 
-```bash
-visudo -f /etc/sudoers.d/123
-----
-leo    ALL=(ALL)       ALL
-```
-
 ## GitLab + Drone + Traefik
 * https://docs.gitlab.com/omnibus/docker/
 * https://docs.gitlab.com/omnibus/settings/configuration.html
@@ -74,19 +69,6 @@ leo    ALL=(ALL)       ALL
 ```bash
 docker-compose pull
 docker-compose up -d
-```
-
-```bash
-容器之间通过 HostIP:Port 访问对方，需要防火墙开启对应端口
-systemctl status firewalld
-firewall-cmd --state
-firewall-cmd --add-port=80/tcp --permanent
-firewall-cmd --add-port=1080/tcp --permanent
-firewall-cmd --reload
-firewall-cmd --list-all
-
-firewall-cmd --add-service=http --permanent
-firewall-cmd --remove-port=80/tcp --permanent
 ```
 
 ### docker-compose.yml
@@ -139,4 +121,28 @@ services:
     command: --api --docker
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+```
+
+---
+
+```bash
+配置 sudoers
+
+visudo -f /etc/sudoers.d/123
+----
+leo    ALL=(ALL)       ALL
+```
+
+```bash
+容器之间通过 HostIP:Port 访问对方，需要防火墙放行对应端口
+
+systemctl status firewalld
+firewall-cmd --state
+firewall-cmd --add-port=80/tcp --permanent
+firewall-cmd --add-port=1080/tcp --permanent
+firewall-cmd --reload
+firewall-cmd --list-all
+
+firewall-cmd --add-service=http --permanent
+firewall-cmd --remove-port=80/tcp --permanent
 ```
