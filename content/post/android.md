@@ -1304,7 +1304,7 @@ RadioButton 做出 TAB 效果
 [Maven2](https://repo1.maven.org/maven2/),
 [Maven3](https://repo.maven.apache.org/maven2/),
 [JCenter](https://jcenter.bintray.com/),
-[Mirror](http://maven.aliyun.com/)
+[Mirror](https://maven.aliyun.com/)
 
 Cache：
 [![](/uploads/file-into-picture2.png)](http://ww1.sinaimg.cn/large/a038ef72gw1f5lcbds6wvj203k03k1lf "Part1")

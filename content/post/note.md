@@ -428,11 +428,11 @@ https://docs.microsoft.com/en-us/sysinternals/downloads/
 
 https://bellard.org/tcc/
 
-https://releases.llvm.org/6.0.0/LLVM-6.0.0-win64.exe
+https://releases.llvm.org/8.0.0/LLVM-8.0.0-win64.exe
 ----
 clang.exe --target=x86_64-w64-windows-gnu 123.c
 
-http://prereleases.llvm.org/win-snapshots/clang-format-r333363.exe
+https://prereleases.llvm.org/win-snapshots/clang-format-r357435.exe
 
 https://frippery.org/files/busybox/busybox64.exe
 
