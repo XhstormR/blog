@@ -108,6 +108,7 @@ services:
       - /var/lib/drone:/data
       - /var/run/docker.sock:/var/run/docker.sock
     labels:
+      - traefik.port=80
       - traefik.frontend.rule=PathPrefix:/
 
   traefik:
@@ -115,11 +116,20 @@ services:
     restart: always
     ports:
       - '80:80'
-      - '443:443'
-      - '8080:8080'
     command: --api --docker
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+    labels:
+      - traefik.port=8080
+      - traefik.frontend.rule=PathPrefixStrip:/traefik/
+      - traefik.frontend.auth.basic.removeHeader=true
+      - traefik.frontend.auth.basic.users=${BASIC_AUTH}
+```
+
+### .env
+
+```
+BASIC_AUTH=123:$apr1$RtRCK2WO$J6fxpElZd3HeXwyt12Oy51
 ```
 
 ---
@@ -130,6 +140,12 @@ services:
 visudo -f /etc/sudoers.d/123
 ----
 leo    ALL=(ALL)       ALL
+```
+
+```
+htpasswd -nb 123 456
+
+https://httpd.apache.org/docs/current/programs/htpasswd.html
 ```
 
 ```bash
