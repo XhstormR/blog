@@ -69,6 +69,7 @@ docker-compose exec gitlab sh #获得容器 Shell
 ```bash
 docker-compose pull
 docker-compose up -d
+docker-compose ps
 ```
 
 ### docker-compose.yml
@@ -82,11 +83,9 @@ services:
     restart: always
     environment:
       GITLAB_OMNIBUS_CONFIG: |
-        external_url 'http://192.168.1.147'
+        external_url 'http://192.168.1.147/git/'
         gitlab_rails['gitlab_shell_ssh_port'] = 1022
     ports:
-      - '80:80'
-      - '443:443'
       - '1022:22'
     volumes:
       - /srv/gitlab/config:/etc/gitlab
@@ -94,29 +93,29 @@ services:
       - /srv/gitlab/data:/var/opt/gitlab
     labels:
       - traefik.port=80
+      - traefik.frontend.rule=PathPrefix:/git/
 
   drone:
     image: drone/drone:latest
     restart: always
     environment:
-      DRONE_SERVER_HOST: '192.168.1.147:1080'
-      DRONE_GITLAB_SERVER: 'http://192.168.1.147'
-      DRONE_GITLAB_CLIENT_ID: '2127852ddf50bf3fe3add3a17c28d50d21f5946bc469f54eff2f54f3ca363c14'
-      DRONE_GITLAB_CLIENT_SECRET: '187e057c6ce065041ff21500eb2c7fb48931feb0772928cbeb97e850c680a0c0'
+      DRONE_SERVER_HOST: '192.168.1.147'
+      DRONE_GITLAB_SERVER: 'http://192.168.1.147/git/'
+      DRONE_GITLAB_CLIENT_ID: '123'
+      DRONE_GITLAB_CLIENT_SECRET: '456'
       DRONE_USER_CREATE: 'username:root,admin:true'
-    ports:
-      - '1080:80'
-      - '10443:443'
     volumes:
       - /var/lib/drone:/data
       - /var/run/docker.sock:/var/run/docker.sock
+    labels:
+      - traefik.frontend.rule=PathPrefix:/
 
   traefik:
     image: traefik:latest
     restart: always
     ports:
-      - '2080:80'
-      - '20443:443'
+      - '80:80'
+      - '443:443'
       - '8080:8080'
     command: --api --docker
     volumes:
@@ -139,7 +138,6 @@ leo    ALL=(ALL)       ALL
 systemctl status firewalld
 firewall-cmd --state
 firewall-cmd --add-port=80/tcp --permanent
-firewall-cmd --add-port=1080/tcp --permanent
 firewall-cmd --reload
 firewall-cmd --list-all
 
