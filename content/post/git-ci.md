@@ -83,7 +83,7 @@ services:
     restart: always
     environment:
       GITLAB_OMNIBUS_CONFIG: |
-        external_url 'http://192.168.1.147/git/'
+        external_url ${GITLAB_SERVER_URL}
         gitlab_rails['gitlab_shell_ssh_port'] = 1022
     ports:
       - '1022:22'
@@ -99,10 +99,10 @@ services:
     image: drone/drone:latest
     restart: always
     environment:
-      DRONE_SERVER_HOST: '192.168.1.147'
-      DRONE_GITLAB_SERVER: 'http://192.168.1.147/git/'
-      DRONE_GITLAB_CLIENT_ID: '123'
-      DRONE_GITLAB_CLIENT_SECRET: '456'
+      DRONE_SERVER_HOST: ${DRONE_SERVER_HOST}
+      DRONE_GITLAB_SERVER: ${GITLAB_SERVER_URL}
+      DRONE_GITLAB_CLIENT_ID: ${GITLAB_CLIENT_ID}
+      DRONE_GITLAB_CLIENT_SECRET: ${GITLAB_CLIENT_SECRET}
       DRONE_USER_CREATE: 'username:root,admin:true'
     volumes:
       - /var/lib/drone:/data
@@ -123,13 +123,17 @@ services:
       - traefik.port=8080
       - traefik.frontend.rule=PathPrefixStrip:/traefik/
       - traefik.frontend.auth.basic.removeHeader=true
-      - traefik.frontend.auth.basic.users=${BASIC_AUTH}
+      - traefik.frontend.auth.basic.users=${TRAEFIK_BASIC_AUTH}
 ```
 
 ### .env
 
 ```
-BASIC_AUTH=123:$apr1$RtRCK2WO$J6fxpElZd3HeXwyt12Oy51
+DRONE_SERVER_HOST=192.168.1.147
+GITLAB_SERVER_URL=http://192.168.1.147/git/
+GITLAB_CLIENT_ID=123
+GITLAB_CLIENT_SECRET=456
+TRAEFIK_BASIC_AUTH=123:$apr1$RtRCK2WO$J6fxpElZd3HeXwyt12Oy51
 ```
 
 ---
