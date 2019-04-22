@@ -25,9 +25,11 @@ timedatectl set-timezone Asia/Shanghai
 * https://docs.docker.com/reference/
 * https://docs.docker.com/engine/reference/commandline/docker/
 * https://docs.docker.com/engine/reference/commandline/dockerd/
+* https://cr.console.aliyun.com/cn-shanghai/instances/mirrors
 
 ```bash
 curl -fsSL https://get.docker.com | bash -s -- docker --mirror Aliyun
+mkdir -p /etc/docker
 echo -e '{\n"registry-mirrors": ["https://docker.mirrors.ustc.edu.cn"]\n}' > /etc/docker/daemon.json
 systemctl start docker
 systemctl enable docker
@@ -60,11 +62,12 @@ docker-compose logs -f #查看容器日志
 docker-compose exec gitlab sh #获得容器 Shell
 ```
 
-## GitLab + Drone + Traefik
+## GitLab + Drone + Traefik + Portainer
 * https://docs.gitlab.com/omnibus/docker/
 * https://docs.gitlab.com/omnibus/settings/configuration.html
 * https://docs.drone.io/installation/gitlab/single-machine/
 * https://docs.traefik.io/configuration/backends/docker/
+* https://portainer.readthedocs.io/en/stable/configuration.html
 
 ```bash
 docker-compose pull
@@ -83,7 +86,7 @@ services:
     restart: always
     environment:
       GITLAB_OMNIBUS_CONFIG: |
-        external_url ${GITLAB_SERVER_URL}
+        external_url '${GITLAB_SERVER_URL}'
         gitlab_rails['gitlab_shell_ssh_port'] = 1022
     ports:
       - '1022:22'
@@ -111,6 +114,17 @@ services:
       - traefik.port=80
       - traefik.frontend.rule=PathPrefix:/
 
+  portainer:
+    image: portainer/portainer:latest
+    restart: always
+    command: -H unix:///var/run/docker.sock --admin-password ${PORTAINER_ADMIN_PASSWORD}
+    volumes:
+      - /var/lib/portainer:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    labels:
+      - traefik.port=9000
+      - traefik.frontend.rule=PathPrefixStrip:/portainer/
+
   traefik:
     image: traefik:latest
     restart: always
@@ -129,11 +143,12 @@ services:
 ### .env
 
 ```
-DRONE_SERVER_HOST=192.168.1.147
-GITLAB_SERVER_URL=http://192.168.1.147/git/
+DRONE_SERVER_HOST=192.168.8.128
+GITLAB_SERVER_URL=http://192.168.8.128/git/
 GITLAB_CLIENT_ID=123
 GITLAB_CLIENT_SECRET=456
-TRAEFIK_BASIC_AUTH=123:$apr1$RtRCK2WO$J6fxpElZd3HeXwyt12Oy51
+TRAEFIK_BASIC_AUTH=123:$2y$05$mV7zdO2bQ3dHM0S4fOoL2uNBN1DklcS7jGE1nj3ZL0jqhFJKaBlOK
+PORTAINER_ADMIN_PASSWORD=$2y$05$mV7zdO2bQ3dHM0S4fOoL2uNBN1DklcS7jGE1nj3ZL0jqhFJKaBlOK
 ```
 
 ---
@@ -147,7 +162,7 @@ leo    ALL=(ALL)       ALL
 ```
 
 ```
-htpasswd -nb 123 456
+htpasswd -nbB 123 456
 
 https://httpd.apache.org/docs/current/programs/htpasswd.html
 ```
