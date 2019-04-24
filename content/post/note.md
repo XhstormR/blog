@@ -895,14 +895,14 @@ PS：4 天死磕的教训，软件编程方面少跟 **微软的系统组件** �
 123.xml
 ⇳
 <Configuration>
-    <Add SourcePath="D:\Download\Office\" OfficeClientEdition="64" Channel="Monthly">
-        <Product ID="WordRetail">
+    <Add SourcePath="D:\Download\Office\" OfficeClientEdition="64" Channel="PerpetualVL2019">
+        <Product ID="Word2019Volume">
             <Language ID="zh-cn"/>
         </Product>
-        <Product ID="ExcelRetail">
+        <Product ID="Excel2019Volume">
             <Language ID="zh-cn"/>
         </Product>
-        <Product ID="PowerPointRetail">
+        <Product ID="PowerPoint2019Volume">
             <Language ID="zh-cn"/>
         </Product>
     </Add>
