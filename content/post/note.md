@@ -884,6 +884,7 @@ Ctrl+D     向下填充
 setup.exe /download 123.xml
 setup.exe /configure 123.xml
 
+https://config.office.com/
 https://www.microsoft.com/en-us/download/confirmation.aspx?id=49117
 https://support.office.com/zh-cn/article/d3879f0d-766c-469c-9440-0a9a2a905ca8
 https://support.microsoft.com/zh-cn/help/257757
