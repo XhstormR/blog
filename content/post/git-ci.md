@@ -162,13 +162,15 @@ leo    ALL=(ALL)       ALL
 ```
 
 ```
+基本身份认证
+
 htpasswd -nbB 123 456
 
 https://httpd.apache.org/docs/current/programs/htpasswd.html
 ```
 
 ```bash
-容器之间通过 HostIP:Port 访问对方，需要防火墙放行对应端口
+本地容器之间若通过 HostIP:Port 访问对方，需要防火墙放行对应端口
 
 systemctl status firewalld
 firewall-cmd --state
@@ -178,4 +180,18 @@ firewall-cmd --list-all
 
 firewall-cmd --add-service=http --permanent
 firewall-cmd --remove-port=80/tcp --permanent
+```
+
+```bash
+https://docker.mirrors.ustc.edu.cn/v2/gitlab/gitlab-ce/tags/list
+https://docker.mirrors.ustc.edu.cn/v2/gitlab/gitlab-ce/manifests/latest
+https://docker.mirrors.ustc.edu.cn/v2/gitlab/gitlab-ce/blobs/sha256:e04a2435a78d15beae8c317bb18cfc3bc556b8dcdb7d29b256971ad42ee06767
+
+curl -sk https://docker.mirrors.ustc.edu.cn/v2/gitlab/gitlab-ce/manifests/latest | ^
+jq -r .fsLayers[].blobSum | ^
+busybox xargs -i echo curl -skI https://docker.mirrors.ustc.edu.cn/v2/gitlab/gitlab-ce/blobs/{} | ^
+busybox sh | ^
+busybox grep content-length
+
+https://docs.docker.com/registry/spec/api/
 ```
