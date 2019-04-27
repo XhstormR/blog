@@ -792,6 +792,7 @@ BackgroundColor = #2b2b2b
 SelectionColor = #b3d4fc
 
 https://www.sumatrapdfreader.org/settings.html
+https://www.sumatrapdfreader.org/prerelease.html
 ```
 
 ## C
