@@ -161,7 +161,7 @@ visudo -f /etc/sudoers.d/123
 leo    ALL=(ALL)       ALL
 ```
 
-```
+```bash
 基本身份认证
 
 htpasswd -nbB 123 456
@@ -191,7 +191,7 @@ curl -sk https://docker.mirrors.ustc.edu.cn/v2/gitlab/gitlab-ce/manifests/latest
 jq -r .fsLayers[].blobSum | ^
 busybox xargs -i echo curl -skI https://docker.mirrors.ustc.edu.cn/v2/gitlab/gitlab-ce/blobs/{} | ^
 busybox sh | ^
-busybox grep content-length
+busybox grep -i content-length
 
 https://docs.docker.com/registry/spec/api/
 ```
