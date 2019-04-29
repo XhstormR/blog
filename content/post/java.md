@@ -17,7 +17,7 @@ Updated on 2016-06-30
 >
 > https://www.oracle.com/technetwork/java/index.html
 >
-> https://docs.oracle.com/en/java/javase/11/
+> https://docs.oracle.com/en/java/javase/12/
 >
 > https://docs.oracle.com/javase/specs/index.html
 >
@@ -25,9 +25,7 @@ Updated on 2016-06-30
 >
 > https://docs.oracle.com/javase/8/javafx/api/allclasses-noframe.html
 >
-> https://docs.oracle.com/en/java/javase/11/docs/api/allclasses.html
-> |
-> [中文](http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/allclasses-noframe.html)
+> https://docs.oracle.com/en/java/javase/12/docs/api/allclasses.html
 
 ## IDE
 * Eclipse：https://www.eclipse.org/downloads/eclipse-packages/
@@ -222,6 +220,8 @@ Windows -> Preferences -> Java -> Editor -> Content Assist -> Auto Activation ->
 ```
 
 ## [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/latest
+* https://github.com/AdoptOpenJDK/openjdk12-binaries/releases/latest
 * JDK：Java Development Kit（Java 开发工具包）
   * JRE：Java Runtime Environment（Java 运行环境）
       * JVM：Java Virtual Machine（Java 虚拟机）
