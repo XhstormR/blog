@@ -108,6 +108,9 @@ Alt+Shift+Ctrl+点击     多选模式
 Ctrl+Alt+S     设置
 Ctrl+Shift+Alt+S     项目设置
 
+Ctrl+Alt+U     显示 UML
+Ctrl+Shift+Alt+U     显示 UML（新窗口）
+
 F12     查看最近使用的工具窗口
 Esc     返回编辑器
 Shift+Esc     隐藏最近使用的工具窗口
@@ -220,6 +223,7 @@ Windows -> Preferences -> Java -> Editor -> Content Assist -> Auto Activation ->
 ```
 
 ## [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* https://www.azul.com/downloads/zulu/
 * https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/latest
 * https://github.com/AdoptOpenJDK/openjdk12-binaries/releases/latest
 * JDK：Java Development Kit（Java 开发工具包）
