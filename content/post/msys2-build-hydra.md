@@ -30,5 +30,5 @@ hydra -V -F -L username.txt -P password.txt -o ok.txt -t 20 'http-post-form://22
 
 ## Reference
 * 依赖：
-  * msys-2.0.dll：[src](https://mirrors.ustc.edu.cn/msys2/msys/sources/msys2-runtime-2.11.2-1.src.tar.gz) | [bin](https://mirrors.ustc.edu.cn/msys2/msys/x86_64/msys2-runtime-2.11.2-1-x86_64.pkg.tar.xz)
+  * msys-2.0.dll：[src](https://mirrors.ustc.edu.cn/msys2/msys/sources/msys2-runtime-3.0.6-1.src.tar.gz) | [bin](https://mirrors.ustc.edu.cn/msys2/msys/x86_64/msys2-runtime-3.0.6-1-x86_64.pkg.tar.xz)
 * [MSYS2](https://www.msys2.org)
