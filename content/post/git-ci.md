@@ -59,6 +59,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 ```bash
 docker-compose version #查看版本
 docker-compose logs -f #查看容器日志
+docker-compose down -v #停止并删除容器、网络、卷
 docker-compose exec gitlab sh #获得容器 Shell
 ```
 
@@ -195,3 +196,6 @@ busybox grep -i content-length
 
 https://docs.docker.com/registry/spec/api/
 ```
+
+## Reference
+* https://docs.docker.com/samples/
