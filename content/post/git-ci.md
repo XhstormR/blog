@@ -39,11 +39,13 @@ usermod -aG docker leo
 
 ```bash
 docker info #查看系统信息
-docker ps #查看容器
+docker ps -a #查看容器
 docker images #查看镜像
 docker network ls #查看网络
-docker rm $(docker ps -a -q) #删除已停止的容器
-docker rmi drone/drone #删除镜像
+docker rm -fv gitlab #停止并删除容器、卷
+docker rm `docker ps -a -q` #删除已停止的容器
+docker rmi gitlab/gitlab-ce #删除镜像
+docker logs -f gitlab #查看容器日志
 docker exec -it gitlab sh #获得容器 Shell
 ```
 
@@ -58,8 +60,8 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 ```bash
 docker-compose version #查看版本
-docker-compose logs -f #查看容器日志
 docker-compose down -v #停止并删除容器、网络、卷
+docker-compose logs -f #查看容器日志
 docker-compose exec gitlab sh #获得容器 Shell
 ```
 
@@ -74,6 +76,7 @@ docker-compose exec gitlab sh #获得容器 Shell
 docker-compose pull
 docker-compose up -d
 docker-compose ps
+docker-compose exec runner gitlab-runner register
 ```
 
 ### docker-compose.yml
@@ -87,17 +90,35 @@ services:
     restart: always
     environment:
       GITLAB_OMNIBUS_CONFIG: |
+        gitlab_rails['gitlab_shell_ssh_port'] = 5022
         external_url '${GITLAB_SERVER_URL}'
-        gitlab_rails['gitlab_shell_ssh_port'] = 1022
+        registry_external_url '${GITLAB_REGISTRY_URL}'
+        registry_nginx['ssl_certificate'] = "/certs/domain.crt"
+        registry_nginx['ssl_certificate_key'] = "/certs/domain.key"
     ports:
-      - '1022:22'
+      - '5022:22'
+      - '5100:5100'
     volumes:
-      - /srv/gitlab/config:/etc/gitlab
-      - /srv/gitlab/logs:/var/log/gitlab
-      - /srv/gitlab/data:/var/opt/gitlab
+      - ./certs:/certs
+      - gitlab_config:/etc/gitlab
+      - gitlab_logs:/var/log/gitlab
+      - gitlab_data:/var/opt/gitlab
     labels:
       - traefik.port=80
       - traefik.frontend.rule=PathPrefix:/git/
+
+  runner:
+    image: gitlab/gitlab-runner:latest
+    restart: always
+    environment:
+      CI_SERVER_URL: ${GITLAB_SERVER_URL}
+      REGISTRATION_TOKEN: ${REGISTRATION_TOKEN}
+      REGISTER_NON_INTERACTIVE: 'true'
+      RUNNER_EXECUTOR: docker
+      DOCKER_IMAGE: alpine:latest
+    volumes:
+      - runner_data:/etc/gitlab-runner
+      - /var/run/docker.sock:/var/run/docker.sock
 
   drone:
     image: drone/drone:latest
@@ -109,7 +130,7 @@ services:
       DRONE_GITLAB_CLIENT_SECRET: ${GITLAB_CLIENT_SECRET}
       DRONE_USER_CREATE: 'username:root,admin:true'
     volumes:
-      - /var/lib/drone:/data
+      - drone_data:/data
       - /var/run/docker.sock:/var/run/docker.sock
     labels:
       - traefik.port=80
@@ -120,7 +141,7 @@ services:
     restart: always
     command: -H unix:///var/run/docker.sock --admin-password ${PORTAINER_ADMIN_PASSWORD}
     volumes:
-      - /var/lib/portainer:/data
+      - portainer_data:/data
       - /var/run/docker.sock:/var/run/docker.sock
     labels:
       - traefik.port=9000
@@ -139,6 +160,14 @@ services:
       - traefik.frontend.rule=PathPrefixStrip:/traefik/
       - traefik.frontend.auth.basic.removeHeader=true
       - traefik.frontend.auth.basic.users=${TRAEFIK_BASIC_AUTH}
+
+volumes:
+  gitlab_config:
+  gitlab_logs:
+  gitlab_data:
+  runner_data:
+  drone_data:
+  portainer_data:
 ```
 
 ### .env
@@ -146,8 +175,10 @@ services:
 ```
 DRONE_SERVER_HOST=192.168.8.128
 GITLAB_SERVER_URL=http://192.168.8.128/git/
+GITLAB_REGISTRY_URL=https://192.168.8.128:5100
 GITLAB_CLIENT_ID=123
 GITLAB_CLIENT_SECRET=456
+REGISTRATION_TOKEN=123
 TRAEFIK_BASIC_AUTH=123:$2y$05$mV7zdO2bQ3dHM0S4fOoL2uNBN1DklcS7jGE1nj3ZL0jqhFJKaBlOK
 PORTAINER_ADMIN_PASSWORD=$2y$05$mV7zdO2bQ3dHM0S4fOoL2uNBN1DklcS7jGE1nj3ZL0jqhFJKaBlOK
 ```
@@ -175,11 +206,11 @@ https://httpd.apache.org/docs/current/programs/htpasswd.html
 
 systemctl status firewalld
 firewall-cmd --state
-firewall-cmd --add-port=80/tcp --permanent
+firewall-cmd --add-service=http --permanent
 firewall-cmd --reload
 firewall-cmd --list-all
 
-firewall-cmd --add-service=http --permanent
+firewall-cmd --add-port=80/tcp --permanent
 firewall-cmd --remove-port=80/tcp --permanent
 ```
 
@@ -195,6 +226,20 @@ busybox sh | ^
 busybox grep -i content-length
 
 https://docs.docker.com/registry/spec/api/
+```
+
+```bash
+mkdir -p certs
+openssl req \
+  -config /etc/pki/tls/openssl.cnf \
+  -addext 'subjectAltName=IP:192.168.8.128' \
+  -newkey rsa:4096 -nodes -sha256 -keyout certs/domain.key \
+  -x509 -days 365 -out certs/domain.crt
+
+mkdir -p /etc/docker/certs.d/192.168.8.128:5100
+cp certs/domain.crt /etc/docker/certs.d/192.168.8.128:5100/ca.crt
+
+https://www.openssl.org/docs/manmaster/man1/req.html
 ```
 
 ## Reference
