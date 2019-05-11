@@ -111,7 +111,7 @@ services:
     restart: always
     environment:
       CI_SERVER_URL: ${GITLAB_SERVER_URL}
-      REGISTRATION_TOKEN: ${REGISTRATION_TOKEN}
+      REGISTRATION_TOKEN: ${RUNNER_REGISTRATION_TOKEN}
       REGISTER_NON_INTERACTIVE: 'true'
       RUNNER_EXECUTOR: docker
       DOCKER_IMAGE: alpine:latest
@@ -157,9 +157,9 @@ volumes:
 ```
 GITLAB_SERVER_URL=http://192.168.8.128/git/
 GITLAB_REGISTRY_URL=https://192.168.8.128:5100
-REGISTRATION_TOKEN=123
-TRAEFIK_BASIC_AUTH=123:$2y$05$mV7zdO2bQ3dHM0S4fOoL2uNBN1DklcS7jGE1nj3ZL0jqhFJKaBlOK
-PORTAINER_ADMIN_PASSWORD=$2y$05$mV7zdO2bQ3dHM0S4fOoL2uNBN1DklcS7jGE1nj3ZL0jqhFJKaBlOK
+RUNNER_REGISTRATION_TOKEN=123
+TRAEFIK_BASIC_AUTH=123:$2y$05$80HqrqBOoNaabteix3gYJ.S0kT.HP6sw5GjOplRfGhGezth0yL78y
+PORTAINER_ADMIN_PASSWORD=$2y$05$80HqrqBOoNaabteix3gYJ.S0kT.HP6sw5GjOplRfGhGezth0yL78y
 ```
 
 ---
@@ -173,9 +173,25 @@ leo    ALL=(ALL)       ALL
 ```
 
 ```bash
+配置 Docker Registry 证书
+
+mkdir -p certs
+openssl req \
+  -config /etc/pki/tls/openssl.cnf \
+  -addext 'subjectAltName=IP:192.168.8.128' \
+  -newkey rsa:4096 -nodes -sha256 -keyout certs/domain.key \
+  -x509 -days 365 -out certs/domain.crt
+
+mkdir -p /etc/docker/certs.d/192.168.8.128:5100
+cp certs/domain.crt /etc/docker/certs.d/192.168.8.128:5100/ca.crt
+
+https://www.openssl.org/docs/manmaster/man1/req.html
+```
+
+```bash
 基本身份认证
 
-htpasswd -nbB 123 456
+htpasswd -nbB 123 123456
 
 https://httpd.apache.org/docs/current/programs/htpasswd.html
 ```
@@ -205,20 +221,6 @@ busybox sh | ^
 busybox grep -i content-length
 
 https://docs.docker.com/registry/spec/api/
-```
-
-```bash
-mkdir -p certs
-openssl req \
-  -config /etc/pki/tls/openssl.cnf \
-  -addext 'subjectAltName=IP:192.168.8.128' \
-  -newkey rsa:4096 -nodes -sha256 -keyout certs/domain.key \
-  -x509 -days 365 -out certs/domain.crt
-
-mkdir -p /etc/docker/certs.d/192.168.8.128:5100
-cp certs/domain.crt /etc/docker/certs.d/192.168.8.128:5100/ca.crt
-
-https://www.openssl.org/docs/manmaster/man1/req.html
 ```
 
 ## Reference
