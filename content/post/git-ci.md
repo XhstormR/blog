@@ -65,10 +65,9 @@ docker-compose logs -f #查看容器日志
 docker-compose exec gitlab sh #获得容器 Shell
 ```
 
-## GitLab + Drone + Traefik + Portainer
+## GitLab + Traefik + Portainer
 * https://docs.gitlab.com/omnibus/docker/
 * https://docs.gitlab.com/omnibus/settings/configuration.html
-* https://docs.drone.io/installation/gitlab/single-machine/
 * https://docs.traefik.io/configuration/backends/docker/
 * https://portainer.readthedocs.io/en/stable/configuration.html
 
@@ -120,22 +119,6 @@ services:
       - runner_data:/etc/gitlab-runner
       - /var/run/docker.sock:/var/run/docker.sock
 
-  drone:
-    image: drone/drone:latest
-    restart: always
-    environment:
-      DRONE_SERVER_HOST: ${DRONE_SERVER_HOST}
-      DRONE_GITLAB_SERVER: ${GITLAB_SERVER_URL}
-      DRONE_GITLAB_CLIENT_ID: ${GITLAB_CLIENT_ID}
-      DRONE_GITLAB_CLIENT_SECRET: ${GITLAB_CLIENT_SECRET}
-      DRONE_USER_CREATE: 'username:root,admin:true'
-    volumes:
-      - drone_data:/data
-      - /var/run/docker.sock:/var/run/docker.sock
-    labels:
-      - traefik.port=80
-      - traefik.frontend.rule=PathPrefix:/
-
   portainer:
     image: portainer/portainer:latest
     restart: always
@@ -166,18 +149,14 @@ volumes:
   gitlab_logs:
   gitlab_data:
   runner_data:
-  drone_data:
   portainer_data:
 ```
 
 ### .env
 
 ```
-DRONE_SERVER_HOST=192.168.8.128
 GITLAB_SERVER_URL=http://192.168.8.128/git/
 GITLAB_REGISTRY_URL=https://192.168.8.128:5100
-GITLAB_CLIENT_ID=123
-GITLAB_CLIENT_SECRET=456
 REGISTRATION_TOKEN=123
 TRAEFIK_BASIC_AUTH=123:$2y$05$mV7zdO2bQ3dHM0S4fOoL2uNBN1DklcS7jGE1nj3ZL0jqhFJKaBlOK
 PORTAINER_ADMIN_PASSWORD=$2y$05$mV7zdO2bQ3dHM0S4fOoL2uNBN1DklcS7jGE1nj3ZL0jqhFJKaBlOK
