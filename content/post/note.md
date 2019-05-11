@@ -483,8 +483,8 @@ https://mirrors.ustc.edu.cn/lineageos/full/
 https://download.lineageos.org/
 
 https://mirrors.ustc.edu.cn/node/latest/node-v10.2.1-win-x64.7z
-https://cdn.npm.taobao.org/yarn/-/yarn-1.7.0.tgz
-https://cdn.npm.taobao.org/primer-markdown/-/primer-markdown-3.7.6.tgz
+https://cdn.npm.taobao.org/yarn/-/yarn-1.16.0.tgz
+https://cdn.npm.taobao.org/primer-markdown/-/primer-markdown-4.0.0.tgz
 https://npm.taobao.org/mirrors/
 ----
 yarn config set registry https://registry.npm.taobao.org
