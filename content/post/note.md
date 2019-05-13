@@ -168,6 +168,8 @@ autoindex on;
 autoindex_localtime on;
 autoindex_exact_size off;
 access_log off;
+----
+https://nginxconfig.io/
 
 Caddy：
 Caddy.exe -host 0.0.0.0 -port 80 "browse / ./1.txt" "gzip" "log stdout" "errors stdout" "header / -Server" "root ."
