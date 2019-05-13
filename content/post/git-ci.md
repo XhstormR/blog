@@ -211,6 +211,22 @@ firewall-cmd --remove-port=80/tcp --permanent
 ```
 
 ```bash
+远程访问 Docker daemon
+
+systemctl edit docker
+---
+[Service]
+ExecStart=
+ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock -H tcp://0.0.0.0
+---
+systemctl cat docker
+systemctl restart docker
+
+firewall-cmd --add-port=2375/tcp --permanent
+firewall-cmd --reload
+```
+
+```bash
 https://docker.mirrors.ustc.edu.cn/v2/gitlab/gitlab-ce/tags/list
 https://docker.mirrors.ustc.edu.cn/v2/gitlab/gitlab-ce/manifests/latest
 https://docker.mirrors.ustc.edu.cn/v2/gitlab/gitlab-ce/blobs/sha256:e04a2435a78d15beae8c317bb18cfc3bc556b8dcdb7d29b256971ad42ee06767
