@@ -68,7 +68,6 @@ docker-compose exec gitlab sh #获得容器 Shell
 
 ## GitLab + Traefik + Portainer
 * https://docs.gitlab.com/omnibus/docker/
-* https://docs.gitlab.com/omnibus/settings/configuration.html
 * https://docs.traefik.io/configuration/backends/docker/
 * https://portainer.readthedocs.io/en/stable/configuration.html
 
@@ -242,3 +241,6 @@ https://docs.docker.com/registry/spec/api/
 
 ## Reference
 * https://docs.docker.com/samples/
+* GitLab CI
+  * https://docs.gitlab.com/ee/ci/yaml/
+  * https://docs.gitlab.com/ee/ci/variables/predefined_variables.html
