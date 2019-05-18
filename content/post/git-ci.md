@@ -26,7 +26,6 @@ timedatectl set-timezone Asia/Shanghai
 * https://docs.docker.com/engine/reference/builder/
 * https://docs.docker.com/engine/reference/commandline/docker/
 * https://docs.docker.com/engine/reference/commandline/dockerd/
-* https://cr.console.aliyun.com/cn-shanghai/instances/mirrors
 
 ```bash
 curl -fsSL https://get.docker.com | bash -s -- docker --mirror Aliyun
@@ -241,6 +240,12 @@ https://docs.docker.com/registry/spec/api/
 
 ## Reference
 * https://docs.docker.com/samples/
+* https://github.com/wagoodman/dive
+* Docker mirror
+  * https://dockerhub.azk8s.cn/v2/
+  * https://hub-mirror.c.163.com/v2/
+  * https://docker.mirrors.ustc.edu.cn/v2/
+  * https://cr.console.aliyun.com/cn-shanghai/instances/mirrors
 * GitLab CI
   * https://docs.gitlab.com/ee/ci/yaml/
   * https://docs.gitlab.com/ee/ci/variables/predefined_variables.html
