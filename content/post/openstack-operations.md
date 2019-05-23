@@ -25,6 +25,8 @@ Updated on 2016-10-06
 -k #忽略主机密钥（SSL 证书）     Insecure
 -s #不显示进度条     Silent
 -v #显示详细信息     Verbose
+-d @123.json #指定 POST 数据包     Data
+-F file=@123.png #指定表单数据     Form
 -------------------------------------------------------
 -A "Mozilla/5.0 (Linux; Android 5.1.1; Nexus 6 Build/LYZ28E) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.20 Mobile Safari/537.36" #指定 User-Agent
 -e "www.qq.com" #指定 Referrer URL
@@ -38,6 +40,9 @@ Updated on 2016-10-06
 -C - #断点续传     Continue
 -L #自动重定向     Location
 --limit-rate 200K #限速
+
+https://curl.haxx.se/windows/
+https://curl.haxx.se/docs/manpage.html
 
 curl -s -H "X-Auth-Token:123" http://0.0.0.0:35357/v2.0/tenants | python -mjson.tool #格式化输出 JSON
 
