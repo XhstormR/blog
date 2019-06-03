@@ -13,6 +13,9 @@ Updated on 2019-05-29
 > https://www.frida.re/docs/javascript-api/
 
 ## Python
+* https://docs.python.org/zh-cn/3/
+* https://pythonguidecn.readthedocs.io/zh/latest/
+
 ```bash
 https://npm.taobao.org/mirrors/python
 
