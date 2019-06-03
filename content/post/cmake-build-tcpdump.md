@@ -12,7 +12,7 @@ Updated on 2018-10-13
 
 > [gcc](https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/8.1.0/threads-win32/seh/)
 >
-> [cmake](https://cmake.org/files/LatestRelease/cmake-3.12.3-win64-x64.zip)
+> [cmake](https://github.com/Kitware/CMake/releases/latest)
 >
 > [npcap SDK](https://nmap.org/npcap/dist/npcap-sdk-1.01.zip)
 >
