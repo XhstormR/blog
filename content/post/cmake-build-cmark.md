@@ -12,7 +12,7 @@ Updated on 2017-08-31
 
 > [gcc](https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/7.2.0/threads-win32/seh/)
 >
-> [cmake](https://cmake.org/files/LatestRelease/cmake-3.10.2-win64-x64.zip)
+> [cmake](https://github.com/Kitware/CMake/releases/latest)
 >
 > [cmark](https://github.com/commonmark/cmark/archive/master.zip)
 
@@ -21,7 +21,11 @@ Updated on 2017-08-31
 D:\Work\Download\cmark-master>
 
 type nul > PreLoad.cmake
-echo set(CMAKE_GENERATOR "MinGW Makefiles" CACHE INTERNAL "" FORCE) > PreLoad.cmake
+echo set(CMAKE_C_STANDARD 11 CACHE INTERNAL "" FORCE) > PreLoad.cmake
+echo set(CMAKE_C_STANDARD_REQUIRED ON CACHE INTERNAL "" FORCE) >> PreLoad.cmake
+echo set(CMAKE_C_FLAGS "-s -static -Os -Wall" CACHE INTERNAL "" FORCE) >> PreLoad.cmake
+echo. >> PreLoad.cmake
+echo set(CMAKE_GENERATOR "MinGW Makefiles" CACHE INTERNAL "" FORCE) >> PreLoad.cmake
 echo set(CMAKE_INSTALL_PREFIX "456" CACHE PATH "" FORCE) >> PreLoad.cmake
 
 md 123 && cd 123 && cmake .. && mingw32-make && mingw32-make install
