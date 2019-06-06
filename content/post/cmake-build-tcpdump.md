@@ -14,9 +14,9 @@ Updated on 2018-10-13
 >
 > [cmake](https://github.com/Kitware/CMake/releases/latest)
 >
-> [npcap SDK](https://nmap.org/npcap/dist/npcap-sdk-1.01.zip)
+> [npcap SDK](https://nmap.org/npcap/dist/npcap-sdk-1.03.zip)
 >
-> [npcap DLL](https://nmap.org/npcap/dist/npcap-0.99-r7.exe)
+> [npcap DLL](https://nmap.org/npcap/dist/npcap-0.995.exe)
 >
 > [tcpdump](https://github.com/the-tcpdump-group/tcpdump/archive/master.zip)
 
