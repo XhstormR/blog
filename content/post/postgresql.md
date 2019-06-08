@@ -1065,8 +1065,14 @@ DROP FUNCTION a();
 SELECT a();
 ```
 
+---
+
+```sql
+EXPLAIN ANALYZE SELECT * FROM customer; --显示语句的执行计划
+```
+
 ## Tool
-* http://www.heidisql.com/download.php
-* https://www.postgresql.org/ftp/pgadmin3/pgadmin4/
+* https://www.postgresql.org/ftp/pgadmin/pgadmin4/
 * https://github.com/sosedoff/pgweb/releases/latest
+* https://www.heidisql.com/download.php
 * https://www.jetbrains.com/datagrip/
