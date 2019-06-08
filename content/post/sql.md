@@ -10,6 +10,8 @@ title: SQL 必知必会
 
 Updated on 2018-04-14
 
+> {{< image "/uploads/sql-query-order.png" "Select Query Order" "1" "1" "650">}}
+>
 > https://zh.m.wikipedia.org/zh-cn/SQL
 
 ```sql
@@ -582,3 +584,6 @@ CREATE TRIGGER emp_stamp
 * SQL 风格
   * https://www.sqlstyle.guide/zh/
   * https://launchbylunch.com/posts/2014/Feb/16/sql-naming-conventions/
+* SQL Select
+  * [https://www.sqlite.org/lang_select.html](https://www.sqlite.org/lang_select.html#fromclause)
+  * [https://www.postgresql.org/docs/current/queries-table-expressions.html](https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-FROM)
