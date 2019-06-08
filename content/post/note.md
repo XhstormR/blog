@@ -701,7 +701,7 @@ https://pngquant.org/
 http://advsys.net/ken/utils.htm
 https://sourceforge.net/projects/optipng/files/OptiPNG/
 
-https://tinypng.com/
+https://tinify.cn/
 http://m.2gei.com/bgremover/
 https://imageoptim.com/mozjpeg
 
