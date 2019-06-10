@@ -110,4 +110,7 @@ Windows Registry Editor Version 5.00
 tChecked
 ⇳
 busybox sh -c "printf '%x\n' `date +%s`"
+
+busybox date +%s
+busybox date +%c -d @1560135795
 ```
