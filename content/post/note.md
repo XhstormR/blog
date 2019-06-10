@@ -248,8 +248,8 @@ Xshell：保持活动状态 -> 字符串 -> 0 \n
 ```html
 youtube-dl：（FFmpeg 自动合并）
 https://yt-dl.org/downloads/latest/
-youtube-dl.exe -F URL
-youtube-dl.exe -f 137+140 --proxy socks5://127.0.0.1:1080 URL
+youtube-dl.exe --proxy socks5://127.0.0.1:1080 -F URL
+youtube-dl.exe --proxy socks5://127.0.0.1:1080 -f 137+140 URL
 
 you-get：
 https://github.com/soimort/you-get/releases/latest
