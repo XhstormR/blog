@@ -75,3 +75,4 @@ Updated on 2018-03-02
   * https://httpbin.org/
   * https://docs.postman-echo.com/
   * https://www.getpostman.com/apps
+  * https://www.soapui.org/downloads/latest-release.html
