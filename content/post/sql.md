@@ -460,6 +460,14 @@ SET cust_contact = 'Sam Roberts',
   cust_email     = 'sam@toyland.com'
 WHERE cust_id = '1000000006';
 
+UPDATE account
+SET "role" =
+CASE "role"
+  WHEN 'USER1' THEN 'STAFF1'
+  WHEN 'USER2' THEN 'STAFF2'
+  ELSE "role"
+END;
+
 -- 删除指定行
 DELETE FROM Customers
 WHERE cust_id = '1000000006';
