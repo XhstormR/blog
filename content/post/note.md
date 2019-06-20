@@ -469,7 +469,7 @@ https://mirrors.ustc.edu.cn/qtproject/official_releases/qtcreator/4.6/4.6.1/inst
 
 https://mirrors.ustc.edu.cn/gimp/stable/windows/gimp-2.10.0-x64-setup.exe
 
-https://mirrors.ustc.edu.cn/kde/stable/krita/4.0.3/krita-x64-4.0.3.zip
+https://mirrors.ustc.edu.cn/kde/stable/krita/4.2.1/krita-x64-4.2.1.zip
 
 https://mirrors.ustc.edu.cn/rust-static/dist/rust-1.26.0-x86_64-pc-windows-gnu.msi
 
