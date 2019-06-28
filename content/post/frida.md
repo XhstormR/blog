@@ -37,7 +37,7 @@ python -m pip install --index-url=https://mirrors.aliyun.com/pypi/simple/ --upgr
 ```bash
 https://dl.google.com/android/repository/repository2-1.xml
 
-curl -k https://dl.google.com/android/repository/platform-tools_r28.0.3-windows.zip | busybox unzip -
+curl -k https://dl.google.com/android/repository/platform-tools_r29.0.1-windows.zip | busybox unzip -
 ```
 
 ## Setup

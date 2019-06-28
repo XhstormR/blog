@@ -459,6 +459,9 @@ https://play.google.com/store/apps/details?id=net.jolivier.cert.Importer
 https://www.proxifier.com/download/ProxifierPE.zip
 https://github.com/Fuzion24/JustTrustMe
 
+https://mirrors.tuna.tsinghua.edu.cn/lyx/bin/
+https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet/install-tl.zip
+
 https://mirrors.tuna.tsinghua.edu.cn/virtualbox/virtualbox-Win-latest.exe
 
 https://mirrors.ustc.edu.cn/vim/pc/vim81w32.zip
@@ -772,7 +775,7 @@ https://storage.googleapis.com/downloads.webmproject.org/releases/webp/index.htm
 
 ## Translation
 ```html
-https://www.bing.com/translator/
+https://cn.bing.com/translator
 https://translate.google.cn/m/translate
 
 https://m.dict.cn/
