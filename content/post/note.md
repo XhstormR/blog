@@ -529,6 +529,9 @@ https://github.com/project64/project64
 
 Wii U：
 http://cemu.info/index.html
+
+Nintendo Switch：
+https://github.com/yuzu-emu/yuzu
 ```
 
 ## SQL
