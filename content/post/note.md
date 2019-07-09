@@ -496,6 +496,9 @@ https://npm.taobao.org/mirrors/
 yarn config set registry https://registry.npm.taobao.org
 npm --registry=https://registry.npm.taobao.org install -g test
 
+分词词典：
+https://www.mdbg.net/chinese/dictionary?page=cc-cedict
+
 世界地图：
 https://planet.osm.org/
 https://www.openstreetmap.org/
