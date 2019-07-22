@@ -15,7 +15,7 @@ Updated on 2017-02-19
 >
 > https://jdbc.postgresql.org/download.html
 >
-> https://www.postgresql.org/docs/current/static/index.html
+> https://www.postgresql.org/docs/current/index.html
 >
 > https://github.com/pgjdbc/pgjdbc
 >
@@ -24,6 +24,8 @@ Updated on 2017-02-19
 > https://github.com/postgres/postgres
 >
 > https://jcenter.bintray.com/org/postgresql/postgresql/
+>
+> https://yum.postgresql.org/repopackages.php
 >
 > [Step 1](https://www.enterprisedb.com/download-postgresql-binaries)
 > |
@@ -102,7 +104,7 @@ compile("org.postgresql:postgresql:+")
 \q     退出 psql
 \h     SQL 语法说明
 \!     执行外部命令
-\set PROMPT1 123     设置提示符（https://www.postgresql.org/docs/current/static/app-psql.html#APP-PSQL-PROMPTING）
+\set PROMPT1 123     设置提示符（https://www.postgresql.org/docs/current/app-psql.html#APP-PSQL-PROMPTING）
 \pset pager off     关闭分页
 \timing     计时
 \conninfo     显示连接信息
