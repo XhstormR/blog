@@ -44,7 +44,7 @@ transformers:
 
 ```
 Server:
-javac -g Main
+javac -g Main.java
 java -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=8000 Main
 
 Client:
