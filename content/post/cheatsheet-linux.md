@@ -698,6 +698,11 @@ yum clean all #删除缓存
 移除源：remove <repo> from /etc/yum.repos.d/
 ```
 
+## rpm
+```
+rpm -ivh *rpm #安装 RPM 包
+```
+
 ## chown
 ```
 chown [选项] [参数]
