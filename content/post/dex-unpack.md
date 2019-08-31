@@ -23,7 +23,7 @@ var module = Module.getExportByName('libart.so',
 
 Interceptor.attach(module, {
     onEnter: function (args) {
-        var dex_file = args[1].add(0x04).readPointer() // 由于类中含有虚函数，跳过 vfptr
+        var dex_file = args[1].add(0x04).readPointer() // 由于类中含有虚函数，跳过 vfptr，32 位加 4，64 位加 8
         var dex_file_size = dex_file.add(0x20).readUInt()
         var dex_header_size = dex_file.add(0x24).readUInt()
 
