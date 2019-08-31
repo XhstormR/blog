@@ -44,6 +44,7 @@ curl -k https://dl.google.com/android/repository/platform-tools_r29.0.1-windows.
 ```bash
 adb devices -l
 adb push D:/Download/frida-server /data/local/tmp/
+adb shell "getprop ro.product.cpu.abi"
 adb shell "chmod 755 /data/local/tmp/frida-server"
 adb shell "/data/local/tmp/frida-server &"
 
@@ -58,6 +59,15 @@ frida -U com.example.leo.myapplication -l 123.js
 
 ```javascript
 Java.perform(function () {
+    Java.enumerateClassLoaders({
+        onMatch: function (loader) {
+            console.log(loader)
+        },
+        onComplete: function () {
+            console.log('------')
+        }
+    })
+
     Java.enumerateLoadedClasses({
         onMatch: function (className) {
             if (className.match('com/example')) {
@@ -65,6 +75,7 @@ Java.perform(function () {
             }
         },
         onComplete: function () {
+            console.log('------')
         }
     })
 
@@ -78,3 +89,4 @@ Java.perform(function () {
 
 ## Reference
 * https://github.com/dweinstein/awesome-frida
+* https://github.com/iddoeldor/frida-snippets

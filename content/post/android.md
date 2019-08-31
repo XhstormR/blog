@@ -75,11 +75,11 @@ adb reboot     重启手机
 adb reboot recovery     重启至 Recovery 模式
 adb reboot bootloader     重启至 Fastboot 模式
 
-adb install D:\1.apk     安装 App     -r 允许覆盖安装     -d 允许降级安装
+adb install D:\Download\1.apk     安装 App     -r 允许覆盖安装     -d 允许降级安装
 adb uninstall com.baidu.mobile     卸载 App（包名）     -k 保留数据和缓存
 
-adb push D:\1.txt  /mnt/sdcard/Download/1.txt     发送至手机
-adb pull /mnt/sdcard/Download/1.txt  D:\1.txt     下载至电脑
+adb push D:\Download\1.txt  /mnt/sdcard/Download/1.txt     发送至手机
+adb pull /mnt/sdcard/Download/1.txt  D:\Download\1.txt     下载至电脑
 
 D:\Download\Java\android-sdk-windows\platform-tools\adb.exe devices -l     查看设备
 List of devices attached
