@@ -983,6 +983,13 @@ Tips :
 Ctrl+D #快捷键退出
 ```
 
+## 修改环境变量
+```
+vi ~/.bash_profile
+----
+PATH=$PATH:/opt/metasploit-framework/bin
+```
+
 ## 搜索系统命令
 ```
 whereis [命令名] #查找可执行文件和帮助文件

@@ -763,6 +763,7 @@ setx PATH "%PATH%;D:\Download\123" /m
 
 cls
 pause
+start.
 calc
 SnippingTool
 ping z.cn
