@@ -6,7 +6,7 @@
     <div class="content-wrapper__inner">
         <section id="main">
             <div>
-                {{ range first 10 .Pages }}
+                {{ range first 10 .Site.RegularPages }}
                 <article class="post">
                     <header>
                         <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
