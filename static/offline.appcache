@@ -10,10 +10,10 @@ js/magic-canvas.min.js
 uploads/cursor.ico
 uploads/file-into-picture2.png
 https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js
-https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js
-https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/yaml.min.js
-https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/kotlin.min.js
-https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/monokai-sublime.min.css
+https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js
+https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/yaml.min.js
+https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/kotlin.min.js
+https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/monokai-sublime.min.css
 https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.5/TweenLite.min.js
 https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.3/canvas-nest.js
 https://ww4.sinaimg.cn/large/a15b4afegy1fkn9tclcmgj20zk0mygma.jpg
