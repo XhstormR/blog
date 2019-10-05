@@ -874,6 +874,7 @@ root      7207  2965  0 11:30 pts/1    00:00:00 vim
 root      7542  2965  0 11:30 pts/1    00:00:00 grep vim
 [root@controller ~]$  kill -9 7207 #根据进程 ID 强制终止进程，默认终止进程发送信号15
 [root@controller ~]$ pkill -9 -t pts/1 #根据终端 ID 强制终止进程
+[root@controller ~]$ pgrep -a -t pts/1 #根据终端 ID 查找进程
 
 [root@controller ~]$ kill -l #列出信号
  1) SIGHUP       2) SIGINT       3) SIGQUIT      4) SIGILL       5) SIGTRAP
@@ -889,6 +890,15 @@ root      7542  2965  0 11:30 pts/1    00:00:00 grep vim
 53) SIGRTMAX-11 54) SIGRTMAX-10 55) SIGRTMAX-9  56) SIGRTMAX-8  57) SIGRTMAX-7
 58) SIGRTMAX-6  59) SIGRTMAX-5  60) SIGRTMAX-4  61) SIGRTMAX-3  62) SIGRTMAX-2
 63) SIGRTMAX-1  64) SIGRTMAX
+```
+
+## pidof
+```
+[root@controller ~]# pidof sshd # 返回符合进程名的进程 ID
+26051 3192
+[root@controller ~]# pgrep sshd
+3192
+26051
 ```
 
 ## shutdown

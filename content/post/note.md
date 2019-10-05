@@ -427,7 +427,7 @@ https://access.redhat.com/products/red-hat-enterprise-linux/
 https://developers.redhat.com/auth/realms/rhd/account/
 
 https://live.sysinternals.com/
-https://docs.microsoft.com/en-us/sysinternals/downloads/
+https://docs.microsoft.com/zh-cn/sysinternals/downloads/
 
 https://bellard.org/tcc/
 
@@ -817,9 +817,10 @@ https://zh.m.wikipedia.org/zh-cn/C语言
 https://en.wikibooks.org/wiki/C_Programming
 https://code.google.com/archive/p/msys-cn/
 
-http://zh.cppreference.com/w/c
+https://zh.cppreference.com/w/c
 http://www.cplusplus.com/reference/clibrary/
-http://pubs.opengroup.org/onlinepubs/9699919799/idx/index.html
+https://pubs.opengroup.org/onlinepubs/9699919799/idx/index.html
+http://docwiki.embarcadero.com/RADStudio/Rio/en/C_Run-Time_Library_Reference
 https://docs.microsoft.com/zh-cn/cpp/c-runtime-library/run-time-routines-by-category
 https://docs.microsoft.com/zh-cn/cpp/c-language/organization-of-the-c-language-reference
 
