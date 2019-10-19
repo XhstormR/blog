@@ -431,6 +431,8 @@ https://docs.microsoft.com/zh-cn/sysinternals/downloads/
 
 https://bellard.org/tcc/
 
+https://www.vmware.com/go/getworkstation-win
+
 https://releases.llvm.org/8.0.0/LLVM-8.0.0-win64.exe
 ----
 clang.exe --target=x86_64-w64-windows-gnu 123.c
