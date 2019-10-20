@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 categories:
-- Notes
+- V2Ray
 date: 2017-11-29T17:47:16+08:00
 title: V2Ray
 ---
@@ -10,7 +10,9 @@ title: V2Ray
 
 Updated on 2017-11-29
 
-> https://github.com/v2ray/v2ray-core
+> https://github.com/v2ray/v2ray-core/releases/latest
+>
+> https://github.com/v2ray/manual/blob/master/zh_cn/chapter_02/01_overview.md
 
 ## 客户端
 
