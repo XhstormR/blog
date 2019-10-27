@@ -13,14 +13,11 @@ Updated on 2019-05-29
 > https://www.frida.re/docs/javascript-api/
 
 ## Python
-* https://docs.python.org/zh-cn/3/
-* https://pythonguidecn.readthedocs.io/zh/latest/
-
 ```bash
 https://npm.taobao.org/mirrors/python
 
 md 123 && ^
-curl -kL https://npm.taobao.org/mirrors/python/3.7.3/python-3.7.3-embed-amd64.zip | busybox unzip - -d 123 && ^
+curl -kL https://npm.taobao.org/mirrors/python/3.7.5/python-3.7.5-embed-amd64.zip | busybox unzip - -d 123 && ^
 cd 123 && ^
 curl -k https://raw.githubusercontent.com/pypa/get-pip/master/get-pip.py | python - "--index-url=https://mirrors.aliyun.com/pypi/simple/" && ^
 busybox sed -i "s/#import/import/" python37._pth
