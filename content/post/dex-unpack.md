@@ -14,7 +14,7 @@ Updated on 2019-05-31
 
 ```bash
 frida-trace -U -i *SizeOfClassWithoutEmbeddedTables* com.saicmotor.tocapp
-frida -U com.saicmotor.tocapp -l 123.js
+frida -U -f com.saicmotor.tocapp -l 123.js --no-pause
 ```
 
 ```javascript

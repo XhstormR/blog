@@ -490,8 +490,8 @@ https://mirrors.ustc.edu.cn/lineageos/full/
 ----
 https://download.lineageos.org/
 
-https://mirrors.ustc.edu.cn/node/latest/node-v10.2.1-win-x64.7z
-https://cdn.npm.taobao.org/yarn/-/yarn-1.16.0.tgz
+https://mirrors.ustc.edu.cn/node/latest/node-v13.0.1-win-x64.7z
+https://cdn.npm.taobao.org/yarn/-/yarn-1.19.1.tgz
 https://cdn.npm.taobao.org/primer-markdown/-/primer-markdown-4.0.0.tgz
 https://npm.taobao.org/mirrors/
 ----
