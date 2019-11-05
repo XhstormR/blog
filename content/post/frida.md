@@ -46,7 +46,7 @@ adb devices -l
 adb push D:/Download/frida-server /data/local/tmp/
 adb shell "getprop ro.product.cpu.abi"
 adb shell "chmod 755 /data/local/tmp/frida-server"
-adb shell "/data/local/tmp/frida-server &"
+adb shell "su -c /data/local/tmp/frida-server"
 
 frida-ps -U
 ```
