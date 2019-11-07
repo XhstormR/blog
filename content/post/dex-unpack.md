@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 categories:
-- Notes
+- Frida
 date: 2019-05-31T16:50:54+08:00
 title: Android DEX Unpack
 ---
@@ -21,11 +21,17 @@ frida -U -f com.saicmotor.tocapp -l 123.js --no-pause
 var module = Module.getExportByName('libart.so',
     '_ZN3art11ClassLinker32SizeOfClassWithoutEmbeddedTablesERKNS_7DexFileERKNS1_8ClassDefE')
 
+var dumped_dex = []
+
 Interceptor.attach(module, {
     onEnter: function (args) {
         var dex_file = args[1].add(0x04).readPointer() // 由于类中含有虚函数，跳过 vfptr，32 位加 4，64 位加 8
         var dex_file_size = dex_file.add(0x20).readUInt()
         var dex_header_size = dex_file.add(0x24).readUInt()
+
+        for (var i = 0; i < dumped_dex.length; i++) {
+            if(dumped_dex[i] == dex_file_size) return
+        }
 
         // console.log(JSON.stringify(this.context))
         // console.log(hexdump(dex_file, {length: 16}))
@@ -38,6 +44,7 @@ Interceptor.attach(module, {
         file.write(dex_file.readByteArray(dex_file_size))
         file.flush()
         file.close()
+        dumped_dex.push(dex_file_size)
     },
     onLeave: function (retval) {
     }

@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 categories:
-- Notes
+- Frida
 date: 2019-05-29T11:22:56+08:00
 title: Frida
 ---
