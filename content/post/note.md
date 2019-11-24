@@ -454,10 +454,14 @@ https://jcenter.bintray.com/com/google/javascript/closure-compiler/v20180402/clo
 https://free.nchc.org.tw/tdf/libreoffice/stable/6.0.1/win/x86_64/LibreOffice_6.0.1_Win_x64.msi
 
 https://cloud.bluestacks.com/api/getdownloadnow
+https://support.bluestacks.com/hc/en-us/sections/360006523831
+----
+https://repo.xposed.info/module/de.robv.android.xposed.installer
+https://dl-xda.xposed.info/framework/
 ----
 https://bstweaker.tk
-https://repo.xposed.info/module/de.robv.android.xposed.installer
 https://play.google.com/store/apps/details?id=net.jolivier.cert.Importer
+https://play.google.com/store/apps/details?id=org.proxydroid
 https://www.proxifier.com/download/ProxifierPE.zip
 https://github.com/Fuzion24/JustTrustMe
 ----
