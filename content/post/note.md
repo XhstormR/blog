@@ -464,6 +464,7 @@ https://play.google.com/store/apps/details?id=net.jolivier.cert.Importer
 https://play.google.com/store/apps/details?id=org.proxydroid
 https://www.proxifier.com/download/ProxifierPE.zip
 https://github.com/Fuzion24/JustTrustMe
+https://github.com/ViRb3/TrustMeAlready
 ----
 "C:\Program Files\BlueStacks\HD-ConfigHttpProxy.exe" set 192.168.2.122 8080
 
