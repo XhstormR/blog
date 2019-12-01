@@ -238,6 +238,15 @@ busybox grep -i content-length
 https://docs.docker.com/registry/spec/api/
 ```
 
+```bash
+GitLab 控制台修改管理员密码
+
+gitlab-rails console
+user = User.where(id:1).first
+user.password = '12345678'
+user.save!
+```
+
 ## Reference
 * https://docs.docker.com/samples/
 * https://github.com/wagoodman/dive
