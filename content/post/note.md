@@ -477,7 +477,7 @@ https://mirrors.ustc.edu.cn/vim/pc/vim81w32.zip
 
 https://mirrors.ustc.edu.cn/eclipse/technology/epp/downloads/release/oxygen/1a/eclipse-java-oxygen-1a-win32-x86_64.zip
 
-https://mirrors.ustc.edu.cn/qtproject/official_releases/qtcreator/4.6/4.6.1/installer_source/windows_vs2015_64/qtcreator.7z
+https://mirrors.ustc.edu.cn/qtproject/official_releases/qtcreator/4.10/4.10.2/installer_source/windows_msvc2017_x64/qtcreator.7z
 
 https://mirrors.ustc.edu.cn/gimp/stable/windows/gimp-2.10.0-x64-setup.exe
 

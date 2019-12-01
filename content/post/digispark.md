@@ -1,6 +1,7 @@
 ---
 author: XhstormR
 categories:
+- MCU
 - BadUSB
 date: 2019-11-16T16:15:32+08:00
 title: Digispark BadUSB
@@ -10,7 +11,7 @@ title: Digispark BadUSB
 
 Updated on 2019-11-16
 
->
+> 基于 Attiny85 单片机
 
 ## Code
 ```c
