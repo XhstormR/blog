@@ -70,7 +70,7 @@ Java.perform(function () {
 
     Java.enumerateLoadedClasses({
         onMatch: function (className) {
-            if (className.match('com/example')) {
+            if (className.includes('com/example')) {
                 console.log(className)
             }
         },
