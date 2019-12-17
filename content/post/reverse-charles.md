@@ -49,6 +49,7 @@ java -noverify -jar charles.jar
 * https://github.com/iBotPeaches/Apktool
 * https://github.com/deathmarine/Luyten
 * https://github.com/java-decompiler/jd-gui
+* https://github.com/Col-E/Recaf
 * https://github.com/GraxCode/JByteMod-Beta
 * https://github.com/Konloch/bytecode-viewer
 * [https://github.com/JetBrains/intellij-community/tree/master/plugins](https://github.com/JetBrains/intellij-community/tree/master/plugins/java-decompiler/engine)
