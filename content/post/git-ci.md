@@ -45,6 +45,7 @@ docker network ls #查看网络
 docker rm -fv gitlab #停止并删除容器、卷
 docker rm `docker ps -a -q` #删除已停止的容器
 docker rmi gitlab/gitlab-ce #删除镜像
+docker image prune -f #清除未使用镜像
 docker logs -f gitlab #查看容器日志
 docker exec -it gitlab sh #获得容器 Shell
 ```
@@ -102,8 +103,8 @@ services:
       - gitlab_logs:/var/log/gitlab
       - gitlab_data:/var/opt/gitlab
     labels:
-      - traefik.port=80
-      - traefik.frontend.rule=PathPrefix:/git/
+      - traefik.http.services.gitlab.loadbalancer.server.port=80
+      - traefik.http.routers.gitlab.rule=PathPrefix(`/git/`)
 
   runner:
     image: gitlab/gitlab-runner:latest
@@ -117,6 +118,10 @@ services:
     volumes:
       - runner_data:/etc/gitlab-runner
       - /var/run/docker.sock:/var/run/docker.sock
+    labels:
+      - traefik.enable=false
+    depends_on:
+      - gitlab
 
   portainer:
     image: portainer/portainer:latest
@@ -126,22 +131,26 @@ services:
       - portainer_data:/data
       - /var/run/docker.sock:/var/run/docker.sock
     labels:
-      - traefik.port=9000
-      - traefik.frontend.rule=PathPrefixStrip:/portainer/
+      - traefik.http.services.portainer.loadbalancer.server.port=9000
+      - traefik.http.routers.portainer.rule=PathPrefix(`/portainer/`)
+      - traefik.http.routers.portainer.middlewares=portainer-stripprefix
+      - traefik.http.middlewares.portainer-stripprefix.stripprefix.prefixes=/portainer/
 
   traefik:
     image: traefik:latest
     restart: always
     ports:
       - '80:80'
-    command: --api --docker
+    command: --api --providers.docker
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     labels:
-      - traefik.port=8080
-      - traefik.frontend.rule=PathPrefixStrip:/traefik/
-      - traefik.frontend.auth.basic.removeHeader=true
-      - traefik.frontend.auth.basic.users=${TRAEFIK_BASIC_AUTH}
+      - traefik.http.routers.traefik.service=api@internal
+      - traefik.http.routers.traefik.rule=PathPrefix(`/traefik/`)
+      - traefik.http.routers.traefik.middlewares=traefik-stripprefix,traefik-basicauth
+      - traefik.http.middlewares.traefik-stripprefix.stripprefix.prefixes=/traefik/
+      - traefik.http.middlewares.traefik-basicauth.basicauth.removeheader=true
+      - traefik.http.middlewares.traefik-basicauth.basicauth.users=${TRAEFIK_BASIC_AUTH}
 
 volumes:
   gitlab_config:
@@ -245,6 +254,16 @@ gitlab-rails console
 user = User.where(id:1).first
 user.password = '12345678'
 user.save!
+```
+
+```bash
+GitLab 升级
+
+gitlab-ctl upgrade
+gitlab-ctl reconfigure
+gitlab-ctl restart
+gitlab-ctl status
+gitlab-ctl tail
 ```
 
 ## Reference

@@ -13,7 +13,7 @@ Updated on 2016-06-30
 >
 > https://www.tiobe.com/tiobe-index/
 >
-> http://www.javarepl.com/term.html
+> https://javadoc.io/
 >
 > https://www.oracle.com/technetwork/java/index.html
 >
