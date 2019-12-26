@@ -61,6 +61,9 @@ exit
 
 ## AspectJ 拦截方法
 * https://search.maven.org/search?q=g:org.aspectj
+  * [aspectjrt](https://maven.aliyun.com/repository/jcenter/org/aspectj/aspectjrt/1.9.5/aspectjrt-1.9.5.jar),
+    [aspectjtools](https://maven.aliyun.com/repository/jcenter/org/aspectj/aspectjtools/1.9.5/aspectjtools-1.9.5.jar),
+    [aspectjweaver](https://maven.aliyun.com/repository/jcenter/org/aspectj/aspectjweaver/1.9.5/aspectjweaver-1.9.5.jar)
 * https://www.eclipse.org/aspectj/doc/released/progguide/semantics.html
 * https://www.eclipse.org/aspectj/doc/released/devguide/ltw-configuration.html
 * https://www.eclipse.org/aspectj/doc/released/runtime-api/allclasses-frame.html
