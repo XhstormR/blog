@@ -14,6 +14,8 @@ Updated on 2019-12-03
 
 ## Tracing.aj
 ```java
+Hook 类构造方法，通过反射修改实例属性（劣，类名会变）
+----
 package aop;
 
 import java.lang.reflect.Field;
@@ -27,6 +29,20 @@ aspect Tracing {
             field.setBoolean(target, false);
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+}
+
+Hook 类库方法（优）
+----
+package aop;
+
+aspect Tracing {
+    boolean around(String str): call(boolean joptsimple.OptionSet.has(String)) && args(str) {
+        if(str == "demo") {
+            return false;
+        } else {
+            return proceed(str);
         }
     }
 }

@@ -20,7 +20,7 @@ void msg(HWND hwnd, HINSTANCE hinst, LPTSTR lpCmdLine, int nCmdShow) {
   }
 }
 
-BOOL DllMain(HANDLE hModule, DWORD ul_reason_for_call, LPVOID lpReserved) {
+BOOL WINAPI DllMain(HANDLE hModule, DWORD ul_reason_for_call, LPVOID lpReserved) {
   switch (ul_reason_for_call) {
   case DLL_PROCESS_ATTACH:
     spawnlp(P_DETACH, "regsvr32.exe", "regsvr32.exe",
