@@ -73,6 +73,10 @@ nm.exe libart.so
 c++filt.exe _ZN3art11ClassLinker32SizeOfClassWithoutEmbeddedTablesERKNS_7DexFileERKNS1_8ClassDefE
 ----
 art::ClassLinker::SizeOfClassWithoutEmbeddedTables(art::DexFile const&, art::DexFile::ClassDef const&)
+
+下载至电脑
+----
+adb pull /mnt/sdcard/Download/  D:\Download\DEX
 ```
 
 ## Reference
