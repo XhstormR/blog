@@ -61,6 +61,7 @@ exit
 
 ## AspectJ 拦截方法
 * https://search.maven.org/search?q=g:org.aspectj
+  * https://mirrors.tuna.tsinghua.edu.cn/eclipse/tools/aspectj/
   * [aspectjrt](https://maven.aliyun.com/repository/jcenter/org/aspectj/aspectjrt/1.9.5/aspectjrt-1.9.5.jar),
     [aspectjtools](https://maven.aliyun.com/repository/jcenter/org/aspectj/aspectjtools/1.9.5/aspectjtools-1.9.5.jar),
     [aspectjweaver](https://maven.aliyun.com/repository/jcenter/org/aspectj/aspectjweaver/1.9.5/aspectjweaver-1.9.5.jar)
