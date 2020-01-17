@@ -782,6 +782,7 @@ fc /n /w /a 1.txt 2.txt
 mstsc /admin
 certutil -urlcache
 certutil -hashfile 1.txt SHA1
+busybox realpath 123.txt
 ```
 
 ## WebX

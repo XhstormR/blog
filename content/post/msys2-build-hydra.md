@@ -29,6 +29,8 @@ hydra -V -F -L username.txt -P password.txt -o ok.txt -t 20 'http-post-form://22
 ```bash
 pacman -Ss gcc #搜索软件包
 pacman -Sg mingw-w64-x86_64-toolchain #查看软件组
+
+pacman -Fs jq.exe #搜索文件
 ```
 
 ## Reference

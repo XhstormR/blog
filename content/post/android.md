@@ -15,7 +15,7 @@ Updated on 2016-08-27
 >
 > https://developer.android.google.cn/
 >
-> https://developer.android.google.cn/reference/classes.html
+> https://developer.android.google.cn/reference/kotlin/classes.html
 >
 > https://google.github.io/android-gradle-dsl/current/
 
