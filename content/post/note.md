@@ -415,7 +415,7 @@ https://mirrors.cqu.edu.cn/
 https://mirrors.tuna.tsinghua.edu.cn/
 https://mirrors.ustc.edu.cn/
 https://mirror.azure.cn/
-https://opsx.alibaba.com/mirror
+https://developer.aliyun.com/mirror/
 https://mirrors.163.com/
 http://mirrors.hust.edu.cn/
 http://mirror.bit.edu.cn/web/
