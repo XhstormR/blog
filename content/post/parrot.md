@@ -10,9 +10,7 @@ title: Parrot
 
 Updated on 2019-08-18
 
-> https://parrotsec.org
->
-> https://parrotsec.org/docs/
+> https://parrotlinux.org
 
 ```bash
 systemctl restart ssh
@@ -21,5 +19,5 @@ echo deb https://mirrors.tuna.tsinghua.edu.cn/parrot/ rolling main contrib non-f
 ```
 
 ## Mirror
-* https://parrotsec.org/docs/mirror-list/
-* https://mirrors.tuna.tsinghua.edu.cn/parrot/iso/4.6/Parrot-security-4.6_amd64.iso
+* https://docs.parrotlinux.org/mirror-list/
+* https://mirrors.tuna.tsinghua.edu.cn/parrot/iso/4.7/Parrot-security-4.7_x64.iso

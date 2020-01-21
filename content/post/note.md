@@ -473,7 +473,7 @@ https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet/install-tl.zip
 
 https://mirrors.tuna.tsinghua.edu.cn/virtualbox/virtualbox-Win-latest.exe
 
-https://mirrors.ustc.edu.cn/vim/pc/vim81w32.zip
+https://mirrors.ustc.edu.cn/vim/pc/vim82w32.zip
 
 https://mirrors.ustc.edu.cn/eclipse/technology/epp/downloads/release/oxygen/1a/eclipse-java-oxygen-1a-win32-x86_64.zip
 
