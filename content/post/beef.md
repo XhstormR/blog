@@ -61,7 +61,7 @@ yum -y install *
 ### Kali
 ```bash
 docker pull kalilinux/kali-rolling:latest
-docker run -it kalilinux/kali-rolling
+docker run -it -p 9527:9527 kalilinux/kali-rolling
 apt update && apt -y install beef-xss
 cd /usr/share/beef-xss && ls -l
 ```
@@ -69,7 +69,7 @@ cd /usr/share/beef-xss && ls -l
 ### Parrot
 ```bash
 docker pull parrotsec/security:latest
-docker run -it parrotsec/security
+docker run -it -p 9527:9527 parrotsec/security
 cd /usr/share/beef-xss && ls -l
 ```
 
@@ -78,4 +78,11 @@ cd /usr/share/beef-xss && ls -l
 ```bash
 docker start b37fcb2827f8
 docker exec -it b37fcb2827f8 bash
+```
+
+```bash
+export LANG=C.UTF-8
+export LANGUAGE=C.UTF-8
+export LC_ALL=C.UTF-8
+locale
 ```

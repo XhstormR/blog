@@ -87,4 +87,5 @@ vi ~/.tmux.conf #设置 Prefix 为 Ctrl+A，复制模式设置为 vi - 默认为
 ## .tmux.conf
 ```
 set -g mouse on
+bind -n C-k clear-history
 ```
