@@ -44,6 +44,21 @@ del /f /a /q \\?\%1
 rd /s /q \\?\%1
 ```
 
+---
+
+```bash
+type cmd.exe > ...:cmd.exe
+wmic process call create D:\Download\...:cmd.exe
+```
+
+```bash
+echo winver > ...:run.txt
+cmd.exe - < ...:run.txt
+or
+echo WScript.CreateObject("WScript.Shell").Run "cmd /c for /f ""delims=,"" %i in (...:run.txt) do %i", 0 > ...:run.vbs
+cscript ...:run.vbs
+```
+
 ## Reference
 * https://ss64.com/vb/shell.html
 * https://attack.mitre.org/techniques/T1117/

@@ -988,6 +988,7 @@ https://www.tenable.com/products/nessus/select-your-operating-system
 
 漏洞渗透：Burp Suite、Zed Attack Proxy
 https://portswigger.net/burp/freedownload
+https://portswigger.net/burp/releases/download
 https://github.com/zaproxy/zaproxy
 
 网络扫描：Nmap
