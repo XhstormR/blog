@@ -21,11 +21,10 @@ Updated on 2017-09-01
 D:\Work\Download>
 
 git clone --depth 1 --recurse-submodules --shallow-submodules -j2 https://github.com/stedolan/jq.git
-cd jq
+cd jq ; mkdir build ; cd build
 
-mkdir build ; cd build
 autoreconf -fi ..
-../configure --with-oniguruma=builtin --enable-shared=no --enable-static=yes CFLAGS='-s -static -Os' && make -j4
+../configure --with-oniguruma=builtin --enable-shared=no --enable-static=yes CFLAGS='-s -Os' LDFLAGS='-static' && make -j4
 ```
 
 ## Reference
