@@ -577,7 +577,7 @@ http://www.oracle.com/technetwork/database/features/instant-client/index.html
 sqlplus username/password@127.0.0.1:1521/cqsfjwdb
 
 Navicat：
-http://download.navicat.com/download/navicat121_premium_cs_x64.exe
+http://download.navicat.com/download/navicat150_premium_cs_x64.exe
 ```
 
 ```sql
