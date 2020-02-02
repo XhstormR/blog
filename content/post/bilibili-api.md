@@ -9,7 +9,7 @@ title: BiliBili API
 
 Updated on 2016-09-18
 
-> {{< video "/uploads/video/bilibili-api.webm" "Doge" "0">}}
+> {{< video "/uploads/video/doge.webm" "Doge" "0">}}
 >
 > [GetBilibili](https://github.com/XhstormR/GetBilibili)
 >

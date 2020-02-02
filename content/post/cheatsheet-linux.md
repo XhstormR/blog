@@ -991,6 +991,8 @@ Operating System: CentOS Linux 7 (Core)
 CPE OS Name: cpe:/o:centos:centos:7
 Kernel: Linux 3.10.0-514.el7.x86_64
 Architecture: x86-64
+
+/etc/system-release #系统版本号
 ```
 
 ## 退出登录
