@@ -489,7 +489,7 @@ https://mirrors.ustc.edu.cn/golang/go1.10.2.windows-amd64.zip
 
 https://mirrors.ustc.edu.cn/apache/maven/maven-3/3.5.3/binaries/apache-maven-3.5.3-bin.zip
 
-https://mirrors.ustc.edu.cn/apache/tika/tika-app-1.19.1.jar
+https://mirrors.ustc.edu.cn/apache/tika/tika-app-1.23.jar
 ----
 java -jar tika-app-1.19.1.jar -h 123 > 123.html
 
