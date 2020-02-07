@@ -15,9 +15,15 @@ Updated on 2016-06-30
 >
 > https://javadoc.io/
 >
+> https://openjfx.io/javadoc/13/
+>
+> https://github.com/openjdk/jdk
+>
+> https://github.com/openjdk/jfx
+>
 > https://www.oracle.com/technetwork/java/index.html
 >
-> https://docs.oracle.com/en/java/javase/12/
+> https://docs.oracle.com/en/java/javase/13/
 >
 > https://docs.oracle.com/javase/specs/index.html
 >
@@ -25,9 +31,7 @@ Updated on 2016-06-30
 >
 > https://docs.oracle.com/javase/8/docs/index.html
 >
-> https://docs.oracle.com/javase/8/javafx/api/allclasses-noframe.html
->
-> https://docs.oracle.com/en/java/javase/12/docs/api/allclasses-index.html
+> https://docs.oracle.com/en/java/javase/13/docs/api/allclasses-index.html
 
 ## IDE
 * Eclipse：https://www.eclipse.org/downloads/eclipse-packages/
