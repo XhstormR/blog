@@ -108,6 +108,10 @@ http://www.ipmana.com/
 https://github.com/openconnect/openconnect
 ----
 echo '123456' | sudo openconnect --juniper --background --syslog --passwd-on-stdin --script=/etc/vpnc/vpnc-script.in --user=123 --authgroup=教师组 https://sslvpn.fudan.edu.cn/
+
+https://github.com/OpenVPN/openvpn
+----
+openvpn --config client13.ovpn --auth-user-pass 123.txt
 ```
 
 ## 无界

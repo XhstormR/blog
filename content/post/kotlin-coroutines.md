@@ -3,15 +3,24 @@ author: XhstormR
 categories:
 - Kotlin
 date: 2020-02-05T23:08:38+08:00
-title: Kotlin coroutines
+title: JavaFX with Kotlin coroutines
 ---
 
 <!--more-->
 
 Updated on 2020-02-05
 
+> https://github.com/openjdk/jfx
+>
+> https://openjfx.io/javadoc/13/
+>
 > https://github.com/Kotlin/kotlinx.coroutines
 >
 > https://kotlin.github.io/kotlinx.coroutines/
->
-> https://kotlinlang.org/docs/reference/coroutines/coroutines-guide.html
+
+## Reference
+* JavaFX
+  * http://www.javafxchina.net/
+* Kotlin coroutines
+  * [coroutines-guide](https://kotlinlang.org/docs/reference/coroutines/coroutines-guide.html)
+  * [coroutines-guide-ui](https://github.com/Kotlin/kotlinx.coroutines/blob/master/ui/coroutines-guide-ui.md)
