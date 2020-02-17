@@ -21,6 +21,8 @@ Updated on 2020-02-05
 ## Reference
 * JavaFX
   * http://www.javafxchina.net/
+  * https://gluonhq.com/products/scene-builder/
+  * https://github.com/JonathanGiles/scenic-view
 * Kotlin coroutines
   * [coroutines-guide](https://kotlinlang.org/docs/reference/coroutines/coroutines-guide.html)
   * [coroutines-guide-ui](https://github.com/Kotlin/kotlinx.coroutines/blob/master/ui/coroutines-guide-ui.md)

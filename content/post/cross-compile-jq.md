@@ -14,11 +14,11 @@ Updated on 2020-01-31
 
 ## Step
 ```bash
-docker pull parrotsec/security:latest
-docker run -it --rm -v `pwd`:`pwd` -w `pwd` parrotsec/security
+docker pull ubuntu:rolling
+docker run -it --rm -v `pwd`:`pwd` -w `pwd` ubuntu:rolling
 
-echo deb https://mirrors.tuna.tsinghua.edu.cn/parrot/ rolling main contrib non-free > /etc/apt/sources.list.d/parrot.list
-apt update && apt -y install mingw-w64 make libtool flex bison
+sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/g;s/security.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list
+apt update && apt -y install gcc-mingw-w64 make libtool flex bison git
 
 git clone --depth 1 --recurse-submodules -j2 https://github.com/stedolan/jq.git
 cd jq ; mkdir build ; cd build
@@ -30,7 +30,11 @@ autoreconf -fi ..
 ```bash
 yum -y install mingw64-gcc
 or
-apt -y install mingw-w64
+apt -y install gcc-mingw-w64
 
-x86_64-w64-mingw32-gcc-win32 -s -Os -static 123.c
+x86_64-w64-mingw32-gcc -s -Os -static 123.c
 ```
+
+## Reference
+* https://pkgs.org/download/mingw64-gcc
+* https://pkgs.org/download/gcc-mingw-w64

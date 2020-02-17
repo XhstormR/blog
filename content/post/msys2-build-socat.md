@@ -10,6 +10,8 @@ title: 构建 socat
 
 Updated on 2020-01-28
 
+> {{< image "/uploads/doorway.svg" "doorway" "1" "1" >}}
+>
 > [MSYS2](https://mirrors.tuna.tsinghua.edu.cn/msys2/distrib/msys2-x86_64-latest.tar.xz)
 >
 > [socat](http://www.dest-unreach.org/socat/download/socat-1.7.3.4.tar.gz)
