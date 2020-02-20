@@ -12,7 +12,7 @@ Updated on 2018-02-14
 
 > [gcc](https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/7.2.0/threads-win32/seh/)
 >
-> [libiconv](https://ftp.gnu.org/pub/gnu/libiconv/?C=M;O=D)
+> [libiconv](https://mirrors.tuna.tsinghua.edu.cn/gnu/libiconv/)
 
 ## Step
 ```
