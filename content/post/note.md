@@ -509,6 +509,8 @@ https://npm.taobao.org/mirrors/
 yarn config set registry https://registry.npm.taobao.org
 npm --registry=https://registry.npm.taobao.org install -g test
 
+https://mirror.azure.cn/nginx/download/nginx-1.17.8.zip
+
 https://www.ccleaner.com/ccleaner/builds
 
 分词词典：
