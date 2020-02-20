@@ -368,6 +368,7 @@ cd HUGO
 git reflog expire --expire=now --all && git gc --prune=now --aggressive
 
 https://rtyley.github.io/bfg-repo-cleaner/
+https://maven.aliyun.com/repository/public/com/madgag/bfg/1.13.0/bfg-1.13.0.jar
 ```
 
 ```bash
