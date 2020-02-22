@@ -70,10 +70,21 @@ socat tcp-listen:1234,fork,reuseaddr tcp-connect:192.168.1.19:3389
 写入文件
 ----
 echo 123 | socat -u - ./123.txt
+or
+echo 123 | socat -u - open:123.txt,wronly,create,append
 
 读取文件
 ----
 socat -U - ./123.txt
+or
+socat -U - open:123.txt,rdonly
+
+文件传输
+----
+LHOST:
+socat -u tcp-connect:127.0.0.1:1234 open:123.txt,wronly,create,trunc
+RHOST:
+socat -U tcp-listen:1234,fork,reuseaddr open:123.txt,rdonly
 
 内网穿透（不推荐）
 ----
