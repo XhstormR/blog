@@ -35,6 +35,15 @@ apt -y install gcc-mingw-w64
 x86_64-w64-mingw32-gcc -s -Os -static 123.c
 ```
 
+```
+docker pull fedora
+docker run -it --rm -v `pwd`:`pwd` -w `pwd` fedora
+
+curl -o /etc/yum.repos.d/fedora.repo https://mirrors.aliyun.com/repo/fedora.repo
+curl -o /etc/yum.repos.d/fedora-updates.repo https://mirrors.aliyun.com/repo/fedora-updates.repo
+yum makecache
+```
+
 ## Reference
 * https://pkgs.org/download/mingw64-gcc
 * https://pkgs.org/download/gcc-mingw-w64
