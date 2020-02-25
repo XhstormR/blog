@@ -38,8 +38,16 @@ conda env remove -n myenv
 ```
 
 ## PATH
-```
+```bash
 C:\Users\Leo\Miniconda3
 C:\Users\Leo\Miniconda3\Scripts
 C:\Users\Leo\Miniconda3\Library\bin
+```
+
+```bash
+C:\Users\Leo\Miniconda3\Scripts\activate.bat
+```
+
+```bash
+C:\Users\Leo\AppData\Roaming\Microsoft\Windows\Start Menu\Programs
 ```
