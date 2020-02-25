@@ -430,8 +430,12 @@ RHEL：
 https://access.redhat.com/products/red-hat-enterprise-linux/
 https://developers.redhat.com/auth/realms/rhd/account/
 
-https://live.sysinternals.com/
 https://docs.microsoft.com/zh-cn/sysinternals/downloads/
+----
+https://live.sysinternals.com/
+https://download.sysinternals.com/files/SysinternalsSuite.zip
+
+https://launcher.nirsoft.net/downloads/index.html
 
 https://bellard.org/tcc/
 

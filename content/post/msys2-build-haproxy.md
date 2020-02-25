@@ -55,11 +55,12 @@ backend socks
     server default 127.0.0.1:1080
 ```
 
-```
-Linux:
+## 端口转发
+```bash
+Linux Iptables:
 iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 1025
 
-Windows:
+Windows Netsh:
 netsh interface portproxy show all
 netsh interface portproxy add v4tov4 listenport=80 connectport=1025 connectaddress=127.0.0.1
 netsh interface portproxy delete v4tov4 listenport=80
