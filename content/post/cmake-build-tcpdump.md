@@ -14,9 +14,9 @@ Updated on 2018-10-13
 >
 > [cmake](https://github.com/Kitware/CMake/releases/latest)
 >
-> [npcap SDK](https://nmap.org/npcap/dist/npcap-sdk-1.03.zip)
+> [npcap SDK](https://nmap.org/npcap/dist/npcap-sdk-1.04.zip)
 >
-> [npcap DLL](https://nmap.org/npcap/dist/npcap-0.995.exe)
+> [npcap DLL](https://nmap.org/npcap/dist/npcap-0.9987.exe)
 >
 > [tcpdump](https://github.com/the-tcpdump-group/tcpdump/archive/master.zip)
 
@@ -39,5 +39,6 @@ md 123 && cd 123 && cmake .. && mingw32-make && mingw32-make install
 ```
 
 ## Reference
+* https://www.tcpdump.org/manpages/tcpdump.1.html
 * [npcap](https://github.com/nmap/npcap)
 * [GCC Variadic Macros](https://gcc.gnu.org/onlinedocs/gcc/Variadic-Macros.html)

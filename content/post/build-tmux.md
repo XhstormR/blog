@@ -18,8 +18,7 @@ unzip master.zip
 cd tmux-master/
 
 yum groups install 'Development Tools'
-yum install -y ncurses-devel
-yum install -y libevent-devel
+yum install -y ncurses-devel libevent-devel
 
 sh autogen.sh
 ./configure && make install
