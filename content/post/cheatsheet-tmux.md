@@ -78,14 +78,21 @@ Ctrl+B - 空格键     切换面板布局
 Ctrl+B - 方向键     自由选择面板
 
 Prefix = Ctrl+B
-vi ~/.tmux.conf #设置 Prefix 为 Ctrl+A，复制模式设置为 vi - 默认为 SPACE开始 ENTER结束 ESC清空
-    unbind C-b
-    set -g prefix C-a
-    setw -g mode-keys vi
 ```
 
 ## .tmux.conf
 ```
+set -g base-index 1
+set -g pane-base-index 1
+
 set -g mouse on
+
+set -g mode-keys vi #复制模式设置为 vi, SPACE开始 ENTER结束 ESC清空
+
 bind -n C-k clear-history
+
+bind r source-file ~/.tmux.conf \; display 'config reload!'
+
+bind \\ split-window -h
+bind - split-window -v
 ```
