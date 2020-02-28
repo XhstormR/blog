@@ -373,9 +373,9 @@ https://maven.aliyun.com/repository/public/com/madgag/bfg/1.13.0/bfg-1.13.0.jar
 
 ```bash
 git config --global core.editor notepad
-git config --global user.name "XhstormR"
-git config --global user.email "10527522+XhstormR@users.noreply.github.com"
-git config --global http.proxy socks5h://127.0.0.1:1080
+git config --global user.name 'XhstormR'
+git config --global user.email '10527522+XhstormR@users.noreply.github.com'
+git config --global http.proxy 'socks5h://127.0.0.1:1080'
 
 git rebase -i 123b394c9c7f45e9d8a04c4b138c805cd7dd7419 -x "git commit --amend --allow-empty --allow-empty-message --author 'XhstormR <10527522+XhstormR@users.noreply.github.com>' -CHEAD"
 ```

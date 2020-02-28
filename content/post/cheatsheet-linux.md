@@ -419,8 +419,10 @@ Tips：
 [root@controller ~]$ openssl rand -base64 30 #Base64编码
 HTUKtp8wVb2m8ZIIsLtXkQDGKc+V8SeSWJg8yU0Z
 
-openssl enc -aes-256-cfb -k 123456 -a -p -e -in 1.txt -out 2.txt #加密文件
-openssl enc -aes-256-cfb -k 123456 -a -p -d -in 2.txt -out 3.txt #解密文件
+openssl enc -aes-256-ctr -k 123456 -a -p -e -in 1.txt -out 2.txt #加密文件
+openssl enc -aes-256-ctr -k 123456 -a -p -d -in 2.txt -out 3.txt #解密文件
+
+openssl enc -aes-256-ctr -K 41B2E7F37D50325E29EFF13C247892E53B1813B02388590EBB348A4384633C3E -iv 27B0BD8A2CF2C8568B9AFC9BE79D5C2D -a -p -d -in 2.txt -out 3.txt #通过指定 key 和 iv 解密文件
 
 https://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-connectors/native/1.2.14/binaries/tomcat-native-1.2.14-win32-bin.zip
 ```
