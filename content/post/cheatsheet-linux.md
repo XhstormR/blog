@@ -181,7 +181,7 @@ ln [原文件]  [目标文件]
 
 ## z
 ```
-echo '. /root/z.sh' >> .bashrc #安装 z
+echo '. ~/z.sh' >> .bashrc #安装 z
 
 https://github.com/rupa/z
 https://raw.githubusercontent.com/rupa/z/master/z.sh

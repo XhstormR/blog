@@ -87,7 +87,7 @@ set -g pane-base-index 1
 
 set -g mouse on
 
-set -g mode-keys vi #复制模式设置为 vi, SPACE开始 ENTER结束 ESC清空
+set -g mode-keys vi #复制模式设置为 vi, SPACE开始 ENTER结束
 
 bind -n C-k clear-history
 
