@@ -416,6 +416,7 @@ document.getElementById("DownloadsArea").style.display="";
 Linux（CentOS）：
 https://www.centos.org/download/
 https://mirrors.cqu.edu.cn/
+https://mirrors.sjtug.sjtu.edu.cn/
 https://mirrors.tuna.tsinghua.edu.cn/
 https://mirrors.ustc.edu.cn/
 https://mirror.azure.cn/
