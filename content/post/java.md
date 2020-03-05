@@ -229,6 +229,7 @@ Windows -> Preferences -> Java -> Editor -> Content Assist -> Auto Activation ->
 ```
 
 ## [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* https://mirrors.huaweicloud.com/java/jdk/
 * https://www.azul.com/downloads/zulu/
 * https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/latest
 * https://github.com/AdoptOpenJDK/openjdk12-binaries/releases/latest

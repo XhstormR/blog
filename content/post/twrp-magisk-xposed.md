@@ -45,11 +45,11 @@ fastboot reboot bootloader
 
 ## EdXposed
 * https://github.com/RikkaApps/Riru/releases/latest
-* https://github.com/ElderDrivers/EdXposed/releases/tag/v0.3.1.7
+* https://github.com/ElderDrivers/EdXposed/releases/latest
 * https://github.com/ElderDrivers/EdXposedManager/releases/latest
 
 ```bash
-adb push Magisk-v20.1.zip magisk-riru-core-v19.5.zip magisk-EdXposed-v0.3.1.7_beta-release.zip /sdcard/Download/
+adb push Magisk-v20.3.zip magisk-riru-core-v19.7.zip EdXposed-YAHFA-v0.4.6.1.4510.-release.zip /sdcard/Download/
 
-adb install -r EdXposedManager-org.meowcat.edxposed.manager-4.5.2-452-release.apk
+adb install -r EdXposedManager-4.5.4-45401-org.meowcat.edxposed.manager-release.apk
 ```
