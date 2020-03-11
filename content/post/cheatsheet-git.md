@@ -21,7 +21,7 @@ Updated on 2016-11-07
 >
 > https://marklodato.github.io/visual-git-guide/index-zh-cn.html
 >
-> https://www.atlassian.com/software/sourcetree
+> https://www.sourcetreeapp.com/
 >
 > https://npm.taobao.org/mirrors/git-for-windows/
 >

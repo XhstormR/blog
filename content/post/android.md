@@ -62,7 +62,7 @@ IDEA ➜ File ➜ New ➜ Folder ➜ Assets Folder（src/main/assets/）
 ### 导入 SDK 源码
 IDEA ➜ File ➜ Project Structure ➜ SDKs ➜ Sourcepath
 
-## Android Debug Bridge
+## [Android Debug Bridge](https://developer.android.google.cn/studio/command-line/adb)
 * 手机开启 USB 调试模式
 * 电脑安装 Android USB 驱动
 
@@ -137,7 +137,7 @@ adb usb     连接手机
 * Link：[WebStore](https://chrome.google.com/webstore/detail/vysor/gidgenkbbabolejbgbpnhbimgjbffefm),[Github](https://github.com/koush/vysor.io/releases/latest)
 * 破解：uglify.js ➜ function e(){this.licensed=**true**;this.licenseCached=**true**}
 
-## SDK [Manager](https://developer.android.com/studio/command-line/sdkmanager.html)
+## [SDK Manager](https://developer.android.google.cn/studio/command-line/sdkmanager)
 ```bash
 nslookup g.cn
 
