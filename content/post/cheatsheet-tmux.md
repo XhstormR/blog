@@ -87,12 +87,35 @@ set -g pane-base-index 1
 
 set -g mouse on
 
+set -g set-titles on
+
+set -g allow-rename on
+
+set -g renumber-windows on
+
+set -g monitor-activity on
+
 set -g mode-keys vi #复制模式设置为 vi, SPACE开始 ENTER结束
+
+set -g default-shell /bin/fish
 
 bind -n C-k clear-history
 
-bind r source-file ~/.tmux.conf \; display 'config reload!'
-
 bind \\ split-window -h
 bind - split-window -v
+
+bind r source-file ~/.tmux.conf \; display "Config reloaded!"
+
+bind P pipe-pane -o "cat >> ~/#I.log" \; display "Toggled logging to ~/#I.log"
+
+# tmuxline start
+set -g status-bg default
+set -g status-justify right
+
+set -g status-right "#[fg=white] | #S | #(whoami) | #H | %F %R "
+set -g status-right-length 100
+
+set -g window-status-format "#{?window_activity_flag,#[bg=brightyellow],#[fg=white]}#I:#W#F"
+set -g window-status-current-format "#[fg=brightgreen]#I:#W#F"
+# tmuxline end
 ```
