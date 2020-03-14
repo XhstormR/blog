@@ -53,7 +53,7 @@ java -noverify -jar charles.jar
 * https://github.com/GraxCode/JByteMod-Beta
 * https://github.com/Konloch/bytecode-viewer
 * [https://github.com/JetBrains/intellij-community/tree/master/plugins](https://github.com/JetBrains/intellij-community/tree/master/plugins/java-decompiler/engine)
-* http://www.benf.org/other/cfr/index.html
+* https://github.com/leibnitz27/cfr
 * https://set.ee/jbe/
   * https://github.com/ingokegel/jclasslib
   * https://github.com/apache/commons-bcel
