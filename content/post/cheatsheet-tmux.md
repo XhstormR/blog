@@ -101,8 +101,12 @@ set -g default-shell /bin/fish
 
 bind -n C-k clear-history
 
-bind \\ split-window -h
+bind -n C-left prev
+bind -n C-right next
+bind -n C-down new-window
+
 bind - split-window -v
+bind \\ split-window -h
 
 bind r source-file ~/.tmux.conf \; display "Config reloaded!"
 
@@ -118,4 +122,12 @@ set -g status-right-length 100
 set -g window-status-format "#{?window_activity_flag,#[bg=brightyellow],#[fg=white]}#I:#W#F"
 set -g window-status-current-format "#[fg=brightgreen]#I:#W#F"
 # tmuxline end
+```
+
+## .bashrc
+```bash
+if which tmux >/dev/null 2>&1; then
+    #if not inside a tmux session, and if no session is started, start a new session
+    test -z "$TMUX" && (tmux attach || tmux new-session)
+fi
 ```

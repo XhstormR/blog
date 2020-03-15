@@ -180,11 +180,19 @@ ln [原文件]  [目标文件]
 ```
 
 ## z
-```
+```bash
 echo '. ~/z.sh' >> .bashrc #安装 z
 
 https://github.com/rupa/z
 https://raw.githubusercontent.com/rupa/z/master/z.sh
+```
+
+## z.lua
+```bash
+echo 'source (lua ~/z.lua --init fish | psub)' >> ~/.config/fish/config.fish
+
+https://github.com/skywind3000/z.lua
+https://raw.githubusercontent.com/skywind3000/z.lua/master/z.lua
 ```
 
 ## locate
