@@ -52,6 +52,7 @@ alias vi='vim'
 
 alias ..='cd ..'
 alias ...='cd ../..'
+alias ....='cd ../../..'
 
 alias gs='git status'
 alias gd='git diff'
@@ -60,8 +61,9 @@ alias now='date +"%F %T"'
 alias myip='curl -sk https://myip.ipip.net/'
 alias rand='openssl rand -hex 30'
 alias aria2c='aria2c -s16 -x16 -k1M'
+alias jq='jq -C'
 
-export HISTCONTROL=ignoredups
+set HISTCONTROL ignoredups
 
 function start.
     set -l path (cygpath -w (pwd))
@@ -70,6 +72,11 @@ end
 
 function h
     $argv[1] --help || $argv[1] -help
+end
+
+function take
+    mkdir -p $argv
+    cd $argv
 end
 
 function fish_prompt
