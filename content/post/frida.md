@@ -54,7 +54,7 @@ frida-ps -U
 ---
 
 ```bash
-frida -U com.example.leo.myapplication -l 123.js
+frida -U com.example.leo.myapplication -l 123.js --runtime=v8
 ```
 
 ```javascript
@@ -85,6 +85,80 @@ Java.perform(function () {
         return this.isModuleActive()
     }
 })
+```
+
+```javascript
+const loging = (input, kwargs) => {
+    kwargs = kwargs || {}
+    let level = kwargs['l'] || 'log'
+    let indent = kwargs['i'] ? 2 : null
+    if (typeof input === 'object') {
+        input = JSON.stringify(input, null, indent)
+    }
+    console[level](input)
+}
+
+const printStackTrace = () => {
+    let log = Java.use('android.util.Log')
+    let exception = Java.use('java.lang.Exception')
+    loging(log.getStackTraceString(exception.$new()), { l : 'warn' })
+}
+
+const unique = arr => Array.from(new Set(arr))
+
+const traceClass = className => {
+    let clazz = Java.use(className)
+
+    let methods = clazz.class.getDeclaredMethods().map(method => method.getName())
+
+    unique(methods).forEach(methodName => traceMethod(className, methodName))
+}
+
+const traceMethod = (className, methodName) => {
+    let clazz = Java.use(className)
+
+    let targetClassMethod = className + '.' + methodName
+    loging(targetClassMethod)
+
+    for (const method of clazz[methodName].overloads) {
+        method.implementation = function() {
+            let log = { 'method' : targetClassMethod, args : [] }
+
+            for (const argument of arguments) {
+                log.args.push(argument)
+            }
+
+            let ret = method.apply(this, arguments)
+            log.ret = ret
+            loging(log, { i : false })
+            printStackTrace()
+            return ret
+        }
+    }
+}
+
+const hooks = [
+    { class : 'javax.crypto.Cipher', method : 'doFinal' },
+    { class : 'com.wonders.common.utils.e', method : null },
+    { class : 'com.wonders.common.utils.o', method : null },
+    { class : 'com.wonders.account.utils.e', method : null },
+    { class : 'com.wonders.account.utils.a', method : null },
+]
+
+Java.perform(() => {
+    Java.enumerateLoadedClasses({
+        onMatch : className => {
+            for (const hook of hooks) {
+                if (hook.class.includes(className)) {
+                    hook.method ? traceMethod(hook.class, hook.method) : traceClass(hook.class)
+                }
+            }
+        },
+        onComplete : () => console.log('------')
+    })
+})
+
+console.log('------')
 ```
 
 ## Reference
