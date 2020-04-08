@@ -422,6 +422,7 @@ https://mirrors.ustc.edu.cn/
 https://mirror.azure.cn/
 https://developer.aliyun.com/mirror/
 https://mirrors.huaweicloud.com/
+https://mirrors.cloud.tencent.com/
 https://mirrors.163.com/
 http://mirrors.hust.edu.cn/
 http://mirror.bit.edu.cn/web/
@@ -503,7 +504,7 @@ https://mirrors.ustc.edu.cn/apache/tika/tika-app-1.23.jar
 ----
 java -jar tika-app-1.19.1.jar -h 123 > 123.html
 
-https://mirrors.ustc.edu.cn/lineageos/full/
+https://mirrors.tuna.tsinghua.edu.cn/lineage-rom/full/
 ----
 https://download.lineageos.org/
 

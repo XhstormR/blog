@@ -16,7 +16,7 @@ Updated on 2019-05-10
 ```bash
 docker pull gcc:latest
 
-curl https://www.openssl.org/source/openssl-1.1.1b.tar.gz | tar -xz && cd openssl-1.1.1b
+curl https://mirrors.cloud.tencent.com/openssl/source/openssl-1.1.1e.tar.gz | tar -xz && cd openssl-1.1.1b
 
 docker run --rm -v `pwd`:`pwd` -w `pwd` gcc:latest sh -c 'mkdir build && cd build && ../config no-deprecated no-shared no-tests -static --prefix=`pwd`/123 && make install_sw'
 ```
