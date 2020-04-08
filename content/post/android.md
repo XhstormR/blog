@@ -160,6 +160,19 @@ Installed packages:
   tools                             | 25.2.3  | Android SDK Tools 25.2.3          | tools\
 ```
 
+```bash
+set -x ANDROID_SDK_ROOT $HOME/android/sdk
+set -e ANDROID_SDK_ROOT
+
+yes | ./sdkmanager --sdk_root=$ANDROID_SDK_ROOT --licenses
+./sdkmanager --sdk_root=$ANDROID_SDK_ROOT --list
+./sdkmanager --sdk_root=$ANDROID_SDK_ROOT --update
+./sdkmanager --sdk_root=$ANDROID_SDK_ROOT emulator platform-tools "platforms;android-29" "system-images;android-29;default;x86_64"
+
+./avdmanager create avd -n test -d pixel -k "system-images;android-29;default;x86_64" -f
+./avdmanager delete avd -n test
+```
+
 ## Android 规范
 * [Android Design](/uploads/android-design.png "Android Design")
 * Android 组件：所有组件都需要在 `AndroidManifest.xml ➜ application` 里进行注册。

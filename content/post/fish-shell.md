@@ -28,6 +28,7 @@ cmake ..
 make install
 ```
 
+## config.fish
 ```
 alias rm='rm -i'
 alias cp='cp -i'
@@ -63,15 +64,20 @@ alias rand='openssl rand -hex 30'
 alias aria2c='aria2c -s16 -x16 -k1M'
 alias jq='jq -C'
 
-set HISTCONTROL ignoredups
+set -x HISTCONTROL ignoredups
 
 function start.
     set -l path (cygpath -w (pwd))
     explorer $path
+    # nautilus (pwd)
 end
 
 function h
     $argv[1] --help || $argv[1] -help
+end
+
+function v
+    $argv[1] --version || $argv[1] -version
 end
 
 function take
