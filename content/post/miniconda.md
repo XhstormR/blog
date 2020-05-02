@@ -14,6 +14,8 @@ Updated on 2019-10-23
 >
 > https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/
 >
+> https://anaconda.org/search
+>
 > https://docs.python.org/zh-cn/3/
 >
 > https://pythonguidecn.readthedocs.io/zh/latest/
