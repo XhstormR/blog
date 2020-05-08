@@ -24,9 +24,10 @@ Updated on 2019-10-23
 conda info
 conda list
 conda init
+conda update conda
 
-conda create -n myenv pycrypto python=3
-conda activate myenv
+conda create -y -n myenv3 pycrypto ripgrep python=3
+conda activate myenv3
 conda deactivate
 
 conda search pycrypto
@@ -35,8 +36,8 @@ conda update pycrypto
 conda remove pycrypto
 
 conda env list
-conda env export -n myenv -f myenv.yml
-conda env remove -n myenv
+conda env export -n myenv3 -f myenv3.yml
+conda env remove -n myenv3
 ```
 
 ## PATH

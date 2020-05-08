@@ -113,7 +113,7 @@ bind r source-file ~/.tmux.conf \; display "Config reloaded!"
 bind P pipe-pane -o "cat >> ~/#I.log" \; display "Toggled logging to ~/#I.log"
 
 # tmuxline start
-set -g status-bg default
+set -g status-bg black
 set -g status-justify right
 
 set -g status-right "#[fg=white] | #S | #(whoami) | #H | %F %R "

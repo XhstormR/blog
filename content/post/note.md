@@ -112,6 +112,9 @@ echo '123456' | sudo openconnect --juniper --background --syslog --passwd-on-std
 https://github.com/OpenVPN/openvpn
 ----
 openvpn --config client13.ovpn --auth-user-pass 123.txt
+----
+username
+userpass
 ```
 
 ## 无界
@@ -559,6 +562,10 @@ http://cemu.info/index.html
 
 Nintendo Switch：
 https://github.com/yuzu-emu/yuzu
+
+https://redislabs.com/redisinsight/
+----
+https://downloads.redisinsight.redislabs.com/latest/redisinsight-win.msi
 ```
 
 ## SQL
