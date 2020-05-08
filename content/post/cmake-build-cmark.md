@@ -33,7 +33,7 @@ md 123 && cd 123 && cmake .. && mingw32-make && mingw32-make install
 
 strip -sv -o 123.exe cmark.exe   #清除所有标记
 objdump -p cmark.exe | more      #查看程序信息
-ldd cmark.exe                    #查看依赖共享库
+ldd cmark.exe                    #查看动态链接库
 ```
 
 ## Reference

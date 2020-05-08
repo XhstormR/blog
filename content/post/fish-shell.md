@@ -73,11 +73,11 @@ function start.
 end
 
 function h
-    $argv[1] --help || $argv[1] -help
+    $argv[1] --help || $argv[1] -help || $argv[1] help
 end
 
 function v
-    $argv[1] --version || $argv[1] -version
+    $argv[1] --version || $argv[1] -version || $argv[1] version
 end
 
 function take

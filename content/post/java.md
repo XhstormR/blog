@@ -46,7 +46,7 @@ Updated on 2016-06-30
 ```bash
 @ echo off
 pushd .
-cd %USERPROFILE%/.IntelliJIdea2019.2/config/
+cd /d %USERPROFILE%/AppData/Roaming/JetBrains/IntelliJIdea2020.1
 busybox rm -rf eval
 busybox sed -i "/evlsprt/d" options/other.xml
 reg delete HKEY_CURRENT_USER\SOFTWARE\JavaSoft\Prefs\jetbrains\idea /f

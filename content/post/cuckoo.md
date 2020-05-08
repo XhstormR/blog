@@ -17,7 +17,7 @@ Updated on 2020-04-27
 ## Basic
 ```bash
 conda config --add channels conda-forge
-conda create -n myenv2 pycrypto m2crypto python=2
+conda create -y -n myenv2 pycrypto m2crypto python=2
 conda activate myenv2
 
 python -m pip install --index-url=https://mirrors.aliyun.com/pypi/simple/ --upgrade cuckoo M2CryptoWin64
@@ -66,6 +66,14 @@ mklink cuckoo cuckoo.exe
 ```bash
 tcpdump -D
 getmac /fo list /v
+```
+
+```
+Lib\site-packages\cuckoo\auxiliary\sniffer.py
+----
+err_whitelist_start
+----
+"tcpdump.exe: listening on ",
 ```
 
 ```bash
