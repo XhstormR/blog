@@ -1089,3 +1089,21 @@ Integer j = new Integer(10);
 int m = j.intValue();     手动拆箱
 int n = j;     自动拆箱
 ```
+
+---
+
+```xml
+<!-- pom.xml maven mirrors -->
+<repositories>
+    <repository>
+        <id>repo1</id>
+        <url>https://mirrors.huaweicloud.com/repository/maven/</url>
+    </repository>
+</repositories>
+<pluginRepositories>
+    <pluginRepository>
+        <id>repo1</id>
+        <url>https://mirrors.huaweicloud.com/repository/maven/</url>
+    </pluginRepository>
+</pluginRepositories>
+```
