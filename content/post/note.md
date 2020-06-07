@@ -499,8 +499,6 @@ https://mirrors.ustc.edu.cn/kde/stable/krita/4.2.1/krita-x64-4.2.1.zip
 
 https://mirrors.ustc.edu.cn/rust-static/dist/rust-1.26.0-x86_64-pc-windows-gnu.msi
 
-https://mirrors.ustc.edu.cn/golang/go1.10.2.windows-amd64.zip
-
 https://mirrors.ustc.edu.cn/apache/maven/maven-3/3.5.3/binaries/apache-maven-3.5.3-bin.zip
 
 https://mirrors.ustc.edu.cn/apache/tika/tika-app-1.23.jar
@@ -520,6 +518,8 @@ yarn config set registry https://registry.npm.taobao.org
 npm --registry=https://registry.npm.taobao.org install -g test
 
 https://mirror.azure.cn/nginx/download/nginx-1.17.8.zip
+
+https://mirror.azure.cn/go/go1.14.2.windows-amd64.zip
 
 https://www.ccleaner.com/ccleaner/builds
 
