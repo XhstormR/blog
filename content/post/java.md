@@ -234,7 +234,7 @@ Windows -> Preferences -> Java -> Editor -> Content Assist -> Auto Activation ->
 * https://mirrors.huaweicloud.com/java/jdk/
 * https://www.azul.com/downloads/zulu/
 * https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/latest
-* https://github.com/AdoptOpenJDK/openjdk12-binaries/releases/latest
+* https://github.com/AdoptOpenJDK/openjdk14-binaries/releases/latest
 * JDK：Java Development Kit（Java 开发工具包）
   * JRE：Java Runtime Environment（Java 运行环境）
       * JVM：Java Virtual Machine（Java 虚拟机）

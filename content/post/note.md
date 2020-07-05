@@ -589,6 +589,7 @@ https://dev.mysql.com/downloads/mysql/
 ----
 mysqld --initialize-insecure
 mysqld
+mysqladmin -uroot password 123456
 mysql -uroot -p123456
 
 Oracle：
@@ -646,6 +647,8 @@ ffmpeg.exe -i 123.mp4 -vcodec copy -an -bsf:v h264_mp4toannexb 123.h264
 ffmpeg.exe -i 123.mp4 -r 30 1234.mp4
 Clip Video：
 ffmpeg.exe -i 123.mp4 -ss 5.0 -t 3.0 1234.mp4
+Watermark：
+ffmpeg.exe -i 123.mp4 -vf "drawtext=fontfile=msyh.ttc:fontsize=18:fontcolor=white:text=By XhstormR:x=10:y=10" 1234.mp4
 Capture Video：
 ffmpeg.exe -f gdigrab -i desktop 123.mp4
 
