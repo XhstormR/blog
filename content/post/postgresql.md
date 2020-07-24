@@ -74,8 +74,8 @@ psql.exe -e -E -h 127.0.0.1 -p 5432 -U 123 -W -d postgres
 
 compile("org.postgresql:postgresql:+")
 
-导出：pg_dump.exe -h 127.0.0.1 -p 5432 -U 123 -W -d postgres -f data.sql
-导入：psql.exe -h 127.0.0.1 -p 5432 -U 123 -W -d postgres -f data.sql
+导出：pg_dump -h 127.0.0.1 -p 5432 -U 123 -W -d postgres -n erp -Fc -f data.dump
+导入：pg_restore -h 127.0.0.1 -p 5432 -U 123 -W -d postgres -c data.dump
 ```
 
 ## Operate
