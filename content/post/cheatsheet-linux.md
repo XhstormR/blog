@@ -710,7 +710,7 @@ yum clean all #删除缓存
 
 ## rpm
 ```
-rpm -ivh *rpm #安装 RPM 包
+rpm -ivh --force *rpm #安装 RPM 包
 ```
 
 ## chown
