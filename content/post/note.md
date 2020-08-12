@@ -509,7 +509,7 @@ https://mirrors.tuna.tsinghua.edu.cn/lineage-rom/full/
 ----
 https://download.lineageos.org/
 
-https://mirrors.huaweicloud.com/nodejs/latest/node-v13.12.0-win-x64.7z
+https://mirrors.huaweicloud.com/nodejs/latest/node-v14.7.0-win-x64.7z
 https://cdn.npm.taobao.org/yarn/-/yarn-1.22.4.tgz
 https://cdn.npm.taobao.org/primer-markdown/-/primer-markdown-4.0.0.tgz
 https://npm.taobao.org/mirrors/

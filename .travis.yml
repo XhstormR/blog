@@ -1,7 +1,5 @@
 language: c
 
-sudo: false
-
 install:
   - cd scripts
   - bash ./jq.sh
