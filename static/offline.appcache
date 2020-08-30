@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#2019-01-01 13:50
+#2020-01-01 13:50
 
 CACHE:
 favicon.ico
@@ -10,12 +10,12 @@ js/magic-canvas.min.js
 uploads/cursor.ico
 uploads/file-into-picture2.png
 https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js
-https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js
-https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/yaml.min.js
-https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/kotlin.min.js
-https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/monokai-sublime.min.css
-https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.5/TweenLite.min.js
-https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.3/canvas-nest.js
+https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js
+https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js
+https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js
+https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css
+https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js
+https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js
 https://ww4.sinaimg.cn/large/a15b4afegy1fkn9tclcmgj20zk0mygma.jpg
 https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg
 

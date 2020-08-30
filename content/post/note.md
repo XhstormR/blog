@@ -566,6 +566,7 @@ https://github.com/yuzu-emu/yuzu
 https://redislabs.com/redisinsight/
 ----
 https://downloads.redisinsight.redislabs.com/latest/redisinsight-win.msi
+https://github.com/laixintao/iredis
 ```
 
 ## SQL

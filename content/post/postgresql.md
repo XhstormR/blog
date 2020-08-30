@@ -1081,5 +1081,6 @@ ALTER TABLE account ENABLE  TRIGGER ALL; --启用外键约束
 ## Tool
 * https://www.postgresql.org/ftp/pgadmin/pgadmin4/
 * https://github.com/sosedoff/pgweb/releases/latest
+* https://github.com/dbcli/pgcli
 * https://www.heidisql.com/download.php
 * https://www.jetbrains.com/datagrip/
