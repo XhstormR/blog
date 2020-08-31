@@ -374,6 +374,7 @@ https://maven.aliyun.com/repository/public/com/madgag/bfg/1.13.0/bfg-1.13.0.jar
 ```bash
 git config --global gui.encoding 'utf-8'
 git config --global core.editor 'notepad'
+git config --global core.autocrlf 'true'
 git config --global core.ignorecase 'false'
 git config --global user.name 'XhstormR'
 git config --global user.email '10527522+XhstormR@users.noreply.github.com'

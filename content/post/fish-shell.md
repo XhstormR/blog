@@ -112,4 +112,6 @@ function fish_prompt
 end
 
 source (lua ~/z.lua --init fish | psub)
+
+eval conda "shell.fish" "hook" $argv | source
 ```
