@@ -17,8 +17,8 @@ Updated on 2020-03-15
 pacman -Syu
 pacman -S --noconfirm --needed gcc make
 
-curl -O https://www.lua.org/ftp/lua-5.3.5.tar.gz
-tar zxf lua-5.3.5.tar.gz
-cd lua-5.3.5
+curl -O https://www.lua.org/ftp/lua-5.4.0.tar.gz
+tar zxf lua-5.4.0.tar.gz
+cd lua-5.4.0
 make posix install CC='x86_64-pc-msys-gcc'
 ```
