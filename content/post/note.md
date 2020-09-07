@@ -420,6 +420,7 @@ Linux（CentOS）：
 https://www.centos.org/download/
 https://mirrors.cqu.edu.cn/
 https://mirrors.sjtug.sjtu.edu.cn/
+https://opentuna.cn/
 https://mirrors.tuna.tsinghua.edu.cn/
 https://mirrors.ustc.edu.cn/
 https://mirror.azure.cn/
@@ -447,11 +448,12 @@ https://bellard.org/tcc/
 
 https://www.vmware.com/go/getworkstation-win
 
-https://releases.llvm.org/8.0.0/LLVM-8.0.0-win64.exe
+https://releases.llvm.org/download.html
+https://github.com/llvm/llvm-project/releases/latest
 ----
 clang.exe --target=x86_64-pc-windows-gnu 123.c
 
-https://prereleases.llvm.org/win-snapshots/clang-format-r357435.exe
+https://prereleases.llvm.org/win-snapshots/clang-format-6923b0a7.exe
 
 https://frippery.org/files/busybox/busybox64.exe
 

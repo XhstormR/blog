@@ -24,7 +24,7 @@ pacman -Syu
 pacman -S --noconfirm --needed gcc make
 
 make TARGET=cygwin USE_THREAD=1 CFLAGS='-s -Os' LDFLAGS='-static'
-strip -v haproxy.exe
+strip -sv haproxy.exe
 ```
 
 ## 端口复用
