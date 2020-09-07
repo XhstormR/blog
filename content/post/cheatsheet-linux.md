@@ -470,7 +470,7 @@ find / -name 123.log
 
 find . -name '*.ini' #查找当前目录下以 .ini 结尾的文件
 find . -size +20k -a -size -50k #查找当前目录下大于20k小于50k的文件
-find . -size +20k -a -size -50k -exec ls -lh {} ; #查找当前目录下大于20k小于50k的文件，并显示详细信息
+find . -size +20k -a -size -50k -exec ls -lh {} \; #查找当前目录下大于20k小于50k的文件，并显示详细信息
 -o or  逻辑或，两者满足其一即可
 -a and 逻辑与，两者都满足
 -exec [命令] {} ; 对搜索结果执行命令
