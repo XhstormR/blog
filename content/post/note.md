@@ -491,6 +491,8 @@ https://mirrors.tuna.tsinghua.edu.cn/virtualbox/virtualbox-Win-latest.exe
 
 https://mirrors.ustc.edu.cn/vim/pc/vim82w32.zip
 
+https://mirrors.ustc.edu.cn/kernel.org/linux/utils/boot/syslinux/syslinux-6.03.zip
+
 https://mirrors.ustc.edu.cn/eclipse/technology/epp/downloads/release/oxygen/1a/eclipse-java-oxygen-1a-win32-x86_64.zip
 
 https://mirrors.ustc.edu.cn/qtproject/official_releases/qtcreator/4.10/4.10.2/installer_source/windows_msvc2017_x64/qtcreator.7z

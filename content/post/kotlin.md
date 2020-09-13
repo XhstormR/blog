@@ -30,6 +30,8 @@ Updated on 2017-04-13
 > https://github.com/JetBrains/kotlin/releases/latest
 >
 > https://jcenter.bintray.com/org/jetbrains/kotlin/kotlin-stdlib/
+>
+> https://storage.googleapis.com/developers-playground/kp-wrapper-devsite.html
 
 ## Code
 ```kotlin

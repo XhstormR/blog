@@ -55,6 +55,8 @@ gnatdll proxy.o -e proxy.def -d proxy.dll
 i686-w64-mingw32-gcc proxy.c proxy.def -shared -o proxy.dll
 ```
 
+---
+
 ```bash
 gendef - nslicense.dll
 
