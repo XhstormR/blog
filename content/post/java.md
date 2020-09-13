@@ -17,7 +17,7 @@ Updated on 2016-06-30
 >
 > https://javadoc.io/
 >
-> https://openjfx.io/javadoc/14/
+> https://openjfx.io/javadoc/15/
 >
 > https://github.com/openjdk/jdk
 >
