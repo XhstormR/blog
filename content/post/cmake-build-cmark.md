@@ -24,6 +24,7 @@ type nul > PreLoad.cmake
 echo set(CMAKE_C_STANDARD 11 CACHE INTERNAL "" FORCE) > PreLoad.cmake
 echo set(CMAKE_C_STANDARD_REQUIRED ON CACHE INTERNAL "" FORCE) >> PreLoad.cmake
 echo set(CMAKE_C_FLAGS "-s -Os" CACHE INTERNAL "" FORCE) >> PreLoad.cmake
+echo set(CMAKE_CXX_FLAGS "-s -Os" CACHE INTERNAL "" FORCE) >> PreLoad.cmake
 echo set(CMAKE_EXE_LINKER_FLAGS "-static" CACHE INTERNAL "" FORCE) >> PreLoad.cmake
 echo. >> PreLoad.cmake
 echo set(CMAKE_GENERATOR "MinGW Makefiles" CACHE INTERNAL "" FORCE) >> PreLoad.cmake

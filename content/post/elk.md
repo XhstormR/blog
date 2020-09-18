@@ -25,7 +25,7 @@ version: '3'
 
 services:
   kibana:
-    image: kibana:7.8.1
+    image: kibana:7.9.1
     restart: always
     environment:
       I18N_LOCALE: zh-CN
@@ -43,7 +43,7 @@ services:
       - elasticsearch
 
   elasticsearch:
-    image: elasticsearch:7.8.1
+    image: elasticsearch:7.9.1
     restart: always
     environment:
       ES_JAVA_OPTS: -Xms256m -Xmx256m
@@ -94,7 +94,12 @@ filebeat -e
 ```
 
 ## Reference
+* https://www.elastic.co/guide/index.html
 * https://www.elastic.co/guide/en/kibana/current/settings.html
 * https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-modules.html
+* https://www.elastic.co/guide/en/beats/filebeat/current/configuration-filebeat-options.html
 * https://www.elastic.co/guide/en/elasticsearch/reference/current/rest-apis.html
 * https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high.html
+* https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-query-builders.html
+* https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-aggregation-builders.html
+* https://www.elastic.co/guide/cn/elasticsearch/guide/current/index.html
