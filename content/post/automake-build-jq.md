@@ -14,7 +14,7 @@ Updated on 2017-09-01
 >
 > [git](https://github.com/git-for-windows/git/releases/latest)
 >
-> [jq](https://github.com/stedolan/jq.git)
+> [jq](https://github.com/stedolan/jq)
 
 ## Step
 ```
