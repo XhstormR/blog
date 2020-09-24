@@ -25,15 +25,15 @@ Updated on 2016-06-30
 >
 > https://www.oracle.com/technetwork/java/index.html
 >
-> https://docs.oracle.com/en/java/javase/14/
+> https://docs.oracle.com/en/java/javase/15/
 >
 > https://docs.oracle.com/javase/specs/index.html
 >
-> https://docs.oracle.com/javase/specs/jvms/se14/html/jvms-6.html
+> https://docs.oracle.com/javase/specs/jvms/se15/html/jvms-6.html
 >
 > https://docs.oracle.com/javase/8/docs/index.html
 >
-> https://docs.oracle.com/en/java/javase/14/docs/api/allclasses-index.html
+> https://docs.oracle.com/en/java/javase/15/docs/api/allclasses-index.html
 
 ## IDE
 * Eclipse：https://www.eclipse.org/downloads/eclipse-packages/

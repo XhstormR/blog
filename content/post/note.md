@@ -824,6 +824,7 @@ https://storage.googleapis.com/downloads.webmproject.org/releases/webp/index.htm
 ## Translation
 ```html
 https://cn.bing.com/translator
+https://www.deepl.com/translator
 https://translate.google.cn/m/translate
 
 https://m.dict.cn/
