@@ -513,12 +513,15 @@ https://mirrors.tuna.tsinghua.edu.cn/lineage-rom/full/
 ----
 https://download.lineageos.org/
 
-https://mirrors.huaweicloud.com/nodejs/latest/node-v14.7.0-win-x64.7z
+https://rpm.nodesource.com/pub_14.x/el/8/x86_64/nodejs-14.12.0-1nodesource.x86_64.rpm
+https://mirrors.huaweicloud.com/nodejs/latest/node-v14.12.0-win-x64.7z
 https://cdn.npm.taobao.org/yarn/-/yarn-1.22.4.tgz
 https://cdn.npm.taobao.org/primer-markdown/-/primer-markdown-4.0.0.tgz
 https://npm.taobao.org/mirrors/
 ----
 yarn config set registry https://registry.npm.taobao.org
+yarn global add test
+----
 npm --registry=https://registry.npm.taobao.org install -g test
 
 https://mirror.azure.cn/nginx/download/nginx-1.17.8.zip
