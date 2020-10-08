@@ -25,7 +25,7 @@ version: '3'
 
 services:
   kibana:
-    image: kibana:7.9.1
+    image: kibana:7.9.2
     restart: always
     environment:
       I18N_LOCALE: zh-CN
@@ -43,7 +43,7 @@ services:
       - elasticsearch
 
   elasticsearch:
-    image: elasticsearch:7.9.1
+    image: elasticsearch:7.9.2
     restart: always
     environment:
       ES_JAVA_OPTS: -Xms256m -Xmx256m
@@ -91,6 +91,169 @@ TRAEFIK_BASIC_AUTH=123:$2y$05$80HqrqBOoNaabteix3gYJ.S0kT.HP6sw5GjOplRfGhGezth0yL
 filebeat -e modules enable nginx
 filebeat -e setup
 filebeat -e
+```
+
+## Cluster
+
+```yaml
+version: '3'
+
+services:
+  es01:
+    image: elasticsearch:7.9.2
+    restart: always
+    hostname: es01
+    environment:
+      cluster.name: es-docker-cluster
+      cluster.initial_master_nodes: es01,es02,es03,es04,es05,es06,es07,es08
+      discovery.seed_hosts: es02,es03,es04,es05,es06,es07,es08
+      bootstrap.memory_lock: 'true'
+      ES_JAVA_OPTS: -Xms32g -Xmx32g
+    volumes:
+      - es01_data:/usr/share/elasticsearch/data
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    ports:
+      - 9200:9200
+
+  es02:
+    image: elasticsearch:7.9.2
+    restart: always
+    hostname: es02
+    environment:
+      cluster.name: es-docker-cluster
+      cluster.initial_master_nodes: es01,es02,es03,es04,es05,es06,es07,es08
+      discovery.seed_hosts: es01,es03,es04,es05,es06,es07,es08
+      bootstrap.memory_lock: 'true'
+      ES_JAVA_OPTS: -Xms32g -Xmx32g
+    volumes:
+      - es02_data:/usr/share/elasticsearch/data
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+
+  es03:
+    image: elasticsearch:7.9.2
+    restart: always
+    hostname: es03
+    environment:
+      cluster.name: es-docker-cluster
+      cluster.initial_master_nodes: es01,es02,es03,es04,es05,es06,es07,es08
+      discovery.seed_hosts: es01,es02,es04,es05,es06,es07,es08
+      bootstrap.memory_lock: 'true'
+      ES_JAVA_OPTS: -Xms32g -Xmx32g
+    volumes:
+      - es03_data:/usr/share/elasticsearch/data
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+
+  es04:
+    image: elasticsearch:7.9.2
+    restart: always
+    hostname: es04
+    environment:
+      cluster.name: es-docker-cluster
+      cluster.initial_master_nodes: es01,es02,es03,es04,es05,es06,es07,es08
+      discovery.seed_hosts: es01,es02,es03,es05,es06,es07,es08
+      bootstrap.memory_lock: 'true'
+      ES_JAVA_OPTS: -Xms32g -Xmx32g
+    volumes:
+      - es04_data:/usr/share/elasticsearch/data
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+
+  es05:
+    image: elasticsearch:7.9.2
+    restart: always
+    hostname: es05
+    environment:
+      cluster.name: es-docker-cluster
+      cluster.initial_master_nodes: es01,es02,es03,es04,es05,es06,es07,es08
+      discovery.seed_hosts: es01,es02,es03,es04,es06,es07,es08
+      bootstrap.memory_lock: 'true'
+      ES_JAVA_OPTS: -Xms32g -Xmx32g
+    volumes:
+      - es05_data:/usr/share/elasticsearch/data
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+
+  es06:
+    image: elasticsearch:7.9.2
+    restart: always
+    hostname: es06
+    environment:
+      cluster.name: es-docker-cluster
+      cluster.initial_master_nodes: es01,es02,es03,es04,es05,es06,es07,es08
+      discovery.seed_hosts: es01,es02,es03,es04,es05,es07,es08
+      bootstrap.memory_lock: 'true'
+      ES_JAVA_OPTS: -Xms32g -Xmx32g
+    volumes:
+      - es06_data:/usr/share/elasticsearch/data
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+
+  es07:
+    image: elasticsearch:7.9.2
+    restart: always
+    hostname: es07
+    environment:
+      cluster.name: es-docker-cluster
+      cluster.initial_master_nodes: es01,es02,es03,es04,es05,es06,es07,es08
+      discovery.seed_hosts: es01,es02,es03,es04,es05,es06,es08
+      bootstrap.memory_lock: 'true'
+      ES_JAVA_OPTS: -Xms32g -Xmx32g
+    volumes:
+      - es07_data:/usr/share/elasticsearch/data
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+
+  es08:
+    image: elasticsearch:7.9.2
+    restart: always
+    hostname: es08
+    environment:
+      cluster.name: es-docker-cluster
+      cluster.initial_master_nodes: es01,es02,es03,es04,es05,es06,es07,es08
+      discovery.seed_hosts: es01,es02,es03,es04,es05,es06,es07
+      bootstrap.memory_lock: 'true'
+      ES_JAVA_OPTS: -Xms32g -Xmx32g
+    volumes:
+      - es08_data:/usr/share/elasticsearch/data
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+
+  kibana:
+    image: kibana:7.9.2
+    restart: always
+    environment:
+      ELASTICSEARCH_HOSTS: http://es01:9200
+    ports:
+      - 5601:5601
+
+volumes:
+  es01_data:
+  es02_data:
+  es03_data:
+  es04_data:
+  es05_data:
+  es06_data:
+  es07_data:
+  es08_data:
 ```
 
 ## Reference
