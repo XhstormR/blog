@@ -3,20 +3,20 @@ author: XhstormR
 categories:
 - Notes
 date: 2020-10-13T11:18:15+08:00
-title: Keycloak
+title: JBoss Keycloak
 ---
 
 <!--more-->
 
 Updated on 2020-10-13
 
-> https://github.com/keycloak/keycloak
->
-> https://github.com/keycloak/keycloak-documentation
->
 > https://hub.docker.com/r/jboss/keycloak
 >
 > https://www.keycloak.org/documentation
+>
+> https://github.com/keycloak/keycloak
+>
+> https://github.com/keycloak/keycloak-documentation
 
 ```
 关闭强制 SSL 连接
