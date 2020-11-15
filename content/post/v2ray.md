@@ -10,9 +10,23 @@ title: V2Ray
 
 Updated on 2017-11-29
 
-> https://github.com/v2ray/v2ray-core/releases/latest
+> https://github.com/v2fly/v2ray-core/releases/latest
 >
-> https://github.com/v2ray/manual/blob/master/zh_cn/chapter_02/01_overview.md
+> https://github.com/v2fly/v2fly-github-io/blob/master/docs/config/overview.md
+
+### docker-compose.yml
+```yaml
+version: '3'
+
+services:
+  v2ray:
+    image: v2fly/v2fly-core:latest
+    restart: always
+    ports:
+      - '8080:8080'
+    volumes:
+      - ./config.json:/etc/v2ray/config.json:ro
+```
 
 ## 客户端
 

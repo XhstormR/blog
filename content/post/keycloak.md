@@ -22,3 +22,6 @@ Updated on 2020-10-13
 关闭强制 SSL 连接
 /opt/jboss/keycloak/bin/kcadm.sh update realms/master -s sslRequired=NONE --server http://localhost:8080/auth --realm master --user admin
 ```
+
+## Reference
+* [Script Mapper](https://github.com/keycloak/keycloak/blob/master/services/src/main/java/org/keycloak/protocol/oidc/mappers/ScriptBasedOIDCProtocolMapper.java#L144)

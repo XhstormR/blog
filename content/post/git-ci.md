@@ -19,6 +19,8 @@ yum makecache
 yum update -y
 
 timedatectl set-timezone Asia/Shanghai
+date +%s -s @1602842120
+hwclock -w
 ```
 
 ## Docker
