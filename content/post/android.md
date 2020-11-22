@@ -17,7 +17,9 @@ Updated on 2016-08-27
 >
 > https://developer.android.google.cn/reference/kotlin/classes.html
 >
-> https://google.github.io/android-gradle-dsl/current/
+> https://developer.android.google.cn/reference/tools/gradle-api/
+>
+> https://maven.google.com/web/
 
 ## 开发环境
 * IntelliJ IDEA：https://www.jetbrains.com/idea/download/

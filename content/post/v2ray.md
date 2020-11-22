@@ -10,23 +10,11 @@ title: V2Ray
 
 Updated on 2017-11-29
 
+> https://www.v2fly.org/
+>
 > https://github.com/v2fly/v2ray-core/releases/latest
 >
 > https://github.com/v2fly/v2fly-github-io/blob/master/docs/config/overview.md
-
-### docker-compose.yml
-```yaml
-version: '3'
-
-services:
-  v2ray:
-    image: v2fly/v2fly-core:latest
-    restart: always
-    ports:
-      - '8080:8080'
-    volumes:
-      - ./config.json:/etc/v2ray/config.json:ro
-```
 
 ## 客户端
 
@@ -184,6 +172,20 @@ services:
 
 ## 服务端
 
+### docker-compose.yml
+```yaml
+version: '3'
+
+services:
+  v2ray:
+    image: v2fly/v2fly-core:latest
+    restart: always
+    ports:
+      - '8080:8080'
+    volumes:
+      - ./config.json:/etc/v2ray/config.json:ro
+```
+
 ### socks
 ```json
 {
@@ -191,7 +193,7 @@ services:
     "loglevel": "warning"
   },
   "inbound": {
-    "port": 80,
+    "port": 8080,
     "listen": "0.0.0.0",
     "protocol": "socks",
     "settings": {
@@ -200,6 +202,31 @@ services:
         {
           "user": "123",
           "pass": "456"
+        }
+      ]
+    }
+  },
+  "outbound": {
+    "protocol": "freedom",
+    "settings": {}
+  }
+}
+```
+
+### vmess
+```json
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbound": {
+    "port": 8080,
+    "listen": "0.0.0.0",
+    "protocol": "vmess",
+    "settings": {
+      "clients": [
+        {
+          "id": "97b4069c-f116-4612-9e4f-75c2202ec45d"
         }
       ]
     }
