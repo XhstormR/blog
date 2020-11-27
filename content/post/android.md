@@ -82,6 +82,8 @@ adb uninstall com.baidu.mobile     卸载 App（包名）     -k 保留数据和
 
 adb push D:\Download\1.txt  /mnt/sdcard/Download/1.txt     发送至手机
 adb pull /mnt/sdcard/Download/1.txt  D:\Download\1.txt     下载至电脑
+----
+/mnt/sdcard/Download/ <=> /storage/emulated/0/Download/
 
 D:\Download\Java\android-sdk-windows\platform-tools\adb.exe devices -l     查看设备
 List of devices attached
