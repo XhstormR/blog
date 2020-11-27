@@ -275,6 +275,7 @@ gitlab-ctl tail
   * https://dockerhub.azk8s.cn/v2/
   * https://hub-mirror.c.163.com/v2/
   * https://docker.mirrors.ustc.edu.cn/v2/
+  * https://ustc-edu-cn.mirror.aliyuncs.com/v2/
   * https://cr.console.aliyun.com/cn-shanghai/instances/mirrors
 * GitLab CI
   * https://docs.gitlab.com/ee/ci/yaml/
