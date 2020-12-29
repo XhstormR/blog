@@ -30,6 +30,7 @@ https://github.com/frida/frida/releases/latest
 # Install from Wheel
 python -m pip install --index-url=https://mirrors.aliyun.com/pypi/simple/ --upgrade frida-tools
 # Install from Egg
+wget https://mirrors.aliyun.com/pypi/packages/ab/44/eda688668b780277cc7f9306f02c3dea41d95f91f2404493ddf00b96187f/frida-14.2.2-py3.8-win-amd64.egg -P C:/Users/leo/
 python -m easy_install --index-url=https://mirrors.aliyun.com/pypi/simple/ --upgrade frida-tools
 ```
 
@@ -46,7 +47,7 @@ adb devices -l
 adb push D:/Download/frida-server /data/local/tmp/
 adb shell "getprop ro.product.cpu.abi"
 adb shell "chmod 755 /data/local/tmp/frida-server"
-adb shell "su -c /data/local/tmp/frida-server"
+adb shell "su -c /data/local/tmp/frida-server -D -l 0.0.0.0"
 
 frida-ps -U
 ```
@@ -164,3 +165,5 @@ console.log('------')
 ## Reference
 * https://github.com/dweinstein/awesome-frida
 * https://github.com/iddoeldor/frida-snippets
+* https://www.npmjs.com/package/@types/frida-gum
+  * https://cdn.npm.taobao.org/@types/frida-gum/-/@types/frida-gum-16.2.1.tgz
