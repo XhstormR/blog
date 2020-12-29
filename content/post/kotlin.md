@@ -1348,6 +1348,6 @@ external fun alert(message: Any?)//暴露外部 API
 * https://realm.io/cn/news/getting-started-with-kotlin-and-anko/
 * https://realm.io/cn/news/oredev-jake-wharton-kotlin-advancing-android-dev/
 * JavaScript：
-  * https://github.com/Kotlin/ts2kt
+  * https://github.com/Kotlin/dukat
   * https://github.com/vuejs/vue/tree/dev/types
-  * https://microsoft.github.io/TypeSearch/
+  * https://www.typescriptlang.org/dt/search
