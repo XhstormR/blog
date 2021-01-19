@@ -326,9 +326,12 @@ grep http `locate --database="/d/Download/GIT/123.db" *java*md`     查找文字
 
 ```bash
 vim ~/.ssh/config
-    Host github.com
-      Hostname ssh.github.com
-      Port 443
+----
+ProxyCommand ncat --proxy 127.0.0.1:1080 --proxy-type socks4 %h %p
+
+Host github.com
+  Hostname ssh.github.com
+  Port 443
 
 -------------------------------------------------------
 

@@ -442,6 +442,8 @@ https://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-connectors/native/1.2.
 
 [root@controller ~]$ scp -r /tmp/soft root@192.168.100.10:/tmp/ #上传本地目录到远端指定目录
 [root@controller ~]$ scp -r root@192.168.100.10:/tmp/soft /tmp/ #从远端下载到本地
+
+rsync -P --rsh=ssh root@192.168.100.10:/tmp/soft . #断点续传
 ```
 
 ## find
