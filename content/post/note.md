@@ -514,10 +514,12 @@ https://mirrors.tuna.tsinghua.edu.cn/lineage-rom/full/
 https://download.lineageos.org/
 
 https://rpm.nodesource.com/pub_14.x/el/8/x86_64/nodejs-14.12.0-1nodesource.x86_64.rpm
-https://mirrors.huaweicloud.com/nodejs/latest/node-v14.12.0-win-x64.7z
+https://mirrors.huaweicloud.com/nodejs/latest/node-v15.5.1-win-x64.7z
 https://cdn.npm.taobao.org/yarn/-/yarn-1.22.4.tgz
 https://cdn.npm.taobao.org/primer-markdown/-/primer-markdown-4.0.0.tgz
-https://npm.taobao.org/mirrors/
+----
+https://registry.npm.taobao.org/
+https://mirrors.huaweicloud.com/repository/npm/
 ----
 yarn config set registry https://registry.npm.taobao.org
 yarn global add test
@@ -880,6 +882,9 @@ https://sourceforge.net/projects/orwelldevcpp/
 Templates：
 https://svn.code.sf.net/p/codeblocks/code/trunk/src/templates/
 https://sourceforge.net/p/orwelldevcpp/code/ci/master/tree/Templates/
+
+Linux Code:
+https://elixir.bootlin.com/
 ```
 
 ## C\#（.NET Core）
@@ -1016,8 +1021,8 @@ https://windows.metasploit.com/
 https://www.tenable.com/products/nessus/select-your-operating-system
 
 漏洞渗透：Burp Suite、Zed Attack Proxy
-https://portswigger.net/burp/freedownload
-https://portswigger.net/burp/releases/download
+https://portswigger.net/burp/releases
+https://portswigger.net/burp/releases/download?product=pro
 https://github.com/zaproxy/zaproxy
 
 网络扫描：Nmap
