@@ -18,11 +18,11 @@ keytool -genkeypair -keystore release.p12 -storepass changeit -storetype pkcs12 
 keytool -list       -keystore release.p12 -storepass changeit -storetype pkcs12
 
 导出证书：
-keytool -exportcert -keystore release.p12 -storepass changeit -alias release -file release.cer -rfc
-keytool -printcert -file release.cer
+keytool -exportcert -keystore release.p12 -storepass changeit -alias release -file release.crt -rfc
+keytool -printcert -file release.crt
 
 信任证书：
-keytool -importcert -cacerts -trustcacerts -storepass changeit -alias release -file release.cer -noprompt
+keytool -importcert -cacerts -trustcacerts -storepass changeit -alias release -file release.crt -noprompt
 keytool -list -cacerts -storepass changeit
 
 删除证书：
@@ -36,10 +36,10 @@ keytool -importkeystore ^
 
 ```
 导出证书：
-openssl pkcs12 -in release.p12 -password pass:changeit -out cer.pem -nokeys
+openssl pkcs12 -in release.p12 -password pass:changeit -out release.crt -nokeys
 
 导出私钥：
-openssl pkcs12 -in release.p12 -password pass:changeit -out key.pem -nocerts -nodes
+openssl pkcs12 -in release.p12 -password pass:changeit -out release.key -nocerts -nodes
 ```
 
 ## Reference
