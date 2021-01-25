@@ -77,8 +77,9 @@ OpenDNS:
 208.67.222.222
 208.67.220.220
 
-SDNS:
-http://public.sdns.cn/
+https://doh.pub/dns-query
+https://doh.360.cn/dns-query
+https://dns11.quad9.net/dns-query
 ```
 
 ## 磁盘分区空间量设置

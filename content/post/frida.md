@@ -165,5 +165,7 @@ console.log('------')
 ## Reference
 * https://github.com/dweinstein/awesome-frida
 * https://github.com/iddoeldor/frida-snippets
+* https://github.com/deathmemory/FridaContainer
+* https://github.com/deathmemory/fridaRegstNtv
 * https://www.npmjs.com/package/@types/frida-gum
   * https://cdn.npm.taobao.org/@types/frida-gum/-/@types/frida-gum-16.2.1.tgz
