@@ -159,12 +159,17 @@ Updated on 2017-11-29
           "port": 8080,
           "users": [
             {
-              "id": "e735afb1-b608-4eb6-b1b1-b0042cb897e8",
-              "alterId": 64
+              "id": "e735afb1-b608-4eb6-b1b1-b0042cb897e8"
             }
           ]
         }
       ]
+    },
+    "streamSettings": {
+      "network": "ws",
+      "wsSettings": {
+        "path": "/8lwwjtbxjl/"
+      }
     }
   }
 }
@@ -229,6 +234,12 @@ services:
           "id": "97b4069c-f116-4612-9e4f-75c2202ec45d"
         }
       ]
+    },
+    "streamSettings": {
+      "network": "ws",
+      "wsSettings": {
+        "path": "/8lwwjtbxjl/"
+      }
     }
   },
   "outbound": {

@@ -521,7 +521,7 @@ grep "ls --color=auto" /etc/ -rn #递归查找并显示行号
 
 Tips : 默认为包含匹配，可使用正则表达式进行包含匹配     ^开头     结尾$
 grep ^[a-z] /etc/nova/nova.conf #使用正则表达式去掉注释
-grep -vn -e ^井 -e '^$' /etc/vsftpd/vsftpd.conf #使用正则表达式取反去掉注释和空行并显示行号
+grep -vn -e ^井 -e '^\s*$' /etc/vsftpd/vsftpd.conf #使用正则表达式取反去掉注释和空行并显示行号
 ```
 
 ## awk
