@@ -26,7 +26,7 @@ conda list
 conda init
 conda update conda
 
-conda create -y -n myenv3 pycrypto ripgrep python=3
+conda create -y -n myenv3 pycurl pycrypto ripgrep python=3
 conda activate myenv3
 conda deactivate
 
