@@ -20,7 +20,7 @@ Updated on 2020-10-13
 
 ```
 关闭强制 SSL 连接
-/opt/jboss/keycloak/bin/kcadm.sh update realms/master -s sslRequired=NONE --server http://localhost:8080/auth --realm master --user admin
+/opt/jboss/keycloak/bin/kcadm.sh update realms/master -s sslRequired=NONE --server http://keycloak:8080/auth --realm master --user admin --password admin
 ```
 
 ## Reference
