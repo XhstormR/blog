@@ -17,6 +17,8 @@ Updated on 2020-09-15
 > https://github.com/apache/kafka
 >
 > https://www.confluent.io/download
+>
+> https://hub.docker.com/r/confluentinc/cp-kafka
 
 ## Reference
 * https://docs.confluent.io/current/connect/transforms/index.html
