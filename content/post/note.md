@@ -502,7 +502,8 @@ https://mirrors.ustc.edu.cn/gimp/stable/windows/gimp-2.10.0-x64-setup.exe
 
 https://mirrors.ustc.edu.cn/kde/stable/krita/4.2.1/krita-x64-4.2.1.zip
 
-https://mirrors.ustc.edu.cn/rust-static/dist/rust-1.26.0-x86_64-pc-windows-gnu.msi
+https://mirrors.ustc.edu.cn/rust-static/dist/rust-1.51.0-x86_64-pc-windows-gnu.msi
+https://mirrors.ustc.edu.cn/rust-static/dist/rustc-1.51.0-src.tar.gz
 
 https://mirrors.ustc.edu.cn/golang/go1.16.2.windows-amd64.zip
 
@@ -516,9 +517,9 @@ https://mirrors.tuna.tsinghua.edu.cn/lineage-rom/full/
 ----
 https://download.lineageos.org/
 
-https://rpm.nodesource.com/pub_14.x/el/8/x86_64/nodejs-14.12.0-1nodesource.x86_64.rpm
-https://mirrors.huaweicloud.com/nodejs/latest/node-v15.5.1-win-x64.7z
-https://cdn.npm.taobao.org/yarn/-/yarn-1.22.4.tgz
+https://rpm.nodesource.com/pub_16.x/el/8/x86_64/nodejs-16.0.0-1nodesource.x86_64.rpm
+https://mirrors.huaweicloud.com/nodejs/latest/node-v16.0.0-win-x64.7z
+https://cdn.npm.taobao.org/yarn/-/yarn-1.22.10.tgz
 https://cdn.npm.taobao.org/primer-markdown/-/primer-markdown-4.0.0.tgz
 ----
 https://registry.npm.taobao.org/
@@ -529,7 +530,7 @@ yarn global add test
 ----
 npm --registry=https://registry.npm.taobao.org install -g test
 
-https://mirror.azure.cn/nginx/download/nginx-1.17.8.zip
+https://mirror.azure.cn/nginx/download/nginx-1.20.0.zip
 
 https://www.ccleaner.com/ccleaner/builds
 
@@ -572,6 +573,7 @@ http://cemu.info/index.html
 
 Nintendo Switch：
 https://github.com/yuzu-emu/yuzu
+https://github.com/Ryujinx/Ryujinx
 ```
 
 ## SQL
