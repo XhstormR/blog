@@ -53,3 +53,7 @@ adb push Magisk-v20.3.zip magisk-riru-core-v19.7.zip EdXposed-YAHFA-v0.4.6.1.451
 
 adb install -r EdXposedManager-4.5.4-45401-org.meowcat.edxposed.manager-release.apk
 ```
+
+## LSPosed
+* https://github.com/RikkaApps/Riru/releases/latest
+* https://github.com/LSPosed/LSPosed/releases/latest

@@ -163,6 +163,7 @@ console.log('------')
 ```
 
 ## Reference
+* https://github.com/FrenchYeti/dexcalibur
 * https://github.com/dweinstein/awesome-frida
 * https://github.com/iddoeldor/frida-snippets
 * https://github.com/deathmemory/FridaContainer
