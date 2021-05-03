@@ -20,6 +20,8 @@ Updated on 2016-08-27
 > https://developer.android.google.cn/reference/tools/gradle-api/
 >
 > https://maven.google.com/web/
+>
+> [api level](https://developer.android.google.cn/guide/topics/manifest/uses-sdk-element#api-level-table)
 
 ## 开发环境
 * IntelliJ IDEA：https://www.jetbrains.com/idea/download/
