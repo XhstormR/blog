@@ -55,6 +55,7 @@ docker exec -it gitlab sh #获得容器 Shell
 ### Docker Compose
 * https://docs.docker.com/compose/reference/
 * https://docs.docker.com/compose/compose-file/
+* https://github.com/compose-spec/compose-spec/blob/master/spec.md
 
 ```bash
 sudo curl -Lf https://github.com/docker/compose/releases/download/1.24.0/run.sh -o /usr/local/bin/docker-compose
