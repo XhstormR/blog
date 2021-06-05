@@ -11,6 +11,8 @@ title: Android DEX Unpack
 Updated on 2019-05-31
 
 > https://source.android.google.cn/devices/tech/dalvik/dex-format
+>
+> https://source.android.google.cn/devices/tech/dalvik/dalvik-bytecode
 
 ```bash
 frida-trace -U -i *SizeOfClassWithoutEmbeddedTables* com.saicmotor.tocapp
