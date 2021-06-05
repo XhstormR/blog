@@ -1078,6 +1078,11 @@ ALTER TABLE account DISABLE TRIGGER ALL; --禁用外键约束
 ALTER TABLE account ENABLE  TRIGGER ALL; --启用外键约束
 ```
 
+```sql
+SELECT * FROM pg_available_extension_versions; --查询可加载插件
+SELECT * FROM pg_extension; --查询已加载插件
+```
+
 ## Tool
 * https://www.postgresql.org/ftp/pgadmin/pgadmin4/
 * https://github.com/sosedoff/pgweb/releases/latest

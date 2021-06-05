@@ -532,6 +532,8 @@ npm --registry=https://registry.npm.taobao.org install -g test
 
 https://mirror.azure.cn/nginx/download/nginx-1.20.0.zip
 
+https://api.getfiddler.com/win/latest
+
 https://www.ccleaner.com/ccleaner/builds
 
 分词词典：
