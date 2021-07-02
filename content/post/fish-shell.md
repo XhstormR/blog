@@ -30,6 +30,9 @@ make install
 
 ## config.fish
 ```
+export TERM="screen-256color"
+export LANG=zh_CN.UTF-8
+
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
