@@ -833,6 +833,7 @@ https://www.deepl.com/translator
 https://translate.google.cn/m/translate
 
 https://m.dict.cn/
+https://dict.eudic.net/
 https://dict.youdao.com/m
 https://www.collinsdictionary.com/zh/
 
