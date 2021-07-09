@@ -32,7 +32,7 @@ hwclock -w
 ```bash
 curl -fsSL https://get.docker.com | bash -s -- docker --mirror Aliyun
 mkdir -p /etc/docker
-echo -e '{\n"registry-mirrors": ["https://docker.mirrors.ustc.edu.cn"]\n}' > /etc/docker/daemon.json
+echo -e '{\n"userland-proxy": false,\n"registry-mirrors": ["https://docker.mirrors.ustc.edu.cn"]\n}' > /etc/docker/daemon.json
 systemctl start docker
 systemctl enable docker
 systemctl status docker

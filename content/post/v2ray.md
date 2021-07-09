@@ -167,9 +167,16 @@ Updated on 2017-11-29
     },
     "streamSettings": {
       "network": "ws",
+      "security": "tls",
       "wsSettings": {
         "path": "/8lwwjtbxjl/"
+      },
+      "tlsSettings": {
+        "allowInsecure": true
       }
+    },
+    "mux": {
+      "enabled": true
     }
   }
 }
@@ -189,6 +196,8 @@ services:
       - '8080:8080'
     volumes:
       - ./config.json:/etc/v2ray/config.json:ro
+      - ./tls_key.pem:/root/tls_key.pem:ro
+      - ./tls_cert.pem:/root/tls_cert.pem:ro
 ```
 
 ### socks
@@ -237,8 +246,17 @@ services:
     },
     "streamSettings": {
       "network": "ws",
+      "security": "tls",
       "wsSettings": {
         "path": "/8lwwjtbxjl/"
+      },
+      "tlsSettings": {
+        "certificates": [
+          {
+            "keyFile": "tls_key.pem",
+            "certificateFile": "tls_cert.pem"
+          }
+        ]
       }
     }
   },
@@ -247,4 +265,9 @@ services:
     "settings": {}
   }
 }
+```
+
+```bash
+生成证书：
+v2ctl cert -ca -file tls -name 123 -org 123 -expire 8760h
 ```
