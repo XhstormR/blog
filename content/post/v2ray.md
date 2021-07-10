@@ -52,131 +52,94 @@ Updated on 2017-11-29
 }
 ```
 
-### socks -> socks, shadowsocks
-```json
-{
-  "log": {
-    "loglevel": "warning"
-  },
-  "inbound": {
-    "port": 1080,
-    "listen": "127.0.0.1",
-    "protocol": "socks",
-    "settings": {
-      "auth": "noauth"
-    }
-  },
-  "outbound": {
-    "protocol": "shadowsocks",
-    "settings": {
-      "servers": [
-        {
-          "address": "1.1.1.1",
-          "port": 8080,
-          "method": "aes-256-cfb",
-          "password": "123456"
-        }
-      ]
-    }
-  },
-  "outboundDetour": [
-    {
-      "tag": "school",
-      "protocol": "socks",
-      "settings": {
-        "servers": [
-          {
-            "address": "219.221.10.50",
-            "port": 80,
-            "users": [
-              {
-                "user": "123",
-                "pass": "456"
-              }
-            ]
-          }
-        ]
-      }
-    }
-  ],
-  "routing": {
-    "settings": {
-      "rules": [
-        {
-          "outboundTag": "school",
-          "type": "field",
-          "ip": [
-            "219.221.10.0/24",
-            "172.31.0.0/24",
-            "10.110.2.135",
-            "10.108.72.146"
-          ]
-        },
-        {
-          "outboundTag": "school",
-          "type": "field",
-          "domain": [
-            "fudan.edu.cn"
-          ]
-        }
-      ]
-    }
-  }
-}
-```
-
 ### socks, http -> vmess
 ```json
 {
   "log": {
     "loglevel": "warning"
   },
-  "inbound": {
-    "port": 1080,
-    "listen": "127.0.0.1",
-    "protocol": "socks",
-    "settings": {
-      "auth": "noauth"
-    }
-  },
-  "inboundDetour": [
+  "inbounds": [
+    {
+      "port": 1080,
+      "listen": "127.0.0.1",
+      "protocol": "socks",
+      "settings": {}
+    },
     {
       "port": 1081,
       "listen": "127.0.0.1",
       "protocol": "http",
-      "settings": {
-        "allowTransparent": false,
-        "userLevel": 0
-      }
+      "settings": {}
     }
   ],
-  "outbound": {
-    "protocol": "vmess",
+  "outbounds": [
+    {
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "1.1.1.1",
+            "port": 4399,
+            "users": [
+              {
+                "id": "97b4069c-f116-4612-9e4f-75c2202ec45d"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "wsSettings": {
+          "path": "/8lwwjtbxjl/"
+        },
+        "tlsSettings": {
+          "allowInsecure": true
+        }
+      },
+      "mux": {
+        "enabled": true
+      }
+    },
+    {
+      "tag": "direct",
+      "protocol": "freedom",
+      "settings": {}
+    },
+    {
+      "tag": "blocked",
+      "protocol": "blackhole",
+      "settings": {}
+    }
+  ],
+  "routing": {
     "settings": {
-      "vnext": [
+      "rules": [
         {
-          "address": "1.1.1.1",
-          "port": 8080,
-          "users": [
-            {
-              "id": "e735afb1-b608-4eb6-b1b1-b0042cb897e8"
-            }
+          "outboundTag": "direct",
+          "type": "field",
+          "ip": [
+            "geoip:cn",
+            "geoip:private"
+          ]
+        },
+        {
+          "outboundTag": "direct",
+          "type": "field",
+          "domain": [
+            "geosite:cn",
+            "geosite:private"
+          ]
+        },
+        {
+          "outboundTag": "blocked",
+          "type": "field",
+          "domain": [
+            "geosite:category-ads-all"
           ]
         }
       ]
-    },
-    "streamSettings": {
-      "network": "ws",
-      "security": "tls",
-      "wsSettings": {
-        "path": "/8lwwjtbxjl/"
-      },
-      "tlsSettings": {
-        "allowInsecure": true
-      }
-    },
-    "mux": {
-      "enabled": true
     }
   }
 }
@@ -200,6 +163,74 @@ services:
       - ./tls_cert.pem:/root/tls_cert.pem:ro
 ```
 
+### vmess
+```json
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "port": 8080,
+      "listen": "0.0.0.0",
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "97b4069c-f116-4612-9e4f-75c2202ec45d"
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "wsSettings": {
+          "path": "/8lwwjtbxjl/"
+        },
+        "tlsSettings": {
+          "certificates": [
+            {
+              "keyFile": "tls_key.pem",
+              "certificateFile": "tls_cert.pem"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "direct",
+      "protocol": "freedom",
+      "settings": {}
+    },
+    {
+      "tag": "blocked",
+      "protocol": "blackhole",
+      "settings": {}
+    }
+  ],
+  "routing": {
+    "rules": [
+      {
+        "type": "field",
+        "ip": [
+          "geoip:private"
+        ],
+        "outboundTag": "blocked"
+      },
+      {
+        "type": "field",
+        "domain": [
+          "geosite:private"
+        ],
+        "outboundTag": "blocked"
+      }
+    ]
+  }
+}
+```
+
 ### socks
 ```json
 {
@@ -218,46 +249,6 @@ services:
           "pass": "456"
         }
       ]
-    }
-  },
-  "outbound": {
-    "protocol": "freedom",
-    "settings": {}
-  }
-}
-```
-
-### vmess
-```json
-{
-  "log": {
-    "loglevel": "warning"
-  },
-  "inbound": {
-    "port": 8080,
-    "listen": "0.0.0.0",
-    "protocol": "vmess",
-    "settings": {
-      "clients": [
-        {
-          "id": "97b4069c-f116-4612-9e4f-75c2202ec45d"
-        }
-      ]
-    },
-    "streamSettings": {
-      "network": "ws",
-      "security": "tls",
-      "wsSettings": {
-        "path": "/8lwwjtbxjl/"
-      },
-      "tlsSettings": {
-        "certificates": [
-          {
-            "keyFile": "tls_key.pem",
-            "certificateFile": "tls_cert.pem"
-          }
-        ]
-      }
     }
   },
   "outbound": {
