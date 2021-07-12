@@ -79,7 +79,7 @@ Updated on 2017-11-29
         "vnext": [
           {
             "address": "1.1.1.1",
-            "port": 4399,
+            "port": 8080,
             "users": [
               {
                 "id": "97b4069c-f116-4612-9e4f-75c2202ec45d"
