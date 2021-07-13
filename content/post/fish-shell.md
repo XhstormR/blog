@@ -118,3 +118,7 @@ source (lua ~/z.lua --init fish | psub)
 
 eval conda "shell.fish" "hook" $argv | source
 ```
+
+```
+"D:\Work\msys64\msys2_shell.cmd" -no-start -full-path -mingw64 -shell fish
+```
