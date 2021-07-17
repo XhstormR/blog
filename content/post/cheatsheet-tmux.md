@@ -103,10 +103,10 @@ bind -n C-k clear-history
 
 bind -n C-left prev
 bind -n C-right next
-bind -n C-down new-window
+bind -n C-down new-window -c "#{pane_current_path}"
 
-bind - split-window -v
-bind \\ split-window -h
+bind - split-window -v -c "#{pane_current_path}"
+bind \\ split-window -h -c "#{pane_current_path}"
 
 bind r source-file ~/.tmux.conf \; display "Config reloaded!"
 
@@ -129,13 +129,13 @@ bind -n MouseDrag1Status swap-window -t=
 
 bind -n MouseDown2Pane run 'tmux set-buffer "$(pbpaste)"; tmux paste-buffer' \; display-message "Pasted from clipboard"
 
-bind -T copy-mode-vi MouseDragEnd1Pane send -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy" \; display-message "Copied to clipboard"
+bind -T copy-mode-vi MouseDragEnd1Pane send -X copy-pipe-and-cancel "tmux show-buffer | pbcopy" \; display-message "Copied to clipboard"
 ```
 
 ## .bashrc
 ```bash
 if which tmux >/dev/null 2>&1; then
     #if not inside a tmux session, and if no session is started, start a new session
-    test -z "$TMUX" && (tmux attach || tmux new-session)
+    test -z "$TMUX" && (tmux attach -c `pwd` || tmux new)
 fi
 ```
