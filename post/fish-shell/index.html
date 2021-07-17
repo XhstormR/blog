@@ -47,9 +47,12 @@ alias jq='jq -C'
 set -x HISTCONTROL ignoredups
 
 function start.
-    set -l path (cygpath -w (pwd))
-    explorer $path
+    # set -l path (cygpath -w (pwd))
+    # explorer $path
+
     # nautilus (pwd)
+
+    open .
 end
 
 function h
@@ -84,9 +87,8 @@ function fish_prompt
         set prompt_vcs $normal
     end
 
-    printf '%s%s%s@%s%s%s %s%s%s%s%s\n %s ' \
-    (set_color brgreen) (whoami) $normal \
-    (set_color brgreen) (hostname) $normal \
+    printf '%s %s%s%s%s%s\n %s ' \
+    (prompt_login) \
     (set_color bryellow) (pwd) $normal \
     $prompt_vcs $prompt_status $suffix
 end
@@ -94,5 +96,7 @@ end
 source (lua ~/z.lua --init fish | psub)
 
 eval conda &quot;shell.fish&quot; &quot;hook&quot; $argv | source
+
+fish_add_path (brew --prefix)/opt/coreutils/libexec/gnubin
 </code></pre><pre><code>&quot;D:\Work\msys64\msys2_shell.cmd&quot; -no-start -full-path -mingw64 -shell fish
 </code></pre></div><div class=sharing style=text-align:center><br><p>捐赠支持</p><p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p><p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p><img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%><p></p><br>&copy; 2015-2020 XhstormR</div></div></div></div><div id=backtop><a href=# title>TOP</a></div><nav id=TableOfContents><ul><li><a href=#build>Build</a></li><li><a href=#configfish>config.fish</a></li></ul></nav><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script><script>hljs.initHighlightingOnLoad()</script><script src=https://blog.xhstormr.tk/js/zoom.min.js></script><script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script><script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script></body></html>

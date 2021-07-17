@@ -70,7 +70,7 @@ set -g monitor-activity on
 
 set -g mode-keys vi #复制模式设置为 vi, SPACE开始 ENTER结束
 
-set -g default-shell /bin/fish
+set -g default-shell /usr/local/bin/fish
 
 bind -n C-k clear-history
 
@@ -95,6 +95,14 @@ set -g status-right-length 100
 set -g window-status-format &quot;#{?window_activity_flag,#[bg=brightyellow],#[fg=white]}#I:#W#F&quot;
 set -g window-status-current-format &quot;#[fg=brightgreen]#I:#W#F&quot;
 # tmuxline end
+
+bind -n DoubleClick1Pane new-window
+
+bind -n MouseDrag1Status swap-window -t=
+
+bind -n MouseDown2Pane run 'tmux set-buffer &quot;$(pbpaste)&quot;; tmux paste-buffer' \; display-message &quot;Pasted from clipboard&quot;
+
+bind -T copy-mode-vi MouseDragEnd1Pane send -X copy-pipe-and-cancel &quot;reattach-to-user-namespace pbcopy&quot; \; display-message &quot;Copied to clipboard&quot;
 </code></pre><h2 id=bashrc>.bashrc</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#66d9ef>if</span> which tmux &gt;/dev/null 2&gt;&amp;1; <span style=color:#66d9ef>then</span>
     <span style=color:#75715e>#if not inside a tmux session, and if no session is started, start a new session</span>
     test -z <span style=color:#e6db74>&#34;</span>$TMUX<span style=color:#e6db74>&#34;</span> <span style=color:#f92672>&amp;&amp;</span> <span style=color:#f92672>(</span>tmux attach <span style=color:#f92672>||</span> tmux new-session<span style=color:#f92672>)</span>
