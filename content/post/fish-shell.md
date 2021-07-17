@@ -70,9 +70,12 @@ alias jq='jq -C'
 set -x HISTCONTROL ignoredups
 
 function start.
-    set -l path (cygpath -w (pwd))
-    explorer $path
+    # set -l path (cygpath -w (pwd))
+    # explorer $path
+
     # nautilus (pwd)
+
+    open .
 end
 
 function h
@@ -107,9 +110,8 @@ function fish_prompt
         set prompt_vcs $normal
     end
 
-    printf '%s%s%s@%s%s%s %s%s%s%s%s\n %s ' \
-    (set_color brgreen) (whoami) $normal \
-    (set_color brgreen) (hostname) $normal \
+    printf '%s %s%s%s%s%s\n %s ' \
+    (prompt_login) \
     (set_color bryellow) (pwd) $normal \
     $prompt_vcs $prompt_status $suffix
 end
@@ -117,6 +119,8 @@ end
 source (lua ~/z.lua --init fish | psub)
 
 eval conda "shell.fish" "hook" $argv | source
+
+fish_add_path (brew --prefix)/opt/coreutils/libexec/gnubin
 ```
 
 ```

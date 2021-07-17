@@ -97,7 +97,7 @@ set -g monitor-activity on
 
 set -g mode-keys vi #复制模式设置为 vi, SPACE开始 ENTER结束
 
-set -g default-shell /bin/fish
+set -g default-shell /usr/local/bin/fish
 
 bind -n C-k clear-history
 
@@ -122,6 +122,14 @@ set -g status-right-length 100
 set -g window-status-format "#{?window_activity_flag,#[bg=brightyellow],#[fg=white]}#I:#W#F"
 set -g window-status-current-format "#[fg=brightgreen]#I:#W#F"
 # tmuxline end
+
+bind -n DoubleClick1Pane new-window
+
+bind -n MouseDrag1Status swap-window -t=
+
+bind -n MouseDown2Pane run 'tmux set-buffer "$(pbpaste)"; tmux paste-buffer' \; display-message "Pasted from clipboard"
+
+bind -T copy-mode-vi MouseDragEnd1Pane send -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy" \; display-message "Copied to clipboard"
 ```
 
 ## .bashrc
