@@ -1,12 +1,92 @@
-<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache><head><meta charset=utf-8><meta name=renderer content="webkit"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>自学 Java &#183; XhstormR</title><link rel=alternate type=application/rss+xml title=XhstormR href><link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico><link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script><script src=https://blog.xhstormr.tk/js/main.min.js async defer></script></head><body><div id=scriptHeader><span class="mobile btn-mobile-menu"><i class="fa fa-bars btn-mobile-menu__icon"></i>
-<i class="fa fa-times btn-mobile-close__icon hidden"></i></span><header class="panel-cover panel-cover--collapsed"><div class=panel-main><div class="panel-main__inner panel-inverted"><div class=panel-main__content><h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1><hr class=panel-cover__divider><p class=panel-cover__description>On a dark desert highway, cool wind in my hair.</p><hr class="panel-cover__divider panel-cover__divider--secondary"><div class=navigation-wrapper><nav class="cover-navigation cover-navigation--primary"><ul class=navigation><li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li></ul></nav></div></div></div><div class=panel-cover--overlay></div></div></header></div><div class=bodytop><div class=content-wrapper><div class=content-wrapper__inner><div class=post><h1>自学 Java</h1><span class=post-date>2016-06-10</span><p>Updated on 2016-06-30</p><blockquote><p style=text-align:center><img data-src=/uploads/java.png alt title=Java data-action=zoom width></p><script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(a){a.setAttribute("src",a.getAttribute("data-src")),a.onload=function(){a.removeAttribute("data-src")}})</script><p><a href=https://www.tiobe.com/tiobe-index/>https://www.tiobe.com/tiobe-index/</a></p><p><a href=https://package-search.jetbrains.com/>https://package-search.jetbrains.com/</a></p><p><a href=https://javadoc.io/>https://javadoc.io/</a></p><p><a href=https://openjfx.io/javadoc/16/>https://openjfx.io/javadoc/16/</a></p><p><a href=https://github.com/openjdk/jdk>https://github.com/openjdk/jdk</a></p><p><a href=https://github.com/openjdk/jfx>https://github.com/openjdk/jfx</a></p><p><a href=https://www.oracle.com/technetwork/java/index.html>https://www.oracle.com/technetwork/java/index.html</a></p><p><a href=https://docs.oracle.com/en/java/javase/16/>https://docs.oracle.com/en/java/javase/16/</a></p><p><a href=https://docs.oracle.com/javase/specs/index.html>https://docs.oracle.com/javase/specs/index.html</a></p><p><a href=https://docs.oracle.com/javase/specs/jvms/se16/html/jvms-6.html>https://docs.oracle.com/javase/specs/jvms/se16/html/jvms-6.html</a></p><p><a href=https://docs.oracle.com/javase/8/docs/index.html>https://docs.oracle.com/javase/8/docs/index.html</a></p><p><a href=https://docs.oracle.com/en/java/javase/16/docs/api/allclasses-index.html>https://docs.oracle.com/en/java/javase/16/docs/api/allclasses-index.html</a></p><p><a href=https://docs.oracle.com/javase/specs/jvms/se16/html/jvms-4.html#jvms-4.1-200-B.2>class version</a></p></blockquote><h2 id=ide>IDE</h2><ul><li>Eclipse：https://www.eclipse.org/downloads/eclipse-packages/<ul><li>汉化包：https://www.eclipse.org/babel/downloads.php</li></ul></li><li><a href="https://confluence.jetbrains.com/collector/pages.action?key=IDEADEV">IntelliJ IDEA</a>：https://www.jetbrains.com/idea/download/<ul><li>将系统时间调整至 1 年以后再点击试用（Evaluation）。</li></ul></li><li>Scene Builder：https://gluonhq.com/products/scene-builder/</li></ul><h3 id=idea-无限试用>IDEA 无限试用</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>@ echo off
+<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache>
+<head>
+<meta charset=utf-8>
+<meta name=renderer content="webkit">
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title> 自学 Java &#183; XhstormR </title>
+<link rel=alternate type=application/rss+xml title=XhstormR href>
+<link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico>
+<link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
+<script src=https://blog.xhstormr.tk/js/main.min.js async defer></script>
+</head>
+<body>
+<div id=scriptHeader>
+<span class="mobile btn-mobile-menu">
+<i class="fa fa-bars btn-mobile-menu__icon"></i>
+<i class="fa fa-times btn-mobile-close__icon hidden"></i>
+</span>
+<header class="panel-cover panel-cover--collapsed">
+<div class=panel-main>
+<div class="panel-main__inner panel-inverted">
+<div class=panel-main__content>
+<h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1>
+<hr class=panel-cover__divider>
+<p class=panel-cover__description> On a dark desert highway, cool wind in my hair. </p>
+<hr class="panel-cover__divider panel-cover__divider--secondary">
+<div class=navigation-wrapper>
+<nav class="cover-navigation cover-navigation--primary">
+<ul class=navigation>
+<li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class=panel-cover--overlay></div>
+</div>
+</header>
+</div>
+<div class=bodytop>
+<div class=content-wrapper>
+<div class=content-wrapper__inner>
+<div class=post>
+<h1>自学 Java</h1>
+<span class=post-date>2016-06-10</span>
+<p>Updated on 2016-06-30</p>
+<blockquote>
+<p style=text-align:center><img data-src=/uploads/java.png alt title=Java data-action=zoom width></p>
+<script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(a){a.setAttribute("src",a.getAttribute("data-src")),a.onload=function(){a.removeAttribute("data-src")}})</script>
+<p><a href=https://www.tiobe.com/tiobe-index/>https://www.tiobe.com/tiobe-index/</a></p>
+<p><a href=https://package-search.jetbrains.com/>https://package-search.jetbrains.com/</a></p>
+<p><a href=https://javadoc.io/>https://javadoc.io/</a></p>
+<p><a href=https://openjfx.io/javadoc/16/>https://openjfx.io/javadoc/16/</a></p>
+<p><a href=https://github.com/openjdk/jdk>https://github.com/openjdk/jdk</a></p>
+<p><a href=https://github.com/openjdk/jfx>https://github.com/openjdk/jfx</a></p>
+<p><a href=https://www.oracle.com/technetwork/java/index.html>https://www.oracle.com/technetwork/java/index.html</a></p>
+<p><a href=https://docs.oracle.com/en/java/javase/16/>https://docs.oracle.com/en/java/javase/16/</a></p>
+<p><a href=https://docs.oracle.com/javase/specs/index.html>https://docs.oracle.com/javase/specs/index.html</a></p>
+<p><a href=https://docs.oracle.com/javase/specs/jvms/se16/html/jvms-6.html>https://docs.oracle.com/javase/specs/jvms/se16/html/jvms-6.html</a></p>
+<p><a href=https://docs.oracle.com/javase/8/docs/index.html>https://docs.oracle.com/javase/8/docs/index.html</a></p>
+<p><a href=https://docs.oracle.com/en/java/javase/16/docs/api/allclasses-index.html>https://docs.oracle.com/en/java/javase/16/docs/api/allclasses-index.html</a></p>
+<p><a href=https://docs.oracle.com/javase/specs/jvms/se16/html/jvms-4.html#jvms-4.1-200-B.2>class version</a></p>
+</blockquote>
+<h2 id=ide>IDE</h2>
+<ul>
+<li>Eclipse：https://www.eclipse.org/downloads/eclipse-packages/
+<ul>
+<li>汉化包：https://www.eclipse.org/babel/downloads.php</li>
+</ul>
+</li>
+<li><a href="https://confluence.jetbrains.com/collector/pages.action?key=IDEADEV">IntelliJ IDEA</a>：https://www.jetbrains.com/idea/download/
+<ul>
+<li>将系统时间调整至 1 年以后再点击试用（Evaluation）。</li>
+</ul>
+</li>
+<li>Scene Builder：https://gluonhq.com/products/scene-builder/</li>
+</ul>
+<h3 id=idea-无限试用>IDEA 无限试用</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>@ echo off
 pushd .
 cd /d %USERPROFILE%/AppData/Roaming/JetBrains/IntelliJIdea2020.1
 busybox rm -rf eval
 busybox sed -i <span style=color:#e6db74>&#34;/evlsprt/d&#34;</span> options/other.xml
 reg delete HKEY_CURRENT_USER<span style=color:#ae81ff>\S</span>OFTWARE<span style=color:#ae81ff>\J</span>avaSoft<span style=color:#ae81ff>\P</span>refs<span style=color:#ae81ff>\j</span>etbrains<span style=color:#ae81ff>\i</span>dea /f
 popd
-</code></pre></div><h3 id=idea-快捷键>IDEA 快捷键</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml>Ctrl+Ctrl     Run Anything
+</code></pre></div><h3 id=idea-快捷键>IDEA 快捷键</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml>Ctrl+Ctrl     Run Anything
 Shift+Shift     Search Everywhere
 
 F2     查找错误
@@ -130,7 +210,8 @@ Shift+Ctrl+Alt+←→     移动方法参数
 
 Shift+Enter     在当前行的下一行插入空行
 Ctrl+Alt+Enter     在当前行的上一行插入空行
-</code></pre></div><h3 id=eclipse-快捷键>Eclipse 快捷键</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml>F2     显示工具提示
+</code></pre></div><h3 id=eclipse-快捷键>Eclipse 快捷键</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml>F2     显示工具提示
 F3     打开声明文件
 F6     调试 - 单步跳过
 
@@ -175,10 +256,130 @@ Shift+Enter     在当前行的下一行插入空行
 Ctrl+Shift+Enter     在当前行的上一行插入空行
 
 Windows -&gt; Preferences -&gt; Java -&gt; Editor -&gt; Content Assist -&gt; Auto Activation -&gt; Trigger for Java     自动代码提示
-</code></pre></div><h2 id=jdkhttpwwworaclecomtechnetworkjavajavasedownloadsindexhtml><a href=http://www.oracle.com/technetwork/java/javase/downloads/index.html>JDK</a></h2><ul><li><a href=https://mirrors.huaweicloud.com/java/jdk/>https://mirrors.huaweicloud.com/java/jdk/</a></li><li><a href=https://cdn.azul.com/zulu/bin/>https://cdn.azul.com/zulu/bin/</a></li><li><a href=https://adoptopenjdk.net/releases.html>https://adoptopenjdk.net/releases.html</a><ul><li><a href=https://mirrors.tuna.tsinghua.edu.cn/AdoptOpenJDK/>https://mirrors.tuna.tsinghua.edu.cn/AdoptOpenJDK/</a></li></ul></li><li>JDK：Java Development Kit（Java 开发工具包）<ul><li>JRE：Java Runtime Environment（Java 运行环境）<ul><li>JVM：Java Virtual Machine（Java 虚拟机）</li></ul></li></ul></li></ul><h2 id=edition>Edition</h2><table><thead><tr><th style=text-align:left></th><th style=text-align:left>微型版(Micro Edition)</th><th style=text-align:left>标准版(Standard Edition)</th><th style=text-align:left>企业版(Enterprise Edition)</th></tr></thead><tbody><tr><td style=text-align:left>旧名</td><td style=text-align:left>J2ME</td><td style=text-align:left>J2SE</td><td style=text-align:left>J2EE</td></tr><tr><td style=text-align:left>新名</td><td style=text-align:left>Java ME</td><td style=text-align:left>Java SE</td><td style=text-align:left>Java EE</td></tr><tr><td style=text-align:left>类库</td><td style=text-align:left>只包含SE中的一部分</td><td style=text-align:left>核心类库</td><td style=text-align:left>包含SE中的和企业扩展类</td></tr><tr><td style=text-align:left>&mdash;&mdash;&mdash;</td><td style=text-align:left>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;</td><td style=text-align:left>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;</td><td style=text-align:left>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;</td></tr></tbody></table><h2 id=环境变量>环境变量</h2><table><thead><tr><th style=text-align:left>变量值</th><th style=text-align:left>变量名</th><th></th></tr></thead><tbody><tr><td style=text-align:left>JAVA_HOME</td><td style=text-align:left>C:\Program Files\Java\jdk1.8.0_92</td><td style=text-align:left>配置JDK安装路径</td></tr><tr><td style=text-align:left>PATH</td><td style=text-align:left>%JAVA_HOME%\bin</td><td style=text-align:left>配置执行文件位置</td></tr><tr><td style=text-align:left>CLASSPATH</td><td style=text-align:left>.;%JAVA_HOME%\lib</td><td style=text-align:left>配置类库文件位置</td></tr><tr><td style=text-align:left>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td><td style=text-align:left>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td><td style=text-align:left>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;</td></tr></tbody></table><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>setx JAVA_HOME <span style=color:#e6db74>&#34;C:\Program Files\Java\jdk1.8.0_92&#34;</span> /m
+</code></pre></div><h2 id=jdkhttpwwworaclecomtechnetworkjavajavasedownloadsindexhtml><a href=http://www.oracle.com/technetwork/java/javase/downloads/index.html>JDK</a></h2>
+<ul>
+<li><a href=https://mirrors.huaweicloud.com/java/jdk/>https://mirrors.huaweicloud.com/java/jdk/</a></li>
+<li><a href=https://cdn.azul.com/zulu/bin/>https://cdn.azul.com/zulu/bin/</a></li>
+<li><a href=https://adoptopenjdk.net/releases.html>https://adoptopenjdk.net/releases.html</a>
+<ul>
+<li><a href=https://mirrors.tuna.tsinghua.edu.cn/AdoptOpenJDK/>https://mirrors.tuna.tsinghua.edu.cn/AdoptOpenJDK/</a></li>
+</ul>
+</li>
+<li>JDK：Java Development Kit（Java 开发工具包）
+<ul>
+<li>JRE：Java Runtime Environment（Java 运行环境）
+<ul>
+<li>JVM：Java Virtual Machine（Java 虚拟机）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id=edition>Edition</h2>
+<table>
+<thead>
+<tr>
+<th style=text-align:left></th>
+<th style=text-align:left>微型版(Micro Edition)</th>
+<th style=text-align:left>标准版(Standard Edition)</th>
+<th style=text-align:left>企业版(Enterprise Edition)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style=text-align:left>旧名</td>
+<td style=text-align:left>J2ME</td>
+<td style=text-align:left>J2SE</td>
+<td style=text-align:left>J2EE</td>
+</tr>
+<tr>
+<td style=text-align:left>新名</td>
+<td style=text-align:left>Java ME</td>
+<td style=text-align:left>Java SE</td>
+<td style=text-align:left>Java EE</td>
+</tr>
+<tr>
+<td style=text-align:left>类库</td>
+<td style=text-align:left>只包含SE中的一部分</td>
+<td style=text-align:left>核心类库</td>
+<td style=text-align:left>包含SE中的和企业扩展类</td>
+</tr>
+<tr>
+<td style=text-align:left>&mdash;&mdash;&mdash;</td>
+<td style=text-align:left>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;</td>
+<td style=text-align:left>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;</td>
+<td style=text-align:left>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;</td>
+</tr>
+</tbody>
+</table>
+<h2 id=环境变量>环境变量</h2>
+<table>
+<thead>
+<tr>
+<th style=text-align:left>变量值</th>
+<th style=text-align:left>变量名</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style=text-align:left>JAVA_HOME</td>
+<td style=text-align:left>C:\Program Files\Java\jdk1.8.0_92</td>
+<td style=text-align:left>配置JDK安装路径</td>
+</tr>
+<tr>
+<td style=text-align:left>PATH</td>
+<td style=text-align:left>%JAVA_HOME%\bin</td>
+<td style=text-align:left>配置执行文件位置</td>
+</tr>
+<tr>
+<td style=text-align:left>CLASSPATH</td>
+<td style=text-align:left>.;%JAVA_HOME%\lib</td>
+<td style=text-align:left>配置类库文件位置</td>
+</tr>
+<tr>
+<td style=text-align:left>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
+<td style=text-align:left>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
+<td style=text-align:left>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;</td>
+</tr>
+</tbody>
+</table>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>setx JAVA_HOME <span style=color:#e6db74>&#34;C:\Program Files\Java\jdk1.8.0_92&#34;</span> /m
 setx PATH <span style=color:#e6db74>&#34;%PATH%;%JAVA_HOME%\bin&#34;</span> /m
 setx CLASSPATH <span style=color:#e6db74>&#34;.;%JAVA_HOME%\lib&#34;</span> /m
-</code></pre></div><h2 id=跨平台原理>跨平台原理</h2><table><thead><tr><th style=text-align:left>a.java</th><th style=text-align:left>javac</th><th style=text-align:left>a.class</th><th style=text-align:left>java</th><th style=text-align:left>JVM</th><th style=text-align:left>HelloWorld!</th></tr></thead><tbody><tr><td style=text-align:left>源代码</td><td style=text-align:left>编译器</td><td style=text-align:left>字节码</td><td style=text-align:left>解释器</td><td style=text-align:left>虚拟机</td><td></td></tr><tr><td style=text-align:left>&mdash;&mdash;&mdash;&ndash;</td><td style=text-align:left>&mdash;&mdash;&mdash;&ndash;</td><td style=text-align:left>&mdash;&mdash;&mdash;&ndash;</td><td style=text-align:left>&mdash;&mdash;&mdash;&ndash;</td><td style=text-align:left>&mdash;&mdash;&mdash;&ndash;</td><td style=text-align:left>&mdash;&mdash;&mdash;&mdash;&mdash;》</td></tr></tbody></table><h2 id=cmd>CMD</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> <span style=color:#f92672>{</span>
+</code></pre></div><h2 id=跨平台原理>跨平台原理</h2>
+<table>
+<thead>
+<tr>
+<th style=text-align:left>a.java</th>
+<th style=text-align:left>javac</th>
+<th style=text-align:left>a.class</th>
+<th style=text-align:left>java</th>
+<th style=text-align:left>JVM</th>
+<th style=text-align:left>HelloWorld!</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style=text-align:left>源代码</td>
+<td style=text-align:left>编译器</td>
+<td style=text-align:left>字节码</td>
+<td style=text-align:left>解释器</td>
+<td style=text-align:left>虚拟机</td>
+<td></td>
+</tr>
+<tr>
+<td style=text-align:left>&mdash;&mdash;&mdash;&ndash;</td>
+<td style=text-align:left>&mdash;&mdash;&mdash;&ndash;</td>
+<td style=text-align:left>&mdash;&mdash;&mdash;&ndash;</td>
+<td style=text-align:left>&mdash;&mdash;&mdash;&ndash;</td>
+<td style=text-align:left>&mdash;&mdash;&mdash;&ndash;</td>
+<td style=text-align:left>&mdash;&mdash;&mdash;&mdash;&mdash;》</td>
+</tr>
+</tbody>
+</table>
+<h2 id=cmd>CMD</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> <span style=color:#f92672>{</span>
     <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span><span style=color:#f92672>(</span>String<span style=color:#f92672>[]</span> args<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
         System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;HelloWorld!&#34;</span><span style=color:#f92672>);</span>
     <span style=color:#f92672>}</span>
@@ -214,10 +415,265 @@ or
 D:<span style=color:#960050;background-color:#1e0010>\</span>kotlinc<span style=color:#960050;background-color:#1e0010>\</span>bin<span style=color:#f92672>&gt;</span>kotlinc <span style=color:#f92672>-</span>include<span style=color:#f92672>-</span>runtime <span style=color:#f92672>-</span>d 123<span style=color:#f92672>.</span><span style=color:#a6e22e>jar</span> A<span style=color:#f92672>.</span><span style=color:#a6e22e>kt</span>
 D:<span style=color:#960050;background-color:#1e0010>\</span>kotlinc<span style=color:#960050;background-color:#1e0010>\</span>bin<span style=color:#f92672>&gt;</span>java <span style=color:#f92672>-</span>jar 123<span style=color:#f92672>.</span><span style=color:#a6e22e>jar</span>
 HelloWorld<span style=color:#f92672>!</span>
-</code></pre></div><h2 id=jre-and-jar>JRE and JAR</h2><ol><li>复制 <code>JAVA_HOME</code> 下的 <code>jre</code> 目录到 <code>123</code> 目录。</li><li>复制项目 JAR 文件至 <code>123</code> 目录。</li><li>在 <code>123</code> 目录新建 <code>123.bat</code> 文件。</li></ol><p style=text-align:center><img src=/uploads/java-jre.png alt title data-action=zoom width></p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml>123.bat
+</code></pre></div><h2 id=jre-and-jar>JRE and JAR</h2>
+<ol>
+<li>复制 <code>JAVA_HOME</code> 下的 <code>jre</code> 目录到 <code>123</code> 目录。</li>
+<li>复制项目 JAR 文件至 <code>123</code> 目录。</li>
+<li>在 <code>123</code> 目录新建 <code>123.bat</code> 文件。</li>
+</ol>
+<p style=text-align:center><img src=/uploads/java-jre.png alt title data-action=zoom width></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml>123.bat
 ⇳
 cmd /K jre\bin\java -jar 123.jar
-</code></pre></div><h3 id=合并多个-jar-文件>合并多个 JAR 文件</h3><ol><li>将所有 JAR 文件解压至同一个目录。</li><li>在此目录下执行 <code>jar -cfM 123.jar .</code></li></ol><h2 id=java-规范>Java 规范</h2><ul><li>源文件名：源文件名应该和其中的 <code>public</code> 类名相同。</li><li>程序入口：所有的 Java 程序由 <code>public static void main(String[] args)</code> 方法处开始执行。</li><li>变量：包含变量类型、变量名、变量值 3 个元素。<code>String name="Dave";</code><ul><li>常量：一种特殊的变量，由 final 修饰，值不能被改变。<code>final char SEX = '男';</code><ul><li>final 在修饰成员变量时，必须同时设定初值。</li></ul></li></ul></li><li>自动类型转换：表数范围小的可以向表数范围大的进行自动类型转换；将一个小容器的水倒入一个大容器没有问题，但是将一个大容器的水倒入一个小容器则会装不下，会溢出。byte→short(char)→int→long→float→double</li><li>强制类型转换：直接截断，不会进行四舍五入。<code>int a = (int)3.1415926;</code></li><li>注释：单行注释（<code>//</code>），多行注释（<code>/**/</code>），文档注释（<code>/***/</code>）。</li><li>标识符：用于给 Java 程序中类、方法、变量等命名的符号，严格区分大小写。<ul><li>只能由字母，数字， <code>_</code> ， <code>$</code> 组成，且不能以数字开头。</li><li>类名：首字母大写，大驼峰式命名法，MyFirstJavaClass。</li><li>方法名，变量名：首字母小写，小驼峰式命名法，stuName。</li></ul></li><li>运算符：算术运算符、赋值运算符、比较运算符、逻辑运算符、条件运算符。<ul><li>条件运算符：也称为三元运算符（?:）。<code>String str1 = (8 > 5) ? "8大于5" : "8不大于5";</code><ul><li>语法形式：<strong>布尔表达式 ？ 表达式1 ：表达式2</strong></li><li>运算过程：如果布尔表达式的值为 <strong>true</strong> ，则返回 <strong>表达式1</strong> 的值，否则返回 <strong>表达式2</strong> 的值。</li></ul></li></ul></li><li>条件语句 switch：当 switch 后表达式的值和 case 语句后的值相同时，从该位置开始向下执行，直到遇到 break 语句或者 switch 语句块结束；如果没有匹配的 case 语句则执行 <strong>default</strong> 块的代码。<ul><li>switch 后面小括号中表达式的值必须是 <strong>整型或字符型</strong> 。</li><li>case 匹配后，如果没有遇见 <strong>break</strong> 会继续执行下一个的 case 块的内容，直到遇到 break 语句或者 switch 语句块结束。</li><li>default 块可以出现在 <strong>任意位置</strong>，也 <strong>可以省略</strong>。</li></ul></li><li>循环语句 for：for 关键字后面括号中的三个表达式都可以省略，但两个 <code>;</code> 不能省略。<ul><li>for 循环变量初始化和循环变量变化部分，可以使用 <code>,</code> 同时初始化或改变多个循环变量的值。</li></ul></li><li>数组（Array）：使用 <code>数组名.length</code> 获取数组的长度；使用 <code>数组名[下标]</code> 来访问；数组的下标从 0 开始，如长度为 3 ，则下标为 0，1，2。<ul><li>二维数组：特殊的一维数组，它的每个数组空间中保存的是一个一维数组。</li></ul></li><li>方法：用来解决一类问题的代码组合，是一个功能模块。通过 <code>对象名.方法名()</code> 调用方法。<ul><li>访问修饰符：public、protected、private、缺省。</li><li>返回值类型：方法不返回任何值，则返回值类型指定为 void；方法具有返回值，则需要指定返回值的类型，并且在方法体中使用 return 语句返回值。</li><li>形参：定义方法时的参数，目的是用来定义方法需要传入的参数的个数和类型。</li><li>实参：调用方法时的参数，是传递给方法真正被处理的值。</li><li>重载： <strong>方法名相同</strong> ，但是形参的个数、顺序或类型不同，则称为方法的重载。<ul><li>当调用被重载的方法时， Java 会根据参数的个数和类型来判断应该调用哪个重载方法，参数完全匹配的方法将被执行。</li><li>判断方法重载的依据：●必须是在同一个类中●方法名相同●方法参数的个数、顺序或类型不同。</li></ul></li></ul></li></ul><hr><ul><li>构造方法：是用来初始化对象的方法，与类同名且没有返回值。 <code>people a = new people();</code><ul><li>当没有指定构造方法时，系统会自动生成一个无参构造方法。所以 <strong>创建对象时,其实执行的是构造方法</strong> 。</li><li>有参构造方法的目的就是初始化对象中成员变量的值，并且可以通过条件语句判断值是否合理并赋予默认值。</li></ul></li><li>static：可以修饰变量、方法、初始化块，被称为静态成员，它属于整个类所有，即 <strong>被类的所有对象共享</strong> ；可以 <strong>直接使用类名访问</strong> ，不需要创建对象。<ul><li>静态成员属于整个类，当系统第一次使用该类时，就会为其分配内存空间直到该类被卸载才会进行资源回收。</li><li>静态变量：无需创建对象直接通过类名访问。</li><li>静态方法：无需创建对象直接通过类名访问。</li><li>静态初始化块：静态初始化块只在类加载时执行，所以只会执行一次，同时静态初始化块只能给静态变量赋值，不能初始化普通的成员变量。<ul><li>初始化块：当创建类的实例时，会依次执行初始化块 <code>{...}</code>，可以通过初始化块进行数据赋值。</li><li>对象实例化执行顺序：静态初始化块 ➜ 初始化块 ➜ 构造方法。</li></ul></li></ul></li></ul><hr><ul><li>封装：将类的某些信息隐藏在类内部，不允许外部程序直接访问，而是通过该类提供的方法来实现对隐藏信息的操作和访问。<ul><li>优点：●只能通过规定的方法访问数据●隐藏类的实例细节，方便修改和实现。</li><li>步骤：设置属性为 private ➜ 创建 getter/setter 方法用于属性的读写 ➜ 在 getter/setter 方法中对属性值的合法性进行判断。</li></ul></li><li>this：代表当前对象（调用者），在封装时常用于区分属性和参数。不能对静态成员使用 this，因为它跟对象没有关系。<ul><li>this.属性：操作当前对象的属性。</li><li>this.方法：调用当前对象的方法。</li></ul></li><li>内部类（Inner Class）：定义在 <strong>一个类里面的类</strong> ；与之对应，包含内部类的类被称为外部类，并且内部类默认持有其外部类的强引用。<ul><li>优点：●内部类提供了更好的封装，可以把内部类隐藏在外部类之内，不允许同一个包中的其他类访问该类●内部类的方法可以直接访问外部类的所有数据，包括私有的数据。</li><li>成员内部类：定义了成员内部类后，必须通过外部类对象来创建内部类对象，而不能直接去 new 一个内部类对象。<code>内部类 对象名 = 外部类对象.new 内部类( );</code></li><li>静态内部类：用 <code>static</code> 修饰的成员内部类，不需要外部类的对象，可以直接创建；相当于独立出来的类，不会持有其外部类的强引用。<code>内部类 对象名= new 内部类();</code></li><li>方法内部类：定义在方法中的类，只在该方法的内部可见，即只在该方法内可以使用。</li></ul></li></ul><hr><ul><li>继承（extends）：是类与类的一种关系，子类继承于父类（SuperClass），一个类只有一个父类，即单继承。<code>class 子类 extends 父类 {...}</code><ul><li>优点：子类拥有父类所有的属性和方法（不能为 private），实现代码复用。</li><li>重写：子类可以重写父类继承的方法，当调用方法时会优先调用子类的方法。<ul><li>规则：返回值类型、方法名、参数类型及个数都要与父类继承的方法相同，才为方法的重写。（换句话说 <strong>只重写方法体</strong>）</li></ul></li><li>继承初始化执行顺序：初始化父类（属性初始化 ➜ 构造方法） ➜ 初始化子类（相同）<ul><li>子类的构造过程中必须调用其父类的构造方法。如果子类的构造方法中没有显式调用父类的构造方法，则系统默认隐式调用父类无参构造方法 <code>super();</code>；若显式调用构造方法，则必须放在子类的构造方法第一行。</li></ul></li></ul></li><li>super：代表父类对象。<ul><li>super.属性：访问父类的属性。</li><li>super.方法：访问父类的方法。</li></ul></li><li>Object类：是 <strong>所有类的父类</strong>；如果一个类没有明确使用 extends 关键字继承另外一个类，那么这个类默认继承于 Object类，且 Object类中的方法适用于所有子类。<ul><li><code>toString()</code> 方法：输出对象在内存中的地址字符串。可以通过重写该方法输出对象的属性值，Eclipse 的源码(Source)菜单中的 <code>生成toString()</code> 能自动完成。</li><li><code>equals()</code> 方法：比较对象的引用是否指向同一块内存地址（比较是否为同一部手机）（<code>==</code> 运算符也可以做到）。可以通过重写该方法比较两个对象的属性值是否一致（比较两部手机的属性），Eclipse 的源码(Source)菜单中的 <code>生成hashCode()和equals()</code> 能自动完成。</li><li><code>getClass()</code> 方法：返回类对象。<code>example：Man b = new Man();</code><ul><li>类对象：关注类的代码信息(有哪些属性、方法)。<code>Man.class</code></li><li>类的对象：关注对象的数据信息(属性值是多少)。<code>new Man()</code></li></ul></li></ul></li></ul><hr><ul><li>多态：对象的多种形态；<strong>继承</strong> 是多态的实现基础。<ul><li>引用多态<ul><li>父类的引用可以指向本类的对象。<code>Animal a = new Animal();</code></li><li>父类的引用可以指向 <strong>子类</strong> 的对象。<code>Animal b = new Dog();</code></li></ul></li><li>方法多态<ul><li>指向本类对象时，调用的方法为本类方法。</li><li>指向子类对象时，调用的方法为 <strong>子类重写或继承的方法</strong>。<ul><li>即子类独有的方法不可访问，不能通过父类的引用调用子类独有的方法。</li></ul></li></ul></li></ul></li><li>引用类型转换：使用 <code>instanceof</code> 运算符判断一个引用是否是某个类型或某个类型的子类型，从而判断是否可以使用强制类型转换，返回布尔值，通常与 <code>if</code> 配合使用。<code>b instanceof Dog</code><ul><li>向上类型转换（自动类型转换）：小类型到大类型的转换。<code>Animal b = new Dog();</code></li><li>向下类型转换（强制类型转换）：大类型到小类型的转换。<code>Dog c = (Dog)b;</code></li></ul></li><li>抽象类：用 <code>abstract</code> 修饰的类。<code>public abstract class Phone {...}</code><ul><li>作用： <strong>通过抽象方法约束子类</strong> 必须包含某些方法，但不关注子类如何实现。</li><li>规则<ul><li>用 <code>abstract</code> 修饰抽象方法，只有声明， <strong>没有方法体</strong>。<code>public abstract void call();</code></li><li>包含抽象方法的类是抽象类。</li><li>抽象类可以包含普通方法，也可以没有抽象方法。</li><li>抽象类不能直接创建，通过 <strong>引用多态</strong> 指向子类对象来使用。<code>Phone a = new SmartPhone();</code></li></ul></li></ul></li><li>接口（interface）：使用 <code>interface</code> 定义接口，由全局常量和公共的抽象方法所组成。<ul><li>类描述对象的属性和方法，接口则包含类要具有的属性和要实现的方法，它定义了某一批类所要遵守的 <strong>规范</strong>。<ul><li>接口中的属性：常量，系统会自动添加 <code>public static final</code> 修饰符。</li><li>接口中的方法：抽象方法，系统会自动添加 <code>public abstract</code> 修饰符。</li></ul></li><li>父类单继承（extends），接口多实现（ <strong>implements</strong>）。Java 中的类只能继承单个父类，不够灵活，可以 <strong>通过实现多个接口做补充</strong>。<ul><li>继承是 <strong>is a（是什么）</strong> 的关系；接口是 <strong>has a（有什么）</strong> 的关系。</li></ul></li><li>接口不能直接创建，通过 <strong>引用多态</strong> 指向实现接口的对象来使用。<code>IPlayGame b = new SmartPhone();</code></li><li>接口在使用过程中，经常与匿名内部类配合使用。<ul><li>匿名内部类：没有名字的内部类，不关注类的名字，在使用的时候才定义。</li></ul></li></ul></li></ul><hr><ul><li>项目分析<ul><li>数据模型分析：通过对现实世界事物的主要特征进行抽象化处理，构建出数据结构。（类：方法、属性）</li><li>业务模型分析：在设计应用程序之前，应该明确业务开展过程中需要的功能。</li><li>显示和流程分析：显示界面的执行过程和流程的处理步骤。</li></ul></li><li>面向对象编程（Object Oriented Programming）遵循 <strong>高内聚，低耦合</strong> 的设计原则。<ul><li>高内聚：块内联系，每个模块尽可能的独立完成某个 <strong>特定的功能</strong>，单一责任原则。</li><li>低耦合：块间联系，模块之间的接口尽可能的 <strong>少而简单</strong>。</li><li>通常各模块的内聚程度越高，模块间的耦合程度就越低。</li></ul></li></ul><h2 id=svg>SVG</h2><p><img src=/uploads/java-identifiers.svg alt title=标识符></p><p><img src=/uploads/java-final.svg alt title="Final 关键字"></p><p><img src=/uploads/java-access.svg alt title=访问修饰符></p><p><img src=/uploads/java-wrapper.svg alt title=包装类></p><p><img src=/uploads/java-wrapper-method.svg alt title=包装类></p><p><img src=/uploads/java-arithmetic.svg alt title=算术运算符></p><p><img src=/uploads/java-assignment.svg alt title=赋值运算符></p><p><img src=/uploads/java-comparison.svg alt title=比较运算符></p><p><img src=/uploads/java-logical.svg alt title=逻辑运算符></p><p><img src=/uploads/java-interface.svg alt title=接口></p><p><img src=/uploads/java-array.svg alt title=数组></p><p><img src=/uploads/java-datatype.svg alt title=数据类型></p><p><img src=/uploads/java-processControl.svg alt title=流程控制语句></p><p><img src=/uploads/java-variable.svg alt title=变量></p><p><img src=/uploads/java-class.svg alt title=类和对象></p><h2 id=code>Code</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 5<span style=color:#f92672>;</span>
+</code></pre></div><h3 id=合并多个-jar-文件>合并多个 JAR 文件</h3>
+<ol>
+<li>将所有 JAR 文件解压至同一个目录。</li>
+<li>在此目录下执行 <code>jar -cfM 123.jar .</code></li>
+</ol>
+<h2 id=java-规范>Java 规范</h2>
+<ul>
+<li>源文件名：源文件名应该和其中的 <code>public</code> 类名相同。</li>
+<li>程序入口：所有的 Java 程序由 <code>public static void main(String[] args)</code> 方法处开始执行。</li>
+<li>变量：包含变量类型、变量名、变量值 3 个元素。<code>String name="Dave";</code>
+<ul>
+<li>常量：一种特殊的变量，由 final 修饰，值不能被改变。<code>final char SEX = '男';</code>
+<ul>
+<li>final 在修饰成员变量时，必须同时设定初值。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>自动类型转换：表数范围小的可以向表数范围大的进行自动类型转换；将一个小容器的水倒入一个大容器没有问题，但是将一个大容器的水倒入一个小容器则会装不下，会溢出。byte→short(char)→int→long→float→double</li>
+<li>强制类型转换：直接截断，不会进行四舍五入。<code>int a = (int)3.1415926;</code></li>
+<li>注释：单行注释（<code>//</code>），多行注释（<code>/**/</code>），文档注释（<code>/***/</code>）。</li>
+<li>标识符：用于给 Java 程序中类、方法、变量等命名的符号，严格区分大小写。
+<ul>
+<li>只能由字母，数字， <code>_</code> ， <code>$</code> 组成，且不能以数字开头。</li>
+<li>类名：首字母大写，大驼峰式命名法，MyFirstJavaClass。</li>
+<li>方法名，变量名：首字母小写，小驼峰式命名法，stuName。</li>
+</ul>
+</li>
+<li>运算符：算术运算符、赋值运算符、比较运算符、逻辑运算符、条件运算符。
+<ul>
+<li>条件运算符：也称为三元运算符（?:）。<code>String str1 = (8 > 5) ? "8大于5" : "8不大于5";</code>
+<ul>
+<li>语法形式：<strong>布尔表达式 ？ 表达式1 ：表达式2</strong></li>
+<li>运算过程：如果布尔表达式的值为 <strong>true</strong> ，则返回 <strong>表达式1</strong> 的值，否则返回 <strong>表达式2</strong> 的值。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>条件语句 switch：当 switch 后表达式的值和 case 语句后的值相同时，从该位置开始向下执行，直到遇到 break 语句或者 switch 语句块结束；如果没有匹配的 case 语句则执行 <strong>default</strong> 块的代码。
+<ul>
+<li>switch 后面小括号中表达式的值必须是 <strong>整型或字符型</strong> 。</li>
+<li>case 匹配后，如果没有遇见 <strong>break</strong> 会继续执行下一个的 case 块的内容，直到遇到 break 语句或者 switch 语句块结束。</li>
+<li>default 块可以出现在 <strong>任意位置</strong>，也 <strong>可以省略</strong>。</li>
+</ul>
+</li>
+<li>循环语句 for：for 关键字后面括号中的三个表达式都可以省略，但两个 <code>;</code> 不能省略。
+<ul>
+<li>for 循环变量初始化和循环变量变化部分，可以使用 <code>,</code> 同时初始化或改变多个循环变量的值。</li>
+</ul>
+</li>
+<li>数组（Array）：使用 <code>数组名.length</code> 获取数组的长度；使用 <code>数组名[下标]</code> 来访问；数组的下标从 0 开始，如长度为 3 ，则下标为 0，1，2。
+<ul>
+<li>二维数组：特殊的一维数组，它的每个数组空间中保存的是一个一维数组。</li>
+</ul>
+</li>
+<li>方法：用来解决一类问题的代码组合，是一个功能模块。通过 <code>对象名.方法名()</code> 调用方法。
+<ul>
+<li>访问修饰符：public、protected、private、缺省。</li>
+<li>返回值类型：方法不返回任何值，则返回值类型指定为 void；方法具有返回值，则需要指定返回值的类型，并且在方法体中使用 return 语句返回值。</li>
+<li>形参：定义方法时的参数，目的是用来定义方法需要传入的参数的个数和类型。</li>
+<li>实参：调用方法时的参数，是传递给方法真正被处理的值。</li>
+<li>重载： <strong>方法名相同</strong> ，但是形参的个数、顺序或类型不同，则称为方法的重载。
+<ul>
+<li>当调用被重载的方法时， Java 会根据参数的个数和类型来判断应该调用哪个重载方法，参数完全匹配的方法将被执行。</li>
+<li>判断方法重载的依据：●必须是在同一个类中●方法名相同●方法参数的个数、顺序或类型不同。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>构造方法：是用来初始化对象的方法，与类同名且没有返回值。 <code>people a = new people();</code>
+<ul>
+<li>当没有指定构造方法时，系统会自动生成一个无参构造方法。所以 <strong>创建对象时,其实执行的是构造方法</strong> 。</li>
+<li>有参构造方法的目的就是初始化对象中成员变量的值，并且可以通过条件语句判断值是否合理并赋予默认值。</li>
+</ul>
+</li>
+<li>static：可以修饰变量、方法、初始化块，被称为静态成员，它属于整个类所有，即 <strong>被类的所有对象共享</strong> ；可以 <strong>直接使用类名访问</strong> ，不需要创建对象。
+<ul>
+<li>静态成员属于整个类，当系统第一次使用该类时，就会为其分配内存空间直到该类被卸载才会进行资源回收。</li>
+<li>静态变量：无需创建对象直接通过类名访问。</li>
+<li>静态方法：无需创建对象直接通过类名访问。</li>
+<li>静态初始化块：静态初始化块只在类加载时执行，所以只会执行一次，同时静态初始化块只能给静态变量赋值，不能初始化普通的成员变量。
+<ul>
+<li>初始化块：当创建类的实例时，会依次执行初始化块 <code>{...}</code>，可以通过初始化块进行数据赋值。</li>
+<li>对象实例化执行顺序：静态初始化块 ➜ 初始化块 ➜ 构造方法。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>封装：将类的某些信息隐藏在类内部，不允许外部程序直接访问，而是通过该类提供的方法来实现对隐藏信息的操作和访问。
+<ul>
+<li>优点：●只能通过规定的方法访问数据●隐藏类的实例细节，方便修改和实现。</li>
+<li>步骤：设置属性为 private ➜ 创建 getter/setter 方法用于属性的读写 ➜ 在 getter/setter 方法中对属性值的合法性进行判断。</li>
+</ul>
+</li>
+<li>this：代表当前对象（调用者），在封装时常用于区分属性和参数。不能对静态成员使用 this，因为它跟对象没有关系。
+<ul>
+<li>this.属性：操作当前对象的属性。</li>
+<li>this.方法：调用当前对象的方法。</li>
+</ul>
+</li>
+<li>内部类（Inner Class）：定义在 <strong>一个类里面的类</strong> ；与之对应，包含内部类的类被称为外部类，并且内部类默认持有其外部类的强引用。
+<ul>
+<li>优点：●内部类提供了更好的封装，可以把内部类隐藏在外部类之内，不允许同一个包中的其他类访问该类●内部类的方法可以直接访问外部类的所有数据，包括私有的数据。</li>
+<li>成员内部类：定义了成员内部类后，必须通过外部类对象来创建内部类对象，而不能直接去 new 一个内部类对象。<code>内部类 对象名 = 外部类对象.new 内部类( );</code></li>
+<li>静态内部类：用 <code>static</code> 修饰的成员内部类，不需要外部类的对象，可以直接创建；相当于独立出来的类，不会持有其外部类的强引用。<code>内部类 对象名= new 内部类();</code></li>
+<li>方法内部类：定义在方法中的类，只在该方法的内部可见，即只在该方法内可以使用。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>继承（extends）：是类与类的一种关系，子类继承于父类（SuperClass），一个类只有一个父类，即单继承。<code>class 子类 extends 父类 {...}</code>
+<ul>
+<li>优点：子类拥有父类所有的属性和方法（不能为 private），实现代码复用。</li>
+<li>重写：子类可以重写父类继承的方法，当调用方法时会优先调用子类的方法。
+<ul>
+<li>规则：返回值类型、方法名、参数类型及个数都要与父类继承的方法相同，才为方法的重写。（换句话说 <strong>只重写方法体</strong>）</li>
+</ul>
+</li>
+<li>继承初始化执行顺序：初始化父类（属性初始化 ➜ 构造方法） ➜ 初始化子类（相同）
+<ul>
+<li>子类的构造过程中必须调用其父类的构造方法。如果子类的构造方法中没有显式调用父类的构造方法，则系统默认隐式调用父类无参构造方法 <code>super();</code>；若显式调用构造方法，则必须放在子类的构造方法第一行。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>super：代表父类对象。
+<ul>
+<li>super.属性：访问父类的属性。</li>
+<li>super.方法：访问父类的方法。</li>
+</ul>
+</li>
+<li>Object类：是 <strong>所有类的父类</strong>；如果一个类没有明确使用 extends 关键字继承另外一个类，那么这个类默认继承于 Object类，且 Object类中的方法适用于所有子类。
+<ul>
+<li><code>toString()</code> 方法：输出对象在内存中的地址字符串。可以通过重写该方法输出对象的属性值，Eclipse 的源码(Source)菜单中的 <code>生成toString()</code> 能自动完成。</li>
+<li><code>equals()</code> 方法：比较对象的引用是否指向同一块内存地址（比较是否为同一部手机）（<code>==</code> 运算符也可以做到）。可以通过重写该方法比较两个对象的属性值是否一致（比较两部手机的属性），Eclipse 的源码(Source)菜单中的 <code>生成hashCode()和equals()</code> 能自动完成。</li>
+<li><code>getClass()</code> 方法：返回类对象。<code>example：Man b = new Man();</code>
+<ul>
+<li>类对象：关注类的代码信息(有哪些属性、方法)。<code>Man.class</code></li>
+<li>类的对象：关注对象的数据信息(属性值是多少)。<code>new Man()</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>多态：对象的多种形态；<strong>继承</strong> 是多态的实现基础。
+<ul>
+<li>引用多态
+<ul>
+<li>父类的引用可以指向本类的对象。<code>Animal a = new Animal();</code></li>
+<li>父类的引用可以指向 <strong>子类</strong> 的对象。<code>Animal b = new Dog();</code></li>
+</ul>
+</li>
+<li>方法多态
+<ul>
+<li>指向本类对象时，调用的方法为本类方法。</li>
+<li>指向子类对象时，调用的方法为 <strong>子类重写或继承的方法</strong>。
+<ul>
+<li>即子类独有的方法不可访问，不能通过父类的引用调用子类独有的方法。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>引用类型转换：使用 <code>instanceof</code> 运算符判断一个引用是否是某个类型或某个类型的子类型，从而判断是否可以使用强制类型转换，返回布尔值，通常与 <code>if</code> 配合使用。<code>b instanceof Dog</code>
+<ul>
+<li>向上类型转换（自动类型转换）：小类型到大类型的转换。<code>Animal b = new Dog();</code></li>
+<li>向下类型转换（强制类型转换）：大类型到小类型的转换。<code>Dog c = (Dog)b;</code></li>
+</ul>
+</li>
+<li>抽象类：用 <code>abstract</code> 修饰的类。<code>public abstract class Phone {...}</code>
+<ul>
+<li>作用： <strong>通过抽象方法约束子类</strong> 必须包含某些方法，但不关注子类如何实现。</li>
+<li>规则
+<ul>
+<li>用 <code>abstract</code> 修饰抽象方法，只有声明， <strong>没有方法体</strong>。<code>public abstract void call();</code></li>
+<li>包含抽象方法的类是抽象类。</li>
+<li>抽象类可以包含普通方法，也可以没有抽象方法。</li>
+<li>抽象类不能直接创建，通过 <strong>引用多态</strong> 指向子类对象来使用。<code>Phone a = new SmartPhone();</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>接口（interface）：使用 <code>interface</code> 定义接口，由全局常量和公共的抽象方法所组成。
+<ul>
+<li>类描述对象的属性和方法，接口则包含类要具有的属性和要实现的方法，它定义了某一批类所要遵守的 <strong>规范</strong>。
+<ul>
+<li>接口中的属性：常量，系统会自动添加 <code>public static final</code> 修饰符。</li>
+<li>接口中的方法：抽象方法，系统会自动添加 <code>public abstract</code> 修饰符。</li>
+</ul>
+</li>
+<li>父类单继承（extends），接口多实现（ <strong>implements</strong>）。Java 中的类只能继承单个父类，不够灵活，可以 <strong>通过实现多个接口做补充</strong>。
+<ul>
+<li>继承是 <strong>is a（是什么）</strong> 的关系；接口是 <strong>has a（有什么）</strong> 的关系。</li>
+</ul>
+</li>
+<li>接口不能直接创建，通过 <strong>引用多态</strong> 指向实现接口的对象来使用。<code>IPlayGame b = new SmartPhone();</code></li>
+<li>接口在使用过程中，经常与匿名内部类配合使用。
+<ul>
+<li>匿名内部类：没有名字的内部类，不关注类的名字，在使用的时候才定义。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>项目分析
+<ul>
+<li>数据模型分析：通过对现实世界事物的主要特征进行抽象化处理，构建出数据结构。（类：方法、属性）</li>
+<li>业务模型分析：在设计应用程序之前，应该明确业务开展过程中需要的功能。</li>
+<li>显示和流程分析：显示界面的执行过程和流程的处理步骤。</li>
+</ul>
+</li>
+<li>面向对象编程（Object Oriented Programming）遵循 <strong>高内聚，低耦合</strong> 的设计原则。
+<ul>
+<li>高内聚：块内联系，每个模块尽可能的独立完成某个 <strong>特定的功能</strong>，单一责任原则。</li>
+<li>低耦合：块间联系，模块之间的接口尽可能的 <strong>少而简单</strong>。</li>
+<li>通常各模块的内聚程度越高，模块间的耦合程度就越低。</li>
+</ul>
+</li>
+</ul>
+<h2 id=svg>SVG</h2>
+<p><img src=/uploads/java-identifiers.svg alt title=标识符></p>
+<p><img src=/uploads/java-final.svg alt title="Final 关键字"></p>
+<p><img src=/uploads/java-access.svg alt title=访问修饰符></p>
+<p><img src=/uploads/java-wrapper.svg alt title=包装类></p>
+<p><img src=/uploads/java-wrapper-method.svg alt title=包装类></p>
+<p><img src=/uploads/java-arithmetic.svg alt title=算术运算符></p>
+<p><img src=/uploads/java-assignment.svg alt title=赋值运算符></p>
+<p><img src=/uploads/java-comparison.svg alt title=比较运算符></p>
+<p><img src=/uploads/java-logical.svg alt title=逻辑运算符></p>
+<p><img src=/uploads/java-interface.svg alt title=接口></p>
+<p><img src=/uploads/java-array.svg alt title=数组></p>
+<p><img src=/uploads/java-datatype.svg alt title=数据类型></p>
+<p><img src=/uploads/java-processControl.svg alt title=流程控制语句></p>
+<p><img src=/uploads/java-variable.svg alt title=变量></p>
+<p><img src=/uploads/java-class.svg alt title=类和对象></p>
+<h2 id=code>Code</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 5<span style=color:#f92672>;</span>
 <span style=color:#66d9ef>int</span> b <span style=color:#f92672>=</span> i<span style=color:#f92672>++;</span>     <span style=color:#75715e>//先进行赋值，再执行自增，b=5
 </span><span style=color:#75715e></span><span style=color:#f92672>----</span>
 <span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 5<span style=color:#f92672>;</span>
@@ -765,7 +1221,8 @@ System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><spa
 输出<span style=color:#960050;background-color:#1e0010>：</span>
 <span style=color:#f92672>{</span>2<span style=color:#f92672>,</span> 5<span style=color:#f92672>}</span>
 4
-</code></pre></div><h3 id=继承初始化执行顺序>继承初始化执行顺序</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Test1</span> <span style=color:#f92672>{</span>
+</code></pre></div><h3 id=继承初始化执行顺序>继承初始化执行顺序</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Test1</span> <span style=color:#f92672>{</span>
     <span style=color:#66d9ef>static</span> <span style=color:#f92672>{</span>
         System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;1父类静态初始化块&#34;</span><span style=color:#f92672>);</span>
     <span style=color:#f92672>}</span>
@@ -806,7 +1263,8 @@ System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><spa
 3父类构造方法
 2子类初始化块
 3子类构造方法
-</code></pre></div><h3 id=装箱和拆箱>装箱和拆箱</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>装箱<span style=color:#960050;background-color:#1e0010>：</span>把基本类型转换为包装类<span style=color:#960050;background-color:#1e0010>，</span>使其具有对象的性质<span style=color:#960050;background-color:#1e0010>，</span>分为手动装箱和自动装箱<span style=color:#960050;background-color:#1e0010>。</span>
+</code></pre></div><h3 id=装箱和拆箱>装箱和拆箱</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>装箱<span style=color:#960050;background-color:#1e0010>：</span>把基本类型转换为包装类<span style=color:#960050;background-color:#1e0010>，</span>使其具有对象的性质<span style=color:#960050;background-color:#1e0010>，</span>分为手动装箱和自动装箱<span style=color:#960050;background-color:#1e0010>。</span>
 拆箱<span style=color:#960050;background-color:#1e0010>：</span>和装箱相反<span style=color:#960050;background-color:#1e0010>，</span>把包装类对象转换为基本类型的值<span style=color:#960050;background-color:#1e0010>，</span>分为手动拆箱和自动拆箱<span style=color:#960050;background-color:#1e0010>。</span>
 
 <span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 5<span style=color:#f92672>;</span>
@@ -818,7 +1276,8 @@ Integer j <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span
 <span style=color:#f92672>----</span>
 <span style=color:#66d9ef>int</span> m <span style=color:#f92672>=</span> j<span style=color:#f92672>.</span><span style=color:#a6e22e>intValue</span><span style=color:#f92672>();</span>     手动拆箱
 <span style=color:#66d9ef>int</span> n <span style=color:#f92672>=</span> j<span style=color:#f92672>;</span>     自动拆箱
-</code></pre></div><hr><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#75715e>&lt;!-- pom.xml maven mirrors --&gt;</span>
+</code></pre></div><hr>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#75715e>&lt;!-- pom.xml maven mirrors --&gt;</span>
 <span style=color:#f92672>&lt;repositories&gt;</span>
     <span style=color:#f92672>&lt;repository&gt;</span>
         <span style=color:#f92672>&lt;id&gt;</span>repo1<span style=color:#f92672>&lt;/id&gt;</span>
@@ -831,4 +1290,55 @@ Integer j <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span
         <span style=color:#f92672>&lt;url&gt;</span>https://mirrors.huaweicloud.com/repository/maven/<span style=color:#f92672>&lt;/url&gt;</span>
     <span style=color:#f92672>&lt;/pluginRepository&gt;</span>
 <span style=color:#f92672>&lt;/pluginRepositories&gt;</span>
-</code></pre></div></div><div class=sharing style=text-align:center><br><p>捐赠支持</p><p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p><p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p><img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%><p></p><br>&copy; 2015-2020 XhstormR</div></div></div></div><div id=backtop><a href=# title>TOP</a></div><nav id=TableOfContents><ul><li><a href=#ide>IDE</a><ul><li><a href=#idea-无限试用>IDEA 无限试用</a></li><li><a href=#idea-快捷键>IDEA 快捷键</a></li><li><a href=#eclipse-快捷键>Eclipse 快捷键</a></li></ul></li><li><a href=#jdkhttpwwworaclecomtechnetworkjavajavasedownloadsindexhtml><a href=http://www.oracle.com/technetwork/java/javase/downloads/index.html>JDK</a></a></li><li><a href=#edition>Edition</a></li><li><a href=#环境变量>环境变量</a></li><li><a href=#跨平台原理>跨平台原理</a></li><li><a href=#cmd>CMD</a></li><li><a href=#jre-and-jar>JRE and JAR</a><ul><li><a href=#合并多个-jar-文件>合并多个 JAR 文件</a></li></ul></li><li><a href=#java-规范>Java 规范</a></li><li><a href=#svg>SVG</a></li><li><a href=#code>Code</a><ul><li><a href=#继承初始化执行顺序>继承初始化执行顺序</a></li><li><a href=#装箱和拆箱>装箱和拆箱</a></li></ul></li></ul></nav><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script><script>hljs.initHighlightingOnLoad()</script><script src=https://blog.xhstormr.tk/js/zoom.min.js></script><script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script><script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script></body></html>
+</code></pre></div>
+</div>
+<div class=sharing style=text-align:center>
+<br>
+<p>捐赠支持</p>
+<p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p>
+<p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p>
+<img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%>
+<p></p><br>&copy; 2015-2020 XhstormR
+</div>
+</div>
+</div>
+</div>
+<div id=backtop><a href=# title>TOP</a></div>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#ide>IDE</a>
+<ul>
+<li><a href=#idea-无限试用>IDEA 无限试用</a></li>
+<li><a href=#idea-快捷键>IDEA 快捷键</a></li>
+<li><a href=#eclipse-快捷键>Eclipse 快捷键</a></li>
+</ul>
+</li>
+<li><a href=#jdkhttpwwworaclecomtechnetworkjavajavasedownloadsindexhtml><a href=http://www.oracle.com/technetwork/java/javase/downloads/index.html>JDK</a></a></li>
+<li><a href=#edition>Edition</a></li>
+<li><a href=#环境变量>环境变量</a></li>
+<li><a href=#跨平台原理>跨平台原理</a></li>
+<li><a href=#cmd>CMD</a></li>
+<li><a href=#jre-and-jar>JRE and JAR</a>
+<ul>
+<li><a href=#合并多个-jar-文件>合并多个 JAR 文件</a></li>
+</ul>
+</li>
+<li><a href=#java-规范>Java 规范</a></li>
+<li><a href=#svg>SVG</a></li>
+<li><a href=#code>Code</a>
+<ul>
+<li><a href=#继承初始化执行顺序>继承初始化执行顺序</a></li>
+<li><a href=#装箱和拆箱>装箱和拆箱</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script src=https://blog.xhstormr.tk/js/zoom.min.js></script>
+<script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script>
+<script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script>
+</body>
+</html>

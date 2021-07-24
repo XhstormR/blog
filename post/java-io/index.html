@@ -1,5 +1,60 @@
-<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache><head><meta charset=utf-8><meta name=renderer content="webkit"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>Java IO Stream &#183; XhstormR</title><link rel=alternate type=application/rss+xml title=XhstormR href><link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico><link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script><script src=https://blog.xhstormr.tk/js/main.min.js async defer></script></head><body><div id=scriptHeader><span class="mobile btn-mobile-menu"><i class="fa fa-bars btn-mobile-menu__icon"></i>
-<i class="fa fa-times btn-mobile-close__icon hidden"></i></span><header class="panel-cover panel-cover--collapsed"><div class=panel-main><div class="panel-main__inner panel-inverted"><div class=panel-main__content><h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1><hr class=panel-cover__divider><p class=panel-cover__description>On a dark desert highway, cool wind in my hair.</p><hr class="panel-cover__divider panel-cover__divider--secondary"><div class=navigation-wrapper><nav class="cover-navigation cover-navigation--primary"><ul class=navigation><li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li></ul></nav></div></div></div><div class=panel-cover--overlay></div></div></header></div><div class=bodytop><div class=content-wrapper><div class=content-wrapper__inner><div class=post><h1>Java IO Stream</h1><span class=post-date>2016-09-06</span><p>Updated on 2016-11-11</p><blockquote><p><a href=/uploads/java-io.svg><p style=text-align:center><img data-src=/uploads/java-io.svg alt title="IO 流" width></p><script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(a){a.setAttribute("src",a.getAttribute("data-src")),a.onload=function(){a.removeAttribute("data-src")}})</script></a></p><p><a href=https://docs.oracle.com/javase/10/docs/api/java/nio/file/Path.html>https://docs.oracle.com/javase/10/docs/api/java/nio/file/Path.html</a></p><p><a href=https://docs.oracle.com/javase/10/docs/api/java/nio/file/Files.html>https://docs.oracle.com/javase/10/docs/api/java/nio/file/Files.html</a></p></blockquote><h2 id=file>File</h2><p>用于代表文件(夹)，是文件(夹)的抽象化形式，不能用于对文件内容的访问。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>File file <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> File<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;D:\\123&#34;</span><span style=color:#f92672>);</span>     <span style=color:#960050;background-color:#1e0010>\</span> 是转义字符
+<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache>
+<head>
+<meta charset=utf-8>
+<meta name=renderer content="webkit">
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title> Java IO Stream &#183; XhstormR </title>
+<link rel=alternate type=application/rss+xml title=XhstormR href>
+<link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico>
+<link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
+<script src=https://blog.xhstormr.tk/js/main.min.js async defer></script>
+</head>
+<body>
+<div id=scriptHeader>
+<span class="mobile btn-mobile-menu">
+<i class="fa fa-bars btn-mobile-menu__icon"></i>
+<i class="fa fa-times btn-mobile-close__icon hidden"></i>
+</span>
+<header class="panel-cover panel-cover--collapsed">
+<div class=panel-main>
+<div class="panel-main__inner panel-inverted">
+<div class=panel-main__content>
+<h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1>
+<hr class=panel-cover__divider>
+<p class=panel-cover__description> On a dark desert highway, cool wind in my hair. </p>
+<hr class="panel-cover__divider panel-cover__divider--secondary">
+<div class=navigation-wrapper>
+<nav class="cover-navigation cover-navigation--primary">
+<ul class=navigation>
+<li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class=panel-cover--overlay></div>
+</div>
+</header>
+</div>
+<div class=bodytop>
+<div class=content-wrapper>
+<div class=content-wrapper__inner>
+<div class=post>
+<h1>Java IO Stream</h1>
+<span class=post-date>2016-09-06</span>
+<p>Updated on 2016-11-11</p>
+<blockquote>
+<p><a href=/uploads/java-io.svg><p style=text-align:center><img data-src=/uploads/java-io.svg alt title="IO 流" width></p>
+<script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(a){a.setAttribute("src",a.getAttribute("data-src")),a.onload=function(){a.removeAttribute("data-src")}})</script></a></p>
+<p><a href=https://docs.oracle.com/javase/10/docs/api/java/nio/file/Path.html>https://docs.oracle.com/javase/10/docs/api/java/nio/file/Path.html</a></p>
+<p><a href=https://docs.oracle.com/javase/10/docs/api/java/nio/file/Files.html>https://docs.oracle.com/javase/10/docs/api/java/nio/file/Files.html</a></p>
+</blockquote>
+<h2 id=file>File</h2>
+<p>用于代表文件(夹)，是文件(夹)的抽象化形式，不能用于对文件内容的访问。</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>File file <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> File<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;D:\\123&#34;</span><span style=color:#f92672>);</span>     <span style=color:#960050;background-color:#1e0010>\</span> 是转义字符
 File file <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> File<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;D:/123&#34;</span><span style=color:#f92672>);</span>
 File file <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> File<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;D:/&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;123&#34;</span><span style=color:#f92672>);</span>
 File file <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> File<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;D:&#34;</span> <span style=color:#f92672>+</span> File<span style=color:#f92672>.</span><span style=color:#a6e22e>separator</span> <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;123&#34;</span><span style=color:#f92672>);</span>
@@ -27,7 +82,9 @@ file<span style=color:#f92672>.</span><span style=color:#a6e22e>getCanonicalPath
 1 KB <span style=color:#f92672>=</span> 1024 B
 1 MB <span style=color:#f92672>=</span> 1024 KB
 1 GB <span style=color:#f92672>=</span> 1024 MB
-</code></pre></div><h2 id=randomaccessfile>RandomAccessFile</h2><p>用于对文件内容的访问，可读可写，可以访问文件的任意位置（任意字节）。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Test</span> <span style=color:#f92672>{</span>
+</code></pre></div><h2 id=randomaccessfile>RandomAccessFile</h2>
+<p>用于对文件内容的访问，可读可写，可以访问文件的任意位置（任意字节）。</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Test</span> <span style=color:#f92672>{</span>
     <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span><span style=color:#f92672>(</span>String<span style=color:#f92672>[]</span> args<span style=color:#f92672>)</span> <span style=color:#66d9ef>throws</span> IOException <span style=color:#f92672>{</span>
         File file <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> File<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;D:/&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;123.dat&#34;</span><span style=color:#f92672>);</span>
         RandomAccessFile randomAccessFile <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> RandomAccessFile<span style=color:#f92672>(</span>file<span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;rw&#34;</span><span style=color:#f92672>);</span>     <span style=color:#960050;background-color:#1e0010>（</span>文件<span style=color:#f92672>,</span>模式<span style=color:#960050;background-color:#1e0010>）</span>rw<span style=color:#960050;background-color:#1e0010>：</span>读写<span style=color:#960050;background-color:#1e0010>；</span>r<span style=color:#960050;background-color:#1e0010>：</span>只读
@@ -61,7 +118,19 @@ file<span style=color:#f92672>.</span><span style=color:#a6e22e>getCanonicalPath
 好A1   好A1
 e5	a5	bd	41	31	0	0	0	e5	a5	bd	41	31
 13<span style=color:#f92672>,</span>13<span style=color:#f92672>,</span>13
-</code></pre></div><h2 id=对象的序列化和反序列化>对象的序列化和反序列化</h2><ul><li>一序列化：Object ➜ Byte 序列&mdash;&ndash;ObjectOutputStream.writeObject</li><li>反序列化：Byte 序列 ➜ Object&mdash;&ndash;ObjectInputStream.readObject</li><li>对象所属的类必须实现序列化接口（Serializable），才能够被序列化。<ul><li>如果所属的类的父类已实现序列化接口，则子类便不需要再实现序列化接口。</li><li>如果所属的类的父类没有没有实现序列化接口，其父类的构造函数会被调用。</li></ul></li></ul><h2 id=code>Code</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Test</span> <span style=color:#f92672>{</span>
+</code></pre></div><h2 id=对象的序列化和反序列化>对象的序列化和反序列化</h2>
+<ul>
+<li>一序列化：Object ➜ Byte 序列&mdash;&ndash;ObjectOutputStream.writeObject</li>
+<li>反序列化：Byte 序列 ➜ Object&mdash;&ndash;ObjectInputStream.readObject</li>
+<li>对象所属的类必须实现序列化接口（Serializable），才能够被序列化。
+<ul>
+<li>如果所属的类的父类已实现序列化接口，则子类便不需要再实现序列化接口。</li>
+<li>如果所属的类的父类没有没有实现序列化接口，其父类的构造函数会被调用。</li>
+</ul>
+</li>
+</ul>
+<h2 id=code>Code</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Test</span> <span style=color:#f92672>{</span>
     <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span><span style=color:#f92672>(</span>String<span style=color:#f92672>[]</span> args<span style=color:#f92672>)</span> <span style=color:#66d9ef>throws</span> UnsupportedEncodingException <span style=color:#f92672>{</span>
         String str <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;好A1&#34;</span><span style=color:#f92672>;</span>
         encode<span style=color:#f92672>(</span>str<span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;gbk&#34;</span><span style=color:#f92672>);</span>     汉字 2 字节<span style=color:#960050;background-color:#1e0010>，</span>字母和数字 1 字节
@@ -325,7 +394,11 @@ e5	a5	bd	41	31
 <span style=color:#f92672>----</span>
 输出<span style=color:#960050;background-color:#1e0010>：</span>
 Student<span style=color:#f92672>{</span>id<span style=color:#f92672>=</span>1<span style=color:#f92672>,</span> age<span style=color:#f92672>=</span>21<span style=color:#f92672>,</span> name<span style=color:#f92672>=</span><span style=color:#960050;background-color:#1e0010>&#39;</span>张三<span style=color:#960050;background-color:#1e0010>&#39;</span><span style=color:#f92672>}</span>
-</code></pre></div><h1 id=nio>NIO</h1><p>用于替代原有的 IO 体系。</p><h2 id=path>Path</h2><p>用于代表文件(夹)，是文件(夹)的抽象化形式，不能用于对文件内容的访问。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>Path path <span style=color:#f92672>=</span> Paths<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;D:/123/123&#34;</span><span style=color:#f92672>);</span>     D<span style=color:#f92672>:</span><span style=color:#960050;background-color:#1e0010>\</span>123<span style=color:#960050;background-color:#1e0010>\</span>123
+</code></pre></div><h1 id=nio>NIO</h1>
+<p>用于替代原有的 IO 体系。</p>
+<h2 id=path>Path</h2>
+<p>用于代表文件(夹)，是文件(夹)的抽象化形式，不能用于对文件内容的访问。</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>Path path <span style=color:#f92672>=</span> Paths<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;D:/123/123&#34;</span><span style=color:#f92672>);</span>     D<span style=color:#f92672>:</span><span style=color:#960050;background-color:#1e0010>\</span>123<span style=color:#960050;background-color:#1e0010>\</span>123
 Path name <span style=color:#f92672>=</span> path<span style=color:#f92672>.</span><span style=color:#a6e22e>getFileName</span><span style=color:#f92672>();</span>     123
 Path parent <span style=color:#f92672>=</span> path<span style=color:#f92672>.</span><span style=color:#a6e22e>getParent</span><span style=color:#f92672>();</span>     D<span style=color:#f92672>:</span><span style=color:#960050;background-color:#1e0010>\</span>123
 Path root <span style=color:#f92672>=</span> path<span style=color:#f92672>.</span><span style=color:#a6e22e>getRoot</span><span style=color:#f92672>();</span>     D<span style=color:#f92672>:</span><span style=color:#960050;background-color:#1e0010>\</span>
@@ -338,7 +411,9 @@ Path path1 <span style=color:#f92672>=</span> path<span style=color:#f92672>.</s
 Path path2 <span style=color:#f92672>=</span> path<span style=color:#f92672>.</span><span style=color:#a6e22e>resolveSibling</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;1.txt&#34;</span><span style=color:#f92672>);</span>     D<span style=color:#f92672>:</span><span style=color:#960050;background-color:#1e0010>\</span>123<span style=color:#960050;background-color:#1e0010>\</span>1<span style=color:#f92672>.</span><span style=color:#a6e22e>txt</span>
 
 path<span style=color:#f92672>.</span><span style=color:#a6e22e>toFile</span><span style=color:#f92672>().</span><span style=color:#a6e22e>toPath</span><span style=color:#f92672>();</span>     相互转换
-</code></pre></div><h2 id=files>Files</h2><p>包含一系列静态方法，用于对文件(夹)的具体操作。（注意 IO Stream 要关闭）</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>递归创建目录
+</code></pre></div><h2 id=files>Files</h2>
+<p>包含一系列静态方法，用于对文件(夹)的具体操作。（注意 IO Stream 要关闭）</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>递归创建目录
 <span style=color:#f92672>----</span>
 Path path <span style=color:#f92672>=</span> Paths<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;D:/123/123&#34;</span><span style=color:#f92672>);</span>
 Files<span style=color:#f92672>.</span><span style=color:#a6e22e>createDirectories</span><span style=color:#f92672>(</span>path<span style=color:#f92672>);</span>
@@ -404,4 +479,38 @@ Files<span style=color:#f92672>.</span><span style=color:#a6e22e>walk</span><spa
         e<span style=color:#f92672>.</span><span style=color:#a6e22e>printStackTrace</span><span style=color:#f92672>();</span>
     <span style=color:#f92672>}</span>
 <span style=color:#f92672>});</span>
-</code></pre></div></div><div class=sharing style=text-align:center><br><p>捐赠支持</p><p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p><p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p><img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%><p></p><br>&copy; 2015-2020 XhstormR</div></div></div></div><div id=backtop><a href=# title>TOP</a></div><nav id=TableOfContents><ul><li><a href=#file>File</a></li><li><a href=#randomaccessfile>RandomAccessFile</a></li><li><a href=#对象的序列化和反序列化>对象的序列化和反序列化</a></li><li><a href=#code>Code</a></li></ul><ul><li><a href=#path>Path</a></li><li><a href=#files>Files</a></li></ul></nav><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script><script>hljs.initHighlightingOnLoad()</script><script src=https://blog.xhstormr.tk/js/zoom.min.js></script><script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script><script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script></body></html>
+</code></pre></div>
+</div>
+<div class=sharing style=text-align:center>
+<br>
+<p>捐赠支持</p>
+<p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p>
+<p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p>
+<img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%>
+<p></p><br>&copy; 2015-2020 XhstormR
+</div>
+</div>
+</div>
+</div>
+<div id=backtop><a href=# title>TOP</a></div>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#file>File</a></li>
+<li><a href=#randomaccessfile>RandomAccessFile</a></li>
+<li><a href=#对象的序列化和反序列化>对象的序列化和反序列化</a></li>
+<li><a href=#code>Code</a></li>
+</ul>
+<ul>
+<li><a href=#path>Path</a></li>
+<li><a href=#files>Files</a></li>
+</ul>
+</nav>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script src=https://blog.xhstormr.tk/js/zoom.min.js></script>
+<script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script>
+<script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script>
+</body>
+</html>

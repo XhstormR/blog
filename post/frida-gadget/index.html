@@ -1,14 +1,100 @@
-<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache><head><meta charset=utf-8><meta name=renderer content="webkit"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>Frida Gadget &#183; XhstormR</title><link rel=alternate type=application/rss+xml title=XhstormR href><link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico><link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script><script src=https://blog.xhstormr.tk/js/main.min.js async defer></script></head><body><div id=scriptHeader><span class="mobile btn-mobile-menu"><i class="fa fa-bars btn-mobile-menu__icon"></i>
-<i class="fa fa-times btn-mobile-close__icon hidden"></i></span><header class="panel-cover panel-cover--collapsed"><div class=panel-main><div class="panel-main__inner panel-inverted"><div class=panel-main__content><h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1><hr class=panel-cover__divider><p class=panel-cover__description>On a dark desert highway, cool wind in my hair.</p><hr class="panel-cover__divider panel-cover__divider--secondary"><div class=navigation-wrapper><nav class="cover-navigation cover-navigation--primary"><ul class=navigation><li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li></ul></nav></div></div></div><div class=panel-cover--overlay></div></div></header></div><div class=bodytop><div class=content-wrapper><div class=content-wrapper__inner><div class=post><h1>Frida Gadget</h1><span class=post-date>2019-11-07</span><p>Updated on 2019-11-07</p><blockquote><p><a href=https://www.frida.re/docs/gadget/>https://www.frida.re/docs/gadget/</a></p></blockquote><h2 id=put>Put</h2><pre><code>Src Path:
+<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache>
+<head>
+<meta charset=utf-8>
+<meta name=renderer content="webkit">
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title> Frida Gadget &#183; XhstormR </title>
+<link rel=alternate type=application/rss+xml title=XhstormR href>
+<link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico>
+<link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
+<script src=https://blog.xhstormr.tk/js/main.min.js async defer></script>
+</head>
+<body>
+<div id=scriptHeader>
+<span class="mobile btn-mobile-menu">
+<i class="fa fa-bars btn-mobile-menu__icon"></i>
+<i class="fa fa-times btn-mobile-close__icon hidden"></i>
+</span>
+<header class="panel-cover panel-cover--collapsed">
+<div class=panel-main>
+<div class="panel-main__inner panel-inverted">
+<div class=panel-main__content>
+<h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1>
+<hr class=panel-cover__divider>
+<p class=panel-cover__description> On a dark desert highway, cool wind in my hair. </p>
+<hr class="panel-cover__divider panel-cover__divider--secondary">
+<div class=navigation-wrapper>
+<nav class="cover-navigation cover-navigation--primary">
+<ul class=navigation>
+<li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class=panel-cover--overlay></div>
+</div>
+</header>
+</div>
+<div class=bodytop>
+<div class=content-wrapper>
+<div class=content-wrapper__inner>
+<div class=post>
+<h1>Frida Gadget</h1>
+<span class=post-date>2019-11-07</span>
+<p>Updated on 2019-11-07</p>
+<blockquote>
+<p><a href=https://www.frida.re/docs/gadget/>https://www.frida.re/docs/gadget/</a></p>
+</blockquote>
+<h2 id=put>Put</h2>
+<pre><code>Src Path:
 code\app\src\main\jniLibs\armeabi-v7a\libfrida-gadget.so
 
 Bin Path:
 apk\lib\armeabi-v7a\libfrida-gadget.so
-</code></pre><h2 id=load>Load</h2><pre><code>Java:
+</code></pre><h2 id=load>Load</h2>
+<pre><code>Java:
 System.loadLibrary(&quot;frida-gadget&quot;);
 
 Smali:
 const-string v0, &quot;frida-gadget&quot;
 invoke-static {v0}, Ljava/lang/System;-&gt;loadLibrary(Ljava/lang/String;)V
-</code></pre><h2 id=connect>Connect</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>frida -U Gadget -l 123.js
-</code></pre></div><h2 id=reference>Reference</h2><ul><li><a href=https://koz.io/using-frida-on-android-without-root/>https://koz.io/using-frida-on-android-without-root/</a></li></ul></div><div class=sharing style=text-align:center><br><p>捐赠支持</p><p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p><p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p><img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%><p></p><br>&copy; 2015-2020 XhstormR</div></div></div></div><div id=backtop><a href=# title>TOP</a></div><nav id=TableOfContents><ul><li><a href=#put>Put</a></li><li><a href=#load>Load</a></li><li><a href=#connect>Connect</a></li><li><a href=#reference>Reference</a></li></ul></nav><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script><script>hljs.initHighlightingOnLoad()</script><script src=https://blog.xhstormr.tk/js/zoom.min.js></script><script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script><script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script></body></html>
+</code></pre><h2 id=connect>Connect</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>frida -U Gadget -l 123.js
+</code></pre></div><h2 id=reference>Reference</h2>
+<ul>
+<li><a href=https://koz.io/using-frida-on-android-without-root/>https://koz.io/using-frida-on-android-without-root/</a></li>
+</ul>
+</div>
+<div class=sharing style=text-align:center>
+<br>
+<p>捐赠支持</p>
+<p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p>
+<p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p>
+<img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%>
+<p></p><br>&copy; 2015-2020 XhstormR
+</div>
+</div>
+</div>
+</div>
+<div id=backtop><a href=# title>TOP</a></div>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#put>Put</a></li>
+<li><a href=#load>Load</a></li>
+<li><a href=#connect>Connect</a></li>
+<li><a href=#reference>Reference</a></li>
+</ul>
+</nav>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script src=https://blog.xhstormr.tk/js/zoom.min.js></script>
+<script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script>
+<script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script>
+</body>
+</html>

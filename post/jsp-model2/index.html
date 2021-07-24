@@ -1,5 +1,62 @@
-<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache><head><meta charset=utf-8><meta name=renderer content="webkit"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>JSP Model2 &#183; XhstormR</title><link rel=alternate type=application/rss+xml title=XhstormR href><link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico><link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script><script src=https://blog.xhstormr.tk/js/main.min.js async defer></script></head><body><div id=scriptHeader><span class="mobile btn-mobile-menu"><i class="fa fa-bars btn-mobile-menu__icon"></i>
-<i class="fa fa-times btn-mobile-close__icon hidden"></i></span><header class="panel-cover panel-cover--collapsed"><div class=panel-main><div class="panel-main__inner panel-inverted"><div class=panel-main__content><h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1><hr class=panel-cover__divider><p class=panel-cover__description>On a dark desert highway, cool wind in my hair.</p><hr class="panel-cover__divider panel-cover__divider--secondary"><div class=navigation-wrapper><nav class="cover-navigation cover-navigation--primary"><ul class=navigation><li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li></ul></nav></div></div></div><div class=panel-cover--overlay></div></div></header></div><div class=bodytop><div class=content-wrapper><div class=content-wrapper__inner><div class=post><h1>JSP Model2</h1><span class=post-date>2017-04-30</span><p>Updated on 2017-04-30</p><blockquote><p>MVC 模式</p><p>MVC（Model - View - Controller）</p><p>Model - JavaBean（数据）</p><p>View - JSP（界面）</p><p>Controller - Servlet（业务逻辑）</p></blockquote><h2 id=src>src</h2><h3 id=dao>dao</h3><h4 id=itemdao>ItemDAO</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>package</span> dao
+<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache>
+<head>
+<meta charset=utf-8>
+<meta name=renderer content="webkit">
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title> JSP Model2 &#183; XhstormR </title>
+<link rel=alternate type=application/rss+xml title=XhstormR href>
+<link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico>
+<link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
+<script src=https://blog.xhstormr.tk/js/main.min.js async defer></script>
+</head>
+<body>
+<div id=scriptHeader>
+<span class="mobile btn-mobile-menu">
+<i class="fa fa-bars btn-mobile-menu__icon"></i>
+<i class="fa fa-times btn-mobile-close__icon hidden"></i>
+</span>
+<header class="panel-cover panel-cover--collapsed">
+<div class=panel-main>
+<div class="panel-main__inner panel-inverted">
+<div class=panel-main__content>
+<h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1>
+<hr class=panel-cover__divider>
+<p class=panel-cover__description> On a dark desert highway, cool wind in my hair. </p>
+<hr class="panel-cover__divider panel-cover__divider--secondary">
+<div class=navigation-wrapper>
+<nav class="cover-navigation cover-navigation--primary">
+<ul class=navigation>
+<li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class=panel-cover--overlay></div>
+</div>
+</header>
+</div>
+<div class=bodytop>
+<div class=content-wrapper>
+<div class=content-wrapper__inner>
+<div class=post>
+<h1>JSP Model2</h1>
+<span class=post-date>2017-04-30</span>
+<p>Updated on 2017-04-30</p>
+<blockquote>
+<p>MVC 模式</p>
+<p>MVC（Model - View - Controller）</p>
+<p>Model - JavaBean（数据）</p>
+<p>View - JSP（界面）</p>
+<p>Controller - Servlet（业务逻辑）</p>
+</blockquote>
+<h2 id=src>src</h2>
+<h3 id=dao>dao</h3>
+<h4 id=itemdao>ItemDAO</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>package</span> dao
 
 <span style=color:#66d9ef>import</span> entity.Item
 <span style=color:#66d9ef>import</span> util.DBHelp
@@ -50,7 +107,9 @@
                     )
             }
 }
-</code></pre></div><h3 id=entity>entity</h3><h4 id=item>Item</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>package</span> entity
+</code></pre></div><h3 id=entity>entity</h3>
+<h4 id=item>Item</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>package</span> entity
 
 <span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Item</span>(
         <span style=color:#66d9ef>val</span> id: Int,
@@ -60,7 +119,8 @@
         <span style=color:#66d9ef>val</span> number: Int,
         <span style=color:#66d9ef>val</span> picture: String
 )
-</code></pre></div><h4 id=cart>Cart</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>package</span> entity
+</code></pre></div><h4 id=cart>Cart</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>package</span> entity
 
 <span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Cart</span>(<span style=color:#66d9ef>val</span> goods: HashMap&lt;Item, Int&gt; = hashMapOf()) {
     <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>add</span>(item: Item, number: Int): Boolean {
@@ -83,7 +143,9 @@
         <span style=color:#66d9ef>return</span> p
     }
 }
-</code></pre></div><h3 id=servlet>servlet</h3><h4 id=myservlet>MyServlet</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>package</span> servlet
+</code></pre></div><h3 id=servlet>servlet</h3>
+<h4 id=myservlet>MyServlet</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>package</span> servlet
 
 <span style=color:#66d9ef>import</span> dao.ItemDAO
 <span style=color:#66d9ef>import</span> entity.Cart
@@ -142,7 +204,9 @@
         <span style=color:#66d9ef>return</span> flag
     }
 }
-</code></pre></div><h3 id=util>util</h3><h4 id=dbhelp>DBHelp</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>package</span> util
+</code></pre></div><h3 id=util>util</h3>
+<h4 id=dbhelp>DBHelp</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>package</span> util
 
 <span style=color:#66d9ef>import</span> java.sql.Connection
 <span style=color:#66d9ef>import</span> java.sql.DriverManager
@@ -153,7 +217,9 @@
         DriverManager.getConnection(<span style=color:#e6db74>&#34;jdbc:postgresql://127.0.0.1:5432/postgres&#34;</span>, <span style=color:#e6db74>&#34;123&#34;</span>, <span style=color:#e6db74>&#34;123456&#34;</span>)
     }
 }
-</code></pre></div><h2 id=web>web</h2><h3 id=indexjsp>index.jsp</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html><span style=color:#960050;background-color:#1e0010>&lt;</span>%@ page import=&#34;dao.ItemDAO&#34; %&gt;
+</code></pre></div><h2 id=web>web</h2>
+<h3 id=indexjsp>index.jsp</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html><span style=color:#960050;background-color:#1e0010>&lt;</span>%@ page import=&#34;dao.ItemDAO&#34; %&gt;
 <span style=color:#960050;background-color:#1e0010>&lt;</span>%@ page import=&#34;entity.Item&#34; %&gt;
 <span style=color:#960050;background-color:#1e0010>&lt;</span>%@ page import=&#34;java.util.List&#34; %&gt;
 <span style=color:#960050;background-color:#1e0010>&lt;</span>%@ page contentType=&#34;text/html;charset=UTF-8&#34; language=&#34;java&#34; %&gt;
@@ -204,7 +270,8 @@
 &lt;/<span style=color:#f92672>center</span>&gt;
 &lt;/<span style=color:#f92672>body</span>&gt;
 &lt;/<span style=color:#f92672>html</span>&gt;
-</code></pre></div><h3 id=detailsjsp>details.jsp</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html><span style=color:#960050;background-color:#1e0010>&lt;</span>%@ page import=&#34;dao.ItemDAO&#34; %&gt;
+</code></pre></div><h3 id=detailsjsp>details.jsp</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html><span style=color:#960050;background-color:#1e0010>&lt;</span>%@ page import=&#34;dao.ItemDAO&#34; %&gt;
 <span style=color:#960050;background-color:#1e0010>&lt;</span>%@ page import=&#34;entity.Item&#34; %&gt;
 <span style=color:#960050;background-color:#1e0010>&lt;</span>%@ page contentType=&#34;text/html;charset=UTF-8&#34; language=&#34;java&#34; %&gt;
 &lt;<span style=color:#f92672>html</span>&gt;
@@ -316,7 +383,8 @@
 &lt;/<span style=color:#f92672>script</span>&gt;
 &lt;/<span style=color:#f92672>body</span>&gt;
 &lt;/<span style=color:#f92672>html</span>&gt;
-</code></pre></div><h3 id=cartjsp>cart.jsp</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html><span style=color:#960050;background-color:#1e0010>&lt;</span>%@ page import=&#34;entity.Cart&#34; %&gt;
+</code></pre></div><h3 id=cartjsp>cart.jsp</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html><span style=color:#960050;background-color:#1e0010>&lt;</span>%@ page import=&#34;entity.Cart&#34; %&gt;
 <span style=color:#960050;background-color:#1e0010>&lt;</span>%@ page import=&#34;entity.Item&#34; %&gt;
 <span style=color:#960050;background-color:#1e0010>&lt;</span>%@ page import=&#34;java.util.HashMap&#34; %&gt;
 <span style=color:#960050;background-color:#1e0010>&lt;</span>%@ page contentType=&#34;text/html;charset=UTF-8&#34; language=&#34;java&#34; %&gt;
@@ -371,7 +439,8 @@
 &lt;/<span style=color:#f92672>script</span>&gt;
 &lt;/<span style=color:#f92672>body</span>&gt;
 &lt;/<span style=color:#f92672>html</span>&gt;
-</code></pre></div><h2 id=sql>sql</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> item (
+</code></pre></div><h2 id=sql>sql</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> item (
   id      SERIAL,
   name    TEXT    <span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span>,
   city    TEXT    <span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span>,
@@ -391,4 +460,46 @@
 <span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>INTO</span> item (name, city, price, number, picture) <span style=color:#66d9ef>VALUES</span> (<span style=color:#e6db74>&#39;thinkpad笔记本&#39;</span>, <span style=color:#e6db74>&#39;北京&#39;</span>, <span style=color:#e6db74>&#39;6999&#39;</span>, <span style=color:#e6db74>&#39;500&#39;</span>, <span style=color:#e6db74>&#39;008.jpg&#39;</span>);
 <span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>INTO</span> item (name, city, price, number, picture) <span style=color:#66d9ef>VALUES</span> (<span style=color:#e6db74>&#39;dell笔记本&#39;</span>, <span style=color:#e6db74>&#39;北京&#39;</span>, <span style=color:#e6db74>&#39;3999&#39;</span>, <span style=color:#e6db74>&#39;500&#39;</span>, <span style=color:#e6db74>&#39;009.jpg&#39;</span>);
 <span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>INTO</span> item (name, city, price, number, picture) <span style=color:#66d9ef>VALUES</span> (<span style=color:#e6db74>&#39;ipad5&#39;</span>, <span style=color:#e6db74>&#39;北京&#39;</span>, <span style=color:#e6db74>&#39;5999&#39;</span>, <span style=color:#e6db74>&#39;500&#39;</span>, <span style=color:#e6db74>&#39;010.jpg&#39;</span>);
-</code></pre></div></div><div class=sharing style=text-align:center><br><p>捐赠支持</p><p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p><p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p><img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%><p></p><br>&copy; 2015-2020 XhstormR</div></div></div></div><div id=backtop><a href=# title>TOP</a></div><nav id=TableOfContents><ul><li><a href=#src>src</a><ul><li><a href=#dao>dao</a></li><li><a href=#entity>entity</a></li><li><a href=#servlet>servlet</a></li><li><a href=#util>util</a></li></ul></li><li><a href=#web>web</a><ul><li><a href=#indexjsp>index.jsp</a></li><li><a href=#detailsjsp>details.jsp</a></li><li><a href=#cartjsp>cart.jsp</a></li></ul></li><li><a href=#sql>sql</a></li></ul></nav><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script><script>hljs.initHighlightingOnLoad()</script><script src=https://blog.xhstormr.tk/js/zoom.min.js></script><script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script><script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script></body></html>
+</code></pre></div>
+</div>
+<div class=sharing style=text-align:center>
+<br>
+<p>捐赠支持</p>
+<p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p>
+<p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p>
+<img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%>
+<p></p><br>&copy; 2015-2020 XhstormR
+</div>
+</div>
+</div>
+</div>
+<div id=backtop><a href=# title>TOP</a></div>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#src>src</a>
+<ul>
+<li><a href=#dao>dao</a></li>
+<li><a href=#entity>entity</a></li>
+<li><a href=#servlet>servlet</a></li>
+<li><a href=#util>util</a></li>
+</ul>
+</li>
+<li><a href=#web>web</a>
+<ul>
+<li><a href=#indexjsp>index.jsp</a></li>
+<li><a href=#detailsjsp>details.jsp</a></li>
+<li><a href=#cartjsp>cart.jsp</a></li>
+</ul>
+</li>
+<li><a href=#sql>sql</a></li>
+</ul>
+</nav>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script src=https://blog.xhstormr.tk/js/zoom.min.js></script>
+<script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script>
+<script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script>
+</body>
+</html>

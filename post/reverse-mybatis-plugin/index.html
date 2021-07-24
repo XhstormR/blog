@@ -1,5 +1,69 @@
-<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache><head><meta charset=utf-8><meta name=renderer content="webkit"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>逆向 MyBatis plugin &#183; XhstormR</title><link rel=alternate type=application/rss+xml title=XhstormR href><link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico><link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script><script src=https://blog.xhstormr.tk/js/main.min.js async defer></script></head><body><div id=scriptHeader><span class="mobile btn-mobile-menu"><i class="fa fa-bars btn-mobile-menu__icon"></i>
-<i class="fa fa-times btn-mobile-close__icon hidden"></i></span><header class="panel-cover panel-cover--collapsed"><div class=panel-main><div class="panel-main__inner panel-inverted"><div class=panel-main__content><h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1><hr class=panel-cover__divider><p class=panel-cover__description>On a dark desert highway, cool wind in my hair.</p><hr class="panel-cover__divider panel-cover__divider--secondary"><div class=navigation-wrapper><nav class="cover-navigation cover-navigation--primary"><ul class=navigation><li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li></ul></nav></div></div></div><div class=panel-cover--overlay></div></div></header></div><div class=bodytop><div class=content-wrapper><div class=content-wrapper__inner><div class=post><h1>逆向 MyBatis plugin</h1><span class=post-date>2018-07-14</span><p>Updated on 2018-07-15</p><blockquote><p><a href=https://plugins.jetbrains.com/plugin/7293-mybatis-plugin>https://plugins.jetbrains.com/plugin/7293-mybatis-plugin</a></p></blockquote><ul><li>两个模块：<ul><li>本地端：使用 C 和 Rust 语言混合编写，主要用于与服务器验证激活。</li><li>插件端：使用 Java 和 Kotlin 语言混合编写，用于与 IDEA 进行交互。</li></ul></li><li>使用 ZKM 进行代码混淆。</li><li>使用 <a href=https://github.com/prevoty/jni-rs>jni-rs</a> 从本地端通过 JNI 反射直接调用 Java 方法。</li></ul><h2 id=反混淆器>反混淆器</h2><ul><li><a href=https://github.com/java-deobfuscator/deobfuscator>https://github.com/java-deobfuscator/deobfuscator</a></li></ul><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ini data-lang=ini><span style=color:#a6e22e>java -jar deobfuscator-1.0.0.jar --config config.yml</span>
+<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache>
+<head>
+<meta charset=utf-8>
+<meta name=renderer content="webkit">
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title> 逆向 MyBatis plugin &#183; XhstormR </title>
+<link rel=alternate type=application/rss+xml title=XhstormR href>
+<link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico>
+<link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
+<script src=https://blog.xhstormr.tk/js/main.min.js async defer></script>
+</head>
+<body>
+<div id=scriptHeader>
+<span class="mobile btn-mobile-menu">
+<i class="fa fa-bars btn-mobile-menu__icon"></i>
+<i class="fa fa-times btn-mobile-close__icon hidden"></i>
+</span>
+<header class="panel-cover panel-cover--collapsed">
+<div class=panel-main>
+<div class="panel-main__inner panel-inverted">
+<div class=panel-main__content>
+<h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1>
+<hr class=panel-cover__divider>
+<p class=panel-cover__description> On a dark desert highway, cool wind in my hair. </p>
+<hr class="panel-cover__divider panel-cover__divider--secondary">
+<div class=navigation-wrapper>
+<nav class="cover-navigation cover-navigation--primary">
+<ul class=navigation>
+<li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class=panel-cover--overlay></div>
+</div>
+</header>
+</div>
+<div class=bodytop>
+<div class=content-wrapper>
+<div class=content-wrapper__inner>
+<div class=post>
+<h1>逆向 MyBatis plugin</h1>
+<span class=post-date>2018-07-14</span>
+<p>Updated on 2018-07-15</p>
+<blockquote>
+<p><a href=https://plugins.jetbrains.com/plugin/7293-mybatis-plugin>https://plugins.jetbrains.com/plugin/7293-mybatis-plugin</a></p>
+</blockquote>
+<ul>
+<li>两个模块：
+<ul>
+<li>本地端：使用 C 和 Rust 语言混合编写，主要用于与服务器验证激活。</li>
+<li>插件端：使用 Java 和 Kotlin 语言混合编写，用于与 IDEA 进行交互。</li>
+</ul>
+</li>
+<li>使用 ZKM 进行代码混淆。</li>
+<li>使用 <a href=https://github.com/prevoty/jni-rs>jni-rs</a> 从本地端通过 JNI 反射直接调用 Java 方法。</li>
+</ul>
+<h2 id=反混淆器>反混淆器</h2>
+<ul>
+<li><a href=https://github.com/java-deobfuscator/deobfuscator>https://github.com/java-deobfuscator/deobfuscator</a></li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ini data-lang=ini><span style=color:#a6e22e>java -jar deobfuscator-1.0.0.jar --config config.yml</span>
 
 <span style=color:#a6e22e>config.yml</span>
 <span style=color:#a6e22e>----</span>
@@ -13,7 +77,12 @@
 <span style=color:#a6e22e>transformers:</span>
  <span style=color:#a6e22e>- com.javadeobfuscator.deobfuscator.transformers.zelix.string.SimpleStringEncryptionTransformer</span>
  <span style=color:#a6e22e>- com.javadeobfuscator.deobfuscator.transformers.zelix.string.EnhancedStringEncryptionTransformer</span>
-</code></pre></div><h2 id=jdb-动态调试>JDB 动态调试</h2><ul><li><a href=https://docs.oracle.com/javase/8/docs/technotes/tools/windows/jdb.html>https://docs.oracle.com/javase/8/docs/technotes/tools/windows/jdb.html</a></li><li><a href=https://docs.oracle.com/javase/8/docs/technotes/guides/jpda/conninv.html>https://docs.oracle.com/javase/8/docs/technotes/guides/jpda/conninv.html</a></li></ul><pre><code>Server:
+</code></pre></div><h2 id=jdb-动态调试>JDB 动态调试</h2>
+<ul>
+<li><a href=https://docs.oracle.com/javase/8/docs/technotes/tools/windows/jdb.html>https://docs.oracle.com/javase/8/docs/technotes/tools/windows/jdb.html</a></li>
+<li><a href=https://docs.oracle.com/javase/8/docs/technotes/guides/jpda/conninv.html>https://docs.oracle.com/javase/8/docs/technotes/guides/jpda/conninv.html</a></li>
+</ul>
+<pre><code>Server:
 javac -g Main.java
 java -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=8000 Main
 
@@ -27,9 +96,23 @@ list
 locals
 print new com.a.a.h.d.r().a(365)
 exit
-</code></pre><h2 id=aspectj-拦截方法>AspectJ 拦截方法</h2><ul><li><a href="https://search.maven.org/search?q=g:org.aspectj">https://search.maven.org/search?q=g:org.aspectj</a><ul><li><a href=https://mirrors.tuna.tsinghua.edu.cn/eclipse/tools/aspectj/>https://mirrors.tuna.tsinghua.edu.cn/eclipse/tools/aspectj/</a></li><li><a href=https://maven.aliyun.com/repository/jcenter/org/aspectj/aspectjrt/1.9.5/aspectjrt-1.9.5.jar>aspectjrt</a>,
+</code></pre><h2 id=aspectj-拦截方法>AspectJ 拦截方法</h2>
+<ul>
+<li><a href="https://search.maven.org/search?q=g:org.aspectj">https://search.maven.org/search?q=g:org.aspectj</a>
+<ul>
+<li><a href=https://mirrors.tuna.tsinghua.edu.cn/eclipse/tools/aspectj/>https://mirrors.tuna.tsinghua.edu.cn/eclipse/tools/aspectj/</a></li>
+<li><a href=https://maven.aliyun.com/repository/jcenter/org/aspectj/aspectjrt/1.9.5/aspectjrt-1.9.5.jar>aspectjrt</a>,
 <a href=https://maven.aliyun.com/repository/jcenter/org/aspectj/aspectjtools/1.9.5/aspectjtools-1.9.5.jar>aspectjtools</a>,
-<a href=https://maven.aliyun.com/repository/jcenter/org/aspectj/aspectjweaver/1.9.5/aspectjweaver-1.9.5.jar>aspectjweaver</a></li></ul></li><li><a href=https://www.eclipse.org/aspectj/doc/released/progguide/semantics.html>https://www.eclipse.org/aspectj/doc/released/progguide/semantics.html</a></li><li><a href=https://www.eclipse.org/aspectj/doc/released/devguide/ltw-configuration.html>https://www.eclipse.org/aspectj/doc/released/devguide/ltw-configuration.html</a></li><li><a href=https://www.eclipse.org/aspectj/doc/released/runtime-api/allclasses-frame.html>https://www.eclipse.org/aspectj/doc/released/runtime-api/allclasses-frame.html</a></li><li>使用加载时编织（Load-time Weaving），兼容性比较好。</li></ul><h3 id=tracingaj>Tracing.aj</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#f92672>import</span> org.aspectj.lang.JoinPoint<span style=color:#f92672>;</span>
+<a href=https://maven.aliyun.com/repository/jcenter/org/aspectj/aspectjweaver/1.9.5/aspectjweaver-1.9.5.jar>aspectjweaver</a></li>
+</ul>
+</li>
+<li><a href=https://www.eclipse.org/aspectj/doc/released/progguide/semantics.html>https://www.eclipse.org/aspectj/doc/released/progguide/semantics.html</a></li>
+<li><a href=https://www.eclipse.org/aspectj/doc/released/devguide/ltw-configuration.html>https://www.eclipse.org/aspectj/doc/released/devguide/ltw-configuration.html</a></li>
+<li><a href=https://www.eclipse.org/aspectj/doc/released/runtime-api/allclasses-frame.html>https://www.eclipse.org/aspectj/doc/released/runtime-api/allclasses-frame.html</a></li>
+<li>使用加载时编织（Load-time Weaving），兼容性比较好。</li>
+</ul>
+<h3 id=tracingaj>Tracing.aj</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#f92672>import</span> org.aspectj.lang.JoinPoint<span style=color:#f92672>;</span>
 <span style=color:#f92672>import</span> org.aspectj.lang.reflect.MethodSignature<span style=color:#f92672>;</span>
 
 <span style=color:#f92672>import</span> java.io.IOException<span style=color:#f92672>;</span>
@@ -112,7 +195,8 @@ exit
 </span><span style=color:#75715e>//        }
 </span><span style=color:#75715e>//    }
 </span><span style=color:#75715e></span><span style=color:#f92672>}</span>
-</code></pre></div><h3 id=aop-ajcxml>aop-ajc.xml</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#f92672>&lt;aspectj&gt;</span>
+</code></pre></div><h3 id=aop-ajcxml>aop-ajc.xml</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#f92672>&lt;aspectj&gt;</span>
     <span style=color:#f92672>&lt;aspects&gt;</span>
         <span style=color:#f92672>&lt;aspect</span> <span style=color:#a6e22e>name=</span><span style=color:#e6db74>&#34;Tracing&#34;</span><span style=color:#f92672>/&gt;</span>
     <span style=color:#f92672>&lt;/aspects&gt;</span>
@@ -121,12 +205,50 @@ exit
         <span style=color:#f92672>&lt;include</span> <span style=color:#a6e22e>within=</span><span style=color:#e6db74>&#34;com.a..*&#34;</span><span style=color:#f92672>/&gt;</span>
     <span style=color:#f92672>&lt;/weaver&gt;</span>
 <span style=color:#f92672>&lt;/aspectj&gt;</span>
-</code></pre></div><h3 id=编译>编译</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>java -cp aspectjtools-1.9.1.jar;aspectjrt-1.9.1.jar; org.aspectj.tools.ajc.Main -outjar 123.jar -outxml -1.8 -Xlint:ignore Tracing.aj
-</code></pre></div><h3 id=运行>运行</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>ideaIU-2018.1<span style=color:#ae81ff>\b</span>in<span style=color:#ae81ff>\i</span>dea64.exe.vmoptions
+</code></pre></div><h3 id=编译>编译</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>java -cp aspectjtools-1.9.1.jar;aspectjrt-1.9.1.jar; org.aspectj.tools.ajc.Main -outjar 123.jar -outxml -1.8 -Xlint:ignore Tracing.aj
+</code></pre></div><h3 id=运行>运行</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>ideaIU-2018.1<span style=color:#ae81ff>\b</span>in<span style=color:#ae81ff>\i</span>dea64.exe.vmoptions
 ----
 -javaagent:D:<span style=color:#ae81ff>\D</span>ownload<span style=color:#ae81ff>\a</span>spectjweaver-1.9.1.jar
 
 .IntelliJIdea2018.1<span style=color:#ae81ff>\c</span>onfig<span style=color:#ae81ff>\p</span>lugins<span style=color:#ae81ff>\M</span>yBatis<span style=color:#ae81ff>\l</span>ib
 ----
 123.jar
-</code></pre></div></div><div class=sharing style=text-align:center><br><p>捐赠支持</p><p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p><p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p><img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%><p></p><br>&copy; 2015-2020 XhstormR</div></div></div></div><div id=backtop><a href=# title>TOP</a></div><nav id=TableOfContents><ul><li><a href=#反混淆器>反混淆器</a></li><li><a href=#jdb-动态调试>JDB 动态调试</a></li><li><a href=#aspectj-拦截方法>AspectJ 拦截方法</a><ul><li><a href=#tracingaj>Tracing.aj</a></li><li><a href=#aop-ajcxml>aop-ajc.xml</a></li><li><a href=#编译>编译</a></li><li><a href=#运行>运行</a></li></ul></li></ul></nav><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script><script>hljs.initHighlightingOnLoad()</script><script src=https://blog.xhstormr.tk/js/zoom.min.js></script><script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script><script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script></body></html>
+</code></pre></div>
+</div>
+<div class=sharing style=text-align:center>
+<br>
+<p>捐赠支持</p>
+<p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p>
+<p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p>
+<img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%>
+<p></p><br>&copy; 2015-2020 XhstormR
+</div>
+</div>
+</div>
+</div>
+<div id=backtop><a href=# title>TOP</a></div>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#反混淆器>反混淆器</a></li>
+<li><a href=#jdb-动态调试>JDB 动态调试</a></li>
+<li><a href=#aspectj-拦截方法>AspectJ 拦截方法</a>
+<ul>
+<li><a href=#tracingaj>Tracing.aj</a></li>
+<li><a href=#aop-ajcxml>aop-ajc.xml</a></li>
+<li><a href=#编译>编译</a></li>
+<li><a href=#运行>运行</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script src=https://blog.xhstormr.tk/js/zoom.min.js></script>
+<script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script>
+<script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script>
+</body>
+</html>

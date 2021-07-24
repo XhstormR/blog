@@ -1,15 +1,143 @@
-<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache><head><meta charset=utf-8><meta name=renderer content="webkit"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>逆向 Charles &#183; XhstormR</title><link rel=alternate type=application/rss+xml title=XhstormR href><link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico><link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script><script src=https://blog.xhstormr.tk/js/main.min.js async defer></script></head><body><div id=scriptHeader><span class="mobile btn-mobile-menu"><i class="fa fa-bars btn-mobile-menu__icon"></i>
-<i class="fa fa-times btn-mobile-close__icon hidden"></i></span><header class="panel-cover panel-cover--collapsed"><div class=panel-main><div class="panel-main__inner panel-inverted"><div class=panel-main__content><h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1><hr class=panel-cover__divider><p class=panel-cover__description>On a dark desert highway, cool wind in my hair.</p><hr class="panel-cover__divider panel-cover__divider--secondary"><div class=navigation-wrapper><nav class="cover-navigation cover-navigation--primary"><ul class=navigation><li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li></ul></nav></div></div></div><div class=panel-cover--overlay></div></div></header></div><div class=bodytop><div class=content-wrapper><div class=content-wrapper__inner><div class=post><h1>逆向 Charles</h1><span class=post-date>2017-07-18</span><p>Updated on 2017-07-18</p><blockquote><p style=text-align:center><img data-src=/uploads/reverse-charles0.png alt title=Charles data-action=zoom width></p><script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(a){a.setAttribute("src",a.getAttribute("data-src")),a.onload=function(){a.removeAttribute("data-src")}})</script><p><a href=https://www.charlesproxy.com/>https://www.charlesproxy.com/</a></p></blockquote><h2 id=step>Step</h2><ol><li>反编译 charles.jar。</li><li>搜索 <strong><code>Unregistered</code></strong>，定位至 <code>gIbD.class</code>。<p style=text-align:center><img data-src=/uploads/reverse-charles1.png alt title data-action=zoom width></p><script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(a){a.setAttribute("src",a.getAttribute("data-src")),a.onload=function(){a.removeAttribute("data-src")}})</script></li><li>修改属性 <code>PcqR</code> 的值为 <strong><code>true</code></strong>。<p style=text-align:center><img data-src=/uploads/reverse-charles2.png alt title data-action=zoom width></p><script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(a){a.setAttribute("src",a.getAttribute("data-src")),a.onload=function(){a.removeAttribute("data-src")}})</script></li><li>修改方法 <code>PcqR</code> 的返回值为 <strong><code>XhstormR</code></strong>。<p style=text-align:center><img data-src=/uploads/reverse-charles3.png alt title data-action=zoom width></p><script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(a){a.setAttribute("src",a.getAttribute("data-src")),a.onload=function(){a.removeAttribute("data-src")}})</script></li></ol><h2 id=code>Code</h2><pre><code>iconst_1
+<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache>
+<head>
+<meta charset=utf-8>
+<meta name=renderer content="webkit">
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title> 逆向 Charles &#183; XhstormR </title>
+<link rel=alternate type=application/rss+xml title=XhstormR href>
+<link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico>
+<link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
+<script src=https://blog.xhstormr.tk/js/main.min.js async defer></script>
+</head>
+<body>
+<div id=scriptHeader>
+<span class="mobile btn-mobile-menu">
+<i class="fa fa-bars btn-mobile-menu__icon"></i>
+<i class="fa fa-times btn-mobile-close__icon hidden"></i>
+</span>
+<header class="panel-cover panel-cover--collapsed">
+<div class=panel-main>
+<div class="panel-main__inner panel-inverted">
+<div class=panel-main__content>
+<h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1>
+<hr class=panel-cover__divider>
+<p class=panel-cover__description> On a dark desert highway, cool wind in my hair. </p>
+<hr class="panel-cover__divider panel-cover__divider--secondary">
+<div class=navigation-wrapper>
+<nav class="cover-navigation cover-navigation--primary">
+<ul class=navigation>
+<li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class=panel-cover--overlay></div>
+</div>
+</header>
+</div>
+<div class=bodytop>
+<div class=content-wrapper>
+<div class=content-wrapper__inner>
+<div class=post>
+<h1>逆向 Charles</h1>
+<span class=post-date>2017-07-18</span>
+<p>Updated on 2017-07-18</p>
+<blockquote>
+<p style=text-align:center><img data-src=/uploads/reverse-charles0.png alt title=Charles data-action=zoom width></p>
+<script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(a){a.setAttribute("src",a.getAttribute("data-src")),a.onload=function(){a.removeAttribute("data-src")}})</script>
+<p><a href=https://www.charlesproxy.com/>https://www.charlesproxy.com/</a></p>
+</blockquote>
+<h2 id=step>Step</h2>
+<ol>
+<li>反编译 charles.jar。</li>
+<li>搜索 <strong><code>Unregistered</code></strong>，定位至 <code>gIbD.class</code>。
+<p style=text-align:center><img data-src=/uploads/reverse-charles1.png alt title data-action=zoom width></p>
+<script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(a){a.setAttribute("src",a.getAttribute("data-src")),a.onload=function(){a.removeAttribute("data-src")}})</script></li>
+<li>修改属性 <code>PcqR</code> 的值为 <strong><code>true</code></strong>。
+<p style=text-align:center><img data-src=/uploads/reverse-charles2.png alt title data-action=zoom width></p>
+<script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(a){a.setAttribute("src",a.getAttribute("data-src")),a.onload=function(){a.removeAttribute("data-src")}})</script></li>
+<li>修改方法 <code>PcqR</code> 的返回值为 <strong><code>XhstormR</code></strong>。
+<p style=text-align:center><img data-src=/uploads/reverse-charles3.png alt title data-action=zoom width></p>
+<script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(a){a.setAttribute("src",a.getAttribute("data-src")),a.onload=function(){a.removeAttribute("data-src")}})</script></li>
+</ol>
+<h2 id=code>Code</h2>
+<pre><code>iconst_1
 putfield com/xk72/charles/gIbD/PcqR Z
 </code></pre><pre><code>ldc &quot;XhstormR&quot;
 areturn
 </code></pre><pre><code>jar -cfM charles.jar -C charles/ .
 </code></pre><pre><code>java -noverify -jar charles.jar
-</code></pre><h2 id=reference>Reference</h2><ul><li><a href=https://github.com/skylot/jadx>https://github.com/skylot/jadx</a></li><li><a href=https://github.com/pxb1988/dex2jar>https://github.com/pxb1988/dex2jar</a></li><li><a href=https://github.com/JesusFreke/smali>https://github.com/JesusFreke/smali</a></li><li><a href=https://github.com/iBotPeaches/Apktool>https://github.com/iBotPeaches/Apktool</a></li><li><a href=https://github.com/deathmarine/Luyten>https://github.com/deathmarine/Luyten</a></li><li><a href=https://github.com/java-decompiler/jd-gui>https://github.com/java-decompiler/jd-gui</a></li><li><a href=https://github.com/Col-E/Recaf>https://github.com/Col-E/Recaf</a></li><li><a href=https://github.com/GraxCode/JByteMod-Beta>https://github.com/GraxCode/JByteMod-Beta</a></li><li><a href=https://github.com/Konloch/bytecode-viewer>https://github.com/Konloch/bytecode-viewer</a></li><li><a href=https://github.com/JetBrains/intellij-community/tree/master/plugins/java-decompiler/engine>https://github.com/JetBrains/intellij-community/tree/master/plugins</a></li><li><a href=https://github.com/leibnitz27/cfr>https://github.com/leibnitz27/cfr</a></li><li><a href=https://set.ee/jbe/>https://set.ee/jbe/</a><ul><li><a href=https://github.com/ingokegel/jclasslib>https://github.com/ingokegel/jclasslib</a></li><li><a href=https://github.com/apache/commons-bcel>https://github.com/apache/commons-bcel</a></li></ul></li><li>代码生成：<ul><li><a href=https://github.com/cglib/cglib>https://github.com/cglib/cglib</a></li><li><a href=https://github.com/raphw/byte-buddy>https://github.com/raphw/byte-buddy</a></li><li><a href=https://github.com/jboss-javassist/javassist>https://github.com/jboss-javassist/javassist</a></li></ul></li><li>Android：<ul><li><a href=https://github.com/CalebFenton/simplify>https://github.com/CalebFenton/simplify</a></li></ul></li></ul><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>jclasslib
+</code></pre><h2 id=reference>Reference</h2>
+<ul>
+<li><a href=https://github.com/skylot/jadx>https://github.com/skylot/jadx</a></li>
+<li><a href=https://github.com/pxb1988/dex2jar>https://github.com/pxb1988/dex2jar</a></li>
+<li><a href=https://github.com/JesusFreke/smali>https://github.com/JesusFreke/smali</a></li>
+<li><a href=https://github.com/iBotPeaches/Apktool>https://github.com/iBotPeaches/Apktool</a></li>
+<li><a href=https://github.com/deathmarine/Luyten>https://github.com/deathmarine/Luyten</a></li>
+<li><a href=https://github.com/java-decompiler/jd-gui>https://github.com/java-decompiler/jd-gui</a></li>
+<li><a href=https://github.com/Col-E/Recaf>https://github.com/Col-E/Recaf</a></li>
+<li><a href=https://github.com/GraxCode/JByteMod-Beta>https://github.com/GraxCode/JByteMod-Beta</a></li>
+<li><a href=https://github.com/Konloch/bytecode-viewer>https://github.com/Konloch/bytecode-viewer</a></li>
+<li><a href=https://github.com/JetBrains/intellij-community/tree/master/plugins/java-decompiler/engine>https://github.com/JetBrains/intellij-community/tree/master/plugins</a></li>
+<li><a href=https://github.com/leibnitz27/cfr>https://github.com/leibnitz27/cfr</a></li>
+<li><a href=https://set.ee/jbe/>https://set.ee/jbe/</a>
+<ul>
+<li><a href=https://github.com/ingokegel/jclasslib>https://github.com/ingokegel/jclasslib</a></li>
+<li><a href=https://github.com/apache/commons-bcel>https://github.com/apache/commons-bcel</a></li>
+</ul>
+</li>
+<li>代码生成：
+<ul>
+<li><a href=https://github.com/cglib/cglib>https://github.com/cglib/cglib</a></li>
+<li><a href=https://github.com/raphw/byte-buddy>https://github.com/raphw/byte-buddy</a></li>
+<li><a href=https://github.com/jboss-javassist/javassist>https://github.com/jboss-javassist/javassist</a></li>
+</ul>
+</li>
+<li>Android：
+<ul>
+<li><a href=https://github.com/CalebFenton/simplify>https://github.com/CalebFenton/simplify</a></li>
+</ul>
+</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>jclasslib
 ----
 java -cp i4jruntime.jar;jclasslib-browser.jar;jclasslib-library.jar;annotations-13.0.jar;kotlin-stdlib-1.1.50.jar;kotlinx.dom-0.0.10.jar;miglayout-core-5.0.jar;miglayout-swing-5.0.jar; org.gjt.jclasslib.browser.BrowserApplication
 
 cfr
 ----
 java -jar cfr_0_123.jar 123.jar --caseinsensitivefs true --outputdir <span style=color:#ae81ff>123</span>
-</code></pre></div><p><a href=http://ww4.sinaimg.cn/large/a15b4afely1fhpf98jnuxj203k03k4r4><p style=text-align:center><img src=/uploads/file-into-picture2.png alt title=4.1.4 width></p></a></p></div><div class=sharing style=text-align:center><br><p>捐赠支持</p><p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p><p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p><img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%><p></p><br>&copy; 2015-2020 XhstormR</div></div></div></div><div id=backtop><a href=# title>TOP</a></div><nav id=TableOfContents><ul><li><a href=#step>Step</a></li><li><a href=#code>Code</a></li><li><a href=#reference>Reference</a></li></ul></nav><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script><script>hljs.initHighlightingOnLoad()</script><script src=https://blog.xhstormr.tk/js/zoom.min.js></script><script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script><script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script></body></html>
+</code></pre></div><p><a href=http://ww4.sinaimg.cn/large/a15b4afely1fhpf98jnuxj203k03k4r4><p style=text-align:center><img src=/uploads/file-into-picture2.png alt title=4.1.4 width></p>
+</a></p>
+</div>
+<div class=sharing style=text-align:center>
+<br>
+<p>捐赠支持</p>
+<p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p>
+<p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p>
+<img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%>
+<p></p><br>&copy; 2015-2020 XhstormR
+</div>
+</div>
+</div>
+</div>
+<div id=backtop><a href=# title>TOP</a></div>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#step>Step</a></li>
+<li><a href=#code>Code</a></li>
+<li><a href=#reference>Reference</a></li>
+</ul>
+</nav>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script src=https://blog.xhstormr.tk/js/zoom.min.js></script>
+<script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script>
+<script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script>
+</body>
+</html>

@@ -1,5 +1,73 @@
-<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache><head><meta charset=utf-8><meta name=renderer content="webkit"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>Android Handler &#183; XhstormR</title><link rel=alternate type=application/rss+xml title=XhstormR href><link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico><link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script><script src=https://blog.xhstormr.tk/js/main.min.js async defer></script></head><body><div id=scriptHeader><span class="mobile btn-mobile-menu"><i class="fa fa-bars btn-mobile-menu__icon"></i>
-<i class="fa fa-times btn-mobile-close__icon hidden"></i></span><header class="panel-cover panel-cover--collapsed"><div class=panel-main><div class="panel-main__inner panel-inverted"><div class=panel-main__content><h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1><hr class=panel-cover__divider><p class=panel-cover__description>On a dark desert highway, cool wind in my hair.</p><hr class="panel-cover__divider panel-cover__divider--secondary"><div class=navigation-wrapper><nav class="cover-navigation cover-navigation--primary"><ul class=navigation><li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li></ul></nav></div></div></div><div class=panel-cover--overlay></div></div></header></div><div class=bodytop><div class=content-wrapper><div class=content-wrapper__inner><div class=post><h1>Android Handler</h1><span class=post-date>2016-10-25</span><p>Updated on 2016-10-29</p><blockquote><p style=text-align:center><img data-src=/uploads/android-handler.svg alt title="Handler 机制" data-action=zoom width></p><script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(a){a.setAttribute("src",a.getAttribute("data-src")),a.onload=function(){a.removeAttribute("data-src")}})</script><p><a href=http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/java/lang/ThreadLocal.html>ThreadLocal</a></p><p><a href=http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/java/lang/ref/WeakReference.html>WeakReference</a></p><p><a href=http://www.sourceinsight.com/down35.html>Source Insight</a></p></blockquote><ul><li>Handler：负责发送和处理 Message。</li><li>ThreadLocal：负责保存 Looper，作为线程的局部变量。<ul><li>Looper：负责接收并转发 Message。<ul><li>MessageQueue：负责存储 Message 的容器。</li></ul></li></ul></li></ul><h2 id=post--runnable>post ➜ Runnable</h2><h3 id=mainactivityjava>MainActivity.java</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MainActivity</span> <span style=color:#66d9ef>extends</span> Activity <span style=color:#f92672>{</span>
+<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache>
+<head>
+<meta charset=utf-8>
+<meta name=renderer content="webkit">
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title> Android Handler &#183; XhstormR </title>
+<link rel=alternate type=application/rss+xml title=XhstormR href>
+<link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico>
+<link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
+<script src=https://blog.xhstormr.tk/js/main.min.js async defer></script>
+</head>
+<body>
+<div id=scriptHeader>
+<span class="mobile btn-mobile-menu">
+<i class="fa fa-bars btn-mobile-menu__icon"></i>
+<i class="fa fa-times btn-mobile-close__icon hidden"></i>
+</span>
+<header class="panel-cover panel-cover--collapsed">
+<div class=panel-main>
+<div class="panel-main__inner panel-inverted">
+<div class=panel-main__content>
+<h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1>
+<hr class=panel-cover__divider>
+<p class=panel-cover__description> On a dark desert highway, cool wind in my hair. </p>
+<hr class="panel-cover__divider panel-cover__divider--secondary">
+<div class=navigation-wrapper>
+<nav class="cover-navigation cover-navigation--primary">
+<ul class=navigation>
+<li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class=panel-cover--overlay></div>
+</div>
+</header>
+</div>
+<div class=bodytop>
+<div class=content-wrapper>
+<div class=content-wrapper__inner>
+<div class=post>
+<h1>Android Handler</h1>
+<span class=post-date>2016-10-25</span>
+<p>Updated on 2016-10-29</p>
+<blockquote>
+<p style=text-align:center><img data-src=/uploads/android-handler.svg alt title="Handler 机制" data-action=zoom width></p>
+<script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(a){a.setAttribute("src",a.getAttribute("data-src")),a.onload=function(){a.removeAttribute("data-src")}})</script>
+<p><a href=http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/java/lang/ThreadLocal.html>ThreadLocal</a></p>
+<p><a href=http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/java/lang/ref/WeakReference.html>WeakReference</a></p>
+<p><a href=http://www.sourceinsight.com/down35.html>Source Insight</a></p>
+</blockquote>
+<ul>
+<li>Handler：负责发送和处理 Message。</li>
+<li>ThreadLocal：负责保存 Looper，作为线程的局部变量。
+<ul>
+<li>Looper：负责接收并转发 Message。
+<ul>
+<li>MessageQueue：负责存储 Message 的容器。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id=post--runnable>post ➜ Runnable</h2>
+<h3 id=mainactivityjava>MainActivity.java</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MainActivity</span> <span style=color:#66d9ef>extends</span> Activity <span style=color:#f92672>{</span>
     <span style=color:#66d9ef>private</span> ImageView mImageView<span style=color:#f92672>;</span>
     <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>final</span> Handler mHandler <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Handler<span style=color:#f92672>();</span>
     <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>final</span> Runnable mRunnable <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Runnable<span style=color:#f92672>()</span> <span style=color:#f92672>{</span>     A<span style=color:#960050;background-color:#1e0010>：</span>第一种<span style=color:#960050;background-color:#1e0010>（</span>postDelayed<span style=color:#960050;background-color:#1e0010>）</span>
@@ -74,7 +142,8 @@
         <span style=color:#f92672>}</span>
     <span style=color:#f92672>}</span>
 <span style=color:#f92672>}</span>
-</code></pre></div><h3 id=activity_mainxml>activity_main.xml</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#f92672>&lt;LinearLayout</span>
+</code></pre></div><h3 id=activity_mainxml>activity_main.xml</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#f92672>&lt;LinearLayout</span>
         <span style=color:#a6e22e>xmlns:android=</span><span style=color:#e6db74>&#34;http://schemas.android.com/apk/res/android&#34;</span>
         <span style=color:#a6e22e>android:orientation=</span><span style=color:#e6db74>&#34;vertical&#34;</span>
         <span style=color:#a6e22e>android:padding=</span><span style=color:#e6db74>&#34;16dp&#34;</span>
@@ -98,7 +167,9 @@
             <span style=color:#a6e22e>android:text=</span><span style=color:#e6db74>&#34;停止&#34;</span>
             <span style=color:#a6e22e>android:id=</span><span style=color:#e6db74>&#34;@+id/button2&#34;</span><span style=color:#f92672>/&gt;</span>
 <span style=color:#f92672>&lt;/LinearLayout&gt;</span>
-</code></pre></div><h2 id=sendmessage--message>sendMessage ➜ Message</h2><h3 id=mainactivityjava-1>MainActivity.java</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MainActivity</span> <span style=color:#66d9ef>extends</span> Activity <span style=color:#f92672>{</span>
+</code></pre></div><h2 id=sendmessage--message>sendMessage ➜ Message</h2>
+<h3 id=mainactivityjava-1>MainActivity.java</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MainActivity</span> <span style=color:#66d9ef>extends</span> Activity <span style=color:#f92672>{</span>
     <span style=color:#66d9ef>private</span> TextView mTextView<span style=color:#f92672>;</span>
     <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>final</span> Handler mHandler <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Handler<span style=color:#f92672>(</span><span style=color:#66d9ef>new</span> Handler<span style=color:#f92672>.</span><span style=color:#a6e22e>Callback</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
         <span style=color:#a6e22e>@Override</span>
@@ -150,7 +221,8 @@
         <span style=color:#f92672>}</span>
     <span style=color:#f92672>}</span>
 <span style=color:#f92672>}</span>
-</code></pre></div><h3 id=activity_mainxml-1>activity_main.xml</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#f92672>&lt;LinearLayout</span>
+</code></pre></div><h3 id=activity_mainxml-1>activity_main.xml</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#f92672>&lt;LinearLayout</span>
         <span style=color:#a6e22e>xmlns:android=</span><span style=color:#e6db74>&#34;http://schemas.android.com/apk/res/android&#34;</span>
         <span style=color:#a6e22e>android:orientation=</span><span style=color:#e6db74>&#34;vertical&#34;</span>
         <span style=color:#a6e22e>android:padding=</span><span style=color:#e6db74>&#34;16dp&#34;</span>
@@ -170,7 +242,26 @@
             <span style=color:#a6e22e>android:textSize=</span><span style=color:#e6db74>&#34;20sp&#34;</span>
             <span style=color:#a6e22e>android:id=</span><span style=color:#e6db74>&#34;@+id/textView&#34;</span><span style=color:#f92672>/&gt;</span>
 <span style=color:#f92672>&lt;/LinearLayout&gt;</span>
-</code></pre></div><h2 id=防止-handler-导致内存泄漏>防止 Handler 导致内存泄漏</h2><ul><li>导致原因：<ul><li>非静态的内部类默认持有其外部类的强引用。</li><li>Handler 对象发送的 Message 对象会持有此 Handler 对象的引用。</li><li>Message ➜ Handler ➜ Activity ➜ Activity 资源无法回收（内存泄漏）</li></ul></li><li>解决方案：<ul><li>声明 Handler 为 <code>static</code> 或者使用 <code>Handler.Callback</code> 接口或者为其新建类文件。</li><li>通过弱引用持有外部 Activity。</li></ul></li><li>弱引用：只持有弱引用的对象随时都会被回收，用于避免内存泄漏。（WeakReference）</li><li>软引用：只持有软引用的对象内存不足时回收，用于实现缓存机制。（SoftReference）</li><li>引用级别：强引用 > 软引用 > 弱引用 > 虚引用</li></ul><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MainActivity</span> <span style=color:#66d9ef>extends</span> Activity <span style=color:#f92672>{</span>
+</code></pre></div><h2 id=防止-handler-导致内存泄漏>防止 Handler 导致内存泄漏</h2>
+<ul>
+<li>导致原因：
+<ul>
+<li>非静态的内部类默认持有其外部类的强引用。</li>
+<li>Handler 对象发送的 Message 对象会持有此 Handler 对象的引用。</li>
+<li>Message ➜ Handler ➜ Activity ➜ Activity 资源无法回收（内存泄漏）</li>
+</ul>
+</li>
+<li>解决方案：
+<ul>
+<li>声明 Handler 为 <code>static</code> 或者使用 <code>Handler.Callback</code> 接口或者为其新建类文件。</li>
+<li>通过弱引用持有外部 Activity。</li>
+</ul>
+</li>
+<li>弱引用：只持有弱引用的对象随时都会被回收，用于避免内存泄漏。（WeakReference）</li>
+<li>软引用：只持有软引用的对象内存不足时回收，用于实现缓存机制。（SoftReference）</li>
+<li>引用级别：强引用 > 软引用 > 弱引用 > 虚引用</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MainActivity</span> <span style=color:#66d9ef>extends</span> Activity <span style=color:#f92672>{</span>
     <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>final</span> Runnable mRunnable <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Runnable<span style=color:#f92672>()</span> <span style=color:#f92672>{</span>     静态匿名内部类
         <span style=color:#a6e22e>@Override</span>
         <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>run</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
@@ -225,7 +316,8 @@
         <span style=color:#f92672>}</span>
     <span style=color:#f92672>}</span>
 <span style=color:#f92672>}</span>
-</code></pre></div><h2 id=自定义-looper-线程>自定义 Looper 线程</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MainActivity</span> <span style=color:#66d9ef>extends</span> Activity <span style=color:#f92672>{</span>
+</code></pre></div><h2 id=自定义-looper-线程>自定义 Looper 线程</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MainActivity</span> <span style=color:#66d9ef>extends</span> Activity <span style=color:#f92672>{</span>
     <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>final</span> MyHandler mMyHandler <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> MyHandler<span style=color:#f92672>();</span>     与主线程进行关联
 
     <span style=color:#a6e22e>@Override</span>
@@ -271,7 +363,8 @@
 输出<span style=color:#960050;background-color:#1e0010>：</span>
 21106<span style=color:#f92672>-</span>21387<span style=color:#f92672>/</span>com<span style=color:#f92672>.</span><span style=color:#a6e22e>example</span><span style=color:#f92672>.</span><span style=color:#a6e22e>myapp</span><span style=color:#f92672>.</span><span style=color:#a6e22e>myapplication</span> W<span style=color:#f92672>/</span>Tag<span style=color:#f92672>:</span> 2<span style=color:#f92672>::</span>Thread<span style=color:#f92672>[</span>Thread<span style=color:#f92672>-</span>214<span style=color:#f92672>,</span>5<span style=color:#f92672>,</span>main<span style=color:#f92672>]</span>
 21106<span style=color:#f92672>-</span>21106<span style=color:#f92672>/</span>com<span style=color:#f92672>.</span><span style=color:#a6e22e>example</span><span style=color:#f92672>.</span><span style=color:#a6e22e>myapp</span><span style=color:#f92672>.</span><span style=color:#a6e22e>myapplication</span> W<span style=color:#f92672>/</span>Tag<span style=color:#f92672>:</span> 1<span style=color:#f92672>::</span>Thread<span style=color:#f92672>[</span>main<span style=color:#f92672>,</span>5<span style=color:#f92672>,</span>main<span style=color:#f92672>]</span>
-</code></pre></div><h3 id=handlerthread>HandlerThread</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MainActivity</span> <span style=color:#66d9ef>extends</span> Activity <span style=color:#f92672>{</span>
+</code></pre></div><h3 id=handlerthread>HandlerThread</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MainActivity</span> <span style=color:#66d9ef>extends</span> Activity <span style=color:#f92672>{</span>
     <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>final</span> HandlerThread mHandlerThread <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> HandlerThread<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;123&#34;</span><span style=color:#f92672>);</span>     已封装好的 Looper 线程<span style=color:#960050;background-color:#1e0010>，</span>推荐这种方式
     <span style=color:#66d9ef>private</span> MyHandler mMyHandler1<span style=color:#f92672>;</span>
     <span style=color:#66d9ef>private</span> MyHandler mMyHandler2<span style=color:#f92672>;</span>
@@ -307,7 +400,8 @@
 输出<span style=color:#960050;background-color:#1e0010>：</span>
 2853<span style=color:#f92672>-</span>4062<span style=color:#f92672>/</span>com<span style=color:#f92672>.</span><span style=color:#a6e22e>example</span><span style=color:#f92672>.</span><span style=color:#a6e22e>myapp</span><span style=color:#f92672>.</span><span style=color:#a6e22e>myapplication</span> W<span style=color:#f92672>/</span>Tag<span style=color:#f92672>:</span> 0<span style=color:#f92672>::</span>Thread<span style=color:#f92672>[</span>123<span style=color:#f92672>,</span>5<span style=color:#f92672>,</span>main<span style=color:#f92672>]</span>
 2853<span style=color:#f92672>-</span>2853<span style=color:#f92672>/</span>com<span style=color:#f92672>.</span><span style=color:#a6e22e>example</span><span style=color:#f92672>.</span><span style=color:#a6e22e>myapp</span><span style=color:#f92672>.</span><span style=color:#a6e22e>myapplication</span> W<span style=color:#f92672>/</span>Tag<span style=color:#f92672>:</span> 0<span style=color:#f92672>::</span>Thread<span style=color:#f92672>[</span>main<span style=color:#f92672>,</span>5<span style=color:#f92672>,</span>main<span style=color:#f92672>]</span>
-</code></pre></div><h2 id=线程之间的交互>线程之间的交互</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MainActivity</span> <span style=color:#66d9ef>extends</span> Activity <span style=color:#f92672>{</span>
+</code></pre></div><h2 id=线程之间的交互>线程之间的交互</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MainActivity</span> <span style=color:#66d9ef>extends</span> Activity <span style=color:#f92672>{</span>
     <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>final</span> HandlerThread mHandlerThread <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> HandlerThread<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;123&#34;</span><span style=color:#f92672>);</span>
     <span style=color:#66d9ef>private</span> MyHandler mMyHandler1<span style=color:#f92672>;</span>
     <span style=color:#66d9ef>private</span> MyHandler mMyHandler2<span style=color:#f92672>;</span>
@@ -356,7 +450,8 @@
 输出<span style=color:#960050;background-color:#1e0010>：</span>
 15749<span style=color:#f92672>-</span>18518<span style=color:#f92672>/</span>com<span style=color:#f92672>.</span><span style=color:#a6e22e>example</span><span style=color:#f92672>.</span><span style=color:#a6e22e>myapp</span><span style=color:#f92672>.</span><span style=color:#a6e22e>myapplication</span> W<span style=color:#f92672>/</span>Tag<span style=color:#f92672>:</span> 1<span style=color:#f92672>::</span>主线程发往子线程<span style=color:#f92672>::</span>Thread<span style=color:#f92672>[</span>123<span style=color:#f92672>,</span>5<span style=color:#f92672>,</span>main<span style=color:#f92672>]</span>
 15749<span style=color:#f92672>-</span>15749<span style=color:#f92672>/</span>com<span style=color:#f92672>.</span><span style=color:#a6e22e>example</span><span style=color:#f92672>.</span><span style=color:#a6e22e>myapp</span><span style=color:#f92672>.</span><span style=color:#a6e22e>myapplication</span> W<span style=color:#f92672>/</span>Tag<span style=color:#f92672>:</span> 2<span style=color:#f92672>::</span>子线程发往主线程<span style=color:#f92672>::</span>Thread<span style=color:#f92672>[</span>main<span style=color:#f92672>,</span>5<span style=color:#f92672>,</span>main<span style=color:#f92672>]</span>
-</code></pre></div><h2 id=更新-ui-的-4-种方式>更新 UI 的 4 种方式</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MainActivity</span> <span style=color:#66d9ef>extends</span> Activity <span style=color:#f92672>{</span>
+</code></pre></div><h2 id=更新-ui-的-4-种方式>更新 UI 的 4 种方式</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MainActivity</span> <span style=color:#66d9ef>extends</span> Activity <span style=color:#f92672>{</span>
     <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>final</span> MyHandler mMyHandler <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> MyHandler<span style=color:#f92672>(</span><span style=color:#66d9ef>this</span><span style=color:#f92672>);</span>
     <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>final</span> MyRunnable mMyRunnable <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> MyRunnable<span style=color:#f92672>(</span><span style=color:#66d9ef>this</span><span style=color:#f92672>);</span>
     <span style=color:#66d9ef>private</span> TextView mTextView<span style=color:#f92672>;</span>
@@ -446,4 +541,50 @@
 3974<span style=color:#f92672>-</span>3974<span style=color:#f92672>/</span>com<span style=color:#f92672>.</span><span style=color:#a6e22e>example</span><span style=color:#f92672>.</span><span style=color:#a6e22e>myapp</span><span style=color:#f92672>.</span><span style=color:#a6e22e>myapplication</span> W<span style=color:#f92672>/</span>Tag<span style=color:#f92672>:</span> Thread<span style=color:#f92672>[</span>main<span style=color:#f92672>,</span>5<span style=color:#f92672>,</span>main<span style=color:#f92672>]</span>
 3974<span style=color:#f92672>-</span>3974<span style=color:#f92672>/</span>com<span style=color:#f92672>.</span><span style=color:#a6e22e>example</span><span style=color:#f92672>.</span><span style=color:#a6e22e>myapp</span><span style=color:#f92672>.</span><span style=color:#a6e22e>myapplication</span> W<span style=color:#f92672>/</span>Tag<span style=color:#f92672>:</span> Thread<span style=color:#f92672>[</span>main<span style=color:#f92672>,</span>5<span style=color:#f92672>,</span>main<span style=color:#f92672>]</span>
 3974<span style=color:#f92672>-</span>3974<span style=color:#f92672>/</span>com<span style=color:#f92672>.</span><span style=color:#a6e22e>example</span><span style=color:#f92672>.</span><span style=color:#a6e22e>myapp</span><span style=color:#f92672>.</span><span style=color:#a6e22e>myapplication</span> W<span style=color:#f92672>/</span>Tag<span style=color:#f92672>:</span> Thread<span style=color:#f92672>[</span>main<span style=color:#f92672>,</span>5<span style=color:#f92672>,</span>main<span style=color:#f92672>]</span>
-</code></pre></div></div><div class=sharing style=text-align:center><br><p>捐赠支持</p><p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p><p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p><img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%><p></p><br>&copy; 2015-2020 XhstormR</div></div></div></div><div id=backtop><a href=# title>TOP</a></div><nav id=TableOfContents><ul><li><a href=#post--runnable>post ➜ Runnable</a><ul><li><a href=#mainactivityjava>MainActivity.java</a></li><li><a href=#activity_mainxml>activity_main.xml</a></li></ul></li><li><a href=#sendmessage--message>sendMessage ➜ Message</a><ul><li><a href=#mainactivityjava-1>MainActivity.java</a></li><li><a href=#activity_mainxml-1>activity_main.xml</a></li></ul></li><li><a href=#防止-handler-导致内存泄漏>防止 Handler 导致内存泄漏</a></li><li><a href=#自定义-looper-线程>自定义 Looper 线程</a><ul><li><a href=#handlerthread>HandlerThread</a></li></ul></li><li><a href=#线程之间的交互>线程之间的交互</a></li><li><a href=#更新-ui-的-4-种方式>更新 UI 的 4 种方式</a></li></ul></nav><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script><script>hljs.initHighlightingOnLoad()</script><script src=https://blog.xhstormr.tk/js/zoom.min.js></script><script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script><script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script></body></html>
+</code></pre></div>
+</div>
+<div class=sharing style=text-align:center>
+<br>
+<p>捐赠支持</p>
+<p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p>
+<p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p>
+<img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%>
+<p></p><br>&copy; 2015-2020 XhstormR
+</div>
+</div>
+</div>
+</div>
+<div id=backtop><a href=# title>TOP</a></div>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#post--runnable>post ➜ Runnable</a>
+<ul>
+<li><a href=#mainactivityjava>MainActivity.java</a></li>
+<li><a href=#activity_mainxml>activity_main.xml</a></li>
+</ul>
+</li>
+<li><a href=#sendmessage--message>sendMessage ➜ Message</a>
+<ul>
+<li><a href=#mainactivityjava-1>MainActivity.java</a></li>
+<li><a href=#activity_mainxml-1>activity_main.xml</a></li>
+</ul>
+</li>
+<li><a href=#防止-handler-导致内存泄漏>防止 Handler 导致内存泄漏</a></li>
+<li><a href=#自定义-looper-线程>自定义 Looper 线程</a>
+<ul>
+<li><a href=#handlerthread>HandlerThread</a></li>
+</ul>
+</li>
+<li><a href=#线程之间的交互>线程之间的交互</a></li>
+<li><a href=#更新-ui-的-4-种方式>更新 UI 的 4 种方式</a></li>
+</ul>
+</nav>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script src=https://blog.xhstormr.tk/js/zoom.min.js></script>
+<script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script>
+<script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script>
+</body>
+</html>

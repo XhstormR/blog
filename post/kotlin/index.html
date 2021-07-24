@@ -1,5 +1,68 @@
-<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache><head><meta charset=utf-8><meta name=renderer content="webkit"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>Kotlin &#183; XhstormR</title><link rel=alternate type=application/rss+xml title=XhstormR href><link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico><link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script><script src=https://blog.xhstormr.tk/js/main.min.js async defer></script></head><body><div id=scriptHeader><span class="mobile btn-mobile-menu"><i class="fa fa-bars btn-mobile-menu__icon"></i>
-<i class="fa fa-times btn-mobile-close__icon hidden"></i></span><header class="panel-cover panel-cover--collapsed"><div class=panel-main><div class="panel-main__inner panel-inverted"><div class=panel-main__content><h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1><hr class=panel-cover__divider><p class=panel-cover__description>On a dark desert highway, cool wind in my hair.</p><hr class="panel-cover__divider panel-cover__divider--secondary"><div class=navigation-wrapper><nav class="cover-navigation cover-navigation--primary"><ul class=navigation><li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li></ul></nav></div></div></div><div class=panel-cover--overlay></div></div></header></div><div class=bodytop><div class=content-wrapper><div class=content-wrapper__inner><div class=post><h1>Kotlin</h1><span class=post-date>2016-12-25</span><p>Updated on 2017-04-13</p><blockquote><p style=text-align:center><img data-src=/uploads/kotlin2.svg alt title=Kotlin data-action=zoom width=225></p><script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(a){a.setAttribute("src",a.getAttribute("data-src")),a.onload=function(){a.removeAttribute("data-src")}})</script><p><a href=https://kotlin.link/>https://kotlin.link/</a></p><p><a href=https://kotlinlang.org/>https://kotlinlang.org/</a></p><p><a href=https://devdocs.io/kotlin-reference/>https://devdocs.io/kotlin-reference/</a></p><p><a href=https://kotlinlang.org/docs/reference/idioms.html>https://kotlinlang.org/docs/reference/idioms.html</a></p><p><a href=https://kotlinlang.org/docs/reference/basic-syntax.html>https://kotlinlang.org/docs/reference/basic-syntax.html</a></p><p><a href=https://kotlinlang.org/api/latest/jvm/stdlib/index.html>https://kotlinlang.org/api/latest/jvm/stdlib/index.html</a></p><p><a href=https://try.kotlinlang.org/>https://try.kotlinlang.org/</a></p><p><a href=https://kotlinlang.org/docs/kotlin-docs.pdf>https://kotlinlang.org/docs/kotlin-docs.pdf</a></p><p><a href=https://github.com/JetBrains/kotlin/releases/latest>https://github.com/JetBrains/kotlin/releases/latest</a></p><p><a href=https://jcenter.bintray.com/org/jetbrains/kotlin/kotlin-stdlib/>https://jcenter.bintray.com/org/jetbrains/kotlin/kotlin-stdlib/</a></p><p><a href=https://storage.googleapis.com/developers-playground/kp-wrapper-devsite.html>https://storage.googleapis.com/developers-playground/kp-wrapper-devsite.html</a></p></blockquote><h2 id=code>Code</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#75715e>// ABC
+<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache>
+<head>
+<meta charset=utf-8>
+<meta name=renderer content="webkit">
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title> Kotlin &#183; XhstormR </title>
+<link rel=alternate type=application/rss+xml title=XhstormR href>
+<link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico>
+<link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
+<script src=https://blog.xhstormr.tk/js/main.min.js async defer></script>
+</head>
+<body>
+<div id=scriptHeader>
+<span class="mobile btn-mobile-menu">
+<i class="fa fa-bars btn-mobile-menu__icon"></i>
+<i class="fa fa-times btn-mobile-close__icon hidden"></i>
+</span>
+<header class="panel-cover panel-cover--collapsed">
+<div class=panel-main>
+<div class="panel-main__inner panel-inverted">
+<div class=panel-main__content>
+<h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1>
+<hr class=panel-cover__divider>
+<p class=panel-cover__description> On a dark desert highway, cool wind in my hair. </p>
+<hr class="panel-cover__divider panel-cover__divider--secondary">
+<div class=navigation-wrapper>
+<nav class="cover-navigation cover-navigation--primary">
+<ul class=navigation>
+<li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class=panel-cover--overlay></div>
+</div>
+</header>
+</div>
+<div class=bodytop>
+<div class=content-wrapper>
+<div class=content-wrapper__inner>
+<div class=post>
+<h1>Kotlin</h1>
+<span class=post-date>2016-12-25</span>
+<p>Updated on 2017-04-13</p>
+<blockquote>
+<p style=text-align:center><img data-src=/uploads/kotlin2.svg alt title=Kotlin data-action=zoom width=225></p>
+<script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(a){a.setAttribute("src",a.getAttribute("data-src")),a.onload=function(){a.removeAttribute("data-src")}})</script>
+<p><a href=https://kotlin.link/>https://kotlin.link/</a></p>
+<p><a href=https://kotlinlang.org/>https://kotlinlang.org/</a></p>
+<p><a href=https://devdocs.io/kotlin-reference/>https://devdocs.io/kotlin-reference/</a></p>
+<p><a href=https://kotlinlang.org/docs/reference/idioms.html>https://kotlinlang.org/docs/reference/idioms.html</a></p>
+<p><a href=https://kotlinlang.org/docs/reference/basic-syntax.html>https://kotlinlang.org/docs/reference/basic-syntax.html</a></p>
+<p><a href=https://kotlinlang.org/api/latest/jvm/stdlib/index.html>https://kotlinlang.org/api/latest/jvm/stdlib/index.html</a></p>
+<p><a href=https://try.kotlinlang.org/>https://try.kotlinlang.org/</a></p>
+<p><a href=https://kotlinlang.org/docs/kotlin-docs.pdf>https://kotlinlang.org/docs/kotlin-docs.pdf</a></p>
+<p><a href=https://github.com/JetBrains/kotlin/releases/latest>https://github.com/JetBrains/kotlin/releases/latest</a></p>
+<p><a href=https://jcenter.bintray.com/org/jetbrains/kotlin/kotlin-stdlib/>https://jcenter.bintray.com/org/jetbrains/kotlin/kotlin-stdlib/</a></p>
+<p><a href=https://storage.googleapis.com/developers-playground/kp-wrapper-devsite.html>https://storage.googleapis.com/developers-playground/kp-wrapper-devsite.html</a></p>
+</blockquote>
+<h2 id=code>Code</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#75715e>// ABC
 </span><span style=color:#75715e></span>
 <span style=color:#75715e>/* DEF
 </span><span style=color:#75715e>   GHI */</span>
@@ -115,7 +178,7 @@ show(<span style=color:#e6db74>&#34;A&#34;</span>, *array, <span style=color:#e6
 <span style=color:#f92672>----</span>
 <span style=color:#960050;background-color:#1e0010>输出：</span>
 A B C D
-</code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>a</span>(x: Int): Boolean {
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>a</span>(x: Int): Boolean {
     <span style=color:#66d9ef>return</span> x % <span style=color:#ae81ff>2</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>
 }
 <span style=color:#960050;background-color:#1e0010>可简化为</span>
@@ -362,7 +425,7 @@ Kotlin <span style=color:#960050;background-color:#1e0010>类库中的大部分�
 <span style=color:#66d9ef>inline</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>b</span>(<span style=color:#66d9ef>noinline</span> block: () <span style=color:#f92672>-&gt;</span> Unit) {     <span style=color:#960050;background-color:#1e0010>可以通过</span> <span style=color:#66d9ef>noinline</span> <span style=color:#960050;background-color:#1e0010>修饰函数参数，取消内联此函数参数，从而可以作为参数传入；但</span> <span style=color:#66d9ef>inline</span> <span style=color:#960050;background-color:#1e0010>签名就没起到作用了</span>
     thread(block = block)     <span style=color:#960050;background-color:#1e0010>作为普通参数传入</span>
 }
-</code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span>(<span style=color:#66d9ef>val</span> id: Int, <span style=color:#66d9ef>val</span> name: String) : Closeable {     <span style=color:#960050;background-color:#1e0010>数据类：自动生成</span> hashCode<span style=color:#960050;background-color:#1e0010>、</span>equals<span style=color:#960050;background-color:#1e0010>、</span>toString<span style=color:#960050;background-color:#1e0010>、</span>copy <span style=color:#960050;background-color:#1e0010>函数</span>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span>(<span style=color:#66d9ef>val</span> id: Int, <span style=color:#66d9ef>val</span> name: String) : Closeable {     <span style=color:#960050;background-color:#1e0010>数据类：自动生成</span> hashCode<span style=color:#960050;background-color:#1e0010>、</span>equals<span style=color:#960050;background-color:#1e0010>、</span>toString<span style=color:#960050;background-color:#1e0010>、</span>copy <span style=color:#960050;background-color:#1e0010>函数</span>
     <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>close</span>() {
         println(<span style=color:#e6db74>&#34;close!&#34;</span>)
     }
@@ -399,7 +462,7 @@ a.use {     <span style=color:#960050;background-color:#1e0010>由于主动继�
 <span style=color:#960050;background-color:#1e0010>输出：</span>
 <span style=color:#a6e22e>[1, 小明]</span>
 close!
-</code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>val</span> list = listOf(<span style=color:#e6db74>&#34;A&#34;</span>, <span style=color:#e6db74>&#34;B&#34;</span>, <span style=color:#e6db74>&#34;C&#34;</span>)     <span style=color:#960050;background-color:#1e0010>生成不可变</span> List<span style=color:#960050;background-color:#1e0010>（元素不可被添加或删除，只读）</span>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>val</span> list = listOf(<span style=color:#e6db74>&#34;A&#34;</span>, <span style=color:#e6db74>&#34;B&#34;</span>, <span style=color:#e6db74>&#34;C&#34;</span>)     <span style=color:#960050;background-color:#1e0010>生成不可变</span> List<span style=color:#960050;background-color:#1e0010>（元素不可被添加或删除，只读）</span>
 <span style=color:#66d9ef>val</span> set = setOf(<span style=color:#e6db74>&#34;A&#34;</span>, <span style=color:#e6db74>&#34;B&#34;</span>, <span style=color:#e6db74>&#34;C&#34;</span>)     <span style=color:#960050;background-color:#1e0010>生成不可变</span> Set
 <span style=color:#66d9ef>val</span> map = mapOf(<span style=color:#e6db74>&#34;A&#34;</span> to <span style=color:#ae81ff>0</span>, <span style=color:#e6db74>&#34;B&#34;</span> to <span style=color:#ae81ff>1</span>, <span style=color:#e6db74>&#34;C&#34;</span> to <span style=color:#ae81ff>2</span>)     <span style=color:#960050;background-color:#1e0010>生成不可变</span> Map<span style=color:#960050;background-color:#1e0010>（</span>Kotlin <span style=color:#960050;background-color:#1e0010>中的</span> Map <span style=color:#960050;background-color:#1e0010>存储的是</span> Pair<span style=color:#960050;background-color:#1e0010>）</span>
 <span style=color:#66d9ef>val</span> mutableList = mutableListOf(<span style=color:#e6db74>&#34;A&#34;</span>, <span style=color:#e6db74>&#34;B&#34;</span>, <span style=color:#e6db74>&#34;C&#34;</span>)     <span style=color:#960050;background-color:#1e0010>生成可变</span> List
@@ -506,7 +569,7 @@ list.filter { <span style=color:#66d9ef>it</span> <span style=color:#66d9ef>is</
 <span style=color:#960050;background-color:#1e0010>输出：</span>
 <span style=color:#ae81ff>1</span>
 <span style=color:#ae81ff>3</span>
-</code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>for</span><span style=color:#960050;background-color:#1e0010>：</span>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>for</span><span style=color:#960050;background-color:#1e0010>：</span>
 <span style=color:#66d9ef>val</span> intRange: IntRange = <span style=color:#ae81ff>1.</span>.<span style=color:#ae81ff>5</span>     <span style=color:#960050;background-color:#1e0010>范围表达式</span>
 <span style=color:#66d9ef>for</span> (i <span style=color:#66d9ef>in</span> intRange) {
     print(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>$i</span><span style=color:#e6db74> &#34;</span>)
@@ -654,7 +717,7 @@ strs.forEachIndexed { index, s <span style=color:#f92672>-&gt;</span>
     <span style=color:#66d9ef>is</span> String <span style=color:#f92672>-&gt;</span> x.startsWith(<span style=color:#e6db74>&#34;Hello&#34;</span>)
     <span style=color:#66d9ef>else</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>false</span>
 }
-</code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>val</span> any: Any = <span style=color:#e6db74>&#34;ABC&#34;</span> <span style=color:#66d9ef>as</span> Any     <span style=color:#960050;background-color:#1e0010>强制类型转换（若转换失败，则抛出异常</span> java.lang.ClassCastException<span style=color:#960050;background-color:#1e0010>）</span>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>val</span> any: Any = <span style=color:#e6db74>&#34;ABC&#34;</span> <span style=color:#66d9ef>as</span> Any     <span style=color:#960050;background-color:#1e0010>强制类型转换（若转换失败，则抛出异常</span> java.lang.ClassCastException<span style=color:#960050;background-color:#1e0010>）</span>
 <span style=color:#f92672>----</span>
 <span style=color:#66d9ef>if</span> (any <span style=color:#66d9ef>is</span> String) {     <span style=color:#960050;background-color:#1e0010>等同于</span> instanceof<span style=color:#960050;background-color:#1e0010>，若通过检查，则在代码块中进行智能转型（</span>Smart Cast<span style=color:#960050;background-color:#1e0010>）</span>
     println(any.length)     <span style=color:#960050;background-color:#1e0010>类型：</span>String
@@ -824,7 +887,7 @@ BBB
 <span style=color:#ae81ff>3.</span> <span style=color:#960050;background-color:#1e0010>为</span> <span style=color:#66d9ef>val</span> <span style=color:#960050;background-color:#1e0010>且没有自定义的 </span>get <span style=color:#960050;background-color:#1e0010>函数</span>
 
 <span style=color:#66d9ef>const</span> <span style=color:#66d9ef>val</span> i = <span style=color:#ae81ff>5</span>
-</code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> {
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> {
     <span style=color:#66d9ef>var</span> name = <span style=color:#e6db74>&#34;&#34;</span>
     <span style=color:#66d9ef>var</span> age = <span style=color:#ae81ff>20</span>
 }
@@ -901,7 +964,7 @@ A(name=<span style=color:#960050;background-color:#1e0010>张三</span>, des=<sp
         primaryStage.show()
     }
 }
-</code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>A</span> {     <span style=color:#960050;background-color:#1e0010>接口（跟</span> Java <span style=color:#960050;background-color:#1e0010>一样，单继承多实现）</span>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>A</span> {     <span style=color:#960050;background-color:#1e0010>接口（跟</span> Java <span style=color:#960050;background-color:#1e0010>一样，单继承多实现）</span>
     <span style=color:#66d9ef>val</span> i: Int     <span style=color:#960050;background-color:#1e0010>抽象属性</span>
     <span style=color:#66d9ef>val</span> j: Int     <span style=color:#960050;background-color:#1e0010>属性：已提供访问器实现（若属性修饰为</span> <span style=color:#66d9ef>var</span><span style=color:#960050;background-color:#1e0010>，还需提供</span> <span style=color:#66d9ef>set</span>() <span style=color:#960050;background-color:#1e0010>实现）</span>
         <span style=color:#66d9ef>get</span>() = <span style=color:#ae81ff>2</span>
@@ -972,7 +1035,7 @@ Hello XhstormR!
 <span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>B</span>     B <span style=color:#960050;background-color:#1e0010>接口</span>
 
 <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>C</span> : A(), B     C <span style=color:#960050;background-color:#1e0010>继承</span> A <span style=color:#960050;background-color:#1e0010>并实现</span> B<span style=color:#960050;background-color:#1e0010>（类默认生成无参主构造函数，接口无构造函数且默认开放）</span>
-</code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#960050;background-color:#1e0010>（</span><span style=color:#66d9ef>operator</span><span style=color:#960050;background-color:#1e0010>）操作符重载</span>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#960050;background-color:#1e0010>（</span><span style=color:#66d9ef>operator</span><span style=color:#960050;background-color:#1e0010>）操作符重载</span>
 <span style=color:#f92672>----</span>
 <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span>(<span style=color:#66d9ef>var</span> i: Int) {
     <span style=color:#66d9ef>operator</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>inc</span>(): A {     a<span style=color:#f92672>++</span>
@@ -1017,7 +1080,7 @@ Hello XhstormR!
         <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;A(i=</span><span style=color:#e6db74>$i</span><span style=color:#e6db74>)&#34;</span>
     }
 }
-</code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin>Java<span style=color:#960050;background-color:#1e0010>：</span>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin>Java<span style=color:#960050;background-color:#1e0010>：</span>
 <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Test1</span> {
     static {
         System.<span style=color:#66d9ef>out</span>.println(<span style=color:#e6db74>&#34;1父类静态初始化块&#34;</span>);
@@ -1172,7 +1235,7 @@ Outer.Nested().foo()     <span style=color:#960050;background-color:#1e0010>不�
 }
 
 Outer().Nested().foo()     <span style=color:#960050;background-color:#1e0010>需要实例化外部类</span>
-</code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>val</span> array = arrayOfNulls&lt;Int&gt;(<span style=color:#ae81ff>5</span>)     <span style=color:#960050;background-color:#1e0010>创建容量为</span> <span style=color:#ae81ff>5</span> <span style=color:#960050;background-color:#1e0010>以</span> <span style=color:#66d9ef>null</span> <span style=color:#960050;background-color:#1e0010>填充的空数组</span>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>val</span> array = arrayOfNulls&lt;Int&gt;(<span style=color:#ae81ff>5</span>)     <span style=color:#960050;background-color:#1e0010>创建容量为</span> <span style=color:#ae81ff>5</span> <span style=color:#960050;background-color:#1e0010>以</span> <span style=color:#66d9ef>null</span> <span style=color:#960050;background-color:#1e0010>填充的空数组</span>
 <span style=color:#66d9ef>for</span> (i <span style=color:#66d9ef>in</span> array.indices) {
     println(array[i])
 }
@@ -1233,10 +1296,13 @@ println(String<span style=color:#f92672>::</span><span style=color:#66d9ef>class
 <span style=color:#960050;background-color:#1e0010>输出：</span>
 <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>java</span>.lang.String     <span style=color:#960050;background-color:#1e0010>完全类名限定符</span>
 <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>java</span>.lang.String
-</code></pre></div><p><img src=/uploads/kotlin-transform.png alt title=Transform></p><h2 id=script>Script</h2><pre><code>D:\Download\kotlinc\bin&gt;kotlinc -script DeleteFile.kts
-</code></pre><h2 id=javascript>JavaScript</h2><pre><code>D:\Download\kotlinc\bin&gt;kotlinc-js -output 123.js A.kt
+</code></pre></div><p><img src=/uploads/kotlin-transform.png alt title=Transform></p>
+<h2 id=script>Script</h2>
+<pre><code>D:\Download\kotlinc\bin&gt;kotlinc -script DeleteFile.kts
+</code></pre><h2 id=javascript>JavaScript</h2>
+<pre><code>D:\Download\kotlinc\bin&gt;kotlinc-js -output 123.js A.kt
 </code></pre><pre><code>D:\Download\kotlinc\lib\kotlin-stdlib-js.jar\kotlin.js
-</code></pre><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#a6e22e>@JsName</span>(<span style=color:#e6db74>&#34;main&#34;</span>)
+</code></pre><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#a6e22e>@JsName</span>(<span style=color:#e6db74>&#34;main&#34;</span>)
 <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>(args: Array&lt;String&gt;) {
     js(<span style=color:#e6db74>&#34;&#34;&#34;document.write(message+&#34;&lt;br/&gt;&#34;)&#34;&#34;&#34;</span>)
     alert(message)
@@ -1245,7 +1311,7 @@ println(String<span style=color:#f92672>::</span><span style=color:#66d9ef>class
 <span style=color:#66d9ef>val</span> message = <span style=color:#e6db74>&#34;Hello JavaScript.&#34;</span>
 
 <span style=color:#66d9ef>external</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>alert</span>(message: Any?)<span style=color:#75715e>//暴露外部 API
-</span></code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>&lt;<span style=color:#f92672>html</span>&gt;
+</span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>&lt;<span style=color:#f92672>html</span>&gt;
 &lt;<span style=color:#f92672>head</span>&gt;
     &lt;<span style=color:#f92672>meta</span> <span style=color:#a6e22e>charset</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;UTF-8&#34;</span>&gt;
     &lt;<span style=color:#f92672>title</span>&gt;123&lt;/<span style=color:#f92672>title</span>&gt;
@@ -1255,4 +1321,46 @@ println(String<span style=color:#f92672>::</span><span style=color:#66d9ef>class
     &lt;<span style=color:#f92672>script</span> <span style=color:#a6e22e>type</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;text/javascript&#34;</span> <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;123.js&#34;</span>&gt;&lt;/<span style=color:#f92672>script</span>&gt;
 &lt;/<span style=color:#f92672>body</span>&gt;
 &lt;/<span style=color:#f92672>html</span>&gt;
-</code></pre></div><h2 id=reference>Reference</h2><ul><li><a href=https://realm.io/cn/news/droidcon-michael-pardo-kotlin/>https://realm.io/cn/news/droidcon-michael-pardo-kotlin/</a></li><li><a href=https://realm.io/cn/news/getting-started-with-kotlin-and-anko/>https://realm.io/cn/news/getting-started-with-kotlin-and-anko/</a></li><li><a href=https://realm.io/cn/news/oredev-jake-wharton-kotlin-advancing-android-dev/>https://realm.io/cn/news/oredev-jake-wharton-kotlin-advancing-android-dev/</a></li><li>JavaScript：<ul><li><a href=https://github.com/Kotlin/dukat>https://github.com/Kotlin/dukat</a></li><li><a href=https://github.com/vuejs/vue/tree/dev/types>https://github.com/vuejs/vue/tree/dev/types</a></li><li><a href=https://www.typescriptlang.org/dt/search>https://www.typescriptlang.org/dt/search</a></li></ul></li></ul></div><div class=sharing style=text-align:center><br><p>捐赠支持</p><p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p><p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p><img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%><p></p><br>&copy; 2015-2020 XhstormR</div></div></div></div><div id=backtop><a href=# title>TOP</a></div><nav id=TableOfContents><ul><li><a href=#code>Code</a></li><li><a href=#script>Script</a></li><li><a href=#javascript>JavaScript</a></li><li><a href=#reference>Reference</a></li></ul></nav><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script><script>hljs.initHighlightingOnLoad()</script><script src=https://blog.xhstormr.tk/js/zoom.min.js></script><script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script><script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script></body></html>
+</code></pre></div><h2 id=reference>Reference</h2>
+<ul>
+<li><a href=https://realm.io/cn/news/droidcon-michael-pardo-kotlin/>https://realm.io/cn/news/droidcon-michael-pardo-kotlin/</a></li>
+<li><a href=https://realm.io/cn/news/getting-started-with-kotlin-and-anko/>https://realm.io/cn/news/getting-started-with-kotlin-and-anko/</a></li>
+<li><a href=https://realm.io/cn/news/oredev-jake-wharton-kotlin-advancing-android-dev/>https://realm.io/cn/news/oredev-jake-wharton-kotlin-advancing-android-dev/</a></li>
+<li>JavaScript：
+<ul>
+<li><a href=https://github.com/Kotlin/dukat>https://github.com/Kotlin/dukat</a></li>
+<li><a href=https://github.com/vuejs/vue/tree/dev/types>https://github.com/vuejs/vue/tree/dev/types</a></li>
+<li><a href=https://www.typescriptlang.org/dt/search>https://www.typescriptlang.org/dt/search</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class=sharing style=text-align:center>
+<br>
+<p>捐赠支持</p>
+<p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p>
+<p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p>
+<img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%>
+<p></p><br>&copy; 2015-2020 XhstormR
+</div>
+</div>
+</div>
+</div>
+<div id=backtop><a href=# title>TOP</a></div>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#code>Code</a></li>
+<li><a href=#script>Script</a></li>
+<li><a href=#javascript>JavaScript</a></li>
+<li><a href=#reference>Reference</a></li>
+</ul>
+</nav>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script src=https://blog.xhstormr.tk/js/zoom.min.js></script>
+<script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script>
+<script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script>
+</body>
+</html>

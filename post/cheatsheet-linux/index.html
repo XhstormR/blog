@@ -1,5 +1,60 @@
-<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache><head><meta charset=utf-8><meta name=renderer content="webkit"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>Linux 命令不完全手册 &#183; XhstormR</title><link rel=alternate type=application/rss+xml title=XhstormR href><link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico><link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script><script src=https://blog.xhstormr.tk/js/main.min.js async defer></script></head><body><div id=scriptHeader><span class="mobile btn-mobile-menu"><i class="fa fa-bars btn-mobile-menu__icon"></i>
-<i class="fa fa-times btn-mobile-close__icon hidden"></i></span><header class="panel-cover panel-cover--collapsed"><div class=panel-main><div class="panel-main__inner panel-inverted"><div class=panel-main__content><h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1><hr class=panel-cover__divider><p class=panel-cover__description>On a dark desert highway, cool wind in my hair.</p><hr class="panel-cover__divider panel-cover__divider--secondary"><div class=navigation-wrapper><nav class="cover-navigation cover-navigation--primary"><ul class=navigation><li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li></ul></nav></div></div></div><div class=panel-cover--overlay></div></div></header></div><div class=bodytop><div class=content-wrapper><div class=content-wrapper__inner><div class=post><h1>Linux 命令不完全手册</h1><span class=post-date>2016-03-23</span><p>Updated on 2018-02-08</p><blockquote><p><img src=/uploads/linux-centos.svg alt></p><p><a href=https://www.centos.org/>https://www.centos.org/</a></p><p><a href=http://man7.org/linux/man-pages/dir_all_alphabetic.html>http://man7.org/linux/man-pages/dir_all_alphabetic.html</a></p><p>最近因为要参加全国云计算比赛，需要使用 Linux；所以我把关于 Linux 系统的一些命令整理在这里，以便查阅。</p><p>Update：市赛以第一名出线，国赛获得二等奖。</p><p>Update 2：学校要求我留下，继续参加下一届比赛。</p></blockquote><pre><code>pwd  #查看当前路径
+<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache>
+<head>
+<meta charset=utf-8>
+<meta name=renderer content="webkit">
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title> Linux 命令不完全手册 &#183; XhstormR </title>
+<link rel=alternate type=application/rss+xml title=XhstormR href>
+<link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico>
+<link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
+<script src=https://blog.xhstormr.tk/js/main.min.js async defer></script>
+</head>
+<body>
+<div id=scriptHeader>
+<span class="mobile btn-mobile-menu">
+<i class="fa fa-bars btn-mobile-menu__icon"></i>
+<i class="fa fa-times btn-mobile-close__icon hidden"></i>
+</span>
+<header class="panel-cover panel-cover--collapsed">
+<div class=panel-main>
+<div class="panel-main__inner panel-inverted">
+<div class=panel-main__content>
+<h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1>
+<hr class=panel-cover__divider>
+<p class=panel-cover__description> On a dark desert highway, cool wind in my hair. </p>
+<hr class="panel-cover__divider panel-cover__divider--secondary">
+<div class=navigation-wrapper>
+<nav class="cover-navigation cover-navigation--primary">
+<ul class=navigation>
+<li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class=panel-cover--overlay></div>
+</div>
+</header>
+</div>
+<div class=bodytop>
+<div class=content-wrapper>
+<div class=content-wrapper__inner>
+<div class=post>
+<h1>Linux 命令不完全手册</h1>
+<span class=post-date>2016-03-23</span>
+<p>Updated on 2018-02-08</p>
+<blockquote>
+<p><img src=/uploads/linux-centos.svg alt></p>
+<p><a href=https://www.centos.org/>https://www.centos.org/</a></p>
+<p><a href=http://man7.org/linux/man-pages/dir_all_alphabetic.html>http://man7.org/linux/man-pages/dir_all_alphabetic.html</a></p>
+<p>最近因为要参加全国云计算比赛，需要使用 Linux；所以我把关于 Linux 系统的一些命令整理在这里，以便查阅。</p>
+<p>Update：市赛以第一名出线，国赛获得二等奖。</p>
+<p>Update 2：学校要求我留下，继续参加下一届比赛。</p>
+</blockquote>
+<pre><code>pwd  #查看当前路径
 date #查看当前时间
 type #查看命令类型
 file #查看文件类型 -i 显示MIME类别
@@ -15,7 +70,8 @@ more #分页显示     -5 每次显示5行     推荐使用 less
 reset #初始化终端
 env #查看环境变量
 set #查看环境变量 + Shell 变量
-</code></pre><h2 id=ls>ls</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>-a <span style=color:#75715e>#显示隐藏文件</span>
+</code></pre><h2 id=ls>ls</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>-a <span style=color:#75715e>#显示隐藏文件</span>
 -d <span style=color:#75715e>#只显示当前文件夹信息</span>
 -l <span style=color:#75715e>#以列表形式显示详细信息</span>
 -F <span style=color:#75715e>#显示类型标识符     /目录 *可执行文件 @符号链接 =Sockets套接字 |FIFO命令管道 普通文件无标识符     Classify(分类)</span>
@@ -54,15 +110,19 @@ Tips :
 ll <span style=color:#f92672>=</span> ls -l
 ls <span style=color:#e6db74>`</span>cat 123<span style=color:#e6db74>`</span>     <span style=color:#e6db74>``</span>包含的命令 bash 会先执行
 ll /root/<span style=color:#f92672>{</span>1,2<span style=color:#f92672>}</span>     等同于 ll /root/1 /root/2
-</code></pre></div><h2 id=mkdir>mkdir</h2><pre><code>-p #递归创建目录
+</code></pre></div><h2 id=mkdir>mkdir</h2>
+<pre><code>-p #递归创建目录
 
 mkdir -p 1/2/3
-</code></pre><h2 id=cd>cd</h2><pre><code>cd    #进入当前用户家目录
+</code></pre><h2 id=cd>cd</h2>
+<pre><code>cd    #进入当前用户家目录
 cd ~  #进入当前用户家目录
 cd -  #进入上一次目录
 cd .. #进入上一级目录
-</code></pre><h2 id=rmdir>rmdir</h2><pre><code>rmdir #删除空白目录，不常用
-</code></pre><h2 id=rm>rm</h2><pre><code>-r #操作文件夹下的所有文件     Recursive(递归)
+</code></pre><h2 id=rmdir>rmdir</h2>
+<pre><code>rmdir #删除空白目录，不常用
+</code></pre><h2 id=rm>rm</h2>
+<pre><code>-r #操作文件夹下的所有文件     Recursive(递归)
 -f #不显示确认信息
 -v #显示详细信息
 
@@ -76,7 +136,8 @@ rm -rf ./-1
 创建文件名前带有特殊字符的文件
 cp -- 1 -1     -1
 cp 1 \\1     \1
-</code></pre><h2 id=chattr>chattr</h2><pre><code>-R #操作文件夹下的所有文件     Recursive(递归)
+</code></pre><h2 id=chattr>chattr</h2>
+<pre><code>-R #操作文件夹下的所有文件     Recursive(递归)
 + 属性 #开启属性
 - 属性 #关闭属性
 
@@ -100,7 +161,8 @@ rm: cannot remove 123: Operation not permitted
 removed 123
 
 [root@controller ~]$ chattr +a 123 #只能往里面追加内容，不能删除
-</code></pre><h2 id=cp>cp</h2><pre><code>cp [选项] [原文件或目录] [目标目录]
+</code></pre><h2 id=cp>cp</h2>
+<pre><code>cp [选项] [原文件或目录] [目标目录]
 -u #只复制比目标新的文件
 -r #操作文件夹下的所有文件     Recursive(递归)
 -p #连带文件属性复制
@@ -109,33 +171,40 @@ removed 123
 
 cp /root/123 .     复制文件到当前目录
 cp /root/123{,.bak}     备份文件，相当于 cp /root/123 /root/123.bak
-</code></pre><h2 id=mv>mv</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>mv <span style=color:#f92672>[</span>选项<span style=color:#f92672>]</span> <span style=color:#f92672>[</span>原文件或目录<span style=color:#f92672>]</span> <span style=color:#f92672>[</span>目标目录<span style=color:#f92672>]</span>
+</code></pre><h2 id=mv>mv</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>mv <span style=color:#f92672>[</span>选项<span style=color:#f92672>]</span> <span style=color:#f92672>[</span>原文件或目录<span style=color:#f92672>]</span> <span style=color:#f92672>[</span>目标目录<span style=color:#f92672>]</span>
 -u <span style=color:#75715e>#只移动比目标新的文件</span>
 
 mv <span style=color:#ae81ff>123</span> <span style=color:#ae81ff>1</span> <span style=color:#75715e>#相当于重命名</span>
-</code></pre></div><h2 id=ln>ln</h2><pre><code>ln [原文件]  [目标文件]
+</code></pre></div><h2 id=ln>ln</h2>
+<pre><code>ln [原文件]  [目标文件]
 -s #创建软链接 soft，不加则创建硬链接 hard，需使用绝对路径
 
 软链接：类似于windows快捷方式，删除原文件，软连接不能使用
 硬链接：拥有相同的i节点和存储block块，可以看作同一个文件，删除其中之一，另一个还能使用，可通过i节点识别，不能跨分区和针对目录使用，相当于backup，防止误删。
-</code></pre><h2 id=z>z</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>echo <span style=color:#e6db74>&#39;. ~/z.sh&#39;</span> &gt;&gt; .bashrc <span style=color:#75715e>#安装 z</span>
+</code></pre><h2 id=z>z</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>echo <span style=color:#e6db74>&#39;. ~/z.sh&#39;</span> &gt;&gt; .bashrc <span style=color:#75715e>#安装 z</span>
 
 https://github.com/rupa/z
 https://raw.githubusercontent.com/rupa/z/master/z.sh
-</code></pre></div><h2 id=zlua>z.lua</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>echo <span style=color:#e6db74>&#39;source (lua ~/z.lua --init fish | psub)&#39;</span> &gt;&gt; ~/.config/fish/config.fish
+</code></pre></div><h2 id=zlua>z.lua</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>echo <span style=color:#e6db74>&#39;source (lua ~/z.lua --init fish | psub)&#39;</span> &gt;&gt; ~/.config/fish/config.fish
 
 https://github.com/skywind3000/z.lua
 https://raw.githubusercontent.com/skywind3000/z.lua/master/z.lua
-</code></pre></div><h2 id=locate>locate</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>yum -y install mlocate <span style=color:#75715e>#安装 locate</span>
+</code></pre></div><h2 id=locate>locate</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>yum -y install mlocate <span style=color:#75715e>#安装 locate</span>
 locate <span style=color:#f92672>[</span>文件名<span style=color:#f92672>]</span> <span style=color:#75715e>#在数据库中搜索文件名，速度非常快</span>
 updatedb <span style=color:#75715e>#手动更新数据库</span>
 
 /var/lib/mlocate     数据库位置，默认更新周期为 <span style=color:#ae81ff>1</span> 天
 /etc/updatedb.conf     locate 配置文件
-</code></pre></div><h2 id=zmodem>ZModem</h2><pre><code>yum -y install lrzsz #安装 ZModem
+</code></pre></div><h2 id=zmodem>ZModem</h2>
+<pre><code>yum -y install lrzsz #安装 ZModem
 rz #上传文件     对于 Linux Receive（接收）
 sz #下载文件     对于 Linux Send（发送）
-</code></pre><h2 id=parted>parted</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>yum -y install parted <span style=color:#75715e>#安装 parted</span>
+</code></pre><h2 id=parted>parted</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>yum -y install parted <span style=color:#75715e>#安装 parted</span>
 -l <span style=color:#75715e>#输出分区信息</span>
 
 交互命令
@@ -172,7 +241,8 @@ quit     退出，可简写为 q
 <span style=color:#f92672>[</span>root@controller ~<span style=color:#f92672>]</span>$ mkfs.ext4 /dev/sdb1
 <span style=color:#f92672>[</span>root@controller ~<span style=color:#f92672>]</span>$ mkdir /123
 <span style=color:#f92672>[</span>root@controller ~<span style=color:#f92672>]</span>$ mount /dev/sdb1 /123
-</code></pre></div><h2 id=7z>7z</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>yum -y install p7zip* <span style=color:#75715e>#安装 7z     p7zip，p7zip-plugins，7za和7zr是7z的精简版，建议使用7z</span>
+</code></pre></div><h2 id=7z>7z</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>yum -y install p7zip* <span style=color:#75715e>#安装 7z     p7zip，p7zip-plugins，7za和7zr是7z的精简版，建议使用7z</span>
 a     添加到压缩文件
 b     基准测试     Benchmark
 d     从压缩文件中删除
@@ -190,7 +260,8 @@ x     以完整路径解压
 7z x 123.7z -o456 <span style=color:#75715e>#解压 123.7z 中的所有文件到 456 目录中，456 目录会自动创建</span>
 
 7z a <span style=color:#ae81ff>123</span> <span style=color:#ae81ff>123</span> -mx9 <span style=color:#75715e>#将当前文件夹里的 123 文件夹以 ultra 级别压缩到 123.7z 中</span>
-</code></pre></div><h2 id=ncdu>ncdu</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c>yum <span style=color:#f92672>-</span>y install ncdu <span style=color:#960050;background-color:#1e0010>#安装</span> ncdu
+</code></pre></div><h2 id=ncdu>ncdu</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c>yum <span style=color:#f92672>-</span>y install ncdu <span style=color:#960050;background-color:#1e0010>#安装</span> ncdu
 
 <span style=color:#960050;background-color:#1e0010>交互命令</span>
 n     <span style=color:#960050;background-color:#1e0010>按文件名排序</span>
@@ -223,7 +294,8 @@ ncdu <span style=color:#ae81ff>1.7</span> <span style=color:#f92672>~</span> Use
     <span style=color:#ae81ff>4.0</span>kiB [  <span style=color:#ae81ff>3.4</span><span style=color:#f92672>%</span> <span style=color:#960050;background-color:#1e0010>##</span>        ]  .cshrc
     <span style=color:#ae81ff>4.0</span>kiB [  <span style=color:#ae81ff>3.4</span><span style=color:#f92672>%</span> <span style=color:#960050;background-color:#1e0010>##</span>        ]  .bash_logout
  Total disk usage: <span style=color:#ae81ff>116.0</span>kiB  Apparent size:  <span style=color:#ae81ff>66.3</span>kiB  Items: <span style=color:#ae81ff>30</span>
-</code></pre></div><h2 id=nethogs>nethogs</h2><pre><code>yum -y install nethogs #安装 nethogs
+</code></pre></div><h2 id=nethogs>nethogs</h2>
+<pre><code>yum -y install nethogs #安装 nethogs
 -d 2 #设置刷新频率为 2 秒，默认 1 秒     delay(延迟)
 
 交互命令
@@ -241,7 +313,8 @@ NetHogs version 0.8.0
 1885  mysql    /usr/libexec/mysqld                    eth0       0.000       0.000 KB/sec
 ?     root     unknown TCP                                       0.000       0.000 KB/sec
   TOTAL                                                          3.504       0.491 KB/sec
-</code></pre><h2 id=iftop>iftop</h2><pre><code>yum -y install iftop #安装 iftop
+</code></pre><h2 id=iftop>iftop</h2>
+<pre><code>yum -y install iftop #安装 iftop
 -i eth1 #设定监视网卡
 
 交互命令
@@ -278,7 +351,8 @@ TOTAL     总流量
 TX:             cum:   14.6MB   peak:   11.4Kb           rates:   4.77Kb  4.80Kb  5.54Kb
 RX:                     715MB           2.27Kb                     480b    480b    730b
 TOTAL:                  729MB           13.7Kb                    5.23Kb  5.27Kb  6.26Kb
-</code></pre><h2 id=tree>tree</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>yum -y install tree <span style=color:#75715e>#安装 tree</span>
+</code></pre><h2 id=tree>tree</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>yum -y install tree <span style=color:#75715e>#安装 tree</span>
 -a <span style=color:#75715e>#显示所有文件和目录     all</span>
 -d <span style=color:#75715e>#只显示目录     directory</span>
 -f <span style=color:#75715e>#在文件和目录前显示绝对路径     full</span>
@@ -312,7 +386,8 @@ TOTAL:                  729MB           13.7Kb                    5.23Kb  5.27Kb
 ├── .tcshrc
 └── .viminfo
 <span style=color:#ae81ff>3</span> directories, <span style=color:#ae81ff>16</span> files
-</code></pre></div><h2 id=ssh>ssh</h2><pre><code>yum -y install openssh-clients #安装 SSH 套件
+</code></pre></div><h2 id=ssh>ssh</h2>
+<pre><code>yum -y install openssh-clients #安装 SSH 套件
 ssh-keygen #在 ~/.ssh 目录下生成公钥和私钥
 ssh-copy-id user@host #将公钥复制到 user@host 下的 ~/.ssh/authorized_keys 以启用无密码 SSH 登录
 ssh user@host #以 SSH 方式登陆远程主机
@@ -330,14 +405,16 @@ openssl enc -aes-256-ctr -k 123456 -pbkdf2 -a -p -d -in 2.txt -out 3.txt #解密
 openssl enc -aes-256-ctr -K 41B2E7F37D50325E29EFF13C247892E53B1813B02388590EBB348A4384633C3E -iv 27B0BD8A2CF2C8568B9AFC9BE79D5C2D -a -p -d -in 2.txt -out 3.txt #通过指定 key 和 iv 解密文件
 
 https://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-connectors/native/1.2.14/binaries/tomcat-native-1.2.14-win32-bin.zip
-</code></pre><h2 id=scp>scp</h2><pre><code>-r #操作文件夹下的所有文件     Recursive(递归)
+</code></pre><h2 id=scp>scp</h2>
+<pre><code>-r #操作文件夹下的所有文件     Recursive(递归)
 -P #指定远程主机的 SSH 端口号
 
 [root@controller ~]$ scp -r /tmp/soft root@192.168.100.10:/tmp/ #上传本地目录到远端指定目录
 [root@controller ~]$ scp -r root@192.168.100.10:/tmp/soft /tmp/ #从远端下载到本地
 
 rsync -P --rsh=ssh root@192.168.100.10:/tmp/soft . #断点续传
-</code></pre><h2 id=find>find</h2><pre><code>find [路径] [模式] [条件]
+</code></pre><h2 id=find>find</h2>
+<pre><code>find [路径] [模式] [条件]
 find / -name 123.log
 
 模式:
@@ -368,7 +445,8 @@ find . -size +20k -a -size -50k -exec ls -lh {} \; #查找当前目录下大于2
 
 Tips :
 默认为完全匹配搜索，可使用通配符进行模糊搜索。
-</code></pre><h2 id=sort>sort</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>-u <span style=color:#75715e>#去重</span>
+</code></pre><h2 id=sort>sort</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>-u <span style=color:#75715e>#去重</span>
 -f <span style=color:#75715e>#忽略大小写</span>
 -r <span style=color:#75715e>#以相反顺序来排序（降序）</span>
 -c <span style=color:#75715e>#检查文件是否已排序</span>
@@ -377,7 +455,8 @@ Tips :
 -o 1.txt <span style=color:#75715e>#将结果写入文件</span>
 
 sort -t <span style=color:#e6db74>&#34;:&#34;</span> -k 3,3r -k 1,1f -o 2.txt 1.txt <span style=color:#75715e>#以 3、1 列为目标排序，其中 3 列为逆序，1 列忽略大小写</span>
-</code></pre></div><h2 id=grep>grep</h2><pre><code>grep[选项] 字符串 文件名     在文件当中查找匹配符合条件的字符串
+</code></pre></div><h2 id=grep>grep</h2>
+<pre><code>grep[选项] 字符串 文件名     在文件当中查找匹配符合条件的字符串
 -n #显示行号
 -i #忽略大小写
 -I #忽略二进制文件
@@ -403,14 +482,16 @@ grep &quot;ls --color=auto&quot; /etc/ -rn #递归查找并显示行号
 Tips : 默认为包含匹配，可使用正则表达式进行包含匹配     ^开头     结尾$
 grep ^[a-z] /etc/nova/nova.conf #使用正则表达式去掉注释
 grep -vn -e ^井 -e '^\s*$' /etc/vsftpd/vsftpd.conf #使用正则表达式取反去掉注释和空行并显示行号
-</code></pre><h2 id=awk>awk</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>awk <span style=color:#e6db74>&#39;{print $2}&#39;</span> 1.txt             <span style=color:#75715e>#输出每一行的第二列到屏幕</span>
+</code></pre><h2 id=awk>awk</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>awk <span style=color:#e6db74>&#39;{print $2}&#39;</span> 1.txt             <span style=color:#75715e>#输出每一行的第二列到屏幕</span>
 awk <span style=color:#e6db74>&#39;{print $0 &gt; &#34;2.txt&#34;}&#39;</span> 1.txt   <span style=color:#75715e>#输出每一行的每一列到文件</span>
 awk <span style=color:#e6db74>&#39;NR==1,NR==2 {print $2}&#39;</span> 1.txt <span style=color:#75715e>#输出第 1、2 行的第 2 列</span>
 awk <span style=color:#e6db74>&#39;/必修/ {sum+=$3} END {print sum}&#39;</span> 1.txt <span style=color:#75715e>#取带有 必修 字符的行，求和第 3 列     /123/ 模拟grep取行</span>
 awk -F <span style=color:#e6db74>&#39; &#39;</span> <span style=color:#e6db74>&#39;/read/ {print $2}&#39;</span> 1.txt <span style=color:#75715e>#以空格为列分隔符，取带有 read 字符的行，输出第 2 列</span>
 
 https://www.ibm.com/developerworks/cn/education/aix/au-gawk/index.html
-</code></pre></div><h2 id=sed>sed</h2><pre><code>-i #将修改写入文件
+</code></pre></div><h2 id=sed>sed</h2>
+<pre><code>-i #将修改写入文件
 -e #执行多条编辑命令
 
 命令
@@ -422,7 +503,8 @@ sed -i 's/\(^\)/123/' 1.txt #每一行的开头写入 123
 sed -i -e '/^$/d' -e '/^#/d' 1.txt #删除 空白行 和 注释行
 
 https://www.gnu.org/software/sed/manual/html_node/sed-commands-list.html#sed-commands-list
-</code></pre><h2 id=mount>mount</h2><pre><code>mount #查询系统中已经挂载的设备
+</code></pre><h2 id=mount>mount</h2>
+<pre><code>mount #查询系统中已经挂载的设备
 mount -a #依据配置文件/etc/fstab的内容，自动挂载
 mount [-t 文件系统] [-o特殊选项] 设备文件名 挂载点 #挂载设备     type     option
 umount [设备文件名或挂载点] #卸载设备
@@ -467,7 +549,8 @@ sda      8:0    0 465.8G  0 disk
 
 linux默认是不支持NTFS文件系统的
 cp /dev/cdrom /tmp/1.iso #从光盘制作光盘镜像文件
-</code></pre><h2 id=echo>echo</h2><pre><code>echo [选项] [输出内容]
+</code></pre><h2 id=echo>echo</h2>
+<pre><code>echo [选项] [输出内容]
 -e #激活转义字符，支持反斜线控制的字符转换
      \a 发出警告声
      \f 换行但光标仍旧停留在原来的位置
@@ -477,7 +560,8 @@ cp /dev/cdrom /tmp/1.iso #从光盘制作光盘镜像文件
 
 echo -e &quot;\e[1;31m 123456 \e[0m&quot; #输出红颜色 (31m)
 echo -e &quot;123\n45\f6&quot; &gt;&gt; 123 #追加写入文件
-</code></pre><h2 id=alias>alias</h2><pre><code>alias #查看系统中所有的命令别名
+</code></pre><h2 id=alias>alias</h2>
+<pre><code>alias #查看系统中所有的命令别名
 alias 别名='原命令' #设定命令别名，重启失效
 unalias 别名 #删除别名
 
@@ -485,7 +569,8 @@ unalias 别名 #删除别名
 vi ~/.bashrc
 将命令写入环境变量配置文件，每个用户都分别有一个，~代表家目录。
 重启后生效，若想直接生效可用 source .bashrc 重新调用。
-</code></pre><h2 id=lsblk>lsblk</h2><pre><code>-a #显示所有设备
+</code></pre><h2 id=lsblk>lsblk</h2>
+<pre><code>-a #显示所有设备
 -d #只显示磁盘
 -f #显示文件系统信息
 
@@ -496,7 +581,8 @@ sda      8:0    0 278.9G  0 disk
 ├─sda2   8:2    0 195.3G  0 part /
 └─sda3   8:3    0   7.8G  0 part [SWAP]
 设备名     主要和次要设备号     是否为可移动设备     容量     是否为只读     类型     挂载点
-</code></pre><h2 id=df>df</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>-a <span style=color:#75715e>#显示所有文件系统</span>
+</code></pre><h2 id=df>df</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>-a <span style=color:#75715e>#显示所有文件系统</span>
 -h <span style=color:#75715e>#大小人性化显示</span>
 -T <span style=color:#75715e>#显示文件系统类型</span>
 
@@ -506,7 +592,8 @@ Filesystem     Type   Size  Used Avail Use% Mounted on
 tmpfs          tmpfs  5.8G     <span style=color:#ae81ff>0</span>  5.8G   0% /dev/shm
 /dev/sda2      ext4   985M   38M  897M   5% /boot
 /dev/sda1      vfat   200M  260K  200M   1% /boot/efi
-</code></pre></div><h2 id=du>du</h2><pre><code>-a #同时显示文件大小
+</code></pre></div><h2 id=du>du</h2>
+<pre><code>-a #同时显示文件大小
 -c #同时显示大小总和
 -s #仅显示大小总和
 -h #大小人性化显示
@@ -536,7 +623,8 @@ tmpfs          tmpfs  5.8G     <span style=color:#ae81ff>0</span>  5.8G   0% /de
 441M    /opt/opendaylight
 4.2G    /opt/centos
 21G     /opt/
-</code></pre><h2 id=yum>yum</h2><pre><code>-y #对所有提问都回答 yes
+</code></pre><h2 id=yum>yum</h2>
+<pre><code>-y #对所有提问都回答 yes
 
 yum install tree #安装包
 yum reinstall tree #重新安装包
@@ -553,8 +641,10 @@ yum clean all #删除缓存
 
 添加源：add &lt;repo&gt; to /etc/yum.repos.d/
 移除源：remove &lt;repo&gt; from /etc/yum.repos.d/
-</code></pre><h2 id=rpm>rpm</h2><pre><code>rpm -ivh --force *rpm #安装 RPM 包
-</code></pre><h2 id=chown>chown</h2><pre><code>chown [选项] [参数]
+</code></pre><h2 id=rpm>rpm</h2>
+<pre><code>rpm -ivh --force *rpm #安装 RPM 包
+</code></pre><h2 id=chown>chown</h2>
+<pre><code>chown [选项] [参数]
 -R #操作文件夹下的所有文件     Recursive(递归)
 
 参数：
@@ -562,7 +652,8 @@ yum clean all #删除缓存
 文件：指定要改变所有者和工作组的文件列表。支持多个文件和目标，支持shell通配符。
 
 chown user:market file01 #把 file01 给 user，并添加到 market 组中
-</code></pre><h2 id=chmod>chmod</h2><pre><code>chmod [选项] [参数]
+</code></pre><h2 id=chmod>chmod</h2>
+<pre><code>chmod [选项] [参数]
 -R #操作文件夹下的所有文件     Recursive(递归)
 
 chmod +x file01 #添加可执行权限
@@ -577,11 +668,13 @@ Tips：
 所有用户记录在 /etc/passwd；
 所有密码记录在 /etc/shadow；
 所有组群记录在 /etc/group。
-</code></pre><h2 id=getent>getent</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>getent passwd <span style=color:#75715e>#查看用户</span>
+</code></pre><h2 id=getent>getent</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>getent passwd <span style=color:#75715e>#查看用户</span>
 getent shadow <span style=color:#75715e>#查看密码</span>
 getent group <span style=color:#75715e>#查看用户组</span>
 getent hosts <span style=color:#75715e>#查看主机</span>
-</code></pre></div><h2 id=passwd>passwd</h2><pre><code>-d #删除密码
+</code></pre></div><h2 id=passwd>passwd</h2>
+<pre><code>-d #删除密码
 -l #锁住密码     Lock
 -u #解开锁住的密码     Unlock
 -S #查看密码的相关信息     Status
@@ -589,7 +682,8 @@ getent hosts <span style=color:#75715e>#查看主机</span>
 passwd #更改当前登录用户密码
 passwd mysql #更改 mysql 用户的密码
 passwd -d root #删除 root 用户的密码，注意删除 root 用户密码后，便不能用 root 用户远程登录了
-</code></pre><h2 id=history>history</h2><pre><code>history [选项]
+</code></pre><h2 id=history>history</h2>
+<pre><code>history [选项]
 -c #清空历史命令
 -w #把缓存中的历史命令写入历史命令保存文件 ~/.bash_history
 
@@ -610,7 +704,8 @@ passwd -d root #删除 root 用户的密码，注意删除 root 用户密码后�
 !n 执行第 n 条历史命令
 !! 执行上一条命令
 !abc 执行最后一条以 abc 开头的历史命令
-</code></pre><h2 id=uname>uname</h2><pre><code>-a #显示全部系统信息
+</code></pre><h2 id=uname>uname</h2>
+<pre><code>-a #显示全部系统信息
 -m #电脑类型
 -n #主机名称
 -v #内核版本
@@ -618,7 +713,8 @@ passwd -d root #删除 root 用户的密码，注意删除 root 用户密码后�
 
 [root@controller ~]$ uname -a
 Linux controller 2.6.32-431.el6.x86_64 井1 SMP Fri Nov 22 03:15:09 UTC 2013 x86_64 x86_64 x86_64 GNU/Linux
-</code></pre><h2 id=lsb_release>lsb_release</h2><pre><code>-a #显示全部发行版本信息
+</code></pre><h2 id=lsb_release>lsb_release</h2>
+<pre><code>-a #显示全部发行版本信息
 
 [root@controller ~]$ lsb_release -a
 LSB Version:    :base-4.0-amd64:base-4.0-noarch:core-4.0-amd64:core-4.0-noarch
@@ -628,7 +724,8 @@ Release:        6.5
 Codename:       Final
                      标准   基础
 Tips：LSB 是 Linux Standard Base 的缩写
-</code></pre><h2 id=free>free</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>-m <span style=color:#75715e>#以 MB 为单位</span>
+</code></pre><h2 id=free>free</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>-m <span style=color:#75715e>#以 MB 为单位</span>
 -g <span style=color:#75715e>#以 GB 为单位</span>
 -s <span style=color:#ae81ff>1</span> <span style=color:#75715e>#每 1 秒更新内存使用情况</span>
 
@@ -647,7 +744,8 @@ cached     缓存内存
 -buffers/cache     used-buffers-cached 被程序实实在在使用的内存
 +buffers/cache     free+buffers+cached 可以被挪用的内存
 Swap     交换分区
-</code></pre></div><h2 id=netstat>netstat</h2><pre><code>-a #显示所有端口
+</code></pre></div><h2 id=netstat>netstat</h2>
+<pre><code>-a #显示所有端口
      -at #显示所有 TCP 端口
      -au #显示所有 UDP 端口
 -l #只显示监听状态的端口     Listen
@@ -670,15 +768,18 @@ unix  2      [ ]         DGRAM                    4581866 24349/sshd
 tcp        0      0 0.0.0.0:8000                0.0.0.0:*                   LISTEN      2330/python
 tcp        0      0 0.0.0.0:8004                0.0.0.0:*                   LISTEN      2322/python
 tcp        0      0 :::80                       :::*                        LISTEN      1884/httpd
-</code></pre><h2 id=查看文件占用>查看文件占用</h2><pre><code>fuser -v 123.txt
+</code></pre><h2 id=查看文件占用>查看文件占用</h2>
+<pre><code>fuser -v 123.txt
 lsof 123.txt
 
 fuser -v 80/tcp -k #终止占用此端口的进程
 lsof -i:80
-</code></pre><h2 id=nmap>nmap</h2><pre><code>-p - #扫描所有端口 (1-65535)
+</code></pre><h2 id=nmap>nmap</h2>
+<pre><code>-p - #扫描所有端口 (1-65535)
 
 nmap -p 80,443 192.168.1.1-254 #扫描此网段的 80、443 端口
-</code></pre><h2 id=ps>ps</h2><pre><code>-A #显示所有程序
+</code></pre><h2 id=ps>ps</h2>
+<pre><code>-A #显示所有程序
 -f #显示所有内容
 -e #与 `A` 选项相同
 
@@ -704,12 +805,14 @@ root      7542  2965  0 11:30 pts/1    00:00:00 grep vim
 53) SIGRTMAX-11 54) SIGRTMAX-10 55) SIGRTMAX-9  56) SIGRTMAX-8  57) SIGRTMAX-7
 58) SIGRTMAX-6  59) SIGRTMAX-5  60) SIGRTMAX-4  61) SIGRTMAX-3  62) SIGRTMAX-2
 63) SIGRTMAX-1  64) SIGRTMAX
-</code></pre><h2 id=pidof>pidof</h2><pre><code>[root@controller ~]# pidof sshd # 返回符合进程名的进程 ID
+</code></pre><h2 id=pidof>pidof</h2>
+<pre><code>[root@controller ~]# pidof sshd # 返回符合进程名的进程 ID
 26051 3192
 [root@controller ~]# pgrep sshd
 3192
 26051
-</code></pre><h2 id=shutdown>shutdown</h2><pre><code>shutdown [选项]  [时间 (now立即) ]
+</code></pre><h2 id=shutdown>shutdown</h2>
+<pre><code>shutdown [选项]  [时间 (now立即) ]
 -h #关机
 -r #重启
 -k #只是发布消息
@@ -717,7 +820,8 @@ root      7542  2965  0 11:30 pts/1    00:00:00 grep vim
 
 shutdown -h now #立即关机
 shutdown -r now #立即重启
-</code></pre><h2 id=init>init</h2><pre><code>init [0-6] #切换系统运行级别
+</code></pre><h2 id=init>init</h2>
+<pre><code>init [0-6] #切换系统运行级别
 runlevel #查询系统当前运行级别
 
 /etc/inittab     系统默认运行级别配置文件,默认为3     initial table
@@ -725,21 +829,25 @@ runlevel #查询系统当前运行级别
 
 Tips :
 Ctrl+Alt+F1~7 #在图形界面和字符界面中切换
-</code></pre><h2 id=zip-压缩>zip 压缩</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>zip <span style=color:#f92672>[</span>压缩文件名<span style=color:#f92672>]</span> <span style=color:#f92672>[</span>源文件<span style=color:#f92672>]</span> <span style=color:#75715e>#压缩文件</span>
+</code></pre><h2 id=zip-压缩>zip 压缩</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>zip <span style=color:#f92672>[</span>压缩文件名<span style=color:#f92672>]</span> <span style=color:#f92672>[</span>源文件<span style=color:#f92672>]</span> <span style=color:#75715e>#压缩文件</span>
 zip -r <span style=color:#f92672>[</span>压缩文件名<span style=color:#f92672>]</span> <span style=color:#f92672>[</span>源目录<span style=color:#f92672>]</span> <span style=color:#75715e>#压缩目录</span>
 unzip <span style=color:#f92672>[</span>压缩文件名<span style=color:#f92672>]</span> <span style=color:#75715e>#解压缩</span>
-</code></pre></div><h2 id=gz-压缩>gz 压缩</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>gzip <span style=color:#f92672>[</span>源文件<span style=color:#f92672>]</span> <span style=color:#75715e>#压缩为.gz格式压缩文件，源文件会消失</span>
+</code></pre></div><h2 id=gz-压缩>gz 压缩</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>gzip <span style=color:#f92672>[</span>源文件<span style=color:#f92672>]</span> <span style=color:#75715e>#压缩为.gz格式压缩文件，源文件会消失</span>
 gzip -r <span style=color:#f92672>[</span>目录<span style=color:#f92672>]</span> <span style=color:#75715e>#分别压缩目录下的所有子文件，不能压缩目录</span>
 gunzip or gzip -d <span style=color:#f92672>[</span>压缩文件<span style=color:#f92672>]</span> <span style=color:#75715e>#解压缩</span>
 gzip -c <span style=color:#f92672>[</span>源文件<span style=color:#f92672>]</span> &gt; <span style=color:#f92672>[</span>压缩文件<span style=color:#f92672>]</span> <span style=color:#75715e>#压缩为.gz格式压缩文件，源文件保留</span>
 
 gzip -c abc &gt; abc.gz
-</code></pre></div><h2 id=bz2-压缩>bz2 压缩</h2><pre><code>bzip2 [源文件] #压缩为.bz2格式的压缩文件，源文件会消失
+</code></pre></div><h2 id=bz2-压缩>bz2 压缩</h2>
+<pre><code>bzip2 [源文件] #压缩为.bz2格式的压缩文件，源文件会消失
 bzip2 -k [源文件] #压缩之后保留源文件
 `bunzip2` or `bzip2` -d [压缩文件] [-k 保留源文件] #解压缩
 
 Tips : bzip2不支持目录压缩
-</code></pre><h2 id=tar-压缩>tar 压缩</h2><pre><code>tar -[cxt]f [打包解包文件名] [源文件]
+</code></pre><h2 id=tar-压缩>tar 压缩</h2>
+<pre><code>tar -[cxt]f [打包解包文件名] [源文件]
 -c #打包
 -x #解包
 -t #测试
@@ -751,7 +859,9 @@ Tips : bzip2不支持目录压缩
 
 tar -cJf 123.tar.xz 123 #压缩
 tar -xJf 123.tar.xz -C /tmp/ #指定解包位置
-</code></pre><h2 id=centos-7>CentOS 7</h2><h3 id=hostnamectl>hostnamectl</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>hostnamectl set-hostname controller     设置主机名
+</code></pre><h2 id=centos-7>CentOS 7</h2>
+<h3 id=hostnamectl>hostnamectl</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>hostnamectl set-hostname controller     设置主机名
 
 <span style=color:#f92672>[</span>root@controller ~<span style=color:#f92672>]</span>$ hostnamectl
 Static hostname: controller
@@ -766,15 +876,18 @@ Kernel: Linux 3.10.0-514.el7.x86_64
 Architecture: x86-64
 
 /etc/system-release <span style=color:#75715e>#系统版本号</span>
-</code></pre></div><h2 id=退出登录>退出登录</h2><pre><code>logout #退出并执行 ~/.bash_logout
+</code></pre></div><h2 id=退出登录>退出登录</h2>
+<pre><code>logout #退出并执行 ~/.bash_logout
 exit #退出
 
 Tips :
 Ctrl+D #快捷键退出
-</code></pre><h2 id=修改环境变量>修改环境变量</h2><pre><code>vi ~/.bash_profile
+</code></pre><h2 id=修改环境变量>修改环境变量</h2>
+<pre><code>vi ~/.bash_profile
 ----
 PATH=$PATH:/opt/metasploit-framework/bin
-</code></pre><h2 id=搜索系统命令>搜索系统命令</h2><pre><code>whereis [命令名] #查找可执行文件和帮助文件
+</code></pre><h2 id=搜索系统命令>搜索系统命令</h2>
+<pre><code>whereis [命令名] #查找可执行文件和帮助文件
 which [命令名] #查找可执行文件和默认别名
 
 [root@controller ~]$ whereis ls
@@ -782,11 +895,13 @@ ls: /bin/ls /usr/share/man/man1/ls.1.gz
 [root@controller ~]$ which ls
 alias ls='ls --color=auto'
         /bin/ls
-</code></pre><h2 id=查看命令帮助>查看命令帮助</h2><pre><code>whatis [命令]
+</code></pre><h2 id=查看命令帮助>查看命令帮助</h2>
+<pre><code>whatis [命令]
 相当于
 man -f [命令]
 -k net 查找包含`net`的命令
-</code></pre><h2 id=查看用户登录信息>查看用户登录信息</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>当前登录用户：
+</code></pre><h2 id=查看用户登录信息>查看用户登录信息</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>当前登录用户：
 w
 who
 whoami     euid 有效用户 当前操作的用户ID     Effective
@@ -806,18 +921,21 @@ last命令默认读取 /var/log/wtmp 文件
 
 lastlog <span style=color:#75715e>#查询所有用户最后的登录时间</span>
 lastlog命令默认读取 /var/log/lastlog 文件
-</code></pre></div><h2 id=通配符>通配符</h2><pre><code>*     匹配任意字符     123*
+</code></pre></div><h2 id=通配符>通配符</h2>
+<pre><code>*     匹配任意字符     123*
 ?     匹配一个任意字符     12?.log
 []     匹配中括号中内的任意一个字符     12[34].log = 123.log or 124.log
 [-]     匹配中括号中内的任意一个字符，- 代表一个范围。例如：[a-z]代表匹配一个小写字母
 [^]     逻辑非，表示匹配不是中括号内的一个字符。例如：[^0-9]代表匹配一个不是数字的字符
-</code></pre><h2 id=管道符>管道符</h2><pre><code>命令1 | 命令2     命令1的正确输出作为命令2的操作对象（命令2必须能处理命令1的输出）
+</code></pre><h2 id=管道符>管道符</h2>
+<pre><code>命令1 | 命令2     命令1的正确输出作为命令2的操作对象（命令2必须能处理命令1的输出）
 
 ls -l /etc | more
 netstat -an | grep ESTABLISHED | wc -l
 keystone tenant-list | grep service | awk '{print $2}'
 ps -e | grep nova | awk '{print $4}' | sort -u
-</code></pre><h2 id=重定向>重定向</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>覆盖：&gt;
+</code></pre><h2 id=重定向>重定向</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>覆盖：&gt;
 追加：&gt;&gt;
 
 正确输出重定向：命令 1&gt; 文件 <span style=color:#75715e>#可省略 1</span>
@@ -826,24 +944,29 @@ ps -e | grep nova | awk '{print $4}' | sort -u
 
 同时保存输出：命令 &amp;&gt; a.log
 分别保存输出：命令 1&gt; a.log 2&gt; b.log
-</code></pre></div><h2 id=命令连接符>命令连接符</h2><pre><code>;      命令1 ;  命令2     命令按顺序依次执行
+</code></pre></div><h2 id=命令连接符>命令连接符</h2>
+<pre><code>;      命令1 ;  命令2     命令按顺序依次执行
 &amp;&amp;     命令1 &amp;&amp; 命令2     逻辑与，只有当命令1执行成功时，命令2才会执行
 ||     命令1 || 命令2     逻辑或，只有当命令1执行失败时，命令2才会执行
 
 ls &amp;&amp; echo yes || echo no #判断命令是否执行成功
-</code></pre><h2 id=命令替换符>命令替换符</h2><pre><code>ls `cat 123` #bash 会先执行 ` ` 包含的命令，其输出会作为另一个命令的参数
-</code></pre><h2 id=后台进程>后台进程</h2><pre><code>Ctrl+Z     挂起当前命令
+</code></pre><h2 id=命令替换符>命令替换符</h2>
+<pre><code>ls `cat 123` #bash 会先执行 ` ` 包含的命令，其输出会作为另一个命令的参数
+</code></pre><h2 id=后台进程>后台进程</h2>
+<pre><code>Ctrl+Z     挂起当前命令
 jobs #显示挂起的命令
 bg %N #使第 N 个进程在后台运行     back
 fg %N #使第 N 个进程在前台运行     front
 
 Tips : bg 和 fg 不带 %N 时默认对最后一个进程进行操作
-</code></pre><h2 id=自定义登录信息>自定义登录信息</h2><pre><code>登录前 /etc/issue 本地设备     /etc/issue.net 远程设备
+</code></pre><h2 id=自定义登录信息>自定义登录信息</h2>
+<pre><code>登录前 /etc/issue 本地设备     /etc/issue.net 远程设备
      \l 显示第几个终端机接口
      \d 日期
      \t 时间
 登录后 /etc/motd     Message Of The Day
-</code></pre><h2 id=配置-dns>配置 DNS</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>nmcli con show
+</code></pre><h2 id=配置-dns>配置 DNS</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>nmcli con show
 nmcli con mod eno16780032 ipv4.dns 1.2.4.8
 nmcli con up eno16780032
 
@@ -851,7 +974,8 @@ cat /etc/resolv.conf
 ----
 <span style=color:#75715e># Generated by NetworkManager</span>
 nameserver 1.2.4.8
-</code></pre></div><h2 id=脚本>脚本</h2><pre><code>vi hello.sh
+</code></pre></div><h2 id=脚本>脚本</h2>
+<pre><code>vi hello.sh
 #!/bin/bash
 echo -e &quot;\e[1;36m 123456 \e[0m&quot;
 
@@ -859,7 +983,8 @@ echo -e &quot;\e[1;36m 123456 \e[0m&quot;
 - chmod 755 hello.sh #赋予执行权限，直接运行
    ./hello.sh
 - bash hello.sh #通过Bash调用执行脚本
-</code></pre><h2 id=linux-目录>Linux 目录</h2><pre><code>/boot     启动文件目录
+</code></pre><h2 id=linux-目录>Linux 目录</h2>
+<pre><code>/boot     启动文件目录
 /dev     设备文件目录
 /etc     配置文件目录
 /home     普通用户的家目录
@@ -874,7 +999,8 @@ echo -e &quot;\e[1;36m 123456 \e[0m&quot;
 
 根目录(/)下的bin和sbin，usr目录(/usr)下的的bin和sbin，这四个目录都是用来保存系统命令的。
 区别在于2个sbin目录只有root用户才能执行。
-</code></pre><h2 id=linux-快捷键>Linux 快捷键</h2><pre><code>Ctrl+L     清屏     （另外 CMD 下的清屏命令是 `cls`）
+</code></pre><h2 id=linux-快捷键>Linux 快捷键</h2>
+<pre><code>Ctrl+L     清屏     （另外 CMD 下的清屏命令是 `cls`）
 Ctrl+Z     挂起当前命令
 Ctrl+C     终止当前命令
 Ctrl+D     退出登录
@@ -896,10 +1022,112 @@ Ctrl+Alt+T     在图形界面中打开终端（CentOS 需要自己设置快捷�
 ~+Tab*2     All Present Users on system from &quot;/etc/passwd&quot;
 @+Tab*2     Entries from &quot;/etc/hosts&quot;
 $+Tab*2     All Sys variables
-</code></pre><h2 id=securecrt-快捷键>SecureCRT 快捷键</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>Alt+B     新建选项卡
+</code></pre><h2 id=securecrt-快捷键>SecureCRT 快捷键</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>Alt+B     新建选项卡
 Ctrl+Tab     切换选项卡
 Alt+2     切换至第 <span style=color:#ae81ff>2</span> 个选项卡
 Alt+Enter     全屏
 Ctrl+Shift+V     粘贴
 Shift+Insert     粘贴
-</code></pre></div></div><div class=sharing style=text-align:center><br><p>捐赠支持</p><p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p><p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p><img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%><p></p><br>&copy; 2015-2020 XhstormR</div></div></div></div><div id=backtop><a href=# title>TOP</a></div><nav id=TableOfContents><ul><li><a href=#ls>ls</a></li><li><a href=#mkdir>mkdir</a></li><li><a href=#cd>cd</a></li><li><a href=#rmdir>rmdir</a></li><li><a href=#rm>rm</a></li><li><a href=#chattr>chattr</a></li><li><a href=#cp>cp</a></li><li><a href=#mv>mv</a></li><li><a href=#ln>ln</a></li><li><a href=#z>z</a></li><li><a href=#zlua>z.lua</a></li><li><a href=#locate>locate</a></li><li><a href=#zmodem>ZModem</a></li><li><a href=#parted>parted</a></li><li><a href=#7z>7z</a></li><li><a href=#ncdu>ncdu</a></li><li><a href=#nethogs>nethogs</a></li><li><a href=#iftop>iftop</a></li><li><a href=#tree>tree</a></li><li><a href=#ssh>ssh</a></li><li><a href=#scp>scp</a></li><li><a href=#find>find</a></li><li><a href=#sort>sort</a></li><li><a href=#grep>grep</a></li><li><a href=#awk>awk</a></li><li><a href=#sed>sed</a></li><li><a href=#mount>mount</a></li><li><a href=#echo>echo</a></li><li><a href=#alias>alias</a></li><li><a href=#lsblk>lsblk</a></li><li><a href=#df>df</a></li><li><a href=#du>du</a></li><li><a href=#yum>yum</a></li><li><a href=#rpm>rpm</a></li><li><a href=#chown>chown</a></li><li><a href=#chmod>chmod</a></li><li><a href=#getent>getent</a></li><li><a href=#passwd>passwd</a></li><li><a href=#history>history</a></li><li><a href=#uname>uname</a></li><li><a href=#lsb_release>lsb_release</a></li><li><a href=#free>free</a></li><li><a href=#netstat>netstat</a></li><li><a href=#查看文件占用>查看文件占用</a></li><li><a href=#nmap>nmap</a></li><li><a href=#ps>ps</a></li><li><a href=#pidof>pidof</a></li><li><a href=#shutdown>shutdown</a></li><li><a href=#init>init</a></li><li><a href=#zip-压缩>zip 压缩</a></li><li><a href=#gz-压缩>gz 压缩</a></li><li><a href=#bz2-压缩>bz2 压缩</a></li><li><a href=#tar-压缩>tar 压缩</a></li><li><a href=#centos-7>CentOS 7</a><ul><li><a href=#hostnamectl>hostnamectl</a></li></ul></li><li><a href=#退出登录>退出登录</a></li><li><a href=#修改环境变量>修改环境变量</a></li><li><a href=#搜索系统命令>搜索系统命令</a></li><li><a href=#查看命令帮助>查看命令帮助</a></li><li><a href=#查看用户登录信息>查看用户登录信息</a></li><li><a href=#通配符>通配符</a></li><li><a href=#管道符>管道符</a></li><li><a href=#重定向>重定向</a></li><li><a href=#命令连接符>命令连接符</a></li><li><a href=#命令替换符>命令替换符</a></li><li><a href=#后台进程>后台进程</a></li><li><a href=#自定义登录信息>自定义登录信息</a></li><li><a href=#配置-dns>配置 DNS</a></li><li><a href=#脚本>脚本</a></li><li><a href=#linux-目录>Linux 目录</a></li><li><a href=#linux-快捷键>Linux 快捷键</a></li><li><a href=#securecrt-快捷键>SecureCRT 快捷键</a></li></ul></nav><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script><script>hljs.initHighlightingOnLoad()</script><script src=https://blog.xhstormr.tk/js/zoom.min.js></script><script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script><script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script></body></html>
+</code></pre></div>
+</div>
+<div class=sharing style=text-align:center>
+<br>
+<p>捐赠支持</p>
+<p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p>
+<p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p>
+<img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%>
+<p></p><br>&copy; 2015-2020 XhstormR
+</div>
+</div>
+</div>
+</div>
+<div id=backtop><a href=# title>TOP</a></div>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#ls>ls</a></li>
+<li><a href=#mkdir>mkdir</a></li>
+<li><a href=#cd>cd</a></li>
+<li><a href=#rmdir>rmdir</a></li>
+<li><a href=#rm>rm</a></li>
+<li><a href=#chattr>chattr</a></li>
+<li><a href=#cp>cp</a></li>
+<li><a href=#mv>mv</a></li>
+<li><a href=#ln>ln</a></li>
+<li><a href=#z>z</a></li>
+<li><a href=#zlua>z.lua</a></li>
+<li><a href=#locate>locate</a></li>
+<li><a href=#zmodem>ZModem</a></li>
+<li><a href=#parted>parted</a></li>
+<li><a href=#7z>7z</a></li>
+<li><a href=#ncdu>ncdu</a></li>
+<li><a href=#nethogs>nethogs</a></li>
+<li><a href=#iftop>iftop</a></li>
+<li><a href=#tree>tree</a></li>
+<li><a href=#ssh>ssh</a></li>
+<li><a href=#scp>scp</a></li>
+<li><a href=#find>find</a></li>
+<li><a href=#sort>sort</a></li>
+<li><a href=#grep>grep</a></li>
+<li><a href=#awk>awk</a></li>
+<li><a href=#sed>sed</a></li>
+<li><a href=#mount>mount</a></li>
+<li><a href=#echo>echo</a></li>
+<li><a href=#alias>alias</a></li>
+<li><a href=#lsblk>lsblk</a></li>
+<li><a href=#df>df</a></li>
+<li><a href=#du>du</a></li>
+<li><a href=#yum>yum</a></li>
+<li><a href=#rpm>rpm</a></li>
+<li><a href=#chown>chown</a></li>
+<li><a href=#chmod>chmod</a></li>
+<li><a href=#getent>getent</a></li>
+<li><a href=#passwd>passwd</a></li>
+<li><a href=#history>history</a></li>
+<li><a href=#uname>uname</a></li>
+<li><a href=#lsb_release>lsb_release</a></li>
+<li><a href=#free>free</a></li>
+<li><a href=#netstat>netstat</a></li>
+<li><a href=#查看文件占用>查看文件占用</a></li>
+<li><a href=#nmap>nmap</a></li>
+<li><a href=#ps>ps</a></li>
+<li><a href=#pidof>pidof</a></li>
+<li><a href=#shutdown>shutdown</a></li>
+<li><a href=#init>init</a></li>
+<li><a href=#zip-压缩>zip 压缩</a></li>
+<li><a href=#gz-压缩>gz 压缩</a></li>
+<li><a href=#bz2-压缩>bz2 压缩</a></li>
+<li><a href=#tar-压缩>tar 压缩</a></li>
+<li><a href=#centos-7>CentOS 7</a>
+<ul>
+<li><a href=#hostnamectl>hostnamectl</a></li>
+</ul>
+</li>
+<li><a href=#退出登录>退出登录</a></li>
+<li><a href=#修改环境变量>修改环境变量</a></li>
+<li><a href=#搜索系统命令>搜索系统命令</a></li>
+<li><a href=#查看命令帮助>查看命令帮助</a></li>
+<li><a href=#查看用户登录信息>查看用户登录信息</a></li>
+<li><a href=#通配符>通配符</a></li>
+<li><a href=#管道符>管道符</a></li>
+<li><a href=#重定向>重定向</a></li>
+<li><a href=#命令连接符>命令连接符</a></li>
+<li><a href=#命令替换符>命令替换符</a></li>
+<li><a href=#后台进程>后台进程</a></li>
+<li><a href=#自定义登录信息>自定义登录信息</a></li>
+<li><a href=#配置-dns>配置 DNS</a></li>
+<li><a href=#脚本>脚本</a></li>
+<li><a href=#linux-目录>Linux 目录</a></li>
+<li><a href=#linux-快捷键>Linux 快捷键</a></li>
+<li><a href=#securecrt-快捷键>SecureCRT 快捷键</a></li>
+</ul>
+</nav>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script src=https://blog.xhstormr.tk/js/zoom.min.js></script>
+<script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script>
+<script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script>
+</body>
+</html>

@@ -1,30 +1,85 @@
-<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache><head><meta charset=utf-8><meta name=renderer content="webkit"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>Frida &#183; XhstormR</title><link rel=alternate type=application/rss+xml title=XhstormR href><link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico><link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script><script src=https://blog.xhstormr.tk/js/main.min.js async defer></script></head><body><div id=scriptHeader><span class="mobile btn-mobile-menu"><i class="fa fa-bars btn-mobile-menu__icon"></i>
-<i class="fa fa-times btn-mobile-close__icon hidden"></i></span><header class="panel-cover panel-cover--collapsed"><div class=panel-main><div class="panel-main__inner panel-inverted"><div class=panel-main__content><h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1><hr class=panel-cover__divider><p class=panel-cover__description>On a dark desert highway, cool wind in my hair.</p><hr class="panel-cover__divider panel-cover__divider--secondary"><div class=navigation-wrapper><nav class="cover-navigation cover-navigation--primary"><ul class=navigation><li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li></ul></nav></div></div></div><div class=panel-cover--overlay></div></div></header></div><div class=bodytop><div class=content-wrapper><div class=content-wrapper__inner><div class=post><h1>Frida</h1><span class=post-date>2019-05-29</span><p>Updated on 2019-05-29</p><blockquote><p><a href=https://www.frida.re/docs/javascript-api/>https://www.frida.re/docs/javascript-api/</a></p></blockquote><h2 id=python>Python</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>https://npm.taobao.org/mirrors/python
+<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache>
+<head>
+<meta charset=utf-8>
+<meta name=renderer content="webkit">
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title> Frida &#183; XhstormR </title>
+<link rel=alternate type=application/rss+xml title=XhstormR href>
+<link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico>
+<link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
+<script src=https://blog.xhstormr.tk/js/main.min.js async defer></script>
+</head>
+<body>
+<div id=scriptHeader>
+<span class="mobile btn-mobile-menu">
+<i class="fa fa-bars btn-mobile-menu__icon"></i>
+<i class="fa fa-times btn-mobile-close__icon hidden"></i>
+</span>
+<header class="panel-cover panel-cover--collapsed">
+<div class=panel-main>
+<div class="panel-main__inner panel-inverted">
+<div class=panel-main__content>
+<h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1>
+<hr class=panel-cover__divider>
+<p class=panel-cover__description> On a dark desert highway, cool wind in my hair. </p>
+<hr class="panel-cover__divider panel-cover__divider--secondary">
+<div class=navigation-wrapper>
+<nav class="cover-navigation cover-navigation--primary">
+<ul class=navigation>
+<li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class=panel-cover--overlay></div>
+</div>
+</header>
+</div>
+<div class=bodytop>
+<div class=content-wrapper>
+<div class=content-wrapper__inner>
+<div class=post>
+<h1>Frida</h1>
+<span class=post-date>2019-05-29</span>
+<p>Updated on 2019-05-29</p>
+<blockquote>
+<p><a href=https://www.frida.re/docs/javascript-api/>https://www.frida.re/docs/javascript-api/</a></p>
+</blockquote>
+<h2 id=python>Python</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>https://npm.taobao.org/mirrors/python
 
 md <span style=color:#ae81ff>123</span> <span style=color:#f92672>&amp;&amp;</span> ^
 curl -kL https://npm.taobao.org/mirrors/python/3.7.5/python-3.7.5-embed-amd64.zip | busybox unzip - -d <span style=color:#ae81ff>123</span> <span style=color:#f92672>&amp;&amp;</span> ^
 cd <span style=color:#ae81ff>123</span> <span style=color:#f92672>&amp;&amp;</span> ^
 curl -k https://raw.githubusercontent.com/pypa/get-pip/master/get-pip.py | python - <span style=color:#e6db74>&#34;--index-url=https://mirrors.aliyun.com/pypi/simple/&#34;</span> <span style=color:#f92672>&amp;&amp;</span> ^
 busybox sed -i <span style=color:#e6db74>&#34;s/#import/import/&#34;</span> python37._pth
-</code></pre></div><h2 id=frida>Frida</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>https://github.com/frida/frida/releases/latest
+</code></pre></div><h2 id=frida>Frida</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>https://github.com/frida/frida/releases/latest
 
 <span style=color:#75715e># Install from Wheel</span>
 python -m pip install --index-url<span style=color:#f92672>=</span>https://mirrors.aliyun.com/pypi/simple/ --upgrade frida-tools
 <span style=color:#75715e># Install from Egg</span>
 wget https://mirrors.aliyun.com/pypi/packages/ab/44/eda688668b780277cc7f9306f02c3dea41d95f91f2404493ddf00b96187f/frida-14.2.2-py3.8-win-amd64.egg -P C:/Users/leo/
 python -m easy_install --index-url<span style=color:#f92672>=</span>https://mirrors.aliyun.com/pypi/simple/ --upgrade frida-tools
-</code></pre></div><h2 id=adb>ADB</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>https://dl.google.com/android/repository/repository2-1.xml
+</code></pre></div><h2 id=adb>ADB</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>https://dl.google.com/android/repository/repository2-1.xml
 
 curl -k https://dl.google.com/android/repository/platform-tools_r29.0.1-windows.zip | busybox unzip -
-</code></pre></div><h2 id=setup>Setup</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>adb devices -l
+</code></pre></div><h2 id=setup>Setup</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>adb devices -l
 adb push D:/Download/frida-server /data/local/tmp/
 adb shell <span style=color:#e6db74>&#34;getprop ro.product.cpu.abi&#34;</span>
 adb shell <span style=color:#e6db74>&#34;chmod 755 /data/local/tmp/frida-server&#34;</span>
 adb shell <span style=color:#e6db74>&#34;su -c /data/local/tmp/frida-server -D -l 0.0.0.0&#34;</span>
 
 frida-ps -U
-</code></pre></div><hr><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>frida -U com.example.leo.myapplication -l 123.js --runtime<span style=color:#f92672>=</span>v8
-</code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#a6e22e>Java</span>.<span style=color:#a6e22e>perform</span>(<span style=color:#66d9ef>function</span> () {
+</code></pre></div><hr>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>frida -U com.example.leo.myapplication -l 123.js --runtime<span style=color:#f92672>=</span>v8
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#a6e22e>Java</span>.<span style=color:#a6e22e>perform</span>(<span style=color:#66d9ef>function</span> () {
     <span style=color:#a6e22e>Java</span>.<span style=color:#a6e22e>enumerateClassLoaders</span>({
         <span style=color:#a6e22e>onMatch</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>function</span> (<span style=color:#a6e22e>loader</span>) {
             <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#a6e22e>loader</span>)
@@ -51,7 +106,7 @@ frida-ps -U
         <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>isModuleActive</span>()
     }
 })
-</code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>loging</span> <span style=color:#f92672>=</span> (<span style=color:#a6e22e>input</span>, <span style=color:#a6e22e>kwargs</span>) =&gt; {
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>loging</span> <span style=color:#f92672>=</span> (<span style=color:#a6e22e>input</span>, <span style=color:#a6e22e>kwargs</span>) =&gt; {
     <span style=color:#a6e22e>kwargs</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>kwargs</span> <span style=color:#f92672>||</span> {}
     <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>level</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>kwargs</span>[<span style=color:#e6db74>&#39;l&#39;</span>] <span style=color:#f92672>||</span> <span style=color:#e6db74>&#39;log&#39;</span>
     <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>indent</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>kwargs</span>[<span style=color:#e6db74>&#39;i&#39;</span>] <span style=color:#f92672>?</span> <span style=color:#ae81ff>2</span> <span style=color:#f92672>:</span> <span style=color:#66d9ef>null</span>
@@ -122,4 +177,47 @@ frida-ps -U
 })
 
 <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#39;------&#39;</span>)
-</code></pre></div><h2 id=reference>Reference</h2><ul><li><a href=https://github.com/FrenchYeti/dexcalibur>https://github.com/FrenchYeti/dexcalibur</a></li><li><a href=https://github.com/dweinstein/awesome-frida>https://github.com/dweinstein/awesome-frida</a></li><li><a href=https://github.com/iddoeldor/frida-snippets>https://github.com/iddoeldor/frida-snippets</a></li><li><a href=https://github.com/deathmemory/FridaContainer>https://github.com/deathmemory/FridaContainer</a></li><li><a href=https://github.com/deathmemory/fridaRegstNtv>https://github.com/deathmemory/fridaRegstNtv</a></li><li><a href=https://www.npmjs.com/package/@types/frida-gum>https://www.npmjs.com/package/@types/frida-gum</a><ul><li><a href=https://cdn.npm.taobao.org/@types/frida-gum/-/@types/frida-gum-16.2.1.tgz>https://cdn.npm.taobao.org/@types/frida-gum/-/@types/frida-gum-16.2.1.tgz</a></li></ul></li></ul></div><div class=sharing style=text-align:center><br><p>捐赠支持</p><p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p><p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p><img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%><p></p><br>&copy; 2015-2020 XhstormR</div></div></div></div><div id=backtop><a href=# title>TOP</a></div><nav id=TableOfContents><ul><li><a href=#python>Python</a></li><li><a href=#frida>Frida</a></li><li><a href=#adb>ADB</a></li><li><a href=#setup>Setup</a></li><li><a href=#reference>Reference</a></li></ul></nav><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script><script>hljs.initHighlightingOnLoad()</script><script src=https://blog.xhstormr.tk/js/zoom.min.js></script><script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script><script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script></body></html>
+</code></pre></div><h2 id=reference>Reference</h2>
+<ul>
+<li><a href=https://github.com/FrenchYeti/dexcalibur>https://github.com/FrenchYeti/dexcalibur</a></li>
+<li><a href=https://github.com/dweinstein/awesome-frida>https://github.com/dweinstein/awesome-frida</a></li>
+<li><a href=https://github.com/iddoeldor/frida-snippets>https://github.com/iddoeldor/frida-snippets</a></li>
+<li><a href=https://github.com/deathmemory/FridaContainer>https://github.com/deathmemory/FridaContainer</a></li>
+<li><a href=https://github.com/deathmemory/fridaRegstNtv>https://github.com/deathmemory/fridaRegstNtv</a></li>
+<li><a href=https://www.npmjs.com/package/@types/frida-gum>https://www.npmjs.com/package/@types/frida-gum</a>
+<ul>
+<li><a href=https://cdn.npm.taobao.org/@types/frida-gum/-/@types/frida-gum-16.2.1.tgz>https://cdn.npm.taobao.org/@types/frida-gum/-/@types/frida-gum-16.2.1.tgz</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class=sharing style=text-align:center>
+<br>
+<p>捐赠支持</p>
+<p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p>
+<p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p>
+<img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%>
+<p></p><br>&copy; 2015-2020 XhstormR
+</div>
+</div>
+</div>
+</div>
+<div id=backtop><a href=# title>TOP</a></div>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#python>Python</a></li>
+<li><a href=#frida>Frida</a></li>
+<li><a href=#adb>ADB</a></li>
+<li><a href=#setup>Setup</a></li>
+<li><a href=#reference>Reference</a></li>
+</ul>
+</nav>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script src=https://blog.xhstormr.tk/js/zoom.min.js></script>
+<script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script>
+<script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script>
+</body>
+</html>

@@ -1,6 +1,62 @@
-<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache><head><meta charset=utf-8><meta name=renderer content="webkit"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>jOOQ &#183; XhstormR</title><link rel=alternate type=application/rss+xml title=XhstormR href><link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico><link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script><script src=https://blog.xhstormr.tk/js/main.min.js async defer></script></head><body><div id=scriptHeader><span class="mobile btn-mobile-menu"><i class="fa fa-bars btn-mobile-menu__icon"></i>
-<i class="fa fa-times btn-mobile-close__icon hidden"></i></span><header class="panel-cover panel-cover--collapsed"><div class=panel-main><div class="panel-main__inner panel-inverted"><div class=panel-main__content><h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1><hr class=panel-cover__divider><p class=panel-cover__description>On a dark desert highway, cool wind in my hair.</p><hr class="panel-cover__divider panel-cover__divider--secondary"><div class=navigation-wrapper><nav class="cover-navigation cover-navigation--primary"><ul class=navigation><li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li></ul></nav></div></div></div><div class=panel-cover--overlay></div></div></header></div><div class=bodytop><div class=content-wrapper><div class=content-wrapper__inner><div class=post><h1>jOOQ</h1><span class=post-date>2017-01-26</span><p>Updated on 2017-02-01</p><blockquote><p style=text-align:center><img data-src=/uploads/jooq.png alt title=jOOQ width></p><script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(a){a.setAttribute("src",a.getAttribute("data-src")),a.onload=function(){a.removeAttribute("data-src")}})</script><p><a href=https://github.com/jOOQ/jOOQ>https://github.com/jOOQ/jOOQ</a></p><p><a href=https://www.jooq.org/javadoc/latest/allclasses-noframe.html>https://www.jooq.org/javadoc/latest/allclasses-noframe.html</a></p><p><a href=https://jcenter.bintray.com/org/jooq/>https://jcenter.bintray.com/org/jooq/</a></p><p><a href=https://jcenter.bintray.com/org/postgresql/postgresql/>https://jcenter.bintray.com/org/postgresql/postgresql/</a></p></blockquote><h2 id=map>Map</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>java -Dorg.jooq.no-logo<span style=color:#f92672>=</span>true -cp jooq-3.9.1.jar;jooq-meta-3.9.1.jar;jooq-codegen-3.9.1.jar;postgresql-9.4.1212.jar;. org.jooq.util.GenerationTool 123.xml
-</code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml>123.xml
+<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache>
+<head>
+<meta charset=utf-8>
+<meta name=renderer content="webkit">
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title> jOOQ &#183; XhstormR </title>
+<link rel=alternate type=application/rss+xml title=XhstormR href>
+<link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico>
+<link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
+<script src=https://blog.xhstormr.tk/js/main.min.js async defer></script>
+</head>
+<body>
+<div id=scriptHeader>
+<span class="mobile btn-mobile-menu">
+<i class="fa fa-bars btn-mobile-menu__icon"></i>
+<i class="fa fa-times btn-mobile-close__icon hidden"></i>
+</span>
+<header class="panel-cover panel-cover--collapsed">
+<div class=panel-main>
+<div class="panel-main__inner panel-inverted">
+<div class=panel-main__content>
+<h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1>
+<hr class=panel-cover__divider>
+<p class=panel-cover__description> On a dark desert highway, cool wind in my hair. </p>
+<hr class="panel-cover__divider panel-cover__divider--secondary">
+<div class=navigation-wrapper>
+<nav class="cover-navigation cover-navigation--primary">
+<ul class=navigation>
+<li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class=panel-cover--overlay></div>
+</div>
+</header>
+</div>
+<div class=bodytop>
+<div class=content-wrapper>
+<div class=content-wrapper__inner>
+<div class=post>
+<h1>jOOQ</h1>
+<span class=post-date>2017-01-26</span>
+<p>Updated on 2017-02-01</p>
+<blockquote>
+<p style=text-align:center><img data-src=/uploads/jooq.png alt title=jOOQ width></p>
+<script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(a){a.setAttribute("src",a.getAttribute("data-src")),a.onload=function(){a.removeAttribute("data-src")}})</script>
+<p><a href=https://github.com/jOOQ/jOOQ>https://github.com/jOOQ/jOOQ</a></p>
+<p><a href=https://www.jooq.org/javadoc/latest/allclasses-noframe.html>https://www.jooq.org/javadoc/latest/allclasses-noframe.html</a></p>
+<p><a href=https://jcenter.bintray.com/org/jooq/>https://jcenter.bintray.com/org/jooq/</a></p>
+<p><a href=https://jcenter.bintray.com/org/postgresql/postgresql/>https://jcenter.bintray.com/org/postgresql/postgresql/</a></p>
+</blockquote>
+<h2 id=map>Map</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>java -Dorg.jooq.no-logo<span style=color:#f92672>=</span>true -cp jooq-3.9.1.jar;jooq-meta-3.9.1.jar;jooq-codegen-3.9.1.jar;postgresql-9.4.1212.jar;. org.jooq.util.GenerationTool 123.xml
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml>123.xml
 ⇳
 <span style=color:#75715e>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; standalone=&#34;yes&#34;?&gt;</span>
 <span style=color:#f92672>&lt;configuration</span> <span style=color:#a6e22e>xmlns=</span><span style=color:#e6db74>&#34;http://www.jooq.org/xsd/jooq-codegen-3.9.0.xsd&#34;</span><span style=color:#f92672>&gt;</span>
@@ -27,7 +83,8 @@
     <span style=color:#f92672>&lt;/target&gt;</span>
   <span style=color:#f92672>&lt;/generator&gt;</span>
 <span style=color:#f92672>&lt;/configuration&gt;</span>
-</code></pre></div><h2 id=query>Query</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>import</span> org.jooq.impl.DSL
+</code></pre></div><h2 id=query>Query</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>import</span> org.jooq.impl.DSL
 <span style=color:#66d9ef>import</span> sql.generated.tables.Weather
 
 <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>(args: Array&lt;String&gt;) {
@@ -58,7 +115,7 @@
 <span style=color:#f92672>----</span>
 DSL.name(<span style=color:#e6db74>&#34;abc&#34;</span>)     <span style=color:#e6db74>&#34;abc&#34;</span>
 DSL.<span style=color:#66d9ef>inline</span>(<span style=color:#e6db74>&#34;abc&#34;</span>)      <span style=color:#960050;background-color:#1e0010>&#39;</span>abc<span style=color:#960050;background-color:#1e0010>&#39;</span>
-</code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>import</span> org.jooq.impl.DSL
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>import</span> org.jooq.impl.DSL
 <span style=color:#66d9ef>import</span> sql.generated.tables.Weather
 <span style=color:#66d9ef>import</span> sql.generated.tables.records.WeatherRecord
 
@@ -78,12 +135,13 @@ DSL.<span style=color:#66d9ef>inline</span>(<span style=color:#e6db74>&#34;abc&#
     println(<span style=color:#e6db74>&#34;共 </span><span style=color:#e6db74>${result.size}</span><span style=color:#e6db74> 条记录&#34;</span>)
     dslContext.close()
 }
-</code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>build<span style=color:#f92672>.</span><span style=color:#a6e22e>gradle</span>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>build<span style=color:#f92672>.</span><span style=color:#a6e22e>gradle</span>
 <span style=color:#960050;background-color:#1e0010>⇳</span>
 compile <span style=color:#960050;background-color:#1e0010>&#39;</span>org<span style=color:#f92672>.</span><span style=color:#a6e22e>jetbrains</span><span style=color:#f92672>.</span><span style=color:#a6e22e>kotlin</span><span style=color:#f92672>:</span>kotlin<span style=color:#f92672>-</span>stdlib<span style=color:#f92672>:+</span><span style=color:#960050;background-color:#1e0010>&#39;</span>
 compile <span style=color:#960050;background-color:#1e0010>&#39;</span>org<span style=color:#f92672>.</span><span style=color:#a6e22e>jooq</span><span style=color:#f92672>:</span>jooq<span style=color:#f92672>:+</span><span style=color:#960050;background-color:#1e0010>&#39;</span>
 compile <span style=color:#960050;background-color:#1e0010>&#39;</span>org<span style=color:#f92672>.</span><span style=color:#a6e22e>postgresql</span><span style=color:#f92672>:</span>postgresql<span style=color:#f92672>:</span>42<span style=color:#f92672>.</span><span style=color:#a6e22e>0</span><span style=color:#f92672>.</span><span style=color:#a6e22e>0</span><span style=color:#960050;background-color:#1e0010>&#39;</span>
-</code></pre></div><h2 id=insert>Insert</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>import</span> org.jooq.impl.DSL
+</code></pre></div><h2 id=insert>Insert</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>import</span> org.jooq.impl.DSL
 <span style=color:#66d9ef>import</span> sql.generated.tables.Weather.WEATHER
 <span style=color:#66d9ef>import</span> java.sql.Date
 
@@ -97,7 +155,8 @@ compile <span style=color:#960050;background-color:#1e0010>&#39;</span>org<span 
             .values(<span style=color:#e6db74>&#34;Chongqing&#34;</span>, <span style=color:#ae81ff>25</span>, <span style=color:#ae81ff>29</span>, Date.valueOf(<span style=color:#e6db74>&#34;2017-01-29&#34;</span>), <span style=color:#ae81ff>0.25f</span>)
             .execute()     <span style=color:#960050;background-color:#1e0010>插入</span> <span style=color:#ae81ff>3</span> <span style=color:#960050;background-color:#1e0010>条数据</span>
 }
-</code></pre></div><h2 id=jdbc-property>JDBC Property</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>val</span> properties = Properties().apply { <span style=color:#66d9ef>this</span>.load(File(<span style=color:#e6db74>&#34;db.properties&#34;</span>).inputStream()) }
+</code></pre></div><h2 id=jdbc-property>JDBC Property</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>val</span> properties = Properties().apply { <span style=color:#66d9ef>this</span>.load(File(<span style=color:#e6db74>&#34;db.properties&#34;</span>).inputStream()) }
 println(properties[<span style=color:#e6db74>&#34;jdbc.url&#34;</span>])
 println(properties[<span style=color:#e6db74>&#34;jdbc.username&#34;</span>])
 println(properties[<span style=color:#e6db74>&#34;jdbc.password&#34;</span>])
@@ -111,7 +170,12 @@ jdbc:postgresql:<span style=color:#75715e>//127.0.0.1:5432/postgres
 jdbc.url=jdbc:postgresql://127.0.0.1:5432/postgres
 jdbc.username=123
 jdbc.password=123456
-</code></pre><h2 id=native-method>Native Method</h2><h3 id=statement-接口>Statement 接口</h3><ul><li>Statement 主要用于执行一次性静态 SQL 语句，效率不高，也不能防止 SQL Injection。</li></ul><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>import</span> java.sql.DriverManager
+</code></pre><h2 id=native-method>Native Method</h2>
+<h3 id=statement-接口>Statement 接口</h3>
+<ul>
+<li>Statement 主要用于执行一次性静态 SQL 语句，效率不高，也不能防止 SQL Injection。</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>import</span> java.sql.DriverManager
 
 <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>(args: Array&lt;String&gt;) {
     Class.forName(<span style=color:#e6db74>&#34;org.postgresql.Driver&#34;</span>)
@@ -137,7 +201,12 @@ jdbc.password=123456
     println(<span style=color:#e6db74>&#34;共 </span><span style=color:#e6db74>$c</span><span style=color:#e6db74> 条记录&#34;</span>)
     connection.close()
 }
-</code></pre></div><h3 id=preparedstatement-接口>PreparedStatement 接口</h3><ul><li>继承自 Statement 接口。</li><li>PreparedStatement 重用 SQL 语句并防止 SQL Injection（转义特殊字符）。</li></ul><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>import</span> java.sql.Date
+</code></pre></div><h3 id=preparedstatement-接口>PreparedStatement 接口</h3>
+<ul>
+<li>继承自 Statement 接口。</li>
+<li>PreparedStatement 重用 SQL 语句并防止 SQL Injection（转义特殊字符）。</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>import</span> java.sql.Date
 <span style=color:#66d9ef>import</span> java.sql.DriverManager
 
 <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>(args: Array&lt;String&gt;) {
@@ -171,7 +240,8 @@ jdbc.password=123456
     println(<span style=color:#e6db74>&#34;共 </span><span style=color:#e6db74>$c</span><span style=color:#e6db74> 条记录&#34;</span>)
     connection.close()
 }
-</code></pre></div><h3 id=resultset-接口>ResultSet 接口</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>import</span> java.sql.DriverManager
+</code></pre></div><h3 id=resultset-接口>ResultSet 接口</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>import</span> java.sql.DriverManager
 <span style=color:#66d9ef>import</span> java.sql.ResultSet
 
 <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>(args: Array&lt;String&gt;) {
@@ -204,7 +274,8 @@ jdbc.password=123456
 Tips<span style=color:#960050;background-color:#1e0010>：</span>
 Statement stmt = conn.createStatement(type, concurrency);
 PreparedStatement stmt = conn.prepareStatement(sql, type, concurrency);
-</code></pre></div><h3 id=transaction>Transaction</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>(args: Array&lt;String&gt;) {
+</code></pre></div><h3 id=transaction>Transaction</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>(args: Array&lt;String&gt;) {
     <span style=color:#66d9ef>val</span> connection = DriverManager.getConnection(<span style=color:#e6db74>&#34;jdbc:postgresql://127.0.0.1:5432/postgres&#34;</span>, <span style=color:#e6db74>&#34;123&#34;</span>, <span style=color:#e6db74>&#34;123456&#34;</span>)
     <span style=color:#66d9ef>val</span> statement = connection.createStatement()
 
@@ -220,7 +291,8 @@ PreparedStatement stmt = conn.prepareStatement(sql, type, concurrency);
     }
     connection.close()     <span style=color:#960050;background-color:#1e0010>释放资源</span>
 }
-</code></pre></div><h3 id=batch>Batch</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin>Statement<span style=color:#960050;background-color:#1e0010>：</span>
+</code></pre></div><h3 id=batch>Batch</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin>Statement<span style=color:#960050;background-color:#1e0010>：</span>
 <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>(args: Array&lt;String&gt;) {
     <span style=color:#66d9ef>val</span> connection = DriverManager.getConnection(<span style=color:#e6db74>&#34;jdbc:postgresql://127.0.0.1:5432/postgres&#34;</span>, <span style=color:#e6db74>&#34;123&#34;</span>, <span style=color:#e6db74>&#34;123456&#34;</span>)
     <span style=color:#66d9ef>val</span> statement = connection.createStatement()
@@ -257,7 +329,8 @@ PreparedStatement<span style=color:#960050;background-color:#1e0010>：</span>
     prepareStatement.clearBatch()
     connection.close()
 }
-</code></pre></div><h3 id=paging>Paging</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#960050;background-color:#1e0010>每次只请求</span> <span style=color:#ae81ff>1</span> <span style=color:#960050;background-color:#1e0010>页数据量，对内存压力较小，适合大数据量的表：</span>
+</code></pre></div><h3 id=paging>Paging</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#960050;background-color:#1e0010>每次只请求</span> <span style=color:#ae81ff>1</span> <span style=color:#960050;background-color:#1e0010>页数据量，对内存压力较小，适合大数据量的表：</span>
 <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>(args: Array&lt;String&gt;) {
     <span style=color:#66d9ef>val</span> connection = DriverManager.getConnection(<span style=color:#e6db74>&#34;jdbc:postgresql://127.0.0.1:5432/postgres&#34;</span>, <span style=color:#e6db74>&#34;123&#34;</span>, <span style=color:#e6db74>&#34;123456&#34;</span>)
     <span style=color:#66d9ef>val</span> prepareStatement = connection.prepareStatement(<span style=color:#e6db74>&#34;SELECT * FROM employee LIMIT 10 OFFSET ?;&#34;</span>)     <span style=color:#960050;background-color:#1e0010>只取</span> <span style=color:#ae81ff>10</span> <span style=color:#960050;background-color:#1e0010>条数据，偏移量每次递增</span> <span style=color:#ae81ff>10</span>
@@ -308,4 +381,44 @@ PreparedStatement<span style=color:#960050;background-color:#1e0010>：</span>
         j<span style=color:#f92672>++</span>
     }
 }
-</code></pre></div></div><div class=sharing style=text-align:center><br><p>捐赠支持</p><p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p><p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p><img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%><p></p><br>&copy; 2015-2020 XhstormR</div></div></div></div><div id=backtop><a href=# title>TOP</a></div><nav id=TableOfContents><ul><li><a href=#map>Map</a></li><li><a href=#query>Query</a></li><li><a href=#insert>Insert</a></li><li><a href=#jdbc-property>JDBC Property</a></li><li><a href=#native-method>Native Method</a><ul><li><a href=#statement-接口>Statement 接口</a></li><li><a href=#preparedstatement-接口>PreparedStatement 接口</a></li><li><a href=#resultset-接口>ResultSet 接口</a></li><li><a href=#transaction>Transaction</a></li><li><a href=#batch>Batch</a></li><li><a href=#paging>Paging</a></li></ul></li></ul></nav><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script><script>hljs.initHighlightingOnLoad()</script><script src=https://blog.xhstormr.tk/js/zoom.min.js></script><script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script><script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script></body></html>
+</code></pre></div>
+</div>
+<div class=sharing style=text-align:center>
+<br>
+<p>捐赠支持</p>
+<p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p>
+<p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p>
+<img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%>
+<p></p><br>&copy; 2015-2020 XhstormR
+</div>
+</div>
+</div>
+</div>
+<div id=backtop><a href=# title>TOP</a></div>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#map>Map</a></li>
+<li><a href=#query>Query</a></li>
+<li><a href=#insert>Insert</a></li>
+<li><a href=#jdbc-property>JDBC Property</a></li>
+<li><a href=#native-method>Native Method</a>
+<ul>
+<li><a href=#statement-接口>Statement 接口</a></li>
+<li><a href=#preparedstatement-接口>PreparedStatement 接口</a></li>
+<li><a href=#resultset-接口>ResultSet 接口</a></li>
+<li><a href=#transaction>Transaction</a></li>
+<li><a href=#batch>Batch</a></li>
+<li><a href=#paging>Paging</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script src=https://blog.xhstormr.tk/js/zoom.min.js></script>
+<script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script>
+<script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script>
+</body>
+</html>

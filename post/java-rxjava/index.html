@@ -1,11 +1,69 @@
-<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache><head><meta charset=utf-8><meta name=renderer content="webkit"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>RxJava &#183; XhstormR</title><link rel=alternate type=application/rss+xml title=XhstormR href><link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico><link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script><script src=https://blog.xhstormr.tk/js/main.min.js async defer></script></head><body><div id=scriptHeader><span class="mobile btn-mobile-menu"><i class="fa fa-bars btn-mobile-menu__icon"></i>
-<i class="fa fa-times btn-mobile-close__icon hidden"></i></span><header class="panel-cover panel-cover--collapsed"><div class=panel-main><div class="panel-main__inner panel-inverted"><div class=panel-main__content><h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1><hr class=panel-cover__divider><p class=panel-cover__description>On a dark desert highway, cool wind in my hair.</p><hr class="panel-cover__divider panel-cover__divider--secondary"><div class=navigation-wrapper><nav class="cover-navigation cover-navigation--primary"><ul class=navigation><li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li></ul></nav></div></div></div><div class=panel-cover--overlay></div></div></header></div><div class=bodytop><div class=content-wrapper><div class=content-wrapper__inner><div class=post><h1>RxJava</h1><span class=post-date>2016-11-13</span><p>Updated on 2016-11-22</p><blockquote><p style=text-align:center><img data-src=/uploads/java-rxjava.png alt title=RxJava data-action=zoom width></p><script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(a){a.setAttribute("src",a.getAttribute("data-src")),a.onload=function(){a.removeAttribute("data-src")}})</script><p>观察者模式</p><p>响应式编程
+<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache>
+<head>
+<meta charset=utf-8>
+<meta name=renderer content="webkit">
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title> RxJava &#183; XhstormR </title>
+<link rel=alternate type=application/rss+xml title=XhstormR href>
+<link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico>
+<link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
+<script src=https://blog.xhstormr.tk/js/main.min.js async defer></script>
+</head>
+<body>
+<div id=scriptHeader>
+<span class="mobile btn-mobile-menu">
+<i class="fa fa-bars btn-mobile-menu__icon"></i>
+<i class="fa fa-times btn-mobile-close__icon hidden"></i>
+</span>
+<header class="panel-cover panel-cover--collapsed">
+<div class=panel-main>
+<div class="panel-main__inner panel-inverted">
+<div class=panel-main__content>
+<h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1>
+<hr class=panel-cover__divider>
+<p class=panel-cover__description> On a dark desert highway, cool wind in my hair. </p>
+<hr class="panel-cover__divider panel-cover__divider--secondary">
+<div class=navigation-wrapper>
+<nav class="cover-navigation cover-navigation--primary">
+<ul class=navigation>
+<li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class=panel-cover--overlay></div>
+</div>
+</header>
+</div>
+<div class=bodytop>
+<div class=content-wrapper>
+<div class=content-wrapper__inner>
+<div class=post>
+<h1>RxJava</h1>
+<span class=post-date>2016-11-13</span>
+<p>Updated on 2016-11-22</p>
+<blockquote>
+<p style=text-align:center><img data-src=/uploads/java-rxjava.png alt title=RxJava data-action=zoom width></p>
+<script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(a){a.setAttribute("src",a.getAttribute("data-src")),a.onload=function(){a.removeAttribute("data-src")}})</script>
+<p>观察者模式</p>
+<p>响应式编程
 |
-函数式编程</p><p><a href=https://github.com/ReactiveX/RxJava>https://github.com/ReactiveX/RxJava</a></p><p><a href=http://reactivex.io/RxJava/2.x/javadoc/io/reactivex/Observable.html>http://reactivex.io/RxJava/2.x/javadoc/io/reactivex/Observable.html</a></p><p><a href=http://reactivex.io/documentation/operators.html>Operators</a>
+函数式编程</p>
+<p><a href=https://github.com/ReactiveX/RxJava>https://github.com/ReactiveX/RxJava</a></p>
+<p><a href=http://reactivex.io/RxJava/2.x/javadoc/io/reactivex/Observable.html>http://reactivex.io/RxJava/2.x/javadoc/io/reactivex/Observable.html</a></p>
+<p><a href=http://reactivex.io/documentation/operators.html>Operators</a>
 |
-<a href=http://rxmarbles.com/>Operators</a></p><p><a href=https://mcxiaoke.gitbooks.io/rxdocs/content/>Book</a>
+<a href=http://rxmarbles.com/>Operators</a></p>
+<p><a href=https://mcxiaoke.gitbooks.io/rxdocs/content/>Book</a>
 |
-<a href=https://rxjava.yuxingxin.com/>Book</a></p></blockquote><h2 id=java-native>Java Native</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#f92672>import</span> java.util.Observable<span style=color:#f92672>;</span>
+<a href=https://rxjava.yuxingxin.com/>Book</a></p>
+</blockquote>
+<h2 id=java-native>Java Native</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#f92672>import</span> java.util.Observable<span style=color:#f92672>;</span>
 <span style=color:#f92672>import</span> java.util.Observer<span style=color:#f92672>;</span>
 
 <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Main</span> <span style=color:#f92672>{</span>
@@ -48,7 +106,8 @@
 输出<span style=color:#960050;background-color:#1e0010>：</span>
 Update: 123
 Update: 456
-</code></pre></div><h2 id=observable---被观察者>Observable - 被观察者</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>Observable<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> observable <span style=color:#f92672>=</span> Observable<span style=color:#f92672>.</span><span style=color:#a6e22e>create</span><span style=color:#f92672>(</span><span style=color:#66d9ef>new</span> Observable<span style=color:#f92672>.</span><span style=color:#a6e22e>OnSubscribe</span><span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;()</span> <span style=color:#f92672>{</span>     传入 OnSubscribe<span style=color:#960050;background-color:#1e0010>，</span>描述事件
+</code></pre></div><h2 id=observable---被观察者>Observable - 被观察者</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>Observable<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> observable <span style=color:#f92672>=</span> Observable<span style=color:#f92672>.</span><span style=color:#a6e22e>create</span><span style=color:#f92672>(</span><span style=color:#66d9ef>new</span> Observable<span style=color:#f92672>.</span><span style=color:#a6e22e>OnSubscribe</span><span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;()</span> <span style=color:#f92672>{</span>     传入 OnSubscribe<span style=color:#960050;background-color:#1e0010>，</span>描述事件
     <span style=color:#a6e22e>@Override</span>
     <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>call</span><span style=color:#f92672>(</span>Subscriber<span style=color:#f92672>&lt;?</span> <span style=color:#66d9ef>super</span> String<span style=color:#f92672>&gt;</span> subscriber<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>     作为参数传入的观察者
         subscriber<span style=color:#f92672>.</span><span style=color:#a6e22e>onNext</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;A&#34;</span><span style=color:#f92672>);</span>     事件
@@ -90,7 +149,8 @@ Note<span style=color:#960050;background-color:#1e0010>：</span>
 0<span style=color:#f92672>.</span> 被观察者发出事件<span style=color:#960050;background-color:#1e0010>，</span>观察者处理事件<span style=color:#960050;background-color:#1e0010>。（</span>可一对多<span style=color:#960050;background-color:#1e0010>）</span>
 1<span style=color:#f92672>.</span> 一旦被观察者调用 <span style=color:#a6e22e>subscribe</span><span style=color:#f92672>()</span> 方法订阅观察者<span style=color:#960050;background-color:#1e0010>，</span>被观察者中的唯一成员 OnSubscribe 将执行 <span style=color:#a6e22e>call</span><span style=color:#f92672>()</span> 方法并将观察者作为参数传入<span style=color:#960050;background-color:#1e0010>。</span>
 2<span style=color:#f92672>.</span> 调用 <span style=color:#a6e22e>subscribe</span><span style=color:#f92672>()</span> 方法后会返回 Subscription 接口对象<span style=color:#960050;background-color:#1e0010>（</span>仅含 2 个方法 unsubscribe 和 isUnsubscribed<span style=color:#960050;background-color:#1e0010>），</span>代表被观察者与观察者之间的订阅关系<span style=color:#960050;background-color:#1e0010>。</span>
-</code></pre></div><h2 id=observer---观察者>Observer - 观察者</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>Observer<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> observer <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Observer<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;()</span> <span style=color:#f92672>{</span>     接口<span style=color:#960050;background-color:#1e0010>（</span>最终会被包装为 Subscriber<span style=color:#960050;background-color:#1e0010>）</span>
+</code></pre></div><h2 id=observer---观察者>Observer - 观察者</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>Observer<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> observer <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Observer<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;()</span> <span style=color:#f92672>{</span>     接口<span style=color:#960050;background-color:#1e0010>（</span>最终会被包装为 Subscriber<span style=color:#960050;background-color:#1e0010>）</span>
     <span style=color:#a6e22e>@Override</span>
     <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onCompleted</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>     完成事件<span style=color:#960050;background-color:#1e0010>（</span>调用链结束<span style=color:#960050;background-color:#1e0010>）</span>
         System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;onCompleted&#34;</span><span style=color:#f92672>);</span>
@@ -143,7 +203,17 @@ Action1<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;
 
 Action1<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> action1 <span style=color:#f92672>=</span> s <span style=color:#f92672>-&gt;</span> System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>s<span style=color:#f92672>);</span>     简化为 Lambda 表达式
 Action1<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> action1 <span style=color:#f92672>=</span> System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>::</span>println<span style=color:#f92672>;</span>     简化为方法引用
-</code></pre></div><h2 id=scheduler---线程调度>Scheduler - 线程调度</h2><p>默认情况下调用链（事件流）在调用 subscribe() 的线程上运行，可以通过以下 2 种方法指定运行线程：</p><ul><li>（一次）<code>subscribeOn()</code>：指定其运行线程。</li><li>（多次）<code>observeOn()</code>：切换其运行线程。<ul><li><code>subscribeOn()</code> 用于指定最开始调用链（事件流）的运行线程，后期可通过 <code>observeOn()</code> 随时切换其运行线程。</li></ul></li></ul><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>Observable
+</code></pre></div><h2 id=scheduler---线程调度>Scheduler - 线程调度</h2>
+<p>默认情况下调用链（事件流）在调用 subscribe() 的线程上运行，可以通过以下 2 种方法指定运行线程：</p>
+<ul>
+<li>（一次）<code>subscribeOn()</code>：指定其运行线程。</li>
+<li>（多次）<code>observeOn()</code>：切换其运行线程。
+<ul>
+<li><code>subscribeOn()</code> 用于指定最开始调用链（事件流）的运行线程，后期可通过 <code>observeOn()</code> 随时切换其运行线程。</li>
+</ul>
+</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>Observable
         <span style=color:#f92672>.</span><span style=color:#a6e22e>create</span><span style=color:#f92672>((</span>Observable<span style=color:#f92672>.</span><span style=color:#a6e22e>OnSubscribe</span><span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;)</span> subscriber <span style=color:#f92672>-&gt;</span> <span style=color:#f92672>{</span>
             Log<span style=color:#f92672>.</span><span style=color:#a6e22e>w</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Tag&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;create__&#34;</span> <span style=color:#f92672>+</span> Thread<span style=color:#f92672>.</span><span style=color:#a6e22e>currentThread</span><span style=color:#f92672>().</span><span style=color:#a6e22e>toString</span><span style=color:#f92672>());</span>
             subscriber<span style=color:#f92672>.</span><span style=color:#a6e22e>onNext</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;&#34;</span><span style=color:#f92672>);</span>
@@ -197,7 +267,10 @@ Observable
         <span style=color:#f92672>.</span><span style=color:#a6e22e>observeOn</span><span style=color:#f92672>(</span>AndroidSchedulers<span style=color:#f92672>.</span><span style=color:#a6e22e>mainThread</span><span style=color:#f92672>())</span>     切换至主线程 <span style=color:#f92672>(</span>2<span style=color:#f92672>)</span>
         <span style=color:#f92672>.</span><span style=color:#a6e22e>subscribeOn</span><span style=color:#f92672>(</span>Schedulers<span style=color:#f92672>.</span><span style=color:#a6e22e>io</span><span style=color:#f92672>())</span>     指定最开始在IO线程中运行 <span style=color:#f92672>(</span>1<span style=color:#f92672>)</span>
         <span style=color:#f92672>.</span><span style=color:#a6e22e>subscribe</span><span style=color:#f92672>(</span>bitmap <span style=color:#f92672>-&gt;</span> mImageView<span style=color:#f92672>.</span><span style=color:#a6e22e>setImageBitmap</span><span style=color:#f92672>(</span>bitmap<span style=color:#f92672>));</span>     加载 Bitmap
-</code></pre></div><h2 id=operators---操作符>Operators - 操作符</h2><p>类似于 Java 8 中的 Stream 的内部迭代。</p><h3 id=转换>转换</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> <span style=color:#f92672>{</span>
+</code></pre></div><h2 id=operators---操作符>Operators - 操作符</h2>
+<p>类似于 Java 8 中的 Stream 的内部迭代。</p>
+<h3 id=转换>转换</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> <span style=color:#f92672>{</span>
     <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>final</span> List<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;</span> LIST <span style=color:#f92672>=</span> Arrays<span style=color:#f92672>.</span><span style=color:#a6e22e>asList</span><span style=color:#f92672>(</span>
             <span style=color:#66d9ef>new</span> Author<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Adam&#34;</span><span style=color:#f92672>,</span> 23<span style=color:#f92672>,</span> Arrays<span style=color:#f92672>.</span><span style=color:#a6e22e>asList</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Java1&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;Java2&#34;</span><span style=color:#f92672>)),</span>
             <span style=color:#66d9ef>new</span> Author<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Bell&#34;</span><span style=color:#f92672>,</span> 19<span style=color:#f92672>,</span> Arrays<span style=color:#f92672>.</span><span style=color:#a6e22e>asList</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Python1&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;Python2&#34;</span><span style=color:#f92672>)),</span>
@@ -284,7 +357,8 @@ Ruby2
 年龄:19 姓名<span style=color:#f92672>:</span>Bell
 年龄:26 姓名<span style=color:#f92672>:</span>David
 <span style=color:#960050;background-color:#1e0010>————————————</span>
-</code></pre></div><h3 id=过滤>过滤</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> <span style=color:#f92672>{</span>
+</code></pre></div><h3 id=过滤>过滤</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> <span style=color:#f92672>{</span>
     <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>final</span> List<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;</span> LIST <span style=color:#f92672>=</span> Arrays<span style=color:#f92672>.</span><span style=color:#a6e22e>asList</span><span style=color:#f92672>(</span>
             <span style=color:#66d9ef>new</span> Author<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Adam&#34;</span><span style=color:#f92672>,</span> 23<span style=color:#f92672>,</span> Arrays<span style=color:#f92672>.</span><span style=color:#a6e22e>asList</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Java1&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;Java2&#34;</span><span style=color:#f92672>)),</span>
             <span style=color:#66d9ef>new</span> Author<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Bell&#34;</span><span style=color:#f92672>,</span> 19<span style=color:#f92672>,</span> Arrays<span style=color:#f92672>.</span><span style=color:#a6e22e>asList</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Python1&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;Python2&#34;</span><span style=color:#f92672>)),</span>
@@ -400,7 +474,8 @@ Ruby2
         <span style=color:#f92672>}</span>
     <span style=color:#f92672>}</span>
 <span style=color:#f92672>}</span>
-</code></pre></div><h3 id=组合>组合</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> <span style=color:#f92672>{</span>
+</code></pre></div><h3 id=组合>组合</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> <span style=color:#f92672>{</span>
     <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> String<span style=color:#f92672>[]</span> strings <span style=color:#f92672>=</span> <span style=color:#f92672>{</span><span style=color:#e6db74>&#34;A&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;B&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;C&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;D&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;E&#34;</span><span style=color:#f92672>};</span>
     <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> Observable<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> observable1 <span style=color:#f92672>=</span> Observable     每隔 300 毫秒发送事件<span style=color:#960050;background-color:#1e0010>：</span>A B C D E
             <span style=color:#f92672>.</span><span style=color:#a6e22e>interval</span><span style=color:#f92672>(</span>300<span style=color:#f92672>,</span> TimeUnit<span style=color:#f92672>.</span><span style=color:#a6e22e>MILLISECONDS</span><span style=color:#f92672>)</span>
@@ -466,7 +541,8 @@ Ruby2
         A0 A1 B1 C1 A2 B2 C2 D2 E2 A3 B3 C3 D3 E3 A4 B4 C4 D4 E4 A5 B5 C5 D5 E5 A6 B6 C6 D6 E6 A7 B7 C7 D7 E7 A8 B8 C8 D8 E8 A9 B9 C9 D9 E9
     <span style=color:#f92672>}</span>
 <span style=color:#f92672>}</span>
-</code></pre></div><h2 id=code>Code</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>Observable
+</code></pre></div><h2 id=code>Code</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>Observable
         <span style=color:#f92672>.</span><span style=color:#a6e22e>just</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;A&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;B&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;C&#34;</span><span style=color:#f92672>)</span>
         <span style=color:#f92672>.</span><span style=color:#a6e22e>doOnNext</span><span style=color:#f92672>(</span>s <span style=color:#f92672>-&gt;</span> System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>printf</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;%s__%s__%s\n&#34;</span><span style=color:#f92672>,</span> s<span style=color:#f92672>,</span> Thread<span style=color:#f92672>.</span><span style=color:#a6e22e>currentThread</span><span style=color:#f92672>().</span><span style=color:#a6e22e>getName</span><span style=color:#f92672>(),</span> <span style=color:#e6db74>&#34;doOnNext&#34;</span><span style=color:#f92672>))</span>     类似于 Java 8 中的 Stream 的 peek
         <span style=color:#f92672>.</span><span style=color:#a6e22e>map</span><span style=color:#f92672>(</span>s <span style=color:#f92672>-&gt;</span> <span style=color:#f92672>{</span>
@@ -511,7 +587,7 @@ C__RxIoScheduler<span style=color:#f92672>-</span>2__map
 A__RxComputationScheduler<span style=color:#f92672>-</span>1__onNext
 B__RxComputationScheduler<span style=color:#f92672>-</span>1__onNext
 C__RxComputationScheduler<span style=color:#f92672>-</span>1__onNext
-</code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>通过 <span style=color:#a6e22e>compose</span><span style=color:#f92672>()</span> 操作符重用操作链
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>通过 <span style=color:#a6e22e>compose</span><span style=color:#f92672>()</span> 操作符重用操作链
 <span style=color:#f92672>-------------------------------------------------------</span>
 <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> <span style=color:#f92672>{</span>
     <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span><span style=color:#f92672>(</span>String<span style=color:#f92672>[]</span> args<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
@@ -578,7 +654,7 @@ Observable
         <span style=color:#f92672>})</span>
         <span style=color:#f92672>.</span><span style=color:#a6e22e>compose</span><span style=color:#f92672>(</span>A<span style=color:#f92672>.</span><span style=color:#a6e22e>applySchedulers</span><span style=color:#f92672>())</span>     只需传入 A<span style=color:#f92672>.</span><span style=color:#a6e22e>applySchedulers</span><span style=color:#f92672>()</span> 返回的对象<span style=color:#960050;background-color:#1e0010>，</span>即可后台处理<span style=color:#960050;background-color:#1e0010>，</span>前台显示
         <span style=color:#f92672>.</span><span style=color:#a6e22e>subscribe</span><span style=color:#f92672>(</span>bitmap <span style=color:#f92672>-&gt;</span> mImageView<span style=color:#f92672>.</span><span style=color:#a6e22e>setImageBitmap</span><span style=color:#f92672>(</span>bitmap<span style=color:#f92672>));</span>     加载 Bitmap
-</code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>通过 Observable<span style=color:#f92672>.</span><span style=color:#a6e22e>defer</span><span style=color:#f92672>(</span>Func0<span style=color:#f92672>)</span> 实现延迟订阅
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>通过 Observable<span style=color:#f92672>.</span><span style=color:#a6e22e>defer</span><span style=color:#f92672>(</span>Func0<span style=color:#f92672>)</span> 实现延迟订阅
 <span style=color:#f92672>-------------------------------------------------------</span>
 <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> <span style=color:#f92672>{</span>
     <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> String s<span style=color:#f92672>;</span>
@@ -604,7 +680,7 @@ Note<span style=color:#960050;background-color:#1e0010>：</span>
 0<span style=color:#f92672>.</span> <span style=color:#a6e22e>just</span><span style=color:#f92672>()</span> 和 <span style=color:#a6e22e>from</span><span style=color:#f92672>()</span> 在创建 Observable 时就存储了对象的值<span style=color:#960050;background-color:#1e0010>，</span>而 <span style=color:#a6e22e>create</span><span style=color:#f92672>()</span> 创建的 Observable 在 <span style=color:#a6e22e>subscribe</span><span style=color:#f92672>()</span> 时才访问对象<span style=color:#960050;background-color:#1e0010>。</span>
 1<span style=color:#f92672>.</span> <span style=color:#a6e22e>defer</span><span style=color:#f92672>()</span> 接收一个 Func0 接口并显式声明此接口返回一个 Observable 对象<span style=color:#960050;background-color:#1e0010>。</span>
 2<span style=color:#f92672>.</span> <span style=color:#a6e22e>defer</span><span style=color:#f92672>()</span> 中的代码直到订阅才会执行<span style=color:#960050;background-color:#1e0010>。</span>
-</code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>通过 Schedulers 将耗时操作放到后台线程中执行
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>通过 Schedulers 将耗时操作放到后台线程中执行
 <span style=color:#f92672>-------------------------------------------------------</span>
 <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> <span style=color:#f92672>{</span>
     <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span><span style=color:#f92672>(</span>String<span style=color:#f92672>[]</span> args<span style=color:#f92672>)</span> <span style=color:#66d9ef>throws</span> InterruptedException <span style=color:#f92672>{</span>
@@ -618,7 +694,7 @@ Note<span style=color:#960050;background-color:#1e0010>：</span>
 <span style=color:#f92672>----</span>
 输出<span style=color:#960050;background-color:#1e0010>：</span>
 Thread<span style=color:#f92672>[</span>RxIoScheduler<span style=color:#f92672>-</span>2<span style=color:#f92672>,</span>5<span style=color:#f92672>,</span>main<span style=color:#f92672>]</span>
-</code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>Single
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>Single
 <span style=color:#f92672>-------------------------------------------------------</span>
 
 被观察者
@@ -652,7 +728,7 @@ Single<span style=color:#f92672>.</span><span style=color:#a6e22e>just</span><sp
 <span style=color:#f92672>----</span>
 输出<span style=color:#960050;background-color:#1e0010>：</span>
 A
-</code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>延时执行
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>延时执行
 <span style=color:#f92672>-------------------------------------------------------</span>
 <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> <span style=color:#f92672>{</span>
     <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span><span style=color:#f92672>(</span>String<span style=color:#f92672>[]</span> args<span style=color:#f92672>)</span> <span style=color:#66d9ef>throws</span> InterruptedException <span style=color:#f92672>{</span>
@@ -677,7 +753,7 @@ A
         0
     <span style=color:#f92672>}</span>
 <span style=color:#f92672>}</span>
-</code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>缓解 Backpressure<span style=color:#960050;background-color:#1e0010>（</span>背部压力<span style=color:#960050;background-color:#1e0010>）</span>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>缓解 Backpressure<span style=color:#960050;background-color:#1e0010>（</span>背部压力<span style=color:#960050;background-color:#1e0010>）</span>
 <span style=color:#f92672>-------------------------------------------------------</span>
 
 缓冲事件
@@ -770,4 +846,42 @@ A
         8
     <span style=color:#f92672>}</span>
 <span style=color:#f92672>}</span>
-</code></pre></div></div><div class=sharing style=text-align:center><br><p>捐赠支持</p><p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p><p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p><img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%><p></p><br>&copy; 2015-2020 XhstormR</div></div></div></div><div id=backtop><a href=# title>TOP</a></div><nav id=TableOfContents><ul><li><a href=#java-native>Java Native</a></li><li><a href=#observable---被观察者>Observable - 被观察者</a></li><li><a href=#observer---观察者>Observer - 观察者</a></li><li><a href=#scheduler---线程调度>Scheduler - 线程调度</a></li><li><a href=#operators---操作符>Operators - 操作符</a><ul><li><a href=#转换>转换</a></li><li><a href=#过滤>过滤</a></li><li><a href=#组合>组合</a></li></ul></li><li><a href=#code>Code</a></li></ul></nav><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script><script>hljs.initHighlightingOnLoad()</script><script src=https://blog.xhstormr.tk/js/zoom.min.js></script><script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script><script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script></body></html>
+</code></pre></div>
+</div>
+<div class=sharing style=text-align:center>
+<br>
+<p>捐赠支持</p>
+<p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p>
+<p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p>
+<img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%>
+<p></p><br>&copy; 2015-2020 XhstormR
+</div>
+</div>
+</div>
+</div>
+<div id=backtop><a href=# title>TOP</a></div>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#java-native>Java Native</a></li>
+<li><a href=#observable---被观察者>Observable - 被观察者</a></li>
+<li><a href=#observer---观察者>Observer - 观察者</a></li>
+<li><a href=#scheduler---线程调度>Scheduler - 线程调度</a></li>
+<li><a href=#operators---操作符>Operators - 操作符</a>
+<ul>
+<li><a href=#转换>转换</a></li>
+<li><a href=#过滤>过滤</a></li>
+<li><a href=#组合>组合</a></li>
+</ul>
+</li>
+<li><a href=#code>Code</a></li>
+</ul>
+</nav>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script src=https://blog.xhstormr.tk/js/zoom.min.js></script>
+<script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script>
+<script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script>
+</body>
+</html>

@@ -1,7 +1,79 @@
-<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache><head><meta charset=utf-8><meta name=renderer content="webkit"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>Java 8 &#183; XhstormR</title><link rel=alternate type=application/rss+xml title=XhstormR href><link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico><link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script><script src=https://blog.xhstormr.tk/js/main.min.js async defer></script></head><body><div id=scriptHeader><span class="mobile btn-mobile-menu"><i class="fa fa-bars btn-mobile-menu__icon"></i>
-<i class="fa fa-times btn-mobile-close__icon hidden"></i></span><header class="panel-cover panel-cover--collapsed"><div class=panel-main><div class="panel-main__inner panel-inverted"><div class=panel-main__content><h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1><hr class=panel-cover__divider><p class=panel-cover__description>On a dark desert highway, cool wind in my hair.</p><hr class="panel-cover__divider panel-cover__divider--secondary"><div class=navigation-wrapper><nav class="cover-navigation cover-navigation--primary"><ul class=navigation><li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li></ul></nav></div></div></div><div class=panel-cover--overlay></div></div></header></div><div class=bodytop><div class=content-wrapper><div class=content-wrapper__inner><div class=post><h1>Java 8</h1><span class=post-date>2016-11-04</span><p>Updated on 2016-11-09</p><blockquote><p><a href=https://docs.oracle.com/javase/10/docs/api/java/util/StringJoiner.html>StringJoiner</a>
+<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache>
+<head>
+<meta charset=utf-8>
+<meta name=renderer content="webkit">
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title> Java 8 &#183; XhstormR </title>
+<link rel=alternate type=application/rss+xml title=XhstormR href>
+<link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico>
+<link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
+<script src=https://blog.xhstormr.tk/js/main.min.js async defer></script>
+</head>
+<body>
+<div id=scriptHeader>
+<span class="mobile btn-mobile-menu">
+<i class="fa fa-bars btn-mobile-menu__icon"></i>
+<i class="fa fa-times btn-mobile-close__icon hidden"></i>
+</span>
+<header class="panel-cover panel-cover--collapsed">
+<div class=panel-main>
+<div class="panel-main__inner panel-inverted">
+<div class=panel-main__content>
+<h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1>
+<hr class=panel-cover__divider>
+<p class=panel-cover__description> On a dark desert highway, cool wind in my hair. </p>
+<hr class="panel-cover__divider panel-cover__divider--secondary">
+<div class=navigation-wrapper>
+<nav class="cover-navigation cover-navigation--primary">
+<ul class=navigation>
+<li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class=panel-cover--overlay></div>
+</div>
+</header>
+</div>
+<div class=bodytop>
+<div class=content-wrapper>
+<div class=content-wrapper__inner>
+<div class=post>
+<h1>Java 8</h1>
+<span class=post-date>2016-11-04</span>
+<p>Updated on 2016-11-09</p>
+<blockquote>
+<p><a href=https://docs.oracle.com/javase/10/docs/api/java/util/StringJoiner.html>StringJoiner</a>
 |
-<a href=https://docs.oracle.com/javase/10/docs/api/java/util/Optional.html>Optional</a></p><p><a href=https://docs.oracle.com/javase/10/docs/api/java/util/stream/Stream.html>https://docs.oracle.com/javase/10/docs/api/java/util/stream/Stream.html</a></p><p><a href=https://docs.oracle.com/javase/10/docs/api/java/util/stream/Collectors.html>https://docs.oracle.com/javase/10/docs/api/java/util/stream/Collectors.html</a></p></blockquote><h2 id=lambda>Lambda</h2><ul><li>Lambda 表达式（匿名方法 or 闭包）：由 <code>参数列表</code>、<code>-></code>、<code>函数体</code> 组成。<ul><li>参数列表：可以省略参数类型，编译器会根据上下文推导。</li><li>函数体：引用的局部变量会被隐式声明为 final。<ul><li>代码块：用 <code>{ }</code> 包裹的多条执行代码。</li><li>表达式：只有一条执行代码，省略了 <code>{ }</code> 和 <code>return</code>。<ul><li>若 <strong>没有传入额外参数</strong>，而 <strong>仅调用对象方法</strong>，则可以进一步简化整个 Lambda 表达式，转换为 <strong>方法引用</strong>。<code>对象名::方法名</code> <code>类名::方法名</code> <code>类名::new</code> <code>类名[]::new</code></li></ul></li></ul></li></ul></li><li>Lambda 表达式只能出现在目标类型为函数式接口的上下文中。</li><li>Lambda 表达式不会引入新作用域，函数体中的变量和外部环境中的变量具有相同的语义。</li></ul><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>Predicate<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> filter <span style=color:#f92672>=</span> <span style=color:#f92672>(</span>String s<span style=color:#f92672>)</span> <span style=color:#f92672>-&gt;</span> <span style=color:#f92672>{</span>     代码块
+<a href=https://docs.oracle.com/javase/10/docs/api/java/util/Optional.html>Optional</a></p>
+<p><a href=https://docs.oracle.com/javase/10/docs/api/java/util/stream/Stream.html>https://docs.oracle.com/javase/10/docs/api/java/util/stream/Stream.html</a></p>
+<p><a href=https://docs.oracle.com/javase/10/docs/api/java/util/stream/Collectors.html>https://docs.oracle.com/javase/10/docs/api/java/util/stream/Collectors.html</a></p>
+</blockquote>
+<h2 id=lambda>Lambda</h2>
+<ul>
+<li>Lambda 表达式（匿名方法 or 闭包）：由 <code>参数列表</code>、<code>-></code>、<code>函数体</code> 组成。
+<ul>
+<li>参数列表：可以省略参数类型，编译器会根据上下文推导。</li>
+<li>函数体：引用的局部变量会被隐式声明为 final。
+<ul>
+<li>代码块：用 <code>{ }</code> 包裹的多条执行代码。</li>
+<li>表达式：只有一条执行代码，省略了 <code>{ }</code> 和 <code>return</code>。
+<ul>
+<li>若 <strong>没有传入额外参数</strong>，而 <strong>仅调用对象方法</strong>，则可以进一步简化整个 Lambda 表达式，转换为 <strong>方法引用</strong>。<code>对象名::方法名</code> <code>类名::方法名</code> <code>类名::new</code> <code>类名[]::new</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Lambda 表达式只能出现在目标类型为函数式接口的上下文中。</li>
+<li>Lambda 表达式不会引入新作用域，函数体中的变量和外部环境中的变量具有相同的语义。</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>Predicate<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> filter <span style=color:#f92672>=</span> <span style=color:#f92672>(</span>String s<span style=color:#f92672>)</span> <span style=color:#f92672>-&gt;</span> <span style=color:#f92672>{</span>     代码块
     <span style=color:#66d9ef>return</span> s<span style=color:#f92672>.</span><span style=color:#a6e22e>endsWith</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;.txt&#34;</span><span style=color:#f92672>);</span>
 <span style=color:#f92672>};</span>
 
@@ -36,7 +108,14 @@ Arrays<span style=color:#f92672>.</span><span style=color:#a6e22e>asList</span><
 Comparator<span style=color:#f92672>&lt;</span>Integer<span style=color:#f92672>&gt;</span> comparator <span style=color:#f92672>=</span> <span style=color:#f92672>(</span>x<span style=color:#f92672>,</span> y<span style=color:#f92672>)</span> <span style=color:#f92672>-&gt;</span> Integer<span style=color:#f92672>.</span><span style=color:#a6e22e>compare</span><span style=color:#f92672>(</span>x<span style=color:#f92672>,</span> y<span style=color:#f92672>);</span>     表达式
 
 Comparator<span style=color:#f92672>&lt;</span>Integer<span style=color:#f92672>&gt;</span> comparator <span style=color:#f92672>=</span> Integer<span style=color:#f92672>::</span>compare<span style=color:#f92672>;</span>     方法引用<span style=color:#960050;background-color:#1e0010>（</span>没有传入额外参数<span style=color:#960050;background-color:#1e0010>）</span>
-</code></pre></div><h2 id=functional-interface>Functional Interface</h2><p>只含有一个抽象方法，因此可以被转换成 Lambda 表达式。</p><ul><li>抽象方法：自己 <strong>未实现</strong>，子类必须实现。<code>void a();</code></li><li>默认方法：自己 <strong>已实现</strong>，子类可以重写。<code>default void b() { }</code></li><li>静态方法：自己 <strong>已实现</strong>，直接可以访问。<code>static void c() { }</code></li></ul><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#a6e22e>@FunctionalInterface</span>     注解<span style=color:#960050;background-color:#1e0010>：</span>声明为函数式接口
+</code></pre></div><h2 id=functional-interface>Functional Interface</h2>
+<p>只含有一个抽象方法，因此可以被转换成 Lambda 表达式。</p>
+<ul>
+<li>抽象方法：自己 <strong>未实现</strong>，子类必须实现。<code>void a();</code></li>
+<li>默认方法：自己 <strong>已实现</strong>，子类可以重写。<code>default void b() { }</code></li>
+<li>静态方法：自己 <strong>已实现</strong>，直接可以访问。<code>static void c() { }</code></li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#a6e22e>@FunctionalInterface</span>     注解<span style=color:#960050;background-color:#1e0010>：</span>声明为函数式接口
 <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>A</span> <span style=color:#f92672>{</span>
     <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>a</span><span style=color:#f92672>();</span>     抽象方法
 
@@ -63,7 +142,47 @@ Comparator<span style=color:#f92672>&lt;</span>Integer<span style=color:#f92672>
 抽象方法
 默认方法
 静态方法
-</code></pre></div><h2 id=stream>Stream</h2><p>支持串行处理和并行处理的 <strong>数据流</strong>。</p><ul><li>外部迭代：通过 for-each 循环来处理数据；同时承担 <code>做什么</code> 和 <code>怎么做</code>。</li><li>内部迭代：通过获得 Stream 来处理数据；只承担 <code>做什么</code>，由类库承担 <code>怎么做</code>。<ul><li>中间操作（惰性求值）：不会立即执行，而是加入任务队列中，在终点操作时一并执行。<ul><li>有限数据 ➜ 优化作用，无限数据 ➜ 决定作用（没有短路求值，操作无法停止）。</li></ul></li><li>终点操作（急性求值）：通过短路求值的优化一并执行所有操作，以提供更高效的性能。</li></ul></li><li>串行流（串行处理）：单线程。<code>list.stream()</code> <code>stream.sequential()</code></li><li>并行流（并行处理）：多线程。<code>list.parallelStream()</code> <code>stream.parallel()</code></li><li>中间操作：<ul><li>过滤：filter。</li><li>排序：sorted。</li><li>去重：distinct。</li><li>最大：max。</li><li>最小：min。</li><li>消耗：peek。</li><li>转换：map（一对一）、flatMap（一对多）。<code>映射</code></li><li>返回前 n 个元素：limit。<code>最多执行次数</code></li><li>跳过前 n 个元素：skip。</li></ul></li><li>终点操作：<ul><li>收集：collect。</li><li>归约：reduce。</li><li>消耗：forEach。</li><li>且（<strong>全部</strong> 元素符合返回 true）：allMatch。</li><li>或（<strong>任一</strong> 元素符合返回 true）：anyMatch。</li><li>非（<strong>没有</strong> 元素符合返回 true）：noneMatch。</li></ul></li></ul><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>for</span> <span style=color:#f92672>(</span>Shape shape <span style=color:#f92672>:</span> shapes<span style=color:#f92672>){</span>     外部迭代
+</code></pre></div><h2 id=stream>Stream</h2>
+<p>支持串行处理和并行处理的 <strong>数据流</strong>。</p>
+<ul>
+<li>外部迭代：通过 for-each 循环来处理数据；同时承担 <code>做什么</code> 和 <code>怎么做</code>。</li>
+<li>内部迭代：通过获得 Stream 来处理数据；只承担 <code>做什么</code>，由类库承担 <code>怎么做</code>。
+<ul>
+<li>中间操作（惰性求值）：不会立即执行，而是加入任务队列中，在终点操作时一并执行。
+<ul>
+<li>有限数据 ➜ 优化作用，无限数据 ➜ 决定作用（没有短路求值，操作无法停止）。</li>
+</ul>
+</li>
+<li>终点操作（急性求值）：通过短路求值的优化一并执行所有操作，以提供更高效的性能。</li>
+</ul>
+</li>
+<li>串行流（串行处理）：单线程。<code>list.stream()</code> <code>stream.sequential()</code></li>
+<li>并行流（并行处理）：多线程。<code>list.parallelStream()</code> <code>stream.parallel()</code></li>
+<li>中间操作：
+<ul>
+<li>过滤：filter。</li>
+<li>排序：sorted。</li>
+<li>去重：distinct。</li>
+<li>最大：max。</li>
+<li>最小：min。</li>
+<li>消耗：peek。</li>
+<li>转换：map（一对一）、flatMap（一对多）。<code>映射</code></li>
+<li>返回前 n 个元素：limit。<code>最多执行次数</code></li>
+<li>跳过前 n 个元素：skip。</li>
+</ul>
+</li>
+<li>终点操作：
+<ul>
+<li>收集：collect。</li>
+<li>归约：reduce。</li>
+<li>消耗：forEach。</li>
+<li>且（<strong>全部</strong> 元素符合返回 true）：allMatch。</li>
+<li>或（<strong>任一</strong> 元素符合返回 true）：anyMatch。</li>
+<li>非（<strong>没有</strong> 元素符合返回 true）：noneMatch。</li>
+</ul>
+</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>for</span> <span style=color:#f92672>(</span>Shape shape <span style=color:#f92672>:</span> shapes<span style=color:#f92672>){</span>     外部迭代
     shape<span style=color:#f92672>.</span><span style=color:#a6e22e>setColor</span><span style=color:#f92672>(</span>RED<span style=color:#f92672>);</span>
 <span style=color:#f92672>}</span>
 
@@ -123,7 +242,9 @@ map: B
 anyMatch: B
 
 Note<span style=color:#960050;background-color:#1e0010>：</span>filter 操作尽可能排在最前<span style=color:#960050;background-color:#1e0010>（</span>短路求值<span style=color:#960050;background-color:#1e0010>），</span>sorted 操作尽可能排在最后<span style=color:#960050;background-color:#1e0010>（</span>sorted 操作遍历整个数据流<span style=color:#960050;background-color:#1e0010>）</span>
-</code></pre></div><h2 id=optional>Optional</h2><p>一种用于封装对象的容器，封装的对象可以为空，并且对空值进行处理。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> <span style=color:#f92672>{</span>
+</code></pre></div><h2 id=optional>Optional</h2>
+<p>一种用于封装对象的容器，封装的对象可以为空，并且对空值进行处理。</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> <span style=color:#f92672>{</span>
     <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span><span style=color:#f92672>(</span>String<span style=color:#f92672>[]</span> args<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
         a<span style=color:#f92672>();</span>
         System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;--------&#34;</span><span style=color:#f92672>);</span>
@@ -157,7 +278,8 @@ ABC
 <span style=color:#66d9ef>false</span>
 123
 123
-</code></pre></div><h2 id=code>Code</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> <span style=color:#f92672>{</span>
+</code></pre></div><h2 id=code>Code</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> <span style=color:#f92672>{</span>
     <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>final</span> List<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;</span> LIST <span style=color:#f92672>=</span> Arrays<span style=color:#f92672>.</span><span style=color:#a6e22e>asList</span><span style=color:#f92672>(</span>     作家列表
             <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Author</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Adam&#34;</span><span style=color:#f92672>,</span> 23<span style=color:#f92672>,</span> Arrays<span style=color:#f92672>.</span><span style=color:#a6e22e>asList</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Java1&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;Java2&#34;</span><span style=color:#f92672>)),</span>
             <span style=color:#66d9ef>new</span> Author<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Bell&#34;</span><span style=color:#f92672>,</span> 19<span style=color:#f92672>,</span> Arrays<span style=color:#f92672>.</span><span style=color:#a6e22e>asList</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Python1&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;Python2&#34;</span><span style=color:#f92672>)),</span>
@@ -316,4 +438,35 @@ ABC
         <span style=color:#f92672>}</span>
     <span style=color:#f92672>}</span>
 <span style=color:#f92672>}</span>
-</code></pre></div></div><div class=sharing style=text-align:center><br><p>捐赠支持</p><p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p><p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p><img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%><p></p><br>&copy; 2015-2020 XhstormR</div></div></div></div><div id=backtop><a href=# title>TOP</a></div><nav id=TableOfContents><ul><li><a href=#lambda>Lambda</a></li><li><a href=#functional-interface>Functional Interface</a></li><li><a href=#stream>Stream</a></li><li><a href=#optional>Optional</a></li><li><a href=#code>Code</a></li></ul></nav><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script><script>hljs.initHighlightingOnLoad()</script><script src=https://blog.xhstormr.tk/js/zoom.min.js></script><script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script><script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script></body></html>
+</code></pre></div>
+</div>
+<div class=sharing style=text-align:center>
+<br>
+<p>捐赠支持</p>
+<p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p>
+<p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p>
+<img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%>
+<p></p><br>&copy; 2015-2020 XhstormR
+</div>
+</div>
+</div>
+</div>
+<div id=backtop><a href=# title>TOP</a></div>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#lambda>Lambda</a></li>
+<li><a href=#functional-interface>Functional Interface</a></li>
+<li><a href=#stream>Stream</a></li>
+<li><a href=#optional>Optional</a></li>
+<li><a href=#code>Code</a></li>
+</ul>
+</nav>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script src=https://blog.xhstormr.tk/js/zoom.min.js></script>
+<script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script>
+<script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script>
+</body>
+</html>

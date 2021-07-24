@@ -1,5 +1,79 @@
-<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache><head><meta charset=utf-8><meta name=renderer content="webkit"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>Spring MVC &#183; XhstormR</title><link rel=alternate type=application/rss+xml title=XhstormR href><link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico><link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script><script src=https://blog.xhstormr.tk/js/main.min.js async defer></script></head><body><div id=scriptHeader><span class="mobile btn-mobile-menu"><i class="fa fa-bars btn-mobile-menu__icon"></i>
-<i class="fa fa-times btn-mobile-close__icon hidden"></i></span><header class="panel-cover panel-cover--collapsed"><div class=panel-main><div class="panel-main__inner panel-inverted"><div class=panel-main__content><h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1><hr class=panel-cover__divider><p class=panel-cover__description>On a dark desert highway, cool wind in my hair.</p><hr class="panel-cover__divider panel-cover__divider--secondary"><div class=navigation-wrapper><nav class="cover-navigation cover-navigation--primary"><ul class=navigation><li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li></ul></nav></div></div></div><div class=panel-cover--overlay></div></div></header></div><div class=bodytop><div class=content-wrapper><div class=content-wrapper__inner><div class=post><h1>Spring MVC</h1><span class=post-date>2017-06-17</span><p>Updated on 2017-06-22</p><blockquote><p style=text-align:center><img data-src=/uploads/spring.png alt title="Spring Framework" data-action=zoom width></p><script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(a){a.setAttribute("src",a.getAttribute("data-src")),a.onload=function(){a.removeAttribute("data-src")}})</script><p><a href=https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/http/converter/json/MappingJackson2HttpMessageConverter.html>MappingJackson2HttpMessageConverter</a></p><p><a href=https://github.com/thymeleaf/thymeleaf>https://github.com/thymeleaf/thymeleaf</a></p><p><a href=http://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html>http://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html</a></p></blockquote><h2 id=concept>Concept</h2><ul><li>REST：将资源的 <strong>状态</strong> 以 <strong>适合</strong> 客户端的 <strong>格式</strong> 从服务端 <strong>传递</strong> 至客户端（或者反过来）。<ul><li>资源通过 URL 进行标识，通过 HTTP Method 进行管理，通过 HTTP Header 表述格式。<ul><li>资源：URL（统一资源定位器）</li><li>格式：Accept、Content-Type 头部信息。</li><li>动词：<a href=/post/postgresql/#concept>CRUD</a>（增删改查）<ul><li>幂等：<strong>同一操作</strong> 执行 <strong>任意次数</strong> 所产生的影响或结果 <strong>相同</strong>。</li></ul></li></ul></li></ul></li></ul><h2 id=configuration>Configuration</h2><h3 id=buildgradlekts>build.gradle.kts</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>plugin<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;war&#34;</span><span style=color:#f92672>)</span>
+<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache>
+<head>
+<meta charset=utf-8>
+<meta name=renderer content="webkit">
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title> Spring MVC &#183; XhstormR </title>
+<link rel=alternate type=application/rss+xml title=XhstormR href>
+<link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico>
+<link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
+<script src=https://blog.xhstormr.tk/js/main.min.js async defer></script>
+</head>
+<body>
+<div id=scriptHeader>
+<span class="mobile btn-mobile-menu">
+<i class="fa fa-bars btn-mobile-menu__icon"></i>
+<i class="fa fa-times btn-mobile-close__icon hidden"></i>
+</span>
+<header class="panel-cover panel-cover--collapsed">
+<div class=panel-main>
+<div class="panel-main__inner panel-inverted">
+<div class=panel-main__content>
+<h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1>
+<hr class=panel-cover__divider>
+<p class=panel-cover__description> On a dark desert highway, cool wind in my hair. </p>
+<hr class="panel-cover__divider panel-cover__divider--secondary">
+<div class=navigation-wrapper>
+<nav class="cover-navigation cover-navigation--primary">
+<ul class=navigation>
+<li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class=panel-cover--overlay></div>
+</div>
+</header>
+</div>
+<div class=bodytop>
+<div class=content-wrapper>
+<div class=content-wrapper__inner>
+<div class=post>
+<h1>Spring MVC</h1>
+<span class=post-date>2017-06-17</span>
+<p>Updated on 2017-06-22</p>
+<blockquote>
+<p style=text-align:center><img data-src=/uploads/spring.png alt title="Spring Framework" data-action=zoom width></p>
+<script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(a){a.setAttribute("src",a.getAttribute("data-src")),a.onload=function(){a.removeAttribute("data-src")}})</script>
+<p><a href=https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/http/converter/json/MappingJackson2HttpMessageConverter.html>MappingJackson2HttpMessageConverter</a></p>
+<p><a href=https://github.com/thymeleaf/thymeleaf>https://github.com/thymeleaf/thymeleaf</a></p>
+<p><a href=http://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html>http://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html</a></p>
+</blockquote>
+<h2 id=concept>Concept</h2>
+<ul>
+<li>REST：将资源的 <strong>状态</strong> 以 <strong>适合</strong> 客户端的 <strong>格式</strong> 从服务端 <strong>传递</strong> 至客户端（或者反过来）。
+<ul>
+<li>资源通过 URL 进行标识，通过 HTTP Method 进行管理，通过 HTTP Header 表述格式。
+<ul>
+<li>资源：URL（统一资源定位器）</li>
+<li>格式：Accept、Content-Type 头部信息。</li>
+<li>动词：<a href=/post/postgresql/#concept>CRUD</a>（增删改查）
+<ul>
+<li>幂等：<strong>同一操作</strong> 执行 <strong>任意次数</strong> 所产生的影响或结果 <strong>相同</strong>。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id=configuration>Configuration</h2>
+<h3 id=buildgradlekts>build.gradle.kts</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>plugin<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;war&#34;</span><span style=color:#f92672>)</span>
 
 compile<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;org.springframework:spring-webmvc:+&#34;</span><span style=color:#f92672>)</span>
 compile<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;javax.servlet:javax.servlet-api:+&#34;</span><span style=color:#f92672>)</span>
@@ -10,7 +84,9 @@ compile<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;org.slf4
 compile<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;org.hibernate:hibernate-validator:5.+&#34;</span><span style=color:#f92672>)</span>
 
 compile<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;com.fasterxml.jackson.core:jackson-databind:+&#34;</span><span style=color:#f92672>)</span>
-</code></pre></div><h2 id=code>Code</h2><h3 id=appconfig>AppConfig</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>import</span> org.springframework.web.filter.CharacterEncodingFilter
+</code></pre></div><h2 id=code>Code</h2>
+<h3 id=appconfig>AppConfig</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>import</span> org.springframework.web.filter.CharacterEncodingFilter
 <span style=color:#66d9ef>import</span> org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer
 <span style=color:#66d9ef>import</span> javax.servlet.Filter
 <span style=color:#66d9ef>import</span> javax.servlet.MultipartConfigElement
@@ -30,7 +106,8 @@ compile<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;com.fast
         registration.setMultipartConfig(MultipartConfigElement(<span style=color:#e6db74>&#34;D:/TEMP&#34;</span>, <span style=color:#ae81ff>2</span> * mb, <span style=color:#ae81ff>4</span> * mb, <span style=color:#ae81ff>0</span>))
     }
 }
-</code></pre></div><h3 id=webconfig>WebConfig</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>import</span> org.springframework.context.annotation.Bean
+</code></pre></div><h3 id=webconfig>WebConfig</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>import</span> org.springframework.context.annotation.Bean
 <span style=color:#66d9ef>import</span> org.springframework.context.annotation.ComponentScan
 <span style=color:#66d9ef>import</span> org.springframework.context.annotation.Configuration
 <span style=color:#66d9ef>import</span> org.springframework.format.FormatterRegistry
@@ -84,11 +161,13 @@ compile<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;com.fast
         registry.addConverter(MyStringToDateConverter())     <span style=color:#960050;background-color:#1e0010>注册</span> Converter
     }
 }
-</code></pre></div><h3 id=rootconfig>RootConfig</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>import</span> org.springframework.context.annotation.Configuration
+</code></pre></div><h3 id=rootconfig>RootConfig</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>import</span> org.springframework.context.annotation.Configuration
 
 <span style=color:#a6e22e>@Configuration</span>
 <span style=color:#66d9ef>open</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>RootConfig</span>
-</code></pre></div><h3 id=myinterceptor>MyInterceptor</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>import</span> org.springframework.web.servlet.ModelAndView
+</code></pre></div><h3 id=myinterceptor>MyInterceptor</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>import</span> org.springframework.web.servlet.ModelAndView
 <span style=color:#66d9ef>import</span> org.springframework.web.servlet.handler.HandlerInterceptorAdapter
 <span style=color:#66d9ef>import</span> java.lang.Exception
 <span style=color:#66d9ef>import</span> javax.servlet.http.HttpServletRequest
@@ -115,7 +194,8 @@ compile<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;com.fast
 <span style=color:#960050;background-color:#1e0010>基于切面思想的应用：</span>
 <span style=color:#960050;background-color:#1e0010>过滤器：基于</span> Servlet <span style=color:#960050;background-color:#1e0010>容器，能够过滤所有请求，使用回调函数。（</span>Filter<span style=color:#960050;background-color:#1e0010>）</span>
 <span style=color:#960050;background-color:#1e0010>拦截器：基于</span> Spring  <span style=color:#960050;background-color:#1e0010>容器，只能拦截部分请求，使用反射机制。（</span>Interceptor<span style=color:#960050;background-color:#1e0010>）</span>
-</code></pre></div><h3 id=mydateformatter>MyDateFormatter</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>import</span> org.springframework.format.Formatter
+</code></pre></div><h3 id=mydateformatter>MyDateFormatter</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>import</span> org.springframework.format.Formatter
 <span style=color:#66d9ef>import</span> java.text.SimpleDateFormat
 <span style=color:#66d9ef>import</span> java.util.*
 
@@ -126,7 +206,8 @@ compile<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;com.fast
 
     <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>print</span>(<span style=color:#a6e22e>`object</span><span style=color:#960050;background-color:#1e0010>`</span>: Date, locale: Locale): String = sdf.format(<span style=color:#a6e22e>`object</span><span style=color:#960050;background-color:#1e0010>`</span>)
 }
-</code></pre></div><h3 id=mystringtodateconverter>MyStringToDateConverter</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>import</span> org.springframework.core.convert.converter.Converter
+</code></pre></div><h3 id=mystringtodateconverter>MyStringToDateConverter</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>import</span> org.springframework.core.convert.converter.Converter
 <span style=color:#66d9ef>import</span> java.text.SimpleDateFormat
 <span style=color:#66d9ef>import</span> java.util.*
 
@@ -135,7 +216,9 @@ compile<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;com.fast
 
     <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>convert</span>(source: String): Date = sdf.parse(source)
 }
-</code></pre></div><h3 id=entity>entity</h3><h4 id=account>Account</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>package</span> entity
+</code></pre></div><h3 id=entity>entity</h3>
+<h4 id=account>Account</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>package</span> entity
 
 <span style=color:#66d9ef>import</span> javax.validation.constraints.Min
 <span style=color:#66d9ef>import</span> javax.validation.constraints.NotNull
@@ -152,7 +235,9 @@ compile<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;com.fast
         <span style=color:#a6e22e>@field</span>:Min(<span style=color:#ae81ff>18</span>)
         <span style=color:#66d9ef>var</span> age: Int? = <span style=color:#66d9ef>null</span>
 )
-</code></pre></div><h3 id=controller>controller</h3><h4 id=homecontroller>HomeController</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>package</span> controller
+</code></pre></div><h3 id=controller>controller</h3>
+<h4 id=homecontroller>HomeController</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>package</span> controller
 
 <span style=color:#66d9ef>import</span> org.springframework.stereotype.Controller
 <span style=color:#66d9ef>import</span> org.springframework.web.bind.annotation.RequestMapping
@@ -166,7 +251,8 @@ compile<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;com.fast
         <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;home&#34;</span>     <span style=color:#960050;background-color:#1e0010>解析为</span> /WEB-INF/views/home.html <span style=color:#960050;background-color:#1e0010>视图</span>
     }
 }
-</code></pre></div><h4 id=acontroller>AController</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>package</span> controller
+</code></pre></div><h4 id=acontroller>AController</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>package</span> controller
 
 <span style=color:#66d9ef>import</span> entity.Account
 <span style=color:#66d9ef>import</span> org.springframework.stereotype.Controller
@@ -253,7 +339,8 @@ compile<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;com.fast
         <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;error&#34;</span>
     }
 }
-</code></pre></div><h4 id=bcontroller>BController</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>package</span> controller
+</code></pre></div><h4 id=bcontroller>BController</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>package</span> controller
 
 <span style=color:#66d9ef>import</span> entity.Account
 <span style=color:#66d9ef>import</span> org.springframework.http.HttpStatus
@@ -296,7 +383,8 @@ compile<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;com.fast
         <span style=color:#66d9ef>val</span> code: Int,
         <span style=color:#66d9ef>val</span> message: String
 )
-</code></pre></div><h4 id=ccontroller>CController</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>package</span> controller
+</code></pre></div><h4 id=ccontroller>CController</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>package</span> controller
 
 <span style=color:#66d9ef>import</span> entity.Account
 <span style=color:#66d9ef>import</span> org.springframework.format.annotation.DateTimeFormat
@@ -373,7 +461,8 @@ compile<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;com.fast
     <span style=color:#a6e22e>@PostMapping</span>(<span style=color:#e6db74>&#34;/map.do&#34;</span>)
     <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>map</span>(<span style=color:#a6e22e>@RequestBody</span> accounts: Map&lt;String, Account&gt;) = accounts
 }
-</code></pre></div><h4 id=apperrorhandler>AppErrorHandler</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>package</span> controller
+</code></pre></div><h4 id=apperrorhandler>AppErrorHandler</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>package</span> controller
 
 <span style=color:#66d9ef>import</span> org.springframework.web.bind.annotation.ControllerAdvice
 <span style=color:#66d9ef>import</span> org.springframework.web.bind.annotation.ExceptionHandler
@@ -385,7 +474,9 @@ compile<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;com.fast
         <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;error&#34;</span>
     }
 }
-</code></pre></div><h2 id=html>HTML</h2><h3 id=ahtml>a.html</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>&lt;<span style=color:#f92672>html</span> <span style=color:#a6e22e>xmlns:th</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;http://www.thymeleaf.org&#34;</span>&gt;     Thymeleaf 命名空间
+</code></pre></div><h2 id=html>HTML</h2>
+<h3 id=ahtml>a.html</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>&lt;<span style=color:#f92672>html</span> <span style=color:#a6e22e>xmlns:th</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;http://www.thymeleaf.org&#34;</span>&gt;     Thymeleaf 命名空间
 &lt;<span style=color:#f92672>head</span>&gt;
     &lt;<span style=color:#f92672>meta</span> <span style=color:#a6e22e>charset</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;UTF-8&#34;</span>&gt;
     &lt;<span style=color:#f92672>title</span>&gt;Title&lt;/<span style=color:#f92672>title</span>&gt;
@@ -399,7 +490,8 @@ compile<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;com.fast
 选择表达式：*{ }，基于选中对象。
 路径表达式：@{ }。
 对象表达式：#{ }。
-</code></pre></div><h3 id=bhtml>b.html</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>&lt;<span style=color:#f92672>html</span>&gt;
+</code></pre></div><h3 id=bhtml>b.html</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>&lt;<span style=color:#f92672>html</span>&gt;
 &lt;<span style=color:#f92672>head</span>&gt;
     &lt;<span style=color:#f92672>meta</span> <span style=color:#a6e22e>charset</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;UTF-8&#34;</span>&gt;
     &lt;<span style=color:#f92672>title</span>&gt;Title&lt;/<span style=color:#f92672>title</span>&gt;
@@ -413,7 +505,8 @@ compile<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;com.fast
 &lt;/<span style=color:#f92672>form</span>&gt;
 &lt;/<span style=color:#f92672>body</span>&gt;
 &lt;/<span style=color:#f92672>html</span>&gt;
-</code></pre></div><h3 id=chtml>c.html</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>&lt;<span style=color:#f92672>html</span>&gt;
+</code></pre></div><h3 id=chtml>c.html</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>&lt;<span style=color:#f92672>html</span>&gt;
 &lt;<span style=color:#f92672>head</span>&gt;
     &lt;<span style=color:#f92672>meta</span> <span style=color:#a6e22e>charset</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;UTF-8&#34;</span>&gt;
     &lt;<span style=color:#f92672>title</span>&gt;Title&lt;/<span style=color:#f92672>title</span>&gt;
@@ -425,4 +518,55 @@ compile<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;com.fast
 &lt;/<span style=color:#f92672>form</span>&gt;
 &lt;/<span style=color:#f92672>body</span>&gt;
 &lt;/<span style=color:#f92672>html</span>&gt;
-</code></pre></div></div><div class=sharing style=text-align:center><br><p>捐赠支持</p><p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p><p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p><img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%><p></p><br>&copy; 2015-2020 XhstormR</div></div></div></div><div id=backtop><a href=# title>TOP</a></div><nav id=TableOfContents><ul><li><a href=#concept>Concept</a></li><li><a href=#configuration>Configuration</a><ul><li><a href=#buildgradlekts>build.gradle.kts</a></li></ul></li><li><a href=#code>Code</a><ul><li><a href=#appconfig>AppConfig</a></li><li><a href=#webconfig>WebConfig</a></li><li><a href=#rootconfig>RootConfig</a></li><li><a href=#myinterceptor>MyInterceptor</a></li><li><a href=#mydateformatter>MyDateFormatter</a></li><li><a href=#mystringtodateconverter>MyStringToDateConverter</a></li><li><a href=#entity>entity</a></li><li><a href=#controller>controller</a></li></ul></li><li><a href=#html>HTML</a><ul><li><a href=#ahtml>a.html</a></li><li><a href=#bhtml>b.html</a></li><li><a href=#chtml>c.html</a></li></ul></li></ul></nav><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script><script>hljs.initHighlightingOnLoad()</script><script src=https://blog.xhstormr.tk/js/zoom.min.js></script><script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script><script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script></body></html>
+</code></pre></div>
+</div>
+<div class=sharing style=text-align:center>
+<br>
+<p>捐赠支持</p>
+<p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p>
+<p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p>
+<img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%>
+<p></p><br>&copy; 2015-2020 XhstormR
+</div>
+</div>
+</div>
+</div>
+<div id=backtop><a href=# title>TOP</a></div>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#concept>Concept</a></li>
+<li><a href=#configuration>Configuration</a>
+<ul>
+<li><a href=#buildgradlekts>build.gradle.kts</a></li>
+</ul>
+</li>
+<li><a href=#code>Code</a>
+<ul>
+<li><a href=#appconfig>AppConfig</a></li>
+<li><a href=#webconfig>WebConfig</a></li>
+<li><a href=#rootconfig>RootConfig</a></li>
+<li><a href=#myinterceptor>MyInterceptor</a></li>
+<li><a href=#mydateformatter>MyDateFormatter</a></li>
+<li><a href=#mystringtodateconverter>MyStringToDateConverter</a></li>
+<li><a href=#entity>entity</a></li>
+<li><a href=#controller>controller</a></li>
+</ul>
+</li>
+<li><a href=#html>HTML</a>
+<ul>
+<li><a href=#ahtml>a.html</a></li>
+<li><a href=#bhtml>b.html</a></li>
+<li><a href=#chtml>c.html</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script src=https://blog.xhstormr.tk/js/zoom.min.js></script>
+<script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script>
+<script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script>
+</body>
+</html>
