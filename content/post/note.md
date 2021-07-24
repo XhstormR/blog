@@ -573,6 +573,9 @@ https://github.com/project64/project64
 Wii U：
 http://cemu.info/index.html
 
+3DS：
+https://github.com/citra-emu/citra
+
 Nintendo Switch：
 https://github.com/yuzu-emu/yuzu
 https://github.com/Ryujinx/Ryujinx

@@ -78,6 +78,10 @@ function start.
     open .
 end
 
+function c
+    cd $argv[1] && ll
+end
+
 function h
     $argv[1] --help || $argv[1] -help || $argv[1] help
 end
