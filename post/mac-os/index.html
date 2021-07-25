@@ -52,16 +52,17 @@
 </blockquote>
 <h2 id=homebrew>Homebrew</h2>
 <ul>
-<li><a href=https://brew.sh/>https://brew.sh/</a></li>
 <li><a href=https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/>https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/</a></li>
+<li><a href=https://brew.sh/>https://brew.sh/</a></li>
 </ul>
 <pre><code> &gt; brew list                                                                                                                                  (base)
 ==&gt; Formulae
 aria2           coreutils       fish            hugo            libssh2         lua             ncurses         openssl@1.1     pcre2
 
 ==&gt; Casks
-alfred                  iina                    iterm2                  maczip                  mounty                  sourcetree
-cyberduck               intellij-idea           karabiner-elements      megasync                rectangle               visual-studio-code
+alfred                  intellij-idea           maczip                  mounty                  visual-studio-code
+cyberduck               iterm2                  megasync                rectangle
+iina                    karabiner-elements      miniconda               sourcetree
 </code></pre><h2 id=miniconda>Miniconda</h2>
 <ul>
 <li><a href=https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/>https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/</a></li>
@@ -69,12 +70,11 @@ cyberduck               intellij-idea           karabiner-elements      megasync
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml> <span style=color:#ae81ff>&gt; conda env export                                                                                                                           (base)</span>
 <span style=color:#f92672>name</span>: <span style=color:#ae81ff>base</span>
 <span style=color:#f92672>channels</span>:
-  - <span style=color:#ae81ff>defaults</span>
   - <span style=color:#ae81ff>conda-forge</span>
+  - <span style=color:#ae81ff>defaults</span>
 <span style=color:#f92672>dependencies</span>:
   - <span style=color:#ae81ff>bat=0.18.2=h244e342_0</span>
   - <span style=color:#ae81ff>brotlipy=0.7.0=py38h96a0964_1001</span>
-  - <span style=color:#ae81ff>bzip2=1.0.8=h0d85af4_4</span>
   - <span style=color:#ae81ff>c-ares=1.17.1=h0d85af4_1</span>
   - <span style=color:#ae81ff>ca-certificates=2021.5.30=h033912b_0</span>
   - <span style=color:#ae81ff>certifi=2021.5.30=py38h50d1736_0</span>
@@ -85,10 +85,7 @@ cyberduck               intellij-idea           karabiner-elements      megasync
   - <span style=color:#ae81ff>conda-package-handling=1.7.3=py38h96a0964_0</span>
   - <span style=color:#ae81ff>cryptography=3.4.7=py38h1fa4640_0</span>
   - <span style=color:#ae81ff>curl=7.77.0=hb861fe1_0</span>
-  - <span style=color:#ae81ff>expat=2.4.1=he49afe7_0</span>
   - <span style=color:#ae81ff>fd-find=8.2.1=h9bce647_0</span>
-  - <span style=color:#ae81ff>gettext=0.19.8.1=h7937167_1005</span>
-  - <span style=color:#ae81ff>git=2.31.0=pl5321h9a53687_0</span>
   - <span style=color:#ae81ff>idna=3.1=pyhd3deb0d_0</span>
   - <span style=color:#ae81ff>jq=1.6=hc929b4f_1000</span>
   - <span style=color:#ae81ff>krb5=1.19.1=hcfbf3a7_0</span>
@@ -98,14 +95,11 @@ cyberduck               intellij-idea           karabiner-elements      megasync
   - <span style=color:#ae81ff>libev=4.33=haf1e3a3_1</span>
   - <span style=color:#ae81ff>libevent=2.1.10=hddc9c9b_3</span>
   - <span style=color:#ae81ff>libffi=3.3=h046ec9c_2</span>
-  - <span style=color:#ae81ff>libiconv=1.16=haf1e3a3_0</span>
   - <span style=color:#ae81ff>libnghttp2=1.43.0=h07e645a_0</span>
   - <span style=color:#ae81ff>libssh2=1.9.0=h52ee1ee_6</span>
   - <span style=color:#ae81ff>ncurses=6.2=h2e338ed_4</span>
   - <span style=color:#ae81ff>oniguruma=6.9.7.1=h0d85af4_0</span>
   - <span style=color:#ae81ff>openssl=1.1.1k=h0d85af4_0</span>
-  - <span style=color:#ae81ff>pcre2=10.37=ha16e1b2_0</span>
-  - <span style=color:#ae81ff>perl=5.32.1=0_h0d85af4_perl5</span>
   - <span style=color:#ae81ff>pip=21.1.3=pyhd8ed1ab_0</span>
   - <span style=color:#ae81ff>pycosat=0.6.3=py38h96a0964_1006</span>
   - <span style=color:#ae81ff>pycparser=2.20=pyh9f0ad1d_2</span>
@@ -127,13 +121,13 @@ cyberduck               intellij-idea           karabiner-elements      megasync
   - <span style=color:#ae81ff>tmux=3.1=h45fa02c_0</span>
   - <span style=color:#ae81ff>tqdm=4.61.2=pyhd8ed1ab_1</span>
   - <span style=color:#ae81ff>urllib3=1.26.6=pyhd8ed1ab_0</span>
-  - <span style=color:#ae81ff>vim=8.2.3159=py38hd4b178d_0</span>
+  - <span style=color:#ae81ff>vim=8.2.3215=py38hd4b178d_0</span>
   - <span style=color:#ae81ff>wheel=0.36.2=pyhd3deb0d_0</span>
   - <span style=color:#ae81ff>xz=5.2.5=haf1e3a3_1</span>
   - <span style=color:#ae81ff>yaml=0.2.5=haf1e3a3_0</span>
   - <span style=color:#ae81ff>youtube-dl=2021.6.6=py38h50d1736_0</span>
   - <span style=color:#ae81ff>zlib=1.2.11=h7795811_1010</span>
-<span style=color:#f92672>prefix</span>: <span style=color:#ae81ff>/Users/user/miniconda3</span>
+<span style=color:#f92672>prefix</span>: <span style=color:#ae81ff>/usr/local/Caskroom/miniconda/base</span>
 </code></pre></div><h2 id=karabiner>Karabiner</h2>
 <ul>
 <li><a href=https://karabiner-elements.pqrs.org/docs/json/>https://karabiner-elements.pqrs.org/docs/json/</a></li>

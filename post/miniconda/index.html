@@ -55,8 +55,9 @@
 </blockquote>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>conda info
 conda list
-conda init
-conda update conda
+conda init fish
+conda update --all
+conda clean --all
 
 conda create -y -n myenv3 pycurl pycrypto ripgrep python<span style=color:#f92672>=</span><span style=color:#ae81ff>3</span>
 conda activate myenv3
@@ -70,6 +71,23 @@ conda remove pycrypto
 conda env list
 conda env export -n myenv3 -f myenv3.yml
 conda env remove -n myenv3
+</code></pre></div><h2 id=condarc>.condarc</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>channels:
+  - conda-forge
+  - defaults
+channel_priority: strict
+show_channel_urls: true
+default_channels:
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2
+custom_channels:
+  conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  bioconda: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
 </code></pre></div><h2 id=path>PATH</h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>C:<span style=color:#ae81ff>\U</span>sers<span style=color:#ae81ff>\L</span>eo<span style=color:#ae81ff>\M</span>iniconda3
 C:<span style=color:#ae81ff>\U</span>sers<span style=color:#ae81ff>\L</span>eo<span style=color:#ae81ff>\M</span>iniconda3<span style=color:#ae81ff>\S</span>cripts
@@ -92,6 +110,7 @@ C:<span style=color:#ae81ff>\U</span>sers<span style=color:#ae81ff>\L</span>eo<s
 <div id=backtop><a href=# title>TOP</a></div>
 <nav id=TableOfContents>
 <ul>
+<li><a href=#condarc>.condarc</a></li>
 <li><a href=#path>PATH</a></li>
 </ul>
 </nav>

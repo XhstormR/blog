@@ -151,11 +151,11 @@ function fish_prompt
     $prompt_vcs $prompt_status $suffix
 end
 
+fish_add_path (brew --prefix)/opt/coreutils/libexec/gnubin
+
 source (lua ~/z.lua --init fish | psub)
 
 eval conda &quot;shell.fish&quot; &quot;hook&quot; $argv | source
-
-fish_add_path (brew --prefix)/opt/coreutils/libexec/gnubin
 </code></pre><pre><code>&quot;D:\Work\msys64\msys2_shell.cmd&quot; -no-start -full-path -mingw64 -shell fish
 </code></pre>
 </div>
