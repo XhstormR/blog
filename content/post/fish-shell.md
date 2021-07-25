@@ -95,6 +95,18 @@ function take
     cd $argv
 end
 
+function proxy_on
+    set -xU all_proxy socks5://127.0.0.1:1080
+    set -xU http_proxy http://127.0.0.1:1080
+    set -xU https_proxy http://127.0.0.1:1080
+end
+
+function proxy_off
+    set -e all_proxy
+    set -e http_proxy
+    set -e https_proxy
+end
+
 function fish_prompt
     set -l last_pipestatus $pipestatus
     set -l normal (set_color normal)
@@ -109,7 +121,7 @@ function fish_prompt
         set prompt_status $normal
     end
 
-    set -l prompt_vcs (fish_vcs_prompt)
+    # set -l prompt_vcs (fish_vcs_prompt)
     if test "$prompt_vcs" = ''
         set prompt_vcs $normal
     end
@@ -122,7 +134,7 @@ end
 
 fish_add_path (brew --prefix)/opt/coreutils/libexec/gnubin
 
-source (lua ~/z.lua --init fish | psub)
+lua ~/z.lua --init fish once | source
 
 eval conda "shell.fish" "hook" $argv | source
 ```

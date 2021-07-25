@@ -22,9 +22,9 @@ Updated on 2021-07-22
 aria2           coreutils       fish            hugo            libssh2         lua             ncurses         openssl@1.1     pcre2
 
 ==> Casks
-alfred                  intellij-idea           maczip                  mounty                  visual-studio-code
-cyberduck               iterm2                  megasync                rectangle
-iina                    karabiner-elements      miniconda               sourcetree
+alfred                  iina                    karabiner-elements      miniconda               sourcetree
+cyberduck               intellij-idea           maczip                  mounty                  visual-studio-code
+google-chrome           iterm2                  megasync                rectangle
 ```
 
 ## Miniconda
