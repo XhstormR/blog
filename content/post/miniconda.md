@@ -23,8 +23,9 @@ Updated on 2019-10-23
 ```bash
 conda info
 conda list
-conda init
-conda update conda
+conda init fish
+conda update --all
+conda clean --all
 
 conda create -y -n myenv3 pycurl pycrypto ripgrep python=3
 conda activate myenv3
@@ -38,6 +39,26 @@ conda remove pycrypto
 conda env list
 conda env export -n myenv3 -f myenv3.yml
 conda env remove -n myenv3
+```
+
+## .condarc
+```bash
+channels:
+  - conda-forge
+  - defaults
+channel_priority: strict
+show_channel_urls: true
+default_channels:
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2
+custom_channels:
+  conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  bioconda: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
 ```
 
 ## PATH

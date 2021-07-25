@@ -13,8 +13,8 @@ Updated on 2021-07-22
 > {{< image "/uploads/mac-os-logo.png" "Mac OS" "1" "1" "275">}}
 
 ## Homebrew
-* https://brew.sh/
 * https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/
+* https://brew.sh/
 
 ```
  > brew list                                                                                                                                  (base)
@@ -22,8 +22,9 @@ Updated on 2021-07-22
 aria2           coreutils       fish            hugo            libssh2         lua             ncurses         openssl@1.1     pcre2
 
 ==> Casks
-alfred                  iina                    iterm2                  maczip                  mounty                  sourcetree
-cyberduck               intellij-idea           karabiner-elements      megasync                rectangle               visual-studio-code
+alfred                  intellij-idea           maczip                  mounty                  visual-studio-code
+cyberduck               iterm2                  megasync                rectangle
+iina                    karabiner-elements      miniconda               sourcetree
 ```
 
 ## Miniconda
@@ -33,12 +34,11 @@ cyberduck               intellij-idea           karabiner-elements      megasync
  > conda env export                                                                                                                           (base)
 name: base
 channels:
-  - defaults
   - conda-forge
+  - defaults
 dependencies:
   - bat=0.18.2=h244e342_0
   - brotlipy=0.7.0=py38h96a0964_1001
-  - bzip2=1.0.8=h0d85af4_4
   - c-ares=1.17.1=h0d85af4_1
   - ca-certificates=2021.5.30=h033912b_0
   - certifi=2021.5.30=py38h50d1736_0
@@ -49,10 +49,7 @@ dependencies:
   - conda-package-handling=1.7.3=py38h96a0964_0
   - cryptography=3.4.7=py38h1fa4640_0
   - curl=7.77.0=hb861fe1_0
-  - expat=2.4.1=he49afe7_0
   - fd-find=8.2.1=h9bce647_0
-  - gettext=0.19.8.1=h7937167_1005
-  - git=2.31.0=pl5321h9a53687_0
   - idna=3.1=pyhd3deb0d_0
   - jq=1.6=hc929b4f_1000
   - krb5=1.19.1=hcfbf3a7_0
@@ -62,14 +59,11 @@ dependencies:
   - libev=4.33=haf1e3a3_1
   - libevent=2.1.10=hddc9c9b_3
   - libffi=3.3=h046ec9c_2
-  - libiconv=1.16=haf1e3a3_0
   - libnghttp2=1.43.0=h07e645a_0
   - libssh2=1.9.0=h52ee1ee_6
   - ncurses=6.2=h2e338ed_4
   - oniguruma=6.9.7.1=h0d85af4_0
   - openssl=1.1.1k=h0d85af4_0
-  - pcre2=10.37=ha16e1b2_0
-  - perl=5.32.1=0_h0d85af4_perl5
   - pip=21.1.3=pyhd8ed1ab_0
   - pycosat=0.6.3=py38h96a0964_1006
   - pycparser=2.20=pyh9f0ad1d_2
@@ -91,13 +85,13 @@ dependencies:
   - tmux=3.1=h45fa02c_0
   - tqdm=4.61.2=pyhd8ed1ab_1
   - urllib3=1.26.6=pyhd8ed1ab_0
-  - vim=8.2.3159=py38hd4b178d_0
+  - vim=8.2.3215=py38hd4b178d_0
   - wheel=0.36.2=pyhd3deb0d_0
   - xz=5.2.5=haf1e3a3_1
   - yaml=0.2.5=haf1e3a3_0
   - youtube-dl=2021.6.6=py38h50d1736_0
   - zlib=1.2.11=h7795811_1010
-prefix: /Users/user/miniconda3
+prefix: /usr/local/Caskroom/miniconda/base
 ```
 
 ## Karabiner
