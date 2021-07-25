@@ -47,7 +47,7 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias pgrep='pgrep -a'
 
-set -xU EXA_COLORS 'da=2;0:gm=1;0'
+export EXA_COLORS='da=2;0:gm=1;0'
 alias exa='exa -Fg --group-directories-first --color=auto --time-style=long-iso --git --color-scale --sort=Name'
 
 # alias ls='ls -hFX --group-directories-first --color=auto --time-style=long-iso'
@@ -71,7 +71,7 @@ alias rand='openssl rand -hex 30'
 alias aria2c='aria2c -s16 -x16 -k1M'
 alias jq='jq -C'
 
-set -x HISTCONTROL ignoredups
+export HISTCONTROL=ignoredups
 
 function start.
     # set -l path (cygpath -w (pwd))
