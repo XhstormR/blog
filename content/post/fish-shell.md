@@ -47,10 +47,14 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias pgrep='pgrep -a'
 
-alias ls='ls -hFX --group-directories-first --color=auto --time-style=long-iso'
+set -xU EXA_COLORS 'da=2;0:gm=1;0'
+alias exa='exa -Fg --group-directories-first --color=auto --time-style=long-iso --git --color-scale --sort=Name'
+
+# alias ls='ls -hFX --group-directories-first --color=auto --time-style=long-iso'
+alias ls='exa'
 alias l='ls'
 alias ll='ls -l'
-alias la='ll -A'
+alias la='ll -a'
 
 alias vi='vim'
 
@@ -121,7 +125,7 @@ function fish_prompt
         set prompt_status $normal
     end
 
-    # set -l prompt_vcs (fish_vcs_prompt)
+    # set -l prompt_vcs (fish_vcs_prompt) # too slow
     if test "$prompt_vcs" = ''
         set prompt_vcs $normal
     end
@@ -133,6 +137,7 @@ function fish_prompt
 end
 
 fish_add_path (brew --prefix)/opt/coreutils/libexec/gnubin
+fish_add_path -Pma /usr/bin # 移动至最后，降低优先级
 
 lua ~/z.lua --init fish once | source
 

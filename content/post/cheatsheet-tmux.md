@@ -82,6 +82,11 @@ Prefix = Ctrl+B
 
 ## .tmux.conf
 ```
+set -g default-terminal "screen-256color"
+
+set -g display-time 1500
+set -g history-limit 10000
+
 set -g base-index 1
 set -g pane-base-index 1
 
@@ -90,6 +95,9 @@ set -g mouse on
 set -g set-titles on
 
 set -g allow-rename on
+set -g automatic-rename on
+
+set -g focus-events on
 
 set -g renumber-windows on
 
@@ -109,6 +117,8 @@ bind - split-window -v -c "#{pane_current_path}"
 bind \\ split-window -h -c "#{pane_current_path}"
 
 bind r source-file ~/.tmux.conf \; display "Config reloaded!"
+
+bind z resize-pane -Z
 
 bind P pipe-pane -o "cat >> ~/#I.log" \; display "Toggled logging to ~/#I.log"
 
