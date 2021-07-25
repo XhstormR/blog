@@ -49,7 +49,9 @@ dependencies:
   - conda-package-handling=1.7.3=py38h96a0964_0
   - cryptography=3.4.7=py38h1fa4640_0
   - curl=7.77.0=hb861fe1_0
+  - exa=0.10.1=h244e342_0
   - fd-find=8.2.1=h9bce647_0
+  - fzf=0.27.2=h990441c_0
   - idna=3.1=pyhd3deb0d_0
   - jq=1.6=hc929b4f_1000
   - krb5=1.19.1=hcfbf3a7_0
