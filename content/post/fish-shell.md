@@ -48,7 +48,7 @@ alias fgrep='fgrep --color=auto'
 alias pgrep='pgrep -a'
 
 export EXA_COLORS='da=2;0:gm=1;0'
-alias exa='exa -Fg --group-directories-first --color=auto --time-style=long-iso --git --color-scale --sort=Name'
+alias exa='exa -Fg --group-directories-first --color=auto --time-style=long-iso --git --icons --color-scale --sort=Name'
 
 # alias ls='ls -hFX --group-directories-first --color=auto --time-style=long-iso'
 alias ls='exa'
@@ -57,10 +57,11 @@ alias ll='ls -l'
 alias la='ll -a'
 
 alias vi='vim'
+alias cat='bat'
 
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
+alias ..='c ..'
+alias ...='c ../..'
+alias ....='c ../../..'
 
 alias gs='git status'
 alias gd='git diff'
