@@ -17,21 +17,42 @@ Updated on 2021-07-22
 * https://brew.sh/
 
 ```
- > brew list                                                                                                                                  (base)
+ > brew list -1                                                                                                                                (base)
 ==> Formulae
-aria2           coreutils       fish            hugo            libssh2         lua             ncurses         openssl@1.1     pcre2
+aria2
+coreutils
+fish
+hugo
+libssh2
+lua
+ncurses
+openssl@1.1
+pcre2
 
 ==> Casks
-alfred                  iina                    karabiner-elements      miniconda               sourcetree
-cyberduck               intellij-idea           maczip                  mounty                  visual-studio-code
-google-chrome           iterm2                  megasync                rectangle
+alfred
+amethyst
+cyberduck
+google-chrome
+iina
+intellij-idea
+iterm2
+karabiner-elements
+maczip
+megasync
+miniconda
+mounty
+rectangle
+snipaste
+sourcetree
+visual-studio-code
 ```
 
 ## Miniconda
 * https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/
 
 ```yaml
- > conda env export                                                                                                                           (base)
+ > conda env export                                                                                                                            (base)
 name: base
 channels:
   - conda-forge
@@ -428,3 +449,9 @@ jq --slurpfile input frontmost_application_unless_idea.json '.rules[].manipulato
   ]
 }
 ```
+
+## Font
+* https://github.com/JetBrains/JetBrainsMono
+* https://github.com/ryanoasis/nerd-fonts
+
+{{< image "/uploads/mac-os-font.png" "Font" "1" "1" >}}
