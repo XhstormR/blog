@@ -84,6 +84,7 @@ Prefix = Ctrl+B
 ```
 set -g default-terminal "screen-256color"
 
+set -g escape-time 0
 set -g display-time 1500
 set -g history-limit 10000
 
@@ -107,7 +108,11 @@ set -g mode-keys vi #复制模式设置为 vi, SPACE开始 ENTER结束
 
 set -g default-shell /usr/local/bin/fish
 
+# set-hook -g after-new-window 'command-prompt -I "#{window_name}" "rename-window '%%'"'
+
 bind -n C-k clear-history
+
+bind -n C-r source-file ~/.tmux.conf \; display "Config reloaded!"
 
 bind -n C-left prev
 bind -n C-right next
@@ -116,11 +121,12 @@ bind -n C-down new-window -c "#{pane_current_path}"
 bind - split-window -v -c "#{pane_current_path}"
 bind \\ split-window -h -c "#{pane_current_path}"
 
-bind r source-file ~/.tmux.conf \; display "Config reloaded!"
+bind P pipe-pane -o "cat >> ~/#I.log" \; display "Toggled logging to ~/#I.log"
 
 bind z resize-pane -Z
 
-bind P pipe-pane -o "cat >> ~/#I.log" \; display "Toggled logging to ~/#I.log"
+bind r command-prompt -I "#{window_name}" "rename-window '%%'"
+bind R command-prompt -I "#{session_name}" "rename-session '%%'"
 
 # tmuxline start
 set -g status-bg black

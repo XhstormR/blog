@@ -52,10 +52,11 @@ alias exa='exa -Fg --group-directories-first --color=auto --time-style=long-iso 
 
 # alias ls='ls -hFX --group-directories-first --color=auto --time-style=long-iso'
 alias ls='exa'
-alias l='ls'
-alias ll='ls -l'
-alias la='ll -a'
+alias l='ls -l'
+alias la='l -a'
+alias ll='l'
 
+alias n='nnn'
 alias vi='vim'
 alias cat='bat'
 
@@ -85,6 +86,11 @@ end
 
 function c
     cd $argv[1] && ll
+end
+
+function x
+    set -l name (basename $argv[1] | string split -r -m1 .)[1]
+    7zz x $argv[1] -y -o$name
 end
 
 function h

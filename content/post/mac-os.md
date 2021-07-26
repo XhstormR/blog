@@ -450,6 +450,13 @@ jq --slurpfile input frontmost_application_unless_idea.json '.rules[].manipulato
 }
 ```
 
+## 7z
+* https://www.7-zip.org/download.html
+
+```bash
+curl https://www.7-zip.org/a/7z2103-mac.tar.xz | tar -x 7zz && mv -f 7zz /usr/local/bin/
+```
+
 ## Font
 * https://github.com/JetBrains/JetBrainsMono
 * https://github.com/ryanoasis/nerd-fonts
