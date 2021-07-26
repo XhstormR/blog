@@ -114,6 +114,7 @@ Prefix = Ctrl+B
 </code></pre><h2 id=tmuxconf>.tmux.conf</h2>
 <pre><code>set -g default-terminal &quot;screen-256color&quot;
 
+set -g escape-time 0
 set -g display-time 1500
 set -g history-limit 10000
 
@@ -137,7 +138,11 @@ set -g mode-keys vi #复制模式设置为 vi, SPACE开始 ENTER结束
 
 set -g default-shell /usr/local/bin/fish
 
+# set-hook -g after-new-window 'command-prompt -I &quot;#{window_name}&quot; &quot;rename-window '%%'&quot;'
+
 bind -n C-k clear-history
+
+bind -n C-r source-file ~/.tmux.conf \; display &quot;Config reloaded!&quot;
 
 bind -n C-left prev
 bind -n C-right next
@@ -146,11 +151,12 @@ bind -n C-down new-window -c &quot;#{pane_current_path}&quot;
 bind - split-window -v -c &quot;#{pane_current_path}&quot;
 bind \\ split-window -h -c &quot;#{pane_current_path}&quot;
 
-bind r source-file ~/.tmux.conf \; display &quot;Config reloaded!&quot;
+bind P pipe-pane -o &quot;cat &gt;&gt; ~/#I.log&quot; \; display &quot;Toggled logging to ~/#I.log&quot;
 
 bind z resize-pane -Z
 
-bind P pipe-pane -o &quot;cat &gt;&gt; ~/#I.log&quot; \; display &quot;Toggled logging to ~/#I.log&quot;
+bind r command-prompt -I &quot;#{window_name}&quot; &quot;rename-window '%%'&quot;
+bind R command-prompt -I &quot;#{session_name}&quot; &quot;rename-session '%%'&quot;
 
 # tmuxline start
 set -g status-bg black

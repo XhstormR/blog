@@ -55,19 +55,40 @@
 <li><a href=https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/>https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/</a></li>
 <li><a href=https://brew.sh/>https://brew.sh/</a></li>
 </ul>
-<pre><code> &gt; brew list                                                                                                                                  (base)
+<pre><code> &gt; brew list -1                                                                                                                                (base)
 ==&gt; Formulae
-aria2           coreutils       fish            hugo            libssh2         lua             ncurses         openssl@1.1     pcre2
+aria2
+coreutils
+fish
+hugo
+libssh2
+lua
+ncurses
+openssl@1.1
+pcre2
 
 ==&gt; Casks
-alfred                  iina                    karabiner-elements      miniconda               sourcetree
-cyberduck               intellij-idea           maczip                  mounty                  visual-studio-code
-google-chrome           iterm2                  megasync                rectangle
+alfred
+amethyst
+cyberduck
+google-chrome
+iina
+intellij-idea
+iterm2
+karabiner-elements
+maczip
+megasync
+miniconda
+mounty
+rectangle
+snipaste
+sourcetree
+visual-studio-code
 </code></pre><h2 id=miniconda>Miniconda</h2>
 <ul>
 <li><a href=https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/>https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/</a></li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml> <span style=color:#ae81ff>&gt; conda env export                                                                                                                           (base)</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml> <span style=color:#ae81ff>&gt; conda env export                                                                                                                            (base)</span>
 <span style=color:#f92672>name</span>: <span style=color:#ae81ff>base</span>
 <span style=color:#f92672>channels</span>:
   - <span style=color:#ae81ff>conda-forge</span>
@@ -456,7 +477,18 @@ google-chrome           iterm2                  megasync                rectangl
     &quot;^com\\.jetbrains\\.intellij$&quot;
   ]
 }
-</code></pre>
+</code></pre><h2 id=7z>7z</h2>
+<ul>
+<li><a href=https://www.7-zip.org/download.html>https://www.7-zip.org/download.html</a></li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>curl https://www.7-zip.org/a/7z2103-mac.tar.xz | tar -x 7zz <span style=color:#f92672>&amp;&amp;</span> mv -f 7zz /usr/local/bin/
+</code></pre></div><h2 id=font>Font</h2>
+<ul>
+<li><a href=https://github.com/JetBrains/JetBrainsMono>https://github.com/JetBrains/JetBrainsMono</a></li>
+<li><a href=https://github.com/ryanoasis/nerd-fonts>https://github.com/ryanoasis/nerd-fonts</a></li>
+</ul>
+<p style=text-align:center><img data-src=/uploads/mac-os-font.png alt title=Font data-action=zoom width></p>
+<script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(a){a.setAttribute("src",a.getAttribute("data-src")),a.onload=function(){a.removeAttribute("data-src")}})</script>
 </div>
 <div class=sharing style=text-align:center>
 <br>
@@ -484,6 +516,8 @@ google-chrome           iterm2                  megasync                rectangl
 <li><a href=#快捷键兼容>快捷键兼容</a></li>
 </ul>
 </li>
+<li><a href=#7z>7z</a></li>
+<li><a href=#font>Font</a></li>
 </ul>
 </nav>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script>
