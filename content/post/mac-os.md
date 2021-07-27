@@ -17,17 +17,16 @@ Updated on 2021-07-22
 * https://brew.sh/
 
 ```
- > brew list -1                                                                                                                                (base)
+ ❯ brew list -1                                                                                                                                (base)
 ==> Formulae
 aria2
 coreutils
-fish
+gnu-sed
 hugo
 libssh2
-lua
-ncurses
+nnn
 openssl@1.1
-pcre2
+readline
 
 ==> Casks
 alfred
@@ -46,13 +45,15 @@ rectangle
 snipaste
 sourcetree
 visual-studio-code
+vlc
+xnviewmp
 ```
 
 ## Miniconda
 * https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/
 
 ```yaml
- > conda env export                                                                                                                            (base)
+ ❯ conda env export                                                                                                                            (base)
 name: base
 channels:
   - conda-forge
@@ -60,6 +61,7 @@ channels:
 dependencies:
   - bat=0.18.2=h244e342_0
   - brotlipy=0.7.0=py38h96a0964_1001
+  - bzip2=1.0.8=h0d85af4_4
   - c-ares=1.17.1=h0d85af4_1
   - ca-certificates=2021.5.30=h033912b_0
   - certifi=2021.5.30=py38h50d1736_0
@@ -72,7 +74,9 @@ dependencies:
   - curl=7.77.0=hb861fe1_0
   - exa=0.10.1=h244e342_0
   - fd-find=8.2.1=h9bce647_0
+  - fish=3.3.1=h1ad05cb_0
   - fzf=0.27.2=h990441c_0
+  - gettext=0.19.8.1=h7937167_1005
   - idna=3.1=pyhd3deb0d_0
   - jq=1.6=hc929b4f_1000
   - krb5=1.19.1=hcfbf3a7_0
@@ -82,11 +86,14 @@ dependencies:
   - libev=4.33=haf1e3a3_1
   - libevent=2.1.10=hddc9c9b_3
   - libffi=3.3=h046ec9c_2
+  - libiconv=1.16=haf1e3a3_0
   - libnghttp2=1.43.0=h07e645a_0
   - libssh2=1.9.0=h52ee1ee_6
+  - lua=5.4.3=h29d0318_1
   - ncurses=6.2=h2e338ed_4
   - oniguruma=6.9.7.1=h0d85af4_0
   - openssl=1.1.1k=h0d85af4_0
+  - pcre2=10.37=ha16e1b2_0
   - pip=21.1.3=pyhd8ed1ab_0
   - pycosat=0.6.3=py38h96a0964_1006
   - pycparser=2.20=pyh9f0ad1d_2
