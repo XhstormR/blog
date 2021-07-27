@@ -14,6 +14,8 @@ Updated on 2020-03-15
 >
 > https://fishshell.com/docs/current/commands.html
 >
+> https://fishshell.com/docs/current/language.html
+>
 > https://software.opensuse.org/package/fish
 
 ## Build
@@ -30,8 +32,12 @@ make install
 
 ## config.fish
 ```
-export TERM="screen-256color"
-export LANG=zh_CN.UTF-8
+export TERM='screen-256color'
+export LANG='zh_CN.UTF-8'
+export VISUAL='idea -e'
+export HISTCONTROL='ignoredups'
+
+set -g fish_prompt_pwd_dir_length 0
 
 alias rm='rm -i'
 alias cp='cp -i'
@@ -47,8 +53,11 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias pgrep='pgrep -a'
 
+export NNN_COLORS='#0c'
+alias n='nnn -deUH'
+
 export EXA_COLORS='da=2;0:gm=1;0'
-alias exa='exa -Fg --group-directories-first --color=auto --time-style=long-iso --git --icons --color-scale --sort=Name'
+alias exa='exa -aFg --group-directories-first --color=auto --time-style=long-iso --git --icons --color-scale --sort=Name'
 
 # alias ls='ls -hFX --group-directories-first --color=auto --time-style=long-iso'
 alias ls='exa'
@@ -56,7 +65,6 @@ alias l='ls -l'
 alias la='l -a'
 alias ll='l'
 
-alias n='nnn'
 alias vi='vim'
 alias cat='bat'
 
@@ -72,8 +80,6 @@ alias myip='curl -sk https://myip.ipip.net/'
 alias rand='openssl rand -hex 30'
 alias aria2c='aria2c -s16 -x16 -k1M'
 alias jq='jq -C'
-
-export HISTCONTROL=ignoredups
 
 function start.
     # set -l path (cygpath -w (pwd))
@@ -122,25 +128,58 @@ function fish_prompt
     set -l last_pipestatus $pipestatus
     set -l normal (set_color normal)
 
-    set -l suffix '>'
-    if contains -- $USER root
+    set -l status_color (set_color bryellow --bold)
+    set -l suffix '❯'
+    if fish_is_root_user
         set suffix '#'
     end
+    set -l prompt_suffix (printf '%s' $status_color $suffix $normal)
 
-    set -l prompt_status (__fish_print_pipestatus " [" "]" "|" (set_color $fish_color_status) (set_color --bold $fish_color_status) $last_pipestatus)
-    if test "$prompt_status" = ''
-        set prompt_status $normal
-    end
+    set -l status_color (set_color brblue)
+    set -l statusb_color (set_color brblue --bold)
+    set -l prompt_pwd (prompt_pwd | sed "s,/,$status_color/$status_color,g" | sed "s,\(.*\)/[^m]*m,\1/$statusb_color,")
 
     # set -l prompt_vcs (fish_vcs_prompt) # too slow
-    if test "$prompt_vcs" = ''
+    if test -z "$prompt_vcs"
         set prompt_vcs $normal
     end
 
-    printf '%s %s%s%s%s%s\n %s ' \
-    (prompt_login) \
-    (set_color bryellow) (pwd) $normal \
-    $prompt_vcs $prompt_status $suffix
+    set -l status_color  (set_color $fish_color_status)
+    set -l statusb_color (set_color $fish_color_status --bold)
+    set -l prompt_status (__fish_print_pipestatus "[" "]" "|" "$status_color" "$statusb_color" $last_pipestatus)
+    if test -z "$prompt_status"
+        set prompt_status $normal
+    end
+
+    set -l prompt_left (printf '%s:%s %s%s' (prompt_login) $prompt_pwd $prompt_vcs $prompt_status)
+
+    set -l prompt_time (date +"%T")
+    set -l prompt_duration (math $CMD_DURATION / 1000)
+    set -l prompt_right (printf '(%.2fs) %s ' $prompt_duration $prompt_time)
+
+    set -l left_width (string_width $prompt_left)
+    set -l right_width (string_width $prompt_right)
+    set -l space_width (math $COLUMNS - $left_width - $right_width + 5)
+    set -l prompt_space (printf '%'$space_width's')
+
+    printf '%s%s%s\n %s ' \
+    $prompt_left \
+    $prompt_space \
+    $prompt_right \
+    $prompt_suffix
+end
+
+# https://github.com/fish-shell/fish-shell/issues/4012
+function string_width
+    set --local empty ''
+    set --local raw_string (string replace --all --regex '\e\[[^m]*m' $empty -- $argv)
+    string length -- $raw_string
+end
+
+function preexec --on-event fish_preexec
+end
+
+function postexec --on-event fish_postexec
 end
 
 fish_add_path (brew --prefix)/opt/coreutils/libexec/gnubin
@@ -148,7 +187,7 @@ fish_add_path -Pma /usr/bin # 移动至最后，降低优先级
 
 lua ~/z.lua --init fish once | source
 
-eval conda "shell.fish" "hook" $argv | source
+# eval conda "shell.fish" "hook" $argv | source
 ```
 
 ```
