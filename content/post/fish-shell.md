@@ -53,8 +53,9 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias pgrep='pgrep -a'
 
+export NNN_PLUG='p:preview-tui;'
 export NNN_COLORS='#0c'
-alias n='nnn -deUH'
+alias n='nnn -adeUH -Pp'
 
 export EXA_COLORS='da=2;0:gm=1;0'
 alias exa='exa -aFg --group-directories-first --color=auto --time-style=long-iso --git --icons --color-scale --sort=Name'
