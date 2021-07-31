@@ -55,17 +55,16 @@
 <li><a href=https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/>https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/</a></li>
 <li><a href=https://brew.sh/>https://brew.sh/</a></li>
 </ul>
-<pre><code> &gt; brew list -1                                                                                                                                (base)
+<pre><code> ❯ brew list -1                                                                                                                                (base)
 ==&gt; Formulae
 aria2
 coreutils
-fish
+gnu-sed
 hugo
 libssh2
-lua
-ncurses
+nnn
 openssl@1.1
-pcre2
+readline
 
 ==&gt; Casks
 alfred
@@ -84,11 +83,13 @@ rectangle
 snipaste
 sourcetree
 visual-studio-code
+vlc
+xnviewmp
 </code></pre><h2 id=miniconda>Miniconda</h2>
 <ul>
 <li><a href=https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/>https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/</a></li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml> <span style=color:#ae81ff>&gt; conda env export                                                                                                                            (base)</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml> <span style=color:#ae81ff>❯ conda env export                                                                                                                            (base)</span>
 <span style=color:#f92672>name</span>: <span style=color:#ae81ff>base</span>
 <span style=color:#f92672>channels</span>:
   - <span style=color:#ae81ff>conda-forge</span>
@@ -96,6 +97,7 @@ visual-studio-code
 <span style=color:#f92672>dependencies</span>:
   - <span style=color:#ae81ff>bat=0.18.2=h244e342_0</span>
   - <span style=color:#ae81ff>brotlipy=0.7.0=py38h96a0964_1001</span>
+  - <span style=color:#ae81ff>bzip2=1.0.8=h0d85af4_4</span>
   - <span style=color:#ae81ff>c-ares=1.17.1=h0d85af4_1</span>
   - <span style=color:#ae81ff>ca-certificates=2021.5.30=h033912b_0</span>
   - <span style=color:#ae81ff>certifi=2021.5.30=py38h50d1736_0</span>
@@ -108,7 +110,9 @@ visual-studio-code
   - <span style=color:#ae81ff>curl=7.77.0=hb861fe1_0</span>
   - <span style=color:#ae81ff>exa=0.10.1=h244e342_0</span>
   - <span style=color:#ae81ff>fd-find=8.2.1=h9bce647_0</span>
+  - <span style=color:#ae81ff>fish=3.3.1=h1ad05cb_0</span>
   - <span style=color:#ae81ff>fzf=0.27.2=h990441c_0</span>
+  - <span style=color:#ae81ff>gettext=0.19.8.1=h7937167_1005</span>
   - <span style=color:#ae81ff>idna=3.1=pyhd3deb0d_0</span>
   - <span style=color:#ae81ff>jq=1.6=hc929b4f_1000</span>
   - <span style=color:#ae81ff>krb5=1.19.1=hcfbf3a7_0</span>
@@ -118,11 +122,14 @@ visual-studio-code
   - <span style=color:#ae81ff>libev=4.33=haf1e3a3_1</span>
   - <span style=color:#ae81ff>libevent=2.1.10=hddc9c9b_3</span>
   - <span style=color:#ae81ff>libffi=3.3=h046ec9c_2</span>
+  - <span style=color:#ae81ff>libiconv=1.16=haf1e3a3_0</span>
   - <span style=color:#ae81ff>libnghttp2=1.43.0=h07e645a_0</span>
   - <span style=color:#ae81ff>libssh2=1.9.0=h52ee1ee_6</span>
+  - <span style=color:#ae81ff>lua=5.4.3=h29d0318_1</span>
   - <span style=color:#ae81ff>ncurses=6.2=h2e338ed_4</span>
   - <span style=color:#ae81ff>oniguruma=6.9.7.1=h0d85af4_0</span>
   - <span style=color:#ae81ff>openssl=1.1.1k=h0d85af4_0</span>
+  - <span style=color:#ae81ff>pcre2=10.37=ha16e1b2_0</span>
   - <span style=color:#ae81ff>pip=21.1.3=pyhd8ed1ab_0</span>
   - <span style=color:#ae81ff>pycosat=0.6.3=py38h96a0964_1006</span>
   - <span style=color:#ae81ff>pycparser=2.20=pyh9f0ad1d_2</span>

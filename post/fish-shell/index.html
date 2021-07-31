@@ -49,6 +49,7 @@
 <blockquote>
 <p><a href=https://github.com/fish-shell/fish-shell>https://github.com/fish-shell/fish-shell</a></p>
 <p><a href=https://fishshell.com/docs/current/commands.html>https://fishshell.com/docs/current/commands.html</a></p>
+<p><a href=https://fishshell.com/docs/current/language.html>https://fishshell.com/docs/current/language.html</a></p>
 <p><a href=https://software.opensuse.org/package/fish>https://software.opensuse.org/package/fish</a></p>
 </blockquote>
 <h2 id=build>Build</h2>
@@ -61,8 +62,12 @@ mkdir build; cd build
 cmake ..
 make install
 </code></pre></div><h2 id=configfish>config.fish</h2>
-<pre><code>export TERM=&quot;screen-256color&quot;
-export LANG=zh_CN.UTF-8
+<pre><code>export TERM='screen-256color'
+export LANG='zh_CN.UTF-8'
+export VISUAL='idea -e'
+export HISTCONTROL='ignoredups'
+
+set -g fish_prompt_pwd_dir_length 0
 
 alias rm='rm -i'
 alias cp='cp -i'
@@ -78,8 +83,11 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias pgrep='pgrep -a'
 
+export NNN_COLORS='#0c'
+alias n='nnn -deUH'
+
 export EXA_COLORS='da=2;0:gm=1;0'
-alias exa='exa -Fg --group-directories-first --color=auto --time-style=long-iso --git --icons --color-scale --sort=Name'
+alias exa='exa -aFg --group-directories-first --color=auto --time-style=long-iso --git --icons --color-scale --sort=Name'
 
 # alias ls='ls -hFX --group-directories-first --color=auto --time-style=long-iso'
 alias ls='exa'
@@ -87,7 +95,6 @@ alias l='ls -l'
 alias la='l -a'
 alias ll='l'
 
-alias n='nnn'
 alias vi='vim'
 alias cat='bat'
 
@@ -103,8 +110,6 @@ alias myip='curl -sk https://myip.ipip.net/'
 alias rand='openssl rand -hex 30'
 alias aria2c='aria2c -s16 -x16 -k1M'
 alias jq='jq -C'
-
-export HISTCONTROL=ignoredups
 
 function start.
     # set -l path (cygpath -w (pwd))
@@ -153,25 +158,58 @@ function fish_prompt
     set -l last_pipestatus $pipestatus
     set -l normal (set_color normal)
 
-    set -l suffix '&gt;'
-    if contains -- $USER root
+    set -l status_color (set_color bryellow --bold)
+    set -l suffix '❯'
+    if fish_is_root_user
         set suffix '#'
     end
+    set -l prompt_suffix (printf '%s' $status_color $suffix $normal)
 
-    set -l prompt_status (__fish_print_pipestatus &quot; [&quot; &quot;]&quot; &quot;|&quot; (set_color $fish_color_status) (set_color --bold $fish_color_status) $last_pipestatus)
-    if test &quot;$prompt_status&quot; = ''
-        set prompt_status $normal
-    end
+    set -l status_color (set_color brblue)
+    set -l statusb_color (set_color brblue --bold)
+    set -l prompt_pwd (prompt_pwd | sed &quot;s,/,$status_color/$status_color,g&quot; | sed &quot;s,\(.*\)/[^m]*m,\1/$statusb_color,&quot;)
 
     # set -l prompt_vcs (fish_vcs_prompt) # too slow
-    if test &quot;$prompt_vcs&quot; = ''
+    if test -z &quot;$prompt_vcs&quot;
         set prompt_vcs $normal
     end
 
-    printf '%s %s%s%s%s%s\n %s ' \
-    (prompt_login) \
-    (set_color bryellow) (pwd) $normal \
-    $prompt_vcs $prompt_status $suffix
+    set -l status_color  (set_color $fish_color_status)
+    set -l statusb_color (set_color $fish_color_status --bold)
+    set -l prompt_status (__fish_print_pipestatus &quot;[&quot; &quot;]&quot; &quot;|&quot; &quot;$status_color&quot; &quot;$statusb_color&quot; $last_pipestatus)
+    if test -z &quot;$prompt_status&quot;
+        set prompt_status $normal
+    end
+
+    set -l prompt_left (printf '%s:%s %s%s' (prompt_login) $prompt_pwd $prompt_vcs $prompt_status)
+
+    set -l prompt_time (date +&quot;%T&quot;)
+    set -l prompt_duration (math $CMD_DURATION / 1000)
+    set -l prompt_right (printf '(%.2fs) %s ' $prompt_duration $prompt_time)
+
+    set -l left_width (string_width $prompt_left)
+    set -l right_width (string_width $prompt_right)
+    set -l space_width (math $COLUMNS - $left_width - $right_width + 5)
+    set -l prompt_space (printf '%'$space_width's')
+
+    printf '%s%s%s\n %s ' \
+    $prompt_left \
+    $prompt_space \
+    $prompt_right \
+    $prompt_suffix
+end
+
+# https://github.com/fish-shell/fish-shell/issues/4012
+function string_width
+    set --local empty ''
+    set --local raw_string (string replace --all --regex '\e\[[^m]*m' $empty -- $argv)
+    string length -- $raw_string
+end
+
+function preexec --on-event fish_preexec
+end
+
+function postexec --on-event fish_postexec
 end
 
 fish_add_path (brew --prefix)/opt/coreutils/libexec/gnubin
@@ -179,7 +217,7 @@ fish_add_path -Pma /usr/bin # 移动至最后，降低优先级
 
 lua ~/z.lua --init fish once | source
 
-eval conda &quot;shell.fish&quot; &quot;hook&quot; $argv | source
+# eval conda &quot;shell.fish&quot; &quot;hook&quot; $argv | source
 </code></pre><pre><code>&quot;D:\Work\msys64\msys2_shell.cmd&quot; -no-start -full-path -mingw64 -shell fish
 </code></pre>
 </div>
