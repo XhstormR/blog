@@ -17,6 +17,11 @@ Updated on 2021-07-22
 * https://brew.sh/
 
 ```
+brew cleanup --prune=all
+brew update && brew upgrade --greedy
+```
+
+```
  ❯ brew list -1                                                                                                                                (base)
 ==> Formulae
 aria2

@@ -53,9 +53,11 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias pgrep='pgrep -a'
 
+# curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh
+# curl -o ~/.config/fish/functions/n.fish https://raw.githubusercontent.com/jarun/nnn/master/misc/quitcd/quitcd.fish
 export NNN_PLUG='p:preview-tui;'
 export NNN_COLORS='#0c'
-alias n='nnn -adeUH -Pp'
+alias nnn='nnn -adeUH -Pp'
 
 export EXA_COLORS='da=2;0:gm=1;0'
 alias exa='exa -aFg --group-directories-first --color=auto --time-style=long-iso --git --icons --color-scale --sort=Name'
