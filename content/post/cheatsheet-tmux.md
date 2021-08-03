@@ -112,7 +112,7 @@ set -g default-shell /usr/local/bin/fish
 
 bind -n C-k clear-history
 
-bind -n C-r source-file ~/.tmux.conf \; display "Config reloaded!"
+bind -n C-r source-file ~/.tmux.conf \; display "Config reloaded!" \; send C-r # 与 nnn 重命名快捷键冲突
 
 bind -n C-left prev
 bind -n C-right next
