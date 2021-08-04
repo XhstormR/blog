@@ -55,7 +55,9 @@
 <li><a href=https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/>https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/</a></li>
 <li><a href=https://brew.sh/>https://brew.sh/</a></li>
 </ul>
-<pre><code> ❯ brew list -1                                                                                                                                (base)
+<pre><code>brew cleanup --prune=all
+brew update &amp;&amp; brew upgrade --greedy
+</code></pre><pre><code> ❯ brew list -1                                                                                                                                (base)
 ==&gt; Formulae
 aria2
 coreutils
