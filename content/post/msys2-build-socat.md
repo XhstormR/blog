@@ -94,6 +94,10 @@ socat tcp-listen:1234,fork,reuseaddr tcp-listen:8080
 socat tcp-connect:47.98.135.65:1234 tcp-connect:192.168.1.19:80
 客户端：
 curl 47.98.135.65:8080
+
+SSH 设置 HTTP PROXY
+----
+ssh -o ProxyCommand='socat - PROXY:127.0.0.1:%h:%p,proxyport=8080' root@192.168.2.2
 ```
 
 ## Reference

@@ -443,7 +443,7 @@ https://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-connectors/native/1.2.
 [root@controller ~]$ scp -r /tmp/soft root@192.168.100.10:/tmp/ #上传本地目录到远端指定目录
 [root@controller ~]$ scp -r root@192.168.100.10:/tmp/soft /tmp/ #从远端下载到本地
 
-rsync -P --rsh=ssh root@192.168.100.10:/tmp/soft . #断点续传
+rsync -Par -e 'ssh -i key.pem' source/ root@192.168.100.10:/destination # 断点续传
 ```
 
 ## find
@@ -1177,7 +1177,7 @@ echo -e "\e[1;36m 123456 \e[0m"
 区别在于2个sbin目录只有root用户才能执行。
 ```
 
-## Linux 快捷键
+## Linux 快捷键（Emacs 风格）
 ```
 Ctrl+L     清屏     （另外 CMD 下的清屏命令是 `cls`）
 Ctrl+Z     挂起当前命令

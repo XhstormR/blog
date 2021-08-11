@@ -114,9 +114,25 @@ bind -n C-k clear-history
 
 bind -n C-r source-file ~/.tmux.conf \; display "Config reloaded!" \; send C-r # 与 nnn 重命名快捷键冲突
 
+bind -n C-n next-layout # 切换面板布局
+
+# Ctrl
+bind -n C-up switch-client -n
+bind -n C-down new-window -c "#{pane_current_path}"
 bind -n C-left prev
 bind -n C-right next
-bind -n C-down new-window -c "#{pane_current_path}"
+
+# Alt 调整面板
+bind -n M-up    resize-pane -U 5
+bind -n M-down  resize-pane -D 5
+bind -n M-left  resize-pane -L 5
+bind -n M-right resize-pane -R 5
+
+# Shift 选择面板
+bind -n S-up    select-pane -U
+bind -n S-down  select-pane -D
+bind -n S-left  select-pane -L
+bind -n S-right select-pane -R
 
 bind - split-window -v -c "#{pane_current_path}"
 bind \\ split-window -h -c "#{pane_current_path}"
@@ -129,14 +145,14 @@ bind r command-prompt -I "#{window_name}" "rename-window '%%'"
 bind R command-prompt -I "#{session_name}" "rename-session '%%'"
 
 # tmuxline start
-set -g status-bg black
+set -g status-bg default
 set -g status-justify right
 
 set -g status-right "#[fg=white] | #S | #(whoami) | #H | %F %R "
 set -g status-right-length 100
 
-set -g window-status-format "#{?window_activity_flag,#[bg=brightyellow],#[fg=white]}#I:#W#F"
-set -g window-status-current-format "#[fg=brightgreen]#I:#W#F"
+set -g window-status-format "#{?window_activity_flag,#[bg=brightyellow#,bold],#[fg=white]}#I:#W#F"
+set -g window-status-current-format "#[fg=brightgreen,bold]#I:#W#F"
 # tmuxline end
 
 bind -n DoubleClick1Pane new-window
