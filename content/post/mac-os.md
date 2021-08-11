@@ -40,16 +40,16 @@ cyberduck
 google-chrome
 iina
 intellij-idea
-iterm2
 karabiner-elements
+kitty
 maczip
 megasync
 miniconda
 mounty
+onyx
 rectangle
 snipaste
 sourcetree
-visual-studio-code
 vlc
 xnviewmp
 ```
@@ -115,6 +115,7 @@ dependencies:
   - ruamel_yaml=0.15.80=py38h96a0964_1004
   - setuptools=49.6.0=py38h50d1736_3
   - six=1.16.0=pyh6c4a22f_0
+  - socat=1.7.3.4=h49596f2_1
   - sqlite=3.36.0=h23a322b_0
   - tk=8.6.10=h0419947_1
   - tmux=3.1=h45fa02c_0
@@ -132,9 +133,25 @@ prefix: /usr/local/Caskroom/miniconda/base
 ## Karabiner
 * https://karabiner-elements.pqrs.org/docs/json/
 * https://github.com/pqrs-org/Karabiner-Elements
-* https://github.com/pqrs-org/KE-complex_modifications/blob/master/public/json/windows_shortcuts_on_macos.json
+* [spacefn.json](https://raw.githubusercontent.com/pqrs-org/KE-complex_modifications/main/public/json/spacefn.json)
+* [windows_shortcuts_on_macos.json](https://raw.githubusercontent.com/pqrs-org/KE-complex_modifications/main/public/json/windows_shortcuts_on_macos.json)
 
 {{< image "/uploads/mac-os-karabiner.png" "Karabiner" "1" "1" >}}
+
+### 快捷键兼容
+```
+jq --slurpfile input frontmost_application_unless_rule.json '.rules[].manipulators[].conditions += $input' 1.json > 2.json
+
+frontmost_application_unless_rule.json
+----
+{
+  "type": "frontmost_application_unless",
+  "bundle_identifiers": [
+    "^net\\.kovidgoyal\\.kitty$",
+    "^com\\.jetbrains\\.intellij$"
+  ]
+}
+```
 
 ### chrome_shortcuts.json
 ```
@@ -443,24 +460,7 @@ prefix: /usr/local/Caskroom/miniconda/base
 * `~/Library/'Application Support'/JetBrains/IntelliJIdea2021.1/`
 
 ### 快捷键兼容
-
-#### Mac
 * https://courses.ics.hawaii.edu/ics314s21/morea/development-environments/reading-intellij-macos-configuration.html
-
-#### Karabiner
-```
-jq --slurpfile input frontmost_application_unless_idea.json '.rules[].manipulators[].conditions += $input' 1.json > 2.json
-```
-
-##### frontmost_application_unless_idea.json
-```
-{
-  "type": "frontmost_application_unless",
-  "bundle_identifiers": [
-    "^com\\.jetbrains\\.intellij$"
-  ]
-}
-```
 
 ## 7z
 * https://www.7-zip.org/download.html
