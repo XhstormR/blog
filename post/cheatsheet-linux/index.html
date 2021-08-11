@@ -412,7 +412,7 @@ https://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-connectors/native/1.2.
 [root@controller ~]$ scp -r /tmp/soft root@192.168.100.10:/tmp/ #上传本地目录到远端指定目录
 [root@controller ~]$ scp -r root@192.168.100.10:/tmp/soft /tmp/ #从远端下载到本地
 
-rsync -P --rsh=ssh root@192.168.100.10:/tmp/soft . #断点续传
+rsync -Par -e 'ssh -i key.pem' source/ root@192.168.100.10:/destination # 断点续传
 </code></pre><h2 id=find>find</h2>
 <pre><code>find [路径] [模式] [条件]
 find / -name 123.log
@@ -999,7 +999,7 @@ echo -e &quot;\e[1;36m 123456 \e[0m&quot;
 
 根目录(/)下的bin和sbin，usr目录(/usr)下的的bin和sbin，这四个目录都是用来保存系统命令的。
 区别在于2个sbin目录只有root用户才能执行。
-</code></pre><h2 id=linux-快捷键>Linux 快捷键</h2>
+</code></pre><h2 id=linux-快捷键emacs-风格>Linux 快捷键（Emacs 风格）</h2>
 <pre><code>Ctrl+L     清屏     （另外 CMD 下的清屏命令是 `cls`）
 Ctrl+Z     挂起当前命令
 Ctrl+C     终止当前命令
@@ -1118,7 +1118,7 @@ Shift+Insert     粘贴
 <li><a href=#配置-dns>配置 DNS</a></li>
 <li><a href=#脚本>脚本</a></li>
 <li><a href=#linux-目录>Linux 目录</a></li>
-<li><a href=#linux-快捷键>Linux 快捷键</a></li>
+<li><a href=#linux-快捷键emacs-风格>Linux 快捷键（Emacs 风格）</a></li>
 <li><a href=#securecrt-快捷键>SecureCRT 快捷键</a></li>
 </ul>
 </nav>

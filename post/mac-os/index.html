@@ -75,16 +75,16 @@ cyberduck
 google-chrome
 iina
 intellij-idea
-iterm2
 karabiner-elements
+kitty
 maczip
 megasync
 miniconda
 mounty
+onyx
 rectangle
 snipaste
 sourcetree
-visual-studio-code
 vlc
 xnviewmp
 </code></pre><h2 id=miniconda>Miniconda</h2>
@@ -148,6 +148,7 @@ xnviewmp
   - <span style=color:#ae81ff>ruamel_yaml=0.15.80=py38h96a0964_1004</span>
   - <span style=color:#ae81ff>setuptools=49.6.0=py38h50d1736_3</span>
   - <span style=color:#ae81ff>six=1.16.0=pyh6c4a22f_0</span>
+  - <span style=color:#ae81ff>socat=1.7.3.4=h49596f2_1</span>
   - <span style=color:#ae81ff>sqlite=3.36.0=h23a322b_0</span>
   - <span style=color:#ae81ff>tk=8.6.10=h0419947_1</span>
   - <span style=color:#ae81ff>tmux=3.1=h45fa02c_0</span>
@@ -164,11 +165,24 @@ xnviewmp
 <ul>
 <li><a href=https://karabiner-elements.pqrs.org/docs/json/>https://karabiner-elements.pqrs.org/docs/json/</a></li>
 <li><a href=https://github.com/pqrs-org/Karabiner-Elements>https://github.com/pqrs-org/Karabiner-Elements</a></li>
-<li><a href=https://github.com/pqrs-org/KE-complex_modifications/blob/master/public/json/windows_shortcuts_on_macos.json>https://github.com/pqrs-org/KE-complex_modifications/blob/master/public/json/windows_shortcuts_on_macos.json</a></li>
+<li><a href=https://raw.githubusercontent.com/pqrs-org/KE-complex_modifications/main/public/json/spacefn.json>spacefn.json</a></li>
+<li><a href=https://raw.githubusercontent.com/pqrs-org/KE-complex_modifications/main/public/json/windows_shortcuts_on_macos.json>windows_shortcuts_on_macos.json</a></li>
 </ul>
 <p style=text-align:center><img data-src=/uploads/mac-os-karabiner.png alt title=Karabiner data-action=zoom width></p>
 <script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(a){a.setAttribute("src",a.getAttribute("data-src")),a.onload=function(){a.removeAttribute("data-src")}})</script>
-<h3 id=chrome_shortcutsjson>chrome_shortcuts.json</h3>
+<h3 id=快捷键兼容>快捷键兼容</h3>
+<pre><code>jq --slurpfile input frontmost_application_unless_rule.json '.rules[].manipulators[].conditions += $input' 1.json &gt; 2.json
+
+frontmost_application_unless_rule.json
+----
+{
+  &quot;type&quot;: &quot;frontmost_application_unless&quot;,
+  &quot;bundle_identifiers&quot;: [
+    &quot;^net\\.kovidgoyal\\.kitty$&quot;,
+    &quot;^com\\.jetbrains\\.intellij$&quot;
+  ]
+}
+</code></pre><h3 id=chrome_shortcutsjson>chrome_shortcuts.json</h3>
 <pre><code>{
   &quot;title&quot;: &quot;chrome_shortcuts&quot;,
   &quot;rules&quot;: [
@@ -472,21 +486,11 @@ xnviewmp
 <li><a href=https://plugins.jetbrains.com/plugin/13094-xwin-keymap/>https://plugins.jetbrains.com/plugin/13094-xwin-keymap/</a></li>
 <li><code>~/Library/'Application Support'/JetBrains/IntelliJIdea2021.1/</code></li>
 </ul>
-<h3 id=快捷键兼容>快捷键兼容</h3>
-<h4 id=mac>Mac</h4>
+<h3 id=快捷键兼容-1>快捷键兼容</h3>
 <ul>
 <li><a href=https://courses.ics.hawaii.edu/ics314s21/morea/development-environments/reading-intellij-macos-configuration.html>https://courses.ics.hawaii.edu/ics314s21/morea/development-environments/reading-intellij-macos-configuration.html</a></li>
 </ul>
-<h4 id=karabiner-1>Karabiner</h4>
-<pre><code>jq --slurpfile input frontmost_application_unless_idea.json '.rules[].manipulators[].conditions += $input' 1.json &gt; 2.json
-</code></pre><h5 id=frontmost_application_unless_ideajson>frontmost_application_unless_idea.json</h5>
-<pre><code>{
-  &quot;type&quot;: &quot;frontmost_application_unless&quot;,
-  &quot;bundle_identifiers&quot;: [
-    &quot;^com\\.jetbrains\\.intellij$&quot;
-  ]
-}
-</code></pre><h2 id=7z>7z</h2>
+<h2 id=7z>7z</h2>
 <ul>
 <li><a href=https://www.7-zip.org/download.html>https://www.7-zip.org/download.html</a></li>
 </ul>
@@ -517,12 +521,13 @@ xnviewmp
 <li><a href=#miniconda>Miniconda</a></li>
 <li><a href=#karabiner>Karabiner</a>
 <ul>
+<li><a href=#快捷键兼容>快捷键兼容</a></li>
 <li><a href=#chrome_shortcutsjson>chrome_shortcuts.json</a></li>
 </ul>
 </li>
 <li><a href=#idea>IDEA</a>
 <ul>
-<li><a href=#快捷键兼容>快捷键兼容</a></li>
+<li><a href=#快捷键兼容-1>快捷键兼容</a></li>
 </ul>
 </li>
 <li><a href=#7z>7z</a></li>
