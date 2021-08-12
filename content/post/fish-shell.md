@@ -119,20 +119,14 @@ function proxy_on
     set -xU all_proxy socks5://127.0.0.1:1080
     set -xU http_proxy http://127.0.0.1:1080
     set -xU https_proxy http://127.0.0.1:1080
-    set -xU GIT_PROXY_COMMAND /tmp/git-proxy.sh
-
-    echo > $GIT_PROXY_COMMAND "\
-#!/bin/sh
-exec socat - PROXY:127.0.0.1:\$1:\$2,proxyport=1080
-"
-    chmod +x $GIT_PROXY_COMMAND
+    set -xU GIT_SSH_COMMAND 'ssh -o ProxyCommand="socat - PROXY:127.0.0.1:%h:%p,proxyport=1080"'
 end
 
 function proxy_off
     set -e all_proxy
     set -e http_proxy
     set -e https_proxy
-    set -e GIT_PROXY_COMMAND
+    set -e GIT_SSH_COMMAND
 end
 
 function fish_prompt
