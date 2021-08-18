@@ -53,6 +53,16 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias pgrep='pgrep -a'
 
+# curl -o /usr/local/bin/fzf-tmux https://raw.githubusercontent.com/junegunn/fzf/master/bin/fzf-tmux && chmod +x /usr/local/bin/fzf-tmux
+# curl -o ~/.config/fish/functions/fzf_key_bindings.fish https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.fish
+export FZF_ALT_C_COMMAND='fd -H -E .git -t d . $dir'
+export FZF_CTRL_T_COMMAND='fd -H -E .git -t f . $dir'
+export FZF_DEFAULT_COMMAND='fd -H -E .git'
+export FZF_ALT_C_OPTS='--preview "ls -T {} | head -100"'
+export FZF_CTRL_T_OPTS='--preview "bat -f {} | head -100"'
+export FZF_TMUX=1
+alias f='fzf'
+
 # curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh
 # curl -o ~/.config/fish/functions/n.fish https://raw.githubusercontent.com/jarun/nnn/master/misc/quitcd/quitcd.fish
 export NNN_PLUG='p:preview-tui;'
@@ -83,6 +93,10 @@ alias myip='curl -sk https://myip.ipip.net/'
 alias rand='openssl rand -hex 30'
 alias aria2c='aria2c -s16 -x16 -k1M'
 alias jq='jq -C'
+alias e='idea -e'
+alias o='open'
+
+eval conda "shell.fish" "hook" $argv | source
 
 function start.
     # set -l path (cygpath -w (pwd))
@@ -110,6 +124,14 @@ function v
     $argv[1] --version || $argv[1] -version || $argv[1] version
 end
 
+function fkill
+  set -l header (ps aux | head -1)
+  set -l pid (ps aux | fzf -e --header "$header" | tr -s ' ' | cut -d ' ' -f 2)
+  if test -n "$pid"
+    kill -9 $pid
+  end
+end
+
 function take
     mkdir -p $argv
     cd $argv
@@ -127,6 +149,10 @@ function proxy_off
     set -e http_proxy
     set -e https_proxy
     set -e GIT_SSH_COMMAND
+end
+
+function fish_user_key_bindings
+    fzf_key_bindings
 end
 
 function fish_prompt
@@ -187,12 +213,10 @@ end
 function postexec --on-event fish_postexec
 end
 
-fish_add_path (brew --prefix)/opt/coreutils/libexec/gnubin
 fish_add_path -Pma /usr/bin # 移动至最后，降低优先级
+fish_add_path (brew --prefix)/opt/coreutils/libexec/gnubin
 
 lua ~/z.lua --init fish once | source
-
-# eval conda "shell.fish" "hook" $argv | source
 ```
 
 ```

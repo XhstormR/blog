@@ -17,7 +17,7 @@ Updated on 2021-07-22
 * https://brew.sh/
 
 ```
-brew cleanup --prune=all
+brew cleanup --prune=all -s
 brew update && brew upgrade --greedy
 ```
 
@@ -147,6 +147,7 @@ frontmost_application_unless_rule.json
 {
   "type": "frontmost_application_unless",
   "bundle_identifiers": [
+    "^io\\.alacritty$",
     "^net\\.kovidgoyal\\.kitty$",
     "^com\\.jetbrains\\.intellij$"
   ]
