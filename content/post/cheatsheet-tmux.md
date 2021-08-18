@@ -83,6 +83,7 @@ Prefix = Ctrl+B
 ## .tmux.conf
 ```
 set -g default-terminal "screen-256color"
+set -ga terminal-overrides "*-256color:Tc"
 
 set -g escape-time 0
 set -g display-time 1500
@@ -102,6 +103,8 @@ set -g focus-events on
 
 set -g renumber-windows on
 
+set -g aggressive-resize on
+
 set -g monitor-activity on
 
 set -g mode-keys vi #复制模式设置为 vi, SPACE开始 ENTER结束
@@ -112,8 +115,6 @@ set -g default-shell /usr/local/bin/fish
 
 bind -n C-k clear-history
 
-bind -n C-r source-file ~/.tmux.conf \; display "Config reloaded!" \; send C-r # 与 nnn 重命名快捷键冲突
-
 bind -n C-n next-layout # 切换面板布局
 
 # Ctrl
@@ -122,17 +123,17 @@ bind -n C-down new-window -c "#{pane_current_path}"
 bind -n C-left prev
 bind -n C-right next
 
-# Alt 调整面板
-bind -n M-up    resize-pane -U 5
-bind -n M-down  resize-pane -D 5
-bind -n M-left  resize-pane -L 5
-bind -n M-right resize-pane -R 5
-
 # Shift 选择面板
 bind -n S-up    select-pane -U
 bind -n S-down  select-pane -D
 bind -n S-left  select-pane -L
 bind -n S-right select-pane -R
+
+# Ctrl+Shift 调整面板
+bind -n C-S-up    resize-pane -U 5
+bind -n C-S-down  resize-pane -D 5
+bind -n C-S-left  resize-pane -L 5
+bind -n C-S-right resize-pane -R 5
 
 bind - split-window -v -c "#{pane_current_path}"
 bind \\ split-window -h -c "#{pane_current_path}"
@@ -144,6 +145,10 @@ bind z resize-pane -Z
 bind r command-prompt -I "#{window_name}" "rename-window '%%'"
 bind R command-prompt -I "#{session_name}" "rename-session '%%'"
 
+bind C-b last-window # double prefix
+
+bind C-r source-file ~/.tmux.conf \; display "Config reloaded!"
+
 # tmuxline start
 set -g status-bg default
 set -g status-justify right
@@ -152,7 +157,9 @@ set -g status-right "#[fg=white] | #S | #(whoami) | #H | %F %R "
 set -g status-right-length 100
 
 set -g window-status-format "#{?window_activity_flag,#[bg=brightyellow#,bold],#[fg=white]}#I:#W#F"
-set -g window-status-current-format "#[fg=brightgreen,bold]#I:#W#F"
+set -g window-status-current-format "#[fg=brightgreen,bold]➤ #I:#W#F"
+
+set -g pane-active-border-style fg=brightyellow
 # tmuxline end
 
 bind -n DoubleClick1Pane new-window
