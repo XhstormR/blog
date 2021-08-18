@@ -55,7 +55,7 @@
 <li><a href=https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/>https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/</a></li>
 <li><a href=https://brew.sh/>https://brew.sh/</a></li>
 </ul>
-<pre><code>brew cleanup --prune=all
+<pre><code>brew cleanup --prune=all -s
 brew update &amp;&amp; brew upgrade --greedy
 </code></pre><pre><code> ❯ brew list -1                                                                                                                                (base)
 ==&gt; Formulae
@@ -178,6 +178,7 @@ frontmost_application_unless_rule.json
 {
   &quot;type&quot;: &quot;frontmost_application_unless&quot;,
   &quot;bundle_identifiers&quot;: [
+    &quot;^io\\.alacritty$&quot;,
     &quot;^net\\.kovidgoyal\\.kitty$&quot;,
     &quot;^com\\.jetbrains\\.intellij$&quot;
   ]

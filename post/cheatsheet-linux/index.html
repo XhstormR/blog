@@ -481,7 +481,7 @@ grep &quot;ls --color=auto&quot; /etc/ -rn #递归查找并显示行号
 
 Tips : 默认为包含匹配，可使用正则表达式进行包含匹配     ^开头     结尾$
 grep ^[a-z] /etc/nova/nova.conf #使用正则表达式去掉注释
-grep -vn -e ^井 -e '^\s*$' /etc/vsftpd/vsftpd.conf #使用正则表达式取反去掉注释和空行并显示行号
+grep -vn -e '^\s*#' -e '^\s*$' /etc/vsftpd/vsftpd.conf #使用正则表达式取反去掉注释和空行并显示行号
 </code></pre><h2 id=awk>awk</h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>awk <span style=color:#e6db74>&#39;{print $2}&#39;</span> 1.txt             <span style=color:#75715e>#输出每一行的第二列到屏幕</span>
 awk <span style=color:#e6db74>&#39;{print $0 &gt; &#34;2.txt&#34;}&#39;</span> 1.txt   <span style=color:#75715e>#输出每一行的每一列到文件</span>
