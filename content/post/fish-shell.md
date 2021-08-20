@@ -58,8 +58,9 @@ alias pgrep='pgrep -a'
 export FZF_ALT_C_COMMAND='fd -H -E .git -t d . $dir'
 export FZF_CTRL_T_COMMAND='fd -H -E .git -t f . $dir'
 export FZF_DEFAULT_COMMAND='fd -H -E .git'
-export FZF_ALT_C_OPTS='--preview "ls -T {} | head -100"'
-export FZF_CTRL_T_OPTS='--preview "bat -f {} | head -100"'
+export FZF_ALT_C_OPTS='--preview "ls -T {} | head -100" -0'
+export FZF_CTRL_T_OPTS='--preview "bat -f {} | head -100" -0'
+export FZF_DEFAULT_OPTS='-m -0'
 export FZF_TMUX=1
 alias f='fzf'
 
@@ -124,17 +125,17 @@ function v
     $argv[1] --version || $argv[1] -version || $argv[1] version
 end
 
+function take
+    mkdir -p $argv
+    cd $argv
+end
+
 function fkill
   set -l header (ps aux | head -1)
   set -l pid (ps aux | fzf -e --header "$header" | tr -s ' ' | cut -d ' ' -f 2)
   if test -n "$pid"
     kill -9 $pid
   end
-end
-
-function take
-    mkdir -p $argv
-    cd $argv
 end
 
 function proxy_on
@@ -217,6 +218,10 @@ fish_add_path -Pma /usr/bin # 移动至最后，降低优先级
 fish_add_path (brew --prefix)/opt/coreutils/libexec/gnubin
 
 lua ~/z.lua --init fish once | source
+
+if type tmux > /dev/null 2>&1 ; and not set -q TMUX
+    tmux attach -c (pwd) || tmux new
+end
 ```
 
 ```
