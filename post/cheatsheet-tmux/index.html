@@ -145,8 +145,6 @@ set -g default-shell /usr/local/bin/fish
 
 bind -n C-k clear-history
 
-bind -n C-n next-layout # 切换面板布局
-
 # Ctrl
 bind -n C-up switch-client -n
 bind -n C-down new-window -c &quot;#{pane_current_path}&quot;
@@ -176,6 +174,8 @@ bind r command-prompt -I &quot;#{window_name}&quot; &quot;rename-window '%%'&quo
 bind R command-prompt -I &quot;#{session_name}&quot; &quot;rename-session '%%'&quot;
 
 bind C-b last-window # double prefix
+
+bind C-n next-layout # 切换面板布局
 
 bind C-r source-file ~/.tmux.conf \; display &quot;Config reloaded!&quot;
 
