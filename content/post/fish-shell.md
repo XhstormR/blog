@@ -38,6 +38,23 @@ export VISUAL='idea -e'
 export HISTCONTROL='ignoredups'
 
 set -g fish_prompt_pwd_dir_length 0
+# https://patorjk.com/software/taag/#p=display&f=ANSI%20Shadow&t=leo
+set -g fish_greeting '
+   ██╗     ███████╗ ██████╗
+   ██║     ██╔════╝██╔═══██╗
+   ██║     █████╗  ██║   ██║
+   ██║     ██╔══╝  ██║   ██║
+   ███████╗███████╗╚██████╔╝
+   ╚══════╝╚══════╝ ╚═════╝
+    _____
+   /     \
+   vvvvvvv  /|__/|
+      I   /O,O   |
+      I /_____   |      /|/|
+     J|/^ ^ ^ \  |    /00  |    _//|
+      |^ ^ ^ ^ |W|   |/^^\ |   /oo |
+       \m___m__|_|    \m_m_|   \mm_|
+'
 
 alias rm='rm -i'
 alias cp='cp -i'

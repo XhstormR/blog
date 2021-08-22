@@ -153,6 +153,7 @@ bind C-r source-file ~/.tmux.conf \; display "Config reloaded!"
 set -g status-bg default
 set -g status-justify right
 
+set -g status-left ""
 set -g status-right "#[fg=white] | #S | #(whoami) | #H | %F %R "
 set -g status-right-length 100
 
