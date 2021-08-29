@@ -48,8 +48,8 @@ set -g fish_greeting '
    ╚══════╝╚══════╝ ╚═════╝
     _____
    /     \
-   vvvvvvv  /|__/|
-      I   /O,O   |
+   vvvvvvv/|____/|
+      I  /O,O    |
       I /_____   |      /|/|
      J|/^ ^ ^ \  |    /00  |    _//|
       |^ ^ ^ ^ |W|   |/^^\ |   /oo |
@@ -232,7 +232,7 @@ function postexec --on-event fish_postexec
 end
 
 fish_add_path -Pma /usr/bin # 移动至最后，降低优先级
-fish_add_path (brew --prefix)/opt/coreutils/libexec/gnubin
+fish_add_path (brew --prefix coreutils)/libexec/gnubin
 
 lua ~/z.lua --init fish once | source
 

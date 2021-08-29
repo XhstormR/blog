@@ -11,6 +11,8 @@ Updated on 2018-01-02
 
 > https://github.com/vim/vim
 >
+> https://vimhelp.org/options.txt.html
+>
 > http://www.lagmonster.org/docs/vi.html
 >
 > {{< image "/uploads/vim.png" "Vim" "1" "1" >}}
