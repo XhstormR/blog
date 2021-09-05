@@ -53,7 +53,7 @@
 <li><a href=https://mirror.azure.cn/nginx/download/>https://mirror.azure.cn/nginx/download/</a></li>
 </ul>
 <h3 id=nginxconf>nginx.conf</h3>
-<pre><code>location ~ \.php$ {
+<pre tabindex=0><code>location ~ \.php$ {
     root           html;
     fastcgi_pass   127.0.0.1:9000;
     fastcgi_index  index.php;
@@ -69,7 +69,7 @@
 <span style=color:#a6e22e>extension</span><span style=color:#f92672>=</span><span style=color:#e6db74>php_pdo_pgsql.dll</span>
 <span style=color:#a6e22e>extension</span><span style=color:#f92672>=</span><span style=color:#e6db74>php_pgsql.dll</span>
 <span style=color:#a6e22e>extension_dir</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;ext&#34;</span>
-</code></pre></div><pre><code>php-cgi -b 127.0.0.1:9000 -c php.ini
+</code></pre></div><pre tabindex=0><code>php-cgi -b 127.0.0.1:9000 -c php.ini
 </code></pre>
 </div>
 <div class=sharing style=text-align:center>

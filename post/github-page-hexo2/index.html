@@ -52,7 +52,7 @@
 <li>对主题的配置 H:\hexo\themes\light_config.yml</li>
 </ul>
 <p>对博客的配置 H:\hexo\_config.yml</p>
-<pre><code># Hexo Configuration
+<pre tabindex=0><code># Hexo Configuration
 ## Docs: http://zespia.tw/hexo/docs/configure.html
 ## Source: https://github.com/tommy351/hexo/
 
@@ -138,7 +138,7 @@ deploy:
   repository: https://github.com/zippera/zippera.github.io.git
   branch: master
 </code></pre><p>对主题的配置 H:\hexo\themes\light_config.yml</p>
-<pre><code>menu: #站点右上角导航栏，暂时默认，后面介绍修改
+<pre tabindex=0><code>menu: #站点右上角导航栏，暂时默认，后面介绍修改
   首页: /
   存档: /archives
   关于: /about
@@ -176,13 +176,13 @@ fancybox: true #图片效果，默认
 google_analytics: #要使用google_analytics进行统计的话，这里需要配置ID，暂时默认，后面介绍
 rss:  #生成RSS，需要配置路径，暂时默认，后面介绍
 </code></pre><h2 id=新建一篇photo文章>新建一篇photo文章</h2>
-<pre><code>hexo new photo &quot;my new photo&quot;
+<pre tabindex=0><code>hexo new photo &quot;my new photo&quot;
 </code></pre><h2 id=新建一个页面>新建一个页面</h2>
-<pre><code>hexo new page &quot;my new page&quot;
+<pre tabindex=0><code>hexo new page &quot;my new page&quot;
 </code></pre><h2 id=新建一篇文章>新建一篇文章</h2>
-<pre><code>hexo new post &quot;my new post&quot;     #hexo n &quot;my new post&quot;
+<pre tabindex=0><code>hexo new post &quot;my new post&quot;     #hexo n &quot;my new post&quot;
 </code></pre><p>在H:\hexo\source_posts中打开这个文件（打开方式用“记事本”即可），配置开头。</p>
-<pre><code>title: title #文章标题
+<pre tabindex=0><code>title: title #文章标题
 date: 2015-02-05 12:47:44 #文章生成时间
 categories: #文章分类目录，可以为空，注意:后面有个空格
 tags: #文章标签，可空，多标签请用格式[tag1,tag2,tag3]，注意:后面有个空格
@@ -190,24 +190,24 @@ description: #你对本页的描述 可以省略
 ---
 这里开始使用markdown格式输入你的正文。
 </code></pre><p>想在首页文章预览添加图片可以添加photo参数 这个需要fancybox=true 如下:</p>
-<pre><code>photos:
+<pre tabindex=0><code>photos:
 - http://bruce.u.qiniudn.com/2013/11/27/reading/photos-0.jpg
 </code></pre><h2 id=主页文章显示摘要>主页文章显示摘要</h2>
 <p>编辑md文件的时候，在要作为摘要的文字后面添加即可。</p>
-<pre><code>以上是文章摘要
+<pre tabindex=0><code>以上是文章摘要
 &lt;!-- more --&gt;
 以下是余下全文
 </code></pre><h2 id=不解析html文件>不解析Html文件</h2>
 <p>hexo默认是解析html文件的，于是，html文件只要放入相应目录下命名好，hexo解析完成，将其作为一篇“文章”“插入”到模板中。如果不希望被解析，在单个html文件开头添加如下信息：</p>
-<pre><code>layout: false
+<pre tabindex=0><code>layout: false
 ---
 </code></pre><h2 id=生成post时默认生成categories配置项>生成post时默认生成categories配置项</h2>
 <p>在scaffolds/post.md中，添加一行categories:。同理可应用在page.md和photo.md。</p>
 <h2 id=添加rss和sitemap插件>添加RSS和Sitemap插件</h2>
-<pre><code>npm install hexo-generator-feed
+<pre tabindex=0><code>npm install hexo-generator-feed
 npm install hexo-generator-sitemap
 </code></pre><p>在博客配置文件中启用插件</p>
-<pre><code>plugins:
+<pre tabindex=0><code>plugins:
 - hexo-generator-feed
 - hexo-generator-sitemap
 </code></pre><h2 id=文章中插入图片>文章中插入图片</h2>
@@ -217,14 +217,14 @@ npm install hexo-generator-sitemap
 </ul>
 <h2 id=批量部署>批量部署</h2>
 <p>编辑 _config.yml。</p>
-<pre><code>deploy:
+<pre tabindex=0><code>deploy:
   type: git
   message: [message]
   repo:
     github: git@github.com:XhstormR/XhstormR.github.io.git,master
     gitcafe: git@gitcafe.com:XhstormR/XhstormR.git,gitcafe-pages
 </code></pre><h2 id=通过ssh建立github与本地的通信>通过SSH建立Github与本地的通信</h2>
-<pre><code>$ ssh -T git@github.com
+<pre tabindex=0><code>$ ssh -T git@github.com
 </code></pre>
 </div>
 <div class=sharing style=text-align:center>

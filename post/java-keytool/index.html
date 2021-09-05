@@ -48,7 +48,7 @@
 <p>Updated on 2020-10-12</p>
 <blockquote>
 </blockquote>
-<pre><code>生成密钥对：
+<pre tabindex=0><code>生成密钥对：
 keytool -genkeypair -keystore release.p12 -storepass changeit -storetype pkcs12 -alias release -keyalg RSA -dname &quot;cn=123&quot; -ext &quot;san=dns:*.example.com,ip:127.0.0.1&quot; -validity 365
 keytool -list       -keystore release.p12 -storepass changeit -storetype pkcs12
 
@@ -67,7 +67,7 @@ keytool -delete -cacerts -trustcacerts -storepass changeit -alias release
 keytool -importkeystore ^
 -srckeystore release.p12 -srcstoretype pkcs12 -srcstorepass changeit ^
 -destkeystore release.jks -deststoretype jks -deststorepass changeit
-</code></pre><pre><code>导出证书：
+</code></pre><pre tabindex=0><code>导出证书：
 openssl pkcs12 -in release.p12 -password pass:changeit -out release.crt -nokeys
 
 导出私钥：

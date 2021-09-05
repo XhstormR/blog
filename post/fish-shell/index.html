@@ -62,7 +62,7 @@ mkdir build; cd build
 cmake ..
 make install
 </code></pre></div><h2 id=configfish>config.fish</h2>
-<pre><code>export TERM='screen-256color'
+<pre tabindex=0><code>export TERM='screen-256color'
 export LANG='zh_CN.UTF-8'
 export VISUAL='idea -e'
 export HISTCONTROL='ignoredups'
@@ -78,8 +78,8 @@ set -g fish_greeting '
    ╚══════╝╚══════╝ ╚═════╝
     _____
    /     \
-   vvvvvvv  /|__/|
-      I   /O,O   |
+   vvvvvvv/|____/|
+      I  /O,O    |
       I /_____   |      /|/|
      J|/^ ^ ^ \  |    /00  |    _//|
       |^ ^ ^ ^ |W|   |/^^\ |   /oo |
@@ -262,14 +262,14 @@ function postexec --on-event fish_postexec
 end
 
 fish_add_path -Pma /usr/bin # 移动至最后，降低优先级
-fish_add_path (brew --prefix)/opt/coreutils/libexec/gnubin
+fish_add_path (brew --prefix coreutils)/libexec/gnubin
 
 lua ~/z.lua --init fish once | source
 
 if type tmux &gt; /dev/null 2&gt;&amp;1 ; and not set -q TMUX
     tmux attach -c (pwd) || tmux new
 end
-</code></pre><pre><code>&quot;D:\Work\msys64\msys2_shell.cmd&quot; -no-start -full-path -mingw64 -shell fish
+</code></pre><pre tabindex=0><code>&quot;D:\Work\msys64\msys2_shell.cmd&quot; -no-start -full-path -mingw64 -shell fish
 </code></pre>
 </div>
 <div class=sharing style=text-align:center>

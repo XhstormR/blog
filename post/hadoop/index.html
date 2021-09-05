@@ -144,7 +144,7 @@
 </li>
 </ul>
 <h2 id=hadoop-1>Hadoop</h2>
-<pre><code>[root@master sbin]$ ./start-all.sh #启动 Hadoop 集群
+<pre tabindex=0><code>[root@master sbin]$ ./start-all.sh #启动 Hadoop 集群
 [root@master sbin]$ ./stop-all.sh #停止 Hadoop 集群
     start-dfs.sh start-mapreduce.sh
     stop-dfs.sh stop-mapreduce.sh
@@ -168,7 +168,7 @@
 启动 Hadoop 时，如果出现错误信息 `: Name or service not knownstname master`
 需要将 hadoop-2.7.0/etc/hadoop/slaves 中的主机名换成 IP 地址，本人推荐一开始就写成 IP 地址
 </code></pre><h2 id=hdfs>HDFS</h2>
-<pre><code>[root@master ~]$ hadoop fs
+<pre tabindex=0><code>[root@master ~]$ hadoop fs
 等同于
 [root@master ~]$ hdfs dfs
 -ls #查看目录结构

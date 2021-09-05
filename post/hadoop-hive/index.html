@@ -80,7 +80,7 @@
 <li>Hive 中的数据模型有4种：Table(内部表)、Partition(分区表)、External Table(外部表)、Bucket(桶表)</li>
 </ul>
 <h2 id=hive-操作>Hive 操作</h2>
-<pre><code>create database db1;     创建数据库
+<pre tabindex=0><code>create database db1;     创建数据库
 show databases;     显示数据库
 use db1;     切换至 db1 数据库
 create table a1(id int,name string) row format delimited fileds terminated by '\t' [stored as textfile];     创建表并以 TAB 键分割[并存储为纯文本]
@@ -107,7 +107,7 @@ select * from a1;     查询表所有数据
 dfs -ls /;     执行 dfs 命令
 Hive 的历史命令存放在 ~/.hivehistory
 </code></pre><h2 id=mysql-操作>MySQL 操作</h2>
-<pre><code>mysql -uroot -p000000     登录 MySQL
+<pre tabindex=0><code>mysql -uroot -p000000     登录 MySQL
 show databases;     显示数据库
 create database a1;     创建数据库
 use a1;     切换至 a1 数据库

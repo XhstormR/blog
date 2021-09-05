@@ -217,7 +217,7 @@
 </ul>
 </li>
 </ul>
-<pre><code>[root@controller ~]$ ps -e | grep keystone
+<pre tabindex=0><code>[root@controller ~]$ ps -e | grep keystone
  2385 ?        00:01:14 keystone-all
 </code></pre><h2 id=glance>GLANCE</h2>
 <p><img src=/uploads/openstack-glance.svg alt title=架构></p>
@@ -246,7 +246,7 @@
 </li>
 </ul>
 <p>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;<img src=/uploads/openstack-glance2.svg alt title="Glance 与 OpenStack 其他 Service 间的关系">&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</p>
-<pre><code>[root@controller ~]$ ps -e | grep glance | sort -uk 4
+<pre tabindex=0><code>[root@controller ~]$ ps -e | grep glance | sort -uk 4
  2089 ?        00:00:00 glance-api
  2308 ?        00:00:00 glance-registry
 </code></pre><h2 id=nova>NOVA</h2>
@@ -270,7 +270,7 @@
 <li>Message Queue(消息队列)：子服务的信息中转站 - Qpid</li>
 <li>Database：MySQL</li>
 </ul>
-<pre><code>* 我采取的是双节点
+<pre tabindex=0><code>* 我采取的是双节点
 [root@controller ~]$ ps -e | grep nova | sort -uk 4
  2427 ?        00:01:42 nova-api
  2435 ?        00:00:07 nova-cert

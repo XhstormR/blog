@@ -61,14 +61,14 @@
 <li>清空 <code>META-INF</code> 目录中的 <strong><code>MANIFEST.MF</code></strong> 文件中的多余内容。</li>
 </ol>
 <h2 id=code>Code</h2>
-<pre><code>7zr.exe x launcher.pack.lzma -y
+<pre tabindex=0><code>7zr.exe x launcher.pack.lzma -y
 
 unpack200.exe launcher.pack launcher.jar
-</code></pre><pre><code>ldc &quot;--demo&quot;
+</code></pre><pre tabindex=0><code>ldc &quot;--demo&quot;
 ↓
 ldc &quot;&quot;
-</code></pre><pre><code>jar -cfM launcher.jar -C launcher/ .
-</code></pre><pre><code>java -noverify -jar launcher.jar
+</code></pre><pre tabindex=0><code>jar -cfM launcher.jar -C launcher/ .
+</code></pre><pre tabindex=0><code>java -noverify -jar launcher.jar
 </code></pre><h2 id=reference>Reference</h2>
 <ul>
 <li><a href=https://docs.oracle.com/javase/8/docs/technotes/tools/windows/pack200.html>https://docs.oracle.com/javase/8/docs/technotes/tools/windows/pack200.html</a></li>

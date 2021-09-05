@@ -107,9 +107,9 @@ D:\Download\apache-tomcat-9.0.0\conf\web.xml
 ----
 <span style=color:#960050;background-color:#1e0010>&lt;</span>%@ page trimDirectiveWhitespaces=&#34;true&#34; %&gt;
 </code></pre></div><h3 id=idea-deployment>IDEA Deployment</h3>
-<pre><code>C:\Users\Administrator\.IntelliJIdea2016.3\system\tomcat\
+<pre tabindex=0><code>C:\Users\Administrator\.IntelliJIdea2016.3\system\tomcat\
 </code></pre><h3 id=idea-dependence>IDEA Dependence</h3>
-<pre><code>Project Structure -&gt; Modules -&gt; Dependencies -&gt; Add -&gt; Library -&gt; Tomcat
+<pre tabindex=0><code>Project Structure -&gt; Modules -&gt; Dependencies -&gt; Add -&gt; Library -&gt; Tomcat
 </code></pre><h2 id=jsp>JSP</h2>
 <h3 id=指令>指令</h3>
 <h4 id=page>page</h4>
@@ -117,7 +117,7 @@ D:\Download\apache-tomcat-9.0.0\conf\web.xml
 <span style=color:#960050;background-color:#1e0010>&lt;</span>%@ page import=&#34;java.util.Arrays&#34; %&gt;
 <span style=color:#960050;background-color:#1e0010>&lt;</span>%@ page import=&#34;java.util.HashMap&#34; %&gt;
 </code></pre></div><h4 id=include>include</h4>
-<pre><code>index.jsp
+<pre tabindex=0><code>index.jsp
 ----
 &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
 &lt;html&gt;
@@ -198,7 +198,7 @@ date.jsp     被包含的页面
 </table>
 <h4 id=taglib>taglib</h4>
 <h3 id=注释>注释</h3>
-<pre><code>客户端可见注释：
+<pre tabindex=0><code>客户端可见注释：
 
 &lt;!-- HTML 注释 --&gt;
 
@@ -213,7 +213,7 @@ date.jsp     被包含的页面
     * */
 %&gt;
 </code></pre><h3 id=声明>声明</h3>
-<pre><code>&lt;%!     Servlet 中的成员（可声明为 static）
+<pre tabindex=0><code>&lt;%!     Servlet 中的成员（可声明为 static）
     private String s = &quot;ABC&quot;;     属性
 
     private int add(int x, int y) {     方法
@@ -221,12 +221,12 @@ date.jsp     被包含的页面
     }
 %&gt;
 </code></pre><h3 id=脚本>脚本</h3>
-<pre><code>&lt;%     Servlet 中的 jspService() 的方法代码
+<pre tabindex=0><code>&lt;%     Servlet 中的 jspService() 的方法代码
     System.out.println(&quot;你好&quot;);     输出至控制台
     out.println(&quot;你好&quot;);     输出至页面（out 是内置对象，是 JspWriter 的实例化对象）
 %&gt;
 </code></pre><h3 id=表达式>表达式</h3>
-<pre><code>&lt;%=s%&gt;     调用属性（注意表达式不加分号）
+<pre tabindex=0><code>&lt;%=s%&gt;     调用属性（注意表达式不加分号）
 &lt;br&gt;
 &lt;%=add(1, 2)%&gt;     调用方法
 
@@ -235,7 +235,7 @@ date.jsp     被包含的页面
 ABC
 3
 </code></pre><hr>
-<pre><code>输出九九乘法表
+<pre tabindex=0><code>输出九九乘法表
 ----
 &lt;%!     声明方法
     private String a() {
@@ -257,7 +257,7 @@ ABC
 <h2 id=内置对象>内置对象</h2>
 <h3 id=out>out</h3>
 <h3 id=request>request</h3>
-<pre><code>index.jsp
+<pre tabindex=0><code>index.jsp
 ----
 &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
 &lt;html&gt;
@@ -338,7 +338,7 @@ Note：
 等同于
 真实路径：&lt;%=application.getRealPath(request.getServletPath())%&gt;&lt;br&gt;
 </code></pre><h3 id=response>response</h3>
-<pre><code>&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+<pre tabindex=0><code>&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
 &lt;html&gt;
 &lt;head&gt;
     &lt;title&gt;Title&lt;/title&gt;
@@ -368,7 +368,7 @@ Note：
 请求重定向（客户端行为）（共发起 2 次请求）（游览器地址会改变）（不传递原有请求对象）（response）（302 临时跳转）
 请求转发一（服务端行为）（共发起 1 次请求）（游览器地址不改变）（会传递原有请求对象）（request）
 </code></pre><h3 id=session>session</h3>
-<pre><code>index.jsp
+<pre tabindex=0><code>index.jsp
 ----
 &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
 &lt;%@ page import=&quot;java.text.SimpleDateFormat&quot; %&gt;
@@ -440,7 +440,7 @@ D:\Download\apache-tomcat-9.0.0\conf\web.xml（全局）
     &lt;session-timeout&gt;30&lt;/session-timeout&gt;     分
 &lt;/session-config&gt;
 </code></pre><h3 id=application>application</h3>
-<pre><code>application 对象类似于 Java 中的 static 成员，属于 Web APP，由所有用户共享，可用于存放全局变量。
+<pre tabindex=0><code>application 对象类似于 Java 中的 static 成员，属于 Web APP，由所有用户共享，可用于存放全局变量。
 application 对象始于服务器，终于服务器。
 
 ----
@@ -463,7 +463,7 @@ application 对象始于服务器，终于服务器。
 C:\Users\Administrator\IdeaProjects\untitled\out\artifacts\untitled_war_exploded\index.jsp
 Apache Tomcat/9.0.0.M18
 </code></pre><h3 id=page-1>page</h3>
-<pre><code>page 对象类似于 Java 中的 this 指针，指代当前 JSP 页面本身，是 java.lang.Object 的实例。
+<pre tabindex=0><code>page 对象类似于 Java 中的 this 指针，指代当前 JSP 页面本身，是 java.lang.Object 的实例。
 
 ----
 
@@ -472,14 +472,14 @@ Apache Tomcat/9.0.0.M18
 输出：
 org.apache.jsp.index_jsp@2445d4f1
 </code></pre><h3 id=pagecontext>pageContext</h3>
-<pre><code>pageContext 对象提供了对 JSP 页面内所有的命名空间的访问，相当于页面中所有功能的集大成者。
+<pre tabindex=0><code>pageContext 对象提供了对 JSP 页面内所有的命名空间的访问，相当于页面中所有功能的集大成者。
 
 ----
 
 pageContext.forward(&quot;a.jsp&quot;);     请求转发
 pageContext.include(&quot;a.jsp&quot;);     使当前位置包含另一个页面的内容（类似 include 动作，生成独立的 Servlet）
 </code></pre><h3 id=config>config</h3>
-<pre><code>&lt;%
+<pre tabindex=0><code>&lt;%
     StringBuilder s = new StringBuilder();
     Enumeration&lt;String&gt; initParameterNames = config.getInitParameterNames();
     while (initParameterNames.hasMoreElements()) {
@@ -497,7 +497,7 @@ trimSpaces = true
 classdebuginfo = true
 xpoweredBy = false
 </code></pre><h3 id=exception>exception</h3>
-<pre><code>index.jsp
+<pre tabindex=0><code>index.jsp
 ----
 &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; errorPage=&quot;a.jsp&quot; %&gt;     指定异常处理页面
 &lt;html&gt;
@@ -523,7 +523,7 @@ a.jsp
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre><hr>
-<pre><code>index.jsp
+<pre tabindex=0><code>index.jsp
 ----
 &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
 &lt;html&gt;
@@ -630,7 +630,7 @@ login_failed.jsp
     <span style=color:#f92672>}</span>
 <span style=color:#f92672>}</span>
 </code></pre></div><h3 id=jsp-动作usebeansetgetproperty>JSP 动作：useBean、set（get）Property</h3>
-<pre><code>&lt;%@ page import=&quot;a.User&quot; %&gt;
+<pre tabindex=0><code>&lt;%@ page import=&quot;a.User&quot; %&gt;
 &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -683,7 +683,7 @@ useBean 作用域范围
 https://tomcat.apache.org/tomcat-9.0-doc/jspapi/javax/servlet/jsp/PageContext.html#PAGE_SCOPE
 https://tomcat.apache.org/tomcat-9.0-doc/jspapi/javax/servlet/jsp/JspContext.html#setAttribute-java.lang.String-java.lang.Object-int-
 </code></pre><hr>
-<pre><code>User.java     用封装业务数据
+<pre tabindex=0><code>User.java     用封装业务数据
 ----
 package a;
 
@@ -802,7 +802,7 @@ login_failed.jsp
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre><h2 id=cookie>Cookie</h2>
-<pre><code>index.jsp
+<pre tabindex=0><code>index.jsp
 ----
 &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
 &lt;%

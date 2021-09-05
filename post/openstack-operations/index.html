@@ -141,7 +141,7 @@ https://download.cirros-cloud.net/
 user:cirros     password:gocubsgo
 glance image-create --name cirros --disk-format qcow2 --container-format bare &lt; cirros-0.3.4-x86_64-disk.img
 </code></pre></div><h2 id=nova>NOVA</h2>
-<pre><code>nova secgroup-list     列出安全组
+<pre tabindex=0><code>nova secgroup-list     列出安全组
 nova secgroup-list-rules default     查看安全组
 nova secgroup-add-rule default tcp 1 65535 0.0.0.0/0     添加规则
 nova secgroup-add-rule default udp 1 65535 0.0.0.0/0     添加规则
@@ -181,25 +181,25 @@ nova floating-ip-list     列出获取的浮动 IP     GRE网络
 nova floating-ip-create ext     获取浮动 IP     GRE网络
 nova floating-ip-associate 123 192.168.200.105     关联浮动 IP     GRE网络
 </code></pre><h2 id=cinder>CINDER</h2>
-<pre><code>3：MySQL+KEYSTONE+CINDER
+<pre tabindex=0><code>3：MySQL+KEYSTONE+CINDER
 -------------------------------------------------------
 </code></pre><h2 id=swift>SWIFT</h2>
-<pre><code>3：MySQL+KEYSTONE+SWIFT
+<pre tabindex=0><code>3：MySQL+KEYSTONE+SWIFT
 -------------------------------------------------------
 swift-init all restart     重新启动所有 SWIFT 服务
 swift -U 1:1 -K 1 -V 2 -A http://0.0.0.0:35357/v2.0 stat     查看特定用户信息
 swift --os-username=1 --os-password=1 --os-tenant-name=1 --os-auth-url=http://0.0.0.0:35357/v2.0 stat     查看特定用户信息
 </code></pre><h2 id=heat>Heat</h2>
-<pre><code>heat stack-list     列出栈
+<pre tabindex=0><code>heat stack-list     列出栈
 heat stack-create -f server.yml  -P ImageID=centos6.5 -P NetID=int mystack     创建栈
 heat event-list mystack     查看栈的事件日志
 heat event-show mystack server1 d9c12983-d4df-42ad-bd01-350c9b8abfd6     查看事件日志的详细信息
 </code></pre><h2 id=ceilometer>Ceilometer</h2>
-<pre><code>ceilometer meter-list     查看所有测量值
+<pre tabindex=0><code>ceilometer meter-list     查看所有测量值
 ceilometer resource-list     查看所有资源
 ceilometer resource-show -r  a3f74bc8-8200-4345-9f07-fa4aae11567d     查看资源详情
 </code></pre><h2 id=sahara>Sahara</h2>
-<pre><code>ssh cloud-user@192.168.200.104
+<pre tabindex=0><code>ssh cloud-user@192.168.200.104
 sudo passwd root #修改 root 密码
 su #转到 root 用户
 passwd cloud-user #修改 cloud-user 密码

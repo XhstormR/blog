@@ -55,9 +55,9 @@
 <li><a href=https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/>https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/</a></li>
 <li><a href=https://brew.sh/>https://brew.sh/</a></li>
 </ul>
-<pre><code>brew cleanup --prune=all -s
+<pre tabindex=0><code>brew cleanup --prune=all -s
 brew update &amp;&amp; brew upgrade --greedy
-</code></pre><pre><code> ❯ brew list -1                                                                                                                                (base)
+</code></pre><pre tabindex=0><code> ❯ brew list -1                                                                                                                                (base)
 ==&gt; Formulae
 aria2
 coreutils
@@ -171,7 +171,7 @@ xnviewmp
 <p style=text-align:center><img data-src=/uploads/mac-os-karabiner.png alt title=Karabiner data-action=zoom width></p>
 <script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(a){a.setAttribute("src",a.getAttribute("data-src")),a.onload=function(){a.removeAttribute("data-src")}})</script>
 <h3 id=快捷键兼容>快捷键兼容</h3>
-<pre><code>jq --slurpfile input frontmost_application_unless_rule.json '.rules[].manipulators[].conditions += $input' 1.json &gt; 2.json
+<pre tabindex=0><code>jq --slurpfile input frontmost_application_unless_rule.json '.rules[].manipulators[].conditions += $input' 1.json &gt; 2.json
 
 frontmost_application_unless_rule.json
 ----
@@ -184,7 +184,7 @@ frontmost_application_unless_rule.json
   ]
 }
 </code></pre><h3 id=chrome_shortcutsjson>chrome_shortcuts.json</h3>
-<pre><code>{
+<pre tabindex=0><code>{
   &quot;title&quot;: &quot;chrome_shortcuts&quot;,
   &quot;rules&quot;: [
     {
