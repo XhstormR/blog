@@ -579,6 +579,9 @@ https://github.com/citra-emu/citra
 Nintendo Switch：
 https://github.com/yuzu-emu/yuzu
 https://github.com/Ryujinx/Ryujinx
+
+RetroArch:
+https://github.com/libretro/RetroArch
 ```
 
 ## SQL
