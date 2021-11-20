@@ -1083,6 +1083,9 @@ echo > /var/log/wtmp
 echo > /var/log/btmp
 echo > /var/log/secure
 echo > /var/log/lastlog
+
+无线网卡：
+https://wikidevi.wi-cat.ru/Wireless_adapters/Chipset_table
 ```
 
 ## Android USB 代理网络
