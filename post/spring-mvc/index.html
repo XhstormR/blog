@@ -99,10 +99,10 @@ compile<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;com.fast
 
     <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>getServletConfigClasses</span>(): Array&lt;Class&lt;*&gt;&gt; = arrayOf(WebConfig<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java)
 
-    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>getServletFilters</span>(): Array&lt;Filter&gt; = arrayOf(CharacterEncodingFilter(<span style=color:#e6db74>&#34;UTF-8&#34;</span>, <span style=color:#66d9ef>true</span>))     <span style=color:#960050;background-color:#1e0010>添加过滤器</span>
+    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>getServletFilters</span>(): Array&lt;Filter&gt; = arrayOf(CharacterEncodingFilter(<span style=color:#e6db74>&#34;UTF-8&#34;</span>, <span style=color:#66d9ef>true</span>))     添加过滤器
 
     <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>customizeRegistration</span>(registration: ServletRegistration.Dynamic) {
-        <span style=color:#66d9ef>val</span> mb = <span style=color:#ae81ff>1024</span> * <span style=color:#ae81ff>1024L</span>     <span style=color:#960050;background-color:#1e0010>限制文件最大为</span> <span style=color:#ae81ff>2</span> MB<span style=color:#960050;background-color:#1e0010>，请求最大为</span> <span style=color:#ae81ff>4</span> MB
+        <span style=color:#66d9ef>val</span> mb = <span style=color:#ae81ff>1024</span> * <span style=color:#ae81ff>1024L</span>     限制文件最大为 <span style=color:#ae81ff>2</span> MB<span style=color:#960050;background-color:#1e0010>，</span>请求最大为 <span style=color:#ae81ff>4</span> MB
         registration.setMultipartConfig(MultipartConfigElement(<span style=color:#e6db74>&#34;D:/TEMP&#34;</span>, <span style=color:#ae81ff>2</span> * mb, <span style=color:#ae81ff>4</span> * mb, <span style=color:#ae81ff>0</span>))
     }
 }
@@ -125,7 +125,7 @@ compile<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;com.fast
 <span style=color:#66d9ef>import</span> javax.servlet.ServletContext
 
 <span style=color:#a6e22e>@Configuration</span>
-<span style=color:#a6e22e>@EnableWebMvc</span>     <span style=color:#960050;background-color:#1e0010>启用</span> Spring MVC
+<span style=color:#a6e22e>@EnableWebMvc</span>     启用 Spring MVC
 <span style=color:#a6e22e>@ComponentScan</span>(<span style=color:#e6db74>&#34;controller&#34;</span>)
 <span style=color:#66d9ef>open</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>WebConfig</span> : WebMvcConfigurerAdapter() {
     <span style=color:#a6e22e>@Bean</span>     <span style=color:#ae81ff>1</span>
@@ -148,17 +148,17 @@ compile<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;com.fast
             }
 
     <span style=color:#a6e22e>@Bean</span>
-    <span style=color:#66d9ef>open</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>multipartResolver</span>(): MultipartResolver = StandardServletMultipartResolver()     <span style=color:#960050;background-color:#1e0010>提供文件上传支持</span>
+    <span style=color:#66d9ef>open</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>multipartResolver</span>(): MultipartResolver = StandardServletMultipartResolver()     提供文件上传支持
 
-    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>configureDefaultServletHandling</span>(configurer: DefaultServletHandlerConfigurer) = configurer.enable()     <span style=color:#960050;background-color:#1e0010>提供静态资源访问（启用</span> DefaultServletHttpRequestHandler<span style=color:#960050;background-color:#1e0010>）</span>
+    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>configureDefaultServletHandling</span>(configurer: DefaultServletHandlerConfigurer) = configurer.enable()     提供静态资源访问<span style=color:#960050;background-color:#1e0010>（</span>启用 DefaultServletHttpRequestHandler<span style=color:#960050;background-color:#1e0010>）</span>
 
     <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>addInterceptors</span>(registry: InterceptorRegistry) {
-        registry.addInterceptor(MyInterceptor()).addPathPatterns(<span style=color:#e6db74>&#34;/**&#34;</span>)     <span style=color:#960050;background-color:#1e0010>注册拦截器</span>
+        registry.addInterceptor(MyInterceptor()).addPathPatterns(<span style=color:#e6db74>&#34;/**&#34;</span>)     注册拦截器
     }
 
     <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>addFormatters</span>(registry: FormatterRegistry) {
-        registry.addFormatter(MyDateFormatter())             <span style=color:#960050;background-color:#1e0010>注册</span> Formatter
-        registry.addConverter(MyStringToDateConverter())     <span style=color:#960050;background-color:#1e0010>注册</span> Converter
+        registry.addFormatter(MyDateFormatter())             注册 Formatter
+        registry.addConverter(MyStringToDateConverter())     注册 Converter
     }
 }
 </code></pre></div><h3 id=rootconfig>RootConfig</h3>
@@ -173,10 +173,10 @@ compile<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;com.fast
 <span style=color:#66d9ef>import</span> javax.servlet.http.HttpServletRequest
 <span style=color:#66d9ef>import</span> javax.servlet.http.HttpServletResponse
 
-<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MyInterceptor</span> : HandlerInterceptorAdapter() {     <span style=color:#960050;background-color:#1e0010>拦截器</span>
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MyInterceptor</span> : HandlerInterceptorAdapter() {     拦截器
     <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>preHandle</span>(request: HttpServletRequest, response: HttpServletResponse, handler: Any): Boolean {
         println(<span style=color:#e6db74>&#34;预处理&#34;</span>)
-        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>true</span>     <span style=color:#960050;background-color:#1e0010>是否放行请求（</span><span style=color:#66d9ef>true</span> <span style=color:#960050;background-color:#1e0010>放行，</span><span style=color:#66d9ef>false</span> <span style=color:#960050;background-color:#1e0010>拦截）</span>
+        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>true</span>     是否放行请求<span style=color:#960050;background-color:#1e0010>（</span><span style=color:#66d9ef>true</span> 放行<span style=color:#960050;background-color:#1e0010>，</span><span style=color:#66d9ef>false</span> 拦截<span style=color:#960050;background-color:#1e0010>）</span>
     }
 
     <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>postHandle</span>(request: HttpServletRequest, response: HttpServletResponse, handler: Any, modelAndView: ModelAndView?) {
@@ -191,9 +191,9 @@ compile<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;com.fast
     }
 }
 
-<span style=color:#960050;background-color:#1e0010>基于切面思想的应用：</span>
-<span style=color:#960050;background-color:#1e0010>过滤器：基于</span> Servlet <span style=color:#960050;background-color:#1e0010>容器，能够过滤所有请求，使用回调函数。（</span>Filter<span style=color:#960050;background-color:#1e0010>）</span>
-<span style=color:#960050;background-color:#1e0010>拦截器：基于</span> Spring  <span style=color:#960050;background-color:#1e0010>容器，只能拦截部分请求，使用反射机制。（</span>Interceptor<span style=color:#960050;background-color:#1e0010>）</span>
+基于切面思想的应用<span style=color:#960050;background-color:#1e0010>：</span>
+过滤器<span style=color:#960050;background-color:#1e0010>：</span>基于 Servlet 容器<span style=color:#960050;background-color:#1e0010>，</span>能够过滤所有请求<span style=color:#960050;background-color:#1e0010>，</span>使用回调函数<span style=color:#960050;background-color:#1e0010>。（</span>Filter<span style=color:#960050;background-color:#1e0010>）</span>
+拦截器<span style=color:#960050;background-color:#1e0010>：</span>基于 Spring  容器<span style=color:#960050;background-color:#1e0010>，</span>只能拦截部分请求<span style=color:#960050;background-color:#1e0010>，</span>使用反射机制<span style=color:#960050;background-color:#1e0010>。（</span>Interceptor<span style=color:#960050;background-color:#1e0010>）</span>
 </code></pre></div><h3 id=mydateformatter>MyDateFormatter</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>import</span> org.springframework.format.Formatter
 <span style=color:#66d9ef>import</span> java.text.SimpleDateFormat
@@ -204,7 +204,7 @@ compile<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;com.fast
 
     <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>parse</span>(text: String, locale: Locale): Date = sdf.parse(text)
 
-    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>print</span>(<span style=color:#a6e22e>`object</span><span style=color:#960050;background-color:#1e0010>`</span>: Date, locale: Locale): String = sdf.format(<span style=color:#a6e22e>`object</span><span style=color:#960050;background-color:#1e0010>`</span>)
+    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>print</span>(`object<span style=color:#960050;background-color:#1e0010>`</span>: Date, locale: Locale): String = sdf.format(`object<span style=color:#960050;background-color:#1e0010>`</span>)
 }
 </code></pre></div><h3 id=mystringtodateconverter>MyStringToDateConverter</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>import</span> org.springframework.core.convert.converter.Converter
@@ -225,7 +225,7 @@ compile<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;com.fast
 <span style=color:#66d9ef>import</span> javax.validation.constraints.Size
 
 <span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Account</span>(
-        <span style=color:#a6e22e>@field</span>:NotNull     <span style=color:#960050;background-color:#1e0010>校验属性</span>
+        <span style=color:#a6e22e>@field</span>:NotNull     校验属性
         <span style=color:#a6e22e>@field</span>:Size(min = <span style=color:#ae81ff>2</span>, max = <span style=color:#ae81ff>4</span>)
         <span style=color:#66d9ef>var</span> username: String? = <span style=color:#66d9ef>null</span>,
         <span style=color:#a6e22e>@field</span>:NotNull
@@ -243,12 +243,12 @@ compile<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;com.fast
 <span style=color:#66d9ef>import</span> org.springframework.web.bind.annotation.RequestMapping
 <span style=color:#66d9ef>import</span> org.springframework.web.bind.annotation.RequestMethod
 
-<span style=color:#a6e22e>@Controller</span>     <span style=color:#960050;background-color:#1e0010>声明为控制器</span>
-<span style=color:#a6e22e>@RequestMapping</span>(<span style=color:#e6db74>&#34;/&#34;</span>)     <span style=color:#960050;background-color:#1e0010>映射至</span> <span style=color:#ae81ff>127.0</span>.<span style=color:#ae81ff>0.1</span>:<span style=color:#ae81ff>8080</span>/
+<span style=color:#a6e22e>@Controller</span>     声明为控制器
+<span style=color:#a6e22e>@RequestMapping</span>(<span style=color:#e6db74>&#34;/&#34;</span>)     映射至 <span style=color:#ae81ff>127.0</span>.<span style=color:#ae81ff>0.1</span>:<span style=color:#ae81ff>8080</span>/
 <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>HomeController</span> {
-    <span style=color:#a6e22e>@RequestMapping</span>(method = arrayOf(RequestMethod.GET))     <span style=color:#960050;background-color:#1e0010>处理</span> GET <span style=color:#960050;background-color:#1e0010>请求</span>
+    <span style=color:#a6e22e>@RequestMapping</span>(method = arrayOf(RequestMethod.GET))     处理 GET 请求
     <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>home</span>(): String {
-        <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;home&#34;</span>     <span style=color:#960050;background-color:#1e0010>解析为</span> /WEB-INF/views/home.html <span style=color:#960050;background-color:#1e0010>视图</span>
+        <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;home&#34;</span>     解析为 /WEB-INF/views/home.html 视图
     }
 }
 </code></pre></div><h4 id=acontroller>AController</h4>
@@ -266,22 +266,22 @@ compile<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;com.fast
 
 <span style=color:#a6e22e>@Controller</span>
 <span style=color:#a6e22e>@RequestMapping</span>(<span style=color:#e6db74>&#34;/a&#34;</span>)
-<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>AController</span> {     <span style=color:#960050;background-color:#1e0010>视图</span>
-    <span style=color:#960050;background-color:#1e0010>查询参数：</span><span style=color:#ae81ff>127.0</span>.<span style=color:#ae81ff>0.1</span>:<span style=color:#ae81ff>8080</span>/a?username=<span style=color:#960050;background-color:#1e0010>张三</span>&amp;password=<span style=color:#ae81ff>123456</span>&amp;age=<span style=color:#ae81ff>20</span>
-    <span style=color:#a6e22e>@RequestMapping</span>(method = arrayOf(RequestMethod.GET))     <span style=color:#960050;background-color:#1e0010>可简化为</span> <span style=color:#a6e22e>@GetMapping</span>
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>AController</span> {     视图
+    查询参数<span style=color:#960050;background-color:#1e0010>：</span><span style=color:#ae81ff>127.0</span>.<span style=color:#ae81ff>0.1</span>:<span style=color:#ae81ff>8080</span>/a?username=张三&amp;password=<span style=color:#ae81ff>123456</span>&amp;age=<span style=color:#ae81ff>20</span>
+    <span style=color:#a6e22e>@RequestMapping</span>(method = arrayOf(RequestMethod.GET))     可简化为 <span style=color:#a6e22e>@GetMapping</span>
     <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>a</span>(<span style=color:#a6e22e>@RequestParam</span>(defaultValue = <span style=color:#e6db74>&#34;张三&#34;</span>) username: String,
           <span style=color:#a6e22e>@RequestParam</span>(defaultValue = <span style=color:#e6db74>&#34;123456&#34;</span>) password: String,
           <span style=color:#a6e22e>@RequestParam</span>(defaultValue = <span style=color:#e6db74>&#34;20&#34;</span>) age: Int,
           model: Model): String {
-        <span style=color:#66d9ef>if</span> (!model.containsAttribute(<span style=color:#e6db74>&#34;account&#34;</span>)) {     <span style=color:#960050;background-color:#1e0010>跨重定向请求传递复杂数据</span>
+        <span style=color:#66d9ef>if</span> (!model.containsAttribute(<span style=color:#e6db74>&#34;account&#34;</span>)) {     跨重定向请求传递复杂数据
             model.addAttribute(<span style=color:#e6db74>&#34;account&#34;</span>, Account(username, password, age))
-            <span style=color:#960050;background-color:#1e0010>可简化为</span>
-            model.addAttribute(Account(username, password, age))     <span style=color:#960050;background-color:#1e0010>根据对象类型推断</span> Key
+            可简化为
+            model.addAttribute(Account(username, password, age))     根据对象类型推断 Key
         }
         <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;a&#34;</span>
     }
 
-    <span style=color:#960050;background-color:#1e0010>进一步简化：根据请求路径推断视图（</span>a<span style=color:#960050;background-color:#1e0010>），根据对象类型推断</span> Key<span style=color:#960050;background-color:#1e0010>（</span>account<span style=color:#960050;background-color:#1e0010>）</span>
+    进一步简化<span style=color:#960050;background-color:#1e0010>：</span>根据请求路径推断视图<span style=color:#960050;background-color:#1e0010>（</span>a<span style=color:#960050;background-color:#1e0010>），</span>根据对象类型推断 Key<span style=color:#960050;background-color:#1e0010>（</span>account<span style=color:#960050;background-color:#1e0010>）</span>
     <span style=color:#a6e22e>@RequestMapping</span>(method = arrayOf(RequestMethod.GET))
     <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>a</span>(<span style=color:#a6e22e>@RequestParam</span>(defaultValue = <span style=color:#e6db74>&#34;张三&#34;</span>) username: String,
           <span style=color:#a6e22e>@RequestParam</span>(defaultValue = <span style=color:#e6db74>&#34;123456&#34;</span>) password: String,
@@ -289,7 +289,7 @@ compile<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;com.fast
         <span style=color:#66d9ef>return</span> Account(username, password, age)
     }
 
-    <span style=color:#960050;background-color:#1e0010>路径变量：</span><span style=color:#ae81ff>127.0</span>.<span style=color:#ae81ff>0.1</span>:<span style=color:#ae81ff>8080</span>/a/<span style=color:#960050;background-color:#1e0010>张三</span>/<span style=color:#ae81ff>123456</span>/<span style=color:#ae81ff>20</span>
+    路径变量<span style=color:#960050;background-color:#1e0010>：</span><span style=color:#ae81ff>127.0</span>.<span style=color:#ae81ff>0.1</span>:<span style=color:#ae81ff>8080</span>/a/张三/<span style=color:#ae81ff>123456</span>/<span style=color:#ae81ff>20</span>
     <span style=color:#a6e22e>@RequestMapping</span>(path = arrayOf(<span style=color:#e6db74>&#34;/{username}/{password}/{age}&#34;</span>), method = arrayOf(RequestMethod.GET))
     <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>b</span>(<span style=color:#a6e22e>@PathVariable</span> username: String,
           <span style=color:#a6e22e>@PathVariable</span> password: String,
@@ -301,39 +301,39 @@ compile<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;com.fast
         <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;a&#34;</span>
     }
 
-    <span style=color:#960050;background-color:#1e0010>表单参数</span>
+    表单参数
     <span style=color:#a6e22e>@RequestMapping</span>(path = arrayOf(<span style=color:#e6db74>&#34;/form&#34;</span>), method = arrayOf(RequestMethod.POST))
-    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>c</span>(<span style=color:#a6e22e>@Valid</span> account: Account, errors: Errors, model: Model): String {     <span style=color:#960050;background-color:#1e0010>校验属性</span>
-        <span style=color:#66d9ef>if</span> (errors.hasErrors()) {     <span style=color:#960050;background-color:#1e0010>检查校验是否出错</span>
-            <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;redirect:/&#34;</span>     <span style=color:#960050;background-color:#1e0010>重定向（</span>redirect:<span style=color:#960050;background-color:#1e0010>），请求转发（</span>forward:<span style=color:#960050;background-color:#1e0010>）</span>
+    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>c</span>(<span style=color:#a6e22e>@Valid</span> account: Account, errors: Errors, model: Model): String {     校验属性
+        <span style=color:#66d9ef>if</span> (errors.hasErrors()) {     检查校验是否出错
+            <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;redirect:/&#34;</span>     重定向<span style=color:#960050;background-color:#1e0010>（</span>redirect:<span style=color:#960050;background-color:#1e0010>），</span>请求转发<span style=color:#960050;background-color:#1e0010>（</span>forward:<span style=color:#960050;background-color:#1e0010>）</span>
         }
-        model.addAttribute(<span style=color:#e6db74>&#34;username&#34;</span>, account.username)     <span style=color:#960050;background-color:#1e0010>跨重定向请求传递简单数据</span>
+        model.addAttribute(<span style=color:#e6db74>&#34;username&#34;</span>, account.username)     跨重定向请求传递简单数据
         model.addAttribute(<span style=color:#e6db74>&#34;password&#34;</span>, account.password)
         model.addAttribute(<span style=color:#e6db74>&#34;age&#34;</span>, account.age)
 
-        <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;redirect:/a/{username}/{password}/{age}&#34;</span>     <span style=color:#960050;background-color:#1e0010>通过路径变量的形式传递数据：</span><span style=color:#ae81ff>127.0</span>.<span style=color:#ae81ff>0.1</span>:<span style=color:#ae81ff>8080</span>/a/<span style=color:#960050;background-color:#1e0010>张三</span>/<span style=color:#ae81ff>123456</span>/<span style=color:#ae81ff>20</span>
-        <span style=color:#960050;background-color:#1e0010>或者</span>
-        <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;redirect:/a&#34;</span>     <span style=color:#960050;background-color:#1e0010>通过查询参数的形式传递数据：</span><span style=color:#ae81ff>127.0</span>.<span style=color:#ae81ff>0.1</span>:<span style=color:#ae81ff>8080</span>/a?username=<span style=color:#960050;background-color:#1e0010>张三</span>&amp;password=<span style=color:#ae81ff>123456</span>&amp;age=<span style=color:#ae81ff>20</span>
+        <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;redirect:/a/{username}/{password}/{age}&#34;</span>     通过路径变量的形式传递数据<span style=color:#960050;background-color:#1e0010>：</span><span style=color:#ae81ff>127.0</span>.<span style=color:#ae81ff>0.1</span>:<span style=color:#ae81ff>8080</span>/a/张三/<span style=color:#ae81ff>123456</span>/<span style=color:#ae81ff>20</span>
+        或者
+        <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;redirect:/a&#34;</span>     通过查询参数的形式传递数据<span style=color:#960050;background-color:#1e0010>：</span><span style=color:#ae81ff>127.0</span>.<span style=color:#ae81ff>0.1</span>:<span style=color:#ae81ff>8080</span>/a?username=张三&amp;password=<span style=color:#ae81ff>123456</span>&amp;age=<span style=color:#ae81ff>20</span>
     }
 
-    <span style=color:#960050;background-color:#1e0010>跨重定向请求传递复杂数据：</span>
+    跨重定向请求传递复杂数据<span style=color:#960050;background-color:#1e0010>：</span>
     <span style=color:#a6e22e>@RequestMapping</span>(path = arrayOf(<span style=color:#e6db74>&#34;/form&#34;</span>), method = arrayOf(RequestMethod.POST))
     <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>c</span>(<span style=color:#a6e22e>@Valid</span> account: Account, errors: Errors, model: RedirectAttributes): String {
         <span style=color:#66d9ef>if</span> (errors.hasErrors()) {
             <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;redirect:/&#34;</span>
         }
-        model.addFlashAttribute(account)     <span style=color:#960050;background-color:#1e0010>跨重定向请求传递复杂数据</span>
-        <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;redirect:/a&#34;</span>     <span style=color:#960050;background-color:#1e0010>通过</span> flash <span style=color:#960050;background-color:#1e0010>属性传递复杂数据</span>
+        model.addFlashAttribute(account)     跨重定向请求传递复杂数据
+        <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;redirect:/a&#34;</span>     通过 flash 属性传递复杂数据
     }
 
-    <span style=color:#960050;background-color:#1e0010>文件上传</span>
-    <span style=color:#a6e22e>@RequestMapping</span>(path = arrayOf(<span style=color:#e6db74>&#34;/upload&#34;</span>), method = arrayOf(RequestMethod.POST))     <span style=color:#960050;background-color:#1e0010>可简化为</span> <span style=color:#a6e22e>@PostMapping</span>
+    文件上传
+    <span style=color:#a6e22e>@RequestMapping</span>(path = arrayOf(<span style=color:#e6db74>&#34;/upload&#34;</span>), method = arrayOf(RequestMethod.POST))     可简化为 <span style=color:#a6e22e>@PostMapping</span>
     <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>d</span>(<span style=color:#a6e22e>@RequestPart</span> myPic: MultipartFile): String {
         myPic.transferTo(File(<span style=color:#e6db74>&#34;D:/TEMP2/</span><span style=color:#e6db74>${myPic.originalFilename}</span><span style=color:#e6db74>&#34;</span>))
         <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;redirect:/&#34;</span>
     }
 
-    <span style=color:#960050;background-color:#1e0010>异常处理（作用于单个控制器）</span>
+    异常处理<span style=color:#960050;background-color:#1e0010>（</span>作用于单个控制器<span style=color:#960050;background-color:#1e0010>）</span>
     <span style=color:#a6e22e>@ExceptionHandler</span>(Throwable<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>)
     <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>handleError</span>(): String {
         <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;error&#34;</span>
@@ -349,19 +349,19 @@ compile<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;com.fast
 <span style=color:#66d9ef>import</span> org.springframework.web.bind.annotation.*
 <span style=color:#66d9ef>import</span> javax.validation.Valid
 
-<span style=color:#a6e22e>@RestController</span>     <span style=color:#960050;background-color:#1e0010>转换响应体</span>(<span style=color:#960050;background-color:#1e0010>类级别</span>)(ResponseBody + Controller)
+<span style=color:#a6e22e>@RestController</span>     转换响应体(类级别)(ResponseBody + Controller)
 <span style=color:#a6e22e>@RequestMapping</span>(<span style=color:#e6db74>&#34;/b&#34;</span>)
 <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>BController</span> {     REST API
     <span style=color:#75715e>//@ResponseBody     转换响应体(方法级别)
-</span><span style=color:#75715e></span>    <span style=color:#a6e22e>@RequestMapping</span>(path = arrayOf(<span style=color:#e6db74>&#34;/jsonOut&#34;</span>), method = arrayOf(RequestMethod.GET), produces = arrayOf(MediaType.APPLICATION_JSON_UTF8_VALUE))     <span style=color:#960050;background-color:#1e0010>限制</span> Accept <span style=color:#960050;background-color:#1e0010>头部信息</span>
-    <span style=color:#a6e22e>@ResponseStatus</span>(HttpStatus.OK)     <span style=color:#960050;background-color:#1e0010>指定</span> HTTP <span style=color:#960050;background-color:#1e0010>状态码</span>
+</span><span style=color:#75715e></span>    <span style=color:#a6e22e>@RequestMapping</span>(path = arrayOf(<span style=color:#e6db74>&#34;/jsonOut&#34;</span>), method = arrayOf(RequestMethod.GET), produces = arrayOf(MediaType.APPLICATION_JSON_UTF8_VALUE))     限制 Accept 头部信息
+    <span style=color:#a6e22e>@ResponseStatus</span>(HttpStatus.OK)     指定 HTTP 状态码
     <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>a</span>(): Account {
         <span style=color:#66d9ef>return</span> Account(<span style=color:#e6db74>&#34;张三&#34;</span>, <span style=color:#e6db74>&#34;123456&#34;</span>, <span style=color:#ae81ff>20</span>)
     }
 
-    <span style=color:#a6e22e>@RequestMapping</span>(path = arrayOf(<span style=color:#e6db74>&#34;/jsonInOut&#34;</span>), method = arrayOf(RequestMethod.POST), consumes = arrayOf(MediaType.APPLICATION_JSON_UTF8_VALUE))     <span style=color:#960050;background-color:#1e0010>限制</span> Content-Type <span style=color:#960050;background-color:#1e0010>头部信息</span>
+    <span style=color:#a6e22e>@RequestMapping</span>(path = arrayOf(<span style=color:#e6db74>&#34;/jsonInOut&#34;</span>), method = arrayOf(RequestMethod.POST), consumes = arrayOf(MediaType.APPLICATION_JSON_UTF8_VALUE))     限制 Content-Type 头部信息
     <span style=color:#a6e22e>@ResponseStatus</span>(HttpStatus.CREATED)
-    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>b</span>(<span style=color:#a6e22e>@RequestBody</span> <span style=color:#a6e22e>@Valid</span> account: Account, errors: Errors): Account {     <span style=color:#960050;background-color:#1e0010>转换请求体</span>
+    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>b</span>(<span style=color:#a6e22e>@RequestBody</span> <span style=color:#a6e22e>@Valid</span> account: Account, errors: Errors): Account {     转换请求体
         <span style=color:#66d9ef>if</span> (errors.hasErrors()) {
             <span style=color:#66d9ef>throw</span> AccountNotFoundException(<span style=color:#ae81ff>9527</span>)
         }
@@ -395,8 +395,8 @@ compile<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;com.fast
 <span style=color:#a6e22e>@RequestMapping</span>(<span style=color:#e6db74>&#34;/c&#34;</span>)
 <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>CController</span> {
     http:<span style=color:#75715e>//localhost:8080/c/base.do?age=123
-</span><span style=color:#75715e></span>    Int <span style=color:#960050;background-color:#1e0010>：</span>Kotlin <span style=color:#960050;background-color:#1e0010>编译为原始类型，参数必选</span>
-    Int?<span style=color:#960050;background-color:#1e0010>：</span>Kotlin <span style=color:#960050;background-color:#1e0010>编译为包装类型，参数可选</span>
+</span><span style=color:#75715e></span>    Int <span style=color:#960050;background-color:#1e0010>：</span>Kotlin 编译为原始类型<span style=color:#960050;background-color:#1e0010>，</span>参数必选
+    Int?<span style=color:#960050;background-color:#1e0010>：</span>Kotlin 编译为包装类型<span style=color:#960050;background-color:#1e0010>，</span>参数可选
     <span style=color:#a6e22e>@GetMapping</span>(<span style=color:#e6db74>&#34;/base.do&#34;</span>)
     <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>base</span>(age: Int?) = age.toString()
 
@@ -407,7 +407,7 @@ compile<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;com.fast
 
     Date
     http:<span style=color:#75715e>//localhost:8080/c/date.do?date=2017-07-15
-</span><span style=color:#75715e></span>    <span style=color:#960050;background-color:#1e0010>默认时间格式为</span> DateFormat.SHORT<span style=color:#960050;background-color:#1e0010>：</span><span style=color:#ae81ff>15</span>/<span style=color:#ae81ff>07</span>/<span style=color:#ae81ff>17</span> <span style=color:#ae81ff>14</span>:<span style=color:#ae81ff>30</span>
+</span><span style=color:#75715e></span>    默认时间格式为 DateFormat.SHORT<span style=color:#960050;background-color:#1e0010>：</span><span style=color:#ae81ff>15</span>/<span style=color:#ae81ff>07</span>/<span style=color:#ae81ff>17</span> <span style=color:#ae81ff>14</span>:<span style=color:#ae81ff>30</span>
     <span style=color:#a6e22e>@GetMapping</span>(<span style=color:#e6db74>&#34;/date.do&#34;</span>)
     <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>date</span>(<span style=color:#a6e22e>@DateTimeFormat</span>(iso = DateTimeFormat.ISO.DATE) date: Date) = date
 
@@ -467,9 +467,9 @@ compile<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;com.fast
 <span style=color:#66d9ef>import</span> org.springframework.web.bind.annotation.ControllerAdvice
 <span style=color:#66d9ef>import</span> org.springframework.web.bind.annotation.ExceptionHandler
 
-<span style=color:#a6e22e>@ControllerAdvice</span>     <span style=color:#960050;background-color:#1e0010>控制器通知</span>
+<span style=color:#a6e22e>@ControllerAdvice</span>     控制器通知
 <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>AppErrorHandler</span> {
-    <span style=color:#a6e22e>@ExceptionHandler</span>(Throwable<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>)     <span style=color:#960050;background-color:#1e0010>异常处理（作用于所有控制器）</span>
+    <span style=color:#a6e22e>@ExceptionHandler</span>(Throwable<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>)     异常处理<span style=color:#960050;background-color:#1e0010>（</span>作用于所有控制器<span style=color:#960050;background-color:#1e0010>）</span>
     <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>handleError</span>(): String {
         <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;error&#34;</span>
     }

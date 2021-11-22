@@ -59,12 +59,12 @@
 
 <span style=color:#66d9ef>object</span> <span style=color:#a6e22e>ItemDAO</span> {
     <span style=color:#a6e22e>@JvmStatic</span>
-    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>getAllItems</span>() = mutableListOf&lt;Item&gt;().apply {     <span style=color:#960050;background-color:#1e0010>从数据库中获取所有商品</span>
+    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>getAllItems</span>() = mutableListOf&lt;Item&gt;().apply {     从数据库中获取所有商品
         DBHelp.connection
                 .prepareStatement(<span style=color:#e6db74>&#34;SELECT * FROM item;&#34;</span>)
                 .executeQuery()
                 .use {
-                    <span style=color:#66d9ef>while</span> (<span style=color:#66d9ef>it</span>.next()) {     <span style=color:#960050;background-color:#1e0010>遍历</span> ResultSet <span style=color:#960050;background-color:#1e0010>并实例化</span> Item <span style=color:#960050;background-color:#1e0010>实体</span>
+                    <span style=color:#66d9ef>while</span> (<span style=color:#66d9ef>it</span>.next()) {     遍历 ResultSet 并实例化 Item 实体
                         <span style=color:#66d9ef>val</span> item = Item(
                                 id = <span style=color:#66d9ef>it</span>.getInt(<span style=color:#e6db74>&#34;id&#34;</span>),
                                 name = <span style=color:#66d9ef>it</span>.getString(<span style=color:#e6db74>&#34;name&#34;</span>),
@@ -79,21 +79,21 @@
     }
 
     <span style=color:#a6e22e>@JvmStatic</span>
-    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>getVisitedItems</span>(s: String) = mutableListOf&lt;Item&gt;().apply {     <span style=color:#960050;background-color:#1e0010>根据</span> Cookie <span style=color:#960050;background-color:#1e0010>从数据库中获取所有历史游览商品</span>
+    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>getVisitedItems</span>(s: String) = mutableListOf&lt;Item&gt;().apply {     根据 Cookie 从数据库中获取所有历史游览商品
         s
                 .split(<span style=color:#e6db74>&#39;|&#39;</span>)     String <span style=color:#960050;background-color:#1e0010>➜</span> List&lt;String&gt;
-                .reversed()     <span style=color:#960050;background-color:#1e0010>逆转</span>
+                .reversed()     逆转
                 .map(String<span style=color:#f92672>::</span>toInt)     String <span style=color:#960050;background-color:#1e0010>➜</span> Int
                 .map { getItemById(<span style=color:#66d9ef>it</span>) }     Int <span style=color:#960050;background-color:#1e0010>➜</span> Item
                 .forEach { <span style=color:#66d9ef>this</span>.add(<span style=color:#66d9ef>it</span>) }
     }
 
     <span style=color:#a6e22e>@JvmStatic</span>
-    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>getItemById</span>(id: Int) = DBHelp.connection     <span style=color:#960050;background-color:#1e0010>根据</span> ID <span style=color:#960050;background-color:#1e0010>从数据库中获取商品</span>
+    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>getItemById</span>(id: Int) = DBHelp.connection     根据 ID 从数据库中获取商品
             .prepareStatement(<span style=color:#e6db74>&#34;SELECT * FROM item WHERE id = ?;&#34;</span>).apply { <span style=color:#66d9ef>this</span>.setInt(<span style=color:#ae81ff>1</span>, id) }
             .executeQuery()
             .use {
-                <span style=color:#66d9ef>if</span> (<span style=color:#66d9ef>it</span>.next()) {     ID <span style=color:#960050;background-color:#1e0010>存在</span>
+                <span style=color:#66d9ef>if</span> (<span style=color:#66d9ef>it</span>.next()) {     ID 存在
                     <span style=color:#66d9ef>val</span> item = Item(
                             id = <span style=color:#66d9ef>it</span>.getInt(<span style=color:#e6db74>&#34;id&#34;</span>),
                             name = <span style=color:#66d9ef>it</span>.getString(<span style=color:#e6db74>&#34;name&#34;</span>),
@@ -103,7 +103,7 @@
                             picture = <span style=color:#66d9ef>it</span>.getString(<span style=color:#e6db74>&#34;picture&#34;</span>)
                     )
                     item
-                } <span style=color:#66d9ef>else</span> {     ID <span style=color:#960050;background-color:#1e0010>不存在</span>
+                } <span style=color:#66d9ef>else</span> {     ID 不存在
                     <span style=color:#66d9ef>val</span> item = Item(
                             id = <span style=color:#ae81ff>0</span>,
                             name = <span style=color:#e6db74>&#34;null&#34;</span>,
@@ -120,7 +120,7 @@
 <h4 id=item>Item</h4>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>package</span> entity
 
-<span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Item</span>(     <span style=color:#960050;background-color:#1e0010>数据类：商品实体</span>
+<span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Item</span>(     数据类<span style=color:#960050;background-color:#1e0010>：</span>商品实体
         <span style=color:#66d9ef>val</span> id: Int,
         <span style=color:#66d9ef>val</span> name: String,
         <span style=color:#66d9ef>val</span> city: String,
@@ -137,7 +137,7 @@
 
 <span style=color:#66d9ef>object</span> <span style=color:#a6e22e>DBHelp</span> {
     <span style=color:#a6e22e>@JvmStatic</span>
-    <span style=color:#66d9ef>val</span> connection: Connection <span style=color:#66d9ef>by</span> lazy {     <span style=color:#960050;background-color:#1e0010>获得数据库连接</span>
+    <span style=color:#66d9ef>val</span> connection: Connection <span style=color:#66d9ef>by</span> lazy {     获得数据库连接
         Class.forName(<span style=color:#e6db74>&#34;org.postgresql.Driver&#34;</span>)
         DriverManager.getConnection(<span style=color:#e6db74>&#34;jdbc:postgresql://127.0.0.1:5432/postgres&#34;</span>, <span style=color:#e6db74>&#34;123&#34;</span>, <span style=color:#e6db74>&#34;123456&#34;</span>)
     }
@@ -147,14 +147,14 @@
 
 <span style=color:#66d9ef>object</span> <span style=color:#a6e22e>CookieHelp</span> {
     <span style=color:#a6e22e>@JvmStatic</span>
-    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>addCookie</span>(cookie: String, id: Int) = cookie     <span style=color:#960050;background-color:#1e0010>添加</span> Cookie <span style=color:#960050;background-color:#1e0010>并去重</span>
-            .split(<span style=color:#e6db74>&#39;|&#39;</span>)     <span style=color:#960050;background-color:#1e0010>分解（</span>String <span style=color:#960050;background-color:#1e0010>➜</span> List<span style=color:#960050;background-color:#1e0010>）</span>
-            .toMutableList().apply { <span style=color:#66d9ef>this</span>.add(id.toString()) }     <span style=color:#960050;background-color:#1e0010>添加</span>
-            .distinct()     <span style=color:#960050;background-color:#1e0010>去重</span>
-            .fold(<span style=color:#e6db74>&#34;&#34;</span>) { str, s <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>if</span> (str <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;&#34;</span>) s <span style=color:#66d9ef>else</span> str + <span style=color:#e6db74>&#39;|&#39;</span> + s }     <span style=color:#960050;background-color:#1e0010>合并（</span>List <span style=color:#960050;background-color:#1e0010>➜</span> String<span style=color:#960050;background-color:#1e0010>）</span>
+    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>addCookie</span>(cookie: String, id: Int) = cookie     添加 Cookie 并去重
+            .split(<span style=color:#e6db74>&#39;|&#39;</span>)     分解<span style=color:#960050;background-color:#1e0010>（</span>String <span style=color:#960050;background-color:#1e0010>➜</span> List<span style=color:#960050;background-color:#1e0010>）</span>
+            .toMutableList().apply { <span style=color:#66d9ef>this</span>.add(id.toString()) }     添加
+            .distinct()     去重
+            .fold(<span style=color:#e6db74>&#34;&#34;</span>) { str, s <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>if</span> (str <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;&#34;</span>) s <span style=color:#66d9ef>else</span> str + <span style=color:#e6db74>&#39;|&#39;</span> + s }     合并<span style=color:#960050;background-color:#1e0010>（</span>List <span style=color:#960050;background-color:#1e0010>➜</span> String<span style=color:#960050;background-color:#1e0010>）</span>
 
     <span style=color:#a6e22e>@JvmStatic</span>
-    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>cutCookie</span>(cookie: String) = <span style=color:#66d9ef>if</span> (cookie.split(<span style=color:#e6db74>&#39;|&#39;</span>).count() &gt; <span style=color:#ae81ff>5</span>) cookie.substring(cookie.indexOf(<span style=color:#e6db74>&#39;|&#39;</span>) + <span style=color:#ae81ff>1</span>) <span style=color:#66d9ef>else</span> cookie     <span style=color:#960050;background-color:#1e0010>字符串中只保留最近</span> <span style=color:#ae81ff>5</span> <span style=color:#960050;background-color:#1e0010>个商品</span> ID
+    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>cutCookie</span>(cookie: String) = <span style=color:#66d9ef>if</span> (cookie.split(<span style=color:#e6db74>&#39;|&#39;</span>).count() &gt; <span style=color:#ae81ff>5</span>) cookie.substring(cookie.indexOf(<span style=color:#e6db74>&#39;|&#39;</span>) + <span style=color:#ae81ff>1</span>) <span style=color:#66d9ef>else</span> cookie     字符串中只保留最近 <span style=color:#ae81ff>5</span> 个商品 ID
 }
 </code></pre></div><h2 id=web>web</h2>
 <h3 id=indexjsp>index.jsp</h3>

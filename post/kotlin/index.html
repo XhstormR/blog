@@ -69,24 +69,24 @@
 
 <span style=color:#f92672>------------------------------------------------------</span>-
 
-<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>(args: Array&lt;String&gt;) {     main <span style=color:#960050;background-color:#1e0010>函数（程序入口）</span>
+<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>(args: Array&lt;String&gt;) {     main 函数<span style=color:#960050;background-color:#1e0010>（</span>程序入口<span style=color:#960050;background-color:#1e0010>）</span>
     println(<span style=color:#e6db74>&#34;Hello World!&#34;</span>)
 }
 
 <span style=color:#f92672>------------------------------------------------------</span>-
 
-<span style=color:#66d9ef>val</span> a: String     <span style=color:#960050;background-color:#1e0010>先声明后赋值（只适用于变量，没有赋值时，必须显式声明类型；作为属性时，必须在声明的同时进行赋值）</span>
+<span style=color:#66d9ef>val</span> a: String     先声明后赋值<span style=color:#960050;background-color:#1e0010>（</span>只适用于变量<span style=color:#960050;background-color:#1e0010>，</span>没有赋值时<span style=color:#960050;background-color:#1e0010>，</span>必须显式声明类型<span style=color:#960050;background-color:#1e0010>；</span>作为属性时<span style=color:#960050;background-color:#1e0010>，</span>必须在声明的同时进行赋值<span style=color:#960050;background-color:#1e0010>）</span>
 a = <span style=color:#e6db74>&#34;ABC&#34;</span>
 <span style=color:#f92672>----</span>
-<span style=color:#66d9ef>val</span> a: String = <span style=color:#e6db74>&#34;ABC&#34;</span>     <span style=color:#960050;background-color:#1e0010>声明对象的同时进行实例化（显式声明类型）</span>
+<span style=color:#66d9ef>val</span> a: String = <span style=color:#e6db74>&#34;ABC&#34;</span>     声明对象的同时进行实例化<span style=color:#960050;background-color:#1e0010>（</span>显式声明类型<span style=color:#960050;background-color:#1e0010>）</span>
 <span style=color:#f92672>----</span>
-<span style=color:#66d9ef>val</span> a = <span style=color:#e6db74>&#34;ABC&#34;</span>     <span style=color:#960050;background-color:#1e0010>声明对象的同时进行实例化（自动推导类型）</span>
+<span style=color:#66d9ef>val</span> a = <span style=color:#e6db74>&#34;ABC&#34;</span>     声明对象的同时进行实例化<span style=color:#960050;background-color:#1e0010>（</span>自动推导类型<span style=color:#960050;background-color:#1e0010>）</span>
 
 <span style=color:#f92672>------------------------------------------------------</span>-
-Kotlin <span style=color:#960050;background-color:#1e0010>中没有（</span>Primitive<span style=color:#960050;background-color:#1e0010>）基本数据类型，一切皆为（</span>Reference<span style=color:#960050;background-color:#1e0010>）引用数据类型。</span>
+Kotlin 中没有<span style=color:#960050;background-color:#1e0010>（</span>Primitive<span style=color:#960050;background-color:#1e0010>）</span>基本数据类型<span style=color:#960050;background-color:#1e0010>，</span>一切皆为<span style=color:#960050;background-color:#1e0010>（</span>Reference<span style=color:#960050;background-color:#1e0010>）</span>引用数据类型<span style=color:#960050;background-color:#1e0010>。</span>
 
-<span style=color:#66d9ef>var</span> a = <span style=color:#ae81ff>123</span>     <span style=color:#960050;background-color:#1e0010>变量（引用可变</span> <span style=color:#66d9ef>get</span>/<span style=color:#66d9ef>set</span><span style=color:#960050;background-color:#1e0010>）</span>
-<span style=color:#66d9ef>val</span> b = <span style=color:#ae81ff>123</span>     <span style=color:#960050;background-color:#1e0010>常量（引用只读</span> <span style=color:#66d9ef>get</span><span style=color:#960050;background-color:#1e0010>）</span>
+<span style=color:#66d9ef>var</span> a = <span style=color:#ae81ff>123</span>     变量<span style=color:#960050;background-color:#1e0010>（</span>引用可变 <span style=color:#66d9ef>get</span>/<span style=color:#66d9ef>set</span><span style=color:#960050;background-color:#1e0010>）</span>
+<span style=color:#66d9ef>val</span> b = <span style=color:#ae81ff>123</span>     常量<span style=color:#960050;background-color:#1e0010>（</span>引用只读 <span style=color:#66d9ef>get</span><span style=color:#960050;background-color:#1e0010>）</span>
 
 <span style=color:#f92672>------------------------------------------------------</span>-
 
@@ -99,17 +99,17 @@ Kotlin <span style=color:#960050;background-color:#1e0010>中没有（</span>Pri
 <span style=color:#f92672>----</span>
 
 <span style=color:#66d9ef>val</span> a = <span style=color:#e6db74>&#34;ABC&#34;</span>
-<span style=color:#66d9ef>val</span> b = <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>$a</span><span style=color:#e6db74> 的长度为</span><span style=color:#e6db74>${a.length}</span><span style=color:#e6db74>&#34;</span>     <span style=color:#960050;background-color:#1e0010>字符串模板</span>
+<span style=color:#66d9ef>val</span> b = <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>$a</span><span style=color:#e6db74> 的长度为</span><span style=color:#e6db74>${a.length}</span><span style=color:#e6db74>&#34;</span>     字符串模板
 
 <span style=color:#f92672>------------------------------------------------------</span>-
-Kotlin <span style=color:#960050;background-color:#1e0010>中尽量将变量声明为不可空，不可变。</span>
+Kotlin 中尽量将变量声明为不可空<span style=color:#960050;background-color:#1e0010>，</span>不可变<span style=color:#960050;background-color:#1e0010>。</span>
 
-<span style=color:#66d9ef>var</span> a: String = <span style=color:#66d9ef>null</span>     <span style=color:#960050;background-color:#1e0010>编译器报错：不可空变量</span>
-<span style=color:#66d9ef>var</span> b: String? = <span style=color:#66d9ef>null</span>     <span style=color:#960050;background-color:#1e0010>通过</span> <span style=color:#960050;background-color:#1e0010>`</span>?<span style=color:#960050;background-color:#1e0010>`</span> <span style=color:#960050;background-color:#1e0010>明确标识变量可为</span> <span style=color:#66d9ef>null</span><span style=color:#960050;background-color:#1e0010>（可空变量）</span>
+<span style=color:#66d9ef>var</span> a: String = <span style=color:#66d9ef>null</span>     编译器报错<span style=color:#960050;background-color:#1e0010>：</span>不可空变量
+<span style=color:#66d9ef>var</span> b: String? = <span style=color:#66d9ef>null</span>     通过 <span style=color:#960050;background-color:#1e0010>`</span>?<span style=color:#960050;background-color:#1e0010>`</span> 明确标识变量可为 <span style=color:#66d9ef>null</span><span style=color:#960050;background-color:#1e0010>（</span>可空变量<span style=color:#960050;background-color:#1e0010>）</span>
 
-println(b.length)     <span style=color:#960050;background-color:#1e0010>编译器报错：不能直接访问可空变量</span>
-println(b<span style=color:#f92672>?.</span>length)     <span style=color:#960050;background-color:#1e0010>通过</span> <span style=color:#960050;background-color:#1e0010>`</span><span style=color:#f92672>?.</span><span style=color:#960050;background-color:#1e0010>`</span> <span style=color:#960050;background-color:#1e0010>访问可空变量，若为</span> <span style=color:#66d9ef>null</span><span style=color:#960050;background-color:#1e0010>，则停止继续调用</span>
-println(b<span style=color:#f92672>!!</span>.length)     <span style=color:#960050;background-color:#1e0010>通过</span> <span style=color:#960050;background-color:#1e0010>`</span><span style=color:#f92672>!!</span>.<span style=color:#960050;background-color:#1e0010>`</span> <span style=color:#960050;background-color:#1e0010>访问可空变量，若为</span> <span style=color:#66d9ef>null</span><span style=color:#960050;background-color:#1e0010>，则抛出</span> KotlinNullPointerException <span style=color:#960050;background-color:#1e0010>异常</span>
+println(b.length)     编译器报错<span style=color:#960050;background-color:#1e0010>：</span>不能直接访问可空变量
+println(b<span style=color:#f92672>?.</span>length)     通过 <span style=color:#960050;background-color:#1e0010>`</span><span style=color:#f92672>?.</span><span style=color:#960050;background-color:#1e0010>`</span> 访问可空变量<span style=color:#960050;background-color:#1e0010>，</span>若为 <span style=color:#66d9ef>null</span><span style=color:#960050;background-color:#1e0010>，</span>则停止继续调用
+println(b<span style=color:#f92672>!!</span>.length)     通过 <span style=color:#960050;background-color:#1e0010>`</span><span style=color:#f92672>!!</span>.<span style=color:#960050;background-color:#1e0010>`</span> 访问可空变量<span style=color:#960050;background-color:#1e0010>，</span>若为 <span style=color:#66d9ef>null</span><span style=color:#960050;background-color:#1e0010>，</span>则抛出 KotlinNullPointerException 异常
 
 <span style=color:#66d9ef>try</span> {     <span style=color:#66d9ef>try</span>-<span style=color:#66d9ef>catch</span>
     println(b<span style=color:#f92672>!!</span>.length)
@@ -121,33 +121,33 @@ println(b<span style=color:#f92672>!!</span>.length)     <span style=color:#9600
 
 <span style=color:#66d9ef>val</span> a: String? = <span style=color:#66d9ef>null</span>
 
-<span style=color:#66d9ef>val</span> b: Int = <span style=color:#66d9ef>if</span> (a <span style=color:#f92672>!=</span> <span style=color:#66d9ef>null</span>) {     <span style=color:#960050;background-color:#1e0010>空检查</span>
-    a.length     <span style=color:#960050;background-color:#1e0010>不需要通过</span> <span style=color:#960050;background-color:#1e0010>`</span><span style=color:#f92672>?.</span><span style=color:#960050;background-color:#1e0010>`</span> <span style=color:#960050;background-color:#1e0010>访问可空变量（</span>Smart Cast<span style=color:#960050;background-color:#1e0010>）</span>
+<span style=color:#66d9ef>val</span> b: Int = <span style=color:#66d9ef>if</span> (a <span style=color:#f92672>!=</span> <span style=color:#66d9ef>null</span>) {     空检查
+    a.length     不需要通过 <span style=color:#960050;background-color:#1e0010>`</span><span style=color:#f92672>?.</span><span style=color:#960050;background-color:#1e0010>`</span> 访问可空变量<span style=color:#960050;background-color:#1e0010>（</span>Smart Cast<span style=color:#960050;background-color:#1e0010>）</span>
 } <span style=color:#66d9ef>else</span> {
     -<span style=color:#ae81ff>1</span>
 }
-<span style=color:#960050;background-color:#1e0010>可简化为</span>
-<span style=color:#66d9ef>val</span> c: Int = <span style=color:#66d9ef>if</span> (a <span style=color:#f92672>!=</span> <span style=color:#66d9ef>null</span>) a.length <span style=color:#66d9ef>else</span> -<span style=color:#ae81ff>1</span>     <span style=color:#960050;background-color:#1e0010>可用于替代</span> Java <span style=color:#960050;background-color:#1e0010>中的三元运算符</span>
-<span style=color:#960050;background-color:#1e0010>可简化为</span>
-<span style=color:#66d9ef>val</span> d: Int = a<span style=color:#f92672>?.</span>length <span style=color:#f92672>?:</span> -<span style=color:#ae81ff>1</span>     <span style=color:#960050;background-color:#1e0010>`</span><span style=color:#f92672>?:</span><span style=color:#960050;background-color:#1e0010>`</span> <span style=color:#960050;background-color:#1e0010>操作符：若左边表达式的返回值为</span> <span style=color:#66d9ef>null</span> <span style=color:#960050;background-color:#1e0010>则执行右边表达式</span>
+可简化为
+<span style=color:#66d9ef>val</span> c: Int = <span style=color:#66d9ef>if</span> (a <span style=color:#f92672>!=</span> <span style=color:#66d9ef>null</span>) a.length <span style=color:#66d9ef>else</span> -<span style=color:#ae81ff>1</span>     可用于替代 Java 中的三元运算符
+可简化为
+<span style=color:#66d9ef>val</span> d: Int = a<span style=color:#f92672>?.</span>length <span style=color:#f92672>?:</span> -<span style=color:#ae81ff>1</span>     <span style=color:#960050;background-color:#1e0010>`</span><span style=color:#f92672>?:</span><span style=color:#960050;background-color:#1e0010>`</span> 操作符<span style=color:#960050;background-color:#1e0010>：</span>若左边表达式的返回值为 <span style=color:#66d9ef>null</span> 则执行右边表达式
 
 <span style=color:#f92672>------------------------------------------------------</span>-
 
-<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>sum</span>(x: Int = <span style=color:#ae81ff>1</span>, y: Int = <span style=color:#ae81ff>1</span>): Unit {     <span style=color:#960050;background-color:#1e0010>函数（设置参数默认值，以减少重载）</span>
-    println(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>$x</span><span style=color:#e6db74>+</span><span style=color:#e6db74>$y</span><span style=color:#e6db74>=</span><span style=color:#e6db74>${x + y}</span><span style=color:#e6db74>&#34;</span>)     <span style=color:#960050;background-color:#1e0010>字符串模板</span>
+<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>sum</span>(x: Int = <span style=color:#ae81ff>1</span>, y: Int = <span style=color:#ae81ff>1</span>): Unit {     函数<span style=color:#960050;background-color:#1e0010>（</span>设置参数默认值<span style=color:#960050;background-color:#1e0010>，</span>以减少重载<span style=color:#960050;background-color:#1e0010>）</span>
+    println(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>$x</span><span style=color:#e6db74>+</span><span style=color:#e6db74>$y</span><span style=color:#e6db74>=</span><span style=color:#e6db74>${x + y}</span><span style=color:#e6db74>&#34;</span>)     字符串模板
 }
-<span style=color:#960050;background-color:#1e0010>可简化为</span>
-<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>sum</span>(x: Int = <span style=color:#ae81ff>1</span>, y: Int = <span style=color:#ae81ff>1</span>) {     <span style=color:#960050;background-color:#1e0010>若返回值为</span> Unit (void)<span style=color:#960050;background-color:#1e0010>，则可省略返回值</span>
+可简化为
+<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>sum</span>(x: Int = <span style=color:#ae81ff>1</span>, y: Int = <span style=color:#ae81ff>1</span>) {     若返回值为 Unit (void)<span style=color:#960050;background-color:#1e0010>，</span>则可省略返回值
     println(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>$x</span><span style=color:#e6db74>+</span><span style=color:#e6db74>$y</span><span style=color:#e6db74>=</span><span style=color:#e6db74>${x + y}</span><span style=color:#e6db74>&#34;</span>)
 }
-<span style=color:#960050;background-color:#1e0010>可简化为</span>
-<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>sum</span>(x: Int = <span style=color:#ae81ff>1</span>, y: Int = <span style=color:#ae81ff>1</span>) = println(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>$x</span><span style=color:#e6db74>+</span><span style=color:#e6db74>$y</span><span style=color:#e6db74>=</span><span style=color:#e6db74>${x + y}</span><span style=color:#e6db74>&#34;</span>)     <span style=color:#960050;background-color:#1e0010>若函数体只含有</span> <span style=color:#ae81ff>1</span> <span style=color:#960050;background-color:#1e0010>句表达式，则可省略函数体和返回值（自动推导类型）</span>
+可简化为
+<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>sum</span>(x: Int = <span style=color:#ae81ff>1</span>, y: Int = <span style=color:#ae81ff>1</span>) = println(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>$x</span><span style=color:#e6db74>+</span><span style=color:#e6db74>$y</span><span style=color:#e6db74>=</span><span style=color:#e6db74>${x + y}</span><span style=color:#e6db74>&#34;</span>)     若函数体只含有 <span style=color:#ae81ff>1</span> 句表达式<span style=color:#960050;background-color:#1e0010>，</span>则可省略函数体和返回值<span style=color:#960050;background-color:#1e0010>（</span>自动推导类型<span style=color:#960050;background-color:#1e0010>）</span>
 
 sum()
 sum(<span style=color:#ae81ff>3</span>)
-sum(y = <span style=color:#ae81ff>3</span>)     <span style=color:#960050;background-color:#1e0010>命名参数</span>
+sum(y = <span style=color:#ae81ff>3</span>)     命名参数
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
+输出<span style=color:#960050;background-color:#1e0010>：</span>
 <span style=color:#ae81ff>1</span>+<span style=color:#ae81ff>1</span>=<span style=color:#ae81ff>2</span>
 <span style=color:#ae81ff>3</span>+<span style=color:#ae81ff>1</span>=<span style=color:#ae81ff>4</span>
 <span style=color:#ae81ff>1</span>+<span style=color:#ae81ff>3</span>=<span style=color:#ae81ff>4</span>
@@ -157,121 +157,121 @@ sum(y = <span style=color:#ae81ff>3</span>)     <span style=color:#960050;backgr
 <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>hello</span>(name: String): String {
     <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;Hello,</span><span style=color:#e6db74>$name</span><span style=color:#e6db74>&#34;</span>
 }
-<span style=color:#960050;background-color:#1e0010>可简化为</span>
-<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>hello</span>(name: String) = <span style=color:#e6db74>&#34;Hello,</span><span style=color:#e6db74>$name</span><span style=color:#e6db74>&#34;</span>     <span style=color:#960050;background-color:#1e0010>若函数体只含有</span> <span style=color:#ae81ff>1</span> <span style=color:#960050;background-color:#1e0010>句表达式，可省略函数体和返回值（自动推导类型）</span>
+可简化为
+<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>hello</span>(name: String) = <span style=color:#e6db74>&#34;Hello,</span><span style=color:#e6db74>$name</span><span style=color:#e6db74>&#34;</span>     若函数体只含有 <span style=color:#ae81ff>1</span> 句表达式<span style=color:#960050;background-color:#1e0010>，</span>可省略函数体和返回值<span style=color:#960050;background-color:#1e0010>（</span>自动推导类型<span style=color:#960050;background-color:#1e0010>）</span>
 
 <span style=color:#f92672>------------------------------------------------------</span>-
 
-<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>show</span>(<span style=color:#66d9ef>vararg</span> str: String): Unit {     <span style=color:#66d9ef>vararg</span><span style=color:#960050;background-color:#1e0010>：可变长参数，参数数量</span> [<span style=color:#ae81ff>0</span>,<span style=color:#960050;background-color:#1e0010>∞</span>)<span style=color:#960050;background-color:#1e0010>，视为数组</span> Array&lt;<span style=color:#66d9ef>out</span> T&gt;
-    <span style=color:#66d9ef>for</span> (s <span style=color:#66d9ef>in</span> str) {     str <span style=color:#960050;background-color:#1e0010>为</span> Array&lt;<span style=color:#66d9ef>out</span> String&gt;
+<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>show</span>(<span style=color:#66d9ef>vararg</span> str: String): Unit {     <span style=color:#66d9ef>vararg</span><span style=color:#960050;background-color:#1e0010>：</span>可变长参数<span style=color:#960050;background-color:#1e0010>，</span>参数数量 [<span style=color:#ae81ff>0</span>,<span style=color:#960050;background-color:#1e0010>∞</span>)<span style=color:#960050;background-color:#1e0010>，</span>视为数组 Array&lt;<span style=color:#66d9ef>out</span> T&gt;
+    <span style=color:#66d9ef>for</span> (s <span style=color:#66d9ef>in</span> str) {     str 为 Array&lt;<span style=color:#66d9ef>out</span> String&gt;
         print(s + <span style=color:#e6db74>&#34; &#34;</span>)
     }
 }
 
 show()
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
-<span style=color:#960050;background-color:#1e0010>无</span>
+输出<span style=color:#960050;background-color:#1e0010>：</span>
+无
 
 <span style=color:#66d9ef>val</span> array: Array&lt;String&gt; = arrayOf(<span style=color:#e6db74>&#34;B&#34;</span>, <span style=color:#e6db74>&#34;C&#34;</span>)
-show(<span style=color:#e6db74>&#34;A&#34;</span>, *array, <span style=color:#e6db74>&#34;D&#34;</span>)     <span style=color:#960050;background-color:#1e0010>（</span>spread<span style=color:#960050;background-color:#1e0010>）展开操作符：在数组前加上</span> <span style=color:#960050;background-color:#1e0010>`</span>*<span style=color:#960050;background-color:#1e0010>`</span>
+show(<span style=color:#e6db74>&#34;A&#34;</span>, *array, <span style=color:#e6db74>&#34;D&#34;</span>)     <span style=color:#960050;background-color:#1e0010>（</span>spread<span style=color:#960050;background-color:#1e0010>）</span>展开操作符<span style=color:#960050;background-color:#1e0010>：</span>在数组前加上 <span style=color:#960050;background-color:#1e0010>`</span>*<span style=color:#960050;background-color:#1e0010>`</span>
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
+输出<span style=color:#960050;background-color:#1e0010>：</span>
 A B C D
 </code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>a</span>(x: Int): Boolean {
     <span style=color:#66d9ef>return</span> x % <span style=color:#ae81ff>2</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>
 }
-<span style=color:#960050;background-color:#1e0010>可简化为</span>
-<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>a</span>(x: Int) = x % <span style=color:#ae81ff>2</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>     <span style=color:#960050;background-color:#1e0010>函数类型：</span>(Int) <span style=color:#f92672>-&gt;</span> Boolean<span style=color:#960050;background-color:#1e0010>（需要</span> Int<span style=color:#960050;background-color:#1e0010>，返回</span> Boolean<span style=color:#960050;background-color:#1e0010>）</span>
+可简化为
+<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>a</span>(x: Int) = x % <span style=color:#ae81ff>2</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>     函数类型<span style=color:#960050;background-color:#1e0010>：</span>(Int) <span style=color:#f92672>-&gt;</span> Boolean<span style=color:#960050;background-color:#1e0010>（</span>需要 Int<span style=color:#960050;background-color:#1e0010>，</span>返回 Boolean<span style=color:#960050;background-color:#1e0010>）</span>
 
 <span style=color:#a6e22e>@kotlin</span>.<span style=color:#66d9ef>internal</span>.InlineOnly
-<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>inline</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>println</span>(message: Int) {     <span style=color:#960050;background-color:#1e0010>函数类型：</span>(Int) <span style=color:#f92672>-&gt;</span> Unit<span style=color:#960050;background-color:#1e0010>（需要</span> Int<span style=color:#960050;background-color:#1e0010>，返回</span> Unit<span style=color:#960050;background-color:#1e0010>）（类库自带函数）</span>
+<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>inline</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>println</span>(message: Int) {     函数类型<span style=color:#960050;background-color:#1e0010>：</span>(Int) <span style=color:#f92672>-&gt;</span> Unit<span style=color:#960050;background-color:#1e0010>（</span>需要 Int<span style=color:#960050;background-color:#1e0010>，</span>返回 Unit<span style=color:#960050;background-color:#1e0010>）（</span>类库自带函数<span style=color:#960050;background-color:#1e0010>）</span>
     System.<span style=color:#66d9ef>out</span>.println(message)
 }
 
 <span style=color:#66d9ef>val</span> array = arrayOf(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>)
 
-array     <span style=color:#960050;background-color:#1e0010>使用</span> Lambda <span style=color:#960050;background-color:#1e0010>表达式</span>
+array     使用 Lambda 表达式
     .filter { <span style=color:#66d9ef>it</span> % <span style=color:#ae81ff>2</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span> }
     .forEach { System.<span style=color:#66d9ef>out</span>.println(<span style=color:#66d9ef>it</span>) }
-<span style=color:#960050;background-color:#1e0010>等同于</span>
-array     <span style=color:#960050;background-color:#1e0010>使用函数引用</span>
+等同于
+array     使用函数引用
     .filter(<span style=color:#f92672>::</span>a)
     .forEach(<span style=color:#f92672>::</span>println)
-<span style=color:#960050;background-color:#1e0010>等同于</span>
-<span style=color:#66d9ef>val</span> aa: (Int) <span style=color:#f92672>-&gt;</span> Boolean = <span style=color:#f92672>::</span>a     <span style=color:#960050;background-color:#1e0010>将函数引用存储在变量中，类型（声明）为</span> <span style=color:#e6db74>&#34;函数类型&#34;</span>
+等同于
+<span style=color:#66d9ef>val</span> aa: (Int) <span style=color:#f92672>-&gt;</span> Boolean = <span style=color:#f92672>::</span>a     将函数引用存储在变量中<span style=color:#960050;background-color:#1e0010>，</span>类型<span style=color:#960050;background-color:#1e0010>（</span>声明<span style=color:#960050;background-color:#1e0010>）</span>为 <span style=color:#e6db74>&#34;函数类型&#34;</span>
 <span style=color:#66d9ef>val</span> bb: (Int) <span style=color:#f92672>-&gt;</span> Unit = <span style=color:#f92672>::</span>println
 array
     .filter(aa)
     .forEach(bb)
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
+输出<span style=color:#960050;background-color:#1e0010>：</span>
 <span style=color:#ae81ff>2</span>
 <span style=color:#ae81ff>4</span>
 
 <span style=color:#f92672>------------------------------------------------------</span>-
-<span style=color:#960050;background-color:#1e0010>高阶函数：一种将函数作为参数或者返回值的函数。</span>
-    <span style=color:#960050;background-color:#1e0010>↳</span> <span style=color:#960050;background-color:#1e0010>函数参数：</span>
-            <span style=color:#960050;background-color:#1e0010>↳</span> Lambda <span style=color:#960050;background-color:#1e0010>表达式：跟</span> Java8 <span style=color:#960050;background-color:#1e0010>中的概念相同，只能作为高阶函数的参数或返回值。</span>
-            <span style=color:#960050;background-color:#1e0010>↳</span> <span style=color:#960050;background-color:#1e0010>匿名函数：没名字的函数，只能作为高阶函数的参数或返回值。</span>
-            <span style=color:#960050;background-color:#1e0010>↳</span> <span style=color:#960050;background-color:#1e0010>命名函数：可以通过函数引用作为高阶函数的参数。</span>
-                    <span style=color:#960050;background-color:#1e0010>↳</span> <span style=color:#960050;background-color:#1e0010>函数引用：通过在函数名称前加上</span> <span style=color:#960050;background-color:#1e0010>`</span><span style=color:#f92672>::</span><span style=color:#960050;background-color:#1e0010>`</span> <span style=color:#960050;background-color:#1e0010>操作符，把命名函数作为参数传入。</span>
+高阶函数<span style=color:#960050;background-color:#1e0010>：</span>一种将函数作为参数或者返回值的函数<span style=color:#960050;background-color:#1e0010>。</span>
+    <span style=color:#960050;background-color:#1e0010>↳</span> 函数参数<span style=color:#960050;background-color:#1e0010>：</span>
+            <span style=color:#960050;background-color:#1e0010>↳</span> Lambda 表达式<span style=color:#960050;background-color:#1e0010>：</span>跟 Java8 中的概念相同<span style=color:#960050;background-color:#1e0010>，</span>只能作为高阶函数的参数或返回值<span style=color:#960050;background-color:#1e0010>。</span>
+            <span style=color:#960050;background-color:#1e0010>↳</span> 匿名函数<span style=color:#960050;background-color:#1e0010>：</span>没名字的函数<span style=color:#960050;background-color:#1e0010>，</span>只能作为高阶函数的参数或返回值<span style=color:#960050;background-color:#1e0010>。</span>
+            <span style=color:#960050;background-color:#1e0010>↳</span> 命名函数<span style=color:#960050;background-color:#1e0010>：</span>可以通过函数引用作为高阶函数的参数<span style=color:#960050;background-color:#1e0010>。</span>
+                    <span style=color:#960050;background-color:#1e0010>↳</span> 函数引用<span style=color:#960050;background-color:#1e0010>：</span>通过在函数名称前加上 <span style=color:#960050;background-color:#1e0010>`</span><span style=color:#f92672>::</span><span style=color:#960050;background-color:#1e0010>`</span> 操作符<span style=color:#960050;background-color:#1e0010>，</span>把命名函数作为参数传入<span style=color:#960050;background-color:#1e0010>。</span>
 
 <span style=color:#66d9ef>val</span> array: Array&lt;Char&gt; = arrayOf(<span style=color:#e6db74>&#39;A&#39;</span>, <span style=color:#e6db74>&#39;B&#39;</span>, <span style=color:#e6db74>&#39;C&#39;</span>, <span style=color:#e6db74>&#39;D&#39;</span>)
 
-<span style=color:#66d9ef>val</span> list: MutableList&lt;Int&gt; = array.mapTo(mutableListOf(), { c <span style=color:#f92672>-&gt;</span> c.toInt() })     mapTo <span style=color:#960050;background-color:#1e0010>为高阶函数，</span>{} <span style=color:#960050;background-color:#1e0010>为</span> Lambda <span style=color:#960050;background-color:#1e0010>表达式</span>
-<span style=color:#960050;background-color:#1e0010>可简化为</span>
-<span style=color:#66d9ef>val</span> list: MutableList&lt;Int&gt; = array.mapTo(mutableListOf()) { c <span style=color:#f92672>-&gt;</span> c.toInt() }     <span style=color:#960050;background-color:#1e0010>高阶函数中若最后一个参数是函数参数，可移至括号外；若只需要一个函数参数，可省略括号</span>
-<span style=color:#960050;background-color:#1e0010>可简化为</span>
-<span style=color:#66d9ef>val</span> list: MutableList&lt;Int&gt; = array.mapTo(mutableListOf()) { <span style=color:#66d9ef>it</span>.toInt() }     Lambda <span style=color:#960050;background-color:#1e0010>表达式中若只接收一个参数，可用</span> <span style=color:#a6e22e>`it</span><span style=color:#960050;background-color:#1e0010>`</span> <span style=color:#960050;background-color:#1e0010>替代</span>
-<span style=color:#960050;background-color:#1e0010>可简化为</span>
-<span style=color:#66d9ef>val</span> list: MutableList&lt;Int&gt; = array.mapTo(mutableListOf(), Char<span style=color:#f92672>::</span>toInt)     Lambda <span style=color:#960050;background-color:#1e0010>表达式转为函数引用</span>
+<span style=color:#66d9ef>val</span> list: MutableList&lt;Int&gt; = array.mapTo(mutableListOf(), { c <span style=color:#f92672>-&gt;</span> c.toInt() })     mapTo 为高阶函数<span style=color:#960050;background-color:#1e0010>，</span>{} 为 Lambda 表达式
+可简化为
+<span style=color:#66d9ef>val</span> list: MutableList&lt;Int&gt; = array.mapTo(mutableListOf()) { c <span style=color:#f92672>-&gt;</span> c.toInt() }     高阶函数中若最后一个参数是函数参数<span style=color:#960050;background-color:#1e0010>，</span>可移至括号外<span style=color:#960050;background-color:#1e0010>；</span>若只需要一个函数参数<span style=color:#960050;background-color:#1e0010>，</span>可省略括号
+可简化为
+<span style=color:#66d9ef>val</span> list: MutableList&lt;Int&gt; = array.mapTo(mutableListOf()) { <span style=color:#66d9ef>it</span>.toInt() }     Lambda 表达式中若只接收一个参数<span style=color:#960050;background-color:#1e0010>，</span>可用 `it<span style=color:#960050;background-color:#1e0010>`</span> 替代
+可简化为
+<span style=color:#66d9ef>val</span> list: MutableList&lt;Int&gt; = array.mapTo(mutableListOf(), Char<span style=color:#f92672>::</span>toInt)     Lambda 表达式转为函数引用
 
 println(list)
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
+输出<span style=color:#960050;background-color:#1e0010>：</span>
 <span style=color:#a6e22e>[65, 66, 67, 68]</span>
 
 <span style=color:#f92672>------------------------------------------------------</span>-
 
-(<span style=color:#ae81ff>1.</span>.<span style=color:#ae81ff>5</span>).reduce { _, _ <span style=color:#f92672>-&gt;</span> <span style=color:#ae81ff>0</span> }     <span style=color:#ae81ff>0</span><span style=color:#960050;background-color:#1e0010>（若不需要</span> Lambda <span style=color:#960050;background-color:#1e0010>表达式中提供的参数，可用</span> <span style=color:#960050;background-color:#1e0010>`</span>_<span style=color:#960050;background-color:#1e0010>`</span> <span style=color:#960050;background-color:#1e0010>占位）</span>
+(<span style=color:#ae81ff>1.</span>.<span style=color:#ae81ff>5</span>).reduce { _, _ <span style=color:#f92672>-&gt;</span> <span style=color:#ae81ff>0</span> }     <span style=color:#ae81ff>0</span><span style=color:#960050;background-color:#1e0010>（</span>若不需要 Lambda 表达式中提供的参数<span style=color:#960050;background-color:#1e0010>，</span>可用 <span style=color:#960050;background-color:#1e0010>`</span>_<span style=color:#960050;background-color:#1e0010>`</span> 占位<span style=color:#960050;background-color:#1e0010>）</span>
 
 <span style=color:#f92672>------------------------------------------------------</span>-
 
 <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>a</span>(i: Int): Int {
     <span style=color:#66d9ef>return</span> i * <span style=color:#ae81ff>2</span>
 }
-<span style=color:#960050;background-color:#1e0010>可简化为</span>
-<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>a</span>(i: Int) = i * <span style=color:#ae81ff>2</span>     <span style=color:#960050;background-color:#1e0010>命名函数（有名字的函数）</span>
+可简化为
+<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>a</span>(i: Int) = i * <span style=color:#ae81ff>2</span>     命名函数<span style=color:#960050;background-color:#1e0010>（</span>有名字的函数<span style=color:#960050;background-color:#1e0010>）</span>
 
 <span style=color:#66d9ef>val</span> list = listOf(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>5</span>)
 
 list.map(<span style=color:#66d9ef>fun</span>(i: Int): Int {
     <span style=color:#66d9ef>return</span> i * <span style=color:#ae81ff>2</span>
 })
-<span style=color:#960050;background-color:#1e0010>可简化为</span>
-list.map(<span style=color:#66d9ef>fun</span>(i: Int) = i * <span style=color:#ae81ff>2</span>)     <span style=color:#960050;background-color:#1e0010>匿名函数（没名字的函数）</span>
+可简化为
+list.map(<span style=color:#66d9ef>fun</span>(i: Int) = i * <span style=color:#ae81ff>2</span>)     匿名函数<span style=color:#960050;background-color:#1e0010>（</span>没名字的函数<span style=color:#960050;background-color:#1e0010>）</span>
 <span style=color:#f92672>----</span>
-list.map(<span style=color:#f92672>::</span>a)     <span style=color:#960050;background-color:#1e0010>对命名函数使用函数引用</span>
+list.map(<span style=color:#f92672>::</span>a)     对命名函数使用函数引用
 <span style=color:#f92672>----</span>
-list.map { <span style=color:#66d9ef>it</span> * <span style=color:#ae81ff>2</span> }     Lambda <span style=color:#960050;background-color:#1e0010>表达式</span>
+list.map { <span style=color:#66d9ef>it</span> * <span style=color:#ae81ff>2</span> }     Lambda 表达式
 
 <span style=color:#f92672>------------------------------------------------------</span>-
 
 <span style=color:#66d9ef>val</span> list = listOf(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>5</span>)
 
-list.map({ i <span style=color:#f92672>-&gt;</span> i * <span style=color:#ae81ff>2</span> })     <span style=color:#960050;background-color:#1e0010>此高阶函数只需要一个函数参数</span>
-<span style=color:#960050;background-color:#1e0010>可简化为</span>
-list.map() { i <span style=color:#f92672>-&gt;</span> i * <span style=color:#ae81ff>2</span> }     <span style=color:#960050;background-color:#1e0010>移至括号外</span>
-<span style=color:#960050;background-color:#1e0010>可简化为</span>
-list.map { i <span style=color:#f92672>-&gt;</span> i * <span style=color:#ae81ff>2</span> }     <span style=color:#960050;background-color:#1e0010>省略括号</span>
-<span style=color:#960050;background-color:#1e0010>可简化为</span>
-list.map { <span style=color:#66d9ef>it</span> * <span style=color:#ae81ff>2</span> }     <span style=color:#960050;background-color:#1e0010>使用</span> <span style=color:#a6e22e>`it</span><span style=color:#960050;background-color:#1e0010>`</span> <span style=color:#960050;background-color:#1e0010>替代</span>
+list.map({ i <span style=color:#f92672>-&gt;</span> i * <span style=color:#ae81ff>2</span> })     此高阶函数只需要一个函数参数
+可简化为
+list.map() { i <span style=color:#f92672>-&gt;</span> i * <span style=color:#ae81ff>2</span> }     移至括号外
+可简化为
+list.map { i <span style=color:#f92672>-&gt;</span> i * <span style=color:#ae81ff>2</span> }     省略括号
+可简化为
+list.map { <span style=color:#66d9ef>it</span> * <span style=color:#ae81ff>2</span> }     使用 `it<span style=color:#960050;background-color:#1e0010>`</span> 替代
 
 <span style=color:#f92672>------------------------------------------------------</span>-
-<span style=color:#960050;background-color:#1e0010>无标签限制的</span> <span style=color:#66d9ef>this</span> <span style=color:#960050;background-color:#1e0010>指向包含当前代码的最内层。</span>
+无标签限制的 <span style=color:#66d9ef>this</span> 指向包含当前代码的最内层<span style=color:#960050;background-color:#1e0010>。</span>
 
-<span style=color:#66d9ef>val</span> stringBuilder = StringBuilder(<span style=color:#e6db74>&#34;123&#34;</span>).apply a<span style=color:#960050;background-color:#1e0010>@</span> {     <span style=color:#960050;background-color:#1e0010>在</span> Lambda <span style=color:#960050;background-color:#1e0010>表达式处显式声明标签，以区分重名标签和</span> <span style=color:#66d9ef>this</span> <span style=color:#960050;background-color:#1e0010>对象</span>
+<span style=color:#66d9ef>val</span> stringBuilder = StringBuilder(<span style=color:#e6db74>&#34;123&#34;</span>).apply a<span style=color:#960050;background-color:#1e0010>@</span> {     在 Lambda 表达式处显式声明标签<span style=color:#960050;background-color:#1e0010>，</span>以区分重名标签和 <span style=color:#66d9ef>this</span> 对象
     println(<span style=color:#66d9ef>this</span><span style=color:#a6e22e>@a</span>)
     <span style=color:#e6db74>&#34;456&#34;</span>.apply {
         println(<span style=color:#66d9ef>this</span><span style=color:#a6e22e>@apply</span>)
@@ -280,37 +280,37 @@ list.map { <span style=color:#66d9ef>it</span> * <span style=color:#ae81ff>2</sp
 }
 println(stringBuilder)
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
+输出<span style=color:#960050;background-color:#1e0010>：</span>
 <span style=color:#ae81ff>123</span>
 <span style=color:#ae81ff>456</span>
 <span style=color:#ae81ff>123456</span>
 
 <span style=color:#f92672>------------------------------------------------------</span>-
-<span style=color:#960050;background-color:#1e0010>有标签限制的</span> <span style=color:#66d9ef>break</span> <span style=color:#960050;background-color:#1e0010>跳转至该标签指定的循环，继续后面的表达式。</span>
-<span style=color:#960050;background-color:#1e0010>有标签限制的</span> <span style=color:#66d9ef>continue</span> <span style=color:#960050;background-color:#1e0010>跳转至该标签指定的循环，继续下一次迭代。</span>
+有标签限制的 <span style=color:#66d9ef>break</span> 跳转至该标签指定的循环<span style=color:#960050;background-color:#1e0010>，</span>继续后面的表达式<span style=color:#960050;background-color:#1e0010>。</span>
+有标签限制的 <span style=color:#66d9ef>continue</span> 跳转至该标签指定的循环<span style=color:#960050;background-color:#1e0010>，</span>继续下一次迭代<span style=color:#960050;background-color:#1e0010>。</span>
 
 a<span style=color:#960050;background-color:#1e0010>@</span> <span style=color:#66d9ef>for</span> (x <span style=color:#66d9ef>in</span> <span style=color:#ae81ff>0.</span>.<span style=color:#ae81ff>9</span>) {
     b<span style=color:#960050;background-color:#1e0010>@</span> <span style=color:#66d9ef>for</span> (y <span style=color:#66d9ef>in</span> <span style=color:#ae81ff>10.</span>.<span style=color:#ae81ff>19</span>) {
         <span style=color:#66d9ef>if</span> (x <span style=color:#f92672>==</span> <span style=color:#ae81ff>5</span> <span style=color:#f92672>&amp;&amp;</span> y <span style=color:#f92672>==</span> <span style=color:#ae81ff>15</span>) {
-            <span style=color:#66d9ef>break</span><span style=color:#a6e22e>@a</span>     <span style=color:#960050;background-color:#1e0010>跳转至最外层循环并结束，最后输出：</span><span style=color:#ae81ff>5</span> <span style=color:#ae81ff>14</span>
+            <span style=color:#66d9ef>break</span><span style=color:#a6e22e>@a</span>     跳转至最外层循环并结束<span style=color:#960050;background-color:#1e0010>，</span>最后输出<span style=color:#960050;background-color:#1e0010>：</span><span style=color:#ae81ff>5</span> <span style=color:#ae81ff>14</span>
         }
         println(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>$x</span><span style=color:#e6db74> </span><span style=color:#e6db74>$y</span><span style=color:#e6db74>&#34;</span>)
     }
 }
 
 <span style=color:#f92672>------------------------------------------------------</span>-
-<span style=color:#960050;background-color:#1e0010>无标签限制的</span> <span style=color:#66d9ef>return</span> <span style=color:#960050;background-color:#1e0010>返回结果至最直接包含它的函数；</span>
-<span style=color:#960050;background-color:#1e0010>带标签限制的</span> <span style=color:#66d9ef>return</span> <span style=color:#960050;background-color:#1e0010>一般应用于高阶函数中的</span> Lambda <span style=color:#960050;background-color:#1e0010>表达式。</span>
+无标签限制的 <span style=color:#66d9ef>return</span> 返回结果至最直接包含它的函数<span style=color:#960050;background-color:#1e0010>；</span>
+带标签限制的 <span style=color:#66d9ef>return</span> 一般应用于高阶函数中的 Lambda 表达式<span style=color:#960050;background-color:#1e0010>。</span>
 
-Lambda <span style=color:#960050;background-color:#1e0010>表达式会形成一个闭包（捕捉使用到的外部变量，形成一个作用域），可以通过</span> Inline<span style=color:#960050;background-color:#1e0010>，消除这种开销。</span>
-<span style=color:#960050;background-color:#1e0010>对象是带方法的数据；</span>
-<span style=color:#960050;background-color:#1e0010>闭包是带数据的方法。（</span>Closure<span style=color:#960050;background-color:#1e0010>）</span>
+Lambda 表达式会形成一个闭包<span style=color:#960050;background-color:#1e0010>（</span>捕捉使用到的外部变量<span style=color:#960050;background-color:#1e0010>，</span>形成一个作用域<span style=color:#960050;background-color:#1e0010>），</span>可以通过 Inline<span style=color:#960050;background-color:#1e0010>，</span>消除这种开销<span style=color:#960050;background-color:#1e0010>。</span>
+对象是带方法的数据<span style=color:#960050;background-color:#1e0010>；</span>
+闭包是带数据的方法<span style=color:#960050;background-color:#1e0010>。（</span>Closure<span style=color:#960050;background-color:#1e0010>）</span>
 
-<span style=color:#66d9ef>inline</span> <span style=color:#960050;background-color:#1e0010>签名一般与高阶函数搭配使用，以优化</span> Lambda <span style=color:#960050;background-color:#1e0010>表达式，直接将代码写至调用处，来减少函数调用栈的层数，但</span>
-<span style=color:#960050;background-color:#1e0010>会增加代码生成量。</span>
+<span style=color:#66d9ef>inline</span> 签名一般与高阶函数搭配使用<span style=color:#960050;background-color:#1e0010>，</span>以优化 Lambda 表达式<span style=color:#960050;background-color:#1e0010>，</span>直接将代码写至调用处<span style=color:#960050;background-color:#1e0010>，</span>来减少函数调用栈的层数<span style=color:#960050;background-color:#1e0010>，</span>但
+会增加代码生成量<span style=color:#960050;background-color:#1e0010>。</span>
 
-Kotlin <span style=color:#960050;background-color:#1e0010>类库中的大部分高阶扩展函数都带有</span> <span style=color:#66d9ef>inline</span> <span style=color:#960050;background-color:#1e0010>签名，使其成为内联高阶扩展函数，导致</span> Lambda <span style=color:#960050;background-color:#1e0010>表达式不会引入</span>
-<span style=color:#960050;background-color:#1e0010>新作用域，函数体中的变量和外部环境中的变量具有相同的语义。</span>
+Kotlin 类库中的大部分高阶扩展函数都带有 <span style=color:#66d9ef>inline</span> 签名<span style=color:#960050;background-color:#1e0010>，</span>使其成为内联高阶扩展函数<span style=color:#960050;background-color:#1e0010>，</span>导致 Lambda 表达式不会引入
+新作用域<span style=color:#960050;background-color:#1e0010>，</span>函数体中的变量和外部环境中的变量具有相同的语义<span style=color:#960050;background-color:#1e0010>。</span>
 
 <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>(args: Array&lt;String&gt;) {
     a()
@@ -322,7 +322,7 @@ Kotlin <span style=color:#960050;background-color:#1e0010>类库中的大部分�
 <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>a</span>() {
     <span style=color:#66d9ef>val</span> list1 = listOf(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>)
     println(list1)
-    <span style=color:#66d9ef>val</span> list2 = list1.filter {     Lambda <span style=color:#960050;background-color:#1e0010>表达式：无标签限制，返回结果至</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>a</span>()<span style=color:#960050;background-color:#1e0010>（最直接包含此</span> Lambda <span style=color:#960050;background-color:#1e0010>表达式的函数）</span>
+    <span style=color:#66d9ef>val</span> list2 = list1.filter {     Lambda 表达式<span style=color:#960050;background-color:#1e0010>：</span>无标签限制<span style=color:#960050;background-color:#1e0010>，</span>返回结果至 <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>a</span>()<span style=color:#960050;background-color:#1e0010>（</span>最直接包含此 Lambda 表达式的函数<span style=color:#960050;background-color:#1e0010>）</span>
         print(<span style=color:#e6db74>&#34;+ &#34;</span>)
         <span style=color:#66d9ef>it</span> % <span style=color:#ae81ff>2</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>
         <span style=color:#66d9ef>return</span>
@@ -333,9 +333,9 @@ Kotlin <span style=color:#960050;background-color:#1e0010>类库中的大部分�
 <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>b</span>() {
     <span style=color:#66d9ef>val</span> list1 = listOf(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>)
     println(list1)
-    <span style=color:#66d9ef>val</span> list2 = list1.filter {     Lambda <span style=color:#960050;background-color:#1e0010>表达式：有标签限制，返回结果至</span> filter
+    <span style=color:#66d9ef>val</span> list2 = list1.filter {     Lambda 表达式<span style=color:#960050;background-color:#1e0010>：</span>有标签限制<span style=color:#960050;background-color:#1e0010>，</span>返回结果至 filter
         print(<span style=color:#e6db74>&#34;+ &#34;</span>)
-        <span style=color:#66d9ef>return</span><span style=color:#a6e22e>@filter</span> <span style=color:#66d9ef>it</span> % <span style=color:#ae81ff>2</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>     <span style=color:#960050;background-color:#1e0010>隐式标签（与接收该</span> Lambda <span style=color:#960050;background-color:#1e0010>表达式的高阶函数同名）</span>
+        <span style=color:#66d9ef>return</span><span style=color:#a6e22e>@filter</span> <span style=color:#66d9ef>it</span> % <span style=color:#ae81ff>2</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>     隐式标签<span style=color:#960050;background-color:#1e0010>（</span>与接收该 Lambda 表达式的高阶函数同名<span style=color:#960050;background-color:#1e0010>）</span>
     }
     println()
     println(list2)
@@ -343,7 +343,7 @@ Kotlin <span style=color:#960050;background-color:#1e0010>类库中的大部分�
 <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>c</span>() {
     <span style=color:#66d9ef>val</span> list1 = listOf(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>)
     println(list1)
-    <span style=color:#66d9ef>val</span> list2 = list1.filter(<span style=color:#66d9ef>fun</span>(i: Int): Boolean {     <span style=color:#960050;background-color:#1e0010>匿名函数：返回结果至</span> filter
+    <span style=color:#66d9ef>val</span> list2 = list1.filter(<span style=color:#66d9ef>fun</span>(i: Int): Boolean {     匿名函数<span style=color:#960050;background-color:#1e0010>：</span>返回结果至 filter
         print(<span style=color:#e6db74>&#34;+ &#34;</span>)
         <span style=color:#66d9ef>return</span> i % <span style=color:#ae81ff>2</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>
     })
@@ -351,7 +351,7 @@ Kotlin <span style=color:#960050;background-color:#1e0010>类库中的大部分�
     println(list2)
 }
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
+输出<span style=color:#960050;background-color:#1e0010>：</span>
 <span style=color:#a6e22e>[1, 2, 3, 4]</span>
 +
 <span style=color:#960050;background-color:#1e0010>————————————</span>
@@ -367,120 +367,120 @@ Kotlin <span style=color:#960050;background-color:#1e0010>类库中的大部分�
 
 <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>(args: Array&lt;String&gt;) {
     print(<span style=color:#ae81ff>1</span>)
-    a {     <span style=color:#960050;background-color:#1e0010>未内联高阶函数：</span><span style=color:#66d9ef>return</span> <span style=color:#960050;background-color:#1e0010>有</span> <span style=color:#ae81ff>1</span> <span style=color:#960050;background-color:#1e0010>个选项，返回结果至</span> a
+    a {     未内联高阶函数<span style=color:#960050;background-color:#1e0010>：</span><span style=color:#66d9ef>return</span> 有 <span style=color:#ae81ff>1</span> 个选项<span style=color:#960050;background-color:#1e0010>，</span>返回结果至 a
         print(<span style=color:#ae81ff>2</span>)
-        <span style=color:#66d9ef>return</span><span style=color:#a6e22e>@a</span>     <span style=color:#960050;background-color:#1e0010>隐式标签（与接收该</span> Lambda <span style=color:#960050;background-color:#1e0010>表达式的高阶函数同名）</span>
+        <span style=color:#66d9ef>return</span><span style=color:#a6e22e>@a</span>     隐式标签<span style=color:#960050;background-color:#1e0010>（</span>与接收该 Lambda 表达式的高阶函数同名<span style=color:#960050;background-color:#1e0010>）</span>
     }
     print(<span style=color:#ae81ff>3</span>)
     <span style=color:#f92672>----</span>
-    <span style=color:#960050;background-color:#1e0010>输出：</span>
+    输出<span style=color:#960050;background-color:#1e0010>：</span>
     <span style=color:#ae81ff>123</span>
 
     print(<span style=color:#ae81ff>1</span>)
-    b {     <span style=color:#960050;background-color:#1e0010>已内联高阶函数：</span><span style=color:#66d9ef>return</span> <span style=color:#960050;background-color:#1e0010>有</span> <span style=color:#ae81ff>2</span> <span style=color:#960050;background-color:#1e0010>个选项，返回结果至</span> b<span style=color:#960050;background-color:#1e0010>（带标签）</span> <span style=color:#960050;background-color:#1e0010>或</span> main<span style=color:#960050;background-color:#1e0010>（不带标签）（最直接包含此</span> Lambda <span style=color:#960050;background-color:#1e0010>表达式的函数）</span>
+    b {     已内联高阶函数<span style=color:#960050;background-color:#1e0010>：</span><span style=color:#66d9ef>return</span> 有 <span style=color:#ae81ff>2</span> 个选项<span style=color:#960050;background-color:#1e0010>，</span>返回结果至 b<span style=color:#960050;background-color:#1e0010>（</span>带标签<span style=color:#960050;background-color:#1e0010>）</span> 或 main<span style=color:#960050;background-color:#1e0010>（</span>不带标签<span style=color:#960050;background-color:#1e0010>）（</span>最直接包含此 Lambda 表达式的函数<span style=color:#960050;background-color:#1e0010>）</span>
         print(<span style=color:#ae81ff>2</span>)
         <span style=color:#66d9ef>return</span>
     }
     print(<span style=color:#ae81ff>3</span>)
     <span style=color:#f92672>----</span>
-    <span style=color:#960050;background-color:#1e0010>输出：</span>
+    输出<span style=color:#960050;background-color:#1e0010>：</span>
     <span style=color:#ae81ff>12</span>
 
     print(<span style=color:#ae81ff>1</span>)
-    b {     <span style=color:#960050;background-color:#1e0010>已内联高阶函数</span>
+    b {     已内联高阶函数
         print(<span style=color:#ae81ff>2</span>)
-        <span style=color:#66d9ef>return</span><span style=color:#a6e22e>@b</span>     <span style=color:#960050;background-color:#1e0010>隐式标签（与接收该</span> Lambda <span style=color:#960050;background-color:#1e0010>表达式的高阶函数同名）</span>
+        <span style=color:#66d9ef>return</span><span style=color:#a6e22e>@b</span>     隐式标签<span style=color:#960050;background-color:#1e0010>（</span>与接收该 Lambda 表达式的高阶函数同名<span style=color:#960050;background-color:#1e0010>）</span>
     }
     print(<span style=color:#ae81ff>3</span>)
     <span style=color:#f92672>----</span>
-    <span style=color:#960050;background-color:#1e0010>输出：</span>
+    输出<span style=color:#960050;background-color:#1e0010>：</span>
     <span style=color:#ae81ff>123</span>
 }
 
-<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>a</span>(block: () <span style=color:#f92672>-&gt;</span> Unit) {     <span style=color:#960050;background-color:#1e0010>未内联高阶函数</span>
+<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>a</span>(block: () <span style=color:#f92672>-&gt;</span> Unit) {     未内联高阶函数
     block()
 }
 
-<span style=color:#66d9ef>inline</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>b</span>(block: () <span style=color:#f92672>-&gt;</span> Unit) {     <span style=color:#960050;background-color:#1e0010>已内联高阶函数</span>
+<span style=color:#66d9ef>inline</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>b</span>(block: () <span style=color:#f92672>-&gt;</span> Unit) {     已内联高阶函数
     block()
 }
 
 <span style=color:#f92672>------------------------------------------------------</span>-
-<span style=color:#960050;background-color:#1e0010>注意</span> <span style=color:#66d9ef>inline</span> <span style=color:#960050;background-color:#1e0010>修饰函数，</span><span style=color:#66d9ef>crossinline</span><span style=color:#960050;background-color:#1e0010>、</span><span style=color:#66d9ef>noinline</span> <span style=color:#960050;background-color:#1e0010>修饰函数参数</span>
+注意 <span style=color:#66d9ef>inline</span> 修饰函数<span style=color:#960050;background-color:#1e0010>，</span><span style=color:#66d9ef>crossinline</span><span style=color:#960050;background-color:#1e0010>、</span><span style=color:#66d9ef>noinline</span> 修饰函数参数
 
 <span style=color:#66d9ef>inline</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>a1</span>(block: () <span style=color:#f92672>-&gt;</span> Unit) {
-    block()     <span style=color:#960050;background-color:#1e0010>作为函数调用</span>
+    block()     作为函数调用
 }
 
-<span style=color:#66d9ef>inline</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>a2</span>(<span style=color:#66d9ef>crossinline</span> block: () <span style=color:#f92672>-&gt;</span> Unit) {     <span style=color:#960050;background-color:#1e0010>可以通过</span> <span style=color:#66d9ef>crossinline</span> <span style=color:#960050;background-color:#1e0010>修饰函数参数，交叉内联此函数参数</span>
-    thread { block() }     <span style=color:#960050;background-color:#1e0010>作为函数调用</span>
-    <span style=color:#960050;background-color:#1e0010>等同于</span>
-    thread(block = { block() })     <span style=color:#960050;background-color:#1e0010>移至括号内并命名参数</span>
+<span style=color:#66d9ef>inline</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>a2</span>(<span style=color:#66d9ef>crossinline</span> block: () <span style=color:#f92672>-&gt;</span> Unit) {     可以通过 <span style=color:#66d9ef>crossinline</span> 修饰函数参数<span style=color:#960050;background-color:#1e0010>，</span>交叉内联此函数参数
+    thread { block() }     作为函数调用
+    等同于
+    thread(block = { block() })     移至括号内并命名参数
 }
 
 <span style=color:#66d9ef>inline</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>x</span>(block: () <span style=color:#f92672>-&gt;</span> Unit) {
-    thread(block = block)     <span style=color:#960050;background-color:#1e0010>编译器报错：不能将内联函数作为参数传入</span>
+    thread(block = block)     编译器报错<span style=color:#960050;background-color:#1e0010>：</span>不能将内联函数作为参数传入
 }
 
-<span style=color:#66d9ef>inline</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>b</span>(<span style=color:#66d9ef>noinline</span> block: () <span style=color:#f92672>-&gt;</span> Unit) {     <span style=color:#960050;background-color:#1e0010>可以通过</span> <span style=color:#66d9ef>noinline</span> <span style=color:#960050;background-color:#1e0010>修饰函数参数，取消内联此函数参数，从而可以作为参数传入；但</span> <span style=color:#66d9ef>inline</span> <span style=color:#960050;background-color:#1e0010>签名就没起到作用了</span>
-    thread(block = block)     <span style=color:#960050;background-color:#1e0010>作为普通参数传入</span>
+<span style=color:#66d9ef>inline</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>b</span>(<span style=color:#66d9ef>noinline</span> block: () <span style=color:#f92672>-&gt;</span> Unit) {     可以通过 <span style=color:#66d9ef>noinline</span> 修饰函数参数<span style=color:#960050;background-color:#1e0010>，</span>取消内联此函数参数<span style=color:#960050;background-color:#1e0010>，</span>从而可以作为参数传入<span style=color:#960050;background-color:#1e0010>；</span>但 <span style=color:#66d9ef>inline</span> 签名就没起到作用了
+    thread(block = block)     作为普通参数传入
 }
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span>(<span style=color:#66d9ef>val</span> id: Int, <span style=color:#66d9ef>val</span> name: String) : Closeable {     <span style=color:#960050;background-color:#1e0010>数据类：自动生成</span> hashCode<span style=color:#960050;background-color:#1e0010>、</span>equals<span style=color:#960050;background-color:#1e0010>、</span>toString<span style=color:#960050;background-color:#1e0010>、</span>copy <span style=color:#960050;background-color:#1e0010>函数</span>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span>(<span style=color:#66d9ef>val</span> id: Int, <span style=color:#66d9ef>val</span> name: String) : Closeable {     数据类<span style=color:#960050;background-color:#1e0010>：</span>自动生成 hashCode<span style=color:#960050;background-color:#1e0010>、</span>equals<span style=color:#960050;background-color:#1e0010>、</span>toString<span style=color:#960050;background-color:#1e0010>、</span>copy 函数
     <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>close</span>() {
         println(<span style=color:#e6db74>&#34;close!&#34;</span>)
     }
 }
 
-<span style=color:#66d9ef>val</span> a = A(<span style=color:#ae81ff>1</span>, <span style=color:#e6db74>&#34;小明&#34;</span>)     <span style=color:#960050;background-color:#1e0010>实例化对象</span>
-<span style=color:#66d9ef>val</span> b = a.copy(name = <span style=color:#e6db74>&#34;小张&#34;</span>)     copy <span style=color:#960050;background-color:#1e0010>函数（深度复制）</span>
-<span style=color:#66d9ef>val</span> <span style=color:#960050;background-color:#1e0010>(</span>x, y) = a     <span style=color:#960050;background-color:#1e0010>解构声明（</span>component <span style=color:#960050;background-color:#1e0010>函数）</span>
+<span style=color:#66d9ef>val</span> a = A(<span style=color:#ae81ff>1</span>, <span style=color:#e6db74>&#34;小明&#34;</span>)     实例化对象
+<span style=color:#66d9ef>val</span> b = a.copy(name = <span style=color:#e6db74>&#34;小张&#34;</span>)     copy 函数<span style=color:#960050;background-color:#1e0010>（</span>深度复制<span style=color:#960050;background-color:#1e0010>）</span>
+<span style=color:#66d9ef>val</span> <span style=color:#960050;background-color:#1e0010>(</span>x, y) = a     解构声明<span style=color:#960050;background-color:#1e0010>（</span>component 函数<span style=color:#960050;background-color:#1e0010>）</span>
 
-println(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>$x</span><span style=color:#e6db74> </span><span style=color:#e6db74>$y</span><span style=color:#e6db74>&#34;</span>)     <span style=color:#960050;background-color:#1e0010>字符串模板</span>
+println(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>$x</span><span style=color:#e6db74> </span><span style=color:#e6db74>$y</span><span style=color:#e6db74>&#34;</span>)     字符串模板
 println(a)
 println(b)
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
-<span style=color:#ae81ff>1</span> <span style=color:#960050;background-color:#1e0010>小明</span>
-A(id=<span style=color:#ae81ff>1</span>, name=<span style=color:#960050;background-color:#1e0010>小明</span>)
-A(id=<span style=color:#ae81ff>1</span>, name=<span style=color:#960050;background-color:#1e0010>小张</span>)
+输出<span style=color:#960050;background-color:#1e0010>：</span>
+<span style=color:#ae81ff>1</span> 小明
+A(id=<span style=color:#ae81ff>1</span>, name=小明)
+A(id=<span style=color:#ae81ff>1</span>, name=小张)
 
 <span style=color:#f92672>------------------------------------------------------</span>-
 
-with(a) {     <span style=color:#960050;background-color:#1e0010>高阶函数</span>
+with(a) {     高阶函数
     println(<span style=color:#e6db74>&#34;[</span><span style=color:#e6db74>${this.id}</span><span style=color:#e6db74>, </span><span style=color:#e6db74>${this.name}</span><span style=color:#e6db74>]&#34;</span>)
 }
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
+输出<span style=color:#960050;background-color:#1e0010>：</span>
 <span style=color:#a6e22e>[1, 小明]</span>
 
 <span style=color:#f92672>------------------------------------------------------</span>-
 
-a.use {     <span style=color:#960050;background-color:#1e0010>由于主动继承自</span> Closeable<span style=color:#960050;background-color:#1e0010>，所以能够使用</span> use <span style=color:#960050;background-color:#1e0010>高阶函数（</span>Closeable <span style=color:#960050;background-color:#1e0010>接口的扩展函数，用于替代</span> Java7 <span style=color:#960050;background-color:#1e0010>的</span> ARM<span style=color:#960050;background-color:#1e0010>）</span>
+a.use {     由于主动继承自 Closeable<span style=color:#960050;background-color:#1e0010>，</span>所以能够使用 use 高阶函数<span style=color:#960050;background-color:#1e0010>（</span>Closeable 接口的扩展函数<span style=color:#960050;background-color:#1e0010>，</span>用于替代 Java7 的 ARM<span style=color:#960050;background-color:#1e0010>）</span>
     println(<span style=color:#e6db74>&#34;[</span><span style=color:#e6db74>${it.id}</span><span style=color:#e6db74>, </span><span style=color:#e6db74>${it.name}</span><span style=color:#e6db74>]&#34;</span>)
 }
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
+输出<span style=color:#960050;background-color:#1e0010>：</span>
 <span style=color:#a6e22e>[1, 小明]</span>
 close!
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>val</span> list = listOf(<span style=color:#e6db74>&#34;A&#34;</span>, <span style=color:#e6db74>&#34;B&#34;</span>, <span style=color:#e6db74>&#34;C&#34;</span>)     <span style=color:#960050;background-color:#1e0010>生成不可变</span> List<span style=color:#960050;background-color:#1e0010>（元素不可被添加或删除，只读）</span>
-<span style=color:#66d9ef>val</span> set = setOf(<span style=color:#e6db74>&#34;A&#34;</span>, <span style=color:#e6db74>&#34;B&#34;</span>, <span style=color:#e6db74>&#34;C&#34;</span>)     <span style=color:#960050;background-color:#1e0010>生成不可变</span> Set
-<span style=color:#66d9ef>val</span> map = mapOf(<span style=color:#e6db74>&#34;A&#34;</span> to <span style=color:#ae81ff>0</span>, <span style=color:#e6db74>&#34;B&#34;</span> to <span style=color:#ae81ff>1</span>, <span style=color:#e6db74>&#34;C&#34;</span> to <span style=color:#ae81ff>2</span>)     <span style=color:#960050;background-color:#1e0010>生成不可变</span> Map<span style=color:#960050;background-color:#1e0010>（</span>Kotlin <span style=color:#960050;background-color:#1e0010>中的</span> Map <span style=color:#960050;background-color:#1e0010>存储的是</span> Pair<span style=color:#960050;background-color:#1e0010>）</span>
-<span style=color:#66d9ef>val</span> mutableList = mutableListOf(<span style=color:#e6db74>&#34;A&#34;</span>, <span style=color:#e6db74>&#34;B&#34;</span>, <span style=color:#e6db74>&#34;C&#34;</span>)     <span style=color:#960050;background-color:#1e0010>生成可变</span> List
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>val</span> list = listOf(<span style=color:#e6db74>&#34;A&#34;</span>, <span style=color:#e6db74>&#34;B&#34;</span>, <span style=color:#e6db74>&#34;C&#34;</span>)     生成不可变 List<span style=color:#960050;background-color:#1e0010>（</span>元素不可被添加或删除<span style=color:#960050;background-color:#1e0010>，</span>只读<span style=color:#960050;background-color:#1e0010>）</span>
+<span style=color:#66d9ef>val</span> set = setOf(<span style=color:#e6db74>&#34;A&#34;</span>, <span style=color:#e6db74>&#34;B&#34;</span>, <span style=color:#e6db74>&#34;C&#34;</span>)     生成不可变 Set
+<span style=color:#66d9ef>val</span> map = mapOf(<span style=color:#e6db74>&#34;A&#34;</span> to <span style=color:#ae81ff>0</span>, <span style=color:#e6db74>&#34;B&#34;</span> to <span style=color:#ae81ff>1</span>, <span style=color:#e6db74>&#34;C&#34;</span> to <span style=color:#ae81ff>2</span>)     生成不可变 Map<span style=color:#960050;background-color:#1e0010>（</span>Kotlin 中的 Map 存储的是 Pair<span style=color:#960050;background-color:#1e0010>）</span>
+<span style=color:#66d9ef>val</span> mutableList = mutableListOf(<span style=color:#e6db74>&#34;A&#34;</span>, <span style=color:#e6db74>&#34;B&#34;</span>, <span style=color:#e6db74>&#34;C&#34;</span>)     生成可变 List
 
 println(list[<span style=color:#ae81ff>0</span>])
 println(<span style=color:#66d9ef>set</span>.contains(<span style=color:#e6db74>&#34;A&#34;</span>))
 println(map[<span style=color:#e6db74>&#34;A&#34;</span>])
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
+输出<span style=color:#960050;background-color:#1e0010>：</span>
 A
 <span style=color:#66d9ef>true</span>
 <span style=color:#ae81ff>0</span>
 
-<span style=color:#66d9ef>for</span> ((k, v) <span style=color:#66d9ef>in</span> map) {     <span style=color:#960050;background-color:#1e0010>解构声明（</span>Kotlin <span style=color:#960050;background-color:#1e0010>中的</span> Map <span style=color:#960050;background-color:#1e0010>存储的是</span> Pair<span style=color:#960050;background-color:#1e0010>）</span>
+<span style=color:#66d9ef>for</span> ((k, v) <span style=color:#66d9ef>in</span> map) {     解构声明<span style=color:#960050;background-color:#1e0010>（</span>Kotlin 中的 Map 存储的是 Pair<span style=color:#960050;background-color:#1e0010>）</span>
     println(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>$k</span><span style=color:#e6db74> -&gt; </span><span style=color:#e6db74>$v</span><span style=color:#e6db74>&#34;</span>)
 }
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
+输出<span style=color:#960050;background-color:#1e0010>：</span>
 A <span style=color:#f92672>-&gt;</span> <span style=color:#ae81ff>0</span>
 B <span style=color:#f92672>-&gt;</span> <span style=color:#ae81ff>1</span>
 C <span style=color:#f92672>-&gt;</span> <span style=color:#ae81ff>2</span>
@@ -489,7 +489,7 @@ C <span style=color:#f92672>-&gt;</span> <span style=color:#ae81ff>2</span>
 
 <span style=color:#66d9ef>val</span> list = listOf(<span style=color:#e6db74>&#39;A&#39;</span>, <span style=color:#e6db74>&#39;B&#39;</span>, <span style=color:#e6db74>&#39;C&#39;</span>)
 
-list.asIterable()     Iterable<span style=color:#960050;background-color:#1e0010>：急性求值（</span>Eager<span style=color:#960050;background-color:#1e0010>）（多用于小型集合）（默认）</span>
+list.asIterable()     Iterable<span style=color:#960050;background-color:#1e0010>：</span>急性求值<span style=color:#960050;background-color:#1e0010>（</span>Eager<span style=color:#960050;background-color:#1e0010>）（</span>多用于小型集合<span style=color:#960050;background-color:#1e0010>）（</span>默认<span style=color:#960050;background-color:#1e0010>）</span>
         .filter {
             println(<span style=color:#e6db74>&#34;filter：</span><span style=color:#e6db74>$it</span><span style=color:#e6db74>&#34;</span>)
             <span style=color:#66d9ef>true</span>
@@ -500,7 +500,7 @@ list.asIterable()     Iterable<span style=color:#960050;background-color:#1e0010
         }
         .first().let(<span style=color:#f92672>::</span>println)
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
+输出<span style=color:#960050;background-color:#1e0010>：</span>
 filter<span style=color:#960050;background-color:#1e0010>：</span>A
 filter<span style=color:#960050;background-color:#1e0010>：</span>B
 filter<span style=color:#960050;background-color:#1e0010>：</span>C
@@ -509,7 +509,7 @@ map<span style=color:#960050;background-color:#1e0010>：</span>B
 map<span style=color:#960050;background-color:#1e0010>：</span>C
 <span style=color:#ae81ff>65</span>
 
-list.asSequence()     Sequence<span style=color:#960050;background-color:#1e0010>：惰性求值（</span>Lazy<span style=color:#960050;background-color:#1e0010>）（多用于大型集合）（类似于</span> Java8 <span style=color:#960050;background-color:#1e0010>中的数据流）</span>
+list.asSequence()     Sequence<span style=color:#960050;background-color:#1e0010>：</span>惰性求值<span style=color:#960050;background-color:#1e0010>（</span>Lazy<span style=color:#960050;background-color:#1e0010>）（</span>多用于大型集合<span style=color:#960050;background-color:#1e0010>）（</span>类似于 Java8 中的数据流<span style=color:#960050;background-color:#1e0010>）</span>
         .filter {
             println(<span style=color:#e6db74>&#34;filter：</span><span style=color:#e6db74>$it</span><span style=color:#e6db74>&#34;</span>)
             <span style=color:#66d9ef>true</span>
@@ -520,7 +520,7 @@ list.asSequence()     Sequence<span style=color:#960050;background-color:#1e0010
         }
         .first().let(<span style=color:#f92672>::</span>println)
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
+输出<span style=color:#960050;background-color:#1e0010>：</span>
 filter<span style=color:#960050;background-color:#1e0010>：</span>A
 map<span style=color:#960050;background-color:#1e0010>：</span>A
 <span style=color:#ae81ff>65</span>
@@ -528,10 +528,10 @@ map<span style=color:#960050;background-color:#1e0010>：</span>A
 <span style=color:#f92672>------------------------------------------------------</span>-
 
 <span style=color:#66d9ef>val</span> map: Map&lt;String, List&lt;Int&gt;&gt; = (<span style=color:#ae81ff>1.</span>.<span style=color:#ae81ff>9</span>)
-        .map { <span style=color:#66d9ef>it</span> * <span style=color:#ae81ff>3</span> }     <span style=color:#960050;background-color:#1e0010>映射</span>
-        .filter { <span style=color:#66d9ef>it</span> &lt; <span style=color:#ae81ff>20</span> }     <span style=color:#960050;background-color:#1e0010>过滤</span>
-        .groupBy { <span style=color:#66d9ef>it</span> % <span style=color:#ae81ff>2</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span> }     <span style=color:#960050;background-color:#1e0010>分组</span>
-        .mapKeys {     <span style=color:#960050;background-color:#1e0010>映射</span>
+        .map { <span style=color:#66d9ef>it</span> * <span style=color:#ae81ff>3</span> }     映射
+        .filter { <span style=color:#66d9ef>it</span> &lt; <span style=color:#ae81ff>20</span> }     过滤
+        .groupBy { <span style=color:#66d9ef>it</span> % <span style=color:#ae81ff>2</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span> }     分组
+        .mapKeys {     映射
             <span style=color:#66d9ef>if</span> (<span style=color:#66d9ef>it</span>.key) {
                 <span style=color:#e6db74>&#34;偶数&#34;</span>
             } <span style=color:#66d9ef>else</span> {
@@ -540,54 +540,54 @@ map<span style=color:#960050;background-color:#1e0010>：</span>A
         }
 println(map)
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
-{<span style=color:#960050;background-color:#1e0010>奇数</span>=[<span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>9</span>, <span style=color:#ae81ff>15</span>], <span style=color:#960050;background-color:#1e0010>偶数</span>=[<span style=color:#ae81ff>6</span>, <span style=color:#ae81ff>12</span>, <span style=color:#ae81ff>18</span>]}
+输出<span style=color:#960050;background-color:#1e0010>：</span>
+{奇数=[<span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>9</span>, <span style=color:#ae81ff>15</span>], 偶数=[<span style=color:#ae81ff>6</span>, <span style=color:#ae81ff>12</span>, <span style=color:#ae81ff>18</span>]}
 
 <span style=color:#f92672>------------------------------------------------------</span>-
 
 <span style=color:#66d9ef>val</span> list1 = listOf(<span style=color:#ae81ff>1.</span>.<span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4.</span>.<span style=color:#ae81ff>6</span>)     [<span style=color:#ae81ff>1.</span>.<span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4.</span>.<span style=color:#ae81ff>6</span>]
-<span style=color:#66d9ef>val</span> list2 = list1.flatMap { <span style=color:#66d9ef>it</span> }     [<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>5</span>, <span style=color:#ae81ff>6</span>]     <span style=color:#960050;background-color:#1e0010>平铺</span>
-<span style=color:#66d9ef>val</span> list3 = list2.map { <span style=color:#66d9ef>it</span> * <span style=color:#ae81ff>2</span> }     [<span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>6</span>, <span style=color:#ae81ff>8</span>, <span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>12</span>]     <span style=color:#960050;background-color:#1e0010>映射</span>
+<span style=color:#66d9ef>val</span> list2 = list1.flatMap { <span style=color:#66d9ef>it</span> }     [<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>5</span>, <span style=color:#ae81ff>6</span>]     平铺
+<span style=color:#66d9ef>val</span> list3 = list2.map { <span style=color:#66d9ef>it</span> * <span style=color:#ae81ff>2</span> }     [<span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>6</span>, <span style=color:#ae81ff>8</span>, <span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>12</span>]     映射
 
 <span style=color:#f92672>------------------------------------------------------</span>-
 
 <span style=color:#66d9ef>val</span> intRange = <span style=color:#ae81ff>1.</span>.<span style=color:#ae81ff>4</span>
-<span style=color:#66d9ef>val</span> i = intRange.reduce { acc, i <span style=color:#f92672>-&gt;</span> acc + i }     <span style=color:#ae81ff>10</span><span style=color:#960050;background-color:#1e0010>（不带初始值）</span>
-<span style=color:#66d9ef>val</span> j = intRange.fold(-<span style=color:#ae81ff>5</span>) { acc, i <span style=color:#f92672>-&gt;</span> acc + i }     <span style=color:#ae81ff>5</span><span style=color:#960050;background-color:#1e0010>（带有初始值）</span>
+<span style=color:#66d9ef>val</span> i = intRange.reduce { acc, i <span style=color:#f92672>-&gt;</span> acc + i }     <span style=color:#ae81ff>10</span><span style=color:#960050;background-color:#1e0010>（</span>不带初始值<span style=color:#960050;background-color:#1e0010>）</span>
+<span style=color:#66d9ef>val</span> j = intRange.fold(-<span style=color:#ae81ff>5</span>) { acc, i <span style=color:#f92672>-&gt;</span> acc + i }     <span style=color:#ae81ff>5</span><span style=color:#960050;background-color:#1e0010>（</span>带有初始值<span style=color:#960050;background-color:#1e0010>）</span>
 
 <span style=color:#f92672>------------------------------------------------------</span>-
 
 <span style=color:#66d9ef>val</span> intRange = <span style=color:#ae81ff>1.</span>.<span style=color:#ae81ff>10</span>
-<span style=color:#66d9ef>val</span> list = intRange.takeWhile { <span style=color:#66d9ef>it</span> % <span style=color:#ae81ff>5</span> <span style=color:#f92672>!=</span> <span style=color:#ae81ff>0</span> }     [<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>]<span style=color:#960050;background-color:#1e0010>（一直获取，直到元素不符合条件为止）</span>
+<span style=color:#66d9ef>val</span> list = intRange.takeWhile { <span style=color:#66d9ef>it</span> % <span style=color:#ae81ff>5</span> <span style=color:#f92672>!=</span> <span style=color:#ae81ff>0</span> }     [<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>]<span style=color:#960050;background-color:#1e0010>（</span>一直获取<span style=color:#960050;background-color:#1e0010>，</span>直到元素不符合条件为止<span style=color:#960050;background-color:#1e0010>）</span>
 
 <span style=color:#f92672>------------------------------------------------------</span>-
 
 <span style=color:#66d9ef>val</span> list: List&lt;Any&gt; = listOf(<span style=color:#e6db74>&#34;A&#34;</span>, <span style=color:#e6db74>&#34;B&#34;</span>, <span style=color:#e6db74>&#34;C&#34;</span>, <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>)
 list.filter { <span style=color:#66d9ef>it</span> <span style=color:#66d9ef>is</span> Int <span style=color:#f92672>&amp;&amp;</span> <span style=color:#66d9ef>it</span> % <span style=color:#ae81ff>2</span> <span style=color:#f92672>!=</span> <span style=color:#ae81ff>0</span> }.forEach(<span style=color:#f92672>::</span>println)
-                  <span style=color:#960050;background-color:#1e0010>↳</span> <span style=color:#960050;background-color:#1e0010>判断类型</span>   <span style=color:#960050;background-color:#1e0010>↳</span> <span style=color:#960050;background-color:#1e0010>自动转型（</span>Smart Cast<span style=color:#960050;background-color:#1e0010>）</span>  <span style=color:#960050;background-color:#1e0010>↳</span> <span style=color:#960050;background-color:#1e0010>函数引用</span>
+                  <span style=color:#960050;background-color:#1e0010>↳</span> 判断类型   <span style=color:#960050;background-color:#1e0010>↳</span> 自动转型<span style=color:#960050;background-color:#1e0010>（</span>Smart Cast<span style=color:#960050;background-color:#1e0010>）</span>  <span style=color:#960050;background-color:#1e0010>↳</span> 函数引用
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
+输出<span style=color:#960050;background-color:#1e0010>：</span>
 <span style=color:#ae81ff>1</span>
 <span style=color:#ae81ff>3</span>
 </code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>for</span><span style=color:#960050;background-color:#1e0010>：</span>
-<span style=color:#66d9ef>val</span> intRange: IntRange = <span style=color:#ae81ff>1.</span>.<span style=color:#ae81ff>5</span>     <span style=color:#960050;background-color:#1e0010>范围表达式</span>
+<span style=color:#66d9ef>val</span> intRange: IntRange = <span style=color:#ae81ff>1.</span>.<span style=color:#ae81ff>5</span>     范围表达式
 <span style=color:#66d9ef>for</span> (i <span style=color:#66d9ef>in</span> intRange) {
     print(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>$i</span><span style=color:#e6db74> &#34;</span>)
 }
-<span style=color:#960050;background-color:#1e0010>可简化为</span>
-<span style=color:#66d9ef>for</span> (i <span style=color:#66d9ef>in</span> <span style=color:#ae81ff>1.</span>.<span style=color:#ae81ff>5</span>) {     <span style=color:#ae81ff>1</span> <span style=color:#ae81ff>2</span> <span style=color:#ae81ff>3</span> <span style=color:#ae81ff>4</span> <span style=color:#ae81ff>5</span>     <span style=color:#960050;background-color:#1e0010>（全包含）</span>
+可简化为
+<span style=color:#66d9ef>for</span> (i <span style=color:#66d9ef>in</span> <span style=color:#ae81ff>1.</span>.<span style=color:#ae81ff>5</span>) {     <span style=color:#ae81ff>1</span> <span style=color:#ae81ff>2</span> <span style=color:#ae81ff>3</span> <span style=color:#ae81ff>4</span> <span style=color:#ae81ff>5</span>     <span style=color:#960050;background-color:#1e0010>（</span>全包含<span style=color:#960050;background-color:#1e0010>）</span>
     print(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>$i</span><span style=color:#e6db74> &#34;</span>)
 }
 
-<span style=color:#66d9ef>for</span> (i <span style=color:#66d9ef>in</span> <span style=color:#ae81ff>1</span> until <span style=color:#ae81ff>5</span>) {     <span style=color:#ae81ff>1</span> <span style=color:#ae81ff>2</span> <span style=color:#ae81ff>3</span> <span style=color:#ae81ff>4</span>     <span style=color:#960050;background-color:#1e0010>（半包含）</span>
+<span style=color:#66d9ef>for</span> (i <span style=color:#66d9ef>in</span> <span style=color:#ae81ff>1</span> until <span style=color:#ae81ff>5</span>) {     <span style=color:#ae81ff>1</span> <span style=color:#ae81ff>2</span> <span style=color:#ae81ff>3</span> <span style=color:#ae81ff>4</span>     <span style=color:#960050;background-color:#1e0010>（</span>半包含<span style=color:#960050;background-color:#1e0010>）</span>
     print(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>$i</span><span style=color:#e6db74> &#34;</span>)
 }
 
-<span style=color:#66d9ef>for</span> (i <span style=color:#66d9ef>in</span> <span style=color:#ae81ff>2.</span>.<span style=color:#ae81ff>10</span> step <span style=color:#ae81ff>2</span>) {     <span style=color:#ae81ff>2</span> <span style=color:#ae81ff>4</span> <span style=color:#ae81ff>6</span> <span style=color:#ae81ff>8</span> <span style=color:#ae81ff>10</span>     <span style=color:#960050;background-color:#1e0010>（步长）</span>
+<span style=color:#66d9ef>for</span> (i <span style=color:#66d9ef>in</span> <span style=color:#ae81ff>2.</span>.<span style=color:#ae81ff>10</span> step <span style=color:#ae81ff>2</span>) {     <span style=color:#ae81ff>2</span> <span style=color:#ae81ff>4</span> <span style=color:#ae81ff>6</span> <span style=color:#ae81ff>8</span> <span style=color:#ae81ff>10</span>     <span style=color:#960050;background-color:#1e0010>（</span>步长<span style=color:#960050;background-color:#1e0010>）</span>
     print(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>$i</span><span style=color:#e6db74> &#34;</span>)
 }
 
-<span style=color:#66d9ef>for</span> (i <span style=color:#66d9ef>in</span> <span style=color:#ae81ff>10</span> downTo <span style=color:#ae81ff>5</span>) {     <span style=color:#ae81ff>10</span> <span style=color:#ae81ff>9</span> <span style=color:#ae81ff>8</span> <span style=color:#ae81ff>7</span> <span style=color:#ae81ff>6</span> <span style=color:#ae81ff>5</span>     <span style=color:#960050;background-color:#1e0010>（降序）</span>
+<span style=color:#66d9ef>for</span> (i <span style=color:#66d9ef>in</span> <span style=color:#ae81ff>10</span> downTo <span style=color:#ae81ff>5</span>) {     <span style=color:#ae81ff>10</span> <span style=color:#ae81ff>9</span> <span style=color:#ae81ff>8</span> <span style=color:#ae81ff>7</span> <span style=color:#ae81ff>6</span> <span style=color:#ae81ff>5</span>     <span style=color:#960050;background-color:#1e0010>（</span>降序<span style=color:#960050;background-color:#1e0010>）</span>
     print(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>$i</span><span style=color:#e6db74> &#34;</span>)
 }
 
@@ -601,17 +601,17 @@ list.filter { <span style=color:#66d9ef>it</span> <span style=color:#66d9ef>is</
     println(<span style=color:#e6db74>&#34;NO&#34;</span>)
 }
 
-<span style=color:#960050;background-color:#1e0010>遍历对象并带有索引位置</span>
+遍历对象并带有索引位置
 <span style=color:#f92672>----</span>
 <span style=color:#66d9ef>val</span> strs = arrayOf(<span style=color:#e6db74>&#34;A&#34;</span>, <span style=color:#e6db74>&#34;B&#34;</span>, <span style=color:#e6db74>&#34;C&#34;</span>)
-<span style=color:#66d9ef>for</span> ((index, s) <span style=color:#66d9ef>in</span> strs.withIndex()) {     <span style=color:#960050;background-color:#1e0010>对</span> IndexedValue&lt;T&gt; <span style=color:#960050;background-color:#1e0010>的解构声明</span>
+<span style=color:#66d9ef>for</span> ((index, s) <span style=color:#66d9ef>in</span> strs.withIndex()) {     对 IndexedValue&lt;T&gt; 的解构声明
     println(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>$index</span><span style=color:#e6db74> -&gt; </span><span style=color:#e6db74>$s</span><span style=color:#e6db74>&#34;</span>)
 }
 strs.forEachIndexed { index, s <span style=color:#f92672>-&gt;</span>
     println(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>$index</span><span style=color:#e6db74> -&gt; </span><span style=color:#e6db74>$s</span><span style=color:#e6db74>&#34;</span>)
 }
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
+输出<span style=color:#960050;background-color:#1e0010>：</span>
 <span style=color:#ae81ff>0</span> <span style=color:#f92672>-&gt;</span> A
 <span style=color:#ae81ff>1</span> <span style=color:#f92672>-&gt;</span> B
 <span style=color:#ae81ff>2</span> <span style=color:#f92672>-&gt;</span> C
@@ -632,7 +632,7 @@ strs.forEachIndexed { index, s <span style=color:#f92672>-&gt;</span>
     i<span style=color:#f92672>++</span>
 } <span style=color:#66d9ef>while</span> (i &lt; <span style=color:#ae81ff>10</span>)
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
+输出<span style=color:#960050;background-color:#1e0010>：</span>
 <span style=color:#ae81ff>0</span>
 <span style=color:#ae81ff>1</span>
 <span style=color:#ae81ff>2</span>
@@ -645,33 +645,33 @@ strs.forEachIndexed { index, s <span style=color:#f92672>-&gt;</span>
 <span style=color:#ae81ff>9</span>
 
 <span style=color:#f92672>------------------------------------------------------</span>-
-<span style=color:#66d9ef>when</span><span style=color:#960050;background-color:#1e0010>（和所有分支条件进行顺序比较，用于替代</span> Java <span style=color:#960050;background-color:#1e0010>中的</span> switch<span style=color:#960050;background-color:#1e0010>）：</span>
+<span style=color:#66d9ef>when</span><span style=color:#960050;background-color:#1e0010>（</span>和所有分支条件进行顺序比较<span style=color:#960050;background-color:#1e0010>，</span>用于替代 Java 中的 switch<span style=color:#960050;background-color:#1e0010>）：</span>
 
 <span style=color:#66d9ef>val</span> i = <span style=color:#ae81ff>8</span>
-<span style=color:#66d9ef>when</span> (i) {     <span style=color:#960050;background-color:#1e0010>提供参数，匹配对应参数类型，替代</span> switch
+<span style=color:#66d9ef>when</span> (i) {     提供参数<span style=color:#960050;background-color:#1e0010>，</span>匹配对应参数类型<span style=color:#960050;background-color:#1e0010>，</span>替代 switch
     <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>21</span> <span style=color:#f92672>-&gt;</span> println(<span style=color:#e6db74>&#34;0 or 21&#34;</span>)
-    <span style=color:#66d9ef>in</span> <span style=color:#ae81ff>1.</span>.<span style=color:#ae81ff>20</span> <span style=color:#f92672>-&gt;</span> println(<span style=color:#e6db74>&#34;1 to 20&#34;</span>)     <span style=color:#960050;background-color:#1e0010>在</span>
-    <span style=color:#f92672>!in</span> <span style=color:#ae81ff>22.</span>.<span style=color:#ae81ff>100</span> <span style=color:#f92672>-&gt;</span> print(<span style=color:#e6db74>&#34;x&lt;0 or x&gt;100&#34;</span>)     <span style=color:#960050;background-color:#1e0010>不在</span>
-    <span style=color:#66d9ef>is</span> Int <span style=color:#f92672>-&gt;</span> print(<span style=color:#e6db74>&#34;is Int&#34;</span>)     <span style=color:#960050;background-color:#1e0010>是（</span>Smart Cast<span style=color:#960050;background-color:#1e0010>）</span>
-    <span style=color:#f92672>!is</span> Int <span style=color:#f92672>-&gt;</span> print(<span style=color:#e6db74>&#34;not Int&#34;</span>)     <span style=color:#960050;background-color:#1e0010>不是</span>
+    <span style=color:#66d9ef>in</span> <span style=color:#ae81ff>1.</span>.<span style=color:#ae81ff>20</span> <span style=color:#f92672>-&gt;</span> println(<span style=color:#e6db74>&#34;1 to 20&#34;</span>)     在
+    <span style=color:#f92672>!in</span> <span style=color:#ae81ff>22.</span>.<span style=color:#ae81ff>100</span> <span style=color:#f92672>-&gt;</span> print(<span style=color:#e6db74>&#34;x&lt;0 or x&gt;100&#34;</span>)     不在
+    <span style=color:#66d9ef>is</span> Int <span style=color:#f92672>-&gt;</span> print(<span style=color:#e6db74>&#34;is Int&#34;</span>)     是<span style=color:#960050;background-color:#1e0010>（</span>Smart Cast<span style=color:#960050;background-color:#1e0010>）</span>
+    <span style=color:#f92672>!is</span> Int <span style=color:#f92672>-&gt;</span> print(<span style=color:#e6db74>&#34;not Int&#34;</span>)     不是
     <span style=color:#66d9ef>else</span> <span style=color:#f92672>-&gt;</span> println(<span style=color:#e6db74>&#34;other&#34;</span>)
 }
-<span style=color:#66d9ef>when</span> {     <span style=color:#960050;background-color:#1e0010>不提供参数，匹配布尔类型，可替代</span> <span style=color:#66d9ef>if</span>-<span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> <span style=color:#960050;background-color:#1e0010>链</span>
+<span style=color:#66d9ef>when</span> {     不提供参数<span style=color:#960050;background-color:#1e0010>，</span>匹配布尔类型<span style=color:#960050;background-color:#1e0010>，</span>可替代 <span style=color:#66d9ef>if</span>-<span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> 链
     i &lt; <span style=color:#ae81ff>5</span> <span style=color:#f92672>-&gt;</span> println(<span style=color:#e6db74>&#34;first block&#34;</span>)
     i &lt; <span style=color:#ae81ff>10</span> <span style=color:#f92672>-&gt;</span> println(<span style=color:#e6db74>&#34;second block&#34;</span>)
     <span style=color:#66d9ef>else</span> <span style=color:#f92672>-&gt;</span> println(<span style=color:#e6db74>&#34;else block&#34;</span>)
 }
 
 <span style=color:#f92672>------------------------------------------------------</span>-
-<span style=color:#960050;background-color:#1e0010>流程控制语句可作为表达式提供返回值。</span>
+流程控制语句可作为表达式提供返回值<span style=color:#960050;background-color:#1e0010>。</span>
 
 <span style=color:#66d9ef>val</span> s = <span style=color:#66d9ef>if</span> (Math.random() - Math.random() &gt; <span style=color:#ae81ff>0</span>) {
     <span style=color:#e6db74>&#34;成功&#34;</span>
 } <span style=color:#66d9ef>else</span> {
     <span style=color:#e6db74>&#34;失败&#34;</span>
 }
-<span style=color:#960050;background-color:#1e0010>可简化为</span>
-<span style=color:#66d9ef>val</span> s = <span style=color:#66d9ef>if</span> (Math.random() - Math.random() &gt; <span style=color:#ae81ff>0</span>) <span style=color:#e6db74>&#34;成功&#34;</span> <span style=color:#66d9ef>else</span> <span style=color:#e6db74>&#34;失败&#34;</span>     <span style=color:#960050;background-color:#1e0010>替代三元运算符</span>
+可简化为
+<span style=color:#66d9ef>val</span> s = <span style=color:#66d9ef>if</span> (Math.random() - Math.random() &gt; <span style=color:#ae81ff>0</span>) <span style=color:#e6db74>&#34;成功&#34;</span> <span style=color:#66d9ef>else</span> <span style=color:#e6db74>&#34;失败&#34;</span>     替代三元运算符
 
 <span style=color:#66d9ef>val</span> s2 = <span style=color:#66d9ef>when</span> (Math.random() - Math.random() &gt; <span style=color:#ae81ff>0</span>) {
     <span style=color:#66d9ef>true</span> <span style=color:#f92672>-&gt;</span> <span style=color:#e6db74>&#34;成功&#34;</span>
@@ -681,8 +681,8 @@ strs.forEachIndexed { index, s <span style=color:#f92672>-&gt;</span>
 
 <span style=color:#f92672>------------------------------------------------------</span>-
 
-<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>smartCast</span>(x: Any): Boolean {     <span style=color:#960050;background-color:#1e0010>自动类型转换（智能转型）</span>
-    <span style=color:#66d9ef>if</span> (x <span style=color:#66d9ef>is</span> Boolean) {     <span style=color:#960050;background-color:#1e0010>通过类型检查后自动转换类型</span>
+<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>smartCast</span>(x: Any): Boolean {     自动类型转换<span style=color:#960050;background-color:#1e0010>（</span>智能转型<span style=color:#960050;background-color:#1e0010>）</span>
+    <span style=color:#66d9ef>if</span> (x <span style=color:#66d9ef>is</span> Boolean) {     通过类型检查后自动转换类型
         <span style=color:#66d9ef>return</span> x
     } <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (x <span style=color:#66d9ef>is</span> Int) {
         <span style=color:#66d9ef>return</span> x &gt; <span style=color:#ae81ff>0</span>
@@ -692,8 +692,8 @@ strs.forEachIndexed { index, s <span style=color:#f92672>-&gt;</span>
         <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>false</span>
     }
 }
-<span style=color:#960050;background-color:#1e0010>可简化为</span>
-<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>smartCast</span>(x: Any): Boolean {     <span style=color:#960050;background-color:#1e0010>用</span> <span style=color:#66d9ef>when</span> <span style=color:#960050;background-color:#1e0010>替代</span> <span style=color:#66d9ef>if</span>-<span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> <span style=color:#960050;background-color:#1e0010>链</span>
+可简化为
+<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>smartCast</span>(x: Any): Boolean {     用 <span style=color:#66d9ef>when</span> 替代 <span style=color:#66d9ef>if</span>-<span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> 链
     <span style=color:#66d9ef>when</span> (x) {
         <span style=color:#66d9ef>is</span> Boolean <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>return</span> x
         <span style=color:#66d9ef>is</span> Int <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>return</span> x &gt; <span style=color:#ae81ff>0</span>
@@ -701,8 +701,8 @@ strs.forEachIndexed { index, s <span style=color:#f92672>-&gt;</span>
         <span style=color:#66d9ef>else</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>false</span>
     }
 }
-<span style=color:#960050;background-color:#1e0010>可简化为</span>
-<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>smartCast</span>(x: Any): Boolean {     <span style=color:#960050;background-color:#1e0010>用</span> <span style=color:#66d9ef>when</span> <span style=color:#960050;background-color:#1e0010>作为返回值</span>
+可简化为
+<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>smartCast</span>(x: Any): Boolean {     用 <span style=color:#66d9ef>when</span> 作为返回值
     <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>when</span> (x) {
         <span style=color:#66d9ef>is</span> Boolean <span style=color:#f92672>-&gt;</span> x
         <span style=color:#66d9ef>is</span> Int <span style=color:#f92672>-&gt;</span> x &gt; <span style=color:#ae81ff>0</span>
@@ -710,68 +710,68 @@ strs.forEachIndexed { index, s <span style=color:#f92672>-&gt;</span>
         <span style=color:#66d9ef>else</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>false</span>
     }
 }
-<span style=color:#960050;background-color:#1e0010>可简化为</span>
-<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>smartCast</span>(x: Any) = <span style=color:#66d9ef>when</span> (x) {     <span style=color:#960050;background-color:#1e0010>简化表达式（省略函数体和返回值）</span>
+可简化为
+<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>smartCast</span>(x: Any) = <span style=color:#66d9ef>when</span> (x) {     简化表达式<span style=color:#960050;background-color:#1e0010>（</span>省略函数体和返回值<span style=color:#960050;background-color:#1e0010>）</span>
     <span style=color:#66d9ef>is</span> Boolean <span style=color:#f92672>-&gt;</span> x
     <span style=color:#66d9ef>is</span> Int <span style=color:#f92672>-&gt;</span> x &gt; <span style=color:#ae81ff>0</span>
     <span style=color:#66d9ef>is</span> String <span style=color:#f92672>-&gt;</span> x.startsWith(<span style=color:#e6db74>&#34;Hello&#34;</span>)
     <span style=color:#66d9ef>else</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>false</span>
 }
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>val</span> any: Any = <span style=color:#e6db74>&#34;ABC&#34;</span> <span style=color:#66d9ef>as</span> Any     <span style=color:#960050;background-color:#1e0010>强制类型转换（若转换失败，则抛出异常</span> java.lang.ClassCastException<span style=color:#960050;background-color:#1e0010>）</span>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>val</span> any: Any = <span style=color:#e6db74>&#34;ABC&#34;</span> <span style=color:#66d9ef>as</span> Any     强制类型转换<span style=color:#960050;background-color:#1e0010>（</span>若转换失败<span style=color:#960050;background-color:#1e0010>，</span>则抛出异常 java.lang.ClassCastException<span style=color:#960050;background-color:#1e0010>）</span>
 <span style=color:#f92672>----</span>
-<span style=color:#66d9ef>if</span> (any <span style=color:#66d9ef>is</span> String) {     <span style=color:#960050;background-color:#1e0010>等同于</span> instanceof<span style=color:#960050;background-color:#1e0010>，若通过检查，则在代码块中进行智能转型（</span>Smart Cast<span style=color:#960050;background-color:#1e0010>）</span>
-    println(any.length)     <span style=color:#960050;background-color:#1e0010>类型：</span>String
+<span style=color:#66d9ef>if</span> (any <span style=color:#66d9ef>is</span> String) {     等同于 instanceof<span style=color:#960050;background-color:#1e0010>，</span>若通过检查<span style=color:#960050;background-color:#1e0010>，</span>则在代码块中进行智能转型<span style=color:#960050;background-color:#1e0010>（</span>Smart Cast<span style=color:#960050;background-color:#1e0010>）</span>
+    println(any.length)     类型<span style=color:#960050;background-color:#1e0010>：</span>String
 }
-println(any.length)     <span style=color:#960050;background-color:#1e0010>类型：</span>Any<span style=color:#960050;background-color:#1e0010>，无</span> length <span style=color:#960050;background-color:#1e0010>属性，报错</span>
+println(any.length)     类型<span style=color:#960050;background-color:#1e0010>：</span>Any<span style=color:#960050;background-color:#1e0010>，</span>无 length 属性<span style=color:#960050;background-color:#1e0010>，</span>报错
 
 <span style=color:#f92672>------------------------------------------------------</span>-
 
-<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>String</span>.abc(c: Char): String {     <span style=color:#960050;background-color:#1e0010>扩展函数（给一个类添加新的功能）</span>
-    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>this</span>.filter { <span style=color:#66d9ef>it</span> <span style=color:#f92672>!=</span> c }     <span style=color:#66d9ef>false</span> <span style=color:#960050;background-color:#1e0010>过滤，</span><span style=color:#66d9ef>true</span> <span style=color:#960050;background-color:#1e0010>不过滤</span>
+<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>String</span>.abc(c: Char): String {     扩展函数<span style=color:#960050;background-color:#1e0010>（</span>给一个类添加新的功能<span style=color:#960050;background-color:#1e0010>）</span>
+    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>this</span>.filter { <span style=color:#66d9ef>it</span> <span style=color:#f92672>!=</span> c }     <span style=color:#66d9ef>false</span> 过滤<span style=color:#960050;background-color:#1e0010>，</span><span style=color:#66d9ef>true</span> 不过滤
 }
-<span style=color:#960050;background-color:#1e0010>可简化为</span>
+可简化为
 <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>String</span>.abc(c: Char) = <span style=color:#66d9ef>this</span>.filter { <span style=color:#66d9ef>it</span> <span style=color:#f92672>!=</span> c }
 
 println(<span style=color:#e6db74>&#34;Hello&#34;</span>.abc(<span style=color:#e6db74>&#39;l&#39;</span>))
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
+输出<span style=color:#960050;background-color:#1e0010>：</span>
 Heo
 
-<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>String</span>.Companion.abc() {     <span style=color:#960050;background-color:#1e0010>静态扩展函数（给一个类的伴生对象添加新的功能）</span>
+<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>String</span>.Companion.abc() {     静态扩展函数<span style=color:#960050;background-color:#1e0010>（</span>给一个类的伴生对象添加新的功能<span style=color:#960050;background-color:#1e0010>）</span>
     println(<span style=color:#e6db74>&#34;ABC&#34;</span>)
 }
-<span style=color:#960050;background-color:#1e0010>可简化为</span>
+可简化为
 <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>String</span>.Companion.abc() = println(<span style=color:#e6db74>&#34;ABC&#34;</span>)
 
-String.abc()     <span style=color:#960050;background-color:#1e0010>直接调用而不通过对象</span>
+String.abc()     直接调用而不通过对象
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
+输出<span style=color:#960050;background-color:#1e0010>：</span>
 ABC
 
-<span style=color:#66d9ef>val</span> String.str1: String     <span style=color:#960050;background-color:#1e0010>扩展属性（只能为</span> <span style=color:#66d9ef>val</span><span style=color:#960050;background-color:#1e0010>），同样也有静态扩展属性</span>
+<span style=color:#66d9ef>val</span> String.str1: String     扩展属性<span style=color:#960050;background-color:#1e0010>（</span>只能为 <span style=color:#66d9ef>val</span><span style=color:#960050;background-color:#1e0010>），</span>同样也有静态扩展属性
     <span style=color:#66d9ef>get</span>() = <span style=color:#e6db74>&#34;Hello&#34;</span>
 
 println(<span style=color:#e6db74>&#34;&#34;</span>.str1)
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
+输出<span style=color:#960050;background-color:#1e0010>：</span>
 Hello
 
 <span style=color:#f92672>------------------------------------------------------</span>-
-<span style=color:#960050;background-color:#1e0010>中缀函数条件：</span>
-<span style=color:#ae81ff>1.</span> <span style=color:#960050;background-color:#1e0010>为成员函数或扩展函数</span>
-<span style=color:#ae81ff>2.</span> <span style=color:#960050;background-color:#1e0010>函数签名带有</span> <span style=color:#66d9ef>infix</span> <span style=color:#960050;background-color:#1e0010>关键字</span>
-<span style=color:#ae81ff>3.</span> <span style=color:#960050;background-color:#1e0010>只接收</span> <span style=color:#ae81ff>1</span> <span style=color:#960050;background-color:#1e0010>个参数</span>
+中缀函数条件<span style=color:#960050;background-color:#1e0010>：</span>
+<span style=color:#ae81ff>1.</span> 为成员函数或扩展函数
+<span style=color:#ae81ff>2.</span> 函数签名带有 <span style=color:#66d9ef>infix</span> 关键字
+<span style=color:#ae81ff>3.</span> 只接收 <span style=color:#ae81ff>1</span> 个参数
 
 <span style=color:#66d9ef>infix</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>Int</span>.abc(x: Int): Int {
     println(<span style=color:#e6db74>&#34;OK!&#34;</span>)
     <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>this</span> + x
 }
 
-println(<span style=color:#ae81ff>1.</span>abc(<span style=color:#ae81ff>2</span>).abc(<span style=color:#ae81ff>3</span>))     <span style=color:#960050;background-color:#1e0010>点号标记法</span>
-<span style=color:#960050;background-color:#1e0010>等同于</span>
-println(<span style=color:#ae81ff>1</span> abc <span style=color:#ae81ff>2</span> abc <span style=color:#ae81ff>3</span>)     <span style=color:#960050;background-color:#1e0010>中缀标记法</span>
+println(<span style=color:#ae81ff>1.</span>abc(<span style=color:#ae81ff>2</span>).abc(<span style=color:#ae81ff>3</span>))     点号标记法
+等同于
+println(<span style=color:#ae81ff>1</span> abc <span style=color:#ae81ff>2</span> abc <span style=color:#ae81ff>3</span>)     中缀标记法
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
+输出<span style=color:#960050;background-color:#1e0010>：</span>
 OK!
 OK!
 <span style=color:#ae81ff>6</span>
@@ -781,18 +781,18 @@ OK!
 <span style=color:#a6e22e>    [&lt;getter&gt;]</span>
 <span style=color:#a6e22e>    [&lt;setter&gt;]</span>
 
-Kotlin <span style=color:#960050;background-color:#1e0010>中对属性的访问自动转为编译器自动生成的默认</span> <span style=color:#66d9ef>get</span>/<span style=color:#66d9ef>set</span><span style=color:#960050;background-color:#1e0010>，我们可对其进行自定义。</span>
+Kotlin 中对属性的访问自动转为编译器自动生成的默认 <span style=color:#66d9ef>get</span>/<span style=color:#66d9ef>set</span><span style=color:#960050;background-color:#1e0010>，</span>我们可对其进行自定义<span style=color:#960050;background-color:#1e0010>。</span>
 <span style=color:#f92672>----</span>
 <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> {
     <span style=color:#66d9ef>var</span> s: String = <span style=color:#e6db74>&#34;Hi&#34;</span>
-        <span style=color:#66d9ef>get</span>() {     <span style=color:#66d9ef>get</span> <span style=color:#960050;background-color:#1e0010>可见性与此属性可见性一致</span>
+        <span style=color:#66d9ef>get</span>() {     <span style=color:#66d9ef>get</span> 可见性与此属性可见性一致
             println(<span style=color:#e6db74>&#34;Get&#34;</span>)
             <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>field</span>
         }
-        <span style=color:#66d9ef>set</span>(value) {     <span style=color:#66d9ef>set</span> <span style=color:#960050;background-color:#1e0010>可见性可设置为</span> <span style=color:#66d9ef>private</span><span style=color:#960050;background-color:#1e0010>；另外</span> <span style=color:#66d9ef>val</span> <span style=color:#960050;background-color:#1e0010>没有 </span>set <span style=color:#960050;background-color:#1e0010>函数和后备</span> <span style=color:#66d9ef>field</span>
+        <span style=color:#66d9ef>set</span>(value) {     <span style=color:#66d9ef>set</span> 可见性可设置为 <span style=color:#66d9ef>private</span><span style=color:#960050;background-color:#1e0010>；</span>另外 <span style=color:#66d9ef>val</span> 没有 <span style=color:#66d9ef>set</span> 函数和后备 <span style=color:#66d9ef>field</span>
             <span style=color:#66d9ef>if</span> (value.startsWith(<span style=color:#e6db74>&#34;H&#34;</span>)) {
                 println(<span style=color:#e6db74>&#34;Set true&#34;</span>)
-                <span style=color:#66d9ef>field</span> = value     <span style=color:#66d9ef>field</span><span style=color:#960050;background-color:#1e0010>：当前属性</span> s<span style=color:#960050;background-color:#1e0010>；</span><span style=color:#66d9ef>this</span><span style=color:#960050;background-color:#1e0010>：当前类</span> A
+                <span style=color:#66d9ef>field</span> = value     <span style=color:#66d9ef>field</span><span style=color:#960050;background-color:#1e0010>：</span>当前属性 s<span style=color:#960050;background-color:#1e0010>；</span><span style=color:#66d9ef>this</span><span style=color:#960050;background-color:#1e0010>：</span>当前类 A
             } <span style=color:#66d9ef>else</span> {
                 println(<span style=color:#e6db74>&#34;Set false&#34;</span>)
             }
@@ -805,7 +805,7 @@ println(a.s)
 a.s = <span style=color:#e6db74>&#34;Hello&#34;</span>
 println(a.s)
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
+输出<span style=color:#960050;background-color:#1e0010>：</span>
 Set <span style=color:#66d9ef>false</span>
 Get
 Hi
@@ -814,19 +814,19 @@ Get
 Hello
 
 <span style=color:#f92672>------------------------------------------------------</span>-
-<span style=color:#960050;background-color:#1e0010>委托属性（</span><span style=color:#66d9ef>get</span>/<span style=color:#66d9ef>set</span> <span style=color:#960050;background-color:#1e0010>的工厂函数）</span>
+委托属性<span style=color:#960050;background-color:#1e0010>（</span><span style=color:#66d9ef>get</span>/<span style=color:#66d9ef>set</span> 的工厂函数<span style=color:#960050;background-color:#1e0010>）</span>
 
 <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> {
-    <span style=color:#66d9ef>val</span> s1: String <span style=color:#66d9ef>by</span> lazy {     <span style=color:#960050;background-color:#1e0010>延迟属性：只会在第一次访问</span> <span style=color:#66d9ef>get</span> <span style=color:#960050;background-color:#1e0010>的时候执行该代码块，并赋值（延迟加载）</span>
-        println(<span style=color:#e6db74>&#34;123&#34;</span>)                    <span style=color:#960050;background-color:#1e0010>↳</span> <span style=color:#960050;background-color:#1e0010>计算时默认为线程同步</span> <span style=color:#960050;background-color:#1e0010>（</span>synchronized<span style=color:#960050;background-color:#1e0010>），若不需要可关闭：</span><span style=color:#66d9ef>by</span> lazy(LazyThreadSafetyMode.NONE) {}
+    <span style=color:#66d9ef>val</span> s1: String <span style=color:#66d9ef>by</span> lazy {     延迟属性<span style=color:#960050;background-color:#1e0010>：</span>只会在第一次访问 <span style=color:#66d9ef>get</span> 的时候执行该代码块<span style=color:#960050;background-color:#1e0010>，</span>并赋值<span style=color:#960050;background-color:#1e0010>（</span>延迟加载<span style=color:#960050;background-color:#1e0010>）</span>
+        println(<span style=color:#e6db74>&#34;123&#34;</span>)                    <span style=color:#960050;background-color:#1e0010>↳</span> 计算时默认为线程同步 <span style=color:#960050;background-color:#1e0010>（</span>synchronized<span style=color:#960050;background-color:#1e0010>），</span>若不需要可关闭<span style=color:#960050;background-color:#1e0010>：</span><span style=color:#66d9ef>by</span> lazy(LazyThreadSafetyMode.NONE) {}
         <span style=color:#e6db74>&#34;AAA&#34;</span>
     }
-    <span style=color:#66d9ef>var</span> s2: String <span style=color:#66d9ef>by</span> Delegates.observable(<span style=color:#e6db74>&#34;XXX&#34;</span>) { prop, old, new <span style=color:#f92672>-&gt;</span>     <span style=color:#960050;background-color:#1e0010>可观察属性：属性改变之后回调，</span>afterChange
-        println(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>$old</span><span style=color:#e6db74> -&gt; </span><span style=color:#e6db74>$new</span><span style=color:#e6db74>&#34;</span>)              <span style=color:#960050;background-color:#1e0010>↳</span> <span style=color:#960050;background-color:#1e0010>初始值</span>
+    <span style=color:#66d9ef>var</span> s2: String <span style=color:#66d9ef>by</span> Delegates.observable(<span style=color:#e6db74>&#34;XXX&#34;</span>) { prop, old, new <span style=color:#f92672>-&gt;</span>     可观察属性<span style=color:#960050;background-color:#1e0010>：</span>属性改变之后回调<span style=color:#960050;background-color:#1e0010>，</span>afterChange
+        println(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>$old</span><span style=color:#e6db74> -&gt; </span><span style=color:#e6db74>$new</span><span style=color:#e6db74>&#34;</span>)              <span style=color:#960050;background-color:#1e0010>↳</span> 初始值
     }
-    <span style=color:#66d9ef>var</span> s3: String <span style=color:#66d9ef>by</span> Delegates.vetoable(<span style=color:#e6db74>&#34;XXX&#34;</span>) { prop, old, new <span style=color:#f92672>-&gt;</span>     <span style=color:#960050;background-color:#1e0010>可观察属性：属性改变之前回调，</span>beforeChange
-        println(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>$old</span><span style=color:#e6db74> -&gt; </span><span style=color:#e6db74>$new</span><span style=color:#e6db74>&#34;</span>)            <span style=color:#960050;background-color:#1e0010>↳</span> <span style=color:#960050;background-color:#1e0010>初始值</span>
-        <span style=color:#66d9ef>return</span><span style=color:#a6e22e>@vetoable</span> <span style=color:#66d9ef>true</span>     <span style=color:#66d9ef>true</span> <span style=color:#960050;background-color:#1e0010>接受，</span><span style=color:#66d9ef>false</span> <span style=color:#960050;background-color:#1e0010>丢弃</span>
+    <span style=color:#66d9ef>var</span> s3: String <span style=color:#66d9ef>by</span> Delegates.vetoable(<span style=color:#e6db74>&#34;XXX&#34;</span>) { prop, old, new <span style=color:#f92672>-&gt;</span>     可观察属性<span style=color:#960050;background-color:#1e0010>：</span>属性改变之前回调<span style=color:#960050;background-color:#1e0010>，</span>beforeChange
+        println(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>$old</span><span style=color:#e6db74> -&gt; </span><span style=color:#e6db74>$new</span><span style=color:#e6db74>&#34;</span>)            <span style=color:#960050;background-color:#1e0010>↳</span> 初始值
+        <span style=color:#66d9ef>return</span><span style=color:#a6e22e>@vetoable</span> <span style=color:#66d9ef>true</span>     <span style=color:#66d9ef>true</span> 接受<span style=color:#960050;background-color:#1e0010>，</span><span style=color:#66d9ef>false</span> 丢弃
     }
 }
 
@@ -837,7 +837,7 @@ println(a.s2)
 a.s3 = <span style=color:#e6db74>&#34;CCC&#34;</span>
 println(a.s3)
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
+输出<span style=color:#960050;background-color:#1e0010>：</span>
 <span style=color:#ae81ff>123</span>
 AAA
 XXX <span style=color:#f92672>-&gt;</span> BBB
@@ -845,29 +845,29 @@ BBB
 XXX <span style=color:#f92672>-&gt;</span> CCC
 CCC
 
-<span style=color:#960050;background-color:#1e0010>委托属性：所有属性存储至</span> Map <span style=color:#960050;background-color:#1e0010>中</span>
+委托属性<span style=color:#960050;background-color:#1e0010>：</span>所有属性存储至 Map 中
 <span style=color:#f92672>----</span>
-<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>User</span>(<span style=color:#66d9ef>val</span> map: Map&lt;String, Any?&gt;) {     <span style=color:#960050;background-color:#1e0010>若属性包含</span> <span style=color:#66d9ef>var</span> <span style=color:#960050;background-color:#1e0010>则需换成 </span>MutableMap
-    <span style=color:#66d9ef>val</span> name: String <span style=color:#66d9ef>by</span> map     <span style=color:#960050;background-color:#1e0010>属性名作为</span> Key
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>User</span>(<span style=color:#66d9ef>val</span> map: Map&lt;String, Any?&gt;) {     若属性包含 <span style=color:#66d9ef>var</span> 则需换成 MutableMap
+    <span style=color:#66d9ef>val</span> name: String <span style=color:#66d9ef>by</span> map     属性名作为 Key
     <span style=color:#66d9ef>val</span> age: Int <span style=color:#66d9ef>by</span> map
 }
 
-<span style=color:#66d9ef>val</span> user = User(mapOf(<span style=color:#e6db74>&#34;name&#34;</span> to <span style=color:#e6db74>&#34;ABC&#34;</span>, <span style=color:#e6db74>&#34;age&#34;</span> to <span style=color:#ae81ff>25</span>))     Key-Value<span style=color:#960050;background-color:#1e0010>（</span>Kotlin <span style=color:#960050;background-color:#1e0010>中的</span> Map <span style=color:#960050;background-color:#1e0010>存储的是</span> Pair<span style=color:#960050;background-color:#1e0010>）</span>
+<span style=color:#66d9ef>val</span> user = User(mapOf(<span style=color:#e6db74>&#34;name&#34;</span> to <span style=color:#e6db74>&#34;ABC&#34;</span>, <span style=color:#e6db74>&#34;age&#34;</span> to <span style=color:#ae81ff>25</span>))     Key-Value<span style=color:#960050;background-color:#1e0010>（</span>Kotlin 中的 Map 存储的是 Pair<span style=color:#960050;background-color:#1e0010>）</span>
 println(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${user.name}</span><span style=color:#e6db74> </span><span style=color:#e6db74>${user.age}</span><span style=color:#e6db74>&#34;</span>)
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
+输出<span style=color:#960050;background-color:#1e0010>：</span>
 ABC <span style=color:#ae81ff>25</span>
 
 <span style=color:#f92672>------------------------------------------------------</span>-
 
-<span style=color:#960050;background-color:#1e0010>属性延迟加载（延迟初始化）</span>
+属性延迟加载<span style=color:#960050;background-color:#1e0010>（</span>延迟初始化<span style=color:#960050;background-color:#1e0010>）</span>
 <span style=color:#f92672>----</span>
 <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> {
-    <span style=color:#66d9ef>val</span> a: String <span style=color:#66d9ef>by</span> lazy {     <span style=color:#66d9ef>val</span> <span style=color:#960050;background-color:#1e0010>使用委托属性 </span>by lazy {}<span style=color:#960050;background-color:#1e0010>：只会在第一次访问</span> <span style=color:#66d9ef>get</span> <span style=color:#960050;background-color:#1e0010>的时候执行该代码块，并赋值</span>
+    <span style=color:#66d9ef>val</span> a: String <span style=color:#66d9ef>by</span> lazy {     <span style=color:#66d9ef>val</span> 使用委托属性 <span style=color:#66d9ef>by</span> lazy {}<span style=color:#960050;background-color:#1e0010>：</span>只会在第一次访问 <span style=color:#66d9ef>get</span> 的时候执行该代码块<span style=color:#960050;background-color:#1e0010>，</span>并赋值
         println(<span style=color:#e6db74>&#34;123&#34;</span>)
         <span style=color:#e6db74>&#34;AAA&#34;</span>
     }
-    <span style=color:#66d9ef>lateinit</span> <span style=color:#66d9ef>var</span> b: String      <span style=color:#66d9ef>var</span> <span style=color:#960050;background-color:#1e0010>使用关键字 </span>lateinit<span style=color:#960050;background-color:#1e0010>：可稍后手动初始化（若访问</span> <span style=color:#66d9ef>get</span> <span style=color:#960050;background-color:#1e0010>时未初始化，则抛出</span> UninitializedPropertyAccessException <span style=color:#960050;background-color:#1e0010>异常）</span>
+    <span style=color:#66d9ef>lateinit</span> <span style=color:#66d9ef>var</span> b: String      <span style=color:#66d9ef>var</span> 使用关键字 <span style=color:#66d9ef>lateinit</span><span style=color:#960050;background-color:#1e0010>：</span>可稍后手动初始化<span style=color:#960050;background-color:#1e0010>（</span>若访问 <span style=color:#66d9ef>get</span> 时未初始化<span style=color:#960050;background-color:#1e0010>，</span>则抛出 UninitializedPropertyAccessException 异常<span style=color:#960050;background-color:#1e0010>）</span>
 }
 
 <span style=color:#66d9ef>val</span> a = A()
@@ -875,36 +875,36 @@ println(a.a)
 a.b = <span style=color:#e6db74>&#34;BBB&#34;</span>
 println(a.b)
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
+输出<span style=color:#960050;background-color:#1e0010>：</span>
 <span style=color:#ae81ff>123</span>
 AAA
 BBB
 
 <span style=color:#f92672>------------------------------------------------------</span>-
-<span style=color:#960050;background-color:#1e0010>编译期常数值：属性值在编译期间就能够确定，需满足以下条件：</span>
-<span style=color:#ae81ff>1.</span> <span style=color:#960050;background-color:#1e0010>为顶级属性或者是</span> <span style=color:#66d9ef>object</span> <span style=color:#960050;background-color:#1e0010>的成员</span>
-<span style=color:#ae81ff>2.</span> <span style=color:#960050;background-color:#1e0010>为</span> String <span style=color:#960050;background-color:#1e0010>或者是基本类型</span>
-<span style=color:#ae81ff>3.</span> <span style=color:#960050;background-color:#1e0010>为</span> <span style=color:#66d9ef>val</span> <span style=color:#960050;background-color:#1e0010>且没有自定义的 </span>get <span style=color:#960050;background-color:#1e0010>函数</span>
+编译期常数值<span style=color:#960050;background-color:#1e0010>：</span>属性值在编译期间就能够确定<span style=color:#960050;background-color:#1e0010>，</span>需满足以下条件<span style=color:#960050;background-color:#1e0010>：</span>
+<span style=color:#ae81ff>1.</span> 为顶级属性或者是 <span style=color:#66d9ef>object</span> <span style=color:#a6e22e>的成员</span>
+<span style=color:#ae81ff>2.</span> 为 String 或者是基本类型
+<span style=color:#ae81ff>3.</span> 为 <span style=color:#66d9ef>val</span> 且没有自定义的 <span style=color:#66d9ef>get</span> 函数
 
 <span style=color:#66d9ef>const</span> <span style=color:#66d9ef>val</span> i = <span style=color:#ae81ff>5</span>
 </code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> {
     <span style=color:#66d9ef>var</span> name = <span style=color:#e6db74>&#34;&#34;</span>
     <span style=color:#66d9ef>var</span> age = <span style=color:#ae81ff>20</span>
 }
-<span style=color:#960050;background-color:#1e0010>可简化为</span>
-<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> <span style=color:#66d9ef>constructor</span>(<span style=color:#66d9ef>var</span> name: String = <span style=color:#e6db74>&#34;&#34;</span>, <span style=color:#66d9ef>var</span> age: Int = <span style=color:#ae81ff>20</span>) {     <span style=color:#960050;background-color:#1e0010>主构造函数</span>
+可简化为
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> <span style=color:#66d9ef>constructor</span>(<span style=color:#66d9ef>var</span> name: String = <span style=color:#e6db74>&#34;&#34;</span>, <span style=color:#66d9ef>var</span> age: Int = <span style=color:#ae81ff>20</span>) {     主构造函数
 }
-<span style=color:#960050;background-color:#1e0010>可简化为</span>
-<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span>(<span style=color:#66d9ef>var</span> name: String = <span style=color:#e6db74>&#34;&#34;</span>, <span style=color:#66d9ef>var</span> age: Int = <span style=color:#ae81ff>20</span>)     <span style=color:#960050;background-color:#1e0010>主构造函数无注解和修饰符，可省略</span> <span style=color:#66d9ef>constructor</span><span style=color:#960050;background-color:#1e0010>；无类体，可省略</span> {}
+可简化为
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span>(<span style=color:#66d9ef>var</span> name: String = <span style=color:#e6db74>&#34;&#34;</span>, <span style=color:#66d9ef>var</span> age: Int = <span style=color:#ae81ff>20</span>)     主构造函数无注解和修饰符<span style=color:#960050;background-color:#1e0010>，</span>可省略 <span style=color:#66d9ef>constructor</span><span style=color:#960050;background-color:#1e0010>；</span>无类体<span style=color:#960050;background-color:#1e0010>，</span>可省略 {}
 
 <span style=color:#f92672>------------------------------------------------------</span>-
 
-<span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span>(<span style=color:#66d9ef>var</span> name: String, <span style=color:#66d9ef>var</span> age: Int) {     Kotlin <span style=color:#960050;background-color:#1e0010>中的类可以有一个主（要）构造函数和多个次（要）构造函数</span>
+<span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span>(<span style=color:#66d9ef>var</span> name: String, <span style=color:#66d9ef>var</span> age: Int) {     Kotlin 中的类可以有一个主<span style=color:#960050;background-color:#1e0010>（</span>要<span style=color:#960050;background-color:#1e0010>）</span>构造函数和多个次<span style=color:#960050;background-color:#1e0010>（</span>要<span style=color:#960050;background-color:#1e0010>）</span>构造函数
     <span style=color:#66d9ef>init</span> {
         println(<span style=color:#e6db74>&#34;主构造函数 or 初始化块&#34;</span>)
     }
 
-    <span style=color:#66d9ef>constructor</span>(name: String) : <span style=color:#66d9ef>this</span>(name, <span style=color:#ae81ff>0</span>) {     <span style=color:#960050;background-color:#1e0010>声明次构造函数</span>
+    <span style=color:#66d9ef>constructor</span>(name: String) : <span style=color:#66d9ef>this</span>(name, <span style=color:#ae81ff>0</span>) {     声明次构造函数
         println(<span style=color:#e6db74>&#34;次构造函数1&#34;</span>)
     }
 
@@ -918,31 +918,31 @@ println(A(<span style=color:#e6db74>&#34;张三&#34;</span>))
 println(A(<span style=color:#ae81ff>20</span>))
 <span style=color:#75715e>//println(A())     报错，没有无参构造函数
 </span><span style=color:#75715e></span><span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
-<span style=color:#960050;background-color:#1e0010>主构造函数</span> or <span style=color:#960050;background-color:#1e0010>初始化块</span>
-A(name=<span style=color:#960050;background-color:#1e0010>张三</span>, age=<span style=color:#ae81ff>20</span>)
+输出<span style=color:#960050;background-color:#1e0010>：</span>
+主构造函数 or 初始化块
+A(name=张三, age=<span style=color:#ae81ff>20</span>)
 -
-<span style=color:#960050;background-color:#1e0010>主构造函数</span> or <span style=color:#960050;background-color:#1e0010>初始化块</span>
-<span style=color:#960050;background-color:#1e0010>次构造函数</span><span style=color:#ae81ff>1</span>
-A(name=<span style=color:#960050;background-color:#1e0010>张三</span>, age=<span style=color:#ae81ff>0</span>)
+主构造函数 or 初始化块
+次构造函数1
+A(name=张三, age=<span style=color:#ae81ff>0</span>)
 -
-<span style=color:#960050;background-color:#1e0010>主构造函数</span> or <span style=color:#960050;background-color:#1e0010>初始化块</span>
-<span style=color:#960050;background-color:#1e0010>次构造函数</span><span style=color:#ae81ff>2</span>
-A(name=<span style=color:#960050;background-color:#1e0010>无名氏</span>, age=<span style=color:#ae81ff>20</span>)
+主构造函数 or 初始化块
+次构造函数2
+A(name=无名氏, age=<span style=color:#ae81ff>20</span>)
 
 <span style=color:#f92672>------------------------------------------------------</span>-
-<span style=color:#960050;background-color:#1e0010>如果主构造函数的所有参数都有默认值，则默认会生成一个无参次构造函数。</span>
-<span style=color:#960050;background-color:#1e0010>如果没有声明任何（主或次）构造函数，则默认会生成一个无参主构造函数。</span>
+如果主构造函数的所有参数都有默认值<span style=color:#960050;background-color:#1e0010>，</span>则默认会生成一个无参次构造函数<span style=color:#960050;background-color:#1e0010>。</span>
+如果没有声明任何<span style=color:#960050;background-color:#1e0010>（</span>主或次<span style=color:#960050;background-color:#1e0010>）</span>构造函数<span style=color:#960050;background-color:#1e0010>，</span>则默认会生成一个无参主构造函数<span style=color:#960050;background-color:#1e0010>。</span>
 
-<span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>constructor</span>(<span style=color:#66d9ef>var</span> name: String, <span style=color:#66d9ef>var</span> des: String) {     <span style=color:#960050;background-color:#1e0010>指定主构造函数为</span> <span style=color:#66d9ef>private</span>
-    <span style=color:#66d9ef>constructor</span>(name: String) : <span style=color:#66d9ef>this</span>(name, <span style=color:#e6db74>&#34;欢迎：</span><span style=color:#e6db74>$name</span><span style=color:#e6db74>&#34;</span>)     <span style=color:#960050;background-color:#1e0010>默认</span> <span style=color:#66d9ef>public</span>
+<span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>constructor</span>(<span style=color:#66d9ef>var</span> name: String, <span style=color:#66d9ef>var</span> des: String) {     指定主构造函数为 <span style=color:#66d9ef>private</span>
+    <span style=color:#66d9ef>constructor</span>(name: String) : <span style=color:#66d9ef>this</span>(name, <span style=color:#e6db74>&#34;欢迎：</span><span style=color:#e6db74>$name</span><span style=color:#e6db74>&#34;</span>)     默认 <span style=color:#66d9ef>public</span>
 }
 
 println(A(<span style=color:#e6db74>&#34;张三&#34;</span>))
 <span style=color:#75715e>//println(A(&#34;张三&#34;, &#34;ABC&#34;))     报错，主构造函数为 private
 </span><span style=color:#75715e></span><span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
-A(name=<span style=color:#960050;background-color:#1e0010>张三</span>, des=<span style=color:#960050;background-color:#1e0010>欢迎：张三</span>)
+输出<span style=color:#960050;background-color:#1e0010>：</span>
+A(name=张三, des=欢迎<span style=color:#960050;background-color:#1e0010>：</span>张三)
 
 <span style=color:#f92672>------------------------------------------------------</span>-
 
@@ -952,11 +952,11 @@ A(name=<span style=color:#960050;background-color:#1e0010>张三</span>, des=<sp
 <span style=color:#66d9ef>import</span> javafx.stage.Stage
 
 <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>(args: Array&lt;String&gt;) {     JavaFX
-    Application.launch(A<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java, *args)     <span style=color:#960050;background-color:#1e0010>从</span> KClass <span style=color:#960050;background-color:#1e0010>对象获得</span> Class <span style=color:#960050;background-color:#1e0010>对象</span>
+    Application.launch(A<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java, *args)     从 KClass 对象获得 Class 对象
 }
 
-<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> : Application() {     <span style=color:#960050;background-color:#1e0010>继承</span> Application <span style=color:#960050;background-color:#1e0010>抽象类（显式调用构造函数）</span>
-    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>start</span>(primaryStage: Stage) {     <span style=color:#960050;background-color:#1e0010>实现抽象函数</span>
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> : Application() {     继承 Application 抽象类<span style=color:#960050;background-color:#1e0010>（</span>显式调用构造函数<span style=color:#960050;background-color:#1e0010>）</span>
+    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>start</span>(primaryStage: Stage) {     实现抽象函数
         primaryStage.title = <span style=color:#e6db74>&#34;ABC&#34;</span>
         primaryStage.width = <span style=color:#ae81ff>400.</span>toDouble()
         primaryStage.height = <span style=color:#ae81ff>300.</span>toDouble()
@@ -964,22 +964,22 @@ A(name=<span style=color:#960050;background-color:#1e0010>张三</span>, des=<sp
         primaryStage.show()
     }
 }
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>A</span> {     <span style=color:#960050;background-color:#1e0010>接口（跟</span> Java <span style=color:#960050;background-color:#1e0010>一样，单继承多实现）</span>
-    <span style=color:#66d9ef>val</span> i: Int     <span style=color:#960050;background-color:#1e0010>抽象属性</span>
-    <span style=color:#66d9ef>val</span> j: Int     <span style=color:#960050;background-color:#1e0010>属性：已提供访问器实现（若属性修饰为</span> <span style=color:#66d9ef>var</span><span style=color:#960050;background-color:#1e0010>，还需提供</span> <span style=color:#66d9ef>set</span>() <span style=color:#960050;background-color:#1e0010>实现）</span>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>A</span> {     接口<span style=color:#960050;background-color:#1e0010>（</span>跟 Java 一样<span style=color:#960050;background-color:#1e0010>，</span>单继承多实现<span style=color:#960050;background-color:#1e0010>）</span>
+    <span style=color:#66d9ef>val</span> i: Int     抽象属性
+    <span style=color:#66d9ef>val</span> j: Int     属性<span style=color:#960050;background-color:#1e0010>：</span>已提供访问器实现<span style=color:#960050;background-color:#1e0010>（</span>若属性修饰为 <span style=color:#66d9ef>var</span><span style=color:#960050;background-color:#1e0010>，</span>还需提供 <span style=color:#66d9ef>set</span>() 实现<span style=color:#960050;background-color:#1e0010>）</span>
         <span style=color:#66d9ef>get</span>() = <span style=color:#ae81ff>2</span>
 
-    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>a</span>()     <span style=color:#960050;background-color:#1e0010>抽象函数</span>
-    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>b</span>() {}     <span style=color:#960050;background-color:#1e0010>函数：已提供函数实现</span>
+    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>a</span>()     抽象函数
+    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>b</span>() {}     函数<span style=color:#960050;background-color:#1e0010>：</span>已提供函数实现
 }
 
-<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>B</span> : A {     <span style=color:#960050;background-color:#1e0010>通过类实现接口</span>
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>B</span> : A {     通过类实现接口
     <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>val</span> i: Int
         <span style=color:#66d9ef>get</span>() = <span style=color:#ae81ff>1</span>
     <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>a</span>() {}
 }
 
-<span style=color:#66d9ef>val</span> a = <span style=color:#66d9ef>object</span> <span style=color:#960050;background-color:#1e0010>: </span><span style=color:#a6e22e>A</span> {     <span style=color:#960050;background-color:#1e0010>通过对象表达式实现接口（匿名内部类）</span>
+<span style=color:#66d9ef>val</span> a = <span style=color:#66d9ef>object</span> <span style=color:#960050;background-color:#1e0010>: </span><span style=color:#a6e22e>A</span> {     通过对象表达式实现接口<span style=color:#960050;background-color:#1e0010>（</span>匿名内部类<span style=color:#960050;background-color:#1e0010>）</span>
     <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>val</span> i: Int
         <span style=color:#66d9ef>get</span>() = <span style=color:#ae81ff>1</span>
     <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>a</span>() {}
@@ -987,17 +987,17 @@ A(name=<span style=color:#960050;background-color:#1e0010>张三</span>, des=<sp
 
 <span style=color:#f92672>------------------------------------------------------</span>-
 
-<span style=color:#960050;background-color:#1e0010>对象表达式（匿名内部类）：</span>
+对象表达式<span style=color:#960050;background-color:#1e0010>（</span>匿名内部类<span style=color:#960050;background-color:#1e0010>）：</span>
 <span style=color:#66d9ef>val</span> o = <span style=color:#66d9ef>object</span> <span style=color:#960050;background-color:#1e0010>{</span>
     <span style=color:#66d9ef>val</span> x = <span style=color:#ae81ff>1</span>
     <span style=color:#66d9ef>val</span> y = <span style=color:#ae81ff>2</span>
     <span style=color:#66d9ef>val</span> z = <span style=color:#ae81ff>3</span>
-    <span style=color:#66d9ef>operator</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>component1</span>() = x     <span style=color:#960050;background-color:#1e0010>解构函数</span>
-    <span style=color:#66d9ef>operator</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>component2</span>() = y     <span style=color:#960050;background-color:#1e0010>解构函数</span>
-    <span style=color:#66d9ef>operator</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>component3</span>() = z     <span style=color:#960050;background-color:#1e0010>解构函数</span>
+    <span style=color:#66d9ef>operator</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>component1</span>() = x     解构函数
+    <span style=color:#66d9ef>operator</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>component2</span>() = y     解构函数
+    <span style=color:#66d9ef>operator</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>component3</span>() = z     解构函数
 }
-<span style=color:#960050;background-color:#1e0010>等同于</span>
-<span style=color:#66d9ef>val</span> o = <span style=color:#66d9ef>object</span> <span style=color:#960050;background-color:#1e0010>: </span><span style=color:#a6e22e>Any</span>() {     Kotlin <span style=color:#960050;background-color:#1e0010>中</span> Any <span style=color:#960050;background-color:#1e0010>是所有类的父类</span>
+等同于
+<span style=color:#66d9ef>val</span> o = <span style=color:#66d9ef>object</span> <span style=color:#960050;background-color:#1e0010>: </span><span style=color:#a6e22e>Any</span>() {     Kotlin 中 Any 是所有类的父类
     <span style=color:#66d9ef>val</span> x = <span style=color:#ae81ff>1</span>
     <span style=color:#66d9ef>val</span> y = <span style=color:#ae81ff>2</span>
     <span style=color:#66d9ef>val</span> z = <span style=color:#ae81ff>3</span>
@@ -1006,17 +1006,17 @@ A(name=<span style=color:#960050;background-color:#1e0010>张三</span>, des=<sp
     <span style=color:#66d9ef>operator</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>component3</span>() = z
 }
 
-<span style=color:#66d9ef>val</span> <span style=color:#960050;background-color:#1e0010>(</span>x, y, z) = o     <span style=color:#960050;background-color:#1e0010>解构声明</span>
+<span style=color:#66d9ef>val</span> <span style=color:#960050;background-color:#1e0010>(</span>x, y, z) = o     解构声明
 println(x + y + z)     <span style=color:#ae81ff>6</span>
 println(o.x + o.y + o.z)     <span style=color:#ae81ff>6</span>
 
 <span style=color:#f92672>------------------------------------------------------</span>-
 
-<span style=color:#960050;background-color:#1e0010>对象声明（单例模式）：</span>
-<span style=color:#66d9ef>object</span> <span style=color:#a6e22e>MyObject</span> {     <span style=color:#960050;background-color:#1e0010>单例对象（</span>Singleton<span style=color:#960050;background-color:#1e0010>）</span>
-    <span style=color:#66d9ef>val</span> AUTHOR = <span style=color:#e6db74>&#34;XhstormR&#34;</span>     <span style=color:#960050;background-color:#1e0010>属性为</span> static
+对象声明<span style=color:#960050;background-color:#1e0010>（</span>单例模式<span style=color:#960050;background-color:#1e0010>）：</span>
+<span style=color:#66d9ef>object</span> <span style=color:#a6e22e>MyObject</span> {     单例对象<span style=color:#960050;background-color:#1e0010>（</span>Singleton<span style=color:#960050;background-color:#1e0010>）</span>
+    <span style=color:#66d9ef>val</span> AUTHOR = <span style=color:#e6db74>&#34;XhstormR&#34;</span>     属性为 static
 
-    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>hello</span>(): String {     <span style=color:#960050;background-color:#1e0010>函数不为</span> static<span style=color:#960050;background-color:#1e0010>，可加上</span> <span style=color:#e6db74>&#34;@JvmStatic&#34;</span> <span style=color:#960050;background-color:#1e0010>注解成为</span> static <span style=color:#960050;background-color:#1e0010>函数，针对属性同样还有</span> <span style=color:#e6db74>&#34;@JvmField&#34;</span><span style=color:#960050;background-color:#1e0010>，都仅对</span> Java <span style=color:#960050;background-color:#1e0010>互操作有影响。</span>
+    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>hello</span>(): String {     函数不为 static<span style=color:#960050;background-color:#1e0010>，</span>可加上 <span style=color:#e6db74>&#34;@JvmStatic&#34;</span> 注解成为 static 函数<span style=color:#960050;background-color:#1e0010>，</span>针对属性同样还有 <span style=color:#e6db74>&#34;@JvmField&#34;</span><span style=color:#960050;background-color:#1e0010>，</span>都仅对 Java 互操作有影响<span style=color:#960050;background-color:#1e0010>。</span>
         <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;Hello </span><span style=color:#e6db74>$AUTHOR</span><span style=color:#e6db74>!&#34;</span>
     }
 }
@@ -1024,18 +1024,18 @@ println(o.x + o.y + o.z)     <span style=color:#ae81ff>6</span>
 println(MyObject.AUTHOR)
 println(MyObject.hello())
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
+输出<span style=color:#960050;background-color:#1e0010>：</span>
 XhstormR
 Hello XhstormR!
 
 <span style=color:#f92672>------------------------------------------------------</span>-
 
-<span style=color:#66d9ef>open</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span>     A <span style=color:#960050;background-color:#1e0010>类</span>
+<span style=color:#66d9ef>open</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span>     A 类
 
-<span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>B</span>     B <span style=color:#960050;background-color:#1e0010>接口</span>
+<span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>B</span>     B 接口
 
-<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>C</span> : A(), B     C <span style=color:#960050;background-color:#1e0010>继承</span> A <span style=color:#960050;background-color:#1e0010>并实现</span> B<span style=color:#960050;background-color:#1e0010>（类默认生成无参主构造函数，接口无构造函数且默认开放）</span>
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#960050;background-color:#1e0010>（</span><span style=color:#66d9ef>operator</span><span style=color:#960050;background-color:#1e0010>）操作符重载</span>
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>C</span> : A(), B     C 继承 A 并实现 B<span style=color:#960050;background-color:#1e0010>（</span>类默认生成无参主构造函数<span style=color:#960050;background-color:#1e0010>，</span>接口无构造函数且默认开放<span style=color:#960050;background-color:#1e0010>）</span>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#960050;background-color:#1e0010>（</span><span style=color:#66d9ef>operator</span><span style=color:#960050;background-color:#1e0010>）</span>操作符重载
 <span style=color:#f92672>----</span>
 <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span>(<span style=color:#66d9ef>var</span> i: Int) {
     <span style=color:#66d9ef>operator</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>inc</span>(): A {     a<span style=color:#f92672>++</span>
@@ -1064,7 +1064,7 @@ Hello XhstormR!
         <span style=color:#66d9ef>return</span> i.compareTo(o.i)
     }
 
-    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>operator</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>equals</span>(other: Any?): Boolean {     <span style=color:#f92672>==</span>,<span style=color:#f92672>!=</span><span style=color:#960050;background-color:#1e0010>（</span>IDE <span style=color:#960050;background-color:#1e0010>生成）</span>
+    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>operator</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>equals</span>(other: Any?): Boolean {     <span style=color:#f92672>==</span>,<span style=color:#f92672>!=</span><span style=color:#960050;background-color:#1e0010>（</span>IDE 生成<span style=color:#960050;background-color:#1e0010>）</span>
         <span style=color:#66d9ef>if</span> (<span style=color:#66d9ef>this</span> <span style=color:#f92672>===</span> other) <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>true</span>
         <span style=color:#66d9ef>if</span> (other<span style=color:#f92672>?.</span>javaClass <span style=color:#f92672>!=</span> javaClass) <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>false</span>
         other <span style=color:#66d9ef>as</span> A
@@ -1072,11 +1072,11 @@ Hello XhstormR!
         <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>true</span>
     }
 
-    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>hashCode</span>(): Int {     IDE <span style=color:#960050;background-color:#1e0010>生成</span>
+    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>hashCode</span>(): Int {     IDE 生成
         <span style=color:#66d9ef>return</span> i
     }
 
-    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>toString</span>(): String {     IDE <span style=color:#960050;background-color:#1e0010>生成</span>
+    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>toString</span>(): String {     IDE 生成
         <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;A(i=</span><span style=color:#e6db74>$i</span><span style=color:#e6db74>)&#34;</span>
     }
 }
@@ -1115,19 +1115,19 @@ Hello XhstormR!
     }
 }
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
-<span style=color:#ae81ff>1</span><span style=color:#960050;background-color:#1e0010>父类静态初始化块</span>
-<span style=color:#ae81ff>1</span><span style=color:#960050;background-color:#1e0010>子类静态初始化块</span>
-<span style=color:#ae81ff>2</span><span style=color:#960050;background-color:#1e0010>父类初始化块</span>
-<span style=color:#ae81ff>3</span><span style=color:#960050;background-color:#1e0010>父类构造方法</span>
-<span style=color:#ae81ff>2</span><span style=color:#960050;background-color:#1e0010>子类初始化块</span>
-<span style=color:#ae81ff>3</span><span style=color:#960050;background-color:#1e0010>子类构造方法</span>
+输出<span style=color:#960050;background-color:#1e0010>：</span>
+<span style=color:#ae81ff>1</span>父类静态初始化块
+<span style=color:#ae81ff>1</span>子类静态初始化块
+<span style=color:#ae81ff>2</span>父类初始化块
+<span style=color:#ae81ff>3</span>父类构造方法
+<span style=color:#ae81ff>2</span>子类初始化块
+<span style=color:#ae81ff>3</span>子类构造方法
 
 <span style=color:#f92672>------------------------------------------------------</span>-
 
 Kotlin<span style=color:#960050;background-color:#1e0010>：</span>
-<span style=color:#66d9ef>open</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Test1</span> {     Kotlin <span style=color:#960050;background-color:#1e0010>跟</span> Java <span style=color:#960050;background-color:#1e0010>相反，类和方法都默认为</span> <span style=color:#66d9ef>final</span><span style=color:#960050;background-color:#1e0010>（最终），需用</span> <span style=color:#66d9ef>open</span><span style=color:#960050;background-color:#1e0010>（开放）指明可以继承</span>
-    <span style=color:#66d9ef>companion</span> <span style=color:#66d9ef>object</span> {     <span style=color:#960050;background-color:#1e0010>伴生对象（静态内部类</span> Companion<span style=color:#960050;background-color:#1e0010>）（</span>static <span style=color:#960050;background-color:#1e0010>初始化块、方法、属性）</span>
+<span style=color:#66d9ef>open</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Test1</span> {     Kotlin 跟 Java 相反<span style=color:#960050;background-color:#1e0010>，</span>类和方法都默认为 <span style=color:#66d9ef>final</span><span style=color:#960050;background-color:#1e0010>（</span>最终<span style=color:#960050;background-color:#1e0010>），</span>需用 <span style=color:#66d9ef>open</span><span style=color:#960050;background-color:#1e0010>（</span>开放<span style=color:#960050;background-color:#1e0010>）</span>指明可以继承
+    <span style=color:#66d9ef>companion</span> <span style=color:#66d9ef>object</span> {     伴生对象<span style=color:#960050;background-color:#1e0010>（</span>静态内部类 Companion<span style=color:#960050;background-color:#1e0010>）（</span>static 初始化块<span style=color:#960050;background-color:#1e0010>、</span>方法<span style=color:#960050;background-color:#1e0010>、</span>属性<span style=color:#960050;background-color:#1e0010>）</span>
         <span style=color:#66d9ef>init</span> {
             println(<span style=color:#e6db74>&#34;1父类静态初始化块&#34;</span>)
         }
@@ -1139,8 +1139,8 @@ Kotlin<span style=color:#960050;background-color:#1e0010>：</span>
     }
 }
 <span style=color:#f92672>----</span>
-<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Test2</span> : Test1() {     <span style=color:#960050;background-color:#1e0010>需显式调用父类的构造方法</span>
-    <span style=color:#66d9ef>companion</span> <span style=color:#66d9ef>object</span> {     <span style=color:#960050;background-color:#1e0010>伴生对象（静态内部类</span> Companion<span style=color:#960050;background-color:#1e0010>）（</span>static <span style=color:#960050;background-color:#1e0010>初始化块、方法、属性）</span>
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Test2</span> : Test1() {     需显式调用父类的构造方法
+    <span style=color:#66d9ef>companion</span> <span style=color:#66d9ef>object</span> {     伴生对象<span style=color:#960050;background-color:#1e0010>（</span>静态内部类 Companion<span style=color:#960050;background-color:#1e0010>）（</span>static 初始化块<span style=color:#960050;background-color:#1e0010>、</span>方法<span style=color:#960050;background-color:#1e0010>、</span>属性<span style=color:#960050;background-color:#1e0010>）</span>
         <span style=color:#66d9ef>init</span> {
             println(<span style=color:#e6db74>&#34;1子类静态初始化块&#34;</span>)
         }
@@ -1153,22 +1153,22 @@ Kotlin<span style=color:#960050;background-color:#1e0010>：</span>
 }
 <span style=color:#f92672>----</span>
 <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>(args: Array&lt;String&gt;) {
-    <span style=color:#66d9ef>val</span> a: Test1 = Test2()     <span style=color:#960050;background-color:#1e0010>多态</span>
-    <span style=color:#66d9ef>val</span> companion = Test2.Companion     <span style=color:#960050;background-color:#1e0010>获得类中的伴生对象</span>
+    <span style=color:#66d9ef>val</span> a: Test1 = Test2()     多态
+    <span style=color:#66d9ef>val</span> companion = Test2.Companion     获得类中的伴生对象
 }
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
-<span style=color:#ae81ff>1</span><span style=color:#960050;background-color:#1e0010>父类静态初始化块</span>
-<span style=color:#ae81ff>1</span><span style=color:#960050;background-color:#1e0010>子类静态初始化块</span>
-<span style=color:#ae81ff>2</span><span style=color:#960050;background-color:#1e0010>父类初始化块</span>
-<span style=color:#ae81ff>3</span><span style=color:#960050;background-color:#1e0010>父类构造函数</span>(<span style=color:#960050;background-color:#1e0010>主</span>)
-<span style=color:#ae81ff>2</span><span style=color:#960050;background-color:#1e0010>子类初始化块</span>
-<span style=color:#ae81ff>3</span><span style=color:#960050;background-color:#1e0010>子类构造函数</span>(<span style=color:#960050;background-color:#1e0010>主</span>)
+输出<span style=color:#960050;background-color:#1e0010>：</span>
+<span style=color:#ae81ff>1</span>父类静态初始化块
+<span style=color:#ae81ff>1</span>子类静态初始化块
+<span style=color:#ae81ff>2</span>父类初始化块
+<span style=color:#ae81ff>3</span>父类构造函数(主)
+<span style=color:#ae81ff>2</span>子类初始化块
+<span style=color:#ae81ff>3</span>子类构造函数(主)
 
 <span style=color:#f92672>------------------------------------------------------</span>-
 
 <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> {
-    <span style=color:#66d9ef>companion</span> <span style=color:#66d9ef>object</span> {     <span style=color:#960050;background-color:#1e0010>伴生对象（静态内部类</span> Companion<span style=color:#960050;background-color:#1e0010>）（</span>static <span style=color:#960050;background-color:#1e0010>初始化块、方法、属性）</span>
+    <span style=color:#66d9ef>companion</span> <span style=color:#66d9ef>object</span> {     伴生对象<span style=color:#960050;background-color:#1e0010>（</span>静态内部类 Companion<span style=color:#960050;background-color:#1e0010>）（</span>static 初始化块<span style=color:#960050;background-color:#1e0010>、</span>方法<span style=color:#960050;background-color:#1e0010>、</span>属性<span style=color:#960050;background-color:#1e0010>）</span>
         <span style=color:#66d9ef>var</span> i = <span style=color:#ae81ff>0</span>
         <span style=color:#66d9ef>init</span> {
             println(<span style=color:#e6db74>&#34;静态初始化块&#34;</span>)
@@ -1185,17 +1185,17 @@ A()
 A()
 A()
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
-<span style=color:#960050;background-color:#1e0010>静态初始化块</span>
-<span style=color:#ae81ff>1</span> <span style=color:#960050;background-color:#1e0010>初始化块</span> <span style=color:#960050;background-color:#1e0010>构造函数</span>(<span style=color:#960050;background-color:#1e0010>主</span>)
-<span style=color:#ae81ff>2</span> <span style=color:#960050;background-color:#1e0010>初始化块</span> <span style=color:#960050;background-color:#1e0010>构造函数</span>(<span style=color:#960050;background-color:#1e0010>主</span>)
-<span style=color:#ae81ff>3</span> <span style=color:#960050;background-color:#1e0010>初始化块</span> <span style=color:#960050;background-color:#1e0010>构造函数</span>(<span style=color:#960050;background-color:#1e0010>主</span>)
-<span style=color:#ae81ff>4</span> <span style=color:#960050;background-color:#1e0010>初始化块</span> <span style=color:#960050;background-color:#1e0010>构造函数</span>(<span style=color:#960050;background-color:#1e0010>主</span>)
+输出<span style=color:#960050;background-color:#1e0010>：</span>
+静态初始化块
+<span style=color:#ae81ff>1</span> 初始化块 构造函数(主)
+<span style=color:#ae81ff>2</span> 初始化块 构造函数(主)
+<span style=color:#ae81ff>3</span> 初始化块 构造函数(主)
+<span style=color:#ae81ff>4</span> 初始化块 构造函数(主)
 
 <span style=color:#f92672>------------------------------------------------------</span>-
 
 <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> {
-    <span style=color:#66d9ef>companion</span> <span style=color:#66d9ef>object</span> {     <span style=color:#960050;background-color:#1e0010>伴生对象（静态内部类</span> Companion<span style=color:#960050;background-color:#1e0010>）（</span>static <span style=color:#960050;background-color:#1e0010>初始化块、方法、属性）</span>
+    <span style=color:#66d9ef>companion</span> <span style=color:#66d9ef>object</span> {     伴生对象<span style=color:#960050;background-color:#1e0010>（</span>静态内部类 Companion<span style=color:#960050;background-color:#1e0010>）（</span>static 初始化块<span style=color:#960050;background-color:#1e0010>、</span>方法<span style=color:#960050;background-color:#1e0010>、</span>属性<span style=color:#960050;background-color:#1e0010>）</span>
         <span style=color:#66d9ef>val</span> list = arrayListOf&lt;A&gt;()
     }
 
@@ -1209,38 +1209,38 @@ A()
 A()
 println(A.list)
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
+输出<span style=color:#960050;background-color:#1e0010>：</span>
 <span style=color:#a6e22e>[A@2f0e140b, A@7440e464, A@49476842]</span>
 
 <span style=color:#f92672>------------------------------------------------------</span>-
-<span style=color:#960050;background-color:#1e0010>默认内部类静态化，可在一定程度上降低发生内存泄露的概率。</span>
-<span style=color:#960050;background-color:#1e0010>很多时候内部类仅用来存储数据，并不需要访问外部类的成员。</span>
+默认内部类静态化<span style=color:#960050;background-color:#1e0010>，</span>可在一定程度上降低发生内存泄露的概率<span style=color:#960050;background-color:#1e0010>。</span>
+很多时候内部类仅用来存储数据<span style=color:#960050;background-color:#1e0010>，</span>并不需要访问外部类的成员<span style=color:#960050;background-color:#1e0010>。</span>
 
 <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Outer</span> {
     <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>val</span> bar = <span style=color:#ae81ff>1</span>
-    <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Nested</span> {     Java <span style=color:#960050;background-color:#1e0010>中的静态内部类：相当于独立出来的类，不会持有其外部类的强引用。</span>
+    <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Nested</span> {     Java 中的静态内部类<span style=color:#960050;background-color:#1e0010>：</span>相当于独立出来的类<span style=color:#960050;background-color:#1e0010>，</span>不会持有其外部类的强引用<span style=color:#960050;background-color:#1e0010>。</span>
         <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>foo</span>() = <span style=color:#ae81ff>2</span>
     }
 }
 
-Outer.Nested().foo()     <span style=color:#960050;background-color:#1e0010>不需要实例化外部类</span>
+Outer.Nested().foo()     不需要实例化外部类
 
 <span style=color:#f92672>----</span>
 
 <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Outer</span> {
     <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>val</span> bar = <span style=color:#ae81ff>1</span>
-    <span style=color:#66d9ef>inner</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Nested</span> {     Java <span style=color:#960050;background-color:#1e0010>中的内部类：默认持有其外部类的强引用。</span>
-        <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>foo</span>() = bar     <span style=color:#960050;background-color:#1e0010>可以访问外部类的成员</span>
+    <span style=color:#66d9ef>inner</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Nested</span> {     Java 中的内部类<span style=color:#960050;background-color:#1e0010>：</span>默认持有其外部类的强引用<span style=color:#960050;background-color:#1e0010>。</span>
+        <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>foo</span>() = bar     可以访问外部类的成员
     }
 }
 
-Outer().Nested().foo()     <span style=color:#960050;background-color:#1e0010>需要实例化外部类</span>
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>val</span> array = arrayOfNulls&lt;Int&gt;(<span style=color:#ae81ff>5</span>)     <span style=color:#960050;background-color:#1e0010>创建容量为</span> <span style=color:#ae81ff>5</span> <span style=color:#960050;background-color:#1e0010>以</span> <span style=color:#66d9ef>null</span> <span style=color:#960050;background-color:#1e0010>填充的空数组</span>
+Outer().Nested().foo()     需要实例化外部类
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>val</span> array = arrayOfNulls&lt;Int&gt;(<span style=color:#ae81ff>5</span>)     创建容量为 <span style=color:#ae81ff>5</span> 以 <span style=color:#66d9ef>null</span> 填充的空数组
 <span style=color:#66d9ef>for</span> (i <span style=color:#66d9ef>in</span> array.indices) {
     println(array[i])
 }
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
+输出<span style=color:#960050;background-color:#1e0010>：</span>
 <span style=color:#66d9ef>null</span>
 <span style=color:#66d9ef>null</span>
 <span style=color:#66d9ef>null</span>
@@ -1251,18 +1251,18 @@ Outer().Nested().foo()     <span style=color:#960050;background-color:#1e0010>�
 
 <span style=color:#66d9ef>val</span> s1 = <span style=color:#e6db74>&#34;ABC&#34;</span>
 <span style=color:#66d9ef>val</span> s2 = StringBuilder(<span style=color:#e6db74>&#34;ABC&#34;</span>).toString()
-println(s1 <span style=color:#f92672>==</span> s2)      <span style=color:#960050;background-color:#1e0010>比较实际内容（</span><span style=color:#66d9ef>operator</span> <span style=color:#960050;background-color:#1e0010>重载，调用</span> equals()<span style=color:#960050;background-color:#1e0010>），对应</span> <span style=color:#f92672>!=</span>
-println(s1 <span style=color:#f92672>===</span> s2)     <span style=color:#960050;background-color:#1e0010>比较内存地址（</span>Java <span style=color:#960050;background-color:#1e0010>中的</span> <span style=color:#960050;background-color:#1e0010>`</span><span style=color:#f92672>==</span><span style=color:#960050;background-color:#1e0010>`），对应</span> <span style=color:#f92672>!==</span>
+println(s1 <span style=color:#f92672>==</span> s2)      比较实际内容<span style=color:#960050;background-color:#1e0010>（</span><span style=color:#66d9ef>operator</span> 重载<span style=color:#960050;background-color:#1e0010>，</span>调用 equals()<span style=color:#960050;background-color:#1e0010>），</span>对应 <span style=color:#f92672>!=</span>
+println(s1 <span style=color:#f92672>===</span> s2)     比较内存地址<span style=color:#960050;background-color:#1e0010>（</span>Java 中的 <span style=color:#960050;background-color:#1e0010>`</span><span style=color:#f92672>==</span><span style=color:#960050;background-color:#1e0010>`），</span>对应 <span style=color:#f92672>!==</span>
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
+输出<span style=color:#960050;background-color:#1e0010>：</span>
 <span style=color:#66d9ef>true</span>
 <span style=color:#66d9ef>false</span>
 
 <span style=color:#f92672>------------------------------------------------------</span>-
 
 Kotlin<span style=color:#960050;background-color:#1e0010>：</span>
-<span style=color:#66d9ef>val</span> a: Char = <span style=color:#e6db74>&#39;A&#39;</span>     <span style=color:#960050;background-color:#1e0010>在</span> Java <span style=color:#960050;background-color:#1e0010>中为基本数据类型</span> char
-<span style=color:#66d9ef>val</span> b: Char? = <span style=color:#e6db74>&#39;B&#39;</span>     <span style=color:#960050;background-color:#1e0010>在</span> Java <span style=color:#960050;background-color:#1e0010>中为引用数据类型</span> Character
+<span style=color:#66d9ef>val</span> a: Char = <span style=color:#e6db74>&#39;A&#39;</span>     在 Java 中为基本数据类型 char
+<span style=color:#66d9ef>val</span> b: Char? = <span style=color:#e6db74>&#39;B&#39;</span>     在 Java 中为引用数据类型 Character
 println(a)
 println(b)
 
@@ -1276,7 +1276,7 @@ System.<span style=color:#66d9ef>out</span>.println(b);
 
 Kotlin<span style=color:#960050;background-color:#1e0010>：</span>
 <span style=color:#66d9ef>val</span> arrayOf = arrayOf(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>)
-<span style=color:#66d9ef>val</span> intArrayOf = intArrayOf(<span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>5</span>, <span style=color:#ae81ff>6</span>)     <span style=color:#960050;background-color:#1e0010>避免装箱，提高性能</span>
+<span style=color:#66d9ef>val</span> intArrayOf = intArrayOf(<span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>5</span>, <span style=color:#ae81ff>6</span>)     避免装箱<span style=color:#960050;background-color:#1e0010>，</span>提高性能
 
 Convert to Java<span style=color:#960050;background-color:#1e0010>：</span>
 Object[] elements<span style=color:#960050;background-color:#1e0010>$</span>iv = new Integer[]{Integer.valueOf(<span style=color:#ae81ff>1</span>), Integer.valueOf(<span style=color:#ae81ff>2</span>), Integer.valueOf(<span style=color:#ae81ff>3</span>)};
@@ -1285,16 +1285,16 @@ int[] var10000 = new int[]{<span style=color:#ae81ff>4</span>, <span style=color
 
 <span style=color:#f92672>------------------------------------------------------</span>-
 
-FileOutputStream(<span style=color:#e6db74>&#34;&#34;&#34;D:\123.txt&#34;&#34;&#34;</span>, <span style=color:#66d9ef>true</span>).bufferedWriter().use { <span style=color:#66d9ef>it</span>.write(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${LocalDateTime.now()}</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>) }     <span style=color:#960050;background-color:#1e0010>写</span>
-FileInputStream(<span style=color:#e6db74>&#34;&#34;&#34;D:\123.txt&#34;&#34;&#34;</span>).bufferedReader().useLines { <span style=color:#66d9ef>it</span>.forEach(<span style=color:#f92672>::</span>println) }     <span style=color:#960050;background-color:#1e0010>读</span>
+FileOutputStream(<span style=color:#e6db74>&#34;&#34;&#34;D:\123.txt&#34;&#34;&#34;</span>, <span style=color:#66d9ef>true</span>).bufferedWriter().use { <span style=color:#66d9ef>it</span>.write(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${LocalDateTime.now()}</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>) }     写
+FileInputStream(<span style=color:#e6db74>&#34;&#34;&#34;D:\123.txt&#34;&#34;&#34;</span>).bufferedReader().useLines { <span style=color:#66d9ef>it</span>.forEach(<span style=color:#f92672>::</span>println) }     读
 
 <span style=color:#f92672>------------------------------------------------------</span>-
 
-println(String().javaClass)     <span style=color:#960050;background-color:#1e0010>从实例对象获得</span> Class <span style=color:#960050;background-color:#1e0010>对象</span>
-println(String<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java)     <span style=color:#960050;background-color:#1e0010>从</span> KClass <span style=color:#960050;background-color:#1e0010>对象获得</span> Class <span style=color:#960050;background-color:#1e0010>对象</span>
+println(String().javaClass)     从实例对象获得 Class 对象
+println(String<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java)     从 KClass 对象获得 Class 对象
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
-<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>java</span>.lang.String     <span style=color:#960050;background-color:#1e0010>完全类名限定符</span>
+输出<span style=color:#960050;background-color:#1e0010>：</span>
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>java</span>.lang.String     完全类名限定符
 <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>java</span>.lang.String
 </code></pre></div><p><img src=/uploads/kotlin-transform.png alt title=Transform></p>
 <h2 id=script>Script</h2>

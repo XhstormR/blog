@@ -52,28 +52,28 @@
 </blockquote>
 <h2 id=kotlin>Kotlin</h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>(args: Array&lt;String&gt;) {
-    a({ s <span style=color:#f92672>-&gt;</span> println(s) })     Lambda <span style=color:#960050;background-color:#1e0010>表达式</span>
-    <span style=color:#960050;background-color:#1e0010>等同于</span>
-    a { s <span style=color:#f92672>-&gt;</span> println(s) }     <span style=color:#960050;background-color:#1e0010>移至括号外并省略括号</span>
-    <span style=color:#960050;background-color:#1e0010>等同于</span>
-    a { println(<span style=color:#66d9ef>it</span>) }     <span style=color:#960050;background-color:#1e0010>使用</span> <span style=color:#a6e22e>`it</span><span style=color:#960050;background-color:#1e0010>`</span> <span style=color:#960050;background-color:#1e0010>替代</span>
-    <span style=color:#960050;background-color:#1e0010>等同于</span>
-    a(<span style=color:#f92672>::</span>println)     <span style=color:#960050;background-color:#1e0010>使用函数引用</span>
+    a({ s <span style=color:#f92672>-&gt;</span> println(s) })     Lambda 表达式
+    等同于
+    a { s <span style=color:#f92672>-&gt;</span> println(s) }     移至括号外并省略括号
+    等同于
+    a { println(<span style=color:#66d9ef>it</span>) }     使用 `it<span style=color:#960050;background-color:#1e0010>`</span> 替代
+    等同于
+    a(<span style=color:#f92672>::</span>println)     使用函数引用
 }
-<span style=color:#960050;background-color:#1e0010>等同于</span>
-<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>(args: Array&lt;String&gt;) = a(<span style=color:#f92672>::</span>println)     <span style=color:#960050;background-color:#1e0010>函数体只含有</span> <span style=color:#ae81ff>1</span> <span style=color:#960050;background-color:#1e0010>句表达式，省略函数体和返回值</span>
+等同于
+<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>(args: Array&lt;String&gt;) = a(<span style=color:#f92672>::</span>println)     函数体只含有 <span style=color:#ae81ff>1</span> 句表达式<span style=color:#960050;background-color:#1e0010>，</span>省略函数体和返回值
 
 <span style=color:#f92672>----</span>
 
-<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>a</span>(block: (String) <span style=color:#f92672>-&gt;</span> Unit): Unit {     <span style=color:#960050;background-color:#1e0010>高阶函数（函数参数使用函数类型表达）（函数为一等公民）</span>
+<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>a</span>(block: (String) <span style=color:#f92672>-&gt;</span> Unit): Unit {     高阶函数<span style=color:#960050;background-color:#1e0010>（</span>函数参数使用函数类型表达<span style=color:#960050;background-color:#1e0010>）（</span>函数为一等公民<span style=color:#960050;background-color:#1e0010>）</span>
     block(<span style=color:#e6db74>&#34;ABC&#34;</span>)
 }
-<span style=color:#960050;background-color:#1e0010>等同于</span>
-<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>a</span>(block: (String) <span style=color:#f92672>-&gt;</span> Unit) {     <span style=color:#960050;background-color:#1e0010>省略</span> Unit (void) <span style=color:#960050;background-color:#1e0010>返回值</span>
+等同于
+<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>a</span>(block: (String) <span style=color:#f92672>-&gt;</span> Unit) {     省略 Unit (void) 返回值
     block(<span style=color:#e6db74>&#34;ABC&#34;</span>)
 }
-<span style=color:#960050;background-color:#1e0010>等同于</span>
-<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>a</span>(block: (String) <span style=color:#f92672>-&gt;</span> Unit) = block(<span style=color:#e6db74>&#34;ABC&#34;</span>)     <span style=color:#960050;background-color:#1e0010>函数体只含有</span> <span style=color:#ae81ff>1</span> <span style=color:#960050;background-color:#1e0010>句表达式，省略函数体和返回值</span>
+等同于
+<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>a</span>(block: (String) <span style=color:#f92672>-&gt;</span> Unit) = block(<span style=color:#e6db74>&#34;ABC&#34;</span>)     函数体只含有 <span style=color:#ae81ff>1</span> 句表达式<span style=color:#960050;background-color:#1e0010>，</span>省略函数体和返回值
 
 <span style=color:#f92672>------------------------------------------------------</span>-
 Finally<span style=color:#960050;background-color:#1e0010>：</span>
@@ -82,7 +82,7 @@ Finally<span style=color:#960050;background-color:#1e0010>：</span>
 <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>a</span>(block: (String) <span style=color:#f92672>-&gt;</span> Unit) = block(<span style=color:#e6db74>&#34;ABC&#34;</span>)
 
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
+输出<span style=color:#960050;background-color:#1e0010>：</span>
 ABC
 </code></pre></div><h2 id=java>Java</h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Main</span> <span style=color:#f92672>{</span>
@@ -132,7 +132,7 @@ ABC
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin>Kotlin<span style=color:#960050;background-color:#1e0010>：</span>
 <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>(args: Array&lt;String&gt;) = a(<span style=color:#f92672>::</span>println)
 
-<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>a</span>(block: (String) <span style=color:#f92672>-&gt;</span> Unit) = block(<span style=color:#e6db74>&#34;ABC&#34;</span>)     <span style=color:#960050;background-color:#1e0010>函数类型表达（函数为一等公民）</span>
+<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>a</span>(block: (String) <span style=color:#f92672>-&gt;</span> Unit) = block(<span style=color:#e6db74>&#34;ABC&#34;</span>)     函数类型表达<span style=color:#960050;background-color:#1e0010>（</span>函数为一等公民<span style=color:#960050;background-color:#1e0010>）</span>
 </code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>Java<span style=color:#960050;background-color:#1e0010>：</span>
 <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Main</span> <span style=color:#f92672>{</span>
     <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span><span style=color:#f92672>(</span>String<span style=color:#f92672>[]</span> args<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>

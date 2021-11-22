@@ -59,7 +59,7 @@
 <span style=color:#66d9ef>import</span> javax.servlet.http.HttpServletResponse
 
 <span style=color:#a6e22e>@WebServlet</span>(urlPatterns = arrayOf(<span style=color:#e6db74>&#34;/abc&#34;</span>), initParams = arrayOf(WebInitParam(name = <span style=color:#e6db74>&#34;name&#34;</span>, value = <span style=color:#e6db74>&#34;Tom&#34;</span>)), loadOnStartup = <span style=color:#ae81ff>1</span>)     <span style=color:#75715e>//通过注解方式配置 Servlet
-</span><span style=color:#75715e></span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MyServlet</span> : HttpServlet() {     <span style=color:#960050;background-color:#1e0010>继承</span> HttpServlet
+</span><span style=color:#75715e></span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MyServlet</span> : HttpServlet() {     继承 HttpServlet
     <span style=color:#66d9ef>init</span> {
         println(<span style=color:#e6db74>&#34;实例化&#34;</span>)
     }
@@ -74,23 +74,23 @@
         println(<span style=color:#e6db74>&#34;销毁&#34;</span>)
     }
 
-    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>doGet</span>(req: HttpServletRequest, resp: HttpServletResponse) {     <span style=color:#960050;background-color:#1e0010>由</span> service <span style=color:#960050;background-color:#1e0010>方法中转</span>
+    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>doGet</span>(req: HttpServletRequest, resp: HttpServletResponse) {     由 service 方法中转
         println(<span style=color:#e6db74>&#34;处理请求 Get&#34;</span>)
-        resp.contentType = <span style=color:#e6db74>&#34;text/html;charset=UTF-8&#34;</span>     <span style=color:#960050;background-color:#1e0010>设置内容类型</span>
+        resp.contentType = <span style=color:#e6db74>&#34;text/html;charset=UTF-8&#34;</span>     设置内容类型
         <span style=color:#66d9ef>val</span> out = resp.writer
         <span style=color:#66d9ef>out</span>.use { <span style=color:#66d9ef>it</span>.write(<span style=color:#e6db74>&#34;&lt;strong&gt;ABC&lt;/strong&gt;&lt;br&gt;&#34;</span>) }
     }
 
-    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>doPost</span>(req: HttpServletRequest, resp: HttpServletResponse) {     <span style=color:#960050;background-color:#1e0010>由</span> service <span style=color:#960050;background-color:#1e0010>方法中转</span>
+    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>doPost</span>(req: HttpServletRequest, resp: HttpServletResponse) {     由 service 方法中转
         println(<span style=color:#e6db74>&#34;处理请求 Post&#34;</span>)
-        resp.contentType = <span style=color:#e6db74>&#34;text/html;charset=UTF-8&#34;</span>     <span style=color:#960050;background-color:#1e0010>设置内容类型</span>
+        resp.contentType = <span style=color:#e6db74>&#34;text/html;charset=UTF-8&#34;</span>     设置内容类型
         <span style=color:#66d9ef>val</span> out = resp.writer
         <span style=color:#66d9ef>out</span>.use { <span style=color:#66d9ef>it</span>.write(<span style=color:#e6db74>&#34;&lt;strong&gt;ABC&lt;/strong&gt;&lt;br&gt;&#34;</span>) }
     }
 }
 
-<span style=color:#960050;background-color:#1e0010>若</span> WebApp <span style=color:#960050;background-color:#1e0010>的上下文不为</span> <span style=color:#e6db74>&#34;/&#34;</span><span style=color:#960050;background-color:#1e0010>，则使用绝对路径时需要加上</span> request.getContextPath()
-<span style=color:#960050;background-color:#1e0010>例：</span>&lt;a href=<span style=color:#e6db74>&#34;&lt;%=request.getContextPath()%&gt;/abc&#34;</span>&gt;<span style=color:#960050;background-color:#1e0010>链接</span>&lt;/a&gt;
+若 WebApp 的上下文不为 <span style=color:#e6db74>&#34;/&#34;</span><span style=color:#960050;background-color:#1e0010>，</span>则使用绝对路径时需要加上 request.getContextPath()
+例<span style=color:#960050;background-color:#1e0010>：</span>&lt;a href=<span style=color:#e6db74>&#34;&lt;%=request.getContextPath()%&gt;/abc&#34;</span>&gt;链接&lt;/a&gt;
 https:<span style=color:#75715e>//tomcat.apache.org/tomcat-9.0-doc/servletapi/javax/servlet/http/HttpServletRequest.html#getContextPath--
 </span></code></pre></div><h3 id=webxml>web.xml</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#75715e>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>

@@ -60,129 +60,129 @@
     <span style=color:#66d9ef>val</span> query = <span style=color:#66d9ef>it</span>.createQuery(<span style=color:#e6db74>&#34;from Customer&#34;</span>, Customer<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java)
     query.list().forEach { println(<span style=color:#66d9ef>it</span>.name) }
 
-    <span style=color:#66d9ef>val</span> query = <span style=color:#66d9ef>it</span>.createQuery(<span style=color:#e6db74>&#34;from Commodity c,Seller s&#34;</span>, Array&lt;Any&gt;<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java)     <span style=color:#960050;background-color:#1e0010>设置别名</span>
-    query.list().forEach { println(Arrays.toString(<span style=color:#66d9ef>it</span>)) }     <span style=color:#960050;background-color:#1e0010>笛卡尓积</span>
+    <span style=color:#66d9ef>val</span> query = <span style=color:#66d9ef>it</span>.createQuery(<span style=color:#e6db74>&#34;from Commodity c,Seller s&#34;</span>, Array&lt;Any&gt;<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java)     设置别名
+    query.list().forEach { println(Arrays.toString(<span style=color:#66d9ef>it</span>)) }     笛卡尓积
 
     <span style=color:#66d9ef>it</span>.transaction.commit()
 }
 
-list()   <span style=color:#960050;background-color:#1e0010>：无视缓存并加载整个数据，发送</span>  <span style=color:#ae81ff>1</span>  <span style=color:#960050;background-color:#1e0010>条</span> SQL <span style=color:#960050;background-color:#1e0010>语句。</span>
-iterate()<span style=color:#960050;background-color:#1e0010>：检索缓存并延迟加载数据，发送</span> <span style=color:#ae81ff>1</span>+N <span style=color:#960050;background-color:#1e0010>条</span> SQL <span style=color:#960050;background-color:#1e0010>语句。</span>
+list()   <span style=color:#960050;background-color:#1e0010>：</span>无视缓存并加载整个数据<span style=color:#960050;background-color:#1e0010>，</span>发送  <span style=color:#ae81ff>1</span>  条 SQL 语句<span style=color:#960050;background-color:#1e0010>。</span>
+iterate()<span style=color:#960050;background-color:#1e0010>：</span>检索缓存并延迟加载数据<span style=color:#960050;background-color:#1e0010>，</span>发送 <span style=color:#ae81ff>1</span>+N 条 SQL 语句<span style=color:#960050;background-color:#1e0010>。</span>
 </code></pre></div><h2 id=选择属性select>选择属性：select</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#960050;background-color:#1e0010>单个属性：</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin>单个属性<span style=color:#960050;background-color:#1e0010>：</span>
 
-<span style=color:#960050;background-color:#1e0010>原生对象</span>
+原生对象
 <span style=color:#f92672>----</span>
 <span style=color:#66d9ef>val</span> query = <span style=color:#66d9ef>it</span>.createQuery(<span style=color:#e6db74>&#34;select birthday from Customer&#34;</span>, Date<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java)
 query.list().forEach { println(<span style=color:#66d9ef>it</span>) }
 
-<span style=color:#960050;background-color:#1e0010>数据去重</span>
+数据去重
 <span style=color:#f92672>----</span>
 <span style=color:#66d9ef>val</span> query = <span style=color:#66d9ef>it</span>.createQuery(<span style=color:#e6db74>&#34;select distinct sex from Customer&#34;</span>, String<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java)
 query.list().forEach { println(<span style=color:#66d9ef>it</span>) }
 
-<span style=color:#960050;background-color:#1e0010>多个属性：</span>
+多个属性<span style=color:#960050;background-color:#1e0010>：</span>
 
-<span style=color:#960050;background-color:#1e0010>默认为</span> Array
+默认为 Array
 <span style=color:#f92672>----</span>
 <span style=color:#66d9ef>val</span> query = <span style=color:#66d9ef>it</span>.createQuery(<span style=color:#e6db74>&#34;select name,address,tel from Seller&#34;</span>, Array&lt;Any&gt;<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java)
 query.list().forEach { println(Arrays.toString(<span style=color:#66d9ef>it</span>)) }
 
-<span style=color:#960050;background-color:#1e0010>指定为</span> List
+指定为 List
 <span style=color:#f92672>----</span>
 <span style=color:#66d9ef>val</span> query = <span style=color:#66d9ef>it</span>.createQuery(<span style=color:#e6db74>&#34;select new list(name,address,tel) from Seller&#34;</span>, List<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java)
 query.list().forEach { println(<span style=color:#66d9ef>it</span>) }
 
-<span style=color:#960050;background-color:#1e0010>指定为</span> Map
+指定为 Map
 <span style=color:#f92672>----</span>
 <span style=color:#66d9ef>val</span> query = <span style=color:#66d9ef>it</span>.createQuery(<span style=color:#e6db74>&#34;select new map(name,address,tel) from Seller&#34;</span>, Map<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java)
 query.list().forEach { println(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${it[&#34;0&#34;]}</span><span style=color:#e6db74>  </span><span style=color:#e6db74>${it[&#34;1&#34;]}</span><span style=color:#e6db74>  </span><span style=color:#e6db74>${it[&#34;2&#34;]}</span><span style=color:#e6db74>&#34;</span>) }
 <span style=color:#f92672>----</span>
-<span style=color:#66d9ef>val</span> query = <span style=color:#66d9ef>it</span>.createQuery(<span style=color:#e6db74>&#34;select new map(name as n,address as a,tel as t) from Seller&#34;</span>, Map<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java)     <span style=color:#960050;background-color:#1e0010>设置别名</span>
+<span style=color:#66d9ef>val</span> query = <span style=color:#66d9ef>it</span>.createQuery(<span style=color:#e6db74>&#34;select new map(name as n,address as a,tel as t) from Seller&#34;</span>, Map<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java)     设置别名
 query.list().forEach { println(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${it[&#34;n&#34;]}</span><span style=color:#e6db74>  </span><span style=color:#e6db74>${it[&#34;a&#34;]}</span><span style=color:#e6db74>  </span><span style=color:#e6db74>${it[&#34;t&#34;]}</span><span style=color:#e6db74>&#34;</span>) }
 
-<span style=color:#960050;background-color:#1e0010>指定为自定义对象</span> Test
+指定为自定义对象 Test
 <span style=color:#f92672>----</span>
 <span style=color:#66d9ef>val</span> query = <span style=color:#66d9ef>it</span>.createQuery(<span style=color:#e6db74>&#34;select new Test(name,address,tel) from Seller&#34;</span>, Test<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java)
 query.list().forEach { println(<span style=color:#66d9ef>it</span>) }
 </code></pre></div><h3 id=test>Test</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Test</span>(<span style=color:#66d9ef>var</span> s1: String, <span style=color:#66d9ef>var</span> s2: String, <span style=color:#66d9ef>var</span> s3: String)
 </code></pre></div><h2 id=限制范围where>限制范围：where</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#960050;background-color:#1e0010>比较运算：</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin>比较运算<span style=color:#960050;background-color:#1e0010>：</span>
 
 =, <span style=color:#f92672>!=</span>, &lt;, &gt;, <span style=color:#f92672>&lt;=</span>, <span style=color:#f92672>&gt;=</span>
 <span style=color:#f92672>----</span>
 <span style=color:#66d9ef>val</span> query = <span style=color:#66d9ef>it</span>.createQuery(<span style=color:#e6db74>&#34;from Commodity c where c.price&gt;400&#34;</span>, Commodity<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java)
 query.list().forEach { println(<span style=color:#66d9ef>it</span>.name) }
 
-<span style=color:#960050;background-color:#1e0010>四则运算：</span>
+四则运算<span style=color:#960050;background-color:#1e0010>：</span>
 
 +, -, *, /
 <span style=color:#f92672>----</span>
 <span style=color:#66d9ef>val</span> query = <span style=color:#66d9ef>it</span>.createQuery(<span style=color:#e6db74>&#34;from Commodity c where c.price*5&lt;2000&#34;</span>, Commodity<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java)
 query.list().forEach { println(<span style=color:#66d9ef>it</span>.price) }
 
-<span style=color:#960050;background-color:#1e0010>范围运算：</span>
+范围运算<span style=color:#960050;background-color:#1e0010>：</span>
 <span style=color:#a6e22e>
 </span><span style=color:#a6e22e>[not]</span> between v1 and v2
 <span style=color:#f92672>----</span>
 <span style=color:#66d9ef>val</span> query = <span style=color:#66d9ef>it</span>.createQuery(<span style=color:#e6db74>&#34;from Customer c where c.age between 20 and 35&#34;</span>, Customer<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java)
 query.list().forEach { println(<span style=color:#66d9ef>it</span>.age) }
 
-<span style=color:#960050;background-color:#1e0010>逻辑运算：</span>
+逻辑运算<span style=color:#960050;background-color:#1e0010>：</span>
 
 and, or, not
-<span style=color:#960050;background-color:#1e0010>且，</span> <span style=color:#960050;background-color:#1e0010>或，</span> <span style=color:#960050;background-color:#1e0010>非</span>
+且<span style=color:#960050;background-color:#1e0010>，</span> 或<span style=color:#960050;background-color:#1e0010>，</span> 非
 <span style=color:#f92672>----</span>
 <span style=color:#66d9ef>val</span> query = <span style=color:#66d9ef>it</span>.createQuery(<span style=color:#e6db74>&#34;from Commodity c where (c.price between 100 and 5000) and (c.category not like &#39;%童装%&#39;)&#34;</span>, Commodity<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java)
 query.list().forEach { println(<span style=color:#66d9ef>it</span>.name) }
 
-<span style=color:#960050;background-color:#1e0010>集合运算：</span>
+集合运算<span style=color:#960050;background-color:#1e0010>：</span>
 
-<span style=color:#960050;background-color:#1e0010>元素是否属于集合（参数为集合，</span>value <span style=color:#66d9ef>in</span> ?<span style=color:#960050;background-color:#1e0010>）：</span>
+元素是否属于集合<span style=color:#960050;background-color:#1e0010>（</span>参数为集合<span style=color:#960050;background-color:#1e0010>，</span>value <span style=color:#66d9ef>in</span> ?<span style=color:#960050;background-color:#1e0010>）：</span>
 <span style=color:#a6e22e>[not]</span> <span style=color:#66d9ef>in</span> (v1, v2, v3)
 <span style=color:#f92672>----</span>
-<span style=color:#66d9ef>val</span> query = <span style=color:#66d9ef>it</span>.createQuery(<span style=color:#e6db74>&#34;from Customer c where c.age in (20,35)&#34;</span>, Customer<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java)     <span style=color:#960050;background-color:#1e0010>底层使用</span> Statement <span style=color:#960050;background-color:#1e0010>接口</span>
+<span style=color:#66d9ef>val</span> query = <span style=color:#66d9ef>it</span>.createQuery(<span style=color:#e6db74>&#34;from Customer c where c.age in (20,35)&#34;</span>, Customer<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java)     底层使用 Statement 接口
 query.list().forEach { println(<span style=color:#66d9ef>it</span>.age) }
 <span style=color:#f92672>----</span>
-<span style=color:#66d9ef>val</span> query = <span style=color:#66d9ef>it</span>.createQuery(<span style=color:#e6db74>&#34;from Customer c where c.age in :values&#34;</span>, Customer<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java)     <span style=color:#960050;background-color:#1e0010>底层使用</span> PreparedStatement <span style=color:#960050;background-color:#1e0010>接口</span>
-query.setParameter(<span style=color:#e6db74>&#34;values&#34;</span>, arrayListOf(<span style=color:#ae81ff>20</span>, <span style=color:#ae81ff>35</span>))     <span style=color:#960050;background-color:#1e0010>设置参数</span>
+<span style=color:#66d9ef>val</span> query = <span style=color:#66d9ef>it</span>.createQuery(<span style=color:#e6db74>&#34;from Customer c where c.age in :values&#34;</span>, Customer<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java)     底层使用 PreparedStatement 接口
+query.setParameter(<span style=color:#e6db74>&#34;values&#34;</span>, arrayListOf(<span style=color:#ae81ff>20</span>, <span style=color:#ae81ff>35</span>))     设置参数
 query.list().forEach { println(<span style=color:#66d9ef>it</span>.age) }
 
-<span style=color:#960050;background-color:#1e0010>元素是否属于集合（参数为元素，</span>? <span style=color:#66d9ef>in</span> list<span style=color:#960050;background-color:#1e0010>）：</span>
+元素是否属于集合<span style=color:#960050;background-color:#1e0010>（</span>参数为元素<span style=color:#960050;background-color:#1e0010>，</span>? <span style=color:#66d9ef>in</span> list<span style=color:#960050;background-color:#1e0010>）：</span>
 <span style=color:#a6e22e>[not]</span> member of <span style=color:#f92672>-&gt;</span> [not] <span style=color:#66d9ef>in</span>
 <span style=color:#f92672>----</span>
 <span style=color:#66d9ef>val</span> orderForm = <span style=color:#66d9ef>it</span>.<span style=color:#66d9ef>get</span>(OrderForm<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java, <span style=color:#ae81ff>1</span>)
 <span style=color:#66d9ef>val</span> query = <span style=color:#66d9ef>it</span>.createQuery(<span style=color:#e6db74>&#34;from Customer c where :values member of c.orderforms&#34;</span>, Customer<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java)
-query.setParameter(<span style=color:#e6db74>&#34;values&#34;</span>, orderForm)     <span style=color:#960050;background-color:#1e0010>设置参数</span>
+query.setParameter(<span style=color:#e6db74>&#34;values&#34;</span>, orderForm)     设置参数
 query.list().forEach { println(<span style=color:#66d9ef>it</span>.name) }
 
-<span style=color:#960050;background-color:#1e0010>集合是否为空集：</span>
+集合是否为空集<span style=color:#960050;background-color:#1e0010>：</span>
 <span style=color:#66d9ef>is</span> empty <span style=color:#f92672>-&gt;</span> not exists
 <span style=color:#66d9ef>is</span> not empty <span style=color:#f92672>-&gt;</span> exists
 <span style=color:#f92672>----</span>
 <span style=color:#66d9ef>val</span> query = <span style=color:#66d9ef>it</span>.createQuery(<span style=color:#e6db74>&#34;select o.orderitems.size from OrderForm o where o.orderitems is not empty&#34;</span>, Integer<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java)
 query.list().forEach { println(<span style=color:#66d9ef>it</span>) }
 
-<span style=color:#960050;background-color:#1e0010>空值判断：</span>
+空值判断<span style=color:#960050;background-color:#1e0010>：</span>
 
 <span style=color:#66d9ef>is</span> [not] <span style=color:#66d9ef>null</span>
 <span style=color:#f92672>----</span>
 <span style=color:#66d9ef>val</span> query = <span style=color:#66d9ef>it</span>.createQuery(<span style=color:#e6db74>&#34;from Commodity c where c.description is null&#34;</span>, Commodity<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java)
 query.list().forEach { println(<span style=color:#66d9ef>it</span>.name) }
 
-<span style=color:#960050;background-color:#1e0010>字符串匹配：</span>
+字符串匹配<span style=color:#960050;background-color:#1e0010>：</span>
 
-<span style=color:#960050;background-color:#1e0010>精确匹配：</span>like <span style=color:#960050;background-color:#1e0010>&#39;张爱玲&#39;</span>
-<span style=color:#960050;background-color:#1e0010>模糊匹配：</span>like <span style=color:#960050;background-color:#1e0010>&#39;张</span>%<span style=color:#960050;background-color:#1e0010>&#39;</span>
-<span style=color:#960050;background-color:#1e0010>通配符：</span>
-%<span style=color:#960050;background-color:#1e0010>：任意字符</span>
-_<span style=color:#960050;background-color:#1e0010>：任意一个字符</span>
+精确匹配<span style=color:#960050;background-color:#1e0010>：</span>like <span style=color:#960050;background-color:#1e0010>&#39;</span>张爱玲<span style=color:#960050;background-color:#1e0010>&#39;</span>
+模糊匹配<span style=color:#960050;background-color:#1e0010>：</span>like <span style=color:#960050;background-color:#1e0010>&#39;</span>张%<span style=color:#960050;background-color:#1e0010>&#39;</span>
+通配符<span style=color:#960050;background-color:#1e0010>：</span>
+%<span style=color:#960050;background-color:#1e0010>：</span>任意字符
+_<span style=color:#960050;background-color:#1e0010>：</span>任意一个字符
 <span style=color:#f92672>----</span>
 <span style=color:#66d9ef>val</span> query = <span style=color:#66d9ef>it</span>.createQuery(<span style=color:#e6db74>&#34;from Customer c where c.address like &#39;%北京%&#39;&#34;</span>, Customer<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java)
 query.list().forEach { println(<span style=color:#66d9ef>it</span>.address) }
 
-uniqueResult<span style=color:#960050;background-color:#1e0010>：查询结果最多只能有一个，否则抛出异常。</span>
+uniqueResult<span style=color:#960050;background-color:#1e0010>：</span>查询结果最多只能有一个<span style=color:#960050;background-color:#1e0010>，</span>否则抛出异常<span style=color:#960050;background-color:#1e0010>。</span>
 <span style=color:#f92672>----</span>
 <span style=color:#66d9ef>val</span> query = <span style=color:#66d9ef>it</span>.createQuery(<span style=color:#e6db74>&#34;from Customer c where c.age&gt;30&#34;</span>, Customer<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java)
 <span style=color:#66d9ef>val</span> customer = query.uniqueResultOptional().orElse(Customer(name = <span style=color:#e6db74>&#34;不存在&#34;</span>))
@@ -192,21 +192,21 @@ println(customer.name)
 <li>升序排序（由低到高）：asc</li>
 <li>降序排序（由高到低）：desc</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>val</span> query = <span style=color:#66d9ef>it</span>.createQuery(<span style=color:#e6db74>&#34;from Commodity c order by c.seller.id asc,c.price desc,c.name asc&#34;</span>, Commodity<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java)     <span style=color:#960050;background-color:#1e0010>多排序规则</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>val</span> query = <span style=color:#66d9ef>it</span>.createQuery(<span style=color:#e6db74>&#34;from Commodity c order by c.seller.id asc,c.price desc,c.name asc&#34;</span>, Commodity<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java)     多排序规则
 query.list().forEach { println(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${it.seller?.id}</span><span style=color:#e6db74>  </span><span style=color:#e6db74>${it.price}</span><span style=color:#e6db74>  </span><span style=color:#e6db74>${it.name}</span><span style=color:#e6db74>&#34;</span>) }
 
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
-<span style=color:#ae81ff>1</span>  <span style=color:#ae81ff>200</span>  <span style=color:#960050;background-color:#1e0010>女士套装</span>
-<span style=color:#ae81ff>1</span>  <span style=color:#ae81ff>200</span>  <span style=color:#960050;background-color:#1e0010>男士西服</span>
-<span style=color:#ae81ff>1</span>  <span style=color:#ae81ff>120</span>  <span style=color:#960050;background-color:#1e0010>中式童装</span>
-<span style=color:#ae81ff>2</span>  <span style=color:#ae81ff>4000</span>  <span style=color:#960050;background-color:#1e0010>笔记本电脑</span>
-<span style=color:#ae81ff>2</span>  <span style=color:#ae81ff>400</span>  <span style=color:#960050;background-color:#1e0010>移动硬盘</span>
-<span style=color:#ae81ff>3</span>  <span style=color:#ae81ff>5000</span>  <span style=color:#960050;background-color:#1e0010>液晶电视</span>
-<span style=color:#ae81ff>3</span>  <span style=color:#ae81ff>4000</span>  <span style=color:#960050;background-color:#1e0010>滚筒洗衣机</span>
-<span style=color:#ae81ff>4</span>  <span style=color:#ae81ff>50</span>  <span style=color:#960050;background-color:#1e0010>《</span>Java<span style=color:#960050;background-color:#1e0010>核心》</span>
-<span style=color:#ae81ff>4</span>  <span style=color:#ae81ff>40</span>  <span style=color:#960050;background-color:#1e0010>《海底两万里》</span>
-<span style=color:#ae81ff>4</span>  <span style=color:#ae81ff>30</span>  <span style=color:#960050;background-color:#1e0010>《</span>hibernate<span style=color:#960050;background-color:#1e0010>编程》</span>
+输出<span style=color:#960050;background-color:#1e0010>：</span>
+<span style=color:#ae81ff>1</span>  <span style=color:#ae81ff>200</span>  女士套装
+<span style=color:#ae81ff>1</span>  <span style=color:#ae81ff>200</span>  男士西服
+<span style=color:#ae81ff>1</span>  <span style=color:#ae81ff>120</span>  中式童装
+<span style=color:#ae81ff>2</span>  <span style=color:#ae81ff>4000</span>  笔记本电脑
+<span style=color:#ae81ff>2</span>  <span style=color:#ae81ff>400</span>  移动硬盘
+<span style=color:#ae81ff>3</span>  <span style=color:#ae81ff>5000</span>  液晶电视
+<span style=color:#ae81ff>3</span>  <span style=color:#ae81ff>4000</span>  滚筒洗衣机
+<span style=color:#ae81ff>4</span>  <span style=color:#ae81ff>50</span>  <span style=color:#960050;background-color:#1e0010>《</span>Java核心<span style=color:#960050;background-color:#1e0010>》</span>
+<span style=color:#ae81ff>4</span>  <span style=color:#ae81ff>40</span>  <span style=color:#960050;background-color:#1e0010>《</span>海底两万里<span style=color:#960050;background-color:#1e0010>》</span>
+<span style=color:#ae81ff>4</span>  <span style=color:#ae81ff>30</span>  <span style=color:#960050;background-color:#1e0010>《</span>hibernate编程<span style=color:#960050;background-color:#1e0010>》</span>
 </code></pre></div><h2 id=code>Code</h2>
 <h3 id=seller商家>Seller（商家）</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>import</span> javax.persistence.*

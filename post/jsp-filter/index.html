@@ -57,20 +57,20 @@
 
 <span style=color:#66d9ef>import</span> javax.servlet.*
 
-<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MyFilter1</span> : Filter {     <span style=color:#960050;background-color:#1e0010>继承</span> Filter
-    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>init</span>(filterConfig: FilterConfig) {     <span style=color:#960050;background-color:#1e0010>用于读取</span> web.xml <span style=color:#960050;background-color:#1e0010>中过滤器的配置参数（</span>&lt;<span style=color:#66d9ef>init</span>-<span style=color:#66d9ef>param</span>&gt;<span style=color:#960050;background-color:#1e0010>）</span>
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MyFilter1</span> : Filter {     继承 Filter
+    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>init</span>(filterConfig: FilterConfig) {     用于读取 web.xml 中过滤器的配置参数<span style=color:#960050;background-color:#1e0010>（</span>&lt;<span style=color:#66d9ef>init</span>-<span style=color:#66d9ef>param</span>&gt;<span style=color:#960050;background-color:#1e0010>）</span>
         println(<span style=color:#e6db74>&#34;init---MyFilter1&#34;</span>)
     }
 
-    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>doFilter</span>(p0: ServletRequest, p1: ServletResponse, p2: FilterChain) {     <span style=color:#960050;background-color:#1e0010>核心方法</span>
-        println(<span style=color:#e6db74>&#34;doFilter---MyFilter1---Start&#34;</span>)     <span style=color:#960050;background-color:#1e0010>放行前</span>
-        p2.doFilter(p0, p1)     <span style=color:#960050;background-color:#1e0010>不过滤（放行）：将请求传递给下一个过滤器（若已为最后一个过滤器，则为目标资源）</span>
-        println(<span style=color:#e6db74>&#34;doFilter---MyFilter1---End&#34;</span>)     <span style=color:#960050;background-color:#1e0010>放行后</span>
+    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>doFilter</span>(p0: ServletRequest, p1: ServletResponse, p2: FilterChain) {     核心方法
+        println(<span style=color:#e6db74>&#34;doFilter---MyFilter1---Start&#34;</span>)     放行前
+        p2.doFilter(p0, p1)     不过滤<span style=color:#960050;background-color:#1e0010>（</span>放行<span style=color:#960050;background-color:#1e0010>）：</span>将请求传递给下一个过滤器<span style=color:#960050;background-color:#1e0010>（</span>若已为最后一个过滤器<span style=color:#960050;background-color:#1e0010>，</span>则为目标资源<span style=color:#960050;background-color:#1e0010>）</span>
+        println(<span style=color:#e6db74>&#34;doFilter---MyFilter1---End&#34;</span>)     放行后
 
-        <span style=color:#960050;background-color:#1e0010>要过滤：通过请求转发（</span>request<span style=color:#960050;background-color:#1e0010>）、请求重定向（</span>response<span style=color:#960050;background-color:#1e0010>），跳转至其他资源。</span>
+        要过滤<span style=color:#960050;background-color:#1e0010>：</span>通过请求转发<span style=color:#960050;background-color:#1e0010>（</span>request<span style=color:#960050;background-color:#1e0010>）、</span>请求重定向<span style=color:#960050;background-color:#1e0010>（</span>response<span style=color:#960050;background-color:#1e0010>），</span>跳转至其他资源<span style=color:#960050;background-color:#1e0010>。</span>
     }
 
-    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>destroy</span>() {     <span style=color:#960050;background-color:#1e0010>用于释放过滤器所占用的资源</span>
+    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>destroy</span>() {     用于释放过滤器所占用的资源
         println(<span style=color:#e6db74>&#34;destroy---MyFilter1&#34;</span>)
     }
 }
@@ -191,7 +191,7 @@ destroy---MyFilter2
 
     <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>doFilter</span>(p0: ServletRequest, p1: ServletResponse, p2: FilterChain) {
         println(<span style=color:#e6db74>&#34;发生错误!&#34;</span>)
-        p2.doFilter(p0, p1)     <span style=color:#960050;background-color:#1e0010>放行</span>
+        p2.doFilter(p0, p1)     放行
     }
 
     <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>destroy</span>() {}
@@ -285,26 +285,26 @@ login_failed.jsp
     <span style=color:#66d9ef>lateinit</span> <span style=color:#66d9ef>var</span> noFilterList: List&lt;String&gt;
 
     <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>init</span>(filterConfig: FilterConfig) {
-        noFilterList = filterConfig.getInitParameter(<span style=color:#e6db74>&#34;noFilterList&#34;</span>).split(<span style=color:#e6db74>&#34;;&#34;</span>)     <span style=color:#960050;background-color:#1e0010>获取放行关键字</span>
+        noFilterList = filterConfig.getInitParameter(<span style=color:#e6db74>&#34;noFilterList&#34;</span>).split(<span style=color:#e6db74>&#34;;&#34;</span>)     获取放行关键字
     }
 
     <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>doFilter</span>(request: ServletRequest, response: ServletResponse, chain: FilterChain) {
         <span style=color:#66d9ef>val</span> request1 = request <span style=color:#66d9ef>as</span> HttpServletRequest
         <span style=color:#66d9ef>val</span> response1 = response <span style=color:#66d9ef>as</span> HttpServletResponse
-        request1.characterEncoding = <span style=color:#e6db74>&#34;UTF-8&#34;</span>     <span style=color:#960050;background-color:#1e0010>统一指定输入字符集</span>
+        request1.characterEncoding = <span style=color:#e6db74>&#34;UTF-8&#34;</span>     统一指定输入字符集
 
-        <span style=color:#66d9ef>val</span> uri = request1.requestURI     <span style=color:#960050;background-color:#1e0010>请求路径</span>
+        <span style=color:#66d9ef>val</span> uri = request1.requestURI     请求路径
         <span style=color:#66d9ef>if</span> (request1.session.getAttribute(<span style=color:#e6db74>&#34;username&#34;</span>) <span style=color:#f92672>!=</span> <span style=color:#66d9ef>null</span> <span style=color:#f92672>||</span> uri <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;/&#34;</span> <span style=color:#f92672>||</span> check(uri)) {
-            chain.doFilter(request, response)     <span style=color:#960050;background-color:#1e0010>放行（通过）</span>
+            chain.doFilter(request, response)     放行<span style=color:#960050;background-color:#1e0010>（</span>通过<span style=color:#960050;background-color:#1e0010>）</span>
         } <span style=color:#66d9ef>else</span> {
-            response1.sendRedirect(<span style=color:#e6db74>&#34;/&#34;</span>)     <span style=color:#960050;background-color:#1e0010>不放行（重定向至根目录）</span>
+            response1.sendRedirect(<span style=color:#e6db74>&#34;/&#34;</span>)     不放行<span style=color:#960050;background-color:#1e0010>（</span>重定向至根目录<span style=color:#960050;background-color:#1e0010>）</span>
         }
     }
 
     <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>destroy</span>() {
     }
 
-    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>check</span>(s: String) = noFilterList.find { s.contains(<span style=color:#66d9ef>it</span>) } <span style=color:#f92672>!=</span> <span style=color:#66d9ef>null</span>     <span style=color:#960050;background-color:#1e0010>若请求路径包含某个关键字，则返回</span> <span style=color:#66d9ef>true</span>
+    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>check</span>(s: String) = noFilterList.find { s.contains(<span style=color:#66d9ef>it</span>) } <span style=color:#f92672>!=</span> <span style=color:#66d9ef>null</span>     若请求路径包含某个关键字<span style=color:#960050;background-color:#1e0010>，</span>则返回 <span style=color:#66d9ef>true</span>
 }
 </code></pre></div><h3 id=webxml-2>web.xml</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#75715e>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>

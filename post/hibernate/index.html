@@ -97,36 +97,36 @@ current_session_context_class ➜ thread ➜ org.hibernate.context.internal.Thre
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>package</span> entity
 
 <span style=color:#66d9ef>import</span> java.util.*
-<span style=color:#66d9ef>import</span> javax.persistence.*     JPA <span style=color:#960050;background-color:#1e0010>注解</span>
+<span style=color:#66d9ef>import</span> javax.persistence.*     JPA 注解
 
-<span style=color:#a6e22e>@Entity</span>     <span style=color:#960050;background-color:#1e0010>实体</span>
+<span style=color:#a6e22e>@Entity</span>     实体
 <span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Student</span>(
-        <span style=color:#a6e22e>@Id</span>     <span style=color:#960050;background-color:#1e0010>主键</span>
-        <span style=color:#a6e22e>@GeneratedValue</span>(strategy = GenerationType.IDENTITY)     <span style=color:#960050;background-color:#1e0010>主键整形自增（</span>SERIAL<span style=color:#960050;background-color:#1e0010>）</span>
+        <span style=color:#a6e22e>@Id</span>     主键
+        <span style=color:#a6e22e>@GeneratedValue</span>(strategy = GenerationType.IDENTITY)     主键整形自增<span style=color:#960050;background-color:#1e0010>（</span>SERIAL<span style=color:#960050;background-color:#1e0010>）</span>
         <span style=color:#66d9ef>var</span> id: Int? = <span style=color:#66d9ef>null</span>,
         <span style=color:#66d9ef>var</span> name: String? = <span style=color:#66d9ef>null</span>,
         <span style=color:#66d9ef>var</span> gender: String? = <span style=color:#66d9ef>null</span>,
         <span style=color:#66d9ef>var</span> birthday: Date? = <span style=color:#66d9ef>null</span>,
-        <span style=color:#66d9ef>var</span> address: Address? = <span style=color:#66d9ef>null</span>,     <span style=color:#960050;background-color:#1e0010>组件</span>
+        <span style=color:#66d9ef>var</span> address: Address? = <span style=color:#66d9ef>null</span>,     组件
         <span style=color:#66d9ef>var</span> picture: ByteArray? = <span style=color:#66d9ef>null</span>,
-        <span style=color:#a6e22e>@Transient</span>     <span style=color:#960050;background-color:#1e0010>非字段</span>
+        <span style=color:#a6e22e>@Transient</span>     非字段
         <span style=color:#66d9ef>var</span> temp: String? = <span style=color:#66d9ef>null</span>
 )
 
-<span style=color:#a6e22e>@Table</span>(name = <span style=color:#e6db74>&#34;t_student&#34;</span>)     <span style=color:#960050;background-color:#1e0010>定义表</span>
+<span style=color:#a6e22e>@Table</span>(name = <span style=color:#e6db74>&#34;t_student&#34;</span>)     定义表
 
-<span style=color:#a6e22e>@Column</span>(nullable = <span style=color:#66d9ef>false</span>, columnDefinition = <span style=color:#e6db74>&#34;timestamp|time|date&#34;</span>)     <span style=color:#960050;background-color:#1e0010>定义字段</span>
+<span style=color:#a6e22e>@Column</span>(nullable = <span style=color:#66d9ef>false</span>, columnDefinition = <span style=color:#e6db74>&#34;timestamp|time|date&#34;</span>)     定义字段
 
 <span style=color:#a6e22e>@Temporal</span>(TemporalType.DATE)
-timestamp  <span style=color:#960050;background-color:#1e0010>时间</span>+<span style=color:#960050;background-color:#1e0010>日期</span>
-time       <span style=color:#960050;background-color:#1e0010>时间</span>
-date       <span style=color:#960050;background-color:#1e0010>日期</span>
+timestamp  时间+日期
+time       时间
+date       日期
 </code></pre></div><h4 id=address>Address</h4>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>package</span> entity
 
 <span style=color:#66d9ef>import</span> javax.persistence.Embeddable
 
-<span style=color:#a6e22e>@Embeddable</span>     <span style=color:#960050;background-color:#1e0010>组件</span>
+<span style=color:#a6e22e>@Embeddable</span>     组件
 <span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Address</span>(
         <span style=color:#66d9ef>var</span> city: String? = <span style=color:#66d9ef>null</span>,
         <span style=color:#66d9ef>var</span> phone: String? = <span style=color:#66d9ef>null</span>,
@@ -140,7 +140,7 @@ date       <span style=color:#960050;background-color:#1e0010>日期</span>
 <span style=color:#66d9ef>import</span> org.hibernate.boot.registry.StandardServiceRegistryBuilder
 <span style=color:#66d9ef>import</span> java.util.*
 
-<span style=color:#66d9ef>val</span> sessionFactory: SessionFactory <span style=color:#66d9ef>by</span> lazy {     <span style=color:#960050;background-color:#1e0010>会话工厂</span>
+<span style=color:#66d9ef>val</span> sessionFactory: SessionFactory <span style=color:#66d9ef>by</span> lazy {     会话工厂
     <span style=color:#66d9ef>val</span> registry = StandardServiceRegistryBuilder().configure().build()
     MetadataSources(registry).buildMetadata().buildSessionFactory()
 }
@@ -156,14 +156,14 @@ date       <span style=color:#960050;background-color:#1e0010>日期</span>
 <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>create</span>() {
     println(<span style=color:#e6db74>&#34;增&#34;</span>)
     sessionFactory.currentSession.use {
-        <span style=color:#66d9ef>it</span>.beginTransaction()     <span style=color:#960050;background-color:#1e0010>开启事务</span>
+        <span style=color:#66d9ef>it</span>.beginTransaction()     开启事务
         <span style=color:#66d9ef>val</span> student = Student(name = <span style=color:#e6db74>&#34;张三丰&#34;</span>, gender = <span style=color:#e6db74>&#34;男&#34;</span>, birthday = Date(), address = Address(city = <span style=color:#e6db74>&#34;重庆&#34;</span>))
         <span style=color:#66d9ef>it</span>.save(student)
-        <span style=color:#66d9ef>it</span>.transaction.commit()     <span style=color:#960050;background-color:#1e0010>提交事务</span>
+        <span style=color:#66d9ef>it</span>.transaction.commit()     提交事务
     }
 
-          openSession()<span style=color:#960050;background-color:#1e0010>：新建会话，会话需手动关闭。</span>
-    getCurrentSession()<span style=color:#960050;background-color:#1e0010>：重用会话，会话会自动关闭。（需要配置</span> current_session_context_class<span style=color:#960050;background-color:#1e0010>）</span>
+          openSession()<span style=color:#960050;background-color:#1e0010>：</span>新建会话<span style=color:#960050;background-color:#1e0010>，</span>会话需手动关闭<span style=color:#960050;background-color:#1e0010>。</span>
+    getCurrentSession()<span style=color:#960050;background-color:#1e0010>：</span>重用会话<span style=color:#960050;background-color:#1e0010>，</span>会话会自动关闭<span style=color:#960050;background-color:#1e0010>。（</span>需要配置 current_session_context_class<span style=color:#960050;background-color:#1e0010>）</span>
 }
 
 <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>retrieve</span>() {
@@ -175,8 +175,8 @@ date       <span style=color:#960050;background-color:#1e0010>日期</span>
         <span style=color:#66d9ef>it</span>.transaction.commit()
     }
 
-     <span style=color:#66d9ef>get</span>()<span style=color:#960050;background-color:#1e0010>：立即执行</span> SQL <span style=color:#960050;background-color:#1e0010>语句，返回实体对象，记录不存在返回</span> <span style=color:#66d9ef>null</span><span style=color:#960050;background-color:#1e0010>。（</span>Eager<span style=color:#960050;background-color:#1e0010>）</span>
-    load()<span style=color:#960050;background-color:#1e0010>：延迟执行</span> SQL <span style=color:#960050;background-color:#1e0010>语句，返回代理对象，记录不存在抛出</span> ObjectNotFoundException <span style=color:#960050;background-color:#1e0010>异常。（</span>Lazy<span style=color:#960050;background-color:#1e0010>）</span>
+     <span style=color:#66d9ef>get</span>()<span style=color:#960050;background-color:#1e0010>：</span>立即执行 SQL 语句<span style=color:#960050;background-color:#1e0010>，</span>返回实体对象<span style=color:#960050;background-color:#1e0010>，</span>记录不存在返回 <span style=color:#66d9ef>null</span><span style=color:#960050;background-color:#1e0010>。（</span>Eager<span style=color:#960050;background-color:#1e0010>）</span>
+    load()<span style=color:#960050;background-color:#1e0010>：</span>延迟执行 SQL 语句<span style=color:#960050;background-color:#1e0010>，</span>返回代理对象<span style=color:#960050;background-color:#1e0010>，</span>记录不存在抛出 ObjectNotFoundException 异常<span style=color:#960050;background-color:#1e0010>。（</span>Lazy<span style=color:#960050;background-color:#1e0010>）</span>
 }
 
 <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>update</span>() {
@@ -206,24 +206,24 @@ date       <span style=color:#960050;background-color:#1e0010>日期</span>
 <h3 id=一对一>一对一</h3>
 <p>只需持久化一方（Phone）。</p>
 <h4 id=单向引用>单向引用</h4>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>import</span> javax.persistence.*     JPA <span style=color:#960050;background-color:#1e0010>注解</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>import</span> javax.persistence.*     JPA 注解
 
 <span style=color:#a6e22e>@Entity</span>
-<span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Phone</span>(     <span style=color:#960050;background-color:#1e0010>从表</span>
+<span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Phone</span>(     从表
         <span style=color:#a6e22e>@Id</span>
         <span style=color:#a6e22e>@GeneratedValue</span>(strategy = GenerationType.IDENTITY)
         <span style=color:#66d9ef>val</span> id: Int? = <span style=color:#66d9ef>null</span>,
-        <span style=color:#a6e22e>@Column</span>(unique = <span style=color:#66d9ef>true</span>)     <span style=color:#960050;background-color:#1e0010>定义字段</span>
+        <span style=color:#a6e22e>@Column</span>(unique = <span style=color:#66d9ef>true</span>)     定义字段
         <span style=color:#66d9ef>var</span> number: String? = <span style=color:#66d9ef>null</span>,
         <span style=color:#a6e22e>@OneToOne</span>(cascade = arrayOf(CascadeType.ALL), orphanRemoval = <span style=color:#66d9ef>true</span>)
-        <span style=color:#a6e22e>@JoinColumn</span>(unique = <span style=color:#66d9ef>true</span>)     <span style=color:#960050;background-color:#1e0010>定义外键字段</span>
-        <span style=color:#66d9ef>var</span> details: PhoneDetail? = <span style=color:#66d9ef>null</span>     <span style=color:#960050;background-color:#1e0010>将</span> PhoneDetail <span style=color:#960050;background-color:#1e0010>的主键作为此表的外键</span>
+        <span style=color:#a6e22e>@JoinColumn</span>(unique = <span style=color:#66d9ef>true</span>)     定义外键字段
+        <span style=color:#66d9ef>var</span> details: PhoneDetail? = <span style=color:#66d9ef>null</span>     将 PhoneDetail 的主键作为此表的外键
 )
 
 <span style=color:#f92672>----</span>
 
 <span style=color:#a6e22e>@Entity</span>
-<span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>PhoneDetail</span>(     <span style=color:#960050;background-color:#1e0010>主表（与平常状态一致，无需改动）</span>
+<span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>PhoneDetail</span>(     主表<span style=color:#960050;background-color:#1e0010>（</span>与平常状态一致<span style=color:#960050;background-color:#1e0010>，</span>无需改动<span style=color:#960050;background-color:#1e0010>）</span>
         <span style=color:#a6e22e>@Id</span>
         <span style=color:#a6e22e>@GeneratedValue</span>(strategy = GenerationType.IDENTITY)
         <span style=color:#66d9ef>val</span> id: Int? = <span style=color:#66d9ef>null</span>,
@@ -231,21 +231,21 @@ date       <span style=color:#960050;background-color:#1e0010>日期</span>
 )
 </code></pre></div><h4 id=双向引用优>双向引用（优）</h4>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#a6e22e>@Entity</span>
-<span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Phone</span>(     <span style=color:#960050;background-color:#1e0010>主表</span>
+<span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Phone</span>(     主表
         <span style=color:#a6e22e>@Id</span>
         <span style=color:#a6e22e>@GeneratedValue</span>(strategy = GenerationType.IDENTITY)
         <span style=color:#66d9ef>val</span> id: Int? = <span style=color:#66d9ef>null</span>,
         <span style=color:#a6e22e>@Column</span>(unique = <span style=color:#66d9ef>true</span>)
         <span style=color:#66d9ef>var</span> number: String? = <span style=color:#66d9ef>null</span>,
         <span style=color:#a6e22e>@OneToOne</span>(mappedBy = <span style=color:#e6db74>&#34;phone&#34;</span>, cascade = arrayOf(CascadeType.ALL), orphanRemoval = <span style=color:#66d9ef>true</span>)
-        <span style=color:#66d9ef>var</span> details: PhoneDetail? = <span style=color:#66d9ef>null</span>     <span style=color:#960050;background-color:#1e0010>由</span> PhoneDetail <span style=color:#960050;background-color:#1e0010>中的</span> phone <span style=color:#960050;background-color:#1e0010>负责关联</span>
+        <span style=color:#66d9ef>var</span> details: PhoneDetail? = <span style=color:#66d9ef>null</span>     由 PhoneDetail 中的 phone 负责关联
 ) {
-    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>addDetails</span>(details: PhoneDetail) {     <span style=color:#960050;background-color:#1e0010>确保双方关系保持同步</span>
+    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>addDetails</span>(details: PhoneDetail) {     确保双方关系保持同步
         <span style=color:#66d9ef>this</span>.details = details
         details.phone = <span style=color:#66d9ef>this</span>
     }
 
-    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>removeDetails</span>() {     <span style=color:#960050;background-color:#1e0010>确保双方关系保持同步</span>
+    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>removeDetails</span>() {     确保双方关系保持同步
         <span style=color:#66d9ef>if</span> (details <span style=color:#f92672>!=</span> <span style=color:#66d9ef>null</span>) {
             <span style=color:#66d9ef>this</span>.details = <span style=color:#66d9ef>null</span>
             details<span style=color:#f92672>?.</span>phone = <span style=color:#66d9ef>null</span>
@@ -256,14 +256,14 @@ date       <span style=color:#960050;background-color:#1e0010>日期</span>
 <span style=color:#f92672>----</span>
 
 <span style=color:#a6e22e>@Entity</span>
-<span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>PhoneDetail</span>(     <span style=color:#960050;background-color:#1e0010>从表</span>
+<span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>PhoneDetail</span>(     从表
         <span style=color:#a6e22e>@Id</span>
         <span style=color:#a6e22e>@GeneratedValue</span>(strategy = GenerationType.IDENTITY)
         <span style=color:#66d9ef>val</span> id: Int? = <span style=color:#66d9ef>null</span>,
         <span style=color:#66d9ef>var</span> provider: String? = <span style=color:#66d9ef>null</span>,
         <span style=color:#a6e22e>@OneToOne</span>
         <span style=color:#a6e22e>@JoinColumn</span>(unique = <span style=color:#66d9ef>true</span>)
-        <span style=color:#66d9ef>var</span> phone: Phone? = <span style=color:#66d9ef>null</span>     <span style=color:#960050;background-color:#1e0010>将</span> Phone <span style=color:#960050;background-color:#1e0010>的主键作为此表的外键</span>
+        <span style=color:#66d9ef>var</span> phone: Phone? = <span style=color:#66d9ef>null</span>     将 Phone 的主键作为此表的外键
 )
 </code></pre></div><h3 id=一对多>一对多</h3>
 <p>只需持久化一方（Person）。</p>
@@ -282,7 +282,7 @@ date       <span style=color:#960050;background-color:#1e0010>日期</span>
 <span style=color:#f92672>----</span>
 
 <span style=color:#a6e22e>@Entity</span>
-<span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Phone</span>(     <span style=color:#960050;background-color:#1e0010>与平常状态一致，无需改动</span>
+<span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Phone</span>(     与平常状态一致<span style=color:#960050;background-color:#1e0010>，</span>无需改动
         <span style=color:#a6e22e>@Id</span>
         <span style=color:#a6e22e>@GeneratedValue</span>(strategy = GenerationType.IDENTITY)
         <span style=color:#66d9ef>val</span> id: Int? = <span style=color:#66d9ef>null</span>,
@@ -293,7 +293,7 @@ date       <span style=color:#960050;background-color:#1e0010>日期</span>
 <p>因未设置级联属性，在不同事务中，需先持久化 <strong>主表</strong> Person，后持久化<strong>从表</strong> Phone。( 先主后从 )</p>
 <h4 id=单向引用多方持有一方引用>单向引用（多方持有一方引用）</h4>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#a6e22e>@Entity</span>
-<span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Person</span>(     <span style=color:#960050;background-color:#1e0010>主表（与平常状态一致，无需改动）</span>
+<span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Person</span>(     主表<span style=color:#960050;background-color:#1e0010>（</span>与平常状态一致<span style=color:#960050;background-color:#1e0010>，</span>无需改动<span style=color:#960050;background-color:#1e0010>）</span>
         <span style=color:#a6e22e>@Id</span>
         <span style=color:#a6e22e>@GeneratedValue</span>(strategy = GenerationType.IDENTITY)
         <span style=color:#66d9ef>val</span> id: Int? = <span style=color:#66d9ef>null</span>,
@@ -303,33 +303,33 @@ date       <span style=color:#960050;background-color:#1e0010>日期</span>
 <span style=color:#f92672>----</span>
 
 <span style=color:#a6e22e>@Entity</span>
-<span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Phone</span>(     <span style=color:#960050;background-color:#1e0010>从表</span>
+<span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Phone</span>(     从表
         <span style=color:#a6e22e>@Id</span>
         <span style=color:#a6e22e>@GeneratedValue</span>(strategy = GenerationType.IDENTITY)
         <span style=color:#66d9ef>val</span> id: Int? = <span style=color:#66d9ef>null</span>,
         <span style=color:#a6e22e>@Column</span>(unique = <span style=color:#66d9ef>true</span>)
         <span style=color:#66d9ef>var</span> number: String? = <span style=color:#66d9ef>null</span>,
         <span style=color:#a6e22e>@ManyToOne</span>
-        <span style=color:#66d9ef>var</span> person: Person? = <span style=color:#66d9ef>null</span>     <span style=color:#960050;background-color:#1e0010>将</span> Person <span style=color:#960050;background-color:#1e0010>的主键作为此表的外键</span>
+        <span style=color:#66d9ef>var</span> person: Person? = <span style=color:#66d9ef>null</span>     将 Person 的主键作为此表的外键
 )
 </code></pre></div><h3 id=一多对多一>一（多）对多（一）</h3>
 <p>只需持久化一方（Person）。</p>
 <h4 id=双向引用优-1>双向引用（优）</h4>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#a6e22e>@Entity</span>
-<span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Person</span>(     <span style=color:#960050;background-color:#1e0010>主表</span>
+<span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Person</span>(     主表
         <span style=color:#a6e22e>@Id</span>
         <span style=color:#a6e22e>@GeneratedValue</span>(strategy = GenerationType.IDENTITY)
         <span style=color:#66d9ef>val</span> id: Int? = <span style=color:#66d9ef>null</span>,
         <span style=color:#66d9ef>var</span> name: String? = <span style=color:#66d9ef>null</span>,
         <span style=color:#a6e22e>@OneToMany</span>(mappedBy = <span style=color:#e6db74>&#34;person&#34;</span>, cascade = arrayOf(CascadeType.ALL), orphanRemoval = <span style=color:#66d9ef>true</span>)
-        <span style=color:#66d9ef>val</span> phones: MutableList&lt;Phone&gt; = arrayListOf()     <span style=color:#960050;background-color:#1e0010>由</span> Phone <span style=color:#960050;background-color:#1e0010>中的</span> person <span style=color:#960050;background-color:#1e0010>负责关联</span>
+        <span style=color:#66d9ef>val</span> phones: MutableList&lt;Phone&gt; = arrayListOf()     由 Phone 中的 person 负责关联
 ) {
-    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>addPhone</span>(phone: Phone) {     <span style=color:#960050;background-color:#1e0010>确保双方关系保持同步</span>
+    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>addPhone</span>(phone: Phone) {     确保双方关系保持同步
         phones.add(phone)
         phone.person = <span style=color:#66d9ef>this</span>
     }
 
-    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>removePhone</span>(phone: Phone) {     <span style=color:#960050;background-color:#1e0010>确保双方关系保持同步</span>
+    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>removePhone</span>(phone: Phone) {     确保双方关系保持同步
         phones.remove(phone)
         phone.person = <span style=color:#66d9ef>null</span>
     }
@@ -338,14 +338,14 @@ date       <span style=color:#960050;background-color:#1e0010>日期</span>
 <span style=color:#f92672>----</span>
 
 <span style=color:#a6e22e>@Entity</span>
-<span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Phone</span>(     <span style=color:#960050;background-color:#1e0010>从表</span>
+<span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Phone</span>(     从表
         <span style=color:#a6e22e>@Id</span>
         <span style=color:#a6e22e>@GeneratedValue</span>(strategy = GenerationType.IDENTITY)
         <span style=color:#66d9ef>val</span> id: Int? = <span style=color:#66d9ef>null</span>,
         <span style=color:#a6e22e>@Column</span>(unique = <span style=color:#66d9ef>true</span>)
         <span style=color:#66d9ef>var</span> number: String? = <span style=color:#66d9ef>null</span>,
         <span style=color:#a6e22e>@ManyToOne</span>
-        <span style=color:#66d9ef>var</span> person: Person? = <span style=color:#66d9ef>null</span>     <span style=color:#960050;background-color:#1e0010>将</span> Person <span style=color:#960050;background-color:#1e0010>的主键作为此表的外键</span>
+        <span style=color:#66d9ef>var</span> person: Person? = <span style=color:#66d9ef>null</span>     将 Person 的主键作为此表的外键
 )
 </code></pre></div><h3 id=多对多略>多对多（略）</h3>
 <h2 id=reference>Reference</h2>

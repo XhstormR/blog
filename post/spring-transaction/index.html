@@ -123,7 +123,7 @@ hibernate.cache.infinispan.cfg<span style=color:#f92672>=</span>org/hibernate/ca
 <span style=color:#66d9ef>import</span> javax.persistence.*
 
 <span style=color:#a6e22e>@Entity</span>
-<span style=color:#a6e22e>@Cache</span>(usage = CacheConcurrencyStrategy.READ_WRITE)     <span style=color:#960050;background-color:#1e0010>使用二级缓存</span>
+<span style=color:#a6e22e>@Cache</span>(usage = CacheConcurrencyStrategy.READ_WRITE)     使用二级缓存
 <span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Account</span>(
         <span style=color:#a6e22e>@Id</span>
         <span style=color:#a6e22e>@GeneratedValue</span>(strategy = GenerationType.IDENTITY)
@@ -132,9 +132,9 @@ hibernate.cache.infinispan.cfg<span style=color:#f92672>=</span>org/hibernate/ca
         <span style=color:#66d9ef>var</span> money: Int = <span style=color:#ae81ff>0</span>
 )
 
-Hibernate <span style=color:#960050;background-color:#1e0010>缓存策略：</span>
-<span style=color:#960050;background-color:#1e0010>一级缓存：强制开启，以</span> Session        <span style=color:#960050;background-color:#1e0010>为单位。</span>
-<span style=color:#960050;background-color:#1e0010>二级缓存：默认关闭，以</span> SessionFactory <span style=color:#960050;background-color:#1e0010>为单位。</span>
+Hibernate 缓存策略<span style=color:#960050;background-color:#1e0010>：</span>
+一级缓存<span style=color:#960050;background-color:#1e0010>：</span>强制开启<span style=color:#960050;background-color:#1e0010>，</span>以 Session        为单位<span style=color:#960050;background-color:#1e0010>。</span>
+二级缓存<span style=color:#960050;background-color:#1e0010>：</span>默认关闭<span style=color:#960050;background-color:#1e0010>，</span>以 SessionFactory 为单位<span style=color:#960050;background-color:#1e0010>。</span>
 </code></pre></div><h4 id=dao>dao</h4>
 <h5 id=accountdao>AccountDao</h5>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>package</span> dao
@@ -171,7 +171,7 @@ Hibernate <span style=color:#960050;background-color:#1e0010>缓存策略：</sp
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>package</span> service
 
 <span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>AccountService</span> {
-    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>transfer</span>(<span style=color:#66d9ef>out</span>: Int, <span style=color:#a6e22e>`in</span><span style=color:#960050;background-color:#1e0010>`</span>: Int, money: Int)
+    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>transfer</span>(<span style=color:#66d9ef>out</span>: Int, `in<span style=color:#960050;background-color:#1e0010>`</span>: Int, money: Int)
 }
 </code></pre></div><h5 id=accountserviceimpl><strong>AccountServiceImpl</strong></h5>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>package</span> service
@@ -186,12 +186,12 @@ Hibernate <span style=color:#960050;background-color:#1e0010>缓存策略：</sp
     <span style=color:#a6e22e>@Autowired</span>
     <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>lateinit</span> <span style=color:#66d9ef>var</span> accountDao: AccountDao
     <span style=color:#a6e22e>@Autowired</span>
-    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>lateinit</span> <span style=color:#66d9ef>var</span> transactionTemplate: TransactionTemplate     <span style=color:#960050;background-color:#1e0010>注入事务管理模板</span>
+    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>lateinit</span> <span style=color:#66d9ef>var</span> transactionTemplate: TransactionTemplate     注入事务管理模板
 
-    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>transfer</span>(<span style=color:#66d9ef>out</span>: Int, <span style=color:#a6e22e>`in</span><span style=color:#960050;background-color:#1e0010>`</span>: Int, money: Int) {
-        transactionTemplate.execute {     <span style=color:#960050;background-color:#1e0010>在同一个事务中执行</span>
+    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>transfer</span>(<span style=color:#66d9ef>out</span>: Int, `in<span style=color:#960050;background-color:#1e0010>`</span>: Int, money: Int) {
+        transactionTemplate.execute {     在同一个事务中执行
             accountDao.outMoney(<span style=color:#66d9ef>out</span>, money)
-            accountDao.inMoney(<span style=color:#a6e22e>`in</span><span style=color:#960050;background-color:#1e0010>`</span>, money)
+            accountDao.inMoney(`in<span style=color:#960050;background-color:#1e0010>`</span>, money)
         }
     }
 }
@@ -229,7 +229,7 @@ Hibernate <span style=color:#960050;background-color:#1e0010>缓存策略：</sp
 
     <span style=color:#a6e22e>@Bean</span>
     <span style=color:#66d9ef>open</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>transactionTemplate</span>(transactionManager: HibernateTransactionManager): TransactionTemplate {
-        <span style=color:#66d9ef>return</span> TransactionTemplate(transactionManager)     <span style=color:#960050;background-color:#1e0010>事务管理模板</span>
+        <span style=color:#66d9ef>return</span> TransactionTemplate(transactionManager)     事务管理模板
     }
 }
 </code></pre></div><h4 id=main>Main</h4>
@@ -269,9 +269,9 @@ Hibernate <span style=color:#960050;background-color:#1e0010>缓存策略：</sp
     <span style=color:#a6e22e>@Autowired</span>
     <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>lateinit</span> <span style=color:#66d9ef>var</span> accountDao: AccountDao
 
-    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>transfer</span>(<span style=color:#66d9ef>out</span>: Int, <span style=color:#a6e22e>`in</span><span style=color:#960050;background-color:#1e0010>`</span>: Int, money: Int) {
+    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>transfer</span>(<span style=color:#66d9ef>out</span>: Int, `in<span style=color:#960050;background-color:#1e0010>`</span>: Int, money: Int) {
         accountDao.outMoney(<span style=color:#66d9ef>out</span>, money)
-        accountDao.inMoney(<span style=color:#a6e22e>`in</span><span style=color:#960050;background-color:#1e0010>`</span>, money)
+        accountDao.inMoney(`in<span style=color:#960050;background-color:#1e0010>`</span>, money)
     }
 }
 </code></pre></div><h4 id=appconfig-1><strong>AppConfig</strong></h4>
@@ -310,10 +310,10 @@ Hibernate <span style=color:#960050;background-color:#1e0010>缓存策略：</sp
 
     <span style=color:#a6e22e>@Bean</span>
     <span style=color:#66d9ef>open</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>accountServiceProxy</span>(accountService: AccountService, transactionManager: HibernateTransactionManager): TransactionProxyFactoryBean {
-        <span style=color:#66d9ef>return</span> TransactionProxyFactoryBean().apply {     <span style=color:#960050;background-color:#1e0010>代理对象</span>
-            <span style=color:#66d9ef>this</span>.setTarget(accountService)     <span style=color:#960050;background-color:#1e0010>设置目标对象（增强对象）</span>
-            <span style=color:#66d9ef>this</span>.setTransactionManager(transactionManager)     <span style=color:#960050;background-color:#1e0010>设置事务管理器</span>
-            <span style=color:#66d9ef>this</span>.setTransactionAttributes(Properties().apply { <span style=color:#66d9ef>this</span>[<span style=color:#e6db74>&#34;*&#34;</span>] = <span style=color:#e6db74>&#34;PROPAGATION_REQUIRED&#34;</span> })     <span style=color:#960050;background-color:#1e0010>设置事务属性</span>
+        <span style=color:#66d9ef>return</span> TransactionProxyFactoryBean().apply {     代理对象
+            <span style=color:#66d9ef>this</span>.setTarget(accountService)     设置目标对象<span style=color:#960050;background-color:#1e0010>（</span>增强对象<span style=color:#960050;background-color:#1e0010>）</span>
+            <span style=color:#66d9ef>this</span>.setTransactionManager(transactionManager)     设置事务管理器
+            <span style=color:#66d9ef>this</span>.setTransactionAttributes(Properties().apply { <span style=color:#66d9ef>this</span>[<span style=color:#e6db74>&#34;*&#34;</span>] = <span style=color:#e6db74>&#34;PROPAGATION_REQUIRED&#34;</span> })     设置事务属性
         }
     }
 }
@@ -335,7 +335,7 @@ Hibernate <span style=color:#960050;background-color:#1e0010>缓存策略：</sp
         <span style=color:#66d9ef>it</span>.transaction.commit()
     }
 
-    context.getBean(<span style=color:#e6db74>&#34;accountServiceProxy&#34;</span>, AccountService<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java).transfer(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>400</span>)     <span style=color:#960050;background-color:#1e0010>使用代理对象</span>
+    context.getBean(<span style=color:#e6db74>&#34;accountServiceProxy&#34;</span>, AccountService<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java).transfer(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>400</span>)     使用代理对象
 
     context.destroy()
 }
@@ -350,14 +350,14 @@ Hibernate <span style=color:#960050;background-color:#1e0010>缓存策略：</sp
 <span style=color:#66d9ef>import</span> org.springframework.transaction.annotation.Transactional
 
 <span style=color:#a6e22e>@Component</span>
-<span style=color:#a6e22e>@Transactional</span>     <span style=color:#960050;background-color:#1e0010>使用事务</span>
+<span style=color:#a6e22e>@Transactional</span>     使用事务
 <span style=color:#66d9ef>open</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>AccountServiceImpl</span> : AccountService {
     <span style=color:#a6e22e>@Autowired</span>
     <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>lateinit</span> <span style=color:#66d9ef>var</span> accountDao: AccountDao
 
-    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>transfer</span>(<span style=color:#66d9ef>out</span>: Int, <span style=color:#a6e22e>`in</span><span style=color:#960050;background-color:#1e0010>`</span>: Int, money: Int) {
+    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>transfer</span>(<span style=color:#66d9ef>out</span>: Int, `in<span style=color:#960050;background-color:#1e0010>`</span>: Int, money: Int) {
         accountDao.outMoney(<span style=color:#66d9ef>out</span>, money)
-        accountDao.inMoney(<span style=color:#a6e22e>`in</span><span style=color:#960050;background-color:#1e0010>`</span>, money)
+        accountDao.inMoney(`in<span style=color:#960050;background-color:#1e0010>`</span>, money)
     }
 }
 </code></pre></div><h4 id=appconfig-2><strong>AppConfig</strong></h4>
@@ -372,7 +372,7 @@ Hibernate <span style=color:#960050;background-color:#1e0010>缓存策略：</sp
 <span style=color:#66d9ef>import</span> org.springframework.transaction.annotation.EnableTransactionManagement
 
 <span style=color:#a6e22e>@Configuration</span>
-<span style=color:#a6e22e>@EnableTransactionManagement</span>     <span style=color:#960050;background-color:#1e0010>启用注解驱动的事务管理</span>
+<span style=color:#a6e22e>@EnableTransactionManagement</span>     启用注解驱动的事务管理
 <span style=color:#a6e22e>@ComponentScan</span>(basePackages = arrayOf(<span style=color:#e6db74>&#34;dao&#34;</span>, <span style=color:#e6db74>&#34;service&#34;</span>))
 <span style=color:#66d9ef>open</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>AppConfig</span> {
     <span style=color:#a6e22e>@Bean</span>

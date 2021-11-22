@@ -89,26 +89,26 @@
 <span style=color:#66d9ef>import</span> javax.servlet.http.HttpServletResponse
 
 <span style=color:#a6e22e>@WebServlet</span>(urlPatterns = arrayOf(<span style=color:#e6db74>&#34;/abc&#34;</span>))
-<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MyServlet1</span> : HttpServlet() {     <span style=color:#960050;background-color:#1e0010>生成</span>
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MyServlet1</span> : HttpServlet() {     生成
     <span style=color:#66d9ef>val</span> random = Random()
     <span style=color:#66d9ef>val</span> strings = <span style=color:#e6db74>&#34;0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ&#34;</span>
 
     <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>doGet</span>(request: HttpServletRequest, response: HttpServletResponse) {
-        <span style=color:#66d9ef>val</span> image = BufferedImage(<span style=color:#ae81ff>70</span>, <span style=color:#ae81ff>25</span>, BufferedImage.TYPE_INT_RGB)     <span style=color:#960050;background-color:#1e0010>图片</span>
-        <span style=color:#66d9ef>val</span> graphics = image.graphics.apply {     <span style=color:#960050;background-color:#1e0010>获得画笔</span>
-            <span style=color:#66d9ef>this</span>.font = Font(<span style=color:#e6db74>&#34;Microsoft YaHei UI&#34;</span>, Font.PLAIN, <span style=color:#ae81ff>18</span>)     <span style=color:#960050;background-color:#1e0010>设置字体</span>
-            <span style=color:#66d9ef>this</span>.color = Color(<span style=color:#ae81ff>200</span>, <span style=color:#ae81ff>150</span>, <span style=color:#ae81ff>255</span>)     <span style=color:#960050;background-color:#1e0010>设置画笔颜色（</span>R,G,B<span style=color:#960050;background-color:#1e0010>）</span>
-            <span style=color:#66d9ef>this</span>.fillRect(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>70</span>, <span style=color:#ae81ff>25</span>)     <span style=color:#960050;background-color:#1e0010>填充矩形</span>
+        <span style=color:#66d9ef>val</span> image = BufferedImage(<span style=color:#ae81ff>70</span>, <span style=color:#ae81ff>25</span>, BufferedImage.TYPE_INT_RGB)     图片
+        <span style=color:#66d9ef>val</span> graphics = image.graphics.apply {     获得画笔
+            <span style=color:#66d9ef>this</span>.font = Font(<span style=color:#e6db74>&#34;Microsoft YaHei UI&#34;</span>, Font.PLAIN, <span style=color:#ae81ff>18</span>)     设置字体
+            <span style=color:#66d9ef>this</span>.color = Color(<span style=color:#ae81ff>200</span>, <span style=color:#ae81ff>150</span>, <span style=color:#ae81ff>255</span>)     设置画笔颜色<span style=color:#960050;background-color:#1e0010>（</span>R,G,B<span style=color:#960050;background-color:#1e0010>）</span>
+            <span style=color:#66d9ef>this</span>.fillRect(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>70</span>, <span style=color:#ae81ff>25</span>)     填充矩形
         }
         <span style=color:#66d9ef>val</span> checkCode = StringBuilder()
-        <span style=color:#66d9ef>for</span> (i <span style=color:#66d9ef>in</span> <span style=color:#ae81ff>0.</span>.<span style=color:#ae81ff>3</span>) {     <span style=color:#ae81ff>4</span> <span style=color:#960050;background-color:#1e0010>次（</span><span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>3</span><span style=color:#960050;background-color:#1e0010>）</span>
-            <span style=color:#66d9ef>val</span> c = strings[random.nextInt(strings.length)]     <span style=color:#960050;background-color:#1e0010>随机获取字符</span>
-            graphics.color = Color(random.nextInt())     <span style=color:#960050;background-color:#1e0010>设置画笔颜色</span>
-            graphics.drawString(c.toString(), (i * <span style=color:#ae81ff>16</span>) + <span style=color:#ae81ff>5</span>, <span style=color:#ae81ff>20</span>)     <span style=color:#960050;background-color:#1e0010>画出字符</span>
-            checkCode.append(c)     <span style=color:#960050;background-color:#1e0010>添加字符</span>
+        <span style=color:#66d9ef>for</span> (i <span style=color:#66d9ef>in</span> <span style=color:#ae81ff>0.</span>.<span style=color:#ae81ff>3</span>) {     <span style=color:#ae81ff>4</span> 次<span style=color:#960050;background-color:#1e0010>（</span><span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>3</span><span style=color:#960050;background-color:#1e0010>）</span>
+            <span style=color:#66d9ef>val</span> c = strings[random.nextInt(strings.length)]     随机获取字符
+            graphics.color = Color(random.nextInt())     设置画笔颜色
+            graphics.drawString(c.toString(), (i * <span style=color:#ae81ff>16</span>) + <span style=color:#ae81ff>5</span>, <span style=color:#ae81ff>20</span>)     画出字符
+            checkCode.append(c)     添加字符
         }
-        request.session.setAttribute(<span style=color:#e6db74>&#34;checkCode&#34;</span>, checkCode)     <span style=color:#960050;background-color:#1e0010>将验证码保存至</span> Session <span style=color:#960050;background-color:#1e0010>中</span>
-        ImageIO.write(image, <span style=color:#e6db74>&#34;PNG&#34;</span>, response.outputStream)     <span style=color:#960050;background-color:#1e0010>将图片输出至</span> Response
+        request.session.setAttribute(<span style=color:#e6db74>&#34;checkCode&#34;</span>, checkCode)     将验证码保存至 Session 中
+        ImageIO.write(image, <span style=color:#e6db74>&#34;PNG&#34;</span>, response.outputStream)     将图片输出至 Response
     }
 }
 </code></pre></div><h4 id=myservlet2>MyServlet2</h4>
@@ -120,16 +120,16 @@
 <span style=color:#66d9ef>import</span> javax.servlet.http.HttpServletResponse
 
 <span style=color:#a6e22e>@WebServlet</span>(urlPatterns = arrayOf(<span style=color:#e6db74>&#34;/def&#34;</span>))
-<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MyServlet2</span> : HttpServlet() {     <span style=color:#960050;background-color:#1e0010>验证</span>
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MyServlet2</span> : HttpServlet() {     验证
     <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>doPost</span>(request: HttpServletRequest, response: HttpServletResponse) {
-        request.characterEncoding = <span style=color:#e6db74>&#34;UTF-8&#34;</span>     <span style=color:#960050;background-color:#1e0010>指定输入字符集</span>
-        response.characterEncoding = <span style=color:#e6db74>&#34;UTF-8&#34;</span>     <span style=color:#960050;background-color:#1e0010>指定输出字符集</span>
-        response.contentType = <span style=color:#e6db74>&#34;text/html;charset=UTF-8&#34;</span>     <span style=color:#960050;background-color:#1e0010>指定输出内容类型</span>
+        request.characterEncoding = <span style=color:#e6db74>&#34;UTF-8&#34;</span>     指定输入字符集
+        response.characterEncoding = <span style=color:#e6db74>&#34;UTF-8&#34;</span>     指定输出字符集
+        response.contentType = <span style=color:#e6db74>&#34;text/html;charset=UTF-8&#34;</span>     指定输出内容类型
 
         <span style=color:#66d9ef>val</span> temp1 = request.session.getAttribute(<span style=color:#e6db74>&#34;checkCode&#34;</span>)<span style=color:#f92672>?.</span>toString()<span style=color:#f92672>?.</span>toLowerCase()
         <span style=color:#66d9ef>val</span> temp2 = request.getParameter(<span style=color:#e6db74>&#34;checkCode&#34;</span>).toString().toLowerCase()
 
-        <span style=color:#66d9ef>if</span> (temp1 <span style=color:#f92672>==</span> temp2) {     <span style=color:#960050;background-color:#1e0010>将接收到的验证码和</span> Session <span style=color:#960050;background-color:#1e0010>中的验证码进行比较</span>
+        <span style=color:#66d9ef>if</span> (temp1 <span style=color:#f92672>==</span> temp2) {     将接收到的验证码和 Session 中的验证码进行比较
             response.writer.use { <span style=color:#66d9ef>it</span>.write(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>$temp1</span><span style=color:#e6db74> : </span><span style=color:#e6db74>$temp2</span><span style=color:#e6db74> &lt;br&gt;验证码输入正确!&#34;</span>) }
         } <span style=color:#66d9ef>else</span> {
             response.writer.use { <span style=color:#66d9ef>it</span>.write(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>$temp1</span><span style=color:#e6db74> : </span><span style=color:#e6db74>$temp2</span><span style=color:#e6db74> &lt;br&gt;验证码输入错误!&#34;</span>) }
@@ -172,7 +172,7 @@
 <span style=color:#66d9ef>import</span> javax.servlet.http.HttpServletResponse
 
 <span style=color:#a6e22e>@WebServlet</span>(urlPatterns = arrayOf(<span style=color:#e6db74>&#34;/def&#34;</span>))
-<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MyServlet</span> : HttpServlet() {     <span style=color:#960050;background-color:#1e0010>验证</span>
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MyServlet</span> : HttpServlet() {     验证
     <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>doPost</span>(request: HttpServletRequest, response: HttpServletResponse) {
         request.characterEncoding = <span style=color:#e6db74>&#34;UTF-8&#34;</span>
         response.characterEncoding = <span style=color:#e6db74>&#34;UTF-8&#34;</span>

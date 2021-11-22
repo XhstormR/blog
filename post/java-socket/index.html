@@ -84,11 +84,11 @@
 }
 
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
+输出<span style=color:#960050;background-color:#1e0010>：</span>
 DESKTOP-OPN10MH/<span style=color:#ae81ff>192.168</span>.<span style=color:#ae81ff>1.2</span>
-<span style=color:#960050;background-color:#1e0010>计算机名：</span>DESKTOP-OPN10MH
-IP<span style=color:#960050;background-color:#1e0010>地址：</span><span style=color:#ae81ff>192.168</span>.<span style=color:#ae81ff>1.2</span>
-IP<span style=color:#960050;background-color:#1e0010>地址（字节数组）：</span>[-<span style=color:#ae81ff>64</span>, -<span style=color:#ae81ff>88</span>, <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>]
+计算机名<span style=color:#960050;background-color:#1e0010>：</span>DESKTOP-OPN10MH
+IP地址<span style=color:#960050;background-color:#1e0010>：</span><span style=color:#ae81ff>192.168</span>.<span style=color:#ae81ff>1.2</span>
+IP地址<span style=color:#960050;background-color:#1e0010>（</span>字节数组<span style=color:#960050;background-color:#1e0010>）：</span>[-<span style=color:#ae81ff>64</span>, -<span style=color:#ae81ff>88</span>, <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>]
 </code></pre></div><h2 id=url>URL</h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>(args: Array&lt;String&gt;) {
     <span style=color:#66d9ef>val</span> url1 = URL(<span style=color:#e6db74>&#34;http://blog.xhstormr.tk:80&#34;</span>)
@@ -104,86 +104,86 @@ IP<span style=color:#960050;background-color:#1e0010>地址（字节数组）：
 }
 
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
+输出<span style=color:#960050;background-color:#1e0010>：</span>
 http:<span style=color:#75715e>//blog.xhstormr.tk:80/post/jooq/index.html?abc=123&amp;def=456#top
-</span><span style=color:#75715e></span><span style=color:#960050;background-color:#1e0010>协议：</span>http
-<span style=color:#960050;background-color:#1e0010>主机：</span>blog.xhstormr.tk
-<span style=color:#960050;background-color:#1e0010>端口：</span><span style=color:#ae81ff>80</span>
-<span style=color:#960050;background-color:#1e0010>文件名：</span>/post/jooq/index.html?abc=<span style=color:#ae81ff>123</span>&amp;def=<span style=color:#ae81ff>456</span>
-<span style=color:#960050;background-color:#1e0010>文件路径：</span>/post/jooq/index.html
-<span style=color:#960050;background-color:#1e0010>相对路径</span>(<span style=color:#960050;background-color:#1e0010>#</span>)<span style=color:#960050;background-color:#1e0010>：</span>top
-<span style=color:#960050;background-color:#1e0010>查询参数</span>(?)<span style=color:#960050;background-color:#1e0010>：</span>abc=<span style=color:#ae81ff>123</span>&amp;def=<span style=color:#ae81ff>456</span>
+</span><span style=color:#75715e></span>协议<span style=color:#960050;background-color:#1e0010>：</span>http
+主机<span style=color:#960050;background-color:#1e0010>：</span>blog.xhstormr.tk
+端口<span style=color:#960050;background-color:#1e0010>：</span><span style=color:#ae81ff>80</span>
+文件名<span style=color:#960050;background-color:#1e0010>：</span>/post/jooq/index.html?abc=<span style=color:#ae81ff>123</span>&amp;def=<span style=color:#ae81ff>456</span>
+文件路径<span style=color:#960050;background-color:#1e0010>：</span>/post/jooq/index.html
+相对路径(<span style=color:#960050;background-color:#1e0010>#</span>)<span style=color:#960050;background-color:#1e0010>：</span>top
+查询参数(?)<span style=color:#960050;background-color:#1e0010>：</span>abc=<span style=color:#ae81ff>123</span>&amp;def=<span style=color:#ae81ff>456</span>
 </code></pre></div><h2 id=tcp>TCP</h2>
 <ul>
 <li>Socket</li>
 <li>ServerSocket</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#960050;background-color:#1e0010>服务端（多线程）：</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin>服务端<span style=color:#960050;background-color:#1e0010>（</span>多线程<span style=color:#960050;background-color:#1e0010>）：</span>
 <span style=color:#f92672>----</span>
 <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>(args: Array&lt;String&gt;) {
     ServerSocket(<span style=color:#ae81ff>4567</span>).use {
         <span style=color:#66d9ef>while</span> (<span style=color:#66d9ef>true</span>) {
-            Thread(A(<span style=color:#66d9ef>it</span>.accept())).start()     <span style=color:#960050;background-color:#1e0010>开始监听连接，阻塞方法</span>
+            Thread(A(<span style=color:#66d9ef>it</span>.accept())).start()     开始监听连接<span style=color:#960050;background-color:#1e0010>，</span>阻塞方法
         }
     }
 }
 
-<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span>(<span style=color:#66d9ef>val</span> socket: Socket) : Runnable {     <span style=color:#960050;background-color:#1e0010>线程体</span>
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span>(<span style=color:#66d9ef>val</span> socket: Socket) : Runnable {     线程体
     <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>run</span>() {
         socket.use {
             println(<span style=color:#e6db74>&#34;运行线程：</span><span style=color:#e6db74>${Thread.currentThread()}</span><span style=color:#e6db74>&#34;</span>)
             println(<span style=color:#e6db74>&#34;本地地址：</span><span style=color:#e6db74>${it.localAddress}</span><span style=color:#e6db74> 本地端口：</span><span style=color:#e6db74>${it.localPort}</span><span style=color:#e6db74>&#34;</span>)
             println(<span style=color:#e6db74>&#34;远端地址：</span><span style=color:#e6db74>${it.inetAddress}</span><span style=color:#e6db74> 远端端口：</span><span style=color:#e6db74>${it.port}</span><span style=color:#e6db74>&#34;</span>)
-            <span style=color:#66d9ef>val</span> `in` = DataInputStream(<span style=color:#66d9ef>it</span>.inputStream)     <span style=color:#960050;background-color:#1e0010>输入流</span>
-            <span style=color:#66d9ef>val</span> out = DataOutputStream(<span style=color:#66d9ef>it</span>.outputStream)     <span style=color:#960050;background-color:#1e0010>输出流</span>
-            println(<span style=color:#e6db74>&#34;Receive：</span><span style=color:#e6db74>${`in`.readUTF()}</span><span style=color:#e6db74>&#34;</span>)     <span style=color:#960050;background-color:#1e0010>阻塞方法</span>
+            <span style=color:#66d9ef>val</span> `in` = DataInputStream(<span style=color:#66d9ef>it</span>.inputStream)     输入流
+            <span style=color:#66d9ef>val</span> out = DataOutputStream(<span style=color:#66d9ef>it</span>.outputStream)     输出流
+            println(<span style=color:#e6db74>&#34;Receive：</span><span style=color:#e6db74>${`in`.readUTF()}</span><span style=color:#e6db74>&#34;</span>)     阻塞方法
             <span style=color:#66d9ef>out</span>.writeUTF(<span style=color:#e6db74>&#34;Hello Client!&#34;</span>)
-        }     <span style=color:#960050;background-color:#1e0010>通讯结束</span>
-    }     <span style=color:#960050;background-color:#1e0010>子线程结束</span>
+        }     通讯结束
+    }     子线程结束
 }
 
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
-<span style=color:#960050;background-color:#1e0010>运行线程：</span>Thread[Thread-<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>5</span>,main]
-<span style=color:#960050;background-color:#1e0010>本地地址：</span>/<span style=color:#ae81ff>127.0</span>.<span style=color:#ae81ff>0.1</span> <span style=color:#960050;background-color:#1e0010>本地端口：</span><span style=color:#ae81ff>4567</span>
-<span style=color:#960050;background-color:#1e0010>远端地址：</span>/<span style=color:#ae81ff>127.0</span>.<span style=color:#ae81ff>0.1</span> <span style=color:#960050;background-color:#1e0010>远端端口：</span><span style=color:#ae81ff>54569</span>
+输出<span style=color:#960050;background-color:#1e0010>：</span>
+运行线程<span style=color:#960050;background-color:#1e0010>：</span>Thread[Thread-<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>5</span>,main]
+本地地址<span style=color:#960050;background-color:#1e0010>：</span>/<span style=color:#ae81ff>127.0</span>.<span style=color:#ae81ff>0.1</span> 本地端口<span style=color:#960050;background-color:#1e0010>：</span><span style=color:#ae81ff>4567</span>
+远端地址<span style=color:#960050;background-color:#1e0010>：</span>/<span style=color:#ae81ff>127.0</span>.<span style=color:#ae81ff>0.1</span> 远端端口<span style=color:#960050;background-color:#1e0010>：</span><span style=color:#ae81ff>54569</span>
 Receive<span style=color:#960050;background-color:#1e0010>：</span>Hello Server!
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#960050;background-color:#1e0010>客户端：</span>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin>客户端<span style=color:#960050;background-color:#1e0010>：</span>
 <span style=color:#f92672>----</span>
 <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>(args: Array&lt;String&gt;) {
     Socket(<span style=color:#e6db74>&#34;127.0.0.1&#34;</span>, <span style=color:#ae81ff>4567</span>).use {
         println(<span style=color:#e6db74>&#34;运行线程：</span><span style=color:#e6db74>${Thread.currentThread()}</span><span style=color:#e6db74>&#34;</span>)
         println(<span style=color:#e6db74>&#34;本地地址：</span><span style=color:#e6db74>${it.localAddress}</span><span style=color:#e6db74> 本地端口：</span><span style=color:#e6db74>${it.localPort}</span><span style=color:#e6db74>&#34;</span>)
         println(<span style=color:#e6db74>&#34;远端地址：</span><span style=color:#e6db74>${it.inetAddress}</span><span style=color:#e6db74> 远端端口：</span><span style=color:#e6db74>${it.port}</span><span style=color:#e6db74>&#34;</span>)
-        <span style=color:#66d9ef>val</span> `in` = DataInputStream(<span style=color:#66d9ef>it</span>.inputStream)     <span style=color:#960050;background-color:#1e0010>输入流</span>
-        <span style=color:#66d9ef>val</span> out = DataOutputStream(<span style=color:#66d9ef>it</span>.outputStream)     <span style=color:#960050;background-color:#1e0010>输出流</span>
+        <span style=color:#66d9ef>val</span> `in` = DataInputStream(<span style=color:#66d9ef>it</span>.inputStream)     输入流
+        <span style=color:#66d9ef>val</span> out = DataOutputStream(<span style=color:#66d9ef>it</span>.outputStream)     输出流
         <span style=color:#66d9ef>out</span>.writeUTF(<span style=color:#e6db74>&#34;Hello Server!&#34;</span>)
-        println(<span style=color:#e6db74>&#34;Receive：</span><span style=color:#e6db74>${`in`.readUTF()}</span><span style=color:#e6db74>&#34;</span>)     <span style=color:#960050;background-color:#1e0010>阻塞方法</span>
-    }     <span style=color:#960050;background-color:#1e0010>通讯结束</span>
-}     <span style=color:#960050;background-color:#1e0010>主线程结束</span>
+        println(<span style=color:#e6db74>&#34;Receive：</span><span style=color:#e6db74>${`in`.readUTF()}</span><span style=color:#e6db74>&#34;</span>)     阻塞方法
+    }     通讯结束
+}     主线程结束
 
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
-<span style=color:#960050;background-color:#1e0010>运行线程：</span>Thread[main,<span style=color:#ae81ff>5</span>,main]
-<span style=color:#960050;background-color:#1e0010>本地地址：</span>/<span style=color:#ae81ff>127.0</span>.<span style=color:#ae81ff>0.1</span> <span style=color:#960050;background-color:#1e0010>本地端口：</span><span style=color:#ae81ff>54569</span>
-<span style=color:#960050;background-color:#1e0010>远端地址：</span>/<span style=color:#ae81ff>127.0</span>.<span style=color:#ae81ff>0.1</span> <span style=color:#960050;background-color:#1e0010>远端端口：</span><span style=color:#ae81ff>4567</span>
+输出<span style=color:#960050;background-color:#1e0010>：</span>
+运行线程<span style=color:#960050;background-color:#1e0010>：</span>Thread[main,<span style=color:#ae81ff>5</span>,main]
+本地地址<span style=color:#960050;background-color:#1e0010>：</span>/<span style=color:#ae81ff>127.0</span>.<span style=color:#ae81ff>0.1</span> 本地端口<span style=color:#960050;background-color:#1e0010>：</span><span style=color:#ae81ff>54569</span>
+远端地址<span style=color:#960050;background-color:#1e0010>：</span>/<span style=color:#ae81ff>127.0</span>.<span style=color:#ae81ff>0.1</span> 远端端口<span style=color:#960050;background-color:#1e0010>：</span><span style=color:#ae81ff>4567</span>
 Receive<span style=color:#960050;background-color:#1e0010>：</span>Hello Client!
 </code></pre></div><h2 id=udp>UDP</h2>
 <ul>
 <li>DatagramPacket</li>
 <li>DatagramSocket</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#960050;background-color:#1e0010>服务端：</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin>服务端<span style=color:#960050;background-color:#1e0010>：</span>
 <span style=color:#f92672>----</span>
 <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>(args: Array&lt;String&gt;) {
-    <span style=color:#66d9ef>val</span> data1 = ByteArray(<span style=color:#ae81ff>1024</span>)     <span style=color:#960050;background-color:#1e0010>存储数据</span>
-    <span style=color:#66d9ef>val</span> data2 = <span style=color:#e6db74>&#34;Hello Client!&#34;</span>.toByteArray()     <span style=color:#960050;background-color:#1e0010>发送数据</span>
-    <span style=color:#66d9ef>val</span> packet1 = DatagramPacket(data1, data1.size)     <span style=color:#960050;background-color:#1e0010>接收数据报包</span>
-    <span style=color:#66d9ef>val</span> packet2 = DatagramPacket(data2, data2.size, <span style=color:#66d9ef>null</span>, <span style=color:#ae81ff>0</span>)     <span style=color:#960050;background-color:#1e0010>发送数据报包（地址和端口未指定）</span>
+    <span style=color:#66d9ef>val</span> data1 = ByteArray(<span style=color:#ae81ff>1024</span>)     存储数据
+    <span style=color:#66d9ef>val</span> data2 = <span style=color:#e6db74>&#34;Hello Client!&#34;</span>.toByteArray()     发送数据
+    <span style=color:#66d9ef>val</span> packet1 = DatagramPacket(data1, data1.size)     接收数据报包
+    <span style=color:#66d9ef>val</span> packet2 = DatagramPacket(data2, data2.size, <span style=color:#66d9ef>null</span>, <span style=color:#ae81ff>0</span>)     发送数据报包<span style=color:#960050;background-color:#1e0010>（</span>地址和端口未指定<span style=color:#960050;background-color:#1e0010>）</span>
 
     DatagramSocket(<span style=color:#ae81ff>4567</span>).use {
         <span style=color:#66d9ef>while</span> (<span style=color:#66d9ef>true</span>) {
-            <span style=color:#66d9ef>it</span>.receive(packet1)     <span style=color:#960050;background-color:#1e0010>阻塞方法</span>
+            <span style=color:#66d9ef>it</span>.receive(packet1)     阻塞方法
             println(<span style=color:#e6db74>&#34;Receive：</span><span style=color:#e6db74>${String(packet1.data, 0, packet1.length)}</span><span style=color:#e6db74>&#34;</span>)
 
             packet2.address = packet1.address
@@ -194,25 +194,25 @@ Receive<span style=color:#960050;background-color:#1e0010>：</span>Hello Client
 }
 
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
+输出<span style=color:#960050;background-color:#1e0010>：</span>
 Receive<span style=color:#960050;background-color:#1e0010>：</span>Hello Server!
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#960050;background-color:#1e0010>客户端：</span>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin>客户端<span style=color:#960050;background-color:#1e0010>：</span>
 <span style=color:#f92672>----</span>
 <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>(args: Array&lt;String&gt;) {
-    <span style=color:#66d9ef>val</span> data1 = ByteArray(<span style=color:#ae81ff>1024</span>)     <span style=color:#960050;background-color:#1e0010>存储数据</span>
-    <span style=color:#66d9ef>val</span> data2 = <span style=color:#e6db74>&#34;Hello Server!&#34;</span>.toByteArray()     <span style=color:#960050;background-color:#1e0010>发送数据</span>
-    <span style=color:#66d9ef>val</span> packet1 = DatagramPacket(data1, data1.size)     <span style=color:#960050;background-color:#1e0010>接收数据报包</span>
-    <span style=color:#66d9ef>val</span> packet2 = DatagramPacket(data2, data2.size, InetAddress.getByName(<span style=color:#e6db74>&#34;127.0.0.1&#34;</span>), <span style=color:#ae81ff>4567</span>)     <span style=color:#960050;background-color:#1e0010>发送数据报包</span>
+    <span style=color:#66d9ef>val</span> data1 = ByteArray(<span style=color:#ae81ff>1024</span>)     存储数据
+    <span style=color:#66d9ef>val</span> data2 = <span style=color:#e6db74>&#34;Hello Server!&#34;</span>.toByteArray()     发送数据
+    <span style=color:#66d9ef>val</span> packet1 = DatagramPacket(data1, data1.size)     接收数据报包
+    <span style=color:#66d9ef>val</span> packet2 = DatagramPacket(data2, data2.size, InetAddress.getByName(<span style=color:#e6db74>&#34;127.0.0.1&#34;</span>), <span style=color:#ae81ff>4567</span>)     发送数据报包
 
     DatagramSocket().use {
         <span style=color:#66d9ef>it</span>.send(packet2)
-        <span style=color:#66d9ef>it</span>.receive(packet1)     <span style=color:#960050;background-color:#1e0010>阻塞方法</span>
+        <span style=color:#66d9ef>it</span>.receive(packet1)     阻塞方法
         println(<span style=color:#e6db74>&#34;Receive：</span><span style=color:#e6db74>${String(packet1.data, 0, packet1.length)}</span><span style=color:#e6db74>&#34;</span>)
     }
 }
 
 <span style=color:#f92672>----</span>
-<span style=color:#960050;background-color:#1e0010>输出：</span>
+输出<span style=color:#960050;background-color:#1e0010>：</span>
 Receive<span style=color:#960050;background-color:#1e0010>：</span>Hello Client!
 </code></pre></div>
 </div>
