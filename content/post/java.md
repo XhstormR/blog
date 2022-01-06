@@ -45,6 +45,9 @@ Updated on 2016-06-30
 * Scene Builder：https://gluonhq.com/products/scene-builder/
 
 ### IDEA 无限试用
+* https://jetbra.in/s
+  * https://zhile.io
+
 ```bash
 @ echo off
 pushd .
