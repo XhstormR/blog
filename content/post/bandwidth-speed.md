@@ -13,19 +13,13 @@ http://openspeedtest.com/
 
 http://speedtest.xfinity.com/
 
-http://beta.speedtest.net/
+https://speed.cloudflare.com/
 
-http://speedtest.hkg02.softlayer.com/speedtest/
+https://www.speedtest.net/
 
-工信部:
+https://www.speedcheck.org/
 
-http://www.cnspeedtest.cn/speed/page/bandspeed.jsp
-
-电信:
-
-http://netreport.sh.189.cn/speed/main.html
-
-http://speed.sc.cninfo.net/chinatelcom/speedtest/sccs/download.shtml
+https://test.ustc.edu.cn/
 
 ```java
 1 MB = 1024 KB
