@@ -1,75 +1,21 @@
-<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache>
-<head>
-<meta charset=utf-8>
-<meta name=renderer content="webkit">
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title> Fish Shell &#183; XhstormR </title>
-<link rel=alternate type=application/rss+xml title=XhstormR href>
-<link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico>
-<link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css>
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css>
-<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
-<script src=https://blog.xhstormr.tk/js/main.min.js async defer></script>
-</head>
-<body>
-<div id=scriptHeader>
-<span class="mobile btn-mobile-menu">
-<i class="fa fa-bars btn-mobile-menu__icon"></i>
-<i class="fa fa-times btn-mobile-close__icon hidden"></i>
-</span>
-<header class="panel-cover panel-cover--collapsed">
-<div class=panel-main>
-<div class="panel-main__inner panel-inverted">
-<div class=panel-main__content>
-<h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1>
-<hr class=panel-cover__divider>
-<p class=panel-cover__description> On a dark desert highway, cool wind in my hair. </p>
-<hr class="panel-cover__divider panel-cover__divider--secondary">
-<div class=navigation-wrapper>
-<nav class="cover-navigation cover-navigation--primary">
-<ul class=navigation>
-<li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li>
-</ul>
-</nav>
-</div>
-</div>
-</div>
-<div class=panel-cover--overlay></div>
-</div>
-</header>
-</div>
-<div class=bodytop>
-<div class=content-wrapper>
-<div class=content-wrapper__inner>
-<div class=post>
-<h1>Fish Shell</h1>
-<span class=post-date>2020-03-15</span>
-<p>Updated on 2020-03-15</p>
-<blockquote>
-<p><a href=https://github.com/fish-shell/fish-shell>https://github.com/fish-shell/fish-shell</a></p>
-<p><a href=https://fishshell.com/docs/current/commands.html>https://fishshell.com/docs/current/commands.html</a></p>
-<p><a href=https://fishshell.com/docs/current/language.html>https://fishshell.com/docs/current/language.html</a></p>
-<p><a href=https://software.opensuse.org/package/fish>https://software.opensuse.org/package/fish</a></p>
-</blockquote>
-<h2 id=build>Build</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>yum -y install gcc make cmake ncurses-devel
-
-curl -LO https://github.com/fish-shell/fish-shell/archive/master.zip
-unzip master.zip <span style=color:#f92672>&amp;&amp;</span> cd fish-shell-master
-
-mkdir build; cd build
-cmake ..
-make install
-</code></pre></div><h2 id=configfish>config.fish</h2>
-<pre tabindex=0><code>export TERM='screen-256color'
-export LANG='zh_CN.UTF-8'
-export VISUAL='idea -e'
-export HISTCONTROL='ignoredups'
+<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache><head><meta charset=utf-8><meta name=renderer content="webkit"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>Fish Shell &#183; XhstormR</title><link rel=alternate type=application/rss+xml title=XhstormR href><link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico><link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
+<script src=https://blog.xhstormr.tk/js/main.min.js async defer></script></head><body><div id=scriptHeader><span class="mobile btn-mobile-menu"><i class="fa fa-bars btn-mobile-menu__icon"></i>
+<i class="fa fa-times btn-mobile-close__icon hidden"></i></span><header class="panel-cover panel-cover--collapsed"><div class=panel-main><div class="panel-main__inner panel-inverted"><div class=panel-main__content><h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1><hr class=panel-cover__divider><p class=panel-cover__description>On a dark desert highway, cool wind in my hair.</p><hr class="panel-cover__divider panel-cover__divider--secondary"><div class=navigation-wrapper><nav class="cover-navigation cover-navigation--primary"><ul class=navigation><li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li></ul></nav></div></div></div><div class=panel-cover--overlay></div></div></header></div><div class=bodytop><div class=content-wrapper><div class=content-wrapper__inner><div class=post><h1>Fish Shell</h1><span class=post-date>2020-03-15</span><p>Updated on 2020-03-15</p><blockquote><p><a href=https://github.com/fish-shell/fish-shell>https://github.com/fish-shell/fish-shell</a></p><p><a href=https://fishshell.com/docs/current/commands.html>https://fishshell.com/docs/current/commands.html</a></p><p><a href=https://fishshell.com/docs/current/language.html>https://fishshell.com/docs/current/language.html</a></p><p><a href=https://software.opensuse.org/package/fish>https://software.opensuse.org/package/fish</a></p></blockquote><h2 id=build>Build</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>yum -y install gcc make cmake ncurses-devel
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>curl -LO https://github.com/fish-shell/fish-shell/archive/master.zip
+</span></span><span style=display:flex><span>unzip master.zip <span style=color:#f92672>&amp;&amp;</span> cd fish-shell-master
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>mkdir build; cd build
+</span></span><span style=display:flex><span>cmake ..
+</span></span><span style=display:flex><span>make install
+</span></span></code></pre></div><h2 id=configfish>config.fish</h2><pre tabindex=0><code>export TERM=&#39;screen-256color&#39;
+export LANG=&#39;zh_CN.UTF-8&#39;
+export VISUAL=&#39;idea -e&#39;
+export HISTCONTROL=&#39;ignoredups&#39;
 
 set -g fish_prompt_pwd_dir_length 0
 # https://patorjk.com/software/taag/#p=display&amp;f=ANSI%20Shadow&amp;t=leo
-set -g fish_greeting '
+set -g fish_greeting &#39;
    ██╗     ███████╗ ██████╗
    ██║     ██╔════╝██╔═══██╗
    ██║     █████╗  ██║   ██║
@@ -84,67 +30,67 @@ set -g fish_greeting '
      J|/^ ^ ^ \  |    /00  |    _//|
       |^ ^ ^ ^ |W|   |/^^\ |   /oo |
        \m___m__|_|    \m_m_|   \mm_|
-'
+&#39;
 
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
+alias rm=&#39;rm -i&#39;
+alias cp=&#39;cp -i&#39;
+alias mv=&#39;mv -i&#39;
 
-alias df='df -h'
-alias du='du -h'
+alias df=&#39;df -h&#39;
+alias du=&#39;du -h&#39;
 
-alias less='less -r'
-alias whence='type -a'
-alias grep='grep -n --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias pgrep='pgrep -a'
+alias less=&#39;less -r&#39;
+alias whence=&#39;type -a&#39;
+alias grep=&#39;grep -n --color=auto&#39;
+alias egrep=&#39;egrep --color=auto&#39;
+alias fgrep=&#39;fgrep --color=auto&#39;
+alias pgrep=&#39;pgrep -a&#39;
 
 # curl -o /usr/local/bin/fzf-tmux https://raw.githubusercontent.com/junegunn/fzf/master/bin/fzf-tmux &amp;&amp; chmod +x /usr/local/bin/fzf-tmux
 # curl -o ~/.config/fish/functions/fzf_key_bindings.fish https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.fish
-export FZF_ALT_C_COMMAND='fd -H -E .git -t d . $dir'
-export FZF_CTRL_T_COMMAND='fd -H -E .git -t f . $dir'
-export FZF_DEFAULT_COMMAND='fd -H -E .git'
-export FZF_ALT_C_OPTS='--preview &quot;ls -T {} | head -100&quot; -0'
-export FZF_CTRL_T_OPTS='--preview &quot;bat -f {} | head -100&quot; -0'
-export FZF_DEFAULT_OPTS='-m -0'
+export FZF_ALT_C_COMMAND=&#39;fd -H -E .git -t d . $dir&#39;
+export FZF_CTRL_T_COMMAND=&#39;fd -H -E .git -t f . $dir&#39;
+export FZF_DEFAULT_COMMAND=&#39;fd -H -E .git&#39;
+export FZF_ALT_C_OPTS=&#39;--preview &#34;ls -T {} | head -100&#34; -0&#39;
+export FZF_CTRL_T_OPTS=&#39;--preview &#34;bat -f {} | head -100&#34; -0&#39;
+export FZF_DEFAULT_OPTS=&#39;-m -0&#39;
 export FZF_TMUX=1
-alias f='fzf'
+alias f=&#39;fzf&#39;
 
 # curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh
 # curl -o ~/.config/fish/functions/n.fish https://raw.githubusercontent.com/jarun/nnn/master/misc/quitcd/quitcd.fish
-export NNN_PLUG='p:preview-tui;'
-export NNN_COLORS='#0c'
-alias nnn='nnn -adeUH -Pp'
+export NNN_PLUG=&#39;p:preview-tui;&#39;
+export NNN_COLORS=&#39;#0c&#39;
+alias nnn=&#39;nnn -adeUH -Pp&#39;
 
-export EXA_COLORS='da=2;0:gm=1;0'
-alias exa='exa -aFg --group-directories-first --color=auto --time-style=long-iso --git --icons --color-scale --sort=Name'
+export EXA_COLORS=&#39;da=2;0:gm=1;0&#39;
+alias exa=&#39;exa -aFg --group-directories-first --color=auto --time-style=long-iso --git --icons --color-scale --sort=Name&#39;
 
-# alias ls='ls -hFX --group-directories-first --color=auto --time-style=long-iso'
-alias ls='exa'
-alias l='ls -l'
-alias la='l -a'
-alias ll='l'
+# alias ls=&#39;ls -hFX --group-directories-first --color=auto --time-style=long-iso&#39;
+alias ls=&#39;exa&#39;
+alias l=&#39;ls -l&#39;
+alias la=&#39;l -a&#39;
+alias ll=&#39;l&#39;
 
-alias vi='vim'
-alias cat='bat'
+alias vi=&#39;vim&#39;
+alias cat=&#39;bat&#39;
 
-alias ..='c ..'
-alias ...='c ../..'
-alias ....='c ../../..'
+alias ..=&#39;c ..&#39;
+alias ...=&#39;c ../..&#39;
+alias ....=&#39;c ../../..&#39;
 
-alias gs='git status'
-alias gd='git diff'
+alias gs=&#39;git status&#39;
+alias gd=&#39;git diff&#39;
 
-alias now='date +&quot;%F %T&quot;'
-alias myip='curl -sk https://myip.ipip.net/'
-alias rand='openssl rand -hex 30'
-alias aria2c='aria2c -s16 -x16 -k1M'
-alias jq='jq -C'
-alias e='idea -e'
-alias o='open'
+alias now=&#39;date +&#34;%F %T&#34;&#39;
+alias myip=&#39;curl -sk https://myip.ipip.net/&#39;
+alias rand=&#39;openssl rand -hex 30&#39;
+alias aria2c=&#39;aria2c -s16 -x16 -k1M&#39;
+alias jq=&#39;jq -C&#39;
+alias e=&#39;idea -e&#39;
+alias o=&#39;open&#39;
 
-eval conda &quot;shell.fish&quot; &quot;hook&quot; $argv | source
+eval conda &#34;shell.fish&#34; &#34;hook&#34; $argv | source
 
 function start.
     # set -l path (cygpath -w (pwd))
@@ -179,8 +125,8 @@ end
 
 function fkill
   set -l header (ps aux | head -1)
-  set -l pid (ps aux | fzf -e --header &quot;$header&quot; | tr -s ' ' | cut -d ' ' -f 2)
-  if test -n &quot;$pid&quot;
+  set -l pid (ps aux | fzf -e --header &#34;$header&#34; | tr -s &#39; &#39; | cut -d &#39; &#39; -f 2)
+  if test -n &#34;$pid&#34;
     kill -9 $pid
   end
 end
@@ -189,7 +135,7 @@ function proxy_on
     set -xU all_proxy socks5://127.0.0.1:1080
     set -xU http_proxy http://127.0.0.1:1080
     set -xU https_proxy http://127.0.0.1:1080
-    set -xU GIT_SSH_COMMAND 'ssh -o ProxyCommand=&quot;socat - PROXY:127.0.0.1:%h:%p,proxyport=1080&quot;'
+    set -xU GIT_SSH_COMMAND &#39;ssh -o ProxyCommand=&#34;socat - PROXY:127.0.0.1:%h:%p,proxyport=1080&#34;&#39;
 end
 
 function proxy_off
@@ -208,40 +154,40 @@ function fish_prompt
     set -l normal (set_color normal)
 
     set -l status_color (set_color bryellow --bold)
-    set -l suffix '❯'
+    set -l suffix &#39;❯&#39;
     if fish_is_root_user
-        set suffix '#'
+        set suffix &#39;#&#39;
     end
-    set -l prompt_suffix (printf '%s' $status_color $suffix $normal)
+    set -l prompt_suffix (printf &#39;%s&#39; $status_color $suffix $normal)
 
     set -l status_color (set_color brblue)
     set -l statusb_color (set_color brblue --bold)
-    set -l prompt_pwd (prompt_pwd | sed &quot;s,/,$status_color/$status_color,g&quot; | sed &quot;s,\(.*\)/[^m]*m,\1/$statusb_color,&quot;)
+    set -l prompt_pwd (prompt_pwd | sed &#34;s,/,$status_color/$status_color,g&#34; | sed &#34;s,\(.*\)/[^m]*m,\1/$statusb_color,&#34;)
 
     # set -l prompt_vcs (fish_vcs_prompt) # too slow
-    if test -z &quot;$prompt_vcs&quot;
+    if test -z &#34;$prompt_vcs&#34;
         set prompt_vcs $normal
     end
 
     set -l status_color  (set_color $fish_color_status)
     set -l statusb_color (set_color $fish_color_status --bold)
-    set -l prompt_status (__fish_print_pipestatus &quot;[&quot; &quot;]&quot; &quot;|&quot; &quot;$status_color&quot; &quot;$statusb_color&quot; $last_pipestatus)
-    if test -z &quot;$prompt_status&quot;
+    set -l prompt_status (__fish_print_pipestatus &#34;[&#34; &#34;]&#34; &#34;|&#34; &#34;$status_color&#34; &#34;$statusb_color&#34; $last_pipestatus)
+    if test -z &#34;$prompt_status&#34;
         set prompt_status $normal
     end
 
-    set -l prompt_left (printf '%s:%s %s%s' (prompt_login) $prompt_pwd $prompt_vcs $prompt_status)
+    set -l prompt_left (printf &#39;%s:%s %s%s&#39; (prompt_login) $prompt_pwd $prompt_vcs $prompt_status)
 
-    set -l prompt_time (date +&quot;%T&quot;)
+    set -l prompt_time (date +&#34;%T&#34;)
     set -l prompt_duration (math $CMD_DURATION / 1000)
-    set -l prompt_right (printf '(%.2fs) %s ' $prompt_duration $prompt_time)
+    set -l prompt_right (printf &#39;(%.2fs) %s &#39; $prompt_duration $prompt_time)
 
     set -l left_width (string_width $prompt_left)
     set -l right_width (string_width $prompt_right)
     set -l space_width (math $COLUMNS - $left_width - $right_width + 5)
-    set -l prompt_space (printf '%'$space_width's')
+    set -l prompt_space (printf &#39;%&#39;$space_width&#39;s&#39;)
 
-    printf '%s%s%s\n %s ' \
+    printf &#39;%s%s%s\n %s &#39; \
     $prompt_left \
     $prompt_space \
     $prompt_right \
@@ -250,8 +196,8 @@ end
 
 # https://github.com/fish-shell/fish-shell/issues/4012
 function string_width
-    set --local empty ''
-    set --local raw_string (string replace --all --regex '\e\[[^m]*m' $empty -- $argv)
+    set --local empty &#39;&#39;
+    set --local raw_string (string replace --all --regex &#39;\e\[[^m]*m&#39; $empty -- $argv)
     string length -- $raw_string
 end
 
@@ -269,33 +215,9 @@ lua ~/z.lua --init fish once | source
 if type tmux &gt; /dev/null 2&gt;&amp;1 ; and not set -q TMUX
     tmux attach -c (pwd) || tmux new
 end
-</code></pre><pre tabindex=0><code>&quot;D:\Work\msys64\msys2_shell.cmd&quot; -no-start -full-path -mingw64 -shell fish
-</code></pre>
-</div>
-<div class=sharing style=text-align:center>
-<br>
-<p>捐赠支持</p>
-<p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p>
-<p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p>
-<img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%>
-<p></p><br>&copy; 2015-2020 XhstormR
-</div>
-</div>
-</div>
-</div>
-<div id=backtop><a href=# title>TOP</a></div>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#build>Build</a></li>
-<li><a href=#configfish>config.fish</a></li>
-</ul>
-</nav>
-<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script>
+</code></pre><pre tabindex=0><code>&#34;D:\Work\msys64\msys2_shell.cmd&#34; -no-start -full-path -mingw64 -shell fish
+</code></pre></div><div class=sharing style=text-align:center><br><p>捐赠支持</p><p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p><p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p><img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%><p></p><br>&copy; 2015-2020 XhstormR</div></div></div></div><div id=backtop><a href=# title>TOP</a></div><nav id=TableOfContents><ul><li><a href=#build>Build</a></li><li><a href=#configfish>config.fish</a></li></ul></nav><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script>
-<script>hljs.initHighlightingOnLoad()</script>
-<script src=https://blog.xhstormr.tk/js/zoom.min.js></script>
-<script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script>
-<script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script>
-</body>
-</html>
+<script>hljs.initHighlightingOnLoad()</script><script src=https://blog.xhstormr.tk/js/zoom.min.js></script>
+<script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script><script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script></body></html>

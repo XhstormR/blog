@@ -1,265 +1,170 @@
-<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache>
-<head>
-<meta charset=utf-8>
-<meta name=renderer content="webkit">
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title> 关于 Java 中的 String &#183; XhstormR </title>
-<link rel=alternate type=application/rss+xml title=XhstormR href>
-<link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico>
-<link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css>
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css>
-<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
-<script src=https://blog.xhstormr.tk/js/main.min.js async defer></script>
-</head>
-<body>
-<div id=scriptHeader>
-<span class="mobile btn-mobile-menu">
-<i class="fa fa-bars btn-mobile-menu__icon"></i>
-<i class="fa fa-times btn-mobile-close__icon hidden"></i>
-</span>
-<header class="panel-cover panel-cover--collapsed">
-<div class=panel-main>
-<div class="panel-main__inner panel-inverted">
-<div class=panel-main__content>
-<h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1>
-<hr class=panel-cover__divider>
-<p class=panel-cover__description> On a dark desert highway, cool wind in my hair. </p>
-<hr class="panel-cover__divider panel-cover__divider--secondary">
-<div class=navigation-wrapper>
-<nav class="cover-navigation cover-navigation--primary">
-<ul class=navigation>
-<li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li>
-</ul>
-</nav>
-</div>
-</div>
-</div>
-<div class=panel-cover--overlay></div>
-</div>
-</header>
-</div>
-<div class=bodytop>
-<div class=content-wrapper>
-<div class=content-wrapper__inner>
-<div class=post>
-<h1>关于 Java 中的 String</h1>
-<span class=post-date>2016-07-20</span>
-<p>Updated on 2016-10-09</p>
-<blockquote>
-<p style=text-align:center><img data-src=/uploads/java-string.svg alt title=String data-action=zoom width></p>
-<script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(a){a.setAttribute("src",a.getAttribute("data-src")),a.onload=function(){a.removeAttribute("data-src")}})</script>
-</blockquote>
-<ul>
-<li>String：字符串常量
-<ul>
-<li>一旦被创建就不能修改它的值，而是通过重新创建一个新的对象并重新引用。</li>
-</ul>
-</li>
-<li>StringBuffer：字符串变量（线程安全）
-<ul>
-<li>对 StringBuffer 本身进行操作，更适用于对字符串的修改。</li>
-</ul>
-</li>
-<li>StringBuilder：字符串变量（非线程安全）
-<ul>
-<li>等价于 StringBuffer，应用于单线程，不执行同步操作。</li>
-</ul>
-</li>
-</ul>
-<p>性能：StringBuilder > StringBuffer > String</p>
-<h2 id=string>String</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>String str <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;ABCDEFGH&#34;</span><span style=color:#f92672>;</span>
-
-String<span style=color:#f92672>.</span><span style=color:#a6e22e>valueOf</span><span style=color:#f92672>(</span>1<span style=color:#f92672>.</span><span style=color:#a6e22e>687f</span><span style=color:#f92672>)</span>     1<span style=color:#f92672>.</span><span style=color:#a6e22e>687</span>     转换为字符串
-String<span style=color:#f92672>.</span><span style=color:#a6e22e>format</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;%s-%d-%b&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;abc&#34;</span><span style=color:#f92672>,</span> 3<span style=color:#f92672>,</span> <span style=color:#66d9ef>true</span><span style=color:#f92672>)</span>     abc<span style=color:#f92672>-</span>3<span style=color:#f92672>-</span><span style=color:#66d9ef>true</span>     格式化字符串
-str<span style=color:#f92672>.</span><span style=color:#a6e22e>length</span><span style=color:#f92672>()</span>     8     字符串长度
-str<span style=color:#f92672>.</span><span style=color:#a6e22e>charAt</span><span style=color:#f92672>(</span>2<span style=color:#f92672>)</span>     C     索引字符串
-str<span style=color:#f92672>.</span><span style=color:#a6e22e>indexOf</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;EFG&#34;</span><span style=color:#f92672>)</span>     4     索引字符串
-str<span style=color:#f92672>.</span><span style=color:#a6e22e>isEmpty</span><span style=color:#f92672>()</span>     <span style=color:#66d9ef>false</span>     是否为空
-str<span style=color:#f92672>.</span><span style=color:#a6e22e>contains</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;ABC&#34;</span><span style=color:#f92672>)</span>     <span style=color:#66d9ef>true</span>     是否包含
-str<span style=color:#f92672>.</span><span style=color:#a6e22e>equals</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;ABC&#34;</span><span style=color:#f92672>)</span>     <span style=color:#66d9ef>false</span>     比较内容
-str<span style=color:#f92672>.</span><span style=color:#a6e22e>regionMatches</span><span style=color:#f92672>(</span>0<span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;DABC&#34;</span><span style=color:#f92672>,</span> 1<span style=color:#f92672>,</span> 3<span style=color:#f92672>)</span>     <span style=color:#66d9ef>true</span>     比较部分内容     原从0开始<span style=color:#960050;background-color:#1e0010>，</span>新从1开始<span style=color:#960050;background-color:#1e0010>，</span>比较长度为3
-str<span style=color:#f92672>.</span><span style=color:#a6e22e>startsWith</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;ABC&#34;</span><span style=color:#f92672>)</span>     <span style=color:#66d9ef>true</span>     比较开头
-str<span style=color:#f92672>.</span><span style=color:#a6e22e>endsWith</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;ABC&#34;</span><span style=color:#f92672>)</span>     <span style=color:#66d9ef>false</span>     比较结尾
-
-str<span style=color:#f92672>.</span><span style=color:#a6e22e>trim</span><span style=color:#f92672>()</span>     去除开头和结尾的空格
-str<span style=color:#f92672>.</span><span style=color:#a6e22e>toLowerCase</span><span style=color:#f92672>()</span>     abcdefgh     大小写转换
-str<span style=color:#f92672>.</span><span style=color:#a6e22e>concat</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;123&#34;</span><span style=color:#f92672>)</span>     ABCDEFGH123     追加
-str<span style=color:#f92672>.</span><span style=color:#a6e22e>replace</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;B&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34; &#34;</span><span style=color:#f92672>)</span>     A CDEFGH     替换
-str<span style=color:#f92672>.</span><span style=color:#a6e22e>substring</span><span style=color:#f92672>(</span>2<span style=color:#f92672>,</span> 6<span style=color:#f92672>)</span>     CDEF     截取字符串     返回 String
-str<span style=color:#f92672>.</span><span style=color:#a6e22e>subSequence</span><span style=color:#f92672>(</span>2<span style=color:#f92672>,</span> 6<span style=color:#f92672>)</span>     CDEF     截取字符串     返回 CharSequence
-
-str<span style=color:#f92672>.</span><span style=color:#a6e22e>split</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34; &#34;</span><span style=color:#f92672>)</span>     以空格为分隔符<span style=color:#960050;background-color:#1e0010>，</span>返回字符串数组     返回 String<span style=color:#f92672>[]</span>
-str<span style=color:#f92672>.</span><span style=color:#a6e22e>toCharArray</span><span style=color:#f92672>()</span>     返回字符数组     返回 Char<span style=color:#f92672>[]</span>
-str<span style=color:#f92672>.</span><span style=color:#a6e22e>matches</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;.*0 /.*+.*&#34;</span><span style=color:#f92672>)</span>     使用正则表达式匹配内容
-
-Tips<span style=color:#960050;background-color:#1e0010>：</span>
-字符串索引范围从 0 开始<span style=color:#960050;background-color:#1e0010>，</span>到 str<span style=color:#f92672>.</span><span style=color:#a6e22e>length</span><span style=color:#f92672>()-</span>1 结束<span style=color:#960050;background-color:#1e0010>。</span>
-indexOf 没有匹配结果会返回 <span style=color:#f92672>-</span>1<span style=color:#960050;background-color:#1e0010>。</span>
-substring 包括开始位置的字符<span style=color:#960050;background-color:#1e0010>，</span>不包括结束位置的字符<span style=color:#960050;background-color:#1e0010>。</span>   <span style=color:#f92672>[</span>2<span style=color:#f92672>,</span>6<span style=color:#f92672>)</span>
-</code></pre></div><h2 id=stringbuilder-and-stringbuffer>StringBuilder and StringBuffer</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>StringBuilder str <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> StringBuilder<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;ABCDEFGH&#34;</span><span style=color:#f92672>);</span>
-
-str<span style=color:#f92672>.</span><span style=color:#a6e22e>toString</span><span style=color:#f92672>();</span>     ABCDEFGH     转换为String
-str<span style=color:#f92672>.</span><span style=color:#a6e22e>reverse</span><span style=color:#f92672>();</span>     HGFEDCBA     反转
-str<span style=color:#f92672>.</span><span style=color:#a6e22e>setCharAt</span><span style=color:#f92672>(</span>1<span style=color:#f92672>,</span><span style=color:#e6db74>&#39; &#39;</span><span style=color:#f92672>);</span>     A CDEFGH     替换
-str<span style=color:#f92672>.</span><span style=color:#a6e22e>append</span><span style=color:#f92672>(</span>123<span style=color:#f92672>);</span>     ABCDEFGH123     追加
-str<span style=color:#f92672>.</span><span style=color:#a6e22e>insert</span><span style=color:#f92672>(</span>1<span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;123&#34;</span><span style=color:#f92672>);</span>     A123BCDEFGH     插入
-</code></pre></div><hr>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>String str1 <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;123&#34;</span><span style=color:#f92672>;</span>     涉及 1 个对象<span style=color:#960050;background-color:#1e0010>（</span>常量池中<span style=color:#960050;background-color:#1e0010>）</span>
-String str2 <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> String<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;123&#34;</span><span style=color:#f92672>);</span>     涉及 2 个对象<span style=color:#960050;background-color:#1e0010>（</span>使用 <span style=color:#66d9ef>new</span> 关键字生成的对象会存放于堆区中<span style=color:#960050;background-color:#1e0010>）</span>
-
-str1 <span style=color:#f92672>==</span> str2     <span style=color:#66d9ef>false</span>     显式 <span style=color:#66d9ef>new</span> 了一个对象<span style=color:#960050;background-color:#1e0010>，</span>内存地址不相同
-str1<span style=color:#f92672>.</span><span style=color:#a6e22e>equals</span><span style=color:#f92672>(</span>str2<span style=color:#f92672>)</span>     <span style=color:#66d9ef>true</span>     内容相同
-
-<span style=color:#f92672>-------------------------------------------------------</span>
-
-<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> <span style=color:#f92672>{</span>
-    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span><span style=color:#f92672>(</span>String<span style=color:#f92672>[]</span> args<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
-        String str <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;123456&#34;</span><span style=color:#f92672>;</span>
-        <span style=color:#66d9ef>for</span> <span style=color:#f92672>(</span><span style=color:#66d9ef>char</span> i <span style=color:#f92672>:</span> <span style=color:#66d9ef>new</span> StringBuilder<span style=color:#f92672>(</span>str<span style=color:#f92672>).</span><span style=color:#a6e22e>reverse</span><span style=color:#f92672>().</span><span style=color:#a6e22e>toString</span><span style=color:#f92672>().</span><span style=color:#a6e22e>toCharArray</span><span style=color:#f92672>())</span> <span style=color:#f92672>{</span>     <span style=color:#960050;background-color:#1e0010>①</span>
-            System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>i<span style=color:#f92672>);</span>
-        <span style=color:#f92672>}</span>
-    <span style=color:#f92672>}</span>
-<span style=color:#f92672>}</span>
-注 <span style=color:#960050;background-color:#1e0010>①：</span>
-String   <span style=color:#960050;background-color:#1e0010>➜</span>   StringBuilder   <span style=color:#960050;background-color:#1e0010>➜</span>   反转   <span style=color:#960050;background-color:#1e0010>➜</span>   String   <span style=color:#960050;background-color:#1e0010>➜</span>   <span style=color:#66d9ef>char</span><span style=color:#f92672>[]</span>
-<span style=color:#f92672>----</span>
-输出<span style=color:#960050;background-color:#1e0010>：</span>
-6
-5
-4
-3
-2
-1
-
-<span style=color:#f92672>-------------------------------------------------------</span>
-
-<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> <span style=color:#f92672>{</span>
-    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span><span style=color:#f92672>(</span>String<span style=color:#f92672>[]</span> args<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
-        String str <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;abcdef&#34;</span><span style=color:#f92672>;</span>
-        <span style=color:#66d9ef>for</span> <span style=color:#f92672>(</span><span style=color:#66d9ef>char</span> i <span style=color:#f92672>:</span> str<span style=color:#f92672>.</span><span style=color:#a6e22e>toCharArray</span><span style=color:#f92672>())</span> <span style=color:#f92672>{</span>
-            System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>i <span style=color:#f92672>-</span> <span style=color:#e6db74>&#39;a&#39;</span> <span style=color:#f92672>+</span> 1<span style=color:#f92672>);</span>     eg<span style=color:#f92672>.</span> b <span style=color:#960050;background-color:#1e0010>➜</span> 98 <span style=color:#f92672>-</span> 97 <span style=color:#f92672>+</span> 1 <span style=color:#f92672>=</span> 2
-        <span style=color:#f92672>}</span>
-    <span style=color:#f92672>}</span>
-<span style=color:#f92672>}</span>
-<span style=color:#f92672>----</span>
-输出<span style=color:#960050;background-color:#1e0010>：</span>
-1
-2
-3
-4
-5
-6
-
-<span style=color:#f92672>-------------------------------------------------------</span>
-
-<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> <span style=color:#f92672>{</span>     URL 编码
-    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span><span style=color:#f92672>(</span>String<span style=color:#f92672>[]</span> args<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
-        String format <span style=color:#f92672>=</span> String<span style=color:#f92672>.</span><span style=color:#a6e22e>format</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;A=%s&amp;B=%04d&amp;C=%.2f&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;字&#34;</span><span style=color:#f92672>,</span> 123<span style=color:#f92672>,</span> 123<span style=color:#f92672>.</span><span style=color:#a6e22e>123</span><span style=color:#f92672>);</span>
-        String encode <span style=color:#f92672>=</span> URLEncoder<span style=color:#f92672>.</span><span style=color:#a6e22e>encode</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;中国ABC&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;utf-8&#34;</span><span style=color:#f92672>);</span>
-        String decode <span style=color:#f92672>=</span> URLDecoder<span style=color:#f92672>.</span><span style=color:#a6e22e>decode</span><span style=color:#f92672>(</span>encode<span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;utf-8&#34;</span><span style=color:#f92672>);</span>
-        String s <span style=color:#f92672>=</span> String<span style=color:#f92672>.</span><span style=color:#a6e22e>format</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;%-15s&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;A&#34;</span><span style=color:#f92672>);</span>
-
-        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>format<span style=color:#f92672>);</span>
-        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>encode<span style=color:#f92672>);</span>
-        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>decode<span style=color:#f92672>);</span>
-        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>s <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;B&#34;</span><span style=color:#f92672>);</span>
-    <span style=color:#f92672>}</span>
-<span style=color:#f92672>}</span>
-<span style=color:#f92672>----</span>
-输出<span style=color:#960050;background-color:#1e0010>：</span>
-A<span style=color:#f92672>=</span>字<span style=color:#f92672>&amp;</span>B<span style=color:#f92672>=</span>0123<span style=color:#f92672>&amp;</span>C<span style=color:#f92672>=</span>123<span style=color:#f92672>.</span><span style=color:#a6e22e>12</span>
-<span style=color:#f92672>%</span>E4<span style=color:#f92672>%</span>B8<span style=color:#f92672>%</span>AD<span style=color:#f92672>%</span>E5<span style=color:#f92672>%</span>9B<span style=color:#f92672>%</span>BDABC
-中国ABC
-A              B
-
-Note<span style=color:#960050;background-color:#1e0010>：</span>
-<span style=color:#f92672>%</span>d     Digital     123
-<span style=color:#f92672>%</span>f     Float     1<span style=color:#f92672>.</span><span style=color:#a6e22e>23</span>
-<span style=color:#f92672>%</span>s     String     <span style=color:#e6db74>&#34;ABC&#34;</span>
-<span style=color:#f92672>%</span>c     Char     <span style=color:#e6db74>&#39;A&#39;</span>
-<span style=color:#f92672>%</span>b     Boolean     <span style=color:#66d9ef>true</span>
-
-<span style=color:#f92672>-------------------------------------------------------</span>
-
-<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> <span style=color:#f92672>{</span>     Base64 编码
-    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span><span style=color:#f92672>(</span>String<span style=color:#f92672>[]</span> args<span style=color:#f92672>)</span> <span style=color:#66d9ef>throws</span> IOException <span style=color:#f92672>{</span>
-        String str <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;123ABC中国&#34;</span><span style=color:#f92672>;</span>
-
-        BASE64Encoder base64Encoder <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> BASE64Encoder<span style=color:#f92672>();</span>
-        BASE64Decoder base64Decoder <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> BASE64Decoder<span style=color:#f92672>();</span>
-
-        String encode <span style=color:#f92672>=</span> base64Encoder<span style=color:#f92672>.</span><span style=color:#a6e22e>encode</span><span style=color:#f92672>(</span>str<span style=color:#f92672>.</span><span style=color:#a6e22e>getBytes</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;utf-8&#34;</span><span style=color:#f92672>));</span>
-        <span style=color:#66d9ef>byte</span><span style=color:#f92672>[]</span> decode <span style=color:#f92672>=</span> base64Decoder<span style=color:#f92672>.</span><span style=color:#a6e22e>decodeBuffer</span><span style=color:#f92672>(</span>encode<span style=color:#f92672>);</span>
-
-        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>encode<span style=color:#f92672>);</span>
-        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#66d9ef>new</span> String<span style=color:#f92672>(</span>decode<span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;utf-8&#34;</span><span style=color:#f92672>));</span>
-    <span style=color:#f92672>}</span>
-<span style=color:#f92672>}</span>
-<span style=color:#f92672>----</span>
-输出<span style=color:#960050;background-color:#1e0010>：</span>
-MTIzQUJD5Lit5Zu9
-123ABC中国
-
-<span style=color:#f92672>-------------------------------------------------------</span>
-
-<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> <span style=color:#f92672>{</span>     判断是否为回文
-    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span><span style=color:#f92672>(</span>String<span style=color:#f92672>[]</span> args<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
-        a<span style=color:#f92672>();</span>     第一种方式
-        <span style=color:#a6e22e>b</span><span style=color:#f92672>();</span>     第二种方式
-    <span style=color:#f92672>}</span>
-
-    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>a</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
-        String str <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;12321&#34;</span><span style=color:#f92672>;</span>
-        String s <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> StringBuilder<span style=color:#f92672>(</span>str<span style=color:#f92672>).</span><span style=color:#a6e22e>reverse</span><span style=color:#f92672>().</span><span style=color:#a6e22e>toString</span><span style=color:#f92672>();</span>
-        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>str<span style=color:#f92672>.</span><span style=color:#a6e22e>equals</span><span style=color:#f92672>(</span>s<span style=color:#f92672>));</span>
-    <span style=color:#f92672>}</span>
-
-    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>b</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
-        String str <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;12321&#34;</span><span style=color:#f92672>;</span>
-        <span style=color:#66d9ef>int</span> length <span style=color:#f92672>=</span> str<span style=color:#f92672>.</span><span style=color:#a6e22e>length</span><span style=color:#f92672>();</span>
-        <span style=color:#66d9ef>int</span> count <span style=color:#f92672>=</span> length <span style=color:#f92672>%</span> 2 <span style=color:#f92672>==</span> 0 <span style=color:#f92672>?</span> length <span style=color:#f92672>/</span> 2 <span style=color:#f92672>:</span> <span style=color:#f92672>(</span>length <span style=color:#f92672>-</span> 1<span style=color:#f92672>)</span> <span style=color:#f92672>/</span> 2<span style=color:#f92672>;</span>
-        <span style=color:#66d9ef>for</span> <span style=color:#f92672>(</span><span style=color:#66d9ef>int</span> x <span style=color:#f92672>=</span> 0<span style=color:#f92672>,</span> y <span style=color:#f92672>=</span> 1<span style=color:#f92672>;</span> count <span style=color:#f92672>!=</span> 0<span style=color:#f92672>;</span> count<span style=color:#f92672>--,</span> x<span style=color:#f92672>++,</span> y<span style=color:#f92672>++)</span> <span style=color:#f92672>{</span>
-            <span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span>str<span style=color:#f92672>.</span><span style=color:#a6e22e>charAt</span><span style=color:#f92672>(</span>x<span style=color:#f92672>)</span> <span style=color:#f92672>!=</span> str<span style=color:#f92672>.</span><span style=color:#a6e22e>charAt</span><span style=color:#f92672>(</span>length <span style=color:#f92672>-</span> y<span style=color:#f92672>))</span> <span style=color:#f92672>{</span>
-                System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;false&#34;</span><span style=color:#f92672>);</span>
-                <span style=color:#66d9ef>return</span><span style=color:#f92672>;</span>
-            <span style=color:#f92672>}</span>
-        <span style=color:#f92672>}</span>
-        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;true&#34;</span><span style=color:#f92672>);</span>
-    <span style=color:#f92672>}</span>
-<span style=color:#f92672>}</span>
-<span style=color:#f92672>----</span>
-输出<span style=color:#960050;background-color:#1e0010>：</span>
-<span style=color:#66d9ef>true</span>
-<span style=color:#66d9ef>true</span>
-</code></pre></div>
-</div>
-<div class=sharing style=text-align:center>
-<br>
-<p>捐赠支持</p>
-<p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p>
-<p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p>
-<img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%>
-<p></p><br>&copy; 2015-2020 XhstormR
-</div>
-</div>
-</div>
-</div>
-<div id=backtop><a href=# title>TOP</a></div>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#string>String</a></li>
-<li><a href=#stringbuilder-and-stringbuffer>StringBuilder and StringBuffer</a></li>
-</ul>
-</nav>
-<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script>
+<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache><head><meta charset=utf-8><meta name=renderer content="webkit"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>关于 Java 中的 String &#183; XhstormR</title><link rel=alternate type=application/rss+xml title=XhstormR href><link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico><link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
+<script src=https://blog.xhstormr.tk/js/main.min.js async defer></script></head><body><div id=scriptHeader><span class="mobile btn-mobile-menu"><i class="fa fa-bars btn-mobile-menu__icon"></i>
+<i class="fa fa-times btn-mobile-close__icon hidden"></i></span><header class="panel-cover panel-cover--collapsed"><div class=panel-main><div class="panel-main__inner panel-inverted"><div class=panel-main__content><h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1><hr class=panel-cover__divider><p class=panel-cover__description>On a dark desert highway, cool wind in my hair.</p><hr class="panel-cover__divider panel-cover__divider--secondary"><div class=navigation-wrapper><nav class="cover-navigation cover-navigation--primary"><ul class=navigation><li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li></ul></nav></div></div></div><div class=panel-cover--overlay></div></div></header></div><div class=bodytop><div class=content-wrapper><div class=content-wrapper__inner><div class=post><h1>关于 Java 中的 String</h1><span class=post-date>2016-07-20</span><p>Updated on 2016-10-09</p><blockquote><p style=text-align:center><img data-src=/uploads/java-string.svg alt title=String data-action=zoom width></p><script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(e){e.setAttribute("src",e.getAttribute("data-src")),e.onload=function(){e.removeAttribute("data-src")}})</script></blockquote><ul><li>String：字符串常量<ul><li>一旦被创建就不能修改它的值，而是通过重新创建一个新的对象并重新引用。</li></ul></li><li>StringBuffer：字符串变量（线程安全）<ul><li>对 StringBuffer 本身进行操作，更适用于对字符串的修改。</li></ul></li><li>StringBuilder：字符串变量（非线程安全）<ul><li>等价于 StringBuffer，应用于单线程，不执行同步操作。</li></ul></li></ul><p>性能：StringBuilder > StringBuffer > String</p><h2 id=string>String</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span>String str <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;ABCDEFGH&#34;</span><span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>String<span style=color:#f92672>.</span><span style=color:#a6e22e>valueOf</span><span style=color:#f92672>(</span>1<span style=color:#f92672>.</span><span style=color:#a6e22e>687f</span><span style=color:#f92672>)</span>     1<span style=color:#f92672>.</span><span style=color:#a6e22e>687</span>     转换为字符串
+</span></span><span style=display:flex><span>String<span style=color:#f92672>.</span><span style=color:#a6e22e>format</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;%s-%d-%b&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;abc&#34;</span><span style=color:#f92672>,</span> 3<span style=color:#f92672>,</span> <span style=color:#66d9ef>true</span><span style=color:#f92672>)</span>     abc<span style=color:#f92672>-</span>3<span style=color:#f92672>-</span><span style=color:#66d9ef>true</span>     格式化字符串
+</span></span><span style=display:flex><span>str<span style=color:#f92672>.</span><span style=color:#a6e22e>length</span><span style=color:#f92672>()</span>     8     字符串长度
+</span></span><span style=display:flex><span>str<span style=color:#f92672>.</span><span style=color:#a6e22e>charAt</span><span style=color:#f92672>(</span>2<span style=color:#f92672>)</span>     C     索引字符串
+</span></span><span style=display:flex><span>str<span style=color:#f92672>.</span><span style=color:#a6e22e>indexOf</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;EFG&#34;</span><span style=color:#f92672>)</span>     4     索引字符串
+</span></span><span style=display:flex><span>str<span style=color:#f92672>.</span><span style=color:#a6e22e>isEmpty</span><span style=color:#f92672>()</span>     <span style=color:#66d9ef>false</span>     是否为空
+</span></span><span style=display:flex><span>str<span style=color:#f92672>.</span><span style=color:#a6e22e>contains</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;ABC&#34;</span><span style=color:#f92672>)</span>     <span style=color:#66d9ef>true</span>     是否包含
+</span></span><span style=display:flex><span>str<span style=color:#f92672>.</span><span style=color:#a6e22e>equals</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;ABC&#34;</span><span style=color:#f92672>)</span>     <span style=color:#66d9ef>false</span>     比较内容
+</span></span><span style=display:flex><span>str<span style=color:#f92672>.</span><span style=color:#a6e22e>regionMatches</span><span style=color:#f92672>(</span>0<span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;DABC&#34;</span><span style=color:#f92672>,</span> 1<span style=color:#f92672>,</span> 3<span style=color:#f92672>)</span>     <span style=color:#66d9ef>true</span>     比较部分内容     原从0开始<span style=color:#960050;background-color:#1e0010>，</span>新从1开始<span style=color:#960050;background-color:#1e0010>，</span>比较长度为3
+</span></span><span style=display:flex><span>str<span style=color:#f92672>.</span><span style=color:#a6e22e>startsWith</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;ABC&#34;</span><span style=color:#f92672>)</span>     <span style=color:#66d9ef>true</span>     比较开头
+</span></span><span style=display:flex><span>str<span style=color:#f92672>.</span><span style=color:#a6e22e>endsWith</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;ABC&#34;</span><span style=color:#f92672>)</span>     <span style=color:#66d9ef>false</span>     比较结尾
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>str<span style=color:#f92672>.</span><span style=color:#a6e22e>trim</span><span style=color:#f92672>()</span>     去除开头和结尾的空格
+</span></span><span style=display:flex><span>str<span style=color:#f92672>.</span><span style=color:#a6e22e>toLowerCase</span><span style=color:#f92672>()</span>     abcdefgh     大小写转换
+</span></span><span style=display:flex><span>str<span style=color:#f92672>.</span><span style=color:#a6e22e>concat</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;123&#34;</span><span style=color:#f92672>)</span>     ABCDEFGH123     追加
+</span></span><span style=display:flex><span>str<span style=color:#f92672>.</span><span style=color:#a6e22e>replace</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;B&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34; &#34;</span><span style=color:#f92672>)</span>     A CDEFGH     替换
+</span></span><span style=display:flex><span>str<span style=color:#f92672>.</span><span style=color:#a6e22e>substring</span><span style=color:#f92672>(</span>2<span style=color:#f92672>,</span> 6<span style=color:#f92672>)</span>     CDEF     截取字符串     返回 String
+</span></span><span style=display:flex><span>str<span style=color:#f92672>.</span><span style=color:#a6e22e>subSequence</span><span style=color:#f92672>(</span>2<span style=color:#f92672>,</span> 6<span style=color:#f92672>)</span>     CDEF     截取字符串     返回 CharSequence
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>str<span style=color:#f92672>.</span><span style=color:#a6e22e>split</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34; &#34;</span><span style=color:#f92672>)</span>     以空格为分隔符<span style=color:#960050;background-color:#1e0010>，</span>返回字符串数组     返回 String<span style=color:#f92672>[]</span>
+</span></span><span style=display:flex><span>str<span style=color:#f92672>.</span><span style=color:#a6e22e>toCharArray</span><span style=color:#f92672>()</span>     返回字符数组     返回 Char<span style=color:#f92672>[]</span>
+</span></span><span style=display:flex><span>str<span style=color:#f92672>.</span><span style=color:#a6e22e>matches</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;.*0 /.*+.*&#34;</span><span style=color:#f92672>)</span>     使用正则表达式匹配内容
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Tips<span style=color:#960050;background-color:#1e0010>：</span>
+</span></span><span style=display:flex><span>字符串索引范围从 0 开始<span style=color:#960050;background-color:#1e0010>，</span>到 str<span style=color:#f92672>.</span><span style=color:#a6e22e>length</span><span style=color:#f92672>()-</span>1 结束<span style=color:#960050;background-color:#1e0010>。</span>
+</span></span><span style=display:flex><span>indexOf 没有匹配结果会返回 <span style=color:#f92672>-</span>1<span style=color:#960050;background-color:#1e0010>。</span>
+</span></span><span style=display:flex><span>substring 包括开始位置的字符<span style=color:#960050;background-color:#1e0010>，</span>不包括结束位置的字符<span style=color:#960050;background-color:#1e0010>。</span>   <span style=color:#f92672>[</span>2<span style=color:#f92672>,</span>6<span style=color:#f92672>)</span>
+</span></span></code></pre></div><h2 id=stringbuilder-and-stringbuffer>StringBuilder and StringBuffer</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span>StringBuilder str <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> StringBuilder<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;ABCDEFGH&#34;</span><span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>str<span style=color:#f92672>.</span><span style=color:#a6e22e>toString</span><span style=color:#f92672>();</span>     ABCDEFGH     转换为String
+</span></span><span style=display:flex><span>str<span style=color:#f92672>.</span><span style=color:#a6e22e>reverse</span><span style=color:#f92672>();</span>     HGFEDCBA     反转
+</span></span><span style=display:flex><span>str<span style=color:#f92672>.</span><span style=color:#a6e22e>setCharAt</span><span style=color:#f92672>(</span>1<span style=color:#f92672>,</span><span style=color:#e6db74>&#39; &#39;</span><span style=color:#f92672>);</span>     A CDEFGH     替换
+</span></span><span style=display:flex><span>str<span style=color:#f92672>.</span><span style=color:#a6e22e>append</span><span style=color:#f92672>(</span>123<span style=color:#f92672>);</span>     ABCDEFGH123     追加
+</span></span><span style=display:flex><span>str<span style=color:#f92672>.</span><span style=color:#a6e22e>insert</span><span style=color:#f92672>(</span>1<span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;123&#34;</span><span style=color:#f92672>);</span>     A123BCDEFGH     插入
+</span></span></code></pre></div><hr><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span>String str1 <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;123&#34;</span><span style=color:#f92672>;</span>     涉及 1 个对象<span style=color:#960050;background-color:#1e0010>（</span>常量池中<span style=color:#960050;background-color:#1e0010>）</span>
+</span></span><span style=display:flex><span>String str2 <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> String<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;123&#34;</span><span style=color:#f92672>);</span>     涉及 2 个对象<span style=color:#960050;background-color:#1e0010>（</span>使用 <span style=color:#66d9ef>new</span> 关键字生成的对象会存放于堆区中<span style=color:#960050;background-color:#1e0010>）</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>str1 <span style=color:#f92672>==</span> str2     <span style=color:#66d9ef>false</span>     显式 <span style=color:#66d9ef>new</span> 了一个对象<span style=color:#960050;background-color:#1e0010>，</span>内存地址不相同
+</span></span><span style=display:flex><span>str1<span style=color:#f92672>.</span><span style=color:#a6e22e>equals</span><span style=color:#f92672>(</span>str2<span style=color:#f92672>)</span>     <span style=color:#66d9ef>true</span>     内容相同
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span><span style=color:#f92672>(</span>String<span style=color:#f92672>[]</span> args<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        String str <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;123456&#34;</span><span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> <span style=color:#f92672>(</span><span style=color:#66d9ef>char</span> i <span style=color:#f92672>:</span> <span style=color:#66d9ef>new</span> StringBuilder<span style=color:#f92672>(</span>str<span style=color:#f92672>).</span><span style=color:#a6e22e>reverse</span><span style=color:#f92672>().</span><span style=color:#a6e22e>toString</span><span style=color:#f92672>().</span><span style=color:#a6e22e>toCharArray</span><span style=color:#f92672>())</span> <span style=color:#f92672>{</span>     <span style=color:#960050;background-color:#1e0010>①</span>
+</span></span><span style=display:flex><span>            System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>i<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>注 <span style=color:#960050;background-color:#1e0010>①：</span>
+</span></span><span style=display:flex><span>String   <span style=color:#960050;background-color:#1e0010>➜</span>   StringBuilder   <span style=color:#960050;background-color:#1e0010>➜</span>   反转   <span style=color:#960050;background-color:#1e0010>➜</span>   String   <span style=color:#960050;background-color:#1e0010>➜</span>   <span style=color:#66d9ef>char</span><span style=color:#f92672>[]</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>输出<span style=color:#960050;background-color:#1e0010>：</span>
+</span></span><span style=display:flex><span>6
+</span></span><span style=display:flex><span>5
+</span></span><span style=display:flex><span>4
+</span></span><span style=display:flex><span>3
+</span></span><span style=display:flex><span>2
+</span></span><span style=display:flex><span>1
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span><span style=color:#f92672>(</span>String<span style=color:#f92672>[]</span> args<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        String str <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;abcdef&#34;</span><span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> <span style=color:#f92672>(</span><span style=color:#66d9ef>char</span> i <span style=color:#f92672>:</span> str<span style=color:#f92672>.</span><span style=color:#a6e22e>toCharArray</span><span style=color:#f92672>())</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>            System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>i <span style=color:#f92672>-</span> <span style=color:#e6db74>&#39;a&#39;</span> <span style=color:#f92672>+</span> 1<span style=color:#f92672>);</span>     eg<span style=color:#f92672>.</span> b <span style=color:#960050;background-color:#1e0010>➜</span> 98 <span style=color:#f92672>-</span> 97 <span style=color:#f92672>+</span> 1 <span style=color:#f92672>=</span> 2
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>输出<span style=color:#960050;background-color:#1e0010>：</span>
+</span></span><span style=display:flex><span>1
+</span></span><span style=display:flex><span>2
+</span></span><span style=display:flex><span>3
+</span></span><span style=display:flex><span>4
+</span></span><span style=display:flex><span>5
+</span></span><span style=display:flex><span>6
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> <span style=color:#f92672>{</span>     URL 编码
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span><span style=color:#f92672>(</span>String<span style=color:#f92672>[]</span> args<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        String format <span style=color:#f92672>=</span> String<span style=color:#f92672>.</span><span style=color:#a6e22e>format</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;A=%s&amp;B=%04d&amp;C=%.2f&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;字&#34;</span><span style=color:#f92672>,</span> 123<span style=color:#f92672>,</span> 123<span style=color:#f92672>.</span><span style=color:#a6e22e>123</span><span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>        String encode <span style=color:#f92672>=</span> URLEncoder<span style=color:#f92672>.</span><span style=color:#a6e22e>encode</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;中国ABC&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;utf-8&#34;</span><span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>        String decode <span style=color:#f92672>=</span> URLDecoder<span style=color:#f92672>.</span><span style=color:#a6e22e>decode</span><span style=color:#f92672>(</span>encode<span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;utf-8&#34;</span><span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>        String s <span style=color:#f92672>=</span> String<span style=color:#f92672>.</span><span style=color:#a6e22e>format</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;%-15s&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;A&#34;</span><span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>format<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>encode<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>decode<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>s <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;B&#34;</span><span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>输出<span style=color:#960050;background-color:#1e0010>：</span>
+</span></span><span style=display:flex><span>A<span style=color:#f92672>=</span>字<span style=color:#f92672>&amp;</span>B<span style=color:#f92672>=</span>0123<span style=color:#f92672>&amp;</span>C<span style=color:#f92672>=</span>123<span style=color:#f92672>.</span><span style=color:#a6e22e>12</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>%</span>E4<span style=color:#f92672>%</span>B8<span style=color:#f92672>%</span>AD<span style=color:#f92672>%</span>E5<span style=color:#f92672>%</span>9B<span style=color:#f92672>%</span>BDABC
+</span></span><span style=display:flex><span>中国ABC
+</span></span><span style=display:flex><span>A              B
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Note<span style=color:#960050;background-color:#1e0010>：</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>%</span>d     Digital     123
+</span></span><span style=display:flex><span><span style=color:#f92672>%</span>f     Float     1<span style=color:#f92672>.</span><span style=color:#a6e22e>23</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>%</span>s     String     <span style=color:#e6db74>&#34;ABC&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>%</span>c     Char     <span style=color:#e6db74>&#39;A&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>%</span>b     Boolean     <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> <span style=color:#f92672>{</span>     Base64 编码
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span><span style=color:#f92672>(</span>String<span style=color:#f92672>[]</span> args<span style=color:#f92672>)</span> <span style=color:#66d9ef>throws</span> IOException <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        String str <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;123ABC中国&#34;</span><span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        BASE64Encoder base64Encoder <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> BASE64Encoder<span style=color:#f92672>();</span>
+</span></span><span style=display:flex><span>        BASE64Decoder base64Decoder <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> BASE64Decoder<span style=color:#f92672>();</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        String encode <span style=color:#f92672>=</span> base64Encoder<span style=color:#f92672>.</span><span style=color:#a6e22e>encode</span><span style=color:#f92672>(</span>str<span style=color:#f92672>.</span><span style=color:#a6e22e>getBytes</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;utf-8&#34;</span><span style=color:#f92672>));</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>byte</span><span style=color:#f92672>[]</span> decode <span style=color:#f92672>=</span> base64Decoder<span style=color:#f92672>.</span><span style=color:#a6e22e>decodeBuffer</span><span style=color:#f92672>(</span>encode<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>encode<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#66d9ef>new</span> String<span style=color:#f92672>(</span>decode<span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;utf-8&#34;</span><span style=color:#f92672>));</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>输出<span style=color:#960050;background-color:#1e0010>：</span>
+</span></span><span style=display:flex><span>MTIzQUJD5Lit5Zu9
+</span></span><span style=display:flex><span>123ABC中国
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> <span style=color:#f92672>{</span>     判断是否为回文
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span><span style=color:#f92672>(</span>String<span style=color:#f92672>[]</span> args<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        a<span style=color:#f92672>();</span>     第一种方式
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>b</span><span style=color:#f92672>();</span>     第二种方式
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>a</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        String str <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;12321&#34;</span><span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>        String s <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> StringBuilder<span style=color:#f92672>(</span>str<span style=color:#f92672>).</span><span style=color:#a6e22e>reverse</span><span style=color:#f92672>().</span><span style=color:#a6e22e>toString</span><span style=color:#f92672>();</span>
+</span></span><span style=display:flex><span>        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>str<span style=color:#f92672>.</span><span style=color:#a6e22e>equals</span><span style=color:#f92672>(</span>s<span style=color:#f92672>));</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>b</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        String str <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;12321&#34;</span><span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> length <span style=color:#f92672>=</span> str<span style=color:#f92672>.</span><span style=color:#a6e22e>length</span><span style=color:#f92672>();</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> count <span style=color:#f92672>=</span> length <span style=color:#f92672>%</span> 2 <span style=color:#f92672>==</span> 0 <span style=color:#f92672>?</span> length <span style=color:#f92672>/</span> 2 <span style=color:#f92672>:</span> <span style=color:#f92672>(</span>length <span style=color:#f92672>-</span> 1<span style=color:#f92672>)</span> <span style=color:#f92672>/</span> 2<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> <span style=color:#f92672>(</span><span style=color:#66d9ef>int</span> x <span style=color:#f92672>=</span> 0<span style=color:#f92672>,</span> y <span style=color:#f92672>=</span> 1<span style=color:#f92672>;</span> count <span style=color:#f92672>!=</span> 0<span style=color:#f92672>;</span> count<span style=color:#f92672>--,</span> x<span style=color:#f92672>++,</span> y<span style=color:#f92672>++)</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span>str<span style=color:#f92672>.</span><span style=color:#a6e22e>charAt</span><span style=color:#f92672>(</span>x<span style=color:#f92672>)</span> <span style=color:#f92672>!=</span> str<span style=color:#f92672>.</span><span style=color:#a6e22e>charAt</span><span style=color:#f92672>(</span>length <span style=color:#f92672>-</span> y<span style=color:#f92672>))</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>                System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;false&#34;</span><span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>return</span><span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>            <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;true&#34;</span><span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>输出<span style=color:#960050;background-color:#1e0010>：</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>true</span>
+</span></span></code></pre></div></div><div class=sharing style=text-align:center><br><p>捐赠支持</p><p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p><p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p><img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%><p></p><br>&copy; 2015-2020 XhstormR</div></div></div></div><div id=backtop><a href=# title>TOP</a></div><nav id=TableOfContents><ul><li><a href=#string>String</a></li><li><a href=#stringbuilder-and-stringbuffer>StringBuilder and StringBuffer</a></li></ul></nav><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script>
-<script>hljs.initHighlightingOnLoad()</script>
-<script src=https://blog.xhstormr.tk/js/zoom.min.js></script>
-<script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script>
-<script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script>
-</body>
-</html>
+<script>hljs.initHighlightingOnLoad()</script><script src=https://blog.xhstormr.tk/js/zoom.min.js></script>
+<script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script><script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script></body></html>

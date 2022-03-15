@@ -1,271 +1,215 @@
-<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache>
-<head>
-<meta charset=utf-8>
-<meta name=renderer content="webkit">
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title> Vim 命令不完全手册 &#183; XhstormR </title>
-<link rel=alternate type=application/rss+xml title=XhstormR href>
-<link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico>
-<link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css>
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css>
-<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
-<script src=https://blog.xhstormr.tk/js/main.min.js async defer></script>
-</head>
-<body>
-<div id=scriptHeader>
-<span class="mobile btn-mobile-menu">
-<i class="fa fa-bars btn-mobile-menu__icon"></i>
-<i class="fa fa-times btn-mobile-close__icon hidden"></i>
-</span>
-<header class="panel-cover panel-cover--collapsed">
-<div class=panel-main>
-<div class="panel-main__inner panel-inverted">
-<div class=panel-main__content>
-<h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1>
-<hr class=panel-cover__divider>
-<p class=panel-cover__description> On a dark desert highway, cool wind in my hair. </p>
-<hr class="panel-cover__divider panel-cover__divider--secondary">
-<div class=navigation-wrapper>
-<nav class="cover-navigation cover-navigation--primary">
-<ul class=navigation>
-<li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li>
-</ul>
-</nav>
-</div>
-</div>
-</div>
-<div class=panel-cover--overlay></div>
-</div>
-</header>
-</div>
-<div class=bodytop>
-<div class=content-wrapper>
-<div class=content-wrapper__inner>
-<div class=post>
-<h1>Vim 命令不完全手册</h1>
-<span class=post-date>2016-03-31</span>
-<p>Updated on 2018-01-02</p>
-<blockquote>
-<p><a href=https://github.com/vim/vim>https://github.com/vim/vim</a></p>
-<p><a href=https://vimhelp.org/options.txt.html>https://vimhelp.org/options.txt.html</a></p>
-<p><a href=http://www.lagmonster.org/docs/vi.html>http://www.lagmonster.org/docs/vi.html</a></p>
-<p style=text-align:center><img data-src=/uploads/vim.png alt title=Vim data-action=zoom width></p>
-<script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(a){a.setAttribute("src",a.getAttribute("data-src")),a.onload=function(){a.removeAttribute("data-src")}})</script>
-<p>Vim is often called a &ldquo;programmer&rsquo;s editor,&rdquo; and so useful for programming that many consider it an entire IDE. It&rsquo;s not just for programmers, though. Vim is perfect for all kinds of text editing, from composing email to editing configuration files.</p>
-<p>只要接触 Linux ，不可避免的会用到 Vim 编辑器。一方面它基本上是所有 Linux 发行版的默认编辑器；另一方面它是也一个拥有20年历史的超级强大的文本编辑器。</p>
-</blockquote>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>vim +5 file <span style=color:#75715e>#打开文件并跳到第5行，无数字跳到最后一行</span>
-vim +/abc file <span style=color:#75715e>#打开文件并搜索 `abc`，按 n 切换至下一个 `abc`</span>
-vim file1 file2 file3 <span style=color:#75715e>#打开3个文件，按 `:n` 切换至下一个文件，`:N` or `:prev` 切换至上一个文件</span>
+<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache><head><meta charset=utf-8><meta name=renderer content="webkit"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>Vim 命令不完全手册 &#183; XhstormR</title><link rel=alternate type=application/rss+xml title=XhstormR href><link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico><link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
+<script src=https://blog.xhstormr.tk/js/main.min.js async defer></script></head><body><div id=scriptHeader><span class="mobile btn-mobile-menu"><i class="fa fa-bars btn-mobile-menu__icon"></i>
+<i class="fa fa-times btn-mobile-close__icon hidden"></i></span><header class="panel-cover panel-cover--collapsed"><div class=panel-main><div class="panel-main__inner panel-inverted"><div class=panel-main__content><h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1><hr class=panel-cover__divider><p class=panel-cover__description>On a dark desert highway, cool wind in my hair.</p><hr class="panel-cover__divider panel-cover__divider--secondary"><div class=navigation-wrapper><nav class="cover-navigation cover-navigation--primary"><ul class=navigation><li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li></ul></nav></div></div></div><div class=panel-cover--overlay></div></div></header></div><div class=bodytop><div class=content-wrapper><div class=content-wrapper__inner><div class=post><h1>Vim 命令不完全手册</h1><span class=post-date>2016-03-31</span><p>Updated on 2018-01-02</p><blockquote><p><a href=https://github.com/vim/vim>https://github.com/vim/vim</a></p><p><a href=https://vimhelp.org/options.txt.html>https://vimhelp.org/options.txt.html</a></p><p><a href=http://www.lagmonster.org/docs/vi.html>http://www.lagmonster.org/docs/vi.html</a></p><p style=text-align:center><img data-src=/uploads/vim.png alt title=Vim data-action=zoom width></p><script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(e){e.setAttribute("src",e.getAttribute("data-src")),e.onload=function(){e.removeAttribute("data-src")}})</script><p>Vim is often called a &ldquo;programmer&rsquo;s editor,&rdquo; and so useful for programming that many consider it an entire IDE. It&rsquo;s not just for programmers, though. Vim is perfect for all kinds of text editing, from composing email to editing configuration files.</p><p>只要接触 Linux ，不可避免的会用到 Vim 编辑器。一方面它基本上是所有 Linux 发行版的默认编辑器；另一方面它是也一个拥有20年历史的超级强大的文本编辑器。</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>vim +5 file <span style=color:#75715e>#打开文件并跳到第5行，无数字跳到最后一行</span>
+</span></span><span style=display:flex><span>vim +/abc file <span style=color:#75715e>#打开文件并搜索 `abc`，按 n 切换至下一个 `abc`</span>
+</span></span><span style=display:flex><span>vim file1 file2 file3 <span style=color:#75715e>#打开3个文件，按 `:n` 切换至下一个文件，`:N` or `:prev` 切换至上一个文件</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  &lt;----- a、i、o   ↓↓   : -----&gt;
+</span></span><span style=display:flex><span>输入模式         命令模式        底行模式
+</span></span><span style=display:flex><span>       ESC -----&gt;      &lt;----- ESC
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>输入模式常用指令
+</span></span><span style=display:flex><span>Ctrl+C     ESC
+</span></span><span style=display:flex><span>Ctrl+N     自动补全     next
+</span></span><span style=display:flex><span>Ctrl+P     自动补全     previous
+</span></span><span style=display:flex><span>Ctrl+Y     自动输入与上一行相对应的字符
+</span></span><span style=display:flex><span>Ctrl+W     删除光标前的一个单词
+</span></span><span style=display:flex><span>Ctrl+U     删除光标前的所有字符
+</span></span><span style=display:flex><span>Ctrl+R     插入寄存器内容
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>底行模式常用指令
+</span></span><span style=display:flex><span>:w     保存
+</span></span><span style=display:flex><span>:w <span style=color:#ae81ff>123</span>     将当前编辑的文件保存到 <span style=color:#ae81ff>123</span> 文件中
+</span></span><span style=display:flex><span>:q     退出
+</span></span><span style=display:flex><span>:q!    不保存退出
+</span></span><span style=display:flex><span>:x     保存并退出
+</span></span><span style=display:flex><span>:wq    保存并退出
+</span></span><span style=display:flex><span>:wqa   全部保存并退出
+</span></span><span style=display:flex><span>:15    跳到第15行
+</span></span><span style=display:flex><span>:e <span style=color:#ae81ff>123</span>     打开 <span style=color:#ae81ff>123</span> 文件
+</span></span><span style=display:flex><span>:e!     放弃修改重新编辑
+</span></span><span style=display:flex><span>:b1     选择缓冲区<span style=color:#f92672>(</span>文件<span style=color:#f92672>)</span>     <span style=color:#f92672>(</span>推荐<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>:bn     切换至下一缓冲区
+</span></span><span style=display:flex><span>:bN     切换至上一缓冲区
+</span></span><span style=display:flex><span>:bd     关闭当前缓冲区
+</span></span><span style=display:flex><span>:n     切换至下一个文件
+</span></span><span style=display:flex><span>:N     切换至上一个文件
+</span></span><span style=display:flex><span>:ls    列出打开的所有文件
+</span></span><span style=display:flex><span>:history    查看历史命令
+</span></span><span style=display:flex><span>:!ls -l     执行外部命令
+</span></span><span style=display:flex><span>:s/old/new/     替换光标所在行第一次出现的 old 为 new
+</span></span><span style=display:flex><span>:s/old/new/g     替换光标所在行全部的 old 为 new
+</span></span><span style=display:flex><span>:1,10s/old/new/g     替换1到10行之间出现的 old 为 new
+</span></span><span style=display:flex><span>:%s/old/new/g     替换全文的 old 为 new
+</span></span><span style=display:flex><span>:%s/old/new/gc     替换全文的 old 为 new 并询问用户确认每个替换
+</span></span><span style=display:flex><span>:%TOhtml     把全文转化为 HTML 网页
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>命令模式常用指令
+</span></span><span style=display:flex><span>h    j    k    l
+</span></span><span style=display:flex><span>左   下   上   右
+</span></span><span style=display:flex><span>a     在光标后进入输入模式     Append<span style=color:#f92672>(</span>追加<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>A     在行尾进入输入模式
+</span></span><span style=display:flex><span>i     在光标前进入输入模式     Insert<span style=color:#f92672>(</span>插入<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>I     在行首进入输入模式
+</span></span><span style=display:flex><span>o     在下方插入一行并进入输入模式     Open<span style=color:#f92672>(</span>打开<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>O     在上方插入一行并进入输入模式
+</span></span><span style=display:flex><span>b     光标移动到上一个单词
+</span></span><span style=display:flex><span>w     光标移动到下一个单词
+</span></span><span style=display:flex><span>e     光标移动到单词的结尾
+</span></span><span style=display:flex><span>B     光标移动到上一个单词，以空格为分隔符
+</span></span><span style=display:flex><span>W     光标移动到下一个单词，以空格为分隔符
+</span></span><span style=display:flex><span>E     光标移动到单词的结尾，以空格为分隔符
+</span></span><span style=display:flex><span>HOME     移动到行首
+</span></span><span style=display:flex><span>END     移动到行尾
+</span></span><span style=display:flex><span>PgUp     向上翻页
+</span></span><span style=display:flex><span>PgDn     向下翻页
+</span></span><span style=display:flex><span>Ctrl+B     向上翻页 Back
+</span></span><span style=display:flex><span>Ctrl+F     向下翻页 Front
+</span></span><span style=display:flex><span>D      删除所在行光标之后的内容     Delete<span style=color:#f92672>(</span>删除<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>C      删除所在行光标之后的内容并进入输入模式     Change<span style=color:#f92672>(</span>修改<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>dd     删除整行
+</span></span><span style=display:flex><span>cc     删除整行并进入输入模式
+</span></span><span style=display:flex><span>2de    删除光标处开始的 <span style=color:#ae81ff>2</span> 个单词     <span style=color:#f92672>[</span>执行次数，缺省1<span style=color:#f92672>][</span>操作符<span style=color:#f92672>][</span>操作对象<span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span>2ce    删除光标处开始的 <span style=color:#ae81ff>2</span> 个单词并进入输入模式
+</span></span><span style=display:flex><span>yy     复制整行     Yank<span style=color:#f92672>(</span>复制<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>5yy    复制光标处开始的 <span style=color:#ae81ff>5</span> 行
+</span></span><span style=display:flex><span>p      在光标后粘贴     Put<span style=color:#f92672>(</span>粘贴<span style=color:#f92672>)</span>     可粘贴最近一次删除的内容
+</span></span><span style=display:flex><span>P      在光标前粘贴
+</span></span><span style=display:flex><span>/abc     从光标位置向下搜索 <span style=color:#e6db74>`</span>abc<span style=color:#e6db74>`</span>
+</span></span><span style=display:flex><span>?abc     从光标位置向上搜索 <span style=color:#e6db74>`</span>abc<span style=color:#e6db74>`</span>
+</span></span><span style=display:flex><span>n     显示搜索命令定位到的下一个字符串
+</span></span><span style=display:flex><span>N     显示搜索命令定位到的上一个字符串
+</span></span><span style=display:flex><span>r     替换当前字符
+</span></span><span style=display:flex><span>R     替换当前字符及其后的字符，直至按ESC键
+</span></span><span style=display:flex><span>x     删除当前字符
+</span></span><span style=display:flex><span>X     删除之前的字符
+</span></span><span style=display:flex><span>s     删除当前字符并进入输入模式
+</span></span><span style=display:flex><span>S     删除当前行并进入输入模式
+</span></span><span style=display:flex><span>u     撤销上一步的操作
+</span></span><span style=display:flex><span>U     撤销这一行的操作
+</span></span><span style=display:flex><span>Ctrl+R     恢复上一步的操作
+</span></span><span style=display:flex><span>ZZ     保存并退出
+</span></span><span style=display:flex><span>ZQ     不保存退出
+</span></span><span style=display:flex><span>zz     把光标所在的行置于屏幕中央
+</span></span><span style=display:flex><span>gg     跳到第一行
+</span></span><span style=display:flex><span>G     跳到最后一行
+</span></span><span style=display:flex><span>H     跳到屏幕第一行
+</span></span><span style=display:flex><span>M     跳到屏幕中间一行
+</span></span><span style=display:flex><span>L     跳到屏幕最后一行
+</span></span><span style=display:flex><span>%     跳到匹配括号的另一端
+</span></span><span style=display:flex><span>*     向下搜索光标下的单词
+</span></span><span style=display:flex><span>^     行首
+</span></span><span style=display:flex><span>$     行尾
+</span></span><span style=display:flex><span>5j     向下移动 <span style=color:#ae81ff>5</span> 行     <span style=color:#f92672>(</span>Jump<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>5J     向下合并 <span style=color:#ae81ff>5</span> 行     <span style=color:#f92672>(</span>Join<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>15G     跳到第 <span style=color:#ae81ff>15</span> 行
+</span></span><span style=display:flex><span>Ctrl+D     移动半屏
+</span></span><span style=display:flex><span>Ctrl+^     在打开的文件中切换
+</span></span><span style=display:flex><span>Ctrl+G     显示文本信息
+</span></span><span style=display:flex><span>g+Ctrl+G     显示全局文本信息
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>v     可视
+</span></span><span style=display:flex><span>V     可视行
+</span></span><span style=display:flex><span>Ctrl+Q     可视块 -&gt; Shift+I     批量插入
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>za     折叠 &lt;-&gt; 展开
+</span></span><span style=display:flex><span>zM     折叠所有代码
+</span></span><span style=display:flex><span>zR     展开所有代码
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>di<span style=color:#f92672>(</span>     删除 <span style=color:#f92672>()</span> 中的内容     inner
+</span></span><span style=display:flex><span>da<span style=color:#f92672>[</span>     删除 <span style=color:#f92672>[]</span> 中的内容，包括 <span style=color:#f92672>[]</span>     all
+</span></span><span style=display:flex><span>dtA     删除从光标处至 A 之间的内容     to
+</span></span><span style=display:flex><span>dfA     删除从光标处至 A 之间的内容，包括 A     found
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>分割窗口
+</span></span><span style=display:flex><span>:sp  <span style=color:#ae81ff>123</span>       水平分割窗口并打开文件123
+</span></span><span style=display:flex><span>:vsp <span style=color:#ae81ff>123</span>       垂直分割窗口并打开文件123
+</span></span><span style=display:flex><span>Ctrl+W - S     水平分割窗口
+</span></span><span style=display:flex><span>Ctrl+W - V     垂直分割窗口
+</span></span><span style=display:flex><span>Ctrl+W - Q     退出当前窗口
+</span></span><span style=display:flex><span>Ctrl+W - W     切换窗口
+</span></span><span style=display:flex><span>Ctrl+W - 方向键     选择窗口
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Tips：
+</span></span><span style=display:flex><span>大部分 Linux 发行版默认编辑器是 Vi，Vim 是它的升级版。
+</span></span><span style=display:flex><span>二者的区别：
+</span></span><span style=display:flex><span>https://zh.m.wikipedia.org/zh-cn/Vi
+</span></span><span style=display:flex><span>https://zh.m.wikipedia.org/zh-cn/Vim
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>配置文件：
+</span></span><span style=display:flex><span>/etc/vimrc
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>yum -y install vim <span style=color:#75715e>#安装 Vim</span>
+</span></span><span style=display:flex><span>vim /root/.bashrc <span style=color:#75715e>#设置别名，替换系统默认编辑器</span>
+</span></span><span style=display:flex><span>    alias vi<span style=color:#f92672>=</span>vim
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>https://raw.githubusercontent.com/amix/vimrc/master/vimrcs/basic.vim
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>https://raw.githubusercontent.com/vim/vim/master/runtime/rgb.txt
+</span></span><span style=display:flex><span>https://raw.githubusercontent.com/vim/vim/master/runtime/doc/motion.txt
+</span></span><span style=display:flex><span>https://raw.githubusercontent.com/vim/vim/master/runtime/doc/options.txt
+</span></span></code></pre></div><h2 id=vimrc>vimrc</h2><pre tabindex=0><code>set nocp     &#34;取消兼容 Vi
+set hlsearch     &#34;高亮搜索
+set incsearch     &#34;实时搜索
+set smartcase     &#34;智能区分大小写
+set ignorecase     &#34;不区分大小写
+set ruler      &#34;显示行列信息
+set number     &#34;显示行号信息
+set showcmd     &#34;显示命令
+set showmode     &#34;显示模式
+set showmatch     &#34;显示配对括号
+set matchtime=10     &#34;显示 1s
+set linebreak     &#34;整词换行
+set wildmenu     &#34;显示补全行
+set cursorline     &#34;高亮当前行
+set encoding=utf-8     &#34;设置文件编码
+set fileencoding=utf-8     &#34;设置文件编码
+set scrolloff=5     &#34;滚动缓冲区
+set laststatus=2     &#34;总是显示状态栏
+&#34;set statusline=%F%m     &#34;设置状态栏
+set colorcolumn=78     &#34;对齐线
+set backspace=indent,eol,start     &#34;使退格键工作
+set tabstop=4     &#34;4 空格
+set shiftwidth=4     &#34;4 空格
+set softtabstop=4     &#34;4 空格
+set smarttab     &#34;智能 TAB
+set expandtab     &#34;使用空格而不是 TAB
+set cindent     &#34;使用 C 系缩进
+set autoindent     &#34;自动缩进
+set smartindent     &#34;智能缩进
+set foldmethod=syntax     &#34;开启代码折叠
+set nofoldenable     &#34;不自动进行代码折叠
+set virtualedit=block     &#34;启用虚拟编辑
 
-  &lt;----- a、i、o   ↓↓   : -----&gt;
-输入模式         命令模式        底行模式
-       ESC -----&gt;      &lt;----- ESC
+setf c     &#34;设置文件类型
+syntax on     &#34;开启语法高亮
+syntax enable     &#34;开启语法高亮
+filetype on     &#34;开启文件类型检测
+filetype indent on     &#34;开启缩进规则
 
-输入模式常用指令
-Ctrl+C     ESC
-Ctrl+N     自动补全     next
-Ctrl+P     自动补全     previous
-Ctrl+Y     自动输入与上一行相对应的字符
-Ctrl+W     删除光标前的一个单词
-Ctrl+U     删除光标前的所有字符
-Ctrl+R     插入寄存器内容
+autocmd InsertEnter,InsertLeave * set cursorline!     &#34;高亮当前行切换显示
 
-底行模式常用指令
-:w     保存
-:w <span style=color:#ae81ff>123</span>     将当前编辑的文件保存到 <span style=color:#ae81ff>123</span> 文件中
-:q     退出
-:q!    不保存退出
-:x     保存并退出
-:wq    保存并退出
-:wqa   全部保存并退出
-:15    跳到第15行
-:e <span style=color:#ae81ff>123</span>     打开 <span style=color:#ae81ff>123</span> 文件
-:e!     放弃修改重新编辑
-:b1     选择缓冲区<span style=color:#f92672>(</span>文件<span style=color:#f92672>)</span>     <span style=color:#f92672>(</span>推荐<span style=color:#f92672>)</span>
-:bn     切换至下一缓冲区
-:bN     切换至上一缓冲区
-:bd     关闭当前缓冲区
-:n     切换至下一个文件
-:N     切换至上一个文件
-:ls    列出打开的所有文件
-:history    查看历史命令
-:!ls -l     执行外部命令
-:s/old/new/     替换光标所在行第一次出现的 old 为 new
-:s/old/new/g     替换光标所在行全部的 old 为 new
-:1,10s/old/new/g     替换1到10行之间出现的 old 为 new
-:%s/old/new/g     替换全文的 old 为 new
-:%s/old/new/gc     替换全文的 old 为 new 并询问用户确认每个替换
-:%TOhtml     把全文转化为 HTML 网页
+nmap &lt;silent&gt; &lt;F2&gt; :nohlsearch &lt;CR&gt;     &#34;在命令模式下按 F2 相当于输入 `:nohlsearch` 跟一个回车，取消搜索高亮
+nmap &lt;silent&gt; &lt;F8&gt; :w &lt;CR&gt; :!gcc % -o %&lt; &amp;&amp; %&lt; &lt;CR&gt;     &#34;保存 -&gt; 编译 -&gt; 运行
 
-命令模式常用指令
-h    j    k    l
-左   下   上   右
-a     在光标后进入输入模式     Append<span style=color:#f92672>(</span>追加<span style=color:#f92672>)</span>
-A     在行尾进入输入模式
-i     在光标前进入输入模式     Insert<span style=color:#f92672>(</span>插入<span style=color:#f92672>)</span>
-I     在行首进入输入模式
-o     在下方插入一行并进入输入模式     Open<span style=color:#f92672>(</span>打开<span style=color:#f92672>)</span>
-O     在上方插入一行并进入输入模式
-b     光标移动到上一个单词
-w     光标移动到下一个单词
-e     光标移动到单词的结尾
-B     光标移动到上一个单词，以空格为分隔符
-W     光标移动到下一个单词，以空格为分隔符
-E     光标移动到单词的结尾，以空格为分隔符
-HOME     移动到行首
-END     移动到行尾
-PgUp     向上翻页
-PgDn     向下翻页
-Ctrl+B     向上翻页 Back
-Ctrl+F     向下翻页 Front
-D      删除所在行光标之后的内容     Delete<span style=color:#f92672>(</span>删除<span style=color:#f92672>)</span>
-C      删除所在行光标之后的内容并进入输入模式     Change<span style=color:#f92672>(</span>修改<span style=color:#f92672>)</span>
-dd     删除整行
-cc     删除整行并进入输入模式
-2de    删除光标处开始的 <span style=color:#ae81ff>2</span> 个单词     <span style=color:#f92672>[</span>执行次数，缺省1<span style=color:#f92672>][</span>操作符<span style=color:#f92672>][</span>操作对象<span style=color:#f92672>]</span>
-2ce    删除光标处开始的 <span style=color:#ae81ff>2</span> 个单词并进入输入模式
-yy     复制整行     Yank<span style=color:#f92672>(</span>复制<span style=color:#f92672>)</span>
-5yy    复制光标处开始的 <span style=color:#ae81ff>5</span> 行
-p      在光标后粘贴     Put<span style=color:#f92672>(</span>粘贴<span style=color:#f92672>)</span>     可粘贴最近一次删除的内容
-P      在光标前粘贴
-/abc     从光标位置向下搜索 <span style=color:#e6db74>`</span>abc<span style=color:#e6db74>`</span>
-?abc     从光标位置向上搜索 <span style=color:#e6db74>`</span>abc<span style=color:#e6db74>`</span>
-n     显示搜索命令定位到的下一个字符串
-N     显示搜索命令定位到的上一个字符串
-r     替换当前字符
-R     替换当前字符及其后的字符，直至按ESC键
-x     删除当前字符
-X     删除之前的字符
-s     删除当前字符并进入输入模式
-S     删除当前行并进入输入模式
-u     撤销上一步的操作
-U     撤销这一行的操作
-Ctrl+R     恢复上一步的操作
-ZZ     保存并退出
-ZQ     不保存退出
-zz     把光标所在的行置于屏幕中央
-gg     跳到第一行
-G     跳到最后一行
-H     跳到屏幕第一行
-M     跳到屏幕中间一行
-L     跳到屏幕最后一行
-%     跳到匹配括号的另一端
-*     向下搜索光标下的单词
-^     行首
-$     行尾
-5j     向下移动 <span style=color:#ae81ff>5</span> 行     <span style=color:#f92672>(</span>Jump<span style=color:#f92672>)</span>
-5J     向下合并 <span style=color:#ae81ff>5</span> 行     <span style=color:#f92672>(</span>Join<span style=color:#f92672>)</span>
-15G     跳到第 <span style=color:#ae81ff>15</span> 行
-Ctrl+D     移动半屏
-Ctrl+^     在打开的文件中切换
-Ctrl+G     显示文本信息
-g+Ctrl+G     显示全局文本信息
-
-v     可视
-V     可视行
-Ctrl+Q     可视块 -&gt; Shift+I     批量插入
-
-za     折叠 &lt;-&gt; 展开
-zM     折叠所有代码
-zR     展开所有代码
-
-di<span style=color:#f92672>(</span>     删除 <span style=color:#f92672>()</span> 中的内容     inner
-da<span style=color:#f92672>[</span>     删除 <span style=color:#f92672>[]</span> 中的内容，包括 <span style=color:#f92672>[]</span>     all
-dtA     删除从光标处至 A 之间的内容     to
-dfA     删除从光标处至 A 之间的内容，包括 A     found
-
-分割窗口
-:sp  <span style=color:#ae81ff>123</span>       水平分割窗口并打开文件123
-:vsp <span style=color:#ae81ff>123</span>       垂直分割窗口并打开文件123
-Ctrl+W - S     水平分割窗口
-Ctrl+W - V     垂直分割窗口
-Ctrl+W - Q     退出当前窗口
-Ctrl+W - W     切换窗口
-Ctrl+W - 方向键     选择窗口
-
-Tips：
-大部分 Linux 发行版默认编辑器是 Vi，Vim 是它的升级版。
-二者的区别：
-https://zh.m.wikipedia.org/zh-cn/Vi
-https://zh.m.wikipedia.org/zh-cn/Vim
-
-配置文件：
-/etc/vimrc
-
-yum -y install vim <span style=color:#75715e>#安装 Vim</span>
-vim /root/.bashrc <span style=color:#75715e>#设置别名，替换系统默认编辑器</span>
-    alias vi<span style=color:#f92672>=</span>vim
-
-https://raw.githubusercontent.com/amix/vimrc/master/vimrcs/basic.vim
-
-https://raw.githubusercontent.com/vim/vim/master/runtime/rgb.txt
-https://raw.githubusercontent.com/vim/vim/master/runtime/doc/motion.txt
-https://raw.githubusercontent.com/vim/vim/master/runtime/doc/options.txt
-</code></pre></div><h2 id=vimrc>vimrc</h2>
-<pre tabindex=0><code>set nocp     &quot;取消兼容 Vi
-set hlsearch     &quot;高亮搜索
-set incsearch     &quot;实时搜索
-set smartcase     &quot;智能区分大小写
-set ignorecase     &quot;不区分大小写
-set ruler      &quot;显示行列信息
-set number     &quot;显示行号信息
-set showcmd     &quot;显示命令
-set showmode     &quot;显示模式
-set showmatch     &quot;显示配对括号
-set matchtime=10     &quot;显示 1s
-set linebreak     &quot;整词换行
-set wildmenu     &quot;显示补全行
-set cursorline     &quot;高亮当前行
-set encoding=utf-8     &quot;设置文件编码
-set fileencoding=utf-8     &quot;设置文件编码
-set scrolloff=5     &quot;滚动缓冲区
-set laststatus=2     &quot;总是显示状态栏
-&quot;set statusline=%F%m     &quot;设置状态栏
-set colorcolumn=78     &quot;对齐线
-set backspace=indent,eol,start     &quot;使退格键工作
-set tabstop=4     &quot;4 空格
-set shiftwidth=4     &quot;4 空格
-set softtabstop=4     &quot;4 空格
-set smarttab     &quot;智能 TAB
-set expandtab     &quot;使用空格而不是 TAB
-set cindent     &quot;使用 C 系缩进
-set autoindent     &quot;自动缩进
-set smartindent     &quot;智能缩进
-set foldmethod=syntax     &quot;开启代码折叠
-set nofoldenable     &quot;不自动进行代码折叠
-set virtualedit=block     &quot;启用虚拟编辑
-
-setf c     &quot;设置文件类型
-syntax on     &quot;开启语法高亮
-syntax enable     &quot;开启语法高亮
-filetype on     &quot;开启文件类型检测
-filetype indent on     &quot;开启缩进规则
-
-autocmd InsertEnter,InsertLeave * set cursorline!     &quot;高亮当前行切换显示
-
-nmap &lt;silent&gt; &lt;F2&gt; :nohlsearch &lt;CR&gt;     &quot;在命令模式下按 F2 相当于输入 `:nohlsearch` 跟一个回车，取消搜索高亮
-nmap &lt;silent&gt; &lt;F8&gt; :w &lt;CR&gt; :!gcc % -o %&lt; &amp;&amp; %&lt; &lt;CR&gt;     &quot;保存 -&gt; 编译 -&gt; 运行
-
-nmap &lt;silent&gt; &lt;C-H&gt; &lt;C-W&gt;h     &quot;快速选择窗口
+nmap &lt;silent&gt; &lt;C-H&gt; &lt;C-W&gt;h     &#34;快速选择窗口
 nmap &lt;silent&gt; &lt;C-J&gt; &lt;C-W&gt;j
 nmap &lt;silent&gt; &lt;C-K&gt; &lt;C-W&gt;k
 nmap &lt;silent&gt; &lt;C-L&gt; &lt;C-W&gt;l
 
-let mapleader=&quot;;&quot;     &quot;定义 &lt;Leader&gt;
-vmap &lt;Leader&gt;y &quot;+y     &quot;vim 复制至系统剪贴板
-nmap &lt;Leader&gt;p &quot;+p     &quot;系统剪贴板粘贴至 vim
+let mapleader=&#34;;&#34;     &#34;定义 &lt;Leader&gt;
+vmap &lt;Leader&gt;y &#34;+y     &#34;vim 复制至系统剪贴板
+nmap &lt;Leader&gt;p &#34;+p     &#34;系统剪贴板粘贴至 vim
 
-if has(&quot;gui_running&quot;)     &quot;GUI
-  colorscheme evening     &quot;配色方案
-  set lines=50 columns=120     &quot;窗口大小
-  set guifont=Consolas:h10:cANSI     &quot;字体大小
-  set guicursor+=a:blinkon0     &quot;取消光标闪烁
-  set guioptions-=m     &quot;取消菜单栏
-  set guioptions-=T     &quot;取消工具栏
-  set guioptions-=l     &quot;取消左滚动条
-  set guioptions-=L     &quot;取消左滚动条
+if has(&#34;gui_running&#34;)     &#34;GUI
+  colorscheme evening     &#34;配色方案
+  set lines=50 columns=120     &#34;窗口大小
+  set guifont=Consolas:h10:cANSI     &#34;字体大小
+  set guicursor+=a:blinkon0     &#34;取消光标闪烁
+  set guioptions-=m     &#34;取消菜单栏
+  set guioptions-=T     &#34;取消工具栏
+  set guioptions-=l     &#34;取消左滚动条
+  set guioptions-=L     &#34;取消左滚动条
 
   nmap &lt;silent&gt; &lt;F3&gt; :call ToggleScreen()&lt;CR&gt;
   nmap &lt;silent&gt; &lt;F4&gt; :call ToggleMenu()&lt;CR&gt;
@@ -275,11 +219,11 @@ if has(&quot;gui_running&quot;)     &quot;GUI
 
   function ToggleScreen()
     if s:flag_screen
-      simalt ~r~     &quot;窗口还原
+      simalt ~r~     &#34;窗口还原
     else
-      simalt ~x~     &quot;窗口最大化
+      simalt ~x~     &#34;窗口最大化
     endif
-    let s:flag_screen = !s:flag_screen     &quot;&quot;取反
+    let s:flag_screen = !s:flag_screen     &#34;&#34;取反
   endfunction
 
   function ToggleMenu()
@@ -294,31 +238,8 @@ if has(&quot;gui_running&quot;)     &quot;GUI
   endfunction
 
 endif
-</code></pre>
-</div>
-<div class=sharing style=text-align:center>
-<br>
-<p>捐赠支持</p>
-<p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p>
-<p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p>
-<img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%>
-<p></p><br>&copy; 2015-2020 XhstormR
-</div>
-</div>
-</div>
-</div>
-<div id=backtop><a href=# title>TOP</a></div>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#vimrc>vimrc</a></li>
-</ul>
-</nav>
-<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script>
+</code></pre></div><div class=sharing style=text-align:center><br><p>捐赠支持</p><p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p><p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p><img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%><p></p><br>&copy; 2015-2020 XhstormR</div></div></div></div><div id=backtop><a href=# title>TOP</a></div><nav id=TableOfContents><ul><li><a href=#vimrc>vimrc</a></li></ul></nav><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script>
-<script>hljs.initHighlightingOnLoad()</script>
-<script src=https://blog.xhstormr.tk/js/zoom.min.js></script>
-<script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script>
-<script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script>
-</body>
-</html>
+<script>hljs.initHighlightingOnLoad()</script><script src=https://blog.xhstormr.tk/js/zoom.min.js></script>
+<script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script><script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script></body></html>

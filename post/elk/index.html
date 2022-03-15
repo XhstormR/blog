@@ -1,338 +1,224 @@
-<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache>
-<head>
-<meta charset=utf-8>
-<meta name=renderer content="webkit">
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title> Elastic Stack &#183; XhstormR </title>
-<link rel=alternate type=application/rss+xml title=XhstormR href>
-<link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico>
-<link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css>
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css>
-<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
-<script src=https://blog.xhstormr.tk/js/main.min.js async defer></script>
-</head>
-<body>
-<div id=scriptHeader>
-<span class="mobile btn-mobile-menu">
-<i class="fa fa-bars btn-mobile-menu__icon"></i>
-<i class="fa fa-times btn-mobile-close__icon hidden"></i>
-</span>
-<header class="panel-cover panel-cover--collapsed">
-<div class=panel-main>
-<div class="panel-main__inner panel-inverted">
-<div class=panel-main__content>
-<h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1>
-<hr class=panel-cover__divider>
-<p class=panel-cover__description> On a dark desert highway, cool wind in my hair. </p>
-<hr class="panel-cover__divider panel-cover__divider--secondary">
-<div class=navigation-wrapper>
-<nav class="cover-navigation cover-navigation--primary">
-<ul class=navigation>
-<li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li>
-</ul>
-</nav>
-</div>
-</div>
-</div>
-<div class=panel-cover--overlay></div>
-</div>
-</header>
-</div>
-<div class=bodytop>
-<div class=content-wrapper>
-<div class=content-wrapper__inner>
-<div class=post>
-<h1>Elastic Stack</h1>
-<span class=post-date>2020-08-08</span>
-<p>Updated on 2020-08-08</p>
-<blockquote>
-<p style=text-align:center><img data-src=/uploads/elastic-stack.svg alt title="Elastic Stack" width=600></p>
-<script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(a){a.setAttribute("src",a.getAttribute("data-src")),a.onload=function(){a.removeAttribute("data-src")}})</script>
-<p><a href=https://github.com/elastic/>https://github.com/elastic/</a></p>
-<p><a href=https://www.docker.elastic.co/>https://www.docker.elastic.co/</a></p>
-</blockquote>
-<h2 id=docker-compose>Docker Compose</h2>
-<h3 id=docker-composeyml>docker-compose.yml</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f92672>version</span>: <span style=color:#e6db74>&#39;3&#39;</span>
-
-<span style=color:#f92672>services</span>:
-  <span style=color:#f92672>kibana</span>:
-    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>kibana:7.9.2</span>
-    <span style=color:#f92672>restart</span>: <span style=color:#ae81ff>always</span>
-    <span style=color:#f92672>environment</span>:
-      <span style=color:#f92672>I18N_LOCALE</span>: <span style=color:#ae81ff>zh-CN</span>
-      <span style=color:#f92672>SERVER_BASEPATH</span>: <span style=color:#ae81ff>/kibana</span>
-      <span style=color:#f92672>ELASTICSEARCH_USERNAME</span>: <span style=color:#ae81ff>elastic</span>
-      <span style=color:#f92672>ELASTICSEARCH_PASSWORD</span>: <span style=color:#ae81ff>elastic</span>
-    <span style=color:#f92672>healthcheck</span>:
-      <span style=color:#f92672>test</span>: <span style=color:#ae81ff>curl -f http://127.0.0.1:5601/ || exit 1</span>
-    <span style=color:#f92672>labels</span>:
-      - <span style=color:#ae81ff>traefik.http.services.kibana.loadbalancer.server.port=5601</span>
-      - <span style=color:#ae81ff>traefik.http.routers.kibana.rule=PathPrefix(`/kibana/`)</span>
-      - <span style=color:#ae81ff>traefik.http.routers.kibana.middlewares=kibana-stripprefix</span>
-      - <span style=color:#ae81ff>traefik.http.middlewares.kibana-stripprefix.stripprefix.prefixes=/kibana/</span>
-    <span style=color:#f92672>depends_on</span>:
-      - <span style=color:#ae81ff>elasticsearch</span>
-
-  <span style=color:#f92672>elasticsearch</span>:
-    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>elasticsearch:7.9.2</span>
-    <span style=color:#f92672>restart</span>: <span style=color:#ae81ff>always</span>
-    <span style=color:#f92672>environment</span>:
-      <span style=color:#f92672>ES_JAVA_OPTS</span>: -<span style=color:#ae81ff>Xms256m -Xmx256m</span>
-      <span style=color:#f92672>ELASTIC_PASSWORD</span>: <span style=color:#ae81ff>elastic</span>
-      <span style=color:#f92672>xpack.security.enabled</span>: <span style=color:#e6db74>&#39;true&#39;</span>
-      <span style=color:#f92672>discovery.type</span>: <span style=color:#ae81ff>single-node</span>
-    <span style=color:#f92672>volumes</span>:
-      - <span style=color:#ae81ff>elasticsearch_data:/usr/share/elasticsearch/data</span>
-    <span style=color:#f92672>labels</span>:
-      - <span style=color:#ae81ff>traefik.http.services.elasticsearch.loadbalancer.server.port=9200</span>
-      - <span style=color:#ae81ff>traefik.http.routers.elasticsearch.rule=PathPrefix(`/es/`)</span>
-      - <span style=color:#ae81ff>traefik.http.routers.elasticsearch.middlewares=elasticsearch-stripprefix</span>
-      - <span style=color:#ae81ff>traefik.http.middlewares.elasticsearch-stripprefix.stripprefix.prefixes=/es/</span>
-
-  <span style=color:#f92672>traefik</span>:
-    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>traefik:latest</span>
-    <span style=color:#f92672>restart</span>: <span style=color:#ae81ff>always</span>
-    <span style=color:#f92672>ports</span>:
-      - <span style=color:#e6db74>&#39;8080:80&#39;</span>
-    <span style=color:#f92672>command</span>: --<span style=color:#ae81ff>api --providers.docker</span>
-    <span style=color:#f92672>volumes</span>:
-      - <span style=color:#ae81ff>/var/run/docker.sock:/var/run/docker.sock</span>
-    <span style=color:#f92672>labels</span>:
-      - <span style=color:#ae81ff>traefik.http.routers.traefik.service=api@internal</span>
-      - <span style=color:#ae81ff>traefik.http.routers.traefik.rule=PathPrefix(`/traefik/`) || HeadersRegexp(`Referer`, `.*\/traefik\/.*`)</span>
-      - <span style=color:#ae81ff>traefik.http.routers.traefik.middlewares=traefik-stripprefix,traefik-basicauth</span>
-      - <span style=color:#ae81ff>traefik.http.middlewares.traefik-stripprefix.stripprefix.prefixes=/traefik/</span>
-      - <span style=color:#ae81ff>traefik.http.middlewares.traefik-basicauth.basicauth.removeheader=true</span>
-      - <span style=color:#ae81ff>traefik.http.middlewares.traefik-basicauth.basicauth.users=${TRAEFIK_BASIC_AUTH}</span>
-
-<span style=color:#f92672>volumes</span>:
-  <span style=color:#f92672>elasticsearch_data</span>:
-</code></pre></div><h3 id=env>.env</h3>
-<pre tabindex=0><code>TRAEFIK_BASIC_AUTH=123:$2y$05$80HqrqBOoNaabteix3gYJ.S0kT.HP6sw5GjOplRfGhGezth0yL78y
-</code></pre><h2 id=beats>Beats</h2>
-<ul>
-<li><a href=https://www.elastic.co/downloads/beats>https://www.elastic.co/downloads/beats</a></li>
-</ul>
-<pre tabindex=0><code>filebeat -e modules enable nginx
+<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache><head><meta charset=utf-8><meta name=renderer content="webkit"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>Elastic Stack &#183; XhstormR</title><link rel=alternate type=application/rss+xml title=XhstormR href><link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico><link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
+<script src=https://blog.xhstormr.tk/js/main.min.js async defer></script></head><body><div id=scriptHeader><span class="mobile btn-mobile-menu"><i class="fa fa-bars btn-mobile-menu__icon"></i>
+<i class="fa fa-times btn-mobile-close__icon hidden"></i></span><header class="panel-cover panel-cover--collapsed"><div class=panel-main><div class="panel-main__inner panel-inverted"><div class=panel-main__content><h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1><hr class=panel-cover__divider><p class=panel-cover__description>On a dark desert highway, cool wind in my hair.</p><hr class="panel-cover__divider panel-cover__divider--secondary"><div class=navigation-wrapper><nav class="cover-navigation cover-navigation--primary"><ul class=navigation><li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li></ul></nav></div></div></div><div class=panel-cover--overlay></div></div></header></div><div class=bodytop><div class=content-wrapper><div class=content-wrapper__inner><div class=post><h1>Elastic Stack</h1><span class=post-date>2020-08-08</span><p>Updated on 2020-08-08</p><blockquote><p style=text-align:center><img data-src=/uploads/elastic-stack.svg alt title="Elastic Stack" width=600></p><script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(e){e.setAttribute("src",e.getAttribute("data-src")),e.onload=function(){e.removeAttribute("data-src")}})</script><p><a href=https://github.com/elastic/>https://github.com/elastic/</a></p><p><a href=https://www.docker.elastic.co/>https://www.docker.elastic.co/</a></p></blockquote><h2 id=docker-compose>Docker Compose</h2><h3 id=docker-composeyml>docker-compose.yml</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>version</span>: <span style=color:#e6db74>&#39;3&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>services</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>kibana</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>kibana:7.9.2</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>restart</span>: <span style=color:#ae81ff>always</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>environment</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>I18N_LOCALE</span>: <span style=color:#ae81ff>zh-CN</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>SERVER_BASEPATH</span>: <span style=color:#ae81ff>/kibana</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>ELASTICSEARCH_USERNAME</span>: <span style=color:#ae81ff>elastic</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>ELASTICSEARCH_PASSWORD</span>: <span style=color:#ae81ff>elastic</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>healthcheck</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>test</span>: <span style=color:#ae81ff>curl -f http://127.0.0.1:5601/ || exit 1</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>labels</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>traefik.http.services.kibana.loadbalancer.server.port=5601</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>traefik.http.routers.kibana.rule=PathPrefix(`/kibana/`)</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>traefik.http.routers.kibana.middlewares=kibana-stripprefix</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>traefik.http.middlewares.kibana-stripprefix.stripprefix.prefixes=/kibana/</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>depends_on</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>elasticsearch</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>elasticsearch</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>elasticsearch:7.9.2</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>restart</span>: <span style=color:#ae81ff>always</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>environment</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>ES_JAVA_OPTS</span>: -<span style=color:#ae81ff>Xms256m -Xmx256m</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>ELASTIC_PASSWORD</span>: <span style=color:#ae81ff>elastic</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>xpack.security.enabled</span>: <span style=color:#e6db74>&#39;true&#39;</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>discovery.type</span>: <span style=color:#ae81ff>single-node</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>volumes</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>elasticsearch_data:/usr/share/elasticsearch/data</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>labels</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>traefik.http.services.elasticsearch.loadbalancer.server.port=9200</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>traefik.http.routers.elasticsearch.rule=PathPrefix(`/es/`)</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>traefik.http.routers.elasticsearch.middlewares=elasticsearch-stripprefix</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>traefik.http.middlewares.elasticsearch-stripprefix.stripprefix.prefixes=/es/</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>traefik</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>traefik:latest</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>restart</span>: <span style=color:#ae81ff>always</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>ports</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#e6db74>&#39;8080:80&#39;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>command</span>: --<span style=color:#ae81ff>api --providers.docker</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>volumes</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>/var/run/docker.sock:/var/run/docker.sock</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>labels</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>traefik.http.routers.traefik.service=api@internal</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>traefik.http.routers.traefik.rule=PathPrefix(`/traefik/`) || HeadersRegexp(`Referer`, `.*\/traefik\/.*`)</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>traefik.http.routers.traefik.middlewares=traefik-stripprefix,traefik-basicauth</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>traefik.http.middlewares.traefik-stripprefix.stripprefix.prefixes=/traefik/</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>traefik.http.middlewares.traefik-basicauth.basicauth.removeheader=true</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>traefik.http.middlewares.traefik-basicauth.basicauth.users=${TRAEFIK_BASIC_AUTH}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>volumes</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>elasticsearch_data</span>:
+</span></span></code></pre></div><h3 id=env>.env</h3><pre tabindex=0><code>TRAEFIK_BASIC_AUTH=123:$2y$05$80HqrqBOoNaabteix3gYJ.S0kT.HP6sw5GjOplRfGhGezth0yL78y
+</code></pre><h2 id=beats>Beats</h2><ul><li><a href=https://www.elastic.co/downloads/beats>https://www.elastic.co/downloads/beats</a></li></ul><pre tabindex=0><code>filebeat -e modules enable nginx
 filebeat -e setup
 filebeat -e
-</code></pre><h2 id=cluster>Cluster</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f92672>version</span>: <span style=color:#e6db74>&#39;3&#39;</span>
-
-<span style=color:#f92672>services</span>:
-  <span style=color:#f92672>es01</span>:
-    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>elasticsearch:7.9.2</span>
-    <span style=color:#f92672>restart</span>: <span style=color:#ae81ff>always</span>
-    <span style=color:#f92672>hostname</span>: <span style=color:#ae81ff>es01</span>
-    <span style=color:#f92672>environment</span>:
-      <span style=color:#f92672>cluster.name</span>: <span style=color:#ae81ff>es-docker-cluster</span>
-      <span style=color:#f92672>cluster.initial_master_nodes</span>: <span style=color:#ae81ff>es01,es02,es03,es04,es05,es06,es07,es08</span>
-      <span style=color:#f92672>discovery.seed_hosts</span>: <span style=color:#ae81ff>es02,es03,es04,es05,es06,es07,es08</span>
-      <span style=color:#f92672>bootstrap.memory_lock</span>: <span style=color:#e6db74>&#39;true&#39;</span>
-      <span style=color:#f92672>ES_JAVA_OPTS</span>: -<span style=color:#ae81ff>Xms32g -Xmx32g</span>
-    <span style=color:#f92672>volumes</span>:
-      - <span style=color:#ae81ff>es01_data:/usr/share/elasticsearch/data</span>
-    <span style=color:#f92672>ulimits</span>:
-      <span style=color:#f92672>memlock</span>:
-        <span style=color:#f92672>soft</span>: -<span style=color:#ae81ff>1</span>
-        <span style=color:#f92672>hard</span>: -<span style=color:#ae81ff>1</span>
-    <span style=color:#f92672>ports</span>:
-      - <span style=color:#ae81ff>9200</span>:<span style=color:#ae81ff>9200</span>
-
-  <span style=color:#f92672>es02</span>:
-    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>elasticsearch:7.9.2</span>
-    <span style=color:#f92672>restart</span>: <span style=color:#ae81ff>always</span>
-    <span style=color:#f92672>hostname</span>: <span style=color:#ae81ff>es02</span>
-    <span style=color:#f92672>environment</span>:
-      <span style=color:#f92672>cluster.name</span>: <span style=color:#ae81ff>es-docker-cluster</span>
-      <span style=color:#f92672>cluster.initial_master_nodes</span>: <span style=color:#ae81ff>es01,es02,es03,es04,es05,es06,es07,es08</span>
-      <span style=color:#f92672>discovery.seed_hosts</span>: <span style=color:#ae81ff>es01,es03,es04,es05,es06,es07,es08</span>
-      <span style=color:#f92672>bootstrap.memory_lock</span>: <span style=color:#e6db74>&#39;true&#39;</span>
-      <span style=color:#f92672>ES_JAVA_OPTS</span>: -<span style=color:#ae81ff>Xms32g -Xmx32g</span>
-    <span style=color:#f92672>volumes</span>:
-      - <span style=color:#ae81ff>es02_data:/usr/share/elasticsearch/data</span>
-    <span style=color:#f92672>ulimits</span>:
-      <span style=color:#f92672>memlock</span>:
-        <span style=color:#f92672>soft</span>: -<span style=color:#ae81ff>1</span>
-        <span style=color:#f92672>hard</span>: -<span style=color:#ae81ff>1</span>
-
-  <span style=color:#f92672>es03</span>:
-    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>elasticsearch:7.9.2</span>
-    <span style=color:#f92672>restart</span>: <span style=color:#ae81ff>always</span>
-    <span style=color:#f92672>hostname</span>: <span style=color:#ae81ff>es03</span>
-    <span style=color:#f92672>environment</span>:
-      <span style=color:#f92672>cluster.name</span>: <span style=color:#ae81ff>es-docker-cluster</span>
-      <span style=color:#f92672>cluster.initial_master_nodes</span>: <span style=color:#ae81ff>es01,es02,es03,es04,es05,es06,es07,es08</span>
-      <span style=color:#f92672>discovery.seed_hosts</span>: <span style=color:#ae81ff>es01,es02,es04,es05,es06,es07,es08</span>
-      <span style=color:#f92672>bootstrap.memory_lock</span>: <span style=color:#e6db74>&#39;true&#39;</span>
-      <span style=color:#f92672>ES_JAVA_OPTS</span>: -<span style=color:#ae81ff>Xms32g -Xmx32g</span>
-    <span style=color:#f92672>volumes</span>:
-      - <span style=color:#ae81ff>es03_data:/usr/share/elasticsearch/data</span>
-    <span style=color:#f92672>ulimits</span>:
-      <span style=color:#f92672>memlock</span>:
-        <span style=color:#f92672>soft</span>: -<span style=color:#ae81ff>1</span>
-        <span style=color:#f92672>hard</span>: -<span style=color:#ae81ff>1</span>
-
-  <span style=color:#f92672>es04</span>:
-    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>elasticsearch:7.9.2</span>
-    <span style=color:#f92672>restart</span>: <span style=color:#ae81ff>always</span>
-    <span style=color:#f92672>hostname</span>: <span style=color:#ae81ff>es04</span>
-    <span style=color:#f92672>environment</span>:
-      <span style=color:#f92672>cluster.name</span>: <span style=color:#ae81ff>es-docker-cluster</span>
-      <span style=color:#f92672>cluster.initial_master_nodes</span>: <span style=color:#ae81ff>es01,es02,es03,es04,es05,es06,es07,es08</span>
-      <span style=color:#f92672>discovery.seed_hosts</span>: <span style=color:#ae81ff>es01,es02,es03,es05,es06,es07,es08</span>
-      <span style=color:#f92672>bootstrap.memory_lock</span>: <span style=color:#e6db74>&#39;true&#39;</span>
-      <span style=color:#f92672>ES_JAVA_OPTS</span>: -<span style=color:#ae81ff>Xms32g -Xmx32g</span>
-    <span style=color:#f92672>volumes</span>:
-      - <span style=color:#ae81ff>es04_data:/usr/share/elasticsearch/data</span>
-    <span style=color:#f92672>ulimits</span>:
-      <span style=color:#f92672>memlock</span>:
-        <span style=color:#f92672>soft</span>: -<span style=color:#ae81ff>1</span>
-        <span style=color:#f92672>hard</span>: -<span style=color:#ae81ff>1</span>
-
-  <span style=color:#f92672>es05</span>:
-    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>elasticsearch:7.9.2</span>
-    <span style=color:#f92672>restart</span>: <span style=color:#ae81ff>always</span>
-    <span style=color:#f92672>hostname</span>: <span style=color:#ae81ff>es05</span>
-    <span style=color:#f92672>environment</span>:
-      <span style=color:#f92672>cluster.name</span>: <span style=color:#ae81ff>es-docker-cluster</span>
-      <span style=color:#f92672>cluster.initial_master_nodes</span>: <span style=color:#ae81ff>es01,es02,es03,es04,es05,es06,es07,es08</span>
-      <span style=color:#f92672>discovery.seed_hosts</span>: <span style=color:#ae81ff>es01,es02,es03,es04,es06,es07,es08</span>
-      <span style=color:#f92672>bootstrap.memory_lock</span>: <span style=color:#e6db74>&#39;true&#39;</span>
-      <span style=color:#f92672>ES_JAVA_OPTS</span>: -<span style=color:#ae81ff>Xms32g -Xmx32g</span>
-    <span style=color:#f92672>volumes</span>:
-      - <span style=color:#ae81ff>es05_data:/usr/share/elasticsearch/data</span>
-    <span style=color:#f92672>ulimits</span>:
-      <span style=color:#f92672>memlock</span>:
-        <span style=color:#f92672>soft</span>: -<span style=color:#ae81ff>1</span>
-        <span style=color:#f92672>hard</span>: -<span style=color:#ae81ff>1</span>
-
-  <span style=color:#f92672>es06</span>:
-    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>elasticsearch:7.9.2</span>
-    <span style=color:#f92672>restart</span>: <span style=color:#ae81ff>always</span>
-    <span style=color:#f92672>hostname</span>: <span style=color:#ae81ff>es06</span>
-    <span style=color:#f92672>environment</span>:
-      <span style=color:#f92672>cluster.name</span>: <span style=color:#ae81ff>es-docker-cluster</span>
-      <span style=color:#f92672>cluster.initial_master_nodes</span>: <span style=color:#ae81ff>es01,es02,es03,es04,es05,es06,es07,es08</span>
-      <span style=color:#f92672>discovery.seed_hosts</span>: <span style=color:#ae81ff>es01,es02,es03,es04,es05,es07,es08</span>
-      <span style=color:#f92672>bootstrap.memory_lock</span>: <span style=color:#e6db74>&#39;true&#39;</span>
-      <span style=color:#f92672>ES_JAVA_OPTS</span>: -<span style=color:#ae81ff>Xms32g -Xmx32g</span>
-    <span style=color:#f92672>volumes</span>:
-      - <span style=color:#ae81ff>es06_data:/usr/share/elasticsearch/data</span>
-    <span style=color:#f92672>ulimits</span>:
-      <span style=color:#f92672>memlock</span>:
-        <span style=color:#f92672>soft</span>: -<span style=color:#ae81ff>1</span>
-        <span style=color:#f92672>hard</span>: -<span style=color:#ae81ff>1</span>
-
-  <span style=color:#f92672>es07</span>:
-    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>elasticsearch:7.9.2</span>
-    <span style=color:#f92672>restart</span>: <span style=color:#ae81ff>always</span>
-    <span style=color:#f92672>hostname</span>: <span style=color:#ae81ff>es07</span>
-    <span style=color:#f92672>environment</span>:
-      <span style=color:#f92672>cluster.name</span>: <span style=color:#ae81ff>es-docker-cluster</span>
-      <span style=color:#f92672>cluster.initial_master_nodes</span>: <span style=color:#ae81ff>es01,es02,es03,es04,es05,es06,es07,es08</span>
-      <span style=color:#f92672>discovery.seed_hosts</span>: <span style=color:#ae81ff>es01,es02,es03,es04,es05,es06,es08</span>
-      <span style=color:#f92672>bootstrap.memory_lock</span>: <span style=color:#e6db74>&#39;true&#39;</span>
-      <span style=color:#f92672>ES_JAVA_OPTS</span>: -<span style=color:#ae81ff>Xms32g -Xmx32g</span>
-    <span style=color:#f92672>volumes</span>:
-      - <span style=color:#ae81ff>es07_data:/usr/share/elasticsearch/data</span>
-    <span style=color:#f92672>ulimits</span>:
-      <span style=color:#f92672>memlock</span>:
-        <span style=color:#f92672>soft</span>: -<span style=color:#ae81ff>1</span>
-        <span style=color:#f92672>hard</span>: -<span style=color:#ae81ff>1</span>
-
-  <span style=color:#f92672>es08</span>:
-    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>elasticsearch:7.9.2</span>
-    <span style=color:#f92672>restart</span>: <span style=color:#ae81ff>always</span>
-    <span style=color:#f92672>hostname</span>: <span style=color:#ae81ff>es08</span>
-    <span style=color:#f92672>environment</span>:
-      <span style=color:#f92672>cluster.name</span>: <span style=color:#ae81ff>es-docker-cluster</span>
-      <span style=color:#f92672>cluster.initial_master_nodes</span>: <span style=color:#ae81ff>es01,es02,es03,es04,es05,es06,es07,es08</span>
-      <span style=color:#f92672>discovery.seed_hosts</span>: <span style=color:#ae81ff>es01,es02,es03,es04,es05,es06,es07</span>
-      <span style=color:#f92672>bootstrap.memory_lock</span>: <span style=color:#e6db74>&#39;true&#39;</span>
-      <span style=color:#f92672>ES_JAVA_OPTS</span>: -<span style=color:#ae81ff>Xms32g -Xmx32g</span>
-    <span style=color:#f92672>volumes</span>:
-      - <span style=color:#ae81ff>es08_data:/usr/share/elasticsearch/data</span>
-    <span style=color:#f92672>ulimits</span>:
-      <span style=color:#f92672>memlock</span>:
-        <span style=color:#f92672>soft</span>: -<span style=color:#ae81ff>1</span>
-        <span style=color:#f92672>hard</span>: -<span style=color:#ae81ff>1</span>
-
-  <span style=color:#f92672>kibana</span>:
-    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>kibana:7.9.2</span>
-    <span style=color:#f92672>restart</span>: <span style=color:#ae81ff>always</span>
-    <span style=color:#f92672>environment</span>:
-      <span style=color:#f92672>ELASTICSEARCH_HOSTS</span>: <span style=color:#ae81ff>http://es01:9200</span>
-    <span style=color:#f92672>ports</span>:
-      - <span style=color:#ae81ff>5601</span>:<span style=color:#ae81ff>5601</span>
-
-<span style=color:#f92672>volumes</span>:
-  <span style=color:#f92672>es01_data</span>:
-  <span style=color:#f92672>es02_data</span>:
-  <span style=color:#f92672>es03_data</span>:
-  <span style=color:#f92672>es04_data</span>:
-  <span style=color:#f92672>es05_data</span>:
-  <span style=color:#f92672>es06_data</span>:
-  <span style=color:#f92672>es07_data</span>:
-  <span style=color:#f92672>es08_data</span>:
-</code></pre></div><h2 id=reference>Reference</h2>
-<ul>
-<li><a href=https://www.elastic.co/guide/index.html>https://www.elastic.co/guide/index.html</a></li>
-<li>kibana
-<ul>
-<li><a href=https://www.elastic.co/guide/en/kibana/current/settings.html>settings</a></li>
-<li><a href=https://www.elastic.co/guide/cn/kibana/current/index.html>https://www.elastic.co/guide/cn/kibana/current/index.html</a></li>
-</ul>
-</li>
-<li>elasticsearch
-<ul>
-<li><a href=https://www.elastic.co/guide/en/elasticsearch/reference/current/rest-apis.html>rest-apis</a></li>
-<li><a href=https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-query-builders.html>java-rest-high-query-builders</a></li>
-<li><a href=https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-aggregation-builders.html>java-rest-high-aggregation-builders</a></li>
-<li><a href=https://www.elastic.co/guide/cn/elasticsearch/guide/current/index.html>https://www.elastic.co/guide/cn/elasticsearch/guide/current/index.html</a></li>
-</ul>
-</li>
-<li>filebeat
-<ul>
-<li><a href=https://www.elastic.co/guide/en/beats/filebeat/current/configuration-filebeat-options.html>inputs</a></li>
-<li><a href=https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-modules.html>modules</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class=sharing style=text-align:center>
-<br>
-<p>捐赠支持</p>
-<p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p>
-<p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p>
-<img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%>
-<p></p><br>&copy; 2015-2020 XhstormR
-</div>
-</div>
-</div>
-</div>
-<div id=backtop><a href=# title>TOP</a></div>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#docker-compose>Docker Compose</a>
-<ul>
-<li><a href=#docker-composeyml>docker-compose.yml</a></li>
-<li><a href=#env>.env</a></li>
-</ul>
-</li>
-<li><a href=#beats>Beats</a></li>
-<li><a href=#cluster>Cluster</a></li>
-<li><a href=#reference>Reference</a></li>
-</ul>
-</nav>
-<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script>
+</code></pre><h2 id=cluster>Cluster</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>version</span>: <span style=color:#e6db74>&#39;3&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>services</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>es01</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>elasticsearch:7.9.2</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>restart</span>: <span style=color:#ae81ff>always</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>hostname</span>: <span style=color:#ae81ff>es01</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>environment</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>cluster.name</span>: <span style=color:#ae81ff>es-docker-cluster</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>cluster.initial_master_nodes</span>: <span style=color:#ae81ff>es01,es02,es03,es04,es05,es06,es07,es08</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>discovery.seed_hosts</span>: <span style=color:#ae81ff>es02,es03,es04,es05,es06,es07,es08</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>bootstrap.memory_lock</span>: <span style=color:#e6db74>&#39;true&#39;</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>ES_JAVA_OPTS</span>: -<span style=color:#ae81ff>Xms32g -Xmx32g</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>volumes</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>es01_data:/usr/share/elasticsearch/data</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>ulimits</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>memlock</span>:
+</span></span><span style=display:flex><span>        <span style=color:#f92672>soft</span>: -<span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>hard</span>: -<span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>ports</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>9200</span>:<span style=color:#ae81ff>9200</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>es02</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>elasticsearch:7.9.2</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>restart</span>: <span style=color:#ae81ff>always</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>hostname</span>: <span style=color:#ae81ff>es02</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>environment</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>cluster.name</span>: <span style=color:#ae81ff>es-docker-cluster</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>cluster.initial_master_nodes</span>: <span style=color:#ae81ff>es01,es02,es03,es04,es05,es06,es07,es08</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>discovery.seed_hosts</span>: <span style=color:#ae81ff>es01,es03,es04,es05,es06,es07,es08</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>bootstrap.memory_lock</span>: <span style=color:#e6db74>&#39;true&#39;</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>ES_JAVA_OPTS</span>: -<span style=color:#ae81ff>Xms32g -Xmx32g</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>volumes</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>es02_data:/usr/share/elasticsearch/data</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>ulimits</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>memlock</span>:
+</span></span><span style=display:flex><span>        <span style=color:#f92672>soft</span>: -<span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>hard</span>: -<span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>es03</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>elasticsearch:7.9.2</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>restart</span>: <span style=color:#ae81ff>always</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>hostname</span>: <span style=color:#ae81ff>es03</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>environment</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>cluster.name</span>: <span style=color:#ae81ff>es-docker-cluster</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>cluster.initial_master_nodes</span>: <span style=color:#ae81ff>es01,es02,es03,es04,es05,es06,es07,es08</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>discovery.seed_hosts</span>: <span style=color:#ae81ff>es01,es02,es04,es05,es06,es07,es08</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>bootstrap.memory_lock</span>: <span style=color:#e6db74>&#39;true&#39;</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>ES_JAVA_OPTS</span>: -<span style=color:#ae81ff>Xms32g -Xmx32g</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>volumes</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>es03_data:/usr/share/elasticsearch/data</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>ulimits</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>memlock</span>:
+</span></span><span style=display:flex><span>        <span style=color:#f92672>soft</span>: -<span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>hard</span>: -<span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>es04</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>elasticsearch:7.9.2</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>restart</span>: <span style=color:#ae81ff>always</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>hostname</span>: <span style=color:#ae81ff>es04</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>environment</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>cluster.name</span>: <span style=color:#ae81ff>es-docker-cluster</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>cluster.initial_master_nodes</span>: <span style=color:#ae81ff>es01,es02,es03,es04,es05,es06,es07,es08</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>discovery.seed_hosts</span>: <span style=color:#ae81ff>es01,es02,es03,es05,es06,es07,es08</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>bootstrap.memory_lock</span>: <span style=color:#e6db74>&#39;true&#39;</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>ES_JAVA_OPTS</span>: -<span style=color:#ae81ff>Xms32g -Xmx32g</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>volumes</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>es04_data:/usr/share/elasticsearch/data</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>ulimits</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>memlock</span>:
+</span></span><span style=display:flex><span>        <span style=color:#f92672>soft</span>: -<span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>hard</span>: -<span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>es05</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>elasticsearch:7.9.2</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>restart</span>: <span style=color:#ae81ff>always</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>hostname</span>: <span style=color:#ae81ff>es05</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>environment</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>cluster.name</span>: <span style=color:#ae81ff>es-docker-cluster</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>cluster.initial_master_nodes</span>: <span style=color:#ae81ff>es01,es02,es03,es04,es05,es06,es07,es08</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>discovery.seed_hosts</span>: <span style=color:#ae81ff>es01,es02,es03,es04,es06,es07,es08</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>bootstrap.memory_lock</span>: <span style=color:#e6db74>&#39;true&#39;</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>ES_JAVA_OPTS</span>: -<span style=color:#ae81ff>Xms32g -Xmx32g</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>volumes</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>es05_data:/usr/share/elasticsearch/data</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>ulimits</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>memlock</span>:
+</span></span><span style=display:flex><span>        <span style=color:#f92672>soft</span>: -<span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>hard</span>: -<span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>es06</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>elasticsearch:7.9.2</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>restart</span>: <span style=color:#ae81ff>always</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>hostname</span>: <span style=color:#ae81ff>es06</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>environment</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>cluster.name</span>: <span style=color:#ae81ff>es-docker-cluster</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>cluster.initial_master_nodes</span>: <span style=color:#ae81ff>es01,es02,es03,es04,es05,es06,es07,es08</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>discovery.seed_hosts</span>: <span style=color:#ae81ff>es01,es02,es03,es04,es05,es07,es08</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>bootstrap.memory_lock</span>: <span style=color:#e6db74>&#39;true&#39;</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>ES_JAVA_OPTS</span>: -<span style=color:#ae81ff>Xms32g -Xmx32g</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>volumes</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>es06_data:/usr/share/elasticsearch/data</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>ulimits</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>memlock</span>:
+</span></span><span style=display:flex><span>        <span style=color:#f92672>soft</span>: -<span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>hard</span>: -<span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>es07</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>elasticsearch:7.9.2</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>restart</span>: <span style=color:#ae81ff>always</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>hostname</span>: <span style=color:#ae81ff>es07</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>environment</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>cluster.name</span>: <span style=color:#ae81ff>es-docker-cluster</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>cluster.initial_master_nodes</span>: <span style=color:#ae81ff>es01,es02,es03,es04,es05,es06,es07,es08</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>discovery.seed_hosts</span>: <span style=color:#ae81ff>es01,es02,es03,es04,es05,es06,es08</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>bootstrap.memory_lock</span>: <span style=color:#e6db74>&#39;true&#39;</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>ES_JAVA_OPTS</span>: -<span style=color:#ae81ff>Xms32g -Xmx32g</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>volumes</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>es07_data:/usr/share/elasticsearch/data</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>ulimits</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>memlock</span>:
+</span></span><span style=display:flex><span>        <span style=color:#f92672>soft</span>: -<span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>hard</span>: -<span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>es08</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>elasticsearch:7.9.2</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>restart</span>: <span style=color:#ae81ff>always</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>hostname</span>: <span style=color:#ae81ff>es08</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>environment</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>cluster.name</span>: <span style=color:#ae81ff>es-docker-cluster</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>cluster.initial_master_nodes</span>: <span style=color:#ae81ff>es01,es02,es03,es04,es05,es06,es07,es08</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>discovery.seed_hosts</span>: <span style=color:#ae81ff>es01,es02,es03,es04,es05,es06,es07</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>bootstrap.memory_lock</span>: <span style=color:#e6db74>&#39;true&#39;</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>ES_JAVA_OPTS</span>: -<span style=color:#ae81ff>Xms32g -Xmx32g</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>volumes</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>es08_data:/usr/share/elasticsearch/data</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>ulimits</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>memlock</span>:
+</span></span><span style=display:flex><span>        <span style=color:#f92672>soft</span>: -<span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>hard</span>: -<span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>kibana</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>kibana:7.9.2</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>restart</span>: <span style=color:#ae81ff>always</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>environment</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>ELASTICSEARCH_HOSTS</span>: <span style=color:#ae81ff>http://es01:9200</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>ports</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>5601</span>:<span style=color:#ae81ff>5601</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>volumes</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>es01_data</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>es02_data</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>es03_data</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>es04_data</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>es05_data</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>es06_data</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>es07_data</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>es08_data</span>:
+</span></span></code></pre></div><h2 id=reference>Reference</h2><ul><li><a href=https://www.elastic.co/guide/index.html>https://www.elastic.co/guide/index.html</a></li><li>kibana<ul><li><a href=https://www.elastic.co/guide/en/kibana/current/settings.html>settings</a></li><li><a href=https://www.elastic.co/guide/cn/kibana/current/index.html>https://www.elastic.co/guide/cn/kibana/current/index.html</a></li></ul></li><li>elasticsearch<ul><li><a href=https://www.elastic.co/guide/en/elasticsearch/reference/current/rest-apis.html>rest-apis</a></li><li><a href=https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-query-builders.html>java-rest-high-query-builders</a></li><li><a href=https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-aggregation-builders.html>java-rest-high-aggregation-builders</a></li><li><a href=https://www.elastic.co/guide/cn/elasticsearch/guide/current/index.html>https://www.elastic.co/guide/cn/elasticsearch/guide/current/index.html</a></li></ul></li><li>filebeat<ul><li><a href=https://www.elastic.co/guide/en/beats/filebeat/current/configuration-filebeat-options.html>inputs</a></li><li><a href=https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-modules.html>modules</a></li></ul></li></ul></div><div class=sharing style=text-align:center><br><p>捐赠支持</p><p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p><p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p><img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%><p></p><br>&copy; 2015-2020 XhstormR</div></div></div></div><div id=backtop><a href=# title>TOP</a></div><nav id=TableOfContents><ul><li><a href=#docker-compose>Docker Compose</a><ul><li><a href=#docker-composeyml>docker-compose.yml</a></li><li><a href=#env>.env</a></li></ul></li><li><a href=#beats>Beats</a></li><li><a href=#cluster>Cluster</a></li><li><a href=#reference>Reference</a></li></ul></nav><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script>
-<script>hljs.initHighlightingOnLoad()</script>
-<script src=https://blog.xhstormr.tk/js/zoom.min.js></script>
-<script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script>
-<script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script>
-</body>
-</html>
+<script>hljs.initHighlightingOnLoad()</script><script src=https://blog.xhstormr.tk/js/zoom.min.js></script>
+<script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script><script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script></body></html>

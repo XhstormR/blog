@@ -1,666 +1,578 @@
-<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache>
-<head>
-<meta charset=utf-8>
-<meta name=renderer content="webkit">
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title> SQL 必知必会 &#183; XhstormR </title>
-<link rel=alternate type=application/rss+xml title=XhstormR href>
-<link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico>
-<link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css>
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css>
-<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
-<script src=https://blog.xhstormr.tk/js/main.min.js async defer></script>
-</head>
-<body>
-<div id=scriptHeader>
-<span class="mobile btn-mobile-menu">
-<i class="fa fa-bars btn-mobile-menu__icon"></i>
-<i class="fa fa-times btn-mobile-close__icon hidden"></i>
-</span>
-<header class="panel-cover panel-cover--collapsed">
-<div class=panel-main>
-<div class="panel-main__inner panel-inverted">
-<div class=panel-main__content>
-<h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1>
-<hr class=panel-cover__divider>
-<p class=panel-cover__description> On a dark desert highway, cool wind in my hair. </p>
-<hr class="panel-cover__divider panel-cover__divider--secondary">
-<div class=navigation-wrapper>
-<nav class="cover-navigation cover-navigation--primary">
-<ul class=navigation>
-<li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li>
-</ul>
-</nav>
-</div>
-</div>
-</div>
-<div class=panel-cover--overlay></div>
-</div>
-</header>
-</div>
-<div class=bodytop>
-<div class=content-wrapper>
-<div class=content-wrapper__inner>
-<div class=post>
-<h1>SQL 必知必会</h1>
-<span class=post-date>2018-04-07</span>
-<p>Updated on 2018-04-14</p>
-<blockquote>
-<p style=text-align:center><img data-src=/uploads/sql-query-order.png alt title="Select Query Order" data-action=zoom width=650></p>
-<script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(a){a.setAttribute("src",a.getAttribute("data-src")),a.onload=function(){a.removeAttribute("data-src")}})</script>
-<p><a href=https://zh.m.wikipedia.org/zh-cn/SQL>https://zh.m.wikipedia.org/zh-cn/SQL</a></p>
-</blockquote>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#75715e>/*2 检索*/</span>
-
-<span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span>
-<span style=color:#66d9ef>FROM</span> Products;
-
-<span style=color:#66d9ef>SELECT</span> prod_name
-<span style=color:#66d9ef>FROM</span> Products;
-
-<span style=color:#75715e>-- DISTINCT 去重，作用于所有列
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span> <span style=color:#66d9ef>DISTINCT</span> vend_id
-<span style=color:#66d9ef>FROM</span> Products;
-
-<span style=color:#75715e>-- LIMIT 限制数量，OFFSET 偏移数量
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span> prod_name
-<span style=color:#66d9ef>FROM</span> Products
-<span style=color:#66d9ef>LIMIT</span> <span style=color:#ae81ff>5</span>
-<span style=color:#66d9ef>OFFSET</span> <span style=color:#ae81ff>5</span>;
-
-<span style=color:#75715e>/*3 排序*/</span>
-
-<span style=color:#75715e>-- ORDER BY 排序
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span> prod_name
-<span style=color:#66d9ef>FROM</span> Products
-<span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>BY</span> prod_name;
-
-<span style=color:#75715e>-- 按多个列排序
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
-  prod_id,
-  prod_price,
-  prod_name
-<span style=color:#66d9ef>FROM</span> Products
-<span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>BY</span> prod_price, prod_name;
-<span style=color:#75715e>-- 等同于
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
-  prod_id,
-  prod_price,
-  prod_name
-<span style=color:#66d9ef>FROM</span> Products
-<span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>BY</span> <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>;
-
-<span style=color:#75715e>-- DESC 降序排序（缺省为升序 ASC）
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
-  prod_id,
-  prod_price,
-  prod_name
-<span style=color:#66d9ef>FROM</span> Products
-<span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>BY</span> prod_price <span style=color:#66d9ef>DESC</span>, prod_name;
-
-<span style=color:#75715e>/*4 过滤*/</span>
-
-<span style=color:#75715e>-- 检查单个值
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
-  prod_name,
-  prod_price
-<span style=color:#66d9ef>FROM</span> Products
-<span style=color:#66d9ef>WHERE</span> prod_price <span style=color:#f92672>=</span> <span style=color:#ae81ff>3</span>.<span style=color:#ae81ff>49</span>;
-
-<span style=color:#66d9ef>SELECT</span>
-  prod_name,
-  prod_price
-<span style=color:#66d9ef>FROM</span> Products
-<span style=color:#66d9ef>WHERE</span> prod_price <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>10</span>;
-
-<span style=color:#75715e>-- 不匹配检查
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
-  vend_id,
-  prod_name
-<span style=color:#66d9ef>FROM</span> Products
-<span style=color:#66d9ef>WHERE</span> vend_id <span style=color:#f92672>!=</span> <span style=color:#e6db74>&#39;DLL01&#39;</span>;
-
-<span style=color:#75715e>-- 范围值检查
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
-  prod_name,
-  prod_price
-<span style=color:#66d9ef>FROM</span> Products
-<span style=color:#66d9ef>WHERE</span> prod_price <span style=color:#66d9ef>BETWEEN</span> <span style=color:#ae81ff>5</span> <span style=color:#66d9ef>AND</span> <span style=color:#ae81ff>10</span>;
-
-<span style=color:#75715e>-- 空值检查
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span> cust_name
-<span style=color:#66d9ef>FROM</span> CUSTOMERS
-<span style=color:#66d9ef>WHERE</span> cust_email <span style=color:#66d9ef>IS</span> <span style=color:#66d9ef>NULL</span>;
-
-<span style=color:#75715e>/*5 高级过滤*/</span>
-
-<span style=color:#75715e>-- AND 且
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
-  prod_name,
-  prod_price
-<span style=color:#66d9ef>FROM</span> Products
-<span style=color:#66d9ef>WHERE</span> vend_id <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;DLL01&#39;</span> <span style=color:#66d9ef>AND</span> prod_price <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>4</span>;
-
-<span style=color:#75715e>-- OR 或
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
-  prod_name,
-  prod_price
-<span style=color:#66d9ef>FROM</span> Products
-<span style=color:#66d9ef>WHERE</span> vend_id <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;DLL01&#39;</span> <span style=color:#66d9ef>OR</span> vend_id <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;BRS01&#39;</span>;
-
-<span style=color:#75715e>-- NOT 非，条件取反，可以否定（取反）任何条件
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
-  prod_name,
-  prod_price
-<span style=color:#66d9ef>FROM</span> Products
-<span style=color:#66d9ef>WHERE</span> <span style=color:#66d9ef>NOT</span> vend_id <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;FNG01&#39;</span>;
-
-<span style=color:#75715e>-- IN 条件范围，与 OR 功能相当，推荐使用
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
-  prod_name,
-  prod_price
-<span style=color:#66d9ef>FROM</span> Products
-<span style=color:#66d9ef>WHERE</span> vend_id <span style=color:#66d9ef>IN</span> (<span style=color:#e6db74>&#39;DLL01&#39;</span>, <span style=color:#e6db74>&#39;BRS01&#39;</span>);
-
-<span style=color:#75715e>-- () 条件组合，管理比较顺序
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
-  prod_name,
-  prod_price
-<span style=color:#66d9ef>FROM</span> Products
-<span style=color:#66d9ef>WHERE</span> (vend_id <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;DLL01&#39;</span> <span style=color:#66d9ef>OR</span> vend_id <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;BRS01&#39;</span>) <span style=color:#66d9ef>AND</span> prod_price <span style=color:#f92672>&gt;=</span> <span style=color:#ae81ff>10</span>;
-
-<span style=color:#75715e>/*6 通配符*/</span>
-
-<span style=color:#75715e>-- LIKE 模式匹配，只能用于字符串。出于性能考虑，最好放在过滤条件的最后
-</span><span style=color:#75715e>-- % 多个字符（任意字符出现任意次数），注意不会匹配 NULL
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
-  prod_id,
-  prod_name
-<span style=color:#66d9ef>FROM</span> Products
-<span style=color:#66d9ef>WHERE</span> prod_name <span style=color:#66d9ef>LIKE</span> <span style=color:#e6db74>&#39;%teddy bear%&#39;</span>;
-
-<span style=color:#75715e>-- _ 单个字符（不多也不少）
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
-  prod_id,
-  prod_name
-<span style=color:#66d9ef>FROM</span> Products
-<span style=color:#66d9ef>WHERE</span> prod_name <span style=color:#66d9ef>LIKE</span> <span style=color:#e6db74>&#39;__ inch teddy bear%&#39;</span>;
-
-<span style=color:#75715e>/*7 创建计算字段*/</span>
-
-<span style=color:#75715e>-- TRIM() 函数清除左右两边的空格
-</span><span style=color:#75715e>-- || 拼接字段
-</span><span style=color:#75715e>-- AS 使用别名
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span> vend_name <span style=color:#f92672>||</span> <span style=color:#e6db74>&#39; (&#39;</span> <span style=color:#f92672>||</span> vend_country <span style=color:#f92672>||</span> <span style=color:#e6db74>&#39;)&#39;</span> <span style=color:#66d9ef>AS</span> vend_title
-<span style=color:#66d9ef>FROM</span> Vendors;
-<span style=color:#66d9ef>SELECT</span> <span style=color:#66d9ef>TRIM</span>(vend_name) <span style=color:#f92672>||</span> <span style=color:#e6db74>&#39; (&#39;</span> <span style=color:#f92672>||</span> <span style=color:#66d9ef>TRIM</span>(vend_country) <span style=color:#f92672>||</span> <span style=color:#e6db74>&#39;)&#39;</span> <span style=color:#66d9ef>AS</span> vend_title
-<span style=color:#66d9ef>FROM</span> Vendors;
-
-<span style=color:#75715e>-- 执行数字计算
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
-  prod_id,
-  quantity,
-  item_price,
-  quantity <span style=color:#f92672>*</span> item_price <span style=color:#66d9ef>AS</span> expanded_price
-<span style=color:#66d9ef>FROM</span> OrderItems
-<span style=color:#66d9ef>WHERE</span> order_num <span style=color:#f92672>=</span> <span style=color:#ae81ff>20008</span>;
-
-<span style=color:#75715e>-- SELECT 语句可以用于测试表达式
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span> <span style=color:#ae81ff>3</span> <span style=color:#f92672>*</span> <span style=color:#ae81ff>2</span>;
-<span style=color:#66d9ef>SELECT</span> <span style=color:#66d9ef>TRIM</span>(<span style=color:#e6db74>&#39;  ABC  &#39;</span>);
-<span style=color:#66d9ef>SELECT</span> NOW();
-<span style=color:#66d9ef>SELECT</span> <span style=color:#66d9ef>CURRENT_DATE</span>;
-
-<span style=color:#75715e>/*8 函数*/</span>
-
-<span style=color:#75715e>-- 数值函数
-</span><span style=color:#75715e>-- 系统函数
-</span><span style=color:#75715e>-- 文本函数
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
-  vend_name,
-  <span style=color:#66d9ef>UPPER</span>(vend_name) <span style=color:#66d9ef>AS</span> vend_name_upcase
-<span style=color:#66d9ef>FROM</span> Vendors;
-
-<span style=color:#75715e>-- 时间函数
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span> order_num
-<span style=color:#66d9ef>FROM</span> Orders
-<span style=color:#66d9ef>WHERE</span> DATE_PART(<span style=color:#e6db74>&#39;year&#39;</span>, order_date) <span style=color:#f92672>=</span> <span style=color:#ae81ff>2012</span>;
-
-<span style=color:#75715e>/*9 汇总数据*/</span>
-
-<span style=color:#75715e>-- 聚集函数
-</span><span style=color:#75715e>-- COUNT(*)      总行数
-</span><span style=color:#75715e>-- COUNT(column) 该列的行数（忽略 NULL）
-</span><span style=color:#75715e>--   SUM(column) 该列的总和
-</span><span style=color:#75715e>--   AVG(column) 该列的平均值
-</span><span style=color:#75715e>--   MAX(column) 该列的最大值
-</span><span style=color:#75715e>--   MIN(column) 该列的最小值
-</span><span style=color:#75715e>-- 聚集不同值
-</span><span style=color:#75715e>-- DISTINCT 去重（缺省为所有行 ALL）
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
-  <span style=color:#66d9ef>COUNT</span>(<span style=color:#66d9ef>DISTINCT</span> prod_price) <span style=color:#66d9ef>AS</span> num_price_dist,
-  <span style=color:#66d9ef>COUNT</span>(prod_price)          <span style=color:#66d9ef>AS</span> num_price,
-  <span style=color:#66d9ef>AVG</span>(<span style=color:#66d9ef>DISTINCT</span> prod_price)   <span style=color:#66d9ef>AS</span> avg_price_dist,
-  <span style=color:#66d9ef>AVG</span>(prod_price)            <span style=color:#66d9ef>AS</span> avg_price,
-  <span style=color:#66d9ef>MAX</span>(prod_price)            <span style=color:#66d9ef>AS</span> max_price,
-  <span style=color:#66d9ef>MIN</span>(prod_price)            <span style=color:#66d9ef>AS</span> min_price,
-  <span style=color:#66d9ef>SUM</span>(prod_price)            <span style=color:#66d9ef>AS</span> sum_price
-<span style=color:#66d9ef>FROM</span> Products
-<span style=color:#66d9ef>WHERE</span> vend_id <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;DLL01&#39;</span>;
-
-<span style=color:#66d9ef>SELECT</span> <span style=color:#66d9ef>SUM</span>(item_price <span style=color:#f92672>*</span> quantity) <span style=color:#66d9ef>AS</span> total_price
-<span style=color:#66d9ef>FROM</span> OrderItems
-<span style=color:#66d9ef>WHERE</span> order_num <span style=color:#f92672>=</span> <span style=color:#ae81ff>20005</span>;
-
-<span style=color:#75715e>/*10 分组数据*/</span>
-
-<span style=color:#75715e>-- 创建分组
-</span><span style=color:#75715e>-- GROUP BY 子句指示 DBMS 进行数据分组，然后对每个组进行聚集，而不是对整个结果集
-</span><span style=color:#75715e>-- GROUP BY x 根据 x 列进行分组
-</span><span style=color:#75715e>-- GROUP BY x, y 根据 x 列和 y 列进行分组（将 x 列和 y 列的值视为一个整体来分组）
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
-  vend_id,
-  <span style=color:#66d9ef>COUNT</span>(<span style=color:#f92672>*</span>) <span style=color:#66d9ef>AS</span> num_prods
-<span style=color:#66d9ef>FROM</span> Products
-<span style=color:#66d9ef>GROUP</span> <span style=color:#66d9ef>BY</span> vend_id;
-<span style=color:#75715e>-- 等同于
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
-  vend_id,
-  <span style=color:#66d9ef>COUNT</span>(<span style=color:#f92672>*</span>) <span style=color:#66d9ef>AS</span> num_prods
-<span style=color:#66d9ef>FROM</span> Products
-<span style=color:#66d9ef>GROUP</span> <span style=color:#66d9ef>BY</span> <span style=color:#ae81ff>1</span>;
-
-<span style=color:#75715e>-- 过滤分组
-</span><span style=color:#75715e>-- WHERE  过滤行，
-</span><span style=color:#75715e>-- HAVING 过滤组；
-</span><span style=color:#75715e>-- WHERE  在数据分组前进行过滤，
-</span><span style=color:#75715e>-- HAVING 在数据分组后进行过滤。
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
-  vend_id,
-  <span style=color:#66d9ef>COUNT</span>(<span style=color:#f92672>*</span>) <span style=color:#66d9ef>AS</span> num_prods <span style=color:#75715e>-- 计数
-</span><span style=color:#75715e></span><span style=color:#66d9ef>FROM</span> Products
-<span style=color:#66d9ef>WHERE</span> prod_price <span style=color:#f92672>&gt;=</span> <span style=color:#ae81ff>4</span> <span style=color:#75715e>-- 过滤（行级）
-</span><span style=color:#75715e></span><span style=color:#66d9ef>GROUP</span> <span style=color:#66d9ef>BY</span> <span style=color:#ae81ff>1</span> <span style=color:#75715e>-- 分组
-</span><span style=color:#75715e></span><span style=color:#66d9ef>HAVING</span> <span style=color:#66d9ef>COUNT</span>(<span style=color:#f92672>*</span>) <span style=color:#f92672>&gt;=</span> <span style=color:#ae81ff>2</span> <span style=color:#75715e>-- 过滤（组级）
-</span><span style=color:#75715e></span><span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>BY</span> num_prods, <span style=color:#ae81ff>1</span> <span style=color:#66d9ef>DESC</span>; <span style=color:#75715e>-- 排序
-</span><span style=color:#75715e></span>
-<span style=color:#75715e>/*11 子查询*/</span>
-
-<span style=color:#75715e>-- 子查询：嵌套在其他查询中的查询，只能查询单个列，总是由内向外进行处理
-</span><span style=color:#75715e>-- 子查询性能不好，推荐使用联结（JOIN）
-</span><span style=color:#75715e></span>
-<span style=color:#75715e>-- 填充 IN 操作符
-</span><span style=color:#75715e>-- 显示订购产品 RGAN01 的顾客列表
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span> order_num
-<span style=color:#66d9ef>FROM</span> OrderItems
-<span style=color:#66d9ef>WHERE</span> prod_id <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;RGAN01&#39;</span>;
-<span style=color:#75715e>-- +
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span> cust_id
-<span style=color:#66d9ef>FROM</span> Orders
-<span style=color:#66d9ef>WHERE</span> order_num <span style=color:#66d9ef>IN</span> (<span style=color:#ae81ff>20007</span>, <span style=color:#ae81ff>20008</span>);
-<span style=color:#75715e>-- =
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span> cust_id
-<span style=color:#66d9ef>FROM</span> Orders
-<span style=color:#66d9ef>WHERE</span> order_num <span style=color:#66d9ef>IN</span> (<span style=color:#66d9ef>SELECT</span> order_num
-                    <span style=color:#66d9ef>FROM</span> OrderItems
-                    <span style=color:#66d9ef>WHERE</span> prod_id <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;RGAN01&#39;</span>);
-<span style=color:#75715e>-- +
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
-  cust_name,
-  cust_contact
-<span style=color:#66d9ef>FROM</span> Customers
-<span style=color:#66d9ef>WHERE</span> cust_id <span style=color:#66d9ef>IN</span> (<span style=color:#e6db74>&#39;1000000004&#39;</span>, <span style=color:#e6db74>&#39;1000000005&#39;</span>);
-<span style=color:#75715e>-- =
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
-  cust_name,
-  cust_contact
-<span style=color:#66d9ef>FROM</span> Customers
-<span style=color:#66d9ef>WHERE</span> cust_id <span style=color:#66d9ef>IN</span> (<span style=color:#66d9ef>SELECT</span> cust_id
-                  <span style=color:#66d9ef>FROM</span> Orders
-                  <span style=color:#66d9ef>WHERE</span> order_num <span style=color:#66d9ef>IN</span> (<span style=color:#66d9ef>SELECT</span> order_num
-                                      <span style=color:#66d9ef>FROM</span> OrderItems
-                                      <span style=color:#66d9ef>WHERE</span> prod_id <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;RGAN01&#39;</span>));
-
-<span style=color:#75715e>-- 填充计算列
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span> <span style=color:#66d9ef>COUNT</span>(<span style=color:#f92672>*</span>) <span style=color:#66d9ef>AS</span> orders
-<span style=color:#66d9ef>FROM</span> Orders
-<span style=color:#66d9ef>WHERE</span> cust_id <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;1000000001&#39;</span>;
-<span style=color:#75715e>-- +
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
-  cust_name,
-  cust_state
-<span style=color:#66d9ef>FROM</span> Customers;
-<span style=color:#75715e>-- =
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
-  cust_name,
-  cust_state,
-  (<span style=color:#66d9ef>SELECT</span> <span style=color:#66d9ef>COUNT</span>(<span style=color:#f92672>*</span>)
-   <span style=color:#66d9ef>FROM</span> Orders
-   <span style=color:#66d9ef>WHERE</span> Orders.cust_id <span style=color:#f92672>=</span> Customers.cust_id) <span style=color:#66d9ef>AS</span> orders <span style=color:#75715e>-- 避免歧义
-</span><span style=color:#75715e></span><span style=color:#66d9ef>FROM</span> Customers;
-
-<span style=color:#75715e>/*12 联结表*/</span>
-
-<span style=color:#75715e>-- 联结机制：在一条 SELECT 语句中关联多个表中配对成功的行，返回一组输出
-</span><span style=color:#75715e>-- 联结方式：首先列出所有表，然后定义表之间的配对条件
-</span><span style=color:#75715e>-- 注意：
-</span><span style=color:#75715e>--    ON 只用于连接行（联结）
-</span><span style=color:#75715e>-- WHERE 只用于过滤行
-</span><span style=color:#75715e></span>
-<span style=color:#75715e>-- 显示订购产品 RGAN01 的顾客列表
-</span><span style=color:#75715e>-- 等值联结（内联结）
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
-  cust_name,
-  cust_contact
-<span style=color:#66d9ef>FROM</span> Orders, Customers, OrderItems
-<span style=color:#66d9ef>WHERE</span> prod_id <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;RGAN01&#39;</span>
-      <span style=color:#66d9ef>AND</span> Orders.order_num <span style=color:#f92672>=</span> OrderItems.order_num
-      <span style=color:#66d9ef>AND</span> Orders.cust_id <span style=color:#f92672>=</span> Customers.cust_id;
-
-<span style=color:#75715e>-- 简单格式
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
-  vend_name,
-  prod_name
-<span style=color:#66d9ef>FROM</span> Vendors, Products
-<span style=color:#66d9ef>WHERE</span> Vendors.vend_id <span style=color:#f92672>=</span> Products.vend_id;
-<span style=color:#75715e>-- 等同于
-</span><span style=color:#75715e>-- 标准格式
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
-  vend_name,
-  prod_name
-<span style=color:#66d9ef>FROM</span> Vendors
-  <span style=color:#75715e>-- 联结机制
-</span><span style=color:#75715e></span>  <span style=color:#66d9ef>INNER</span> <span style=color:#66d9ef>JOIN</span> Products
-    <span style=color:#66d9ef>ON</span> Vendors.vend_id <span style=color:#f92672>=</span> Products.vend_id; <span style=color:#75715e>-- 配对条件
-</span><span style=color:#75715e></span>
-<span style=color:#75715e>/*13 高级联结*/</span>
-
-<span style=color:#75715e>-- 自联结（self-join）
-</span><span style=color:#75715e>-- 多次引用相同的表
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
-  c1.cust_id,
-  c1.cust_name,
-  c1.cust_contact
-<span style=color:#66d9ef>FROM</span> Customers <span style=color:#66d9ef>AS</span> c1, Customers <span style=color:#66d9ef>AS</span> c2
-<span style=color:#66d9ef>WHERE</span> c2.cust_contact <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;Jim Jones&#39;</span>
-      <span style=color:#66d9ef>AND</span> c1.cust_name <span style=color:#f92672>=</span> c2.cust_name;
-
-<span style=color:#75715e>-- 自然联结（natural join）
-</span><span style=color:#75715e>-- 等值联结（内联结）的特例化
-</span><span style=color:#75715e>-- 联结时，自动比较名称相同的列
-</span><span style=color:#75715e>-- 输出时，自动去除名称相同的列
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span>
-<span style=color:#66d9ef>FROM</span> Vendors
-  <span style=color:#66d9ef>NATURAL</span> <span style=color:#66d9ef>JOIN</span> Products;
-<span style=color:#75715e>-- 对比
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span>
-<span style=color:#66d9ef>FROM</span> Vendors
-  <span style=color:#66d9ef>INNER</span> <span style=color:#66d9ef>JOIN</span> Products
-    <span style=color:#66d9ef>ON</span> Vendors.vend_id <span style=color:#f92672>=</span> Products.vend_id;
-
-<span style=color:#66d9ef>SELECT</span>
-  cust_name,
-  cust_contact
-<span style=color:#66d9ef>FROM</span> Orders
-  <span style=color:#66d9ef>NATURAL</span> <span style=color:#66d9ef>JOIN</span> Customers
-  <span style=color:#66d9ef>NATURAL</span> <span style=color:#66d9ef>JOIN</span> OrderItems
-<span style=color:#66d9ef>WHERE</span> prod_id <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;RGAN01&#39;</span>;
-
-<span style=color:#75715e>-- 外联结（outer join）
-</span><span style=color:#75715e>-- 全外联结：内联结 + 全部表没有配对成功的行（FULL）
-</span><span style=color:#75715e>-- 左外联结：内联结 + 左边表没有配对成功的行（LEFT）
-</span><span style=color:#75715e>-- 右外联结：内联结 + 右边表没有配对成功的行（RIGHT）
-</span><span style=color:#75715e>-- 左外联结和右外联结可以交换使用，区别在于关联表的顺序
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
-  Customers.cust_id,
-  Orders.order_num
-<span style=color:#66d9ef>FROM</span> Customers
-  <span style=color:#66d9ef>LEFT</span> <span style=color:#66d9ef>OUTER</span> <span style=color:#66d9ef>JOIN</span> Orders
-    <span style=color:#66d9ef>ON</span> Customers.cust_id <span style=color:#f92672>=</span> Orders.cust_id;
-<span style=color:#75715e>-- 等同于
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
-  Customers.cust_id,
-  Orders.order_num
-<span style=color:#66d9ef>FROM</span> Orders
-  <span style=color:#66d9ef>RIGHT</span> <span style=color:#66d9ef>OUTER</span> <span style=color:#66d9ef>JOIN</span> Customers
-    <span style=color:#66d9ef>ON</span> Customers.cust_id <span style=color:#f92672>=</span> Orders.cust_id;
-
-<span style=color:#75715e>-- 带有聚集函数的联结
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
-  Customers.cust_id,
-  <span style=color:#66d9ef>COUNT</span>(Orders.order_num) <span style=color:#66d9ef>AS</span> num_ord
-<span style=color:#66d9ef>FROM</span> Customers
-  <span style=color:#66d9ef>LEFT</span> <span style=color:#66d9ef>OUTER</span> <span style=color:#66d9ef>JOIN</span> Orders
-    <span style=color:#66d9ef>ON</span> Customers.cust_id <span style=color:#f92672>=</span> Orders.cust_id
-<span style=color:#66d9ef>GROUP</span> <span style=color:#66d9ef>BY</span> Customers.cust_id
-<span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>BY</span> <span style=color:#ae81ff>2</span> <span style=color:#66d9ef>DESC</span>;
-
-<span style=color:#75715e>/*14 组合查询*/</span>
-
-<span style=color:#75715e>-- 并（union）：执行多条 SELECT 语句，并合并为一个结果集
-</span><span style=color:#75715e>-- UNION 和 WHERE 的多个 OR 条件所完成的工作相同
-</span><span style=color:#75715e>-- UNION     无重复行，
-</span><span style=color:#75715e>-- UNION ALL 有重复行。
-</span><span style=color:#75715e></span>
-<span style=color:#66d9ef>SELECT</span>
-  cust_name,
-  cust_contact
-<span style=color:#66d9ef>FROM</span> Customers
-<span style=color:#66d9ef>WHERE</span> cust_state <span style=color:#66d9ef>IN</span> (<span style=color:#e6db74>&#39;IL&#39;</span>, <span style=color:#e6db74>&#39;IN&#39;</span>, <span style=color:#e6db74>&#39;MI&#39;</span>)
-<span style=color:#66d9ef>UNION</span>
-<span style=color:#66d9ef>SELECT</span>
-  cust_name,
-  cust_contact
-<span style=color:#66d9ef>FROM</span> Customers
-<span style=color:#66d9ef>WHERE</span> cust_name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;Fun4All&#39;</span>;
-<span style=color:#75715e>-- 等同于
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
-  cust_name,
-  cust_contact
-<span style=color:#66d9ef>FROM</span> Customers
-<span style=color:#66d9ef>WHERE</span> cust_state <span style=color:#66d9ef>IN</span> (<span style=color:#e6db74>&#39;IL&#39;</span>, <span style=color:#e6db74>&#39;IN&#39;</span>, <span style=color:#e6db74>&#39;MI&#39;</span>)
-      <span style=color:#66d9ef>OR</span> cust_name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;Fun4All&#39;</span>;
-
-<span style=color:#75715e>/*15 插入数据*/</span>
-
-<span style=color:#75715e>-- 插入完整行
-</span><span style=color:#75715e></span><span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>INTO</span> Customers
-<span style=color:#66d9ef>VALUES</span> (<span style=color:#e6db74>&#39;1000000006&#39;</span>, <span style=color:#e6db74>&#39;Toy Land&#39;</span>, <span style=color:#e6db74>&#39;123 Any Street&#39;</span>, <span style=color:#e6db74>&#39;New York&#39;</span>, <span style=color:#e6db74>&#39;NY&#39;</span>, <span style=color:#e6db74>&#39;11111&#39;</span>, <span style=color:#e6db74>&#39;USA&#39;</span>,<span style=color:#66d9ef>NULL</span>,<span style=color:#66d9ef>NULL</span>);
-
-<span style=color:#75715e>-- 插入部分行
-</span><span style=color:#75715e></span><span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>INTO</span> Customers (cust_id, cust_name, cust_address, cust_city, cust_state, cust_zip)
-<span style=color:#66d9ef>VALUES</span> (<span style=color:#e6db74>&#39;1000000006&#39;</span>, <span style=color:#e6db74>&#39;Toy Land&#39;</span>, <span style=color:#e6db74>&#39;123 Any Street&#39;</span>, <span style=color:#e6db74>&#39;New York&#39;</span>, <span style=color:#e6db74>&#39;NY&#39;</span>, <span style=color:#e6db74>&#39;11111&#39;</span>);
-
-<span style=color:#75715e>-- 导入行（INSERT SELECT）
-</span><span style=color:#75715e></span><span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>INTO</span> Customers (cust_id, cust_name, cust_address, cust_city, cust_state, cust_zip)
-  <span style=color:#66d9ef>SELECT</span>
-    cust_id,
-    cust_name,
-    cust_address,
-    cust_city,
-    cust_state,
-    cust_zip
-  <span style=color:#66d9ef>FROM</span> CustNew;
-
-<span style=color:#75715e>-- 导出行（SELECT INTO）
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span>
-<span style=color:#66d9ef>INTO</span> CustNew
-<span style=color:#66d9ef>FROM</span> Customers;
-
-<span style=color:#75715e>/*16 更新和删除数据*/</span>
-
-<span style=color:#75715e>-- 更新指定行
-</span><span style=color:#75715e></span><span style=color:#66d9ef>UPDATE</span> Customers
-<span style=color:#66d9ef>SET</span> cust_contact <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;Sam Roberts&#39;</span>,
-  cust_email     <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;sam@toyland.com&#39;</span>
-<span style=color:#66d9ef>WHERE</span> cust_id <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;1000000006&#39;</span>;
-
-<span style=color:#66d9ef>UPDATE</span> account
-<span style=color:#66d9ef>SET</span> <span style=color:#e6db74>&#34;role&#34;</span> <span style=color:#f92672>=</span>
-<span style=color:#66d9ef>CASE</span> <span style=color:#e6db74>&#34;role&#34;</span>
-  <span style=color:#66d9ef>WHEN</span> <span style=color:#e6db74>&#39;USER1&#39;</span> <span style=color:#66d9ef>THEN</span> <span style=color:#e6db74>&#39;STAFF1&#39;</span>
-  <span style=color:#66d9ef>WHEN</span> <span style=color:#e6db74>&#39;USER2&#39;</span> <span style=color:#66d9ef>THEN</span> <span style=color:#e6db74>&#39;STAFF2&#39;</span>
-  <span style=color:#66d9ef>ELSE</span> <span style=color:#e6db74>&#34;role&#34;</span>
-<span style=color:#66d9ef>END</span>;
-
-<span style=color:#75715e>-- 删除指定行
-</span><span style=color:#75715e></span><span style=color:#66d9ef>DELETE</span> <span style=color:#66d9ef>FROM</span> Customers
-<span style=color:#66d9ef>WHERE</span> cust_id <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;1000000006&#39;</span>;
-
-<span style=color:#75715e>-- 删除所有行
-</span><span style=color:#75715e></span><span style=color:#66d9ef>TRUNCATE</span> <span style=color:#66d9ef>TABLE</span> Customers;
-
-<span style=color:#75715e>/*17 创建和操纵表*/</span>
-
-<span style=color:#75715e>/*18 视图*/</span>
-
-<span style=color:#75715e>-- 一张虚拟表，包含的不是数据，而是 SELECT 语句，用于动态检索数据，可以重用 SQL，简化复杂数据的处理
-</span><span style=color:#75715e></span>
-<span style=color:#75715e>-- 创建视图
-</span><span style=color:#75715e>-- 用于封装复杂的查询语句
-</span><span style=color:#75715e></span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>VIEW</span> ProductCustomers <span style=color:#66d9ef>AS</span>
-  <span style=color:#66d9ef>SELECT</span>
-    cust_name,
-    cust_contact,
-    prod_id
-  <span style=color:#66d9ef>FROM</span> Customers, Orders, OrderItems
-  <span style=color:#66d9ef>WHERE</span> Customers.cust_id <span style=color:#f92672>=</span> Orders.cust_id
-        <span style=color:#66d9ef>AND</span> OrderItems.order_num <span style=color:#f92672>=</span> Orders.order_num;
-<span style=color:#75715e>-- 用于简化计算字段
-</span><span style=color:#75715e></span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>VIEW</span> OrderItemsExpanded <span style=color:#66d9ef>AS</span>
-  <span style=color:#66d9ef>SELECT</span>
-    prod_id,
-    quantity,
-    item_price,
-    quantity <span style=color:#f92672>*</span> item_price <span style=color:#66d9ef>AS</span> expanded_price,
-    order_num
-  <span style=color:#66d9ef>FROM</span> OrderItems;
-<span style=color:#75715e>-- 用于格式化检索出的数据
-</span><span style=color:#75715e></span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>VIEW</span> VendorLocations <span style=color:#66d9ef>AS</span>
-  <span style=color:#66d9ef>SELECT</span> <span style=color:#66d9ef>TRIM</span>(vend_name) <span style=color:#f92672>||</span> <span style=color:#e6db74>&#39; (&#39;</span> <span style=color:#f92672>||</span> <span style=color:#66d9ef>TRIM</span>(vend_country) <span style=color:#f92672>||</span> <span style=color:#e6db74>&#39;)&#39;</span>
-    <span style=color:#66d9ef>AS</span> vend_title
-  <span style=color:#66d9ef>FROM</span> Vendors;
-
-<span style=color:#75715e>-- 使用视图
-</span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span>
-<span style=color:#66d9ef>FROM</span> ProductCustomers
-<span style=color:#66d9ef>WHERE</span> prod_id <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;RGAN01&#39;</span>;
-<span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span>
-<span style=color:#66d9ef>FROM</span> OrderItemsExpanded
-<span style=color:#66d9ef>WHERE</span> order_num <span style=color:#f92672>=</span> <span style=color:#ae81ff>20008</span>;
-<span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span>
-<span style=color:#66d9ef>FROM</span> VendorLocations;
-
-<span style=color:#75715e>-- 删除视图
-</span><span style=color:#75715e></span><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>VIEW</span> ProductCustomers;
-
-<span style=color:#75715e>/*19 存储过程*/</span>
-
-<span style=color:#75715e>/*20 事务处理*/</span>
-
-<span style=color:#75715e>/*21 游标*/</span>
-
-<span style=color:#75715e>/*22 SQL 特性*/</span>
-
-<span style=color:#75715e>-- 约束：管理如何插入或处理数据库数据
-</span><span style=color:#75715e>-- 主键
-</span><span style=color:#75715e></span><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> Vendors
-  <span style=color:#66d9ef>ADD</span> <span style=color:#66d9ef>PRIMARY</span> <span style=color:#66d9ef>KEY</span> (vend_id);
-<span style=color:#75715e>-- 外键
-</span><span style=color:#75715e></span><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> Orders
-  <span style=color:#66d9ef>ADD</span> <span style=color:#66d9ef>FOREIGN</span> <span style=color:#66d9ef>KEY</span> (cust_id) <span style=color:#66d9ef>REFERENCES</span> Customers (cust_id);
-<span style=color:#75715e>-- 检查约束
-</span><span style=color:#75715e></span><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> OrderItems
-  <span style=color:#66d9ef>ADD</span> <span style=color:#66d9ef>CHECK</span> (quantity <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>0</span>);
-<span style=color:#75715e>-- 唯一约束
-</span><span style=color:#75715e></span>
-<span style=color:#75715e>-- 索引：改善检索数据的性能
-</span><span style=color:#75715e>-- 用于对列进行过滤和排序
-</span><span style=color:#75715e>-- 取值范围越大的列做索引效果越好，比如姓名列就比性别列收益高
-</span><span style=color:#75715e></span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>INDEX</span> prod_name_ind
-  <span style=color:#66d9ef>ON</span> Products (prod_name);
-
-<span style=color:#75715e>-- 触发器：特殊的存储过程，在单表发生特定动作时自动执行
-</span><span style=color:#75715e>-- INSERT 时能够访问新数据
-</span><span style=color:#75715e>-- UPDATE 时能够访问新数据和旧数据
-</span><span style=color:#75715e>-- DELETE 时能够访问删除的数据
-</span><span style=color:#75715e></span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> emp (
-  empname   TEXT,
-  salary    INTEGER,
-  last_user TEXT,
-  last_date <span style=color:#66d9ef>TIMESTAMP</span>
-);
-
-<span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>FUNCTION</span> emp_stamp()
-  <span style=color:#66d9ef>RETURNS</span> <span style=color:#66d9ef>TRIGGER</span> <span style=color:#66d9ef>AS</span> <span style=color:#960050;background-color:#1e0010>$$</span>
-<span style=color:#66d9ef>BEGIN</span>
-
-  <span style=color:#66d9ef>IF</span> <span style=color:#66d9ef>NEW</span>.empname <span style=color:#66d9ef>IS</span> <span style=color:#66d9ef>NULL</span>
-  <span style=color:#66d9ef>THEN</span>
-    RAISE <span style=color:#66d9ef>EXCEPTION</span> <span style=color:#e6db74>&#39;empname cannot be null&#39;</span>;
-  <span style=color:#66d9ef>END</span> <span style=color:#66d9ef>IF</span>;
-  <span style=color:#66d9ef>IF</span> <span style=color:#66d9ef>NEW</span>.salary <span style=color:#66d9ef>IS</span> <span style=color:#66d9ef>NULL</span>
-  <span style=color:#66d9ef>THEN</span>
-    RAISE <span style=color:#66d9ef>EXCEPTION</span> <span style=color:#e6db74>&#39;% cannot have null salary&#39;</span>, <span style=color:#66d9ef>NEW</span>.empname;
-  <span style=color:#66d9ef>END</span> <span style=color:#66d9ef>IF</span>;
-  <span style=color:#66d9ef>IF</span> <span style=color:#66d9ef>NEW</span>.salary <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>0</span>
-  <span style=color:#66d9ef>THEN</span>
-    RAISE <span style=color:#66d9ef>EXCEPTION</span> <span style=color:#e6db74>&#39;% cannot have a negative salary&#39;</span>, <span style=color:#66d9ef>NEW</span>.empname;
-  <span style=color:#66d9ef>END</span> <span style=color:#66d9ef>IF</span>;
-
-  <span style=color:#75715e>-- 记录最后操作的人和日期
-</span><span style=color:#75715e></span>  <span style=color:#66d9ef>NEW</span>.last_user :<span style=color:#f92672>=</span> <span style=color:#66d9ef>current_user</span>;
-  <span style=color:#66d9ef>NEW</span>.last_date :<span style=color:#f92672>=</span> <span style=color:#66d9ef>current_timestamp</span>;
-  <span style=color:#66d9ef>RETURN</span> <span style=color:#66d9ef>NEW</span>;
-
-<span style=color:#66d9ef>END</span>;
-<span style=color:#960050;background-color:#1e0010>$$</span>
-<span style=color:#66d9ef>LANGUAGE</span> plpgsql;
-
-<span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TRIGGER</span> emp_stamp
-  <span style=color:#66d9ef>BEFORE</span> <span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>UPDATE</span>
-  <span style=color:#66d9ef>ON</span> emp
-  <span style=color:#66d9ef>FOR</span> <span style=color:#66d9ef>EACH</span> <span style=color:#66d9ef>ROW</span> <span style=color:#66d9ef>EXECUTE</span> <span style=color:#66d9ef>PROCEDURE</span> emp_stamp();
-</code></pre></div><h2 id=reference>Reference</h2>
-<ul>
-<li>SQL 风格
-<ul>
-<li><a href=https://www.sqlstyle.guide/zh/>https://www.sqlstyle.guide/zh/</a></li>
-<li><a href=https://launchbylunch.com/posts/2014/Feb/16/sql-naming-conventions/>https://launchbylunch.com/posts/2014/Feb/16/sql-naming-conventions/</a></li>
-</ul>
-</li>
-<li>SQL Select
-<ul>
-<li><a href=https://www.sqlite.org/lang_select.html#fromclause>https://www.sqlite.org/lang_select.html</a></li>
-<li><a href=https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-FROM>https://www.postgresql.org/docs/current/queries-table-expressions.html</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class=sharing style=text-align:center>
-<br>
-<p>捐赠支持</p>
-<p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p>
-<p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p>
-<img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%>
-<p></p><br>&copy; 2015-2020 XhstormR
-</div>
-</div>
-</div>
-</div>
-<div id=backtop><a href=# title>TOP</a></div>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#reference>Reference</a></li>
-</ul>
-</nav>
-<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script>
+<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache><head><meta charset=utf-8><meta name=renderer content="webkit"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>SQL 必知必会 &#183; XhstormR</title><link rel=alternate type=application/rss+xml title=XhstormR href><link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico><link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
+<script src=https://blog.xhstormr.tk/js/main.min.js async defer></script></head><body><div id=scriptHeader><span class="mobile btn-mobile-menu"><i class="fa fa-bars btn-mobile-menu__icon"></i>
+<i class="fa fa-times btn-mobile-close__icon hidden"></i></span><header class="panel-cover panel-cover--collapsed"><div class=panel-main><div class="panel-main__inner panel-inverted"><div class=panel-main__content><h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1><hr class=panel-cover__divider><p class=panel-cover__description>On a dark desert highway, cool wind in my hair.</p><hr class="panel-cover__divider panel-cover__divider--secondary"><div class=navigation-wrapper><nav class="cover-navigation cover-navigation--primary"><ul class=navigation><li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li></ul></nav></div></div></div><div class=panel-cover--overlay></div></div></header></div><div class=bodytop><div class=content-wrapper><div class=content-wrapper__inner><div class=post><h1>SQL 必知必会</h1><span class=post-date>2018-04-07</span><p>Updated on 2018-04-14</p><blockquote><p style=text-align:center><img data-src=/uploads/sql-query-order.png alt title="Select Query Order" data-action=zoom width=650></p><script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(e){e.setAttribute("src",e.getAttribute("data-src")),e.onload=function(){e.removeAttribute("data-src")}})</script><p><a href=https://zh.m.wikipedia.org/zh-cn/SQL>https://zh.m.wikipedia.org/zh-cn/SQL</a></p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#75715e>/*2 检索*/</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Products;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> prod_name
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Products;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- DISTINCT 去重，作用于所有列
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span> <span style=color:#66d9ef>DISTINCT</span> vend_id
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Products;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- LIMIT 限制数量，OFFSET 偏移数量
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span> prod_name
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Products
+</span></span><span style=display:flex><span><span style=color:#66d9ef>LIMIT</span> <span style=color:#ae81ff>5</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>OFFSET</span> <span style=color:#ae81ff>5</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>/*3 排序*/</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- ORDER BY 排序
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span> prod_name
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Products
+</span></span><span style=display:flex><span><span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>BY</span> prod_name;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 按多个列排序
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>  prod_id,
+</span></span><span style=display:flex><span>  prod_price,
+</span></span><span style=display:flex><span>  prod_name
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Products
+</span></span><span style=display:flex><span><span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>BY</span> prod_price, prod_name;
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 等同于
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>  prod_id,
+</span></span><span style=display:flex><span>  prod_price,
+</span></span><span style=display:flex><span>  prod_name
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Products
+</span></span><span style=display:flex><span><span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>BY</span> <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- DESC 降序排序（缺省为升序 ASC）
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>  prod_id,
+</span></span><span style=display:flex><span>  prod_price,
+</span></span><span style=display:flex><span>  prod_name
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Products
+</span></span><span style=display:flex><span><span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>BY</span> prod_price <span style=color:#66d9ef>DESC</span>, prod_name;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>/*4 过滤*/</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 检查单个值
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>  prod_name,
+</span></span><span style=display:flex><span>  prod_price
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Products
+</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> prod_price <span style=color:#f92672>=</span> <span style=color:#ae81ff>3</span>.<span style=color:#ae81ff>49</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>  prod_name,
+</span></span><span style=display:flex><span>  prod_price
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Products
+</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> prod_price <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>10</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 不匹配检查
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>  vend_id,
+</span></span><span style=display:flex><span>  prod_name
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Products
+</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> vend_id <span style=color:#f92672>!=</span> <span style=color:#e6db74>&#39;DLL01&#39;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 范围值检查
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>  prod_name,
+</span></span><span style=display:flex><span>  prod_price
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Products
+</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> prod_price <span style=color:#66d9ef>BETWEEN</span> <span style=color:#ae81ff>5</span> <span style=color:#66d9ef>AND</span> <span style=color:#ae81ff>10</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 空值检查
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span> cust_name
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> CUSTOMERS
+</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> cust_email <span style=color:#66d9ef>IS</span> <span style=color:#66d9ef>NULL</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>/*5 高级过滤*/</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- AND 且
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>  prod_name,
+</span></span><span style=display:flex><span>  prod_price
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Products
+</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> vend_id <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;DLL01&#39;</span> <span style=color:#66d9ef>AND</span> prod_price <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>4</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- OR 或
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>  prod_name,
+</span></span><span style=display:flex><span>  prod_price
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Products
+</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> vend_id <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;DLL01&#39;</span> <span style=color:#66d9ef>OR</span> vend_id <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;BRS01&#39;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- NOT 非，条件取反，可以否定（取反）任何条件
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>  prod_name,
+</span></span><span style=display:flex><span>  prod_price
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Products
+</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> <span style=color:#66d9ef>NOT</span> vend_id <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;FNG01&#39;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- IN 条件范围，与 OR 功能相当，推荐使用
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>  prod_name,
+</span></span><span style=display:flex><span>  prod_price
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Products
+</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> vend_id <span style=color:#66d9ef>IN</span> (<span style=color:#e6db74>&#39;DLL01&#39;</span>, <span style=color:#e6db74>&#39;BRS01&#39;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- () 条件组合，管理比较顺序
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>  prod_name,
+</span></span><span style=display:flex><span>  prod_price
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Products
+</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> (vend_id <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;DLL01&#39;</span> <span style=color:#66d9ef>OR</span> vend_id <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;BRS01&#39;</span>) <span style=color:#66d9ef>AND</span> prod_price <span style=color:#f92672>&gt;=</span> <span style=color:#ae81ff>10</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>/*6 通配符*/</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- LIKE 模式匹配，只能用于字符串。出于性能考虑，最好放在过滤条件的最后
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- % 多个字符（任意字符出现任意次数），注意不会匹配 NULL
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>  prod_id,
+</span></span><span style=display:flex><span>  prod_name
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Products
+</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> prod_name <span style=color:#66d9ef>LIKE</span> <span style=color:#e6db74>&#39;%teddy bear%&#39;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- _ 单个字符（不多也不少）
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>  prod_id,
+</span></span><span style=display:flex><span>  prod_name
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Products
+</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> prod_name <span style=color:#66d9ef>LIKE</span> <span style=color:#e6db74>&#39;__ inch teddy bear%&#39;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>/*7 创建计算字段*/</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- TRIM() 函数清除左右两边的空格
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- || 拼接字段
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- AS 使用别名
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span> vend_name <span style=color:#f92672>||</span> <span style=color:#e6db74>&#39; (&#39;</span> <span style=color:#f92672>||</span> vend_country <span style=color:#f92672>||</span> <span style=color:#e6db74>&#39;)&#39;</span> <span style=color:#66d9ef>AS</span> vend_title
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Vendors;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> <span style=color:#66d9ef>TRIM</span>(vend_name) <span style=color:#f92672>||</span> <span style=color:#e6db74>&#39; (&#39;</span> <span style=color:#f92672>||</span> <span style=color:#66d9ef>TRIM</span>(vend_country) <span style=color:#f92672>||</span> <span style=color:#e6db74>&#39;)&#39;</span> <span style=color:#66d9ef>AS</span> vend_title
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Vendors;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 执行数字计算
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>  prod_id,
+</span></span><span style=display:flex><span>  quantity,
+</span></span><span style=display:flex><span>  item_price,
+</span></span><span style=display:flex><span>  quantity <span style=color:#f92672>*</span> item_price <span style=color:#66d9ef>AS</span> expanded_price
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> OrderItems
+</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> order_num <span style=color:#f92672>=</span> <span style=color:#ae81ff>20008</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- SELECT 语句可以用于测试表达式
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span> <span style=color:#ae81ff>3</span> <span style=color:#f92672>*</span> <span style=color:#ae81ff>2</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> <span style=color:#66d9ef>TRIM</span>(<span style=color:#e6db74>&#39;  ABC  &#39;</span>);
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> NOW();
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> <span style=color:#66d9ef>CURRENT_DATE</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>/*8 函数*/</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 数值函数
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- 系统函数
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- 文本函数
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>  vend_name,
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>UPPER</span>(vend_name) <span style=color:#66d9ef>AS</span> vend_name_upcase
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Vendors;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 时间函数
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span> order_num
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Orders
+</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> DATE_PART(<span style=color:#e6db74>&#39;year&#39;</span>, order_date) <span style=color:#f92672>=</span> <span style=color:#ae81ff>2012</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>/*9 汇总数据*/</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 聚集函数
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- COUNT(*)      总行数
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- COUNT(column) 该列的行数（忽略 NULL）
+</span></span></span><span style=display:flex><span><span style=color:#75715e>--   SUM(column) 该列的总和
+</span></span></span><span style=display:flex><span><span style=color:#75715e>--   AVG(column) 该列的平均值
+</span></span></span><span style=display:flex><span><span style=color:#75715e>--   MAX(column) 该列的最大值
+</span></span></span><span style=display:flex><span><span style=color:#75715e>--   MIN(column) 该列的最小值
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- 聚集不同值
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- DISTINCT 去重（缺省为所有行 ALL）
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>COUNT</span>(<span style=color:#66d9ef>DISTINCT</span> prod_price) <span style=color:#66d9ef>AS</span> num_price_dist,
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>COUNT</span>(prod_price)          <span style=color:#66d9ef>AS</span> num_price,
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>AVG</span>(<span style=color:#66d9ef>DISTINCT</span> prod_price)   <span style=color:#66d9ef>AS</span> avg_price_dist,
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>AVG</span>(prod_price)            <span style=color:#66d9ef>AS</span> avg_price,
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>MAX</span>(prod_price)            <span style=color:#66d9ef>AS</span> max_price,
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>MIN</span>(prod_price)            <span style=color:#66d9ef>AS</span> min_price,
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>SUM</span>(prod_price)            <span style=color:#66d9ef>AS</span> sum_price
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Products
+</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> vend_id <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;DLL01&#39;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> <span style=color:#66d9ef>SUM</span>(item_price <span style=color:#f92672>*</span> quantity) <span style=color:#66d9ef>AS</span> total_price
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> OrderItems
+</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> order_num <span style=color:#f92672>=</span> <span style=color:#ae81ff>20005</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>/*10 分组数据*/</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 创建分组
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- GROUP BY 子句指示 DBMS 进行数据分组，然后对每个组进行聚集，而不是对整个结果集
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- GROUP BY x 根据 x 列进行分组
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- GROUP BY x, y 根据 x 列和 y 列进行分组（将 x 列和 y 列的值视为一个整体来分组）
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>  vend_id,
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>COUNT</span>(<span style=color:#f92672>*</span>) <span style=color:#66d9ef>AS</span> num_prods
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Products
+</span></span><span style=display:flex><span><span style=color:#66d9ef>GROUP</span> <span style=color:#66d9ef>BY</span> vend_id;
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 等同于
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>  vend_id,
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>COUNT</span>(<span style=color:#f92672>*</span>) <span style=color:#66d9ef>AS</span> num_prods
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Products
+</span></span><span style=display:flex><span><span style=color:#66d9ef>GROUP</span> <span style=color:#66d9ef>BY</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 过滤分组
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- WHERE  过滤行，
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- HAVING 过滤组；
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- WHERE  在数据分组前进行过滤，
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- HAVING 在数据分组后进行过滤。
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>  vend_id,
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>COUNT</span>(<span style=color:#f92672>*</span>) <span style=color:#66d9ef>AS</span> num_prods <span style=color:#75715e>-- 计数
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>FROM</span> Products
+</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> prod_price <span style=color:#f92672>&gt;=</span> <span style=color:#ae81ff>4</span> <span style=color:#75715e>-- 过滤（行级）
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>GROUP</span> <span style=color:#66d9ef>BY</span> <span style=color:#ae81ff>1</span> <span style=color:#75715e>-- 分组
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>HAVING</span> <span style=color:#66d9ef>COUNT</span>(<span style=color:#f92672>*</span>) <span style=color:#f92672>&gt;=</span> <span style=color:#ae81ff>2</span> <span style=color:#75715e>-- 过滤（组级）
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>BY</span> num_prods, <span style=color:#ae81ff>1</span> <span style=color:#66d9ef>DESC</span>; <span style=color:#75715e>-- 排序
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#75715e>/*11 子查询*/</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 子查询：嵌套在其他查询中的查询，只能查询单个列，总是由内向外进行处理
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- 子查询性能不好，推荐使用联结（JOIN）
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 填充 IN 操作符
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- 显示订购产品 RGAN01 的顾客列表
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span> order_num
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> OrderItems
+</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> prod_id <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;RGAN01&#39;</span>;
+</span></span><span style=display:flex><span><span style=color:#75715e>-- +
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span> cust_id
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Orders
+</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> order_num <span style=color:#66d9ef>IN</span> (<span style=color:#ae81ff>20007</span>, <span style=color:#ae81ff>20008</span>);
+</span></span><span style=display:flex><span><span style=color:#75715e>-- =
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span> cust_id
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Orders
+</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> order_num <span style=color:#66d9ef>IN</span> (<span style=color:#66d9ef>SELECT</span> order_num
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>FROM</span> OrderItems
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>WHERE</span> prod_id <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;RGAN01&#39;</span>);
+</span></span><span style=display:flex><span><span style=color:#75715e>-- +
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>  cust_name,
+</span></span><span style=display:flex><span>  cust_contact
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Customers
+</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> cust_id <span style=color:#66d9ef>IN</span> (<span style=color:#e6db74>&#39;1000000004&#39;</span>, <span style=color:#e6db74>&#39;1000000005&#39;</span>);
+</span></span><span style=display:flex><span><span style=color:#75715e>-- =
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>  cust_name,
+</span></span><span style=display:flex><span>  cust_contact
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Customers
+</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> cust_id <span style=color:#66d9ef>IN</span> (<span style=color:#66d9ef>SELECT</span> cust_id
+</span></span><span style=display:flex><span>                  <span style=color:#66d9ef>FROM</span> Orders
+</span></span><span style=display:flex><span>                  <span style=color:#66d9ef>WHERE</span> order_num <span style=color:#66d9ef>IN</span> (<span style=color:#66d9ef>SELECT</span> order_num
+</span></span><span style=display:flex><span>                                      <span style=color:#66d9ef>FROM</span> OrderItems
+</span></span><span style=display:flex><span>                                      <span style=color:#66d9ef>WHERE</span> prod_id <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;RGAN01&#39;</span>));
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 填充计算列
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span> <span style=color:#66d9ef>COUNT</span>(<span style=color:#f92672>*</span>) <span style=color:#66d9ef>AS</span> orders
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Orders
+</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> cust_id <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;1000000001&#39;</span>;
+</span></span><span style=display:flex><span><span style=color:#75715e>-- +
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>  cust_name,
+</span></span><span style=display:flex><span>  cust_state
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Customers;
+</span></span><span style=display:flex><span><span style=color:#75715e>-- =
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>  cust_name,
+</span></span><span style=display:flex><span>  cust_state,
+</span></span><span style=display:flex><span>  (<span style=color:#66d9ef>SELECT</span> <span style=color:#66d9ef>COUNT</span>(<span style=color:#f92672>*</span>)
+</span></span><span style=display:flex><span>   <span style=color:#66d9ef>FROM</span> Orders
+</span></span><span style=display:flex><span>   <span style=color:#66d9ef>WHERE</span> Orders.cust_id <span style=color:#f92672>=</span> Customers.cust_id) <span style=color:#66d9ef>AS</span> orders <span style=color:#75715e>-- 避免歧义
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>FROM</span> Customers;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>/*12 联结表*/</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 联结机制：在一条 SELECT 语句中关联多个表中配对成功的行，返回一组输出
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- 联结方式：首先列出所有表，然后定义表之间的配对条件
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- 注意：
+</span></span></span><span style=display:flex><span><span style=color:#75715e>--    ON 只用于连接行（联结）
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- WHERE 只用于过滤行
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 显示订购产品 RGAN01 的顾客列表
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- 等值联结（内联结）
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>  cust_name,
+</span></span><span style=display:flex><span>  cust_contact
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Orders, Customers, OrderItems
+</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> prod_id <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;RGAN01&#39;</span>
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>AND</span> Orders.order_num <span style=color:#f92672>=</span> OrderItems.order_num
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>AND</span> Orders.cust_id <span style=color:#f92672>=</span> Customers.cust_id;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 简单格式
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>  vend_name,
+</span></span><span style=display:flex><span>  prod_name
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Vendors, Products
+</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> Vendors.vend_id <span style=color:#f92672>=</span> Products.vend_id;
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 等同于
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- 标准格式
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>  vend_name,
+</span></span><span style=display:flex><span>  prod_name
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Vendors
+</span></span><span style=display:flex><span>  <span style=color:#75715e>-- 联结机制
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>INNER</span> <span style=color:#66d9ef>JOIN</span> Products
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>ON</span> Vendors.vend_id <span style=color:#f92672>=</span> Products.vend_id; <span style=color:#75715e>-- 配对条件
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#75715e>/*13 高级联结*/</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 自联结（self-join）
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- 多次引用相同的表
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>  c1.cust_id,
+</span></span><span style=display:flex><span>  c1.cust_name,
+</span></span><span style=display:flex><span>  c1.cust_contact
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Customers <span style=color:#66d9ef>AS</span> c1, Customers <span style=color:#66d9ef>AS</span> c2
+</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> c2.cust_contact <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;Jim Jones&#39;</span>
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>AND</span> c1.cust_name <span style=color:#f92672>=</span> c2.cust_name;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 自然联结（natural join）
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- 等值联结（内联结）的特例化
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- 联结时，自动比较名称相同的列
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- 输出时，自动去除名称相同的列
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Vendors
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>NATURAL</span> <span style=color:#66d9ef>JOIN</span> Products;
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 对比
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Vendors
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>INNER</span> <span style=color:#66d9ef>JOIN</span> Products
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>ON</span> Vendors.vend_id <span style=color:#f92672>=</span> Products.vend_id;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>  cust_name,
+</span></span><span style=display:flex><span>  cust_contact
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Orders
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>NATURAL</span> <span style=color:#66d9ef>JOIN</span> Customers
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>NATURAL</span> <span style=color:#66d9ef>JOIN</span> OrderItems
+</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> prod_id <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;RGAN01&#39;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 外联结（outer join）
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- 全外联结：内联结 + 全部表没有配对成功的行（FULL）
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- 左外联结：内联结 + 左边表没有配对成功的行（LEFT）
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- 右外联结：内联结 + 右边表没有配对成功的行（RIGHT）
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- 左外联结和右外联结可以交换使用，区别在于关联表的顺序
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>  Customers.cust_id,
+</span></span><span style=display:flex><span>  Orders.order_num
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Customers
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>LEFT</span> <span style=color:#66d9ef>OUTER</span> <span style=color:#66d9ef>JOIN</span> Orders
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>ON</span> Customers.cust_id <span style=color:#f92672>=</span> Orders.cust_id;
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 等同于
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>  Customers.cust_id,
+</span></span><span style=display:flex><span>  Orders.order_num
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Orders
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>RIGHT</span> <span style=color:#66d9ef>OUTER</span> <span style=color:#66d9ef>JOIN</span> Customers
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>ON</span> Customers.cust_id <span style=color:#f92672>=</span> Orders.cust_id;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 带有聚集函数的联结
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>  Customers.cust_id,
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>COUNT</span>(Orders.order_num) <span style=color:#66d9ef>AS</span> num_ord
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Customers
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>LEFT</span> <span style=color:#66d9ef>OUTER</span> <span style=color:#66d9ef>JOIN</span> Orders
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>ON</span> Customers.cust_id <span style=color:#f92672>=</span> Orders.cust_id
+</span></span><span style=display:flex><span><span style=color:#66d9ef>GROUP</span> <span style=color:#66d9ef>BY</span> Customers.cust_id
+</span></span><span style=display:flex><span><span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>BY</span> <span style=color:#ae81ff>2</span> <span style=color:#66d9ef>DESC</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>/*14 组合查询*/</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 并（union）：执行多条 SELECT 语句，并合并为一个结果集
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- UNION 和 WHERE 的多个 OR 条件所完成的工作相同
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- UNION     无重复行，
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- UNION ALL 有重复行。
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>  cust_name,
+</span></span><span style=display:flex><span>  cust_contact
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Customers
+</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> cust_state <span style=color:#66d9ef>IN</span> (<span style=color:#e6db74>&#39;IL&#39;</span>, <span style=color:#e6db74>&#39;IN&#39;</span>, <span style=color:#e6db74>&#39;MI&#39;</span>)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>UNION</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>  cust_name,
+</span></span><span style=display:flex><span>  cust_contact
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Customers
+</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> cust_name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;Fun4All&#39;</span>;
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 等同于
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>  cust_name,
+</span></span><span style=display:flex><span>  cust_contact
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Customers
+</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> cust_state <span style=color:#66d9ef>IN</span> (<span style=color:#e6db74>&#39;IL&#39;</span>, <span style=color:#e6db74>&#39;IN&#39;</span>, <span style=color:#e6db74>&#39;MI&#39;</span>)
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>OR</span> cust_name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;Fun4All&#39;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>/*15 插入数据*/</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 插入完整行
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>INTO</span> Customers
+</span></span><span style=display:flex><span><span style=color:#66d9ef>VALUES</span> (<span style=color:#e6db74>&#39;1000000006&#39;</span>, <span style=color:#e6db74>&#39;Toy Land&#39;</span>, <span style=color:#e6db74>&#39;123 Any Street&#39;</span>, <span style=color:#e6db74>&#39;New York&#39;</span>, <span style=color:#e6db74>&#39;NY&#39;</span>, <span style=color:#e6db74>&#39;11111&#39;</span>, <span style=color:#e6db74>&#39;USA&#39;</span>,<span style=color:#66d9ef>NULL</span>,<span style=color:#66d9ef>NULL</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 插入部分行
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>INTO</span> Customers (cust_id, cust_name, cust_address, cust_city, cust_state, cust_zip)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>VALUES</span> (<span style=color:#e6db74>&#39;1000000006&#39;</span>, <span style=color:#e6db74>&#39;Toy Land&#39;</span>, <span style=color:#e6db74>&#39;123 Any Street&#39;</span>, <span style=color:#e6db74>&#39;New York&#39;</span>, <span style=color:#e6db74>&#39;NY&#39;</span>, <span style=color:#e6db74>&#39;11111&#39;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 导入行（INSERT SELECT）
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>INTO</span> Customers (cust_id, cust_name, cust_address, cust_city, cust_state, cust_zip)
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>    cust_id,
+</span></span><span style=display:flex><span>    cust_name,
+</span></span><span style=display:flex><span>    cust_address,
+</span></span><span style=display:flex><span>    cust_city,
+</span></span><span style=display:flex><span>    cust_state,
+</span></span><span style=display:flex><span>    cust_zip
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>FROM</span> CustNew;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 导出行（SELECT INTO）
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>INTO</span> CustNew
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> Customers;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>/*16 更新和删除数据*/</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 更新指定行
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>UPDATE</span> Customers
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SET</span> cust_contact <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;Sam Roberts&#39;</span>,
+</span></span><span style=display:flex><span>  cust_email     <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;sam@toyland.com&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> cust_id <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;1000000006&#39;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>UPDATE</span> account
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SET</span> <span style=color:#e6db74>&#34;role&#34;</span> <span style=color:#f92672>=</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CASE</span> <span style=color:#e6db74>&#34;role&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>WHEN</span> <span style=color:#e6db74>&#39;USER1&#39;</span> <span style=color:#66d9ef>THEN</span> <span style=color:#e6db74>&#39;STAFF1&#39;</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>WHEN</span> <span style=color:#e6db74>&#39;USER2&#39;</span> <span style=color:#66d9ef>THEN</span> <span style=color:#e6db74>&#39;STAFF2&#39;</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>ELSE</span> <span style=color:#e6db74>&#34;role&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>END</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 删除指定行
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>DELETE</span> <span style=color:#66d9ef>FROM</span> Customers
+</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> cust_id <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;1000000006&#39;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 删除所有行
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>TRUNCATE</span> <span style=color:#66d9ef>TABLE</span> Customers;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>/*17 创建和操纵表*/</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>/*18 视图*/</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 一张虚拟表，包含的不是数据，而是 SELECT 语句，用于动态检索数据，可以重用 SQL，简化复杂数据的处理
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 创建视图
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- 用于封装复杂的查询语句
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>VIEW</span> ProductCustomers <span style=color:#66d9ef>AS</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>    cust_name,
+</span></span><span style=display:flex><span>    cust_contact,
+</span></span><span style=display:flex><span>    prod_id
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>FROM</span> Customers, Orders, OrderItems
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>WHERE</span> Customers.cust_id <span style=color:#f92672>=</span> Orders.cust_id
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>AND</span> OrderItems.order_num <span style=color:#f92672>=</span> Orders.order_num;
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 用于简化计算字段
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>VIEW</span> OrderItemsExpanded <span style=color:#66d9ef>AS</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>    prod_id,
+</span></span><span style=display:flex><span>    quantity,
+</span></span><span style=display:flex><span>    item_price,
+</span></span><span style=display:flex><span>    quantity <span style=color:#f92672>*</span> item_price <span style=color:#66d9ef>AS</span> expanded_price,
+</span></span><span style=display:flex><span>    order_num
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>FROM</span> OrderItems;
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 用于格式化检索出的数据
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>VIEW</span> VendorLocations <span style=color:#66d9ef>AS</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>SELECT</span> <span style=color:#66d9ef>TRIM</span>(vend_name) <span style=color:#f92672>||</span> <span style=color:#e6db74>&#39; (&#39;</span> <span style=color:#f92672>||</span> <span style=color:#66d9ef>TRIM</span>(vend_country) <span style=color:#f92672>||</span> <span style=color:#e6db74>&#39;)&#39;</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>AS</span> vend_title
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>FROM</span> Vendors;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 使用视图
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> ProductCustomers
+</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> prod_id <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;RGAN01&#39;</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> OrderItemsExpanded
+</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> order_num <span style=color:#f92672>=</span> <span style=color:#ae81ff>20008</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> VendorLocations;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 删除视图
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>VIEW</span> ProductCustomers;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>/*19 存储过程*/</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>/*20 事务处理*/</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>/*21 游标*/</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>/*22 SQL 特性*/</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 约束：管理如何插入或处理数据库数据
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- 主键
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> Vendors
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>ADD</span> <span style=color:#66d9ef>PRIMARY</span> <span style=color:#66d9ef>KEY</span> (vend_id);
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 外键
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> Orders
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>ADD</span> <span style=color:#66d9ef>FOREIGN</span> <span style=color:#66d9ef>KEY</span> (cust_id) <span style=color:#66d9ef>REFERENCES</span> Customers (cust_id);
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 检查约束
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> OrderItems
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>ADD</span> <span style=color:#66d9ef>CHECK</span> (quantity <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 唯一约束
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 索引：改善检索数据的性能
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- 用于对列进行过滤和排序
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- 取值范围越大的列做索引效果越好，比如姓名列就比性别列收益高
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>INDEX</span> prod_name_ind
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>ON</span> Products (prod_name);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-- 触发器：特殊的存储过程，在单表发生特定动作时自动执行
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- INSERT 时能够访问新数据
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- UPDATE 时能够访问新数据和旧数据
+</span></span></span><span style=display:flex><span><span style=color:#75715e>-- DELETE 时能够访问删除的数据
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> emp (
+</span></span><span style=display:flex><span>  empname   TEXT,
+</span></span><span style=display:flex><span>  salary    INTEGER,
+</span></span><span style=display:flex><span>  last_user TEXT,
+</span></span><span style=display:flex><span>  last_date <span style=color:#66d9ef>TIMESTAMP</span>
+</span></span><span style=display:flex><span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>FUNCTION</span> emp_stamp()
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>RETURNS</span> <span style=color:#66d9ef>TRIGGER</span> <span style=color:#66d9ef>AS</span> <span style=color:#960050;background-color:#1e0010>$$</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>BEGIN</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>IF</span> <span style=color:#66d9ef>NEW</span>.empname <span style=color:#66d9ef>IS</span> <span style=color:#66d9ef>NULL</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>THEN</span>
+</span></span><span style=display:flex><span>    RAISE <span style=color:#66d9ef>EXCEPTION</span> <span style=color:#e6db74>&#39;empname cannot be null&#39;</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>END</span> <span style=color:#66d9ef>IF</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>IF</span> <span style=color:#66d9ef>NEW</span>.salary <span style=color:#66d9ef>IS</span> <span style=color:#66d9ef>NULL</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>THEN</span>
+</span></span><span style=display:flex><span>    RAISE <span style=color:#66d9ef>EXCEPTION</span> <span style=color:#e6db74>&#39;% cannot have null salary&#39;</span>, <span style=color:#66d9ef>NEW</span>.empname;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>END</span> <span style=color:#66d9ef>IF</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>IF</span> <span style=color:#66d9ef>NEW</span>.salary <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>THEN</span>
+</span></span><span style=display:flex><span>    RAISE <span style=color:#66d9ef>EXCEPTION</span> <span style=color:#e6db74>&#39;% cannot have a negative salary&#39;</span>, <span style=color:#66d9ef>NEW</span>.empname;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>END</span> <span style=color:#66d9ef>IF</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#75715e>-- 记录最后操作的人和日期
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>NEW</span>.last_user :<span style=color:#f92672>=</span> <span style=color:#66d9ef>current_user</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>NEW</span>.last_date :<span style=color:#f92672>=</span> <span style=color:#66d9ef>current_timestamp</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>RETURN</span> <span style=color:#66d9ef>NEW</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>END</span>;
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>$$</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>LANGUAGE</span> plpgsql;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TRIGGER</span> emp_stamp
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>BEFORE</span> <span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>UPDATE</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>ON</span> emp
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>FOR</span> <span style=color:#66d9ef>EACH</span> <span style=color:#66d9ef>ROW</span> <span style=color:#66d9ef>EXECUTE</span> <span style=color:#66d9ef>PROCEDURE</span> emp_stamp();
+</span></span></code></pre></div><h2 id=reference>Reference</h2><ul><li>SQL 风格<ul><li><a href=https://www.sqlstyle.guide/zh/>https://www.sqlstyle.guide/zh/</a></li><li><a href=https://launchbylunch.com/posts/2014/Feb/16/sql-naming-conventions/>https://launchbylunch.com/posts/2014/Feb/16/sql-naming-conventions/</a></li></ul></li><li>SQL Select<ul><li><a href=https://www.sqlite.org/lang_select.html#fromclause>https://www.sqlite.org/lang_select.html</a></li><li><a href=https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-FROM>https://www.postgresql.org/docs/current/queries-table-expressions.html</a></li></ul></li></ul></div><div class=sharing style=text-align:center><br><p>捐赠支持</p><p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p><p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p><img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%><p></p><br>&copy; 2015-2020 XhstormR</div></div></div></div><div id=backtop><a href=# title>TOP</a></div><nav id=TableOfContents><ul><li><a href=#reference>Reference</a></li></ul></nav><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script>
-<script>hljs.initHighlightingOnLoad()</script>
-<script src=https://blog.xhstormr.tk/js/zoom.min.js></script>
-<script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script>
-<script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script>
-</body>
-</html>
+<script>hljs.initHighlightingOnLoad()</script><script src=https://blog.xhstormr.tk/js/zoom.min.js></script>
+<script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script><script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script></body></html>

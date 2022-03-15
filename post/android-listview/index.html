@@ -1,403 +1,317 @@
-<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache>
-<head>
-<meta charset=utf-8>
-<meta name=renderer content="webkit">
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title> Android 异步加载 &#183; XhstormR </title>
-<link rel=alternate type=application/rss+xml title=XhstormR href>
-<link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico>
-<link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css>
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css>
-<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
-<script src=https://blog.xhstormr.tk/js/main.min.js async defer></script>
-</head>
-<body>
-<div id=scriptHeader>
-<span class="mobile btn-mobile-menu">
-<i class="fa fa-bars btn-mobile-menu__icon"></i>
-<i class="fa fa-times btn-mobile-close__icon hidden"></i>
-</span>
-<header class="panel-cover panel-cover--collapsed">
-<div class=panel-main>
-<div class="panel-main__inner panel-inverted">
-<div class=panel-main__content>
-<h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1>
-<hr class=panel-cover__divider>
-<p class=panel-cover__description> On a dark desert highway, cool wind in my hair. </p>
-<hr class="panel-cover__divider panel-cover__divider--secondary">
-<div class=navigation-wrapper>
-<nav class="cover-navigation cover-navigation--primary">
-<ul class=navigation>
-<li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li>
-</ul>
-</nav>
-</div>
-</div>
-</div>
-<div class=panel-cover--overlay></div>
-</div>
-</header>
-</div>
-<div class=bodytop>
-<div class=content-wrapper>
-<div class=content-wrapper__inner>
-<div class=post>
-<h1>Android 异步加载</h1>
-<span class=post-date>2016-09-28</span>
-<p>Updated on 2016-09-28</p>
-<blockquote>
-<p>AsyncTask 异步访问网络</p>
-<p>LruCache 内存缓存图片</p>
-<p>ListView 加载图片（滚动状态，静止状态）</p>
-<p>BaseAdapter 缓存页面（convertView，ViewHolder）</p>
-</blockquote>
-<h2 id=mainactivityjava>MainActivity.java</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MainActivity</span> <span style=color:#66d9ef>extends</span> Activity <span style=color:#f92672>{</span>
-    <span style=color:#66d9ef>private</span> ListView mListView<span style=color:#f92672>;</span>
-
-    <span style=color:#a6e22e>@Override</span>
-    <span style=color:#66d9ef>protected</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onCreate</span><span style=color:#f92672>(</span>Bundle savedInstanceState<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
-        <span style=color:#66d9ef>super</span><span style=color:#f92672>.</span><span style=color:#a6e22e>onCreate</span><span style=color:#f92672>(</span>savedInstanceState<span style=color:#f92672>);</span>
-        setContentView<span style=color:#f92672>(</span>R<span style=color:#f92672>.</span><span style=color:#a6e22e>layout</span><span style=color:#f92672>.</span><span style=color:#a6e22e>activity_main</span><span style=color:#f92672>);</span>
-
-        mListView <span style=color:#f92672>=</span> <span style=color:#f92672>(</span>ListView<span style=color:#f92672>)</span> findViewById<span style=color:#f92672>(</span>R<span style=color:#f92672>.</span><span style=color:#a6e22e>id</span><span style=color:#f92672>.</span><span style=color:#a6e22e>list_item</span><span style=color:#f92672>);</span>
-
-        <span style=color:#66d9ef>new</span> NewsAsyncTask<span style=color:#f92672>().</span><span style=color:#a6e22e>execute</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;http://www.imooc.com/api/teacher?type=4&amp;num=30&#34;</span><span style=color:#f92672>);</span>     开始异步任务
-    <span style=color:#f92672>}</span>
-                                                                           输入参数<span style=color:#960050;background-color:#1e0010>，</span>执行进度<span style=color:#960050;background-color:#1e0010>，</span>返回结果
-    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>NewsAsyncTask</span> <span style=color:#66d9ef>extends</span> AsyncTask<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>,</span> Void<span style=color:#f92672>,</span> List<span style=color:#f92672>&lt;</span>CourseBean<span style=color:#f92672>&gt;&gt;</span> <span style=color:#f92672>{</span>
-        <span style=color:#a6e22e>@Override</span>
-        <span style=color:#66d9ef>protected</span> List<span style=color:#f92672>&lt;</span>CourseBean<span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>doInBackground</span><span style=color:#f92672>(</span>String<span style=color:#f92672>...</span> params<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>     获得 ListView 的 Item 列表
-            List<span style=color:#f92672>&lt;</span>CourseBean<span style=color:#f92672>&gt;</span> courseBeanList <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ArrayList<span style=color:#f92672>&lt;&gt;();</span>
-
-            <span style=color:#66d9ef>try</span> <span style=color:#f92672>{</span>
-                StringBuilder stringBuilder <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> StringBuilder<span style=color:#f92672>();</span>     下载 JSON
-                BufferedReader bufferedReader <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> BufferedReader<span style=color:#f92672>(</span><span style=color:#66d9ef>new</span> InputStreamReader<span style=color:#f92672>(</span><span style=color:#66d9ef>new</span> URL<span style=color:#f92672>(</span>params<span style=color:#f92672>[</span>0<span style=color:#f92672>]).</span><span style=color:#a6e22e>openStream</span><span style=color:#f92672>(),</span> <span style=color:#e6db74>&#34;utf-8&#34;</span><span style=color:#f92672>));</span>
-                <span style=color:#66d9ef>for</span> <span style=color:#f92672>(</span>String s<span style=color:#f92672>;</span> <span style=color:#f92672>(</span>s <span style=color:#f92672>=</span> bufferedReader<span style=color:#f92672>.</span><span style=color:#a6e22e>readLine</span><span style=color:#f92672>())</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>null</span><span style=color:#f92672>;</span> <span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
-                    stringBuilder<span style=color:#f92672>.</span><span style=color:#a6e22e>append</span><span style=color:#f92672>(</span>s<span style=color:#f92672>);</span>
-                <span style=color:#f92672>}</span>
-                bufferedReader<span style=color:#f92672>.</span><span style=color:#a6e22e>close</span><span style=color:#f92672>();</span>
-
-                JSONObject jsonObject <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> JSONObject<span style=color:#f92672>(</span>stringBuilder<span style=color:#f92672>.</span><span style=color:#a6e22e>toString</span><span style=color:#f92672>());</span>     解析 JSON
-                JSONArray jsonArray <span style=color:#f92672>=</span> jsonObject<span style=color:#f92672>.</span><span style=color:#a6e22e>getJSONArray</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;data&#34;</span><span style=color:#f92672>);</span>
-                <span style=color:#66d9ef>for</span> <span style=color:#f92672>(</span><span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 0<span style=color:#f92672>;</span> i <span style=color:#f92672>&lt;</span> jsonArray<span style=color:#f92672>.</span><span style=color:#a6e22e>length</span><span style=color:#f92672>();</span> i<span style=color:#f92672>++)</span> <span style=color:#f92672>{</span>
-                    JSONObject dataJsonObject <span style=color:#f92672>=</span> jsonArray<span style=color:#f92672>.</span><span style=color:#a6e22e>getJSONObject</span><span style=color:#f92672>(</span>i<span style=color:#f92672>);</span>
-                    courseBeanList<span style=color:#f92672>.</span><span style=color:#a6e22e>add</span><span style=color:#f92672>(</span><span style=color:#66d9ef>new</span> CourseBean<span style=color:#f92672>(</span>dataJsonObject<span style=color:#f92672>.</span><span style=color:#a6e22e>getString</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;picSmall&#34;</span><span style=color:#f92672>),</span> dataJsonObject<span style=color:#f92672>.</span><span style=color:#a6e22e>getString</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;name&#34;</span><span style=color:#f92672>),</span> dataJsonObject<span style=color:#f92672>.</span><span style=color:#a6e22e>getString</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;description&#34;</span><span style=color:#f92672>)));</span>
-                <span style=color:#f92672>}</span>
-            <span style=color:#f92672>}</span> <span style=color:#66d9ef>catch</span> <span style=color:#f92672>(</span>IOException <span style=color:#f92672>|</span> JSONException e<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
-                e<span style=color:#f92672>.</span><span style=color:#a6e22e>printStackTrace</span><span style=color:#f92672>();</span>
-            <span style=color:#f92672>}</span>
-
-            <span style=color:#66d9ef>return</span> courseBeanList<span style=color:#f92672>;</span>     返回结果给 onPostExecute
-        <span style=color:#f92672>}</span>
-
-        <span style=color:#a6e22e>@Override</span>
-        <span style=color:#66d9ef>protected</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onPostExecute</span><span style=color:#f92672>(</span>List<span style=color:#f92672>&lt;</span>CourseBean<span style=color:#f92672>&gt;</span> courseBeanList<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>     返回结果
-            <span style=color:#66d9ef>super</span><span style=color:#f92672>.</span><span style=color:#a6e22e>onPostExecute</span><span style=color:#f92672>(</span>courseBeanList<span style=color:#f92672>);</span>
-            ListAdapter listAdapter <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ListAdapter<span style=color:#f92672>(</span>MainActivity<span style=color:#f92672>.</span><span style=color:#a6e22e>this</span><span style=color:#f92672>,</span> courseBeanList<span style=color:#f92672>,</span> mListView<span style=color:#f92672>);</span>     自定义适配器
-            mListView<span style=color:#f92672>.</span><span style=color:#a6e22e>setAdapter</span><span style=color:#f92672>(</span>listAdapter<span style=color:#f92672>);</span>     将控件与适配器绑定
-        <span style=color:#f92672>}</span>
-    <span style=color:#f92672>}</span>
-<span style=color:#f92672>}</span>
-</code></pre></div><h2 id=coursebeanjava>CourseBean.java</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>CourseBean</span> <span style=color:#f92672>{</span>
-    <span style=color:#66d9ef>private</span> String ImageURL<span style=color:#f92672>;</span>
-    <span style=color:#66d9ef>private</span> String Title<span style=color:#f92672>;</span>
-    <span style=color:#66d9ef>private</span> String Content<span style=color:#f92672>;</span>
-
-    <span style=color:#66d9ef>public</span> <span style=color:#a6e22e>CourseBean</span><span style=color:#f92672>(</span>String imageURL<span style=color:#f92672>,</span> String title<span style=color:#f92672>,</span> String content<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
-        ImageURL <span style=color:#f92672>=</span> imageURL<span style=color:#f92672>;</span>
-        Title <span style=color:#f92672>=</span> title<span style=color:#f92672>;</span>
-        Content <span style=color:#f92672>=</span> content<span style=color:#f92672>;</span>
-    <span style=color:#f92672>}</span>
-
-    <span style=color:#a6e22e>@Override</span>
-    <span style=color:#66d9ef>public</span> String <span style=color:#a6e22e>toString</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
-        <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;CourseBean{&#34;</span> <span style=color:#f92672>+</span>
-                <span style=color:#e6db74>&#34;ImageURL=&#39;&#34;</span> <span style=color:#f92672>+</span> ImageURL <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39;\&#39;&#39;</span> <span style=color:#f92672>+</span>
-                <span style=color:#e6db74>&#34;, Title=&#39;&#34;</span> <span style=color:#f92672>+</span> Title <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39;\&#39;&#39;</span> <span style=color:#f92672>+</span>
-                <span style=color:#e6db74>&#34;, Content=&#39;&#34;</span> <span style=color:#f92672>+</span> Content <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39;\&#39;&#39;</span> <span style=color:#f92672>+</span>
-                <span style=color:#e6db74>&#39;}&#39;</span><span style=color:#f92672>;</span>
-    <span style=color:#f92672>}</span>
-
-    <span style=color:#66d9ef>public</span> String <span style=color:#a6e22e>getImageURL</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
-        <span style=color:#66d9ef>return</span> ImageURL<span style=color:#f92672>;</span>
-    <span style=color:#f92672>}</span>
-
-    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>setImageURL</span><span style=color:#f92672>(</span>String imageURL<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
-        ImageURL <span style=color:#f92672>=</span> imageURL<span style=color:#f92672>;</span>
-    <span style=color:#f92672>}</span>
-
-    <span style=color:#66d9ef>public</span> String <span style=color:#a6e22e>getTitle</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
-        <span style=color:#66d9ef>return</span> Title<span style=color:#f92672>;</span>
-    <span style=color:#f92672>}</span>
-
-    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>setTitle</span><span style=color:#f92672>(</span>String title<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
-        Title <span style=color:#f92672>=</span> title<span style=color:#f92672>;</span>
-    <span style=color:#f92672>}</span>
-
-    <span style=color:#66d9ef>public</span> String <span style=color:#a6e22e>getContent</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
-        <span style=color:#66d9ef>return</span> Content<span style=color:#f92672>;</span>
-    <span style=color:#f92672>}</span>
-
-    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>setContent</span><span style=color:#f92672>(</span>String content<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
-        Content <span style=color:#f92672>=</span> content<span style=color:#f92672>;</span>
-    <span style=color:#f92672>}</span>
-<span style=color:#f92672>}</span>
-</code></pre></div><h2 id=listadapterjava>ListAdapter.java</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>ListAdapter</span> <span style=color:#66d9ef>extends</span> BaseAdapter <span style=color:#66d9ef>implements</span> AbsListView<span style=color:#f92672>.</span><span style=color:#a6e22e>OnScrollListener</span> <span style=color:#f92672>{</span>
-    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> String<span style=color:#f92672>[]</span> URLs<span style=color:#f92672>;</span>
-    <span style=color:#66d9ef>private</span> List<span style=color:#f92672>&lt;</span>CourseBean<span style=color:#f92672>&gt;</span> mList<span style=color:#f92672>;</span>
-    <span style=color:#66d9ef>private</span> LayoutInflater mInflater<span style=color:#f92672>;</span>
-    <span style=color:#66d9ef>private</span> ImageLoader mImageLoader<span style=color:#f92672>;</span>
-    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>int</span> mStart<span style=color:#f92672>,</span> mEnd<span style=color:#f92672>;</span>
-    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>boolean</span> mFirstIn<span style=color:#f92672>;</span>
-
-    <span style=color:#66d9ef>public</span> <span style=color:#a6e22e>ListAdapter</span><span style=color:#f92672>(</span>Context context<span style=color:#f92672>,</span> List<span style=color:#f92672>&lt;</span>CourseBean<span style=color:#f92672>&gt;</span> courseBeanList<span style=color:#f92672>,</span> ListView listView<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
-        mFirstIn <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span><span style=color:#f92672>;</span>
-        mList <span style=color:#f92672>=</span> courseBeanList<span style=color:#f92672>;</span>
-        mInflater <span style=color:#f92672>=</span> LayoutInflater<span style=color:#f92672>.</span><span style=color:#a6e22e>from</span><span style=color:#f92672>(</span>context<span style=color:#f92672>);</span>
-        mImageLoader <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ImageLoader<span style=color:#f92672>(</span>listView<span style=color:#f92672>);</span>
-
-        URLs <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> String<span style=color:#f92672>[</span>mList<span style=color:#f92672>.</span><span style=color:#a6e22e>size</span><span style=color:#f92672>()];</span>
-        <span style=color:#66d9ef>for</span> <span style=color:#f92672>(</span><span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 0<span style=color:#f92672>;</span> i <span style=color:#f92672>&lt;</span> mList<span style=color:#f92672>.</span><span style=color:#a6e22e>size</span><span style=color:#f92672>();</span> i<span style=color:#f92672>++)</span> <span style=color:#f92672>{</span>
-            URLs<span style=color:#f92672>[</span>i<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> mList<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>(</span>i<span style=color:#f92672>).</span><span style=color:#a6e22e>getImageURL</span><span style=color:#f92672>();</span>
-        <span style=color:#f92672>}</span>
-
-        listView<span style=color:#f92672>.</span><span style=color:#a6e22e>setOnScrollListener</span><span style=color:#f92672>(</span><span style=color:#66d9ef>this</span><span style=color:#f92672>);</span>     为 ListView 设置监听器
-    <span style=color:#f92672>}</span>
-
-    <span style=color:#a6e22e>@Override</span>
-    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>int</span> <span style=color:#a6e22e>getCount</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
-        <span style=color:#66d9ef>return</span> mList<span style=color:#f92672>.</span><span style=color:#a6e22e>size</span><span style=color:#f92672>();</span>
-    <span style=color:#f92672>}</span>
-
-    <span style=color:#a6e22e>@Override</span>
-    <span style=color:#66d9ef>public</span> Object <span style=color:#a6e22e>getItem</span><span style=color:#f92672>(</span><span style=color:#66d9ef>int</span> position<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
-        <span style=color:#66d9ef>return</span> mList<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>(</span>position<span style=color:#f92672>);</span>
-    <span style=color:#f92672>}</span>
-
-    <span style=color:#a6e22e>@Override</span>
-    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>long</span> <span style=color:#a6e22e>getItemId</span><span style=color:#f92672>(</span><span style=color:#66d9ef>int</span> position<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
-        <span style=color:#66d9ef>return</span> position<span style=color:#f92672>;</span>
-    <span style=color:#f92672>}</span>
-
-    <span style=color:#a6e22e>@Override</span>
-    <span style=color:#66d9ef>public</span> View <span style=color:#a6e22e>getView</span><span style=color:#f92672>(</span><span style=color:#66d9ef>int</span> position<span style=color:#f92672>,</span> View convertView<span style=color:#f92672>,</span> ViewGroup parent<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
-        CourseBean courseBean <span style=color:#f92672>=</span> mList<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>(</span>position<span style=color:#f92672>);</span>
-        ViewHolder viewHolder<span style=color:#f92672>;</span>
-        <span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span>convertView <span style=color:#f92672>==</span> <span style=color:#66d9ef>null</span><span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
-            convertView <span style=color:#f92672>=</span> mInflater<span style=color:#f92672>.</span><span style=color:#a6e22e>inflate</span><span style=color:#f92672>(</span>R<span style=color:#f92672>.</span><span style=color:#a6e22e>layout</span><span style=color:#f92672>.</span><span style=color:#a6e22e>item_layout</span><span style=color:#f92672>,</span> <span style=color:#66d9ef>null</span><span style=color:#f92672>);</span>
-            viewHolder <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ViewHolder<span style=color:#f92672>((</span>TextView<span style=color:#f92672>)</span> convertView<span style=color:#f92672>.</span><span style=color:#a6e22e>findViewById</span><span style=color:#f92672>(</span>R<span style=color:#f92672>.</span><span style=color:#a6e22e>id</span><span style=color:#f92672>.</span><span style=color:#a6e22e>title</span><span style=color:#f92672>),</span> <span style=color:#f92672>(</span>TextView<span style=color:#f92672>)</span> convertView<span style=color:#f92672>.</span><span style=color:#a6e22e>findViewById</span><span style=color:#f92672>(</span>R<span style=color:#f92672>.</span><span style=color:#a6e22e>id</span><span style=color:#f92672>.</span><span style=color:#a6e22e>content</span><span style=color:#f92672>),</span> <span style=color:#f92672>(</span>ImageView<span style=color:#f92672>)</span> convertView<span style=color:#f92672>.</span><span style=color:#a6e22e>findViewById</span><span style=color:#f92672>(</span>R<span style=color:#f92672>.</span><span style=color:#a6e22e>id</span><span style=color:#f92672>.</span><span style=color:#a6e22e>image</span><span style=color:#f92672>));</span>
-            convertView<span style=color:#f92672>.</span><span style=color:#a6e22e>setTag</span><span style=color:#f92672>(</span>viewHolder<span style=color:#f92672>);</span>
-        <span style=color:#f92672>}</span> <span style=color:#66d9ef>else</span> <span style=color:#f92672>{</span>
-            viewHolder <span style=color:#f92672>=</span> <span style=color:#f92672>(</span>ViewHolder<span style=color:#f92672>)</span> convertView<span style=color:#f92672>.</span><span style=color:#a6e22e>getTag</span><span style=color:#f92672>();</span>
-        <span style=color:#f92672>}</span>
-        viewHolder<span style=color:#f92672>.</span><span style=color:#a6e22e>title</span><span style=color:#f92672>.</span><span style=color:#a6e22e>setText</span><span style=color:#f92672>(</span>courseBean<span style=color:#f92672>.</span><span style=color:#a6e22e>getTitle</span><span style=color:#f92672>());</span>
-        viewHolder<span style=color:#f92672>.</span><span style=color:#a6e22e>content</span><span style=color:#f92672>.</span><span style=color:#a6e22e>setText</span><span style=color:#f92672>(</span>courseBean<span style=color:#f92672>.</span><span style=color:#a6e22e>getContent</span><span style=color:#f92672>());</span>
-
-        viewHolder<span style=color:#f92672>.</span><span style=color:#a6e22e>image</span><span style=color:#f92672>.</span><span style=color:#a6e22e>setTag</span><span style=color:#f92672>(</span>courseBean<span style=color:#f92672>.</span><span style=color:#a6e22e>getImageURL</span><span style=color:#f92672>());</span>     设置 ImageView 的身份标记
-        mImageLoader<span style=color:#f92672>.</span><span style=color:#a6e22e>showImage</span><span style=color:#f92672>(</span>viewHolder<span style=color:#f92672>.</span><span style=color:#a6e22e>image</span><span style=color:#f92672>,</span> courseBean<span style=color:#f92672>.</span><span style=color:#a6e22e>getImageURL</span><span style=color:#f92672>());</span>     滚动时加载可见项图片
-
-        <span style=color:#66d9ef>return</span> convertView<span style=color:#f92672>;</span>
-    <span style=color:#f92672>}</span>
-
-    <span style=color:#a6e22e>@Override</span>
-    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onScrollStateChanged</span><span style=color:#f92672>(</span>AbsListView view<span style=color:#f92672>,</span> <span style=color:#66d9ef>int</span> scrollState<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
-        <span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span>scrollState <span style=color:#f92672>==</span> SCROLL_STATE_IDLE<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
-            mImageLoader<span style=color:#f92672>.</span><span style=color:#a6e22e>loadImage</span><span style=color:#f92672>(</span>mStart<span style=color:#f92672>,</span> mEnd<span style=color:#f92672>);</span>     静止时加载可见项图片
-        <span style=color:#f92672>}</span> <span style=color:#66d9ef>else</span> <span style=color:#f92672>{</span>
-            mImageLoader<span style=color:#f92672>.</span><span style=color:#a6e22e>cancelAllTask</span><span style=color:#f92672>();</span>     滚动时停止任务<span style=color:#960050;background-color:#1e0010>（</span>停止更新 UI 视图中的图片<span style=color:#960050;background-color:#1e0010>，</span>减少重绘<span style=color:#960050;background-color:#1e0010>，</span>使滚动流畅<span style=color:#960050;background-color:#1e0010>）</span>
-        <span style=color:#f92672>}</span>
-    <span style=color:#f92672>}</span>
-
-    <span style=color:#a6e22e>@Override</span>
-    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onScroll</span><span style=color:#f92672>(</span>AbsListView view<span style=color:#f92672>,</span> <span style=color:#66d9ef>int</span> firstVisibleItem<span style=color:#f92672>,</span> <span style=color:#66d9ef>int</span> visibleItemCount<span style=color:#f92672>,</span> <span style=color:#66d9ef>int</span> totalItemCount<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
-        mStart <span style=color:#f92672>=</span> firstVisibleItem<span style=color:#f92672>;</span>
-        mEnd <span style=color:#f92672>=</span> firstVisibleItem <span style=color:#f92672>+</span> visibleItemCount<span style=color:#f92672>;</span>
-        <span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span>mFirstIn <span style=color:#f92672>&amp;&amp;</span> visibleItemCount <span style=color:#f92672>&gt;</span> 0<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>     第一次显示时调用
-            mFirstIn <span style=color:#f92672>=</span> <span style=color:#66d9ef>false</span><span style=color:#f92672>;</span>
-            mImageLoader<span style=color:#f92672>.</span><span style=color:#a6e22e>loadImage</span><span style=color:#f92672>(</span>mStart<span style=color:#f92672>,</span> mEnd<span style=color:#f92672>);</span>
-        <span style=color:#f92672>}</span>
-    <span style=color:#f92672>}</span>
-
-    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>ViewHolder</span> <span style=color:#f92672>{</span>
-        <span style=color:#66d9ef>private</span> TextView title<span style=color:#f92672>;</span>
-        <span style=color:#66d9ef>private</span> TextView content<span style=color:#f92672>;</span>
-        <span style=color:#66d9ef>private</span> ImageView image<span style=color:#f92672>;</span>
-
-        <span style=color:#66d9ef>private</span> <span style=color:#a6e22e>ViewHolder</span><span style=color:#f92672>(</span>TextView title<span style=color:#f92672>,</span> TextView content<span style=color:#f92672>,</span> ImageView image<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
-            <span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>title</span> <span style=color:#f92672>=</span> title<span style=color:#f92672>;</span>
-            <span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>content</span> <span style=color:#f92672>=</span> content<span style=color:#f92672>;</span>
-            <span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>image</span> <span style=color:#f92672>=</span> image<span style=color:#f92672>;</span>
-        <span style=color:#f92672>}</span>
-    <span style=color:#f92672>}</span>
-<span style=color:#f92672>}</span>
-</code></pre></div><h2 id=imageloaderjava>ImageLoader.java</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>ImageLoader</span> <span style=color:#f92672>{</span>
-    <span style=color:#66d9ef>private</span> ListView mListView<span style=color:#f92672>;</span>
-    <span style=color:#66d9ef>private</span> Set<span style=color:#f92672>&lt;</span>AsyncTask<span style=color:#f92672>&gt;</span> mTask<span style=color:#f92672>;</span>     任务列表
-    <span style=color:#66d9ef>private</span> LruCache<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>,</span> Bitmap<span style=color:#f92672>&gt;</span> mCache<span style=color:#f92672>;</span>     内存缓存
-
-    <span style=color:#66d9ef>public</span> <span style=color:#a6e22e>ImageLoader</span><span style=color:#f92672>(</span>ListView listView<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
-        mListView <span style=color:#f92672>=</span> listView<span style=color:#f92672>;</span>
-        mTask <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> HashSet<span style=color:#f92672>&lt;&gt;();</span>
-
-        <span style=color:#66d9ef>int</span> cacheSize <span style=color:#f92672>=</span> <span style=color:#f92672>((</span><span style=color:#66d9ef>int</span><span style=color:#f92672>)</span> Runtime<span style=color:#f92672>.</span><span style=color:#a6e22e>getRuntime</span><span style=color:#f92672>().</span><span style=color:#a6e22e>maxMemory</span><span style=color:#f92672>())</span> <span style=color:#f92672>/</span> 4<span style=color:#f92672>;</span>
-        mCache <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> LruCache<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>,</span> Bitmap<span style=color:#f92672>&gt;(</span>cacheSize<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>     实例化缓存
-            <span style=color:#a6e22e>@Override</span>
-            <span style=color:#66d9ef>protected</span> <span style=color:#66d9ef>int</span> <span style=color:#a6e22e>sizeOf</span><span style=color:#f92672>(</span>String key<span style=color:#f92672>,</span> Bitmap value<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>     获取每次存入的缓存大小
-                <span style=color:#66d9ef>return</span> value<span style=color:#f92672>.</span><span style=color:#a6e22e>getByteCount</span><span style=color:#f92672>();</span>
-            <span style=color:#f92672>}</span>
-        <span style=color:#f92672>};</span>
-    <span style=color:#f92672>}</span>
-
-    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>showImage</span><span style=color:#f92672>(</span>ImageView imageView<span style=color:#f92672>,</span> String imageURL<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>     滚动时加载可见项图片
-        Bitmap bitmap <span style=color:#f92672>=</span> mCache<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>(</span>imageURL<span style=color:#f92672>);</span>     从缓存中获取
-        <span style=color:#a6e22e>if</span> <span style=color:#f92672>(</span>bitmap <span style=color:#f92672>==</span> <span style=color:#66d9ef>null</span><span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
-            imageView<span style=color:#f92672>.</span><span style=color:#a6e22e>setImageResource</span><span style=color:#f92672>(</span>R<span style=color:#f92672>.</span><span style=color:#a6e22e>mipmap</span><span style=color:#f92672>.</span><span style=color:#a6e22e>ic_launcher</span><span style=color:#f92672>);</span>     加载默认图片
-        <span style=color:#f92672>}</span> <span style=color:#66d9ef>else</span> <span style=color:#f92672>{</span>
-            imageView<span style=color:#f92672>.</span><span style=color:#a6e22e>setImageBitmap</span><span style=color:#f92672>(</span>bitmap<span style=color:#f92672>);</span>     加载缓存图片
-        <span style=color:#f92672>}</span>
-    <span style=color:#f92672>}</span>
-
-    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>loadImage</span><span style=color:#f92672>(</span><span style=color:#66d9ef>int</span> start<span style=color:#f92672>,</span> <span style=color:#66d9ef>int</span> end<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>     静止时加载可见项图片
-        <span style=color:#a6e22e>for</span> <span style=color:#f92672>(</span><span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> start<span style=color:#f92672>;</span> i <span style=color:#f92672>&lt;</span> end<span style=color:#f92672>;</span> i<span style=color:#f92672>++)</span> <span style=color:#f92672>{</span>
-            String imageURL <span style=color:#f92672>=</span> ListAdapter<span style=color:#f92672>.</span><span style=color:#a6e22e>URLs</span><span style=color:#f92672>[</span>i<span style=color:#f92672>];</span>
-            Bitmap bitmap <span style=color:#f92672>=</span> mCache<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>(</span>imageURL<span style=color:#f92672>);</span>     从缓存中获取
-            <span style=color:#a6e22e>if</span> <span style=color:#f92672>(</span>bitmap <span style=color:#f92672>==</span> <span style=color:#66d9ef>null</span><span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
-                mTask<span style=color:#f92672>.</span><span style=color:#a6e22e>add</span><span style=color:#f92672>(</span><span style=color:#66d9ef>new</span> DownloadImage<span style=color:#f92672>().</span><span style=color:#a6e22e>execute</span><span style=color:#f92672>(</span>imageURL<span style=color:#f92672>));</span>     加载网络图片并加入任务列表
-            <span style=color:#f92672>}</span> <span style=color:#66d9ef>else</span> <span style=color:#f92672>{</span>
-                ImageView imageView <span style=color:#f92672>=</span> <span style=color:#f92672>(</span>ImageView<span style=color:#f92672>)</span> mListView<span style=color:#f92672>.</span><span style=color:#a6e22e>findViewWithTag</span><span style=color:#f92672>(</span>imageURL<span style=color:#f92672>);</span>
-                imageView<span style=color:#f92672>.</span><span style=color:#a6e22e>setImageBitmap</span><span style=color:#f92672>(</span>bitmap<span style=color:#f92672>);</span>     加载缓存图片
-            <span style=color:#f92672>}</span>
-        <span style=color:#f92672>}</span>
-    <span style=color:#f92672>}</span>
-
-    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>cancelAllTask</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
-        <span style=color:#66d9ef>for</span> <span style=color:#f92672>(</span>AsyncTask task <span style=color:#f92672>:</span> mTask<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
-            task<span style=color:#f92672>.</span><span style=color:#a6e22e>cancel</span><span style=color:#f92672>(</span><span style=color:#66d9ef>false</span><span style=color:#f92672>);</span>     Cancel 状态下 doInBackground 结束后不会调用 onPostExecute<span style=color:#960050;background-color:#1e0010>，</span>而会调用 onCancelled
-        <span style=color:#f92672>}</span>                         <span style=color:#960050;background-color:#1e0010>↳</span> <span style=color:#66d9ef>false</span> 代表不调用 Thread<span style=color:#f92672>.</span><span style=color:#a6e22e>interrupt</span><span style=color:#f92672>()</span>
-    <span style=color:#f92672>}</span>
-
-    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>DownloadImage</span> <span style=color:#66d9ef>extends</span> AsyncTask<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>,</span> Void<span style=color:#f92672>,</span> Bitmap<span style=color:#f92672>&gt;</span> <span style=color:#f92672>{</span>
-        <span style=color:#66d9ef>private</span> String imageURL<span style=color:#f92672>;</span>
-
-        <span style=color:#a6e22e>@Override</span>
-        <span style=color:#66d9ef>protected</span> Bitmap <span style=color:#a6e22e>doInBackground</span><span style=color:#f92672>(</span>String<span style=color:#f92672>...</span> params<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>     下载图片
-            imageURL <span style=color:#f92672>=</span> params<span style=color:#f92672>[</span>0<span style=color:#f92672>];</span>
-            Bitmap bitmap <span style=color:#f92672>=</span> <span style=color:#66d9ef>null</span><span style=color:#f92672>;</span>
-            <span style=color:#66d9ef>try</span> <span style=color:#f92672>{</span>
-                BufferedInputStream bufferedInputStream <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> BufferedInputStream<span style=color:#f92672>(</span><span style=color:#66d9ef>new</span> URL<span style=color:#f92672>(</span>imageURL<span style=color:#f92672>).</span><span style=color:#a6e22e>openStream</span><span style=color:#f92672>());</span>
-                bitmap <span style=color:#f92672>=</span> BitmapFactory<span style=color:#f92672>.</span><span style=color:#a6e22e>decodeStream</span><span style=color:#f92672>(</span>bufferedInputStream<span style=color:#f92672>);</span>     解析为 Bitmap
-                bufferedInputStream<span style=color:#f92672>.</span><span style=color:#a6e22e>close</span><span style=color:#f92672>();</span>
-            <span style=color:#f92672>}</span> <span style=color:#66d9ef>catch</span> <span style=color:#f92672>(</span>IOException e<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
-                e<span style=color:#f92672>.</span><span style=color:#a6e22e>printStackTrace</span><span style=color:#f92672>();</span>
-            <span style=color:#f92672>}</span>
-
-            <span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span>mCache<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>(</span>imageURL<span style=color:#f92672>)</span> <span style=color:#f92672>==</span> <span style=color:#66d9ef>null</span><span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
-                mCache<span style=color:#f92672>.</span><span style=color:#a6e22e>put</span><span style=color:#f92672>(</span>imageURL<span style=color:#f92672>,</span> bitmap<span style=color:#f92672>);</span>     将图片添加至缓存
-            <span style=color:#f92672>}</span>
-            <span style=color:#66d9ef>return</span> bitmap<span style=color:#f92672>;</span>
-        <span style=color:#f92672>}</span>
-
-        <span style=color:#a6e22e>@Override</span>
-        <span style=color:#66d9ef>protected</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onPostExecute</span><span style=color:#f92672>(</span>Bitmap bitmap<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
-            <span style=color:#66d9ef>super</span><span style=color:#f92672>.</span><span style=color:#a6e22e>onPostExecute</span><span style=color:#f92672>(</span>bitmap<span style=color:#f92672>);</span>
-            ImageView imageView <span style=color:#f92672>=</span> <span style=color:#f92672>(</span>ImageView<span style=color:#f92672>)</span> mListView<span style=color:#f92672>.</span><span style=color:#a6e22e>findViewWithTag</span><span style=color:#f92672>(</span>imageURL<span style=color:#f92672>);</span>
-            imageView<span style=color:#f92672>.</span><span style=color:#a6e22e>setImageBitmap</span><span style=color:#f92672>(</span>bitmap<span style=color:#f92672>);</span>
-            mTask<span style=color:#f92672>.</span><span style=color:#a6e22e>remove</span><span style=color:#f92672>(</span><span style=color:#66d9ef>this</span><span style=color:#f92672>);</span>     任务完成<span style=color:#960050;background-color:#1e0010>（</span>已缓存图片<span style=color:#960050;background-color:#1e0010>），</span>移出任务列表
-        <span style=color:#f92672>}</span>
-
-        <span style=color:#a6e22e>@Override</span>
-        <span style=color:#66d9ef>protected</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onCancelled</span><span style=color:#f92672>(</span>Bitmap bitmap<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>     滚动时不更新 UI 视图中的图片<span style=color:#960050;background-color:#1e0010>，</span>减少重绘<span style=color:#960050;background-color:#1e0010>，</span>使滚动流畅
-            <span style=color:#66d9ef>super</span><span style=color:#f92672>.</span><span style=color:#a6e22e>onCancelled</span><span style=color:#f92672>(</span>bitmap<span style=color:#f92672>);</span>
-            mTask<span style=color:#f92672>.</span><span style=color:#a6e22e>remove</span><span style=color:#f92672>(</span><span style=color:#66d9ef>this</span><span style=color:#f92672>);</span>     任务完成<span style=color:#960050;background-color:#1e0010>（</span>已缓存图片<span style=color:#960050;background-color:#1e0010>），</span>移出任务列表
-        <span style=color:#f92672>}</span>
-    <span style=color:#f92672>}</span>
-<span style=color:#f92672>}</span>
-</code></pre></div><h2 id=activity_mainxml>activity_main.xml</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#f92672>&lt;LinearLayout</span> <span style=color:#a6e22e>xmlns:android=</span><span style=color:#e6db74>&#34;http://schemas.android.com/apk/res/android&#34;</span>
-              <span style=color:#a6e22e>android:orientation=</span><span style=color:#e6db74>&#34;vertical&#34;</span>
-              <span style=color:#a6e22e>android:layout_width=</span><span style=color:#e6db74>&#34;match_parent&#34;</span>
-              <span style=color:#a6e22e>android:layout_height=</span><span style=color:#e6db74>&#34;match_parent&#34;</span><span style=color:#f92672>&gt;</span>
-    <span style=color:#f92672>&lt;ListView</span>
-            <span style=color:#a6e22e>android:id=</span><span style=color:#e6db74>&#34;@+id/list_item&#34;</span>
-            <span style=color:#a6e22e>android:layout_width=</span><span style=color:#e6db74>&#34;match_parent&#34;</span>
-            <span style=color:#a6e22e>android:layout_height=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span><span style=color:#f92672>&gt;</span>
-    <span style=color:#f92672>&lt;/ListView&gt;</span>
-<span style=color:#f92672>&lt;/LinearLayout&gt;</span>
-</code></pre></div><h2 id=item_layoutxml>item_layout.xml</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#f92672>&lt;LinearLayout</span> <span style=color:#a6e22e>xmlns:android=</span><span style=color:#e6db74>&#34;http://schemas.android.com/apk/res/android&#34;</span>
-              <span style=color:#a6e22e>android:orientation=</span><span style=color:#e6db74>&#34;horizontal&#34;</span>
-              <span style=color:#a6e22e>android:layout_width=</span><span style=color:#e6db74>&#34;match_parent&#34;</span>
-              <span style=color:#a6e22e>android:layout_height=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
-              <span style=color:#a6e22e>android:padding=</span><span style=color:#e6db74>&#34;4dp&#34;</span><span style=color:#f92672>&gt;</span>
-
-    <span style=color:#f92672>&lt;ImageView</span>
-            <span style=color:#a6e22e>android:id=</span><span style=color:#e6db74>&#34;@+id/image&#34;</span>
-            <span style=color:#a6e22e>android:src=</span><span style=color:#e6db74>&#34;@mipmap/ic_launcher&#34;</span>
-            <span style=color:#a6e22e>android:layout_width=</span><span style=color:#e6db74>&#34;64dp&#34;</span>
-            <span style=color:#a6e22e>android:layout_height=</span><span style=color:#e6db74>&#34;64dp&#34;</span><span style=color:#f92672>/&gt;</span>
-
-    <span style=color:#f92672>&lt;LinearLayout</span>
-            <span style=color:#a6e22e>android:paddingStart=</span><span style=color:#e6db74>&#34;4dp&#34;</span>
-            <span style=color:#a6e22e>android:paddingEnd=</span><span style=color:#e6db74>&#34;0dp&#34;</span>
-            <span style=color:#a6e22e>android:orientation=</span><span style=color:#e6db74>&#34;vertical&#34;</span>
-            <span style=color:#a6e22e>android:layout_width=</span><span style=color:#e6db74>&#34;match_parent&#34;</span>
-            <span style=color:#a6e22e>android:layout_height=</span><span style=color:#e6db74>&#34;match_parent&#34;</span><span style=color:#f92672>&gt;</span>
-        <span style=color:#f92672>&lt;TextView</span>
-                <span style=color:#a6e22e>android:gravity=</span><span style=color:#e6db74>&#34;center_vertical&#34;</span>
-                <span style=color:#a6e22e>android:id=</span><span style=color:#e6db74>&#34;@+id/title&#34;</span>
-                <span style=color:#a6e22e>android:maxLines=</span><span style=color:#e6db74>&#34;1&#34;</span>
-                <span style=color:#a6e22e>android:text=</span><span style=color:#e6db74>&#34;New Text&#34;</span>
-                <span style=color:#a6e22e>android:textSize=</span><span style=color:#e6db74>&#34;15sp&#34;</span>
-                <span style=color:#a6e22e>android:layout_weight=</span><span style=color:#e6db74>&#34;1&#34;</span>
-                <span style=color:#a6e22e>android:layout_width=</span><span style=color:#e6db74>&#34;match_parent&#34;</span>
-                <span style=color:#a6e22e>android:layout_height=</span><span style=color:#e6db74>&#34;0dp&#34;</span><span style=color:#f92672>/&gt;</span>
-        <span style=color:#f92672>&lt;TextView</span>
-                <span style=color:#a6e22e>android:gravity=</span><span style=color:#e6db74>&#34;center_vertical&#34;</span>
-                <span style=color:#a6e22e>android:id=</span><span style=color:#e6db74>&#34;@+id/content&#34;</span>
-                <span style=color:#a6e22e>android:maxLines=</span><span style=color:#e6db74>&#34;3&#34;</span>
-                <span style=color:#a6e22e>android:text=</span><span style=color:#e6db74>&#34;New Text&#34;</span>
-                <span style=color:#a6e22e>android:textSize=</span><span style=color:#e6db74>&#34;12sp&#34;</span>
-                <span style=color:#a6e22e>android:layout_weight=</span><span style=color:#e6db74>&#34;1&#34;</span>
-                <span style=color:#a6e22e>android:layout_width=</span><span style=color:#e6db74>&#34;match_parent&#34;</span>
-                <span style=color:#a6e22e>android:layout_height=</span><span style=color:#e6db74>&#34;0dp&#34;</span><span style=color:#f92672>/&gt;</span>
-    <span style=color:#f92672>&lt;/LinearLayout&gt;</span>
-
-<span style=color:#f92672>&lt;/LinearLayout&gt;</span>
-</code></pre></div>
-</div>
-<div class=sharing style=text-align:center>
-<br>
-<p>捐赠支持</p>
-<p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p>
-<p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p>
-<img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%>
-<p></p><br>&copy; 2015-2020 XhstormR
-</div>
-</div>
-</div>
-</div>
-<div id=backtop><a href=# title>TOP</a></div>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#mainactivityjava>MainActivity.java</a></li>
-<li><a href=#coursebeanjava>CourseBean.java</a></li>
-<li><a href=#listadapterjava>ListAdapter.java</a></li>
-<li><a href=#imageloaderjava>ImageLoader.java</a></li>
-<li><a href=#activity_mainxml>activity_main.xml</a></li>
-<li><a href=#item_layoutxml>item_layout.xml</a></li>
-</ul>
-</nav>
-<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script>
+<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache><head><meta charset=utf-8><meta name=renderer content="webkit"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>Android 异步加载 &#183; XhstormR</title><link rel=alternate type=application/rss+xml title=XhstormR href><link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico><link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
+<script src=https://blog.xhstormr.tk/js/main.min.js async defer></script></head><body><div id=scriptHeader><span class="mobile btn-mobile-menu"><i class="fa fa-bars btn-mobile-menu__icon"></i>
+<i class="fa fa-times btn-mobile-close__icon hidden"></i></span><header class="panel-cover panel-cover--collapsed"><div class=panel-main><div class="panel-main__inner panel-inverted"><div class=panel-main__content><h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1><hr class=panel-cover__divider><p class=panel-cover__description>On a dark desert highway, cool wind in my hair.</p><hr class="panel-cover__divider panel-cover__divider--secondary"><div class=navigation-wrapper><nav class="cover-navigation cover-navigation--primary"><ul class=navigation><li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li></ul></nav></div></div></div><div class=panel-cover--overlay></div></div></header></div><div class=bodytop><div class=content-wrapper><div class=content-wrapper__inner><div class=post><h1>Android 异步加载</h1><span class=post-date>2016-09-28</span><p>Updated on 2016-09-28</p><blockquote><p>AsyncTask 异步访问网络</p><p>LruCache 内存缓存图片</p><p>ListView 加载图片（滚动状态，静止状态）</p><p>BaseAdapter 缓存页面（convertView，ViewHolder）</p></blockquote><h2 id=mainactivityjava>MainActivity.java</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MainActivity</span> <span style=color:#66d9ef>extends</span> Activity <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> ListView mListView<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>protected</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onCreate</span><span style=color:#f92672>(</span>Bundle savedInstanceState<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>super</span><span style=color:#f92672>.</span><span style=color:#a6e22e>onCreate</span><span style=color:#f92672>(</span>savedInstanceState<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>        setContentView<span style=color:#f92672>(</span>R<span style=color:#f92672>.</span><span style=color:#a6e22e>layout</span><span style=color:#f92672>.</span><span style=color:#a6e22e>activity_main</span><span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        mListView <span style=color:#f92672>=</span> <span style=color:#f92672>(</span>ListView<span style=color:#f92672>)</span> findViewById<span style=color:#f92672>(</span>R<span style=color:#f92672>.</span><span style=color:#a6e22e>id</span><span style=color:#f92672>.</span><span style=color:#a6e22e>list_item</span><span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>new</span> NewsAsyncTask<span style=color:#f92672>().</span><span style=color:#a6e22e>execute</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;http://www.imooc.com/api/teacher?type=4&amp;num=30&#34;</span><span style=color:#f92672>);</span>     开始异步任务
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>                                                                           输入参数<span style=color:#960050;background-color:#1e0010>，</span>执行进度<span style=color:#960050;background-color:#1e0010>，</span>返回结果
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>NewsAsyncTask</span> <span style=color:#66d9ef>extends</span> AsyncTask<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>,</span> Void<span style=color:#f92672>,</span> List<span style=color:#f92672>&lt;</span>CourseBean<span style=color:#f92672>&gt;&gt;</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>protected</span> List<span style=color:#f92672>&lt;</span>CourseBean<span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>doInBackground</span><span style=color:#f92672>(</span>String<span style=color:#f92672>...</span> params<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>     获得 ListView 的 Item 列表
+</span></span><span style=display:flex><span>            List<span style=color:#f92672>&lt;</span>CourseBean<span style=color:#f92672>&gt;</span> courseBeanList <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ArrayList<span style=color:#f92672>&lt;&gt;();</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>try</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>                StringBuilder stringBuilder <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> StringBuilder<span style=color:#f92672>();</span>     下载 JSON
+</span></span><span style=display:flex><span>                BufferedReader bufferedReader <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> BufferedReader<span style=color:#f92672>(</span><span style=color:#66d9ef>new</span> InputStreamReader<span style=color:#f92672>(</span><span style=color:#66d9ef>new</span> URL<span style=color:#f92672>(</span>params<span style=color:#f92672>[</span>0<span style=color:#f92672>]).</span><span style=color:#a6e22e>openStream</span><span style=color:#f92672>(),</span> <span style=color:#e6db74>&#34;utf-8&#34;</span><span style=color:#f92672>));</span>
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>for</span> <span style=color:#f92672>(</span>String s<span style=color:#f92672>;</span> <span style=color:#f92672>(</span>s <span style=color:#f92672>=</span> bufferedReader<span style=color:#f92672>.</span><span style=color:#a6e22e>readLine</span><span style=color:#f92672>())</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>null</span><span style=color:#f92672>;</span> <span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>                    stringBuilder<span style=color:#f92672>.</span><span style=color:#a6e22e>append</span><span style=color:#f92672>(</span>s<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>                <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>                bufferedReader<span style=color:#f92672>.</span><span style=color:#a6e22e>close</span><span style=color:#f92672>();</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                JSONObject jsonObject <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> JSONObject<span style=color:#f92672>(</span>stringBuilder<span style=color:#f92672>.</span><span style=color:#a6e22e>toString</span><span style=color:#f92672>());</span>     解析 JSON
+</span></span><span style=display:flex><span>                JSONArray jsonArray <span style=color:#f92672>=</span> jsonObject<span style=color:#f92672>.</span><span style=color:#a6e22e>getJSONArray</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;data&#34;</span><span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>for</span> <span style=color:#f92672>(</span><span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 0<span style=color:#f92672>;</span> i <span style=color:#f92672>&lt;</span> jsonArray<span style=color:#f92672>.</span><span style=color:#a6e22e>length</span><span style=color:#f92672>();</span> i<span style=color:#f92672>++)</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>                    JSONObject dataJsonObject <span style=color:#f92672>=</span> jsonArray<span style=color:#f92672>.</span><span style=color:#a6e22e>getJSONObject</span><span style=color:#f92672>(</span>i<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>                    courseBeanList<span style=color:#f92672>.</span><span style=color:#a6e22e>add</span><span style=color:#f92672>(</span><span style=color:#66d9ef>new</span> CourseBean<span style=color:#f92672>(</span>dataJsonObject<span style=color:#f92672>.</span><span style=color:#a6e22e>getString</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;picSmall&#34;</span><span style=color:#f92672>),</span> dataJsonObject<span style=color:#f92672>.</span><span style=color:#a6e22e>getString</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;name&#34;</span><span style=color:#f92672>),</span> dataJsonObject<span style=color:#f92672>.</span><span style=color:#a6e22e>getString</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;description&#34;</span><span style=color:#f92672>)));</span>
+</span></span><span style=display:flex><span>                <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>            <span style=color:#f92672>}</span> <span style=color:#66d9ef>catch</span> <span style=color:#f92672>(</span>IOException <span style=color:#f92672>|</span> JSONException e<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>                e<span style=color:#f92672>.</span><span style=color:#a6e22e>printStackTrace</span><span style=color:#f92672>();</span>
+</span></span><span style=display:flex><span>            <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> courseBeanList<span style=color:#f92672>;</span>     返回结果给 onPostExecute
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>protected</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onPostExecute</span><span style=color:#f92672>(</span>List<span style=color:#f92672>&lt;</span>CourseBean<span style=color:#f92672>&gt;</span> courseBeanList<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>     返回结果
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>super</span><span style=color:#f92672>.</span><span style=color:#a6e22e>onPostExecute</span><span style=color:#f92672>(</span>courseBeanList<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>            ListAdapter listAdapter <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ListAdapter<span style=color:#f92672>(</span>MainActivity<span style=color:#f92672>.</span><span style=color:#a6e22e>this</span><span style=color:#f92672>,</span> courseBeanList<span style=color:#f92672>,</span> mListView<span style=color:#f92672>);</span>     自定义适配器
+</span></span><span style=display:flex><span>            mListView<span style=color:#f92672>.</span><span style=color:#a6e22e>setAdapter</span><span style=color:#f92672>(</span>listAdapter<span style=color:#f92672>);</span>     将控件与适配器绑定
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
+</span></span></code></pre></div><h2 id=coursebeanjava>CourseBean.java</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>CourseBean</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> String ImageURL<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> String Title<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> String Content<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#a6e22e>CourseBean</span><span style=color:#f92672>(</span>String imageURL<span style=color:#f92672>,</span> String title<span style=color:#f92672>,</span> String content<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        ImageURL <span style=color:#f92672>=</span> imageURL<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>        Title <span style=color:#f92672>=</span> title<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>        Content <span style=color:#f92672>=</span> content<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> String <span style=color:#a6e22e>toString</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;CourseBean{&#34;</span> <span style=color:#f92672>+</span>
+</span></span><span style=display:flex><span>                <span style=color:#e6db74>&#34;ImageURL=&#39;&#34;</span> <span style=color:#f92672>+</span> ImageURL <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39;\&#39;&#39;</span> <span style=color:#f92672>+</span>
+</span></span><span style=display:flex><span>                <span style=color:#e6db74>&#34;, Title=&#39;&#34;</span> <span style=color:#f92672>+</span> Title <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39;\&#39;&#39;</span> <span style=color:#f92672>+</span>
+</span></span><span style=display:flex><span>                <span style=color:#e6db74>&#34;, Content=&#39;&#34;</span> <span style=color:#f92672>+</span> Content <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39;\&#39;&#39;</span> <span style=color:#f92672>+</span>
+</span></span><span style=display:flex><span>                <span style=color:#e6db74>&#39;}&#39;</span><span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> String <span style=color:#a6e22e>getImageURL</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> ImageURL<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>setImageURL</span><span style=color:#f92672>(</span>String imageURL<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        ImageURL <span style=color:#f92672>=</span> imageURL<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> String <span style=color:#a6e22e>getTitle</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> Title<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>setTitle</span><span style=color:#f92672>(</span>String title<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        Title <span style=color:#f92672>=</span> title<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> String <span style=color:#a6e22e>getContent</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> Content<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>setContent</span><span style=color:#f92672>(</span>String content<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        Content <span style=color:#f92672>=</span> content<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
+</span></span></code></pre></div><h2 id=listadapterjava>ListAdapter.java</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>ListAdapter</span> <span style=color:#66d9ef>extends</span> BaseAdapter <span style=color:#66d9ef>implements</span> AbsListView<span style=color:#f92672>.</span><span style=color:#a6e22e>OnScrollListener</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> String<span style=color:#f92672>[]</span> URLs<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> List<span style=color:#f92672>&lt;</span>CourseBean<span style=color:#f92672>&gt;</span> mList<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> LayoutInflater mInflater<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> ImageLoader mImageLoader<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>int</span> mStart<span style=color:#f92672>,</span> mEnd<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>boolean</span> mFirstIn<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#a6e22e>ListAdapter</span><span style=color:#f92672>(</span>Context context<span style=color:#f92672>,</span> List<span style=color:#f92672>&lt;</span>CourseBean<span style=color:#f92672>&gt;</span> courseBeanList<span style=color:#f92672>,</span> ListView listView<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        mFirstIn <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span><span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>        mList <span style=color:#f92672>=</span> courseBeanList<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>        mInflater <span style=color:#f92672>=</span> LayoutInflater<span style=color:#f92672>.</span><span style=color:#a6e22e>from</span><span style=color:#f92672>(</span>context<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>        mImageLoader <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ImageLoader<span style=color:#f92672>(</span>listView<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        URLs <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> String<span style=color:#f92672>[</span>mList<span style=color:#f92672>.</span><span style=color:#a6e22e>size</span><span style=color:#f92672>()];</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> <span style=color:#f92672>(</span><span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 0<span style=color:#f92672>;</span> i <span style=color:#f92672>&lt;</span> mList<span style=color:#f92672>.</span><span style=color:#a6e22e>size</span><span style=color:#f92672>();</span> i<span style=color:#f92672>++)</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>            URLs<span style=color:#f92672>[</span>i<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> mList<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>(</span>i<span style=color:#f92672>).</span><span style=color:#a6e22e>getImageURL</span><span style=color:#f92672>();</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        listView<span style=color:#f92672>.</span><span style=color:#a6e22e>setOnScrollListener</span><span style=color:#f92672>(</span><span style=color:#66d9ef>this</span><span style=color:#f92672>);</span>     为 ListView 设置监听器
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>int</span> <span style=color:#a6e22e>getCount</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> mList<span style=color:#f92672>.</span><span style=color:#a6e22e>size</span><span style=color:#f92672>();</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> Object <span style=color:#a6e22e>getItem</span><span style=color:#f92672>(</span><span style=color:#66d9ef>int</span> position<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> mList<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>(</span>position<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>long</span> <span style=color:#a6e22e>getItemId</span><span style=color:#f92672>(</span><span style=color:#66d9ef>int</span> position<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> position<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> View <span style=color:#a6e22e>getView</span><span style=color:#f92672>(</span><span style=color:#66d9ef>int</span> position<span style=color:#f92672>,</span> View convertView<span style=color:#f92672>,</span> ViewGroup parent<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        CourseBean courseBean <span style=color:#f92672>=</span> mList<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>(</span>position<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>        ViewHolder viewHolder<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span>convertView <span style=color:#f92672>==</span> <span style=color:#66d9ef>null</span><span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>            convertView <span style=color:#f92672>=</span> mInflater<span style=color:#f92672>.</span><span style=color:#a6e22e>inflate</span><span style=color:#f92672>(</span>R<span style=color:#f92672>.</span><span style=color:#a6e22e>layout</span><span style=color:#f92672>.</span><span style=color:#a6e22e>item_layout</span><span style=color:#f92672>,</span> <span style=color:#66d9ef>null</span><span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>            viewHolder <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ViewHolder<span style=color:#f92672>((</span>TextView<span style=color:#f92672>)</span> convertView<span style=color:#f92672>.</span><span style=color:#a6e22e>findViewById</span><span style=color:#f92672>(</span>R<span style=color:#f92672>.</span><span style=color:#a6e22e>id</span><span style=color:#f92672>.</span><span style=color:#a6e22e>title</span><span style=color:#f92672>),</span> <span style=color:#f92672>(</span>TextView<span style=color:#f92672>)</span> convertView<span style=color:#f92672>.</span><span style=color:#a6e22e>findViewById</span><span style=color:#f92672>(</span>R<span style=color:#f92672>.</span><span style=color:#a6e22e>id</span><span style=color:#f92672>.</span><span style=color:#a6e22e>content</span><span style=color:#f92672>),</span> <span style=color:#f92672>(</span>ImageView<span style=color:#f92672>)</span> convertView<span style=color:#f92672>.</span><span style=color:#a6e22e>findViewById</span><span style=color:#f92672>(</span>R<span style=color:#f92672>.</span><span style=color:#a6e22e>id</span><span style=color:#f92672>.</span><span style=color:#a6e22e>image</span><span style=color:#f92672>));</span>
+</span></span><span style=display:flex><span>            convertView<span style=color:#f92672>.</span><span style=color:#a6e22e>setTag</span><span style=color:#f92672>(</span>viewHolder<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span> <span style=color:#66d9ef>else</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>            viewHolder <span style=color:#f92672>=</span> <span style=color:#f92672>(</span>ViewHolder<span style=color:#f92672>)</span> convertView<span style=color:#f92672>.</span><span style=color:#a6e22e>getTag</span><span style=color:#f92672>();</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>        viewHolder<span style=color:#f92672>.</span><span style=color:#a6e22e>title</span><span style=color:#f92672>.</span><span style=color:#a6e22e>setText</span><span style=color:#f92672>(</span>courseBean<span style=color:#f92672>.</span><span style=color:#a6e22e>getTitle</span><span style=color:#f92672>());</span>
+</span></span><span style=display:flex><span>        viewHolder<span style=color:#f92672>.</span><span style=color:#a6e22e>content</span><span style=color:#f92672>.</span><span style=color:#a6e22e>setText</span><span style=color:#f92672>(</span>courseBean<span style=color:#f92672>.</span><span style=color:#a6e22e>getContent</span><span style=color:#f92672>());</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        viewHolder<span style=color:#f92672>.</span><span style=color:#a6e22e>image</span><span style=color:#f92672>.</span><span style=color:#a6e22e>setTag</span><span style=color:#f92672>(</span>courseBean<span style=color:#f92672>.</span><span style=color:#a6e22e>getImageURL</span><span style=color:#f92672>());</span>     设置 ImageView 的身份标记
+</span></span><span style=display:flex><span>        mImageLoader<span style=color:#f92672>.</span><span style=color:#a6e22e>showImage</span><span style=color:#f92672>(</span>viewHolder<span style=color:#f92672>.</span><span style=color:#a6e22e>image</span><span style=color:#f92672>,</span> courseBean<span style=color:#f92672>.</span><span style=color:#a6e22e>getImageURL</span><span style=color:#f92672>());</span>     滚动时加载可见项图片
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> convertView<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onScrollStateChanged</span><span style=color:#f92672>(</span>AbsListView view<span style=color:#f92672>,</span> <span style=color:#66d9ef>int</span> scrollState<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span>scrollState <span style=color:#f92672>==</span> SCROLL_STATE_IDLE<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>            mImageLoader<span style=color:#f92672>.</span><span style=color:#a6e22e>loadImage</span><span style=color:#f92672>(</span>mStart<span style=color:#f92672>,</span> mEnd<span style=color:#f92672>);</span>     静止时加载可见项图片
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span> <span style=color:#66d9ef>else</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>            mImageLoader<span style=color:#f92672>.</span><span style=color:#a6e22e>cancelAllTask</span><span style=color:#f92672>();</span>     滚动时停止任务<span style=color:#960050;background-color:#1e0010>（</span>停止更新 UI 视图中的图片<span style=color:#960050;background-color:#1e0010>，</span>减少重绘<span style=color:#960050;background-color:#1e0010>，</span>使滚动流畅<span style=color:#960050;background-color:#1e0010>）</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onScroll</span><span style=color:#f92672>(</span>AbsListView view<span style=color:#f92672>,</span> <span style=color:#66d9ef>int</span> firstVisibleItem<span style=color:#f92672>,</span> <span style=color:#66d9ef>int</span> visibleItemCount<span style=color:#f92672>,</span> <span style=color:#66d9ef>int</span> totalItemCount<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        mStart <span style=color:#f92672>=</span> firstVisibleItem<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>        mEnd <span style=color:#f92672>=</span> firstVisibleItem <span style=color:#f92672>+</span> visibleItemCount<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span>mFirstIn <span style=color:#f92672>&amp;&amp;</span> visibleItemCount <span style=color:#f92672>&gt;</span> 0<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>     第一次显示时调用
+</span></span><span style=display:flex><span>            mFirstIn <span style=color:#f92672>=</span> <span style=color:#66d9ef>false</span><span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>            mImageLoader<span style=color:#f92672>.</span><span style=color:#a6e22e>loadImage</span><span style=color:#f92672>(</span>mStart<span style=color:#f92672>,</span> mEnd<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>ViewHolder</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>private</span> TextView title<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>private</span> TextView content<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>private</span> ImageView image<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>private</span> <span style=color:#a6e22e>ViewHolder</span><span style=color:#f92672>(</span>TextView title<span style=color:#f92672>,</span> TextView content<span style=color:#f92672>,</span> ImageView image<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>title</span> <span style=color:#f92672>=</span> title<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>content</span> <span style=color:#f92672>=</span> content<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>image</span> <span style=color:#f92672>=</span> image<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
+</span></span></code></pre></div><h2 id=imageloaderjava>ImageLoader.java</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>ImageLoader</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> ListView mListView<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> Set<span style=color:#f92672>&lt;</span>AsyncTask<span style=color:#f92672>&gt;</span> mTask<span style=color:#f92672>;</span>     任务列表
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> LruCache<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>,</span> Bitmap<span style=color:#f92672>&gt;</span> mCache<span style=color:#f92672>;</span>     内存缓存
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#a6e22e>ImageLoader</span><span style=color:#f92672>(</span>ListView listView<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        mListView <span style=color:#f92672>=</span> listView<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>        mTask <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> HashSet<span style=color:#f92672>&lt;&gt;();</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> cacheSize <span style=color:#f92672>=</span> <span style=color:#f92672>((</span><span style=color:#66d9ef>int</span><span style=color:#f92672>)</span> Runtime<span style=color:#f92672>.</span><span style=color:#a6e22e>getRuntime</span><span style=color:#f92672>().</span><span style=color:#a6e22e>maxMemory</span><span style=color:#f92672>())</span> <span style=color:#f92672>/</span> 4<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>        mCache <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> LruCache<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>,</span> Bitmap<span style=color:#f92672>&gt;(</span>cacheSize<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>     实例化缓存
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>protected</span> <span style=color:#66d9ef>int</span> <span style=color:#a6e22e>sizeOf</span><span style=color:#f92672>(</span>String key<span style=color:#f92672>,</span> Bitmap value<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>     获取每次存入的缓存大小
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>return</span> value<span style=color:#f92672>.</span><span style=color:#a6e22e>getByteCount</span><span style=color:#f92672>();</span>
+</span></span><span style=display:flex><span>            <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>};</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>showImage</span><span style=color:#f92672>(</span>ImageView imageView<span style=color:#f92672>,</span> String imageURL<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>     滚动时加载可见项图片
+</span></span><span style=display:flex><span>        Bitmap bitmap <span style=color:#f92672>=</span> mCache<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>(</span>imageURL<span style=color:#f92672>);</span>     从缓存中获取
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>if</span> <span style=color:#f92672>(</span>bitmap <span style=color:#f92672>==</span> <span style=color:#66d9ef>null</span><span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>            imageView<span style=color:#f92672>.</span><span style=color:#a6e22e>setImageResource</span><span style=color:#f92672>(</span>R<span style=color:#f92672>.</span><span style=color:#a6e22e>mipmap</span><span style=color:#f92672>.</span><span style=color:#a6e22e>ic_launcher</span><span style=color:#f92672>);</span>     加载默认图片
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span> <span style=color:#66d9ef>else</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>            imageView<span style=color:#f92672>.</span><span style=color:#a6e22e>setImageBitmap</span><span style=color:#f92672>(</span>bitmap<span style=color:#f92672>);</span>     加载缓存图片
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>loadImage</span><span style=color:#f92672>(</span><span style=color:#66d9ef>int</span> start<span style=color:#f92672>,</span> <span style=color:#66d9ef>int</span> end<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>     静止时加载可见项图片
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>for</span> <span style=color:#f92672>(</span><span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> start<span style=color:#f92672>;</span> i <span style=color:#f92672>&lt;</span> end<span style=color:#f92672>;</span> i<span style=color:#f92672>++)</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>            String imageURL <span style=color:#f92672>=</span> ListAdapter<span style=color:#f92672>.</span><span style=color:#a6e22e>URLs</span><span style=color:#f92672>[</span>i<span style=color:#f92672>];</span>
+</span></span><span style=display:flex><span>            Bitmap bitmap <span style=color:#f92672>=</span> mCache<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>(</span>imageURL<span style=color:#f92672>);</span>     从缓存中获取
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>if</span> <span style=color:#f92672>(</span>bitmap <span style=color:#f92672>==</span> <span style=color:#66d9ef>null</span><span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>                mTask<span style=color:#f92672>.</span><span style=color:#a6e22e>add</span><span style=color:#f92672>(</span><span style=color:#66d9ef>new</span> DownloadImage<span style=color:#f92672>().</span><span style=color:#a6e22e>execute</span><span style=color:#f92672>(</span>imageURL<span style=color:#f92672>));</span>     加载网络图片并加入任务列表
+</span></span><span style=display:flex><span>            <span style=color:#f92672>}</span> <span style=color:#66d9ef>else</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>                ImageView imageView <span style=color:#f92672>=</span> <span style=color:#f92672>(</span>ImageView<span style=color:#f92672>)</span> mListView<span style=color:#f92672>.</span><span style=color:#a6e22e>findViewWithTag</span><span style=color:#f92672>(</span>imageURL<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>                imageView<span style=color:#f92672>.</span><span style=color:#a6e22e>setImageBitmap</span><span style=color:#f92672>(</span>bitmap<span style=color:#f92672>);</span>     加载缓存图片
+</span></span><span style=display:flex><span>            <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>cancelAllTask</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> <span style=color:#f92672>(</span>AsyncTask task <span style=color:#f92672>:</span> mTask<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>            task<span style=color:#f92672>.</span><span style=color:#a6e22e>cancel</span><span style=color:#f92672>(</span><span style=color:#66d9ef>false</span><span style=color:#f92672>);</span>     Cancel 状态下 doInBackground 结束后不会调用 onPostExecute<span style=color:#960050;background-color:#1e0010>，</span>而会调用 onCancelled
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>                         <span style=color:#960050;background-color:#1e0010>↳</span> <span style=color:#66d9ef>false</span> 代表不调用 Thread<span style=color:#f92672>.</span><span style=color:#a6e22e>interrupt</span><span style=color:#f92672>()</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>DownloadImage</span> <span style=color:#66d9ef>extends</span> AsyncTask<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>,</span> Void<span style=color:#f92672>,</span> Bitmap<span style=color:#f92672>&gt;</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>private</span> String imageURL<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>protected</span> Bitmap <span style=color:#a6e22e>doInBackground</span><span style=color:#f92672>(</span>String<span style=color:#f92672>...</span> params<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>     下载图片
+</span></span><span style=display:flex><span>            imageURL <span style=color:#f92672>=</span> params<span style=color:#f92672>[</span>0<span style=color:#f92672>];</span>
+</span></span><span style=display:flex><span>            Bitmap bitmap <span style=color:#f92672>=</span> <span style=color:#66d9ef>null</span><span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>try</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>                BufferedInputStream bufferedInputStream <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> BufferedInputStream<span style=color:#f92672>(</span><span style=color:#66d9ef>new</span> URL<span style=color:#f92672>(</span>imageURL<span style=color:#f92672>).</span><span style=color:#a6e22e>openStream</span><span style=color:#f92672>());</span>
+</span></span><span style=display:flex><span>                bitmap <span style=color:#f92672>=</span> BitmapFactory<span style=color:#f92672>.</span><span style=color:#a6e22e>decodeStream</span><span style=color:#f92672>(</span>bufferedInputStream<span style=color:#f92672>);</span>     解析为 Bitmap
+</span></span><span style=display:flex><span>                bufferedInputStream<span style=color:#f92672>.</span><span style=color:#a6e22e>close</span><span style=color:#f92672>();</span>
+</span></span><span style=display:flex><span>            <span style=color:#f92672>}</span> <span style=color:#66d9ef>catch</span> <span style=color:#f92672>(</span>IOException e<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>                e<span style=color:#f92672>.</span><span style=color:#a6e22e>printStackTrace</span><span style=color:#f92672>();</span>
+</span></span><span style=display:flex><span>            <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span>mCache<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>(</span>imageURL<span style=color:#f92672>)</span> <span style=color:#f92672>==</span> <span style=color:#66d9ef>null</span><span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>                mCache<span style=color:#f92672>.</span><span style=color:#a6e22e>put</span><span style=color:#f92672>(</span>imageURL<span style=color:#f92672>,</span> bitmap<span style=color:#f92672>);</span>     将图片添加至缓存
+</span></span><span style=display:flex><span>            <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> bitmap<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>protected</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onPostExecute</span><span style=color:#f92672>(</span>Bitmap bitmap<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>super</span><span style=color:#f92672>.</span><span style=color:#a6e22e>onPostExecute</span><span style=color:#f92672>(</span>bitmap<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>            ImageView imageView <span style=color:#f92672>=</span> <span style=color:#f92672>(</span>ImageView<span style=color:#f92672>)</span> mListView<span style=color:#f92672>.</span><span style=color:#a6e22e>findViewWithTag</span><span style=color:#f92672>(</span>imageURL<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>            imageView<span style=color:#f92672>.</span><span style=color:#a6e22e>setImageBitmap</span><span style=color:#f92672>(</span>bitmap<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>            mTask<span style=color:#f92672>.</span><span style=color:#a6e22e>remove</span><span style=color:#f92672>(</span><span style=color:#66d9ef>this</span><span style=color:#f92672>);</span>     任务完成<span style=color:#960050;background-color:#1e0010>（</span>已缓存图片<span style=color:#960050;background-color:#1e0010>），</span>移出任务列表
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>protected</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onCancelled</span><span style=color:#f92672>(</span>Bitmap bitmap<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>     滚动时不更新 UI 视图中的图片<span style=color:#960050;background-color:#1e0010>，</span>减少重绘<span style=color:#960050;background-color:#1e0010>，</span>使滚动流畅
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>super</span><span style=color:#f92672>.</span><span style=color:#a6e22e>onCancelled</span><span style=color:#f92672>(</span>bitmap<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>            mTask<span style=color:#f92672>.</span><span style=color:#a6e22e>remove</span><span style=color:#f92672>(</span><span style=color:#66d9ef>this</span><span style=color:#f92672>);</span>     任务完成<span style=color:#960050;background-color:#1e0010>（</span>已缓存图片<span style=color:#960050;background-color:#1e0010>），</span>移出任务列表
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
+</span></span></code></pre></div><h2 id=activity_mainxml>activity_main.xml</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=display:flex><span><span style=color:#f92672>&lt;LinearLayout</span> <span style=color:#a6e22e>xmlns:android=</span><span style=color:#e6db74>&#34;http://schemas.android.com/apk/res/android&#34;</span>
+</span></span><span style=display:flex><span>              <span style=color:#a6e22e>android:orientation=</span><span style=color:#e6db74>&#34;vertical&#34;</span>
+</span></span><span style=display:flex><span>              <span style=color:#a6e22e>android:layout_width=</span><span style=color:#e6db74>&#34;match_parent&#34;</span>
+</span></span><span style=display:flex><span>              <span style=color:#a6e22e>android:layout_height=</span><span style=color:#e6db74>&#34;match_parent&#34;</span><span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;ListView</span>
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>android:id=</span><span style=color:#e6db74>&#34;@+id/list_item&#34;</span>
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>android:layout_width=</span><span style=color:#e6db74>&#34;match_parent&#34;</span>
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>android:layout_height=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span><span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;/ListView&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;/LinearLayout&gt;</span>
+</span></span></code></pre></div><h2 id=item_layoutxml>item_layout.xml</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=display:flex><span><span style=color:#f92672>&lt;LinearLayout</span> <span style=color:#a6e22e>xmlns:android=</span><span style=color:#e6db74>&#34;http://schemas.android.com/apk/res/android&#34;</span>
+</span></span><span style=display:flex><span>              <span style=color:#a6e22e>android:orientation=</span><span style=color:#e6db74>&#34;horizontal&#34;</span>
+</span></span><span style=display:flex><span>              <span style=color:#a6e22e>android:layout_width=</span><span style=color:#e6db74>&#34;match_parent&#34;</span>
+</span></span><span style=display:flex><span>              <span style=color:#a6e22e>android:layout_height=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>              <span style=color:#a6e22e>android:padding=</span><span style=color:#e6db74>&#34;4dp&#34;</span><span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;ImageView</span>
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>android:id=</span><span style=color:#e6db74>&#34;@+id/image&#34;</span>
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>android:src=</span><span style=color:#e6db74>&#34;@mipmap/ic_launcher&#34;</span>
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>android:layout_width=</span><span style=color:#e6db74>&#34;64dp&#34;</span>
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>android:layout_height=</span><span style=color:#e6db74>&#34;64dp&#34;</span><span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;LinearLayout</span>
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>android:paddingStart=</span><span style=color:#e6db74>&#34;4dp&#34;</span>
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>android:paddingEnd=</span><span style=color:#e6db74>&#34;0dp&#34;</span>
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>android:orientation=</span><span style=color:#e6db74>&#34;vertical&#34;</span>
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>android:layout_width=</span><span style=color:#e6db74>&#34;match_parent&#34;</span>
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>android:layout_height=</span><span style=color:#e6db74>&#34;match_parent&#34;</span><span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&lt;TextView</span>
+</span></span><span style=display:flex><span>                <span style=color:#a6e22e>android:gravity=</span><span style=color:#e6db74>&#34;center_vertical&#34;</span>
+</span></span><span style=display:flex><span>                <span style=color:#a6e22e>android:id=</span><span style=color:#e6db74>&#34;@+id/title&#34;</span>
+</span></span><span style=display:flex><span>                <span style=color:#a6e22e>android:maxLines=</span><span style=color:#e6db74>&#34;1&#34;</span>
+</span></span><span style=display:flex><span>                <span style=color:#a6e22e>android:text=</span><span style=color:#e6db74>&#34;New Text&#34;</span>
+</span></span><span style=display:flex><span>                <span style=color:#a6e22e>android:textSize=</span><span style=color:#e6db74>&#34;15sp&#34;</span>
+</span></span><span style=display:flex><span>                <span style=color:#a6e22e>android:layout_weight=</span><span style=color:#e6db74>&#34;1&#34;</span>
+</span></span><span style=display:flex><span>                <span style=color:#a6e22e>android:layout_width=</span><span style=color:#e6db74>&#34;match_parent&#34;</span>
+</span></span><span style=display:flex><span>                <span style=color:#a6e22e>android:layout_height=</span><span style=color:#e6db74>&#34;0dp&#34;</span><span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&lt;TextView</span>
+</span></span><span style=display:flex><span>                <span style=color:#a6e22e>android:gravity=</span><span style=color:#e6db74>&#34;center_vertical&#34;</span>
+</span></span><span style=display:flex><span>                <span style=color:#a6e22e>android:id=</span><span style=color:#e6db74>&#34;@+id/content&#34;</span>
+</span></span><span style=display:flex><span>                <span style=color:#a6e22e>android:maxLines=</span><span style=color:#e6db74>&#34;3&#34;</span>
+</span></span><span style=display:flex><span>                <span style=color:#a6e22e>android:text=</span><span style=color:#e6db74>&#34;New Text&#34;</span>
+</span></span><span style=display:flex><span>                <span style=color:#a6e22e>android:textSize=</span><span style=color:#e6db74>&#34;12sp&#34;</span>
+</span></span><span style=display:flex><span>                <span style=color:#a6e22e>android:layout_weight=</span><span style=color:#e6db74>&#34;1&#34;</span>
+</span></span><span style=display:flex><span>                <span style=color:#a6e22e>android:layout_width=</span><span style=color:#e6db74>&#34;match_parent&#34;</span>
+</span></span><span style=display:flex><span>                <span style=color:#a6e22e>android:layout_height=</span><span style=color:#e6db74>&#34;0dp&#34;</span><span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;/LinearLayout&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;/LinearLayout&gt;</span>
+</span></span></code></pre></div></div><div class=sharing style=text-align:center><br><p>捐赠支持</p><p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p><p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p><img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%><p></p><br>&copy; 2015-2020 XhstormR</div></div></div></div><div id=backtop><a href=# title>TOP</a></div><nav id=TableOfContents><ul><li><a href=#mainactivityjava>MainActivity.java</a></li><li><a href=#coursebeanjava>CourseBean.java</a></li><li><a href=#listadapterjava>ListAdapter.java</a></li><li><a href=#imageloaderjava>ImageLoader.java</a></li><li><a href=#activity_mainxml>activity_main.xml</a></li><li><a href=#item_layoutxml>item_layout.xml</a></li></ul></nav><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script>
-<script>hljs.initHighlightingOnLoad()</script>
-<script src=https://blog.xhstormr.tk/js/zoom.min.js></script>
-<script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script>
-<script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script>
-</body>
-</html>
+<script>hljs.initHighlightingOnLoad()</script><script src=https://blog.xhstormr.tk/js/zoom.min.js></script>
+<script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script><script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script></body></html>

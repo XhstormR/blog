@@ -1,472 +1,324 @@
-<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache>
-<head>
-<meta charset=utf-8>
-<meta name=renderer content="webkit">
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title> Java 8 &#183; XhstormR </title>
-<link rel=alternate type=application/rss+xml title=XhstormR href>
-<link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico>
-<link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css>
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css>
-<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
-<script src=https://blog.xhstormr.tk/js/main.min.js async defer></script>
-</head>
-<body>
-<div id=scriptHeader>
-<span class="mobile btn-mobile-menu">
-<i class="fa fa-bars btn-mobile-menu__icon"></i>
-<i class="fa fa-times btn-mobile-close__icon hidden"></i>
-</span>
-<header class="panel-cover panel-cover--collapsed">
-<div class=panel-main>
-<div class="panel-main__inner panel-inverted">
-<div class=panel-main__content>
-<h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1>
-<hr class=panel-cover__divider>
-<p class=panel-cover__description> On a dark desert highway, cool wind in my hair. </p>
-<hr class="panel-cover__divider panel-cover__divider--secondary">
-<div class=navigation-wrapper>
-<nav class="cover-navigation cover-navigation--primary">
-<ul class=navigation>
-<li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li>
-</ul>
-</nav>
-</div>
-</div>
-</div>
-<div class=panel-cover--overlay></div>
-</div>
-</header>
-</div>
-<div class=bodytop>
-<div class=content-wrapper>
-<div class=content-wrapper__inner>
-<div class=post>
-<h1>Java 8</h1>
-<span class=post-date>2016-11-04</span>
-<p>Updated on 2016-11-09</p>
-<blockquote>
-<p><a href=https://docs.oracle.com/javase/10/docs/api/java/util/StringJoiner.html>StringJoiner</a>
+<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache><head><meta charset=utf-8><meta name=renderer content="webkit"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>Java 8 &#183; XhstormR</title><link rel=alternate type=application/rss+xml title=XhstormR href><link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico><link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
+<script src=https://blog.xhstormr.tk/js/main.min.js async defer></script></head><body><div id=scriptHeader><span class="mobile btn-mobile-menu"><i class="fa fa-bars btn-mobile-menu__icon"></i>
+<i class="fa fa-times btn-mobile-close__icon hidden"></i></span><header class="panel-cover panel-cover--collapsed"><div class=panel-main><div class="panel-main__inner panel-inverted"><div class=panel-main__content><h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1><hr class=panel-cover__divider><p class=panel-cover__description>On a dark desert highway, cool wind in my hair.</p><hr class="panel-cover__divider panel-cover__divider--secondary"><div class=navigation-wrapper><nav class="cover-navigation cover-navigation--primary"><ul class=navigation><li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li></ul></nav></div></div></div><div class=panel-cover--overlay></div></div></header></div><div class=bodytop><div class=content-wrapper><div class=content-wrapper__inner><div class=post><h1>Java 8</h1><span class=post-date>2016-11-04</span><p>Updated on 2016-11-09</p><blockquote><p><a href=https://docs.oracle.com/javase/10/docs/api/java/util/StringJoiner.html>StringJoiner</a>
 |
-<a href=https://docs.oracle.com/javase/10/docs/api/java/util/Optional.html>Optional</a></p>
-<p><a href=https://docs.oracle.com/javase/10/docs/api/java/util/stream/Stream.html>https://docs.oracle.com/javase/10/docs/api/java/util/stream/Stream.html</a></p>
-<p><a href=https://docs.oracle.com/javase/10/docs/api/java/util/stream/Collectors.html>https://docs.oracle.com/javase/10/docs/api/java/util/stream/Collectors.html</a></p>
-</blockquote>
-<h2 id=lambda>Lambda</h2>
-<ul>
-<li>Lambda 表达式（匿名方法 or 闭包）：由 <code>参数列表</code>、<code>-></code>、<code>函数体</code> 组成。
-<ul>
-<li>参数列表：可以省略参数类型，编译器会根据上下文推导。</li>
-<li>函数体：引用的局部变量会被隐式声明为 final。
-<ul>
-<li>代码块：用 <code>{ }</code> 包裹的多条执行代码。</li>
-<li>表达式：只有一条执行代码，省略了 <code>{ }</code> 和 <code>return</code>。
-<ul>
-<li>若 <strong>没有传入额外参数</strong>，而 <strong>仅调用对象方法</strong>，则可以进一步简化整个 Lambda 表达式，转换为 <strong>方法引用</strong>。<code>对象名::方法名</code> <code>类名::方法名</code> <code>类名::new</code> <code>类名[]::new</code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Lambda 表达式只能出现在目标类型为函数式接口的上下文中。</li>
-<li>Lambda 表达式不会引入新作用域，函数体中的变量和外部环境中的变量具有相同的语义。</li>
-</ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>Predicate<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> filter <span style=color:#f92672>=</span> <span style=color:#f92672>(</span>String s<span style=color:#f92672>)</span> <span style=color:#f92672>-&gt;</span> <span style=color:#f92672>{</span>     代码块
-    <span style=color:#66d9ef>return</span> s<span style=color:#f92672>.</span><span style=color:#a6e22e>endsWith</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;.txt&#34;</span><span style=color:#f92672>);</span>
-<span style=color:#f92672>};</span>
-
-Predicate<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> filter <span style=color:#f92672>=</span> <span style=color:#f92672>(</span>String s<span style=color:#f92672>)</span> <span style=color:#f92672>-&gt;</span> s<span style=color:#f92672>.</span><span style=color:#a6e22e>endsWith</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;.txt&#34;</span><span style=color:#f92672>);</span>     表达式
-
-Predicate<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> filter <span style=color:#f92672>=</span> s <span style=color:#f92672>-&gt;</span> s<span style=color:#f92672>.</span><span style=color:#a6e22e>endsWith</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;.txt&#34;</span><span style=color:#f92672>);</span>     省略参数类型
-
-<span style=color:#f92672>-------------------------------------------------------</span>
-
-Runnable runnable <span style=color:#f92672>=</span> <span style=color:#f92672>()</span> <span style=color:#f92672>-&gt;</span> <span style=color:#f92672>{</span>     代码块
-    System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;123&#34;</span><span style=color:#f92672>);</span>
-<span style=color:#f92672>};</span>
-
-Runnable runnable <span style=color:#f92672>=</span> <span style=color:#f92672>()</span> <span style=color:#f92672>-&gt;</span> System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;123&#34;</span><span style=color:#f92672>);</span>     表达式
-
-Runnable runnable <span style=color:#f92672>=</span> System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>::</span>println<span style=color:#f92672>;</span>     若去掉 <span style=color:#e6db74>&#34;123&#34;</span><span style=color:#960050;background-color:#1e0010>，</span>则可以转为方法引用<span style=color:#960050;background-color:#1e0010>（</span>没有传入额外参数<span style=color:#960050;background-color:#1e0010>）</span>
-
-<span style=color:#f92672>-------------------------------------------------------</span>
-
-Arrays<span style=color:#f92672>.</span><span style=color:#a6e22e>asList</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;A&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;B&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;C&#34;</span><span style=color:#f92672>).</span><span style=color:#a6e22e>sort</span><span style=color:#f92672>((</span>String s1<span style=color:#f92672>,</span> String s2<span style=color:#f92672>)</span> <span style=color:#f92672>-&gt;</span> <span style=color:#f92672>{</span>     代码块
-    <span style=color:#66d9ef>return</span> s1<span style=color:#f92672>.</span><span style=color:#a6e22e>compareTo</span><span style=color:#f92672>(</span>s2<span style=color:#f92672>);</span>
-<span style=color:#f92672>});</span>
-
-Arrays<span style=color:#f92672>.</span><span style=color:#a6e22e>asList</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;A&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;B&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;C&#34;</span><span style=color:#f92672>).</span><span style=color:#a6e22e>sort</span><span style=color:#f92672>((</span>String s1<span style=color:#f92672>,</span> String s2<span style=color:#f92672>)</span> <span style=color:#f92672>-&gt;</span> s1<span style=color:#f92672>.</span><span style=color:#a6e22e>compareTo</span><span style=color:#f92672>(</span>s2<span style=color:#f92672>));</span>     表达式
-
-Arrays<span style=color:#f92672>.</span><span style=color:#a6e22e>asList</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;A&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;B&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;C&#34;</span><span style=color:#f92672>).</span><span style=color:#a6e22e>sort</span><span style=color:#f92672>((</span>s1<span style=color:#f92672>,</span> s2<span style=color:#f92672>)</span> <span style=color:#f92672>-&gt;</span> s1<span style=color:#f92672>.</span><span style=color:#a6e22e>compareTo</span><span style=color:#f92672>(</span>s2<span style=color:#f92672>));</span>     省略参数类型
-
-Arrays<span style=color:#f92672>.</span><span style=color:#a6e22e>asList</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;A&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;B&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;C&#34;</span><span style=color:#f92672>).</span><span style=color:#a6e22e>sort</span><span style=color:#f92672>(</span>String<span style=color:#f92672>::</span>compareTo<span style=color:#f92672>);</span>     方法引用<span style=color:#960050;background-color:#1e0010>（</span>没有传入额外参数<span style=color:#960050;background-color:#1e0010>）</span>
-
-<span style=color:#f92672>-------------------------------------------------------</span>
-
-Comparator<span style=color:#f92672>&lt;</span>Integer<span style=color:#f92672>&gt;</span> comparator <span style=color:#f92672>=</span> <span style=color:#f92672>(</span>x<span style=color:#f92672>,</span> y<span style=color:#f92672>)</span> <span style=color:#f92672>-&gt;</span> Integer<span style=color:#f92672>.</span><span style=color:#a6e22e>compare</span><span style=color:#f92672>(</span>x<span style=color:#f92672>,</span> y<span style=color:#f92672>);</span>     表达式
-
-Comparator<span style=color:#f92672>&lt;</span>Integer<span style=color:#f92672>&gt;</span> comparator <span style=color:#f92672>=</span> Integer<span style=color:#f92672>::</span>compare<span style=color:#f92672>;</span>     方法引用<span style=color:#960050;background-color:#1e0010>（</span>没有传入额外参数<span style=color:#960050;background-color:#1e0010>）</span>
-</code></pre></div><h2 id=functional-interface>Functional Interface</h2>
-<p>只含有一个抽象方法，因此可以被转换成 Lambda 表达式。</p>
-<ul>
-<li>抽象方法：自己 <strong>未实现</strong>，子类必须实现。<code>void a();</code></li>
-<li>默认方法：自己 <strong>已实现</strong>，子类可以重写。<code>default void b() { }</code></li>
-<li>静态方法：自己 <strong>已实现</strong>，直接可以访问。<code>static void c() { }</code></li>
-</ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#a6e22e>@FunctionalInterface</span>     注解<span style=color:#960050;background-color:#1e0010>：</span>声明为函数式接口
-<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>A</span> <span style=color:#f92672>{</span>
-    <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>a</span><span style=color:#f92672>();</span>     抽象方法
-
-    <span style=color:#66d9ef>default</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>b</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>     默认方法
-        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;默认方法&#34;</span><span style=color:#f92672>);</span>
-    <span style=color:#f92672>}</span>
-
-    <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>c</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>     静态方法
-        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;静态方法&#34;</span><span style=color:#f92672>);</span>
-    <span style=color:#f92672>}</span>
-<span style=color:#f92672>}</span>
-
-<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Test</span> <span style=color:#f92672>{</span>
-    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span><span style=color:#f92672>(</span>String<span style=color:#f92672>[]</span> args<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
-        Runnable r <span style=color:#f92672>=</span> <span style=color:#f92672>()</span> <span style=color:#f92672>-&gt;</span> System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;抽象方法&#34;</span><span style=color:#f92672>);</span>     根据上下文推导出目标类型 <span style=color:#960050;background-color:#1e0010>➜</span> Runnable
-        A a <span style=color:#f92672>=</span> <span style=color:#f92672>()</span> <span style=color:#f92672>-&gt;</span> System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;抽象方法&#34;</span><span style=color:#f92672>);</span>     根据上下文推导出目标类型 <span style=color:#960050;background-color:#1e0010>➜</span> A
-        a<span style=color:#f92672>.</span><span style=color:#a6e22e>a</span><span style=color:#f92672>();</span>
-        a<span style=color:#f92672>.</span><span style=color:#a6e22e>b</span><span style=color:#f92672>();</span>
-        A<span style=color:#f92672>.</span><span style=color:#a6e22e>c</span><span style=color:#f92672>();</span>
-    <span style=color:#f92672>}</span>
-<span style=color:#f92672>}</span>
-<span style=color:#f92672>----</span>
-输出<span style=color:#960050;background-color:#1e0010>：</span>
-抽象方法
-默认方法
-静态方法
-</code></pre></div><h2 id=stream>Stream</h2>
-<p>支持串行处理和并行处理的 <strong>数据流</strong>。</p>
-<ul>
-<li>外部迭代：通过 for-each 循环来处理数据；同时承担 <code>做什么</code> 和 <code>怎么做</code>。</li>
-<li>内部迭代：通过获得 Stream 来处理数据；只承担 <code>做什么</code>，由类库承担 <code>怎么做</code>。
-<ul>
-<li>中间操作（惰性求值）：不会立即执行，而是加入任务队列中，在终点操作时一并执行。
-<ul>
-<li>有限数据 ➜ 优化作用，无限数据 ➜ 决定作用（没有短路求值，操作无法停止）。</li>
-</ul>
-</li>
-<li>终点操作（急性求值）：通过短路求值的优化一并执行所有操作，以提供更高效的性能。</li>
-</ul>
-</li>
-<li>串行流（串行处理）：单线程。<code>list.stream()</code> <code>stream.sequential()</code></li>
-<li>并行流（并行处理）：多线程。<code>list.parallelStream()</code> <code>stream.parallel()</code></li>
-<li>中间操作：
-<ul>
-<li>过滤：filter。</li>
-<li>排序：sorted。</li>
-<li>去重：distinct。</li>
-<li>最大：max。</li>
-<li>最小：min。</li>
-<li>消耗：peek。</li>
-<li>转换：map（一对一）、flatMap（一对多）。<code>映射</code></li>
-<li>返回前 n 个元素：limit。<code>最多执行次数</code></li>
-<li>跳过前 n 个元素：skip。</li>
-</ul>
-</li>
-<li>终点操作：
-<ul>
-<li>收集：collect。</li>
-<li>归约：reduce。</li>
-<li>消耗：forEach。</li>
-<li>且（<strong>全部</strong> 元素符合返回 true）：allMatch。</li>
-<li>或（<strong>任一</strong> 元素符合返回 true）：anyMatch。</li>
-<li>非（<strong>没有</strong> 元素符合返回 true）：noneMatch。</li>
-</ul>
-</li>
-</ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>for</span> <span style=color:#f92672>(</span>Shape shape <span style=color:#f92672>:</span> shapes<span style=color:#f92672>){</span>     外部迭代
-    shape<span style=color:#f92672>.</span><span style=color:#a6e22e>setColor</span><span style=color:#f92672>(</span>RED<span style=color:#f92672>);</span>
-<span style=color:#f92672>}</span>
-
-<span style=color:#f92672>----</span>
-
-shapes<span style=color:#f92672>.</span><span style=color:#a6e22e>forEach</span><span style=color:#f92672>(</span>s <span style=color:#f92672>-&gt;</span> s<span style=color:#f92672>.</span><span style=color:#a6e22e>setColor</span><span style=color:#f92672>(</span>RED<span style=color:#f92672>));</span>     内部迭代<span style=color:#960050;background-color:#1e0010>（</span>优<span style=color:#960050;background-color:#1e0010>）</span>
-
-<span style=color:#f92672>-------------------------------------------------------</span>
-
-<span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> array <span style=color:#f92672>=</span> IntStream<span style=color:#f92672>.</span><span style=color:#a6e22e>range</span><span style=color:#f92672>(</span>0<span style=color:#f92672>,</span> 3<span style=color:#f92672>).</span><span style=color:#a6e22e>toArray</span><span style=color:#f92672>();</span>     生成数组 <span style=color:#f92672>[</span>0<span style=color:#f92672>,</span> 1<span style=color:#f92672>,</span> 2<span style=color:#f92672>]</span>
-
-IntStream<span style=color:#f92672>.</span><span style=color:#a6e22e>range</span><span style=color:#f92672>(</span>0<span style=color:#f92672>,</span> 3<span style=color:#f92672>).</span><span style=color:#a6e22e>forEach</span><span style=color:#f92672>(</span>System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>::</span>println<span style=color:#f92672>);</span>     替代 <span style=color:#66d9ef>for</span> 循环
-<span style=color:#f92672>----</span>
-输出<span style=color:#960050;background-color:#1e0010>：</span>
-0
-1
-2
-
-<span style=color:#f92672>-------------------------------------------------------</span>
-
-Stream
-        <span style=color:#f92672>.</span><span style=color:#a6e22e>of</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;A&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;B&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;C&#34;</span><span style=color:#f92672>)</span>
-        <span style=color:#f92672>.</span><span style=color:#a6e22e>filter</span><span style=color:#f92672>(</span>s <span style=color:#f92672>-&gt;</span> <span style=color:#f92672>{</span>
-            System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;filter: &#34;</span> <span style=color:#f92672>+</span> s<span style=color:#f92672>);</span>
-            <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>true</span><span style=color:#f92672>;</span>
-        <span style=color:#f92672>})</span>
-        <span style=color:#f92672>.</span><span style=color:#a6e22e>map</span><span style=color:#f92672>(</span>s <span style=color:#f92672>-&gt;</span> <span style=color:#f92672>{</span>
-            System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;map: &#34;</span> <span style=color:#f92672>+</span> s<span style=color:#f92672>);</span>
-            <span style=color:#66d9ef>return</span> s<span style=color:#f92672>;</span>
-        <span style=color:#f92672>});</span>     没有调用终点操作
-<span style=color:#f92672>----</span>
-输出<span style=color:#960050;background-color:#1e0010>：</span>无
-
-<span style=color:#f92672>----</span>
-
-Stream
-        <span style=color:#f92672>.</span><span style=color:#a6e22e>of</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;A&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;B&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;C&#34;</span><span style=color:#f92672>)</span>
-        <span style=color:#f92672>.</span><span style=color:#a6e22e>filter</span><span style=color:#f92672>(</span>s <span style=color:#f92672>-&gt;</span> <span style=color:#f92672>{</span>
-            System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;filter: &#34;</span> <span style=color:#f92672>+</span> s<span style=color:#f92672>);</span>
-            <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>true</span><span style=color:#f92672>;</span>
-        <span style=color:#f92672>})</span>
-        <span style=color:#f92672>.</span><span style=color:#a6e22e>map</span><span style=color:#f92672>(</span>s <span style=color:#f92672>-&gt;</span> <span style=color:#f92672>{</span>
-            System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;map: &#34;</span> <span style=color:#f92672>+</span> s<span style=color:#f92672>);</span>
-            <span style=color:#66d9ef>return</span> s<span style=color:#f92672>;</span>
-        <span style=color:#f92672>})</span>
-        <span style=color:#f92672>.</span><span style=color:#a6e22e>anyMatch</span><span style=color:#f92672>(</span>s <span style=color:#f92672>-&gt;</span> <span style=color:#f92672>{</span>     调用终点操作
-            System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;anyMatch: &#34;</span> <span style=color:#f92672>+</span> s<span style=color:#f92672>);</span>
-            <span style=color:#66d9ef>return</span> s<span style=color:#f92672>.</span><span style=color:#a6e22e>startsWith</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;B&#34;</span><span style=color:#f92672>);</span>
-        <span style=color:#f92672>});</span>
-<span style=color:#f92672>----</span>
-输出<span style=color:#960050;background-color:#1e0010>：</span>     <span style=color:#960050;background-color:#1e0010>（</span>可以看出对元素的处理操作是垂直执行的<span style=color:#960050;background-color:#1e0010>，</span>像在流水线依次经过每个操作<span style=color:#960050;background-color:#1e0010>，</span>并通过短路求值尽可能减少操作次数<span style=color:#960050;background-color:#1e0010>）</span>
-filter: A
-map: A
-anyMatch: A
-filter: B
-map: B
-anyMatch: B
-
-Note<span style=color:#960050;background-color:#1e0010>：</span>filter 操作尽可能排在最前<span style=color:#960050;background-color:#1e0010>（</span>短路求值<span style=color:#960050;background-color:#1e0010>），</span>sorted 操作尽可能排在最后<span style=color:#960050;background-color:#1e0010>（</span>sorted 操作遍历整个数据流<span style=color:#960050;background-color:#1e0010>）</span>
-</code></pre></div><h2 id=optional>Optional</h2>
-<p>一种用于封装对象的容器，封装的对象可以为空，并且对空值进行处理。</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> <span style=color:#f92672>{</span>
-    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span><span style=color:#f92672>(</span>String<span style=color:#f92672>[]</span> args<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
-        a<span style=color:#f92672>();</span>
-        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;--------&#34;</span><span style=color:#f92672>);</span>
-        b<span style=color:#f92672>();</span>
-    <span style=color:#f92672>}</span>
-
-    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>a</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
-        String s <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;ABC&#34;</span><span style=color:#f92672>;</span>
-        Optional<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> optional <span style=color:#f92672>=</span> Optional<span style=color:#f92672>.</span><span style=color:#a6e22e>ofNullable</span><span style=color:#f92672>(</span>s<span style=color:#f92672>);</span>     对象不为空
-
-        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>optional<span style=color:#f92672>.</span><span style=color:#a6e22e>isPresent</span><span style=color:#f92672>());</span>
-        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>optional<span style=color:#f92672>.</span><span style=color:#a6e22e>orElse</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;123&#34;</span><span style=color:#f92672>));</span>     接收一个缺省值
-        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>optional<span style=color:#f92672>.</span><span style=color:#a6e22e>orElseGet</span><span style=color:#f92672>(()</span> <span style=color:#f92672>-&gt;</span> <span style=color:#e6db74>&#34;123&#34;</span><span style=color:#f92672>));</span>     接收一个 Supplier 函数式接口
-    <span style=color:#f92672>}</span>
-
-    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>b</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
-        String s <span style=color:#f92672>=</span> <span style=color:#66d9ef>null</span><span style=color:#f92672>;</span>
-        Optional<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> optional <span style=color:#f92672>=</span> Optional<span style=color:#f92672>.</span><span style=color:#a6e22e>ofNullable</span><span style=color:#f92672>(</span>s<span style=color:#f92672>);</span>     对象为空
-
-        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>optional<span style=color:#f92672>.</span><span style=color:#a6e22e>isPresent</span><span style=color:#f92672>());</span>
-        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>optional<span style=color:#f92672>.</span><span style=color:#a6e22e>orElse</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;123&#34;</span><span style=color:#f92672>));</span>
-        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>optional<span style=color:#f92672>.</span><span style=color:#a6e22e>orElseGet</span><span style=color:#f92672>(()</span> <span style=color:#f92672>-&gt;</span> <span style=color:#e6db74>&#34;123&#34;</span><span style=color:#f92672>));</span>
-    <span style=color:#f92672>}</span>
-<span style=color:#f92672>}</span>
-<span style=color:#f92672>----</span>
-输出<span style=color:#960050;background-color:#1e0010>：</span>
-<span style=color:#66d9ef>true</span>
-ABC
-ABC
-<span style=color:#f92672>--------</span>
-<span style=color:#66d9ef>false</span>
-123
-123
-</code></pre></div><h2 id=code>Code</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> <span style=color:#f92672>{</span>
-    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>final</span> List<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;</span> LIST <span style=color:#f92672>=</span> Arrays<span style=color:#f92672>.</span><span style=color:#a6e22e>asList</span><span style=color:#f92672>(</span>     作家列表
-            <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Author</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Adam&#34;</span><span style=color:#f92672>,</span> 23<span style=color:#f92672>,</span> Arrays<span style=color:#f92672>.</span><span style=color:#a6e22e>asList</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Java1&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;Java2&#34;</span><span style=color:#f92672>)),</span>
-            <span style=color:#66d9ef>new</span> Author<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Bell&#34;</span><span style=color:#f92672>,</span> 19<span style=color:#f92672>,</span> Arrays<span style=color:#f92672>.</span><span style=color:#a6e22e>asList</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Python1&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;Python2&#34;</span><span style=color:#f92672>)),</span>
-            <span style=color:#66d9ef>new</span> Author<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Conan&#34;</span><span style=color:#f92672>,</span> 23<span style=color:#f92672>,</span> Arrays<span style=color:#f92672>.</span><span style=color:#a6e22e>asList</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;PHP1&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;PHP2&#34;</span><span style=color:#f92672>)),</span>
-            <span style=color:#66d9ef>new</span> Author<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;David&#34;</span><span style=color:#f92672>,</span> 26<span style=color:#f92672>,</span> Arrays<span style=color:#f92672>.</span><span style=color:#a6e22e>asList</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Ruby1&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;Ruby2&#34;</span><span style=color:#f92672>)));</span>
-
-    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span><span style=color:#f92672>(</span>String<span style=color:#f92672>[]</span> args<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
-        Supplier<span style=color:#f92672>&lt;</span>Stream<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;&gt;</span> supplier <span style=color:#f92672>=</span> <span style=color:#f92672>()</span> <span style=color:#f92672>-&gt;</span> LIST<span style=color:#f92672>.</span><span style=color:#a6e22e>stream</span><span style=color:#f92672>().</span><span style=color:#a6e22e>onClose</span><span style=color:#f92672>(()</span> <span style=color:#f92672>-&gt;</span> System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;——————————————&#34;</span><span style=color:#f92672>));</span>     供应器
-        <span style=color:#a6e22e>a</span><span style=color:#f92672>(</span>supplier<span style=color:#f92672>);</span>                                                                                   <span style=color:#960050;background-color:#1e0010>↳</span> Stream 关闭时回调 Runnable 对象
-        <span style=color:#a6e22e>b</span><span style=color:#f92672>(</span>supplier<span style=color:#f92672>);</span>
-        c<span style=color:#f92672>(</span>supplier<span style=color:#f92672>);</span>
-        d<span style=color:#f92672>();</span>
-    <span style=color:#f92672>}</span>
-
-    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>a</span><span style=color:#f92672>(</span>Supplier<span style=color:#f92672>&lt;</span>Stream<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;&gt;</span> supplier<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>     collect
-        <span style=color:#a6e22e>try</span> <span style=color:#f92672>(</span>Stream<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;</span> stream <span style=color:#f92672>=</span> supplier<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>())</span> <span style=color:#f92672>{</span>
-            Set<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;</span> set <span style=color:#f92672>=</span> stream<span style=color:#f92672>.</span><span style=color:#a6e22e>filter</span><span style=color:#f92672>(</span>o <span style=color:#f92672>-&gt;</span> o<span style=color:#f92672>.</span><span style=color:#a6e22e>mName</span><span style=color:#f92672>.</span><span style=color:#a6e22e>startsWith</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;B&#34;</span><span style=color:#f92672>)).</span><span style=color:#a6e22e>collect</span><span style=color:#f92672>(</span>Collectors<span style=color:#f92672>.</span><span style=color:#a6e22e>toSet</span><span style=color:#f92672>());</span>     获得以 B 开头的姓名<span style=color:#960050;background-color:#1e0010>，</span>toSet
-            System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>set<span style=color:#f92672>);</span>
-        <span style=color:#f92672>}</span>
-        <span style=color:#66d9ef>try</span> <span style=color:#f92672>(</span>Stream<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;</span> stream <span style=color:#f92672>=</span> supplier<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>())</span> <span style=color:#f92672>{</span>
-            List<span style=color:#f92672>&lt;</span>Integer<span style=color:#f92672>&gt;</span> list <span style=color:#f92672>=</span> stream<span style=color:#f92672>.</span><span style=color:#a6e22e>map</span><span style=color:#f92672>(</span>o <span style=color:#f92672>-&gt;</span> o<span style=color:#f92672>.</span><span style=color:#a6e22e>mAge</span><span style=color:#f92672>).</span><span style=color:#a6e22e>distinct</span><span style=color:#f92672>().</span><span style=color:#a6e22e>sorted</span><span style=color:#f92672>().</span><span style=color:#a6e22e>collect</span><span style=color:#f92672>(</span>Collectors<span style=color:#f92672>.</span><span style=color:#a6e22e>toList</span><span style=color:#f92672>());</span>     有哪些年龄<span style=color:#960050;background-color:#1e0010>，</span>toList
-            System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>list<span style=color:#f92672>);</span>
-        <span style=color:#f92672>}</span>
-        <span style=color:#66d9ef>try</span> <span style=color:#f92672>(</span>Stream<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;</span> stream <span style=color:#f92672>=</span> supplier<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>())</span> <span style=color:#f92672>{</span>
-            Double aDouble <span style=color:#f92672>=</span> stream<span style=color:#f92672>.</span><span style=color:#a6e22e>collect</span><span style=color:#f92672>(</span>Collectors<span style=color:#f92672>.</span><span style=color:#a6e22e>averagingInt</span><span style=color:#f92672>(</span>o <span style=color:#f92672>-&gt;</span> o<span style=color:#f92672>.</span><span style=color:#a6e22e>mAge</span><span style=color:#f92672>));</span>     获得平均年龄
-            System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>aDouble<span style=color:#f92672>);</span>
-        <span style=color:#f92672>}</span>
-        <span style=color:#66d9ef>try</span> <span style=color:#f92672>(</span>Stream<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;</span> stream <span style=color:#f92672>=</span> supplier<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>())</span> <span style=color:#f92672>{</span>
-            Map<span style=color:#f92672>&lt;</span>Boolean<span style=color:#f92672>,</span> List<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;&gt;</span> map <span style=color:#f92672>=</span> stream<span style=color:#f92672>.</span><span style=color:#a6e22e>collect</span><span style=color:#f92672>(</span>Collectors<span style=color:#f92672>.</span><span style=color:#a6e22e>partitioningBy</span><span style=color:#f92672>(</span>o <span style=color:#f92672>-&gt;</span> o<span style=color:#f92672>.</span><span style=color:#a6e22e>mAge</span> <span style=color:#f92672>&gt;</span> 20<span style=color:#f92672>));</span>     按年龄一分为二
-            map<span style=color:#f92672>.</span><span style=color:#a6e22e>forEach</span><span style=color:#f92672>((</span>key<span style=color:#f92672>,</span> value<span style=color:#f92672>)</span> <span style=color:#f92672>-&gt;</span> System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>printf</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;%s: %s\n&#34;</span><span style=color:#f92672>,</span> key<span style=color:#f92672>,</span> value<span style=color:#f92672>));</span>
-        <span style=color:#f92672>}</span>
-        <span style=color:#66d9ef>try</span> <span style=color:#f92672>(</span>Stream<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;</span> stream <span style=color:#f92672>=</span> supplier<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>())</span> <span style=color:#f92672>{</span>
-            Map<span style=color:#f92672>&lt;</span>Integer<span style=color:#f92672>,</span> List<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;&gt;</span> map <span style=color:#f92672>=</span> stream<span style=color:#f92672>.</span><span style=color:#a6e22e>collect</span><span style=color:#f92672>(</span>Collectors<span style=color:#f92672>.</span><span style=color:#a6e22e>groupingBy</span><span style=color:#f92672>(</span>o <span style=color:#f92672>-&gt;</span> o<span style=color:#f92672>.</span><span style=color:#a6e22e>mAge</span><span style=color:#f92672>));</span>     按年龄分组<span style=color:#960050;background-color:#1e0010>，</span>toMap<span style=color:#960050;background-color:#1e0010>，</span>未提供收集器<span style=color:#960050;background-color:#1e0010>（</span>默认调用 <span style=color:#a6e22e>toList</span><span style=color:#f92672>()</span><span style=color:#960050;background-color:#1e0010>）</span>
-            map<span style=color:#f92672>.</span><span style=color:#a6e22e>forEach</span><span style=color:#f92672>((</span>key<span style=color:#f92672>,</span> value<span style=color:#f92672>)</span> <span style=color:#f92672>-&gt;</span> System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>printf</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;%s: %s\n&#34;</span><span style=color:#f92672>,</span> key<span style=color:#f92672>,</span> value<span style=color:#f92672>));</span>
-        <span style=color:#f92672>}</span>
-        <span style=color:#66d9ef>try</span> <span style=color:#f92672>(</span>Stream<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;</span> stream <span style=color:#f92672>=</span> supplier<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>())</span> <span style=color:#f92672>{</span>
-            Map<span style=color:#f92672>&lt;</span>Integer<span style=color:#f92672>,</span> Integer<span style=color:#f92672>&gt;</span> map <span style=color:#f92672>=</span> stream<span style=color:#f92672>.</span><span style=color:#a6e22e>collect</span><span style=color:#f92672>(</span>Collectors<span style=color:#f92672>.</span><span style=color:#a6e22e>groupingBy</span><span style=color:#f92672>(</span>o <span style=color:#f92672>-&gt;</span> o<span style=color:#f92672>.</span><span style=color:#a6e22e>mAge</span><span style=color:#f92672>,</span> Collectors<span style=color:#f92672>.</span><span style=color:#a6e22e>summingInt</span><span style=color:#f92672>(</span>o <span style=color:#f92672>-&gt;</span> 1<span style=color:#f92672>)));</span>     按年龄分组<span style=color:#960050;background-color:#1e0010>，</span>toMap<span style=color:#960050;background-color:#1e0010>，</span>提供收集器<span style=color:#960050;background-color:#1e0010>（</span>指定收集行为<span style=color:#960050;background-color:#1e0010>）</span>
-            map<span style=color:#f92672>.</span><span style=color:#a6e22e>forEach</span><span style=color:#f92672>((</span>key<span style=color:#f92672>,</span> value<span style=color:#f92672>)</span> <span style=color:#f92672>-&gt;</span> System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>printf</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;%s: %s\n&#34;</span><span style=color:#f92672>,</span> key<span style=color:#f92672>,</span> value<span style=color:#f92672>));</span>
-        <span style=color:#f92672>}</span>
-        <span style=color:#66d9ef>try</span> <span style=color:#f92672>(</span>Stream<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;</span> stream <span style=color:#f92672>=</span> supplier<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>())</span> <span style=color:#f92672>{</span>
-            String s <span style=color:#f92672>=</span> stream<span style=color:#f92672>.</span><span style=color:#a6e22e>filter</span><span style=color:#f92672>(</span>o <span style=color:#f92672>-&gt;</span> o<span style=color:#f92672>.</span><span style=color:#a6e22e>mAge</span> <span style=color:#f92672>&gt;</span> 20<span style=color:#f92672>).</span><span style=color:#a6e22e>map</span><span style=color:#f92672>(</span>o <span style=color:#f92672>-&gt;</span> o<span style=color:#f92672>.</span><span style=color:#a6e22e>mName</span><span style=color:#f92672>).</span><span style=color:#a6e22e>collect</span><span style=color:#f92672>(</span>Collectors<span style=color:#f92672>.</span><span style=color:#a6e22e>joining</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;, &#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;&lt;&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;&gt;&#34;</span><span style=color:#f92672>));</span>     连接作家名字
-            System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>s<span style=color:#f92672>);</span>
-        <span style=color:#f92672>}</span>
-        <span style=color:#66d9ef>try</span> <span style=color:#f92672>(</span>Stream<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;</span> stream <span style=color:#f92672>=</span> supplier<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>())</span> <span style=color:#f92672>{</span>
-            Collector<span style=color:#f92672>&lt;</span>Object<span style=color:#f92672>,</span> StringJoiner<span style=color:#f92672>,</span> String<span style=color:#f92672>&gt;</span> myCollector <span style=color:#f92672>=</span> Collector<span style=color:#f92672>.</span><span style=color:#a6e22e>of</span><span style=color:#f92672>(</span>     自定义收集操作
-                    <span style=color:#f92672>()</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>new</span> StringJoiner<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;, &#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;&lt;&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;&gt;&#34;</span><span style=color:#f92672>),</span>     supplier <span style=color:#a6e22e>供应器</span><span style=color:#f92672>(</span>开始<span style=color:#f92672>)</span>
-                    <span style=color:#f92672>((</span>stringJoiner<span style=color:#f92672>,</span> o<span style=color:#f92672>)</span> <span style=color:#f92672>-&gt;</span> stringJoiner<span style=color:#f92672>.</span><span style=color:#a6e22e>add</span><span style=color:#f92672>(</span>o<span style=color:#f92672>.</span><span style=color:#a6e22e>toString</span><span style=color:#f92672>())),</span>     accumulator <span style=color:#a6e22e>累加器</span>
-                    <span style=color:#f92672>(</span>stringJoiner<span style=color:#f92672>,</span> stringJoiner2<span style=color:#f92672>)</span> <span style=color:#f92672>-&gt;</span> stringJoiner<span style=color:#f92672>.</span><span style=color:#a6e22e>merge</span><span style=color:#f92672>(</span>stringJoiner2<span style=color:#f92672>),</span>     combiner <span style=color:#a6e22e>组合器</span> <span style=color:#f92672>(</span>并行流使用<span style=color:#f92672>)</span>
-                    stringJoiner <span style=color:#f92672>-&gt;</span> stringJoiner<span style=color:#f92672>.</span><span style=color:#a6e22e>toString</span><span style=color:#f92672>());</span>     finisher <span style=color:#a6e22e>终止器</span><span style=color:#f92672>(</span>结束<span style=color:#f92672>)</span>
-
-            String s <span style=color:#f92672>=</span> stream<span style=color:#f92672>.</span><span style=color:#a6e22e>filter</span><span style=color:#f92672>(</span>o <span style=color:#f92672>-&gt;</span> o<span style=color:#f92672>.</span><span style=color:#a6e22e>mAge</span> <span style=color:#f92672>&gt;</span> 20<span style=color:#f92672>).</span><span style=color:#a6e22e>map</span><span style=color:#f92672>(</span>o <span style=color:#f92672>-&gt;</span> o<span style=color:#f92672>.</span><span style=color:#a6e22e>mName</span><span style=color:#f92672>).</span><span style=color:#a6e22e>collect</span><span style=color:#f92672>(</span>myCollector<span style=color:#f92672>);</span>     连接作家名字
-            System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>s<span style=color:#f92672>);</span>
-        <span style=color:#f92672>}</span>
-        <span style=color:#f92672>----</span>
-        输出<span style=color:#960050;background-color:#1e0010>：</span>
-        <span style=color:#f92672>[</span>Bell<span style=color:#f92672>]</span>
-        <span style=color:#960050;background-color:#1e0010>——————————————————————————</span>
-        <span style=color:#f92672>[</span>19<span style=color:#f92672>,</span> 23<span style=color:#f92672>,</span> 26<span style=color:#f92672>]</span>
-        <span style=color:#960050;background-color:#1e0010>——————————————————————————</span>
-        22<span style=color:#f92672>.</span><span style=color:#a6e22e>75</span>
-        <span style=color:#960050;background-color:#1e0010>——————————————————————————</span>
-        <span style=color:#66d9ef>false</span><span style=color:#f92672>:</span> <span style=color:#f92672>[</span>Bell<span style=color:#f92672>]</span>
-        <span style=color:#66d9ef>true</span><span style=color:#f92672>:</span> <span style=color:#f92672>[</span>Adam<span style=color:#f92672>,</span> Conan<span style=color:#f92672>,</span> David<span style=color:#f92672>]</span>
-        <span style=color:#960050;background-color:#1e0010>——————————————————————————</span>
-        19<span style=color:#f92672>:</span> <span style=color:#f92672>[</span>Bell<span style=color:#f92672>]</span>
-        23<span style=color:#f92672>:</span> <span style=color:#f92672>[</span>Adam<span style=color:#f92672>,</span> Conan<span style=color:#f92672>]</span>
-        26<span style=color:#f92672>:</span> <span style=color:#f92672>[</span>David<span style=color:#f92672>]</span>
-        <span style=color:#960050;background-color:#1e0010>——————————————————————————</span>
-        19<span style=color:#f92672>:</span> 1
-        23<span style=color:#f92672>:</span> 2
-        26<span style=color:#f92672>:</span> 1
-        <span style=color:#960050;background-color:#1e0010>——————————————————————————</span>
-        <span style=color:#f92672>&lt;</span>Adam<span style=color:#f92672>,</span> Conan<span style=color:#f92672>,</span> David<span style=color:#f92672>&gt;</span>
-        <span style=color:#960050;background-color:#1e0010>——————————————————————————</span>
-        <span style=color:#f92672>&lt;</span>Adam<span style=color:#f92672>,</span> Conan<span style=color:#f92672>,</span> David<span style=color:#f92672>&gt;</span>
-        <span style=color:#960050;background-color:#1e0010>——————————————————————————</span>
-    <span style=color:#f92672>}</span>
-
-    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>b</span><span style=color:#f92672>(</span>Supplier<span style=color:#f92672>&lt;</span>Stream<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;&gt;</span> supplier<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>     reduce
-        <span style=color:#a6e22e>try</span> <span style=color:#f92672>(</span>Stream<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;</span> stream <span style=color:#f92672>=</span> supplier<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>())</span> <span style=color:#f92672>{</span>
-            Optional<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;</span> optional <span style=color:#f92672>=</span> stream<span style=color:#f92672>.</span><span style=color:#a6e22e>reduce</span><span style=color:#f92672>((</span>o1<span style=color:#f92672>,</span> o2<span style=color:#f92672>)</span> <span style=color:#f92672>-&gt;</span> o1<span style=color:#f92672>.</span><span style=color:#a6e22e>mAge</span> <span style=color:#f92672>&gt;</span> o2<span style=color:#f92672>.</span><span style=color:#a6e22e>mAge</span> <span style=color:#f92672>?</span> o1 <span style=color:#f92672>:</span> o2<span style=color:#f92672>);</span>     accumulator 累加器<span style=color:#960050;background-color:#1e0010>，</span>获得最大年龄作家<span style=color:#960050;background-color:#1e0010>，</span>不提供起始值<span style=color:#960050;background-color:#1e0010>（</span>返回 Optional<span style=color:#960050;background-color:#1e0010>）</span>
-            optional<span style=color:#f92672>.</span><span style=color:#a6e22e>ifPresent</span><span style=color:#f92672>(</span>o <span style=color:#f92672>-&gt;</span> System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>o<span style=color:#f92672>.</span><span style=color:#a6e22e>mName</span> <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;_&#34;</span> <span style=color:#f92672>+</span> o<span style=color:#f92672>.</span><span style=color:#a6e22e>mAge</span><span style=color:#f92672>));</span>
-        <span style=color:#f92672>}</span>
-        <span style=color:#66d9ef>try</span> <span style=color:#f92672>(</span>Stream<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;</span> stream <span style=color:#f92672>=</span> supplier<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>())</span> <span style=color:#f92672>{</span>
-            Author author <span style=color:#f92672>=</span> stream<span style=color:#f92672>.</span><span style=color:#a6e22e>reduce</span><span style=color:#f92672>(</span>
-                    <span style=color:#66d9ef>new</span> Author<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;&#34;</span><span style=color:#f92672>,</span> 0<span style=color:#f92672>,</span> <span style=color:#66d9ef>new</span> ArrayList<span style=color:#f92672>&lt;&gt;()),</span>     提供起始值
-                    <span style=color:#f92672>(</span>o1<span style=color:#f92672>,</span> o2<span style=color:#f92672>)</span> <span style=color:#f92672>-&gt;</span> o1<span style=color:#f92672>.</span><span style=color:#a6e22e>mAge</span> <span style=color:#f92672>&gt;</span> o2<span style=color:#f92672>.</span><span style=color:#a6e22e>mAge</span> <span style=color:#f92672>?</span> o1 <span style=color:#f92672>:</span> o2<span style=color:#f92672>);</span>     accumulator 累加器<span style=color:#960050;background-color:#1e0010>，</span>获得最大年龄作家
-            System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>author<span style=color:#f92672>.</span><span style=color:#a6e22e>mName</span> <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;_&#34;</span> <span style=color:#f92672>+</span> author<span style=color:#f92672>.</span><span style=color:#a6e22e>mAge</span><span style=color:#f92672>);</span>
-        <span style=color:#f92672>}</span>
-        <span style=color:#66d9ef>try</span> <span style=color:#f92672>(</span>Stream<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;</span> stream <span style=color:#f92672>=</span> supplier<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>())</span> <span style=color:#f92672>{</span>
-            Integer integer <span style=color:#f92672>=</span> stream<span style=color:#f92672>.</span><span style=color:#a6e22e>reduce</span><span style=color:#f92672>(</span>     自定义归约操作
-                    0<span style=color:#f92672>,</span>     起始值
-                    <span style=color:#f92672>(</span>sum<span style=color:#f92672>,</span> o<span style=color:#f92672>)</span> <span style=color:#f92672>-&gt;</span> sum <span style=color:#f92672>+=</span> o<span style=color:#f92672>.</span><span style=color:#a6e22e>mAge</span><span style=color:#f92672>,</span>     accumulator 累加器<span style=color:#960050;background-color:#1e0010>，</span>获得年龄总和
-                    <span style=color:#f92672>(</span>sum<span style=color:#f92672>,</span> sum2<span style=color:#f92672>)</span> <span style=color:#f92672>-&gt;</span> sum <span style=color:#f92672>+</span> sum2<span style=color:#f92672>);</span>     combiner <span style=color:#a6e22e>组合器</span> <span style=color:#f92672>(</span>并行流使用<span style=color:#f92672>)</span>
-            System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>integer<span style=color:#f92672>);</span>
-        <span style=color:#f92672>}</span>
-        <span style=color:#f92672>----</span>
-        输出<span style=color:#960050;background-color:#1e0010>：</span>
-        David_26
-        <span style=color:#960050;background-color:#1e0010>——————————————————————————</span>
-        David_26
-        <span style=color:#960050;background-color:#1e0010>——————————————————————————</span>
-        91
-        <span style=color:#960050;background-color:#1e0010>——————————————————————————</span>
-    <span style=color:#f92672>}</span>
-
-    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>c</span><span style=color:#f92672>(</span>Supplier<span style=color:#f92672>&lt;</span>Stream<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;&gt;</span> supplier<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>     flatMap
-        <span style=color:#a6e22e>try</span> <span style=color:#f92672>(</span>Stream<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;</span> stream <span style=color:#f92672>=</span> supplier<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>())</span> <span style=color:#f92672>{</span>
-            String s <span style=color:#f92672>=</span> stream<span style=color:#f92672>.</span><span style=color:#a6e22e>flatMap</span><span style=color:#f92672>(</span>o <span style=color:#f92672>-&gt;</span> o<span style=color:#f92672>.</span><span style=color:#a6e22e>mArticle</span><span style=color:#f92672>.</span><span style=color:#a6e22e>stream</span><span style=color:#f92672>()).</span><span style=color:#a6e22e>collect</span><span style=color:#f92672>(</span>Collectors<span style=color:#f92672>.</span><span style=color:#a6e22e>joining</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;, &#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;&lt;&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;&gt;&#34;</span><span style=color:#f92672>));</span>     连接所有作家中的所有文章
-            System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>s<span style=color:#f92672>);</span>
-        <span style=color:#f92672>}</span>
-        <span style=color:#f92672>----</span>
-        输出<span style=color:#960050;background-color:#1e0010>：</span>
-        <span style=color:#f92672>&lt;</span>Java1<span style=color:#f92672>,</span> Java2<span style=color:#f92672>,</span> Python1<span style=color:#f92672>,</span> Python2<span style=color:#f92672>,</span> PHP1<span style=color:#f92672>,</span> PHP2<span style=color:#f92672>,</span> Ruby1<span style=color:#f92672>,</span> Ruby2<span style=color:#f92672>&gt;</span>
-        <span style=color:#960050;background-color:#1e0010>——————————————————————————</span>
-    <span style=color:#f92672>}</span>
-
-    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>d</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
-        Stream<span style=color:#f92672>.</span><span style=color:#a6e22e>generate</span><span style=color:#f92672>(</span>UUID<span style=color:#f92672>::</span>randomUUID<span style=color:#f92672>).</span><span style=color:#a6e22e>limit</span><span style=color:#f92672>(</span>5<span style=color:#f92672>).</span><span style=color:#a6e22e>forEach</span><span style=color:#f92672>(</span>System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>::</span>println<span style=color:#f92672>);</span>
-        <span style=color:#f92672>----</span>             <span style=color:#960050;background-color:#1e0010>↳</span> 无限生成 UUID<span style=color:#960050;background-color:#1e0010>，</span>限制最多执行 5 次
-        输出<span style=color:#960050;background-color:#1e0010>：</span>
-        e9100622<span style=color:#f92672>-</span>3458<span style=color:#f92672>-</span>4c94<span style=color:#f92672>-</span>bc7a<span style=color:#f92672>-</span>dabcf99ebee9
-        bc18a526<span style=color:#f92672>-</span>945f<span style=color:#f92672>-</span>4fc6<span style=color:#f92672>-</span>a9fc<span style=color:#f92672>-</span>496c075aa99a
-        57a3882b<span style=color:#f92672>-</span>2eb6<span style=color:#f92672>-</span>4392<span style=color:#f92672>-</span>bb2f<span style=color:#f92672>-</span>31cb10acbece
-        82900c8e<span style=color:#f92672>-</span>e8d6<span style=color:#f92672>-</span>46de<span style=color:#f92672>-</span>a02f<span style=color:#f92672>-</span>9d37c5454f30
-        25ec7ee2<span style=color:#f92672>-</span>a963<span style=color:#f92672>-</span>43df<span style=color:#f92672>-</span>8c11<span style=color:#f92672>-</span>7008b4a68ccd
-
-        Stream<span style=color:#f92672>.</span><span style=color:#a6e22e>iterate</span><span style=color:#f92672>(</span>0<span style=color:#f92672>,</span> n <span style=color:#f92672>-&gt;</span> n <span style=color:#f92672>+</span> 2<span style=color:#f92672>).</span><span style=color:#a6e22e>limit</span><span style=color:#f92672>(</span>10<span style=color:#f92672>).</span><span style=color:#a6e22e>forEach</span><span style=color:#f92672>(</span>n <span style=color:#f92672>-&gt;</span> System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>print</span><span style=color:#f92672>(</span>n <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34; &#34;</span><span style=color:#f92672>));</span>
-        <span style=color:#f92672>----</span>           <span style=color:#960050;background-color:#1e0010>↳</span> 无限迭代起始值<span style=color:#960050;background-color:#1e0010>，</span>限制最多执行 10 次
-        输出<span style=color:#960050;background-color:#1e0010>：</span>
-        0 2 4 6 8 10 12 14 16 18
-
-        List<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> list1 <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ArrayList<span style=color:#f92672>&lt;&gt;(</span>Arrays<span style=color:#f92672>.</span><span style=color:#a6e22e>asList</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;A&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;B&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;C&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;D&#34;</span><span style=color:#f92672>));</span>
-        List<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> list2 <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ArrayList<span style=color:#f92672>&lt;&gt;(</span>Arrays<span style=color:#f92672>.</span><span style=color:#a6e22e>asList</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;A&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;B&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;C&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;D&#34;</span><span style=color:#f92672>));</span>
-        Stream<span style=color:#f92672>.</span><span style=color:#a6e22e>of</span><span style=color:#f92672>(</span>list1<span style=color:#f92672>,</span> list2<span style=color:#f92672>).</span><span style=color:#a6e22e>peek</span><span style=color:#f92672>(</span>list <span style=color:#f92672>-&gt;</span> list<span style=color:#f92672>.</span><span style=color:#a6e22e>addAll</span><span style=color:#f92672>(</span>Arrays<span style=color:#f92672>.</span><span style=color:#a6e22e>asList</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;E&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;F&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;J&#34;</span><span style=color:#f92672>))).</span><span style=color:#a6e22e>forEach</span><span style=color:#f92672>(</span>System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>::</span>println<span style=color:#f92672>);</span>     peek
-        <span style=color:#f92672>----</span>
-        输出<span style=color:#960050;background-color:#1e0010>：</span>
-        <span style=color:#f92672>[</span>A<span style=color:#f92672>,</span> B<span style=color:#f92672>,</span> C<span style=color:#f92672>,</span> D<span style=color:#f92672>,</span> E<span style=color:#f92672>,</span> F<span style=color:#f92672>,</span> J<span style=color:#f92672>]</span>
-        <span style=color:#f92672>[</span>A<span style=color:#f92672>,</span> B<span style=color:#f92672>,</span> C<span style=color:#f92672>,</span> D<span style=color:#f92672>,</span> E<span style=color:#f92672>,</span> F<span style=color:#f92672>,</span> J<span style=color:#f92672>]</span>
-    <span style=color:#f92672>}</span>
-
-    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Author</span> <span style=color:#f92672>{</span>        作家
-        <span style=color:#66d9ef>private</span> String mName<span style=color:#f92672>;</span>            姓名
-        <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>int</span> mAge<span style=color:#f92672>;</span>                年龄
-        <span style=color:#66d9ef>private</span> List<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> mArticle<span style=color:#f92672>;</span>   文章列表
-
-        <span style=color:#66d9ef>private</span> <span style=color:#a6e22e>Author</span><span style=color:#f92672>(</span>String name<span style=color:#f92672>,</span> <span style=color:#66d9ef>int</span> age<span style=color:#f92672>,</span> List<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> article<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
-            mName <span style=color:#f92672>=</span> name<span style=color:#f92672>;</span>
-            mAge <span style=color:#f92672>=</span> age<span style=color:#f92672>;</span>
-            mArticle <span style=color:#f92672>=</span> article<span style=color:#f92672>;</span>
-        <span style=color:#f92672>}</span>
-
-        <span style=color:#a6e22e>@Override</span>
-        <span style=color:#66d9ef>public</span> String <span style=color:#a6e22e>toString</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
-            <span style=color:#66d9ef>return</span> mName<span style=color:#f92672>;</span>
-        <span style=color:#f92672>}</span>
-    <span style=color:#f92672>}</span>
-<span style=color:#f92672>}</span>
-</code></pre></div>
-</div>
-<div class=sharing style=text-align:center>
-<br>
-<p>捐赠支持</p>
-<p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p>
-<p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p>
-<img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%>
-<p></p><br>&copy; 2015-2020 XhstormR
-</div>
-</div>
-</div>
-</div>
-<div id=backtop><a href=# title>TOP</a></div>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#lambda>Lambda</a></li>
-<li><a href=#functional-interface>Functional Interface</a></li>
-<li><a href=#stream>Stream</a></li>
-<li><a href=#optional>Optional</a></li>
-<li><a href=#code>Code</a></li>
-</ul>
-</nav>
-<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script>
+<a href=https://docs.oracle.com/javase/10/docs/api/java/util/Optional.html>Optional</a></p><p><a href=https://docs.oracle.com/javase/10/docs/api/java/util/stream/Stream.html>https://docs.oracle.com/javase/10/docs/api/java/util/stream/Stream.html</a></p><p><a href=https://docs.oracle.com/javase/10/docs/api/java/util/stream/Collectors.html>https://docs.oracle.com/javase/10/docs/api/java/util/stream/Collectors.html</a></p></blockquote><h2 id=lambda>Lambda</h2><ul><li>Lambda 表达式（匿名方法 or 闭包）：由 <code>参数列表</code>、<code>-></code>、<code>函数体</code> 组成。<ul><li>参数列表：可以省略参数类型，编译器会根据上下文推导。</li><li>函数体：引用的局部变量会被隐式声明为 final。<ul><li>代码块：用 <code>{ }</code> 包裹的多条执行代码。</li><li>表达式：只有一条执行代码，省略了 <code>{ }</code> 和 <code>return</code>。<ul><li>若 <strong>没有传入额外参数</strong>，而 <strong>仅调用对象方法</strong>，则可以进一步简化整个 Lambda 表达式，转换为 <strong>方法引用</strong>。<code>对象名::方法名</code> <code>类名::方法名</code> <code>类名::new</code> <code>类名[]::new</code></li></ul></li></ul></li></ul></li><li>Lambda 表达式只能出现在目标类型为函数式接口的上下文中。</li><li>Lambda 表达式不会引入新作用域，函数体中的变量和外部环境中的变量具有相同的语义。</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span>Predicate<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> filter <span style=color:#f92672>=</span> <span style=color:#f92672>(</span>String s<span style=color:#f92672>)</span> <span style=color:#f92672>-&gt;</span> <span style=color:#f92672>{</span>     代码块
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> s<span style=color:#f92672>.</span><span style=color:#a6e22e>endsWith</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;.txt&#34;</span><span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>};</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Predicate<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> filter <span style=color:#f92672>=</span> <span style=color:#f92672>(</span>String s<span style=color:#f92672>)</span> <span style=color:#f92672>-&gt;</span> s<span style=color:#f92672>.</span><span style=color:#a6e22e>endsWith</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;.txt&#34;</span><span style=color:#f92672>);</span>     表达式
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Predicate<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> filter <span style=color:#f92672>=</span> s <span style=color:#f92672>-&gt;</span> s<span style=color:#f92672>.</span><span style=color:#a6e22e>endsWith</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;.txt&#34;</span><span style=color:#f92672>);</span>     省略参数类型
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Runnable runnable <span style=color:#f92672>=</span> <span style=color:#f92672>()</span> <span style=color:#f92672>-&gt;</span> <span style=color:#f92672>{</span>     代码块
+</span></span><span style=display:flex><span>    System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;123&#34;</span><span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>};</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Runnable runnable <span style=color:#f92672>=</span> <span style=color:#f92672>()</span> <span style=color:#f92672>-&gt;</span> System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;123&#34;</span><span style=color:#f92672>);</span>     表达式
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Runnable runnable <span style=color:#f92672>=</span> System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>::</span>println<span style=color:#f92672>;</span>     若去掉 <span style=color:#e6db74>&#34;123&#34;</span><span style=color:#960050;background-color:#1e0010>，</span>则可以转为方法引用<span style=color:#960050;background-color:#1e0010>（</span>没有传入额外参数<span style=color:#960050;background-color:#1e0010>）</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Arrays<span style=color:#f92672>.</span><span style=color:#a6e22e>asList</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;A&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;B&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;C&#34;</span><span style=color:#f92672>).</span><span style=color:#a6e22e>sort</span><span style=color:#f92672>((</span>String s1<span style=color:#f92672>,</span> String s2<span style=color:#f92672>)</span> <span style=color:#f92672>-&gt;</span> <span style=color:#f92672>{</span>     代码块
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> s1<span style=color:#f92672>.</span><span style=color:#a6e22e>compareTo</span><span style=color:#f92672>(</span>s2<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>});</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Arrays<span style=color:#f92672>.</span><span style=color:#a6e22e>asList</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;A&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;B&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;C&#34;</span><span style=color:#f92672>).</span><span style=color:#a6e22e>sort</span><span style=color:#f92672>((</span>String s1<span style=color:#f92672>,</span> String s2<span style=color:#f92672>)</span> <span style=color:#f92672>-&gt;</span> s1<span style=color:#f92672>.</span><span style=color:#a6e22e>compareTo</span><span style=color:#f92672>(</span>s2<span style=color:#f92672>));</span>     表达式
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Arrays<span style=color:#f92672>.</span><span style=color:#a6e22e>asList</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;A&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;B&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;C&#34;</span><span style=color:#f92672>).</span><span style=color:#a6e22e>sort</span><span style=color:#f92672>((</span>s1<span style=color:#f92672>,</span> s2<span style=color:#f92672>)</span> <span style=color:#f92672>-&gt;</span> s1<span style=color:#f92672>.</span><span style=color:#a6e22e>compareTo</span><span style=color:#f92672>(</span>s2<span style=color:#f92672>));</span>     省略参数类型
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Arrays<span style=color:#f92672>.</span><span style=color:#a6e22e>asList</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;A&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;B&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;C&#34;</span><span style=color:#f92672>).</span><span style=color:#a6e22e>sort</span><span style=color:#f92672>(</span>String<span style=color:#f92672>::</span>compareTo<span style=color:#f92672>);</span>     方法引用<span style=color:#960050;background-color:#1e0010>（</span>没有传入额外参数<span style=color:#960050;background-color:#1e0010>）</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Comparator<span style=color:#f92672>&lt;</span>Integer<span style=color:#f92672>&gt;</span> comparator <span style=color:#f92672>=</span> <span style=color:#f92672>(</span>x<span style=color:#f92672>,</span> y<span style=color:#f92672>)</span> <span style=color:#f92672>-&gt;</span> Integer<span style=color:#f92672>.</span><span style=color:#a6e22e>compare</span><span style=color:#f92672>(</span>x<span style=color:#f92672>,</span> y<span style=color:#f92672>);</span>     表达式
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Comparator<span style=color:#f92672>&lt;</span>Integer<span style=color:#f92672>&gt;</span> comparator <span style=color:#f92672>=</span> Integer<span style=color:#f92672>::</span>compare<span style=color:#f92672>;</span>     方法引用<span style=color:#960050;background-color:#1e0010>（</span>没有传入额外参数<span style=color:#960050;background-color:#1e0010>）</span>
+</span></span></code></pre></div><h2 id=functional-interface>Functional Interface</h2><p>只含有一个抽象方法，因此可以被转换成 Lambda 表达式。</p><ul><li>抽象方法：自己 <strong>未实现</strong>，子类必须实现。<code>void a();</code></li><li>默认方法：自己 <strong>已实现</strong>，子类可以重写。<code>default void b() { }</code></li><li>静态方法：自己 <strong>已实现</strong>，直接可以访问。<code>static void c() { }</code></li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#a6e22e>@FunctionalInterface</span>     注解<span style=color:#960050;background-color:#1e0010>：</span>声明为函数式接口
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>A</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>a</span><span style=color:#f92672>();</span>     抽象方法
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>default</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>b</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>     默认方法
+</span></span><span style=display:flex><span>        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;默认方法&#34;</span><span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>c</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>     静态方法
+</span></span><span style=display:flex><span>        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;静态方法&#34;</span><span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Test</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span><span style=color:#f92672>(</span>String<span style=color:#f92672>[]</span> args<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        Runnable r <span style=color:#f92672>=</span> <span style=color:#f92672>()</span> <span style=color:#f92672>-&gt;</span> System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;抽象方法&#34;</span><span style=color:#f92672>);</span>     根据上下文推导出目标类型 <span style=color:#960050;background-color:#1e0010>➜</span> Runnable
+</span></span><span style=display:flex><span>        A a <span style=color:#f92672>=</span> <span style=color:#f92672>()</span> <span style=color:#f92672>-&gt;</span> System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;抽象方法&#34;</span><span style=color:#f92672>);</span>     根据上下文推导出目标类型 <span style=color:#960050;background-color:#1e0010>➜</span> A
+</span></span><span style=display:flex><span>        a<span style=color:#f92672>.</span><span style=color:#a6e22e>a</span><span style=color:#f92672>();</span>
+</span></span><span style=display:flex><span>        a<span style=color:#f92672>.</span><span style=color:#a6e22e>b</span><span style=color:#f92672>();</span>
+</span></span><span style=display:flex><span>        A<span style=color:#f92672>.</span><span style=color:#a6e22e>c</span><span style=color:#f92672>();</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>输出<span style=color:#960050;background-color:#1e0010>：</span>
+</span></span><span style=display:flex><span>抽象方法
+</span></span><span style=display:flex><span>默认方法
+</span></span><span style=display:flex><span>静态方法
+</span></span></code></pre></div><h2 id=stream>Stream</h2><p>支持串行处理和并行处理的 <strong>数据流</strong>。</p><ul><li>外部迭代：通过 for-each 循环来处理数据；同时承担 <code>做什么</code> 和 <code>怎么做</code>。</li><li>内部迭代：通过获得 Stream 来处理数据；只承担 <code>做什么</code>，由类库承担 <code>怎么做</code>。<ul><li>中间操作（惰性求值）：不会立即执行，而是加入任务队列中，在终点操作时一并执行。<ul><li>有限数据 ➜ 优化作用，无限数据 ➜ 决定作用（没有短路求值，操作无法停止）。</li></ul></li><li>终点操作（急性求值）：通过短路求值的优化一并执行所有操作，以提供更高效的性能。</li></ul></li><li>串行流（串行处理）：单线程。<code>list.stream()</code> <code>stream.sequential()</code></li><li>并行流（并行处理）：多线程。<code>list.parallelStream()</code> <code>stream.parallel()</code></li><li>中间操作：<ul><li>过滤：filter。</li><li>排序：sorted。</li><li>去重：distinct。</li><li>最大：max。</li><li>最小：min。</li><li>消耗：peek。</li><li>转换：map（一对一）、flatMap（一对多）。<code>映射</code></li><li>返回前 n 个元素：limit。<code>最多执行次数</code></li><li>跳过前 n 个元素：skip。</li></ul></li><li>终点操作：<ul><li>收集：collect。</li><li>归约：reduce。</li><li>消耗：forEach。</li><li>且（<strong>全部</strong> 元素符合返回 true）：allMatch。</li><li>或（<strong>任一</strong> 元素符合返回 true）：anyMatch。</li><li>非（<strong>没有</strong> 元素符合返回 true）：noneMatch。</li></ul></li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>for</span> <span style=color:#f92672>(</span>Shape shape <span style=color:#f92672>:</span> shapes<span style=color:#f92672>){</span>     外部迭代
+</span></span><span style=display:flex><span>    shape<span style=color:#f92672>.</span><span style=color:#a6e22e>setColor</span><span style=color:#f92672>(</span>RED<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>shapes<span style=color:#f92672>.</span><span style=color:#a6e22e>forEach</span><span style=color:#f92672>(</span>s <span style=color:#f92672>-&gt;</span> s<span style=color:#f92672>.</span><span style=color:#a6e22e>setColor</span><span style=color:#f92672>(</span>RED<span style=color:#f92672>));</span>     内部迭代<span style=color:#960050;background-color:#1e0010>（</span>优<span style=color:#960050;background-color:#1e0010>）</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> array <span style=color:#f92672>=</span> IntStream<span style=color:#f92672>.</span><span style=color:#a6e22e>range</span><span style=color:#f92672>(</span>0<span style=color:#f92672>,</span> 3<span style=color:#f92672>).</span><span style=color:#a6e22e>toArray</span><span style=color:#f92672>();</span>     生成数组 <span style=color:#f92672>[</span>0<span style=color:#f92672>,</span> 1<span style=color:#f92672>,</span> 2<span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>IntStream<span style=color:#f92672>.</span><span style=color:#a6e22e>range</span><span style=color:#f92672>(</span>0<span style=color:#f92672>,</span> 3<span style=color:#f92672>).</span><span style=color:#a6e22e>forEach</span><span style=color:#f92672>(</span>System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>::</span>println<span style=color:#f92672>);</span>     替代 <span style=color:#66d9ef>for</span> 循环
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>输出<span style=color:#960050;background-color:#1e0010>：</span>
+</span></span><span style=display:flex><span>0
+</span></span><span style=display:flex><span>1
+</span></span><span style=display:flex><span>2
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Stream
+</span></span><span style=display:flex><span>        <span style=color:#f92672>.</span><span style=color:#a6e22e>of</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;A&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;B&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;C&#34;</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>.</span><span style=color:#a6e22e>filter</span><span style=color:#f92672>(</span>s <span style=color:#f92672>-&gt;</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>            System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;filter: &#34;</span> <span style=color:#f92672>+</span> s<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>true</span><span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>})</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>.</span><span style=color:#a6e22e>map</span><span style=color:#f92672>(</span>s <span style=color:#f92672>-&gt;</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>            System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;map: &#34;</span> <span style=color:#f92672>+</span> s<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> s<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>});</span>     没有调用终点操作
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>输出<span style=color:#960050;background-color:#1e0010>：</span>无
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Stream
+</span></span><span style=display:flex><span>        <span style=color:#f92672>.</span><span style=color:#a6e22e>of</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;A&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;B&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;C&#34;</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>.</span><span style=color:#a6e22e>filter</span><span style=color:#f92672>(</span>s <span style=color:#f92672>-&gt;</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>            System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;filter: &#34;</span> <span style=color:#f92672>+</span> s<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>true</span><span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>})</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>.</span><span style=color:#a6e22e>map</span><span style=color:#f92672>(</span>s <span style=color:#f92672>-&gt;</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>            System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;map: &#34;</span> <span style=color:#f92672>+</span> s<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> s<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>})</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>.</span><span style=color:#a6e22e>anyMatch</span><span style=color:#f92672>(</span>s <span style=color:#f92672>-&gt;</span> <span style=color:#f92672>{</span>     调用终点操作
+</span></span><span style=display:flex><span>            System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;anyMatch: &#34;</span> <span style=color:#f92672>+</span> s<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> s<span style=color:#f92672>.</span><span style=color:#a6e22e>startsWith</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;B&#34;</span><span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>});</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>输出<span style=color:#960050;background-color:#1e0010>：</span>     <span style=color:#960050;background-color:#1e0010>（</span>可以看出对元素的处理操作是垂直执行的<span style=color:#960050;background-color:#1e0010>，</span>像在流水线依次经过每个操作<span style=color:#960050;background-color:#1e0010>，</span>并通过短路求值尽可能减少操作次数<span style=color:#960050;background-color:#1e0010>）</span>
+</span></span><span style=display:flex><span>filter: A
+</span></span><span style=display:flex><span>map: A
+</span></span><span style=display:flex><span>anyMatch: A
+</span></span><span style=display:flex><span>filter: B
+</span></span><span style=display:flex><span>map: B
+</span></span><span style=display:flex><span>anyMatch: B
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Note<span style=color:#960050;background-color:#1e0010>：</span>filter 操作尽可能排在最前<span style=color:#960050;background-color:#1e0010>（</span>短路求值<span style=color:#960050;background-color:#1e0010>），</span>sorted 操作尽可能排在最后<span style=color:#960050;background-color:#1e0010>（</span>sorted 操作遍历整个数据流<span style=color:#960050;background-color:#1e0010>）</span>
+</span></span></code></pre></div><h2 id=optional>Optional</h2><p>一种用于封装对象的容器，封装的对象可以为空，并且对空值进行处理。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span><span style=color:#f92672>(</span>String<span style=color:#f92672>[]</span> args<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        a<span style=color:#f92672>();</span>
+</span></span><span style=display:flex><span>        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;--------&#34;</span><span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>        b<span style=color:#f92672>();</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>a</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        String s <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;ABC&#34;</span><span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>        Optional<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> optional <span style=color:#f92672>=</span> Optional<span style=color:#f92672>.</span><span style=color:#a6e22e>ofNullable</span><span style=color:#f92672>(</span>s<span style=color:#f92672>);</span>     对象不为空
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>optional<span style=color:#f92672>.</span><span style=color:#a6e22e>isPresent</span><span style=color:#f92672>());</span>
+</span></span><span style=display:flex><span>        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>optional<span style=color:#f92672>.</span><span style=color:#a6e22e>orElse</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;123&#34;</span><span style=color:#f92672>));</span>     接收一个缺省值
+</span></span><span style=display:flex><span>        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>optional<span style=color:#f92672>.</span><span style=color:#a6e22e>orElseGet</span><span style=color:#f92672>(()</span> <span style=color:#f92672>-&gt;</span> <span style=color:#e6db74>&#34;123&#34;</span><span style=color:#f92672>));</span>     接收一个 Supplier 函数式接口
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>b</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        String s <span style=color:#f92672>=</span> <span style=color:#66d9ef>null</span><span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>        Optional<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> optional <span style=color:#f92672>=</span> Optional<span style=color:#f92672>.</span><span style=color:#a6e22e>ofNullable</span><span style=color:#f92672>(</span>s<span style=color:#f92672>);</span>     对象为空
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>optional<span style=color:#f92672>.</span><span style=color:#a6e22e>isPresent</span><span style=color:#f92672>());</span>
+</span></span><span style=display:flex><span>        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>optional<span style=color:#f92672>.</span><span style=color:#a6e22e>orElse</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;123&#34;</span><span style=color:#f92672>));</span>
+</span></span><span style=display:flex><span>        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>optional<span style=color:#f92672>.</span><span style=color:#a6e22e>orElseGet</span><span style=color:#f92672>(()</span> <span style=color:#f92672>-&gt;</span> <span style=color:#e6db74>&#34;123&#34;</span><span style=color:#f92672>));</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>输出<span style=color:#960050;background-color:#1e0010>：</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>ABC
+</span></span><span style=display:flex><span>ABC
+</span></span><span style=display:flex><span><span style=color:#f92672>--------</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>false</span>
+</span></span><span style=display:flex><span>123
+</span></span><span style=display:flex><span>123
+</span></span></code></pre></div><h2 id=code>Code</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>final</span> List<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;</span> LIST <span style=color:#f92672>=</span> Arrays<span style=color:#f92672>.</span><span style=color:#a6e22e>asList</span><span style=color:#f92672>(</span>     作家列表
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Author</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Adam&#34;</span><span style=color:#f92672>,</span> 23<span style=color:#f92672>,</span> Arrays<span style=color:#f92672>.</span><span style=color:#a6e22e>asList</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Java1&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;Java2&#34;</span><span style=color:#f92672>)),</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>new</span> Author<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Bell&#34;</span><span style=color:#f92672>,</span> 19<span style=color:#f92672>,</span> Arrays<span style=color:#f92672>.</span><span style=color:#a6e22e>asList</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Python1&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;Python2&#34;</span><span style=color:#f92672>)),</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>new</span> Author<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Conan&#34;</span><span style=color:#f92672>,</span> 23<span style=color:#f92672>,</span> Arrays<span style=color:#f92672>.</span><span style=color:#a6e22e>asList</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;PHP1&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;PHP2&#34;</span><span style=color:#f92672>)),</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>new</span> Author<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;David&#34;</span><span style=color:#f92672>,</span> 26<span style=color:#f92672>,</span> Arrays<span style=color:#f92672>.</span><span style=color:#a6e22e>asList</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Ruby1&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;Ruby2&#34;</span><span style=color:#f92672>)));</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span><span style=color:#f92672>(</span>String<span style=color:#f92672>[]</span> args<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        Supplier<span style=color:#f92672>&lt;</span>Stream<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;&gt;</span> supplier <span style=color:#f92672>=</span> <span style=color:#f92672>()</span> <span style=color:#f92672>-&gt;</span> LIST<span style=color:#f92672>.</span><span style=color:#a6e22e>stream</span><span style=color:#f92672>().</span><span style=color:#a6e22e>onClose</span><span style=color:#f92672>(()</span> <span style=color:#f92672>-&gt;</span> System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;——————————————&#34;</span><span style=color:#f92672>));</span>     供应器
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>a</span><span style=color:#f92672>(</span>supplier<span style=color:#f92672>);</span>                                                                                   <span style=color:#960050;background-color:#1e0010>↳</span> Stream 关闭时回调 Runnable 对象
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>b</span><span style=color:#f92672>(</span>supplier<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>        c<span style=color:#f92672>(</span>supplier<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>        d<span style=color:#f92672>();</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>a</span><span style=color:#f92672>(</span>Supplier<span style=color:#f92672>&lt;</span>Stream<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;&gt;</span> supplier<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>     collect
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>try</span> <span style=color:#f92672>(</span>Stream<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;</span> stream <span style=color:#f92672>=</span> supplier<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>())</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>            Set<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;</span> set <span style=color:#f92672>=</span> stream<span style=color:#f92672>.</span><span style=color:#a6e22e>filter</span><span style=color:#f92672>(</span>o <span style=color:#f92672>-&gt;</span> o<span style=color:#f92672>.</span><span style=color:#a6e22e>mName</span><span style=color:#f92672>.</span><span style=color:#a6e22e>startsWith</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;B&#34;</span><span style=color:#f92672>)).</span><span style=color:#a6e22e>collect</span><span style=color:#f92672>(</span>Collectors<span style=color:#f92672>.</span><span style=color:#a6e22e>toSet</span><span style=color:#f92672>());</span>     获得以 B 开头的姓名<span style=color:#960050;background-color:#1e0010>，</span>toSet
+</span></span><span style=display:flex><span>            System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>set<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span> <span style=color:#f92672>(</span>Stream<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;</span> stream <span style=color:#f92672>=</span> supplier<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>())</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>            List<span style=color:#f92672>&lt;</span>Integer<span style=color:#f92672>&gt;</span> list <span style=color:#f92672>=</span> stream<span style=color:#f92672>.</span><span style=color:#a6e22e>map</span><span style=color:#f92672>(</span>o <span style=color:#f92672>-&gt;</span> o<span style=color:#f92672>.</span><span style=color:#a6e22e>mAge</span><span style=color:#f92672>).</span><span style=color:#a6e22e>distinct</span><span style=color:#f92672>().</span><span style=color:#a6e22e>sorted</span><span style=color:#f92672>().</span><span style=color:#a6e22e>collect</span><span style=color:#f92672>(</span>Collectors<span style=color:#f92672>.</span><span style=color:#a6e22e>toList</span><span style=color:#f92672>());</span>     有哪些年龄<span style=color:#960050;background-color:#1e0010>，</span>toList
+</span></span><span style=display:flex><span>            System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>list<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span> <span style=color:#f92672>(</span>Stream<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;</span> stream <span style=color:#f92672>=</span> supplier<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>())</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>            Double aDouble <span style=color:#f92672>=</span> stream<span style=color:#f92672>.</span><span style=color:#a6e22e>collect</span><span style=color:#f92672>(</span>Collectors<span style=color:#f92672>.</span><span style=color:#a6e22e>averagingInt</span><span style=color:#f92672>(</span>o <span style=color:#f92672>-&gt;</span> o<span style=color:#f92672>.</span><span style=color:#a6e22e>mAge</span><span style=color:#f92672>));</span>     获得平均年龄
+</span></span><span style=display:flex><span>            System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>aDouble<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span> <span style=color:#f92672>(</span>Stream<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;</span> stream <span style=color:#f92672>=</span> supplier<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>())</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>            Map<span style=color:#f92672>&lt;</span>Boolean<span style=color:#f92672>,</span> List<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;&gt;</span> map <span style=color:#f92672>=</span> stream<span style=color:#f92672>.</span><span style=color:#a6e22e>collect</span><span style=color:#f92672>(</span>Collectors<span style=color:#f92672>.</span><span style=color:#a6e22e>partitioningBy</span><span style=color:#f92672>(</span>o <span style=color:#f92672>-&gt;</span> o<span style=color:#f92672>.</span><span style=color:#a6e22e>mAge</span> <span style=color:#f92672>&gt;</span> 20<span style=color:#f92672>));</span>     按年龄一分为二
+</span></span><span style=display:flex><span>            map<span style=color:#f92672>.</span><span style=color:#a6e22e>forEach</span><span style=color:#f92672>((</span>key<span style=color:#f92672>,</span> value<span style=color:#f92672>)</span> <span style=color:#f92672>-&gt;</span> System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>printf</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;%s: %s\n&#34;</span><span style=color:#f92672>,</span> key<span style=color:#f92672>,</span> value<span style=color:#f92672>));</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span> <span style=color:#f92672>(</span>Stream<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;</span> stream <span style=color:#f92672>=</span> supplier<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>())</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>            Map<span style=color:#f92672>&lt;</span>Integer<span style=color:#f92672>,</span> List<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;&gt;</span> map <span style=color:#f92672>=</span> stream<span style=color:#f92672>.</span><span style=color:#a6e22e>collect</span><span style=color:#f92672>(</span>Collectors<span style=color:#f92672>.</span><span style=color:#a6e22e>groupingBy</span><span style=color:#f92672>(</span>o <span style=color:#f92672>-&gt;</span> o<span style=color:#f92672>.</span><span style=color:#a6e22e>mAge</span><span style=color:#f92672>));</span>     按年龄分组<span style=color:#960050;background-color:#1e0010>，</span>toMap<span style=color:#960050;background-color:#1e0010>，</span>未提供收集器<span style=color:#960050;background-color:#1e0010>（</span>默认调用 <span style=color:#a6e22e>toList</span><span style=color:#f92672>()</span><span style=color:#960050;background-color:#1e0010>）</span>
+</span></span><span style=display:flex><span>            map<span style=color:#f92672>.</span><span style=color:#a6e22e>forEach</span><span style=color:#f92672>((</span>key<span style=color:#f92672>,</span> value<span style=color:#f92672>)</span> <span style=color:#f92672>-&gt;</span> System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>printf</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;%s: %s\n&#34;</span><span style=color:#f92672>,</span> key<span style=color:#f92672>,</span> value<span style=color:#f92672>));</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span> <span style=color:#f92672>(</span>Stream<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;</span> stream <span style=color:#f92672>=</span> supplier<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>())</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>            Map<span style=color:#f92672>&lt;</span>Integer<span style=color:#f92672>,</span> Integer<span style=color:#f92672>&gt;</span> map <span style=color:#f92672>=</span> stream<span style=color:#f92672>.</span><span style=color:#a6e22e>collect</span><span style=color:#f92672>(</span>Collectors<span style=color:#f92672>.</span><span style=color:#a6e22e>groupingBy</span><span style=color:#f92672>(</span>o <span style=color:#f92672>-&gt;</span> o<span style=color:#f92672>.</span><span style=color:#a6e22e>mAge</span><span style=color:#f92672>,</span> Collectors<span style=color:#f92672>.</span><span style=color:#a6e22e>summingInt</span><span style=color:#f92672>(</span>o <span style=color:#f92672>-&gt;</span> 1<span style=color:#f92672>)));</span>     按年龄分组<span style=color:#960050;background-color:#1e0010>，</span>toMap<span style=color:#960050;background-color:#1e0010>，</span>提供收集器<span style=color:#960050;background-color:#1e0010>（</span>指定收集行为<span style=color:#960050;background-color:#1e0010>）</span>
+</span></span><span style=display:flex><span>            map<span style=color:#f92672>.</span><span style=color:#a6e22e>forEach</span><span style=color:#f92672>((</span>key<span style=color:#f92672>,</span> value<span style=color:#f92672>)</span> <span style=color:#f92672>-&gt;</span> System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>printf</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;%s: %s\n&#34;</span><span style=color:#f92672>,</span> key<span style=color:#f92672>,</span> value<span style=color:#f92672>));</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span> <span style=color:#f92672>(</span>Stream<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;</span> stream <span style=color:#f92672>=</span> supplier<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>())</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>            String s <span style=color:#f92672>=</span> stream<span style=color:#f92672>.</span><span style=color:#a6e22e>filter</span><span style=color:#f92672>(</span>o <span style=color:#f92672>-&gt;</span> o<span style=color:#f92672>.</span><span style=color:#a6e22e>mAge</span> <span style=color:#f92672>&gt;</span> 20<span style=color:#f92672>).</span><span style=color:#a6e22e>map</span><span style=color:#f92672>(</span>o <span style=color:#f92672>-&gt;</span> o<span style=color:#f92672>.</span><span style=color:#a6e22e>mName</span><span style=color:#f92672>).</span><span style=color:#a6e22e>collect</span><span style=color:#f92672>(</span>Collectors<span style=color:#f92672>.</span><span style=color:#a6e22e>joining</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;, &#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;&lt;&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;&gt;&#34;</span><span style=color:#f92672>));</span>     连接作家名字
+</span></span><span style=display:flex><span>            System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>s<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span> <span style=color:#f92672>(</span>Stream<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;</span> stream <span style=color:#f92672>=</span> supplier<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>())</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>            Collector<span style=color:#f92672>&lt;</span>Object<span style=color:#f92672>,</span> StringJoiner<span style=color:#f92672>,</span> String<span style=color:#f92672>&gt;</span> myCollector <span style=color:#f92672>=</span> Collector<span style=color:#f92672>.</span><span style=color:#a6e22e>of</span><span style=color:#f92672>(</span>     自定义收集操作
+</span></span><span style=display:flex><span>                    <span style=color:#f92672>()</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>new</span> StringJoiner<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;, &#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;&lt;&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;&gt;&#34;</span><span style=color:#f92672>),</span>     supplier <span style=color:#a6e22e>供应器</span><span style=color:#f92672>(</span>开始<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>                    <span style=color:#f92672>((</span>stringJoiner<span style=color:#f92672>,</span> o<span style=color:#f92672>)</span> <span style=color:#f92672>-&gt;</span> stringJoiner<span style=color:#f92672>.</span><span style=color:#a6e22e>add</span><span style=color:#f92672>(</span>o<span style=color:#f92672>.</span><span style=color:#a6e22e>toString</span><span style=color:#f92672>())),</span>     accumulator <span style=color:#a6e22e>累加器</span>
+</span></span><span style=display:flex><span>                    <span style=color:#f92672>(</span>stringJoiner<span style=color:#f92672>,</span> stringJoiner2<span style=color:#f92672>)</span> <span style=color:#f92672>-&gt;</span> stringJoiner<span style=color:#f92672>.</span><span style=color:#a6e22e>merge</span><span style=color:#f92672>(</span>stringJoiner2<span style=color:#f92672>),</span>     combiner <span style=color:#a6e22e>组合器</span> <span style=color:#f92672>(</span>并行流使用<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>                    stringJoiner <span style=color:#f92672>-&gt;</span> stringJoiner<span style=color:#f92672>.</span><span style=color:#a6e22e>toString</span><span style=color:#f92672>());</span>     finisher <span style=color:#a6e22e>终止器</span><span style=color:#f92672>(</span>结束<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            String s <span style=color:#f92672>=</span> stream<span style=color:#f92672>.</span><span style=color:#a6e22e>filter</span><span style=color:#f92672>(</span>o <span style=color:#f92672>-&gt;</span> o<span style=color:#f92672>.</span><span style=color:#a6e22e>mAge</span> <span style=color:#f92672>&gt;</span> 20<span style=color:#f92672>).</span><span style=color:#a6e22e>map</span><span style=color:#f92672>(</span>o <span style=color:#f92672>-&gt;</span> o<span style=color:#f92672>.</span><span style=color:#a6e22e>mName</span><span style=color:#f92672>).</span><span style=color:#a6e22e>collect</span><span style=color:#f92672>(</span>myCollector<span style=color:#f92672>);</span>     连接作家名字
+</span></span><span style=display:flex><span>            System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>s<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>        输出<span style=color:#960050;background-color:#1e0010>：</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>[</span>Bell<span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span>        <span style=color:#960050;background-color:#1e0010>——————————————————————————</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>[</span>19<span style=color:#f92672>,</span> 23<span style=color:#f92672>,</span> 26<span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span>        <span style=color:#960050;background-color:#1e0010>——————————————————————————</span>
+</span></span><span style=display:flex><span>        22<span style=color:#f92672>.</span><span style=color:#a6e22e>75</span>
+</span></span><span style=display:flex><span>        <span style=color:#960050;background-color:#1e0010>——————————————————————————</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>false</span><span style=color:#f92672>:</span> <span style=color:#f92672>[</span>Bell<span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>true</span><span style=color:#f92672>:</span> <span style=color:#f92672>[</span>Adam<span style=color:#f92672>,</span> Conan<span style=color:#f92672>,</span> David<span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span>        <span style=color:#960050;background-color:#1e0010>——————————————————————————</span>
+</span></span><span style=display:flex><span>        19<span style=color:#f92672>:</span> <span style=color:#f92672>[</span>Bell<span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span>        23<span style=color:#f92672>:</span> <span style=color:#f92672>[</span>Adam<span style=color:#f92672>,</span> Conan<span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span>        26<span style=color:#f92672>:</span> <span style=color:#f92672>[</span>David<span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span>        <span style=color:#960050;background-color:#1e0010>——————————————————————————</span>
+</span></span><span style=display:flex><span>        19<span style=color:#f92672>:</span> 1
+</span></span><span style=display:flex><span>        23<span style=color:#f92672>:</span> 2
+</span></span><span style=display:flex><span>        26<span style=color:#f92672>:</span> 1
+</span></span><span style=display:flex><span>        <span style=color:#960050;background-color:#1e0010>——————————————————————————</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&lt;</span>Adam<span style=color:#f92672>,</span> Conan<span style=color:#f92672>,</span> David<span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#960050;background-color:#1e0010>——————————————————————————</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&lt;</span>Adam<span style=color:#f92672>,</span> Conan<span style=color:#f92672>,</span> David<span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#960050;background-color:#1e0010>——————————————————————————</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>b</span><span style=color:#f92672>(</span>Supplier<span style=color:#f92672>&lt;</span>Stream<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;&gt;</span> supplier<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>     reduce
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>try</span> <span style=color:#f92672>(</span>Stream<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;</span> stream <span style=color:#f92672>=</span> supplier<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>())</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>            Optional<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;</span> optional <span style=color:#f92672>=</span> stream<span style=color:#f92672>.</span><span style=color:#a6e22e>reduce</span><span style=color:#f92672>((</span>o1<span style=color:#f92672>,</span> o2<span style=color:#f92672>)</span> <span style=color:#f92672>-&gt;</span> o1<span style=color:#f92672>.</span><span style=color:#a6e22e>mAge</span> <span style=color:#f92672>&gt;</span> o2<span style=color:#f92672>.</span><span style=color:#a6e22e>mAge</span> <span style=color:#f92672>?</span> o1 <span style=color:#f92672>:</span> o2<span style=color:#f92672>);</span>     accumulator 累加器<span style=color:#960050;background-color:#1e0010>，</span>获得最大年龄作家<span style=color:#960050;background-color:#1e0010>，</span>不提供起始值<span style=color:#960050;background-color:#1e0010>（</span>返回 Optional<span style=color:#960050;background-color:#1e0010>）</span>
+</span></span><span style=display:flex><span>            optional<span style=color:#f92672>.</span><span style=color:#a6e22e>ifPresent</span><span style=color:#f92672>(</span>o <span style=color:#f92672>-&gt;</span> System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>o<span style=color:#f92672>.</span><span style=color:#a6e22e>mName</span> <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;_&#34;</span> <span style=color:#f92672>+</span> o<span style=color:#f92672>.</span><span style=color:#a6e22e>mAge</span><span style=color:#f92672>));</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span> <span style=color:#f92672>(</span>Stream<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;</span> stream <span style=color:#f92672>=</span> supplier<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>())</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>            Author author <span style=color:#f92672>=</span> stream<span style=color:#f92672>.</span><span style=color:#a6e22e>reduce</span><span style=color:#f92672>(</span>
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>new</span> Author<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;&#34;</span><span style=color:#f92672>,</span> 0<span style=color:#f92672>,</span> <span style=color:#66d9ef>new</span> ArrayList<span style=color:#f92672>&lt;&gt;()),</span>     提供起始值
+</span></span><span style=display:flex><span>                    <span style=color:#f92672>(</span>o1<span style=color:#f92672>,</span> o2<span style=color:#f92672>)</span> <span style=color:#f92672>-&gt;</span> o1<span style=color:#f92672>.</span><span style=color:#a6e22e>mAge</span> <span style=color:#f92672>&gt;</span> o2<span style=color:#f92672>.</span><span style=color:#a6e22e>mAge</span> <span style=color:#f92672>?</span> o1 <span style=color:#f92672>:</span> o2<span style=color:#f92672>);</span>     accumulator 累加器<span style=color:#960050;background-color:#1e0010>，</span>获得最大年龄作家
+</span></span><span style=display:flex><span>            System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>author<span style=color:#f92672>.</span><span style=color:#a6e22e>mName</span> <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;_&#34;</span> <span style=color:#f92672>+</span> author<span style=color:#f92672>.</span><span style=color:#a6e22e>mAge</span><span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span> <span style=color:#f92672>(</span>Stream<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;</span> stream <span style=color:#f92672>=</span> supplier<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>())</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>            Integer integer <span style=color:#f92672>=</span> stream<span style=color:#f92672>.</span><span style=color:#a6e22e>reduce</span><span style=color:#f92672>(</span>     自定义归约操作
+</span></span><span style=display:flex><span>                    0<span style=color:#f92672>,</span>     起始值
+</span></span><span style=display:flex><span>                    <span style=color:#f92672>(</span>sum<span style=color:#f92672>,</span> o<span style=color:#f92672>)</span> <span style=color:#f92672>-&gt;</span> sum <span style=color:#f92672>+=</span> o<span style=color:#f92672>.</span><span style=color:#a6e22e>mAge</span><span style=color:#f92672>,</span>     accumulator 累加器<span style=color:#960050;background-color:#1e0010>，</span>获得年龄总和
+</span></span><span style=display:flex><span>                    <span style=color:#f92672>(</span>sum<span style=color:#f92672>,</span> sum2<span style=color:#f92672>)</span> <span style=color:#f92672>-&gt;</span> sum <span style=color:#f92672>+</span> sum2<span style=color:#f92672>);</span>     combiner <span style=color:#a6e22e>组合器</span> <span style=color:#f92672>(</span>并行流使用<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>            System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>integer<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>        输出<span style=color:#960050;background-color:#1e0010>：</span>
+</span></span><span style=display:flex><span>        David_26
+</span></span><span style=display:flex><span>        <span style=color:#960050;background-color:#1e0010>——————————————————————————</span>
+</span></span><span style=display:flex><span>        David_26
+</span></span><span style=display:flex><span>        <span style=color:#960050;background-color:#1e0010>——————————————————————————</span>
+</span></span><span style=display:flex><span>        91
+</span></span><span style=display:flex><span>        <span style=color:#960050;background-color:#1e0010>——————————————————————————</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>c</span><span style=color:#f92672>(</span>Supplier<span style=color:#f92672>&lt;</span>Stream<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;&gt;</span> supplier<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>     flatMap
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>try</span> <span style=color:#f92672>(</span>Stream<span style=color:#f92672>&lt;</span>Author<span style=color:#f92672>&gt;</span> stream <span style=color:#f92672>=</span> supplier<span style=color:#f92672>.</span><span style=color:#a6e22e>get</span><span style=color:#f92672>())</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>            String s <span style=color:#f92672>=</span> stream<span style=color:#f92672>.</span><span style=color:#a6e22e>flatMap</span><span style=color:#f92672>(</span>o <span style=color:#f92672>-&gt;</span> o<span style=color:#f92672>.</span><span style=color:#a6e22e>mArticle</span><span style=color:#f92672>.</span><span style=color:#a6e22e>stream</span><span style=color:#f92672>()).</span><span style=color:#a6e22e>collect</span><span style=color:#f92672>(</span>Collectors<span style=color:#f92672>.</span><span style=color:#a6e22e>joining</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;, &#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;&lt;&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;&gt;&#34;</span><span style=color:#f92672>));</span>     连接所有作家中的所有文章
+</span></span><span style=display:flex><span>            System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>s<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>        输出<span style=color:#960050;background-color:#1e0010>：</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&lt;</span>Java1<span style=color:#f92672>,</span> Java2<span style=color:#f92672>,</span> Python1<span style=color:#f92672>,</span> Python2<span style=color:#f92672>,</span> PHP1<span style=color:#f92672>,</span> PHP2<span style=color:#f92672>,</span> Ruby1<span style=color:#f92672>,</span> Ruby2<span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#960050;background-color:#1e0010>——————————————————————————</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>d</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        Stream<span style=color:#f92672>.</span><span style=color:#a6e22e>generate</span><span style=color:#f92672>(</span>UUID<span style=color:#f92672>::</span>randomUUID<span style=color:#f92672>).</span><span style=color:#a6e22e>limit</span><span style=color:#f92672>(</span>5<span style=color:#f92672>).</span><span style=color:#a6e22e>forEach</span><span style=color:#f92672>(</span>System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>::</span>println<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>----</span>             <span style=color:#960050;background-color:#1e0010>↳</span> 无限生成 UUID<span style=color:#960050;background-color:#1e0010>，</span>限制最多执行 5 次
+</span></span><span style=display:flex><span>        输出<span style=color:#960050;background-color:#1e0010>：</span>
+</span></span><span style=display:flex><span>        e9100622<span style=color:#f92672>-</span>3458<span style=color:#f92672>-</span>4c94<span style=color:#f92672>-</span>bc7a<span style=color:#f92672>-</span>dabcf99ebee9
+</span></span><span style=display:flex><span>        bc18a526<span style=color:#f92672>-</span>945f<span style=color:#f92672>-</span>4fc6<span style=color:#f92672>-</span>a9fc<span style=color:#f92672>-</span>496c075aa99a
+</span></span><span style=display:flex><span>        57a3882b<span style=color:#f92672>-</span>2eb6<span style=color:#f92672>-</span>4392<span style=color:#f92672>-</span>bb2f<span style=color:#f92672>-</span>31cb10acbece
+</span></span><span style=display:flex><span>        82900c8e<span style=color:#f92672>-</span>e8d6<span style=color:#f92672>-</span>46de<span style=color:#f92672>-</span>a02f<span style=color:#f92672>-</span>9d37c5454f30
+</span></span><span style=display:flex><span>        25ec7ee2<span style=color:#f92672>-</span>a963<span style=color:#f92672>-</span>43df<span style=color:#f92672>-</span>8c11<span style=color:#f92672>-</span>7008b4a68ccd
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        Stream<span style=color:#f92672>.</span><span style=color:#a6e22e>iterate</span><span style=color:#f92672>(</span>0<span style=color:#f92672>,</span> n <span style=color:#f92672>-&gt;</span> n <span style=color:#f92672>+</span> 2<span style=color:#f92672>).</span><span style=color:#a6e22e>limit</span><span style=color:#f92672>(</span>10<span style=color:#f92672>).</span><span style=color:#a6e22e>forEach</span><span style=color:#f92672>(</span>n <span style=color:#f92672>-&gt;</span> System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>print</span><span style=color:#f92672>(</span>n <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34; &#34;</span><span style=color:#f92672>));</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>----</span>           <span style=color:#960050;background-color:#1e0010>↳</span> 无限迭代起始值<span style=color:#960050;background-color:#1e0010>，</span>限制最多执行 10 次
+</span></span><span style=display:flex><span>        输出<span style=color:#960050;background-color:#1e0010>：</span>
+</span></span><span style=display:flex><span>        0 2 4 6 8 10 12 14 16 18
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        List<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> list1 <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ArrayList<span style=color:#f92672>&lt;&gt;(</span>Arrays<span style=color:#f92672>.</span><span style=color:#a6e22e>asList</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;A&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;B&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;C&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;D&#34;</span><span style=color:#f92672>));</span>
+</span></span><span style=display:flex><span>        List<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> list2 <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ArrayList<span style=color:#f92672>&lt;&gt;(</span>Arrays<span style=color:#f92672>.</span><span style=color:#a6e22e>asList</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;A&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;B&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;C&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;D&#34;</span><span style=color:#f92672>));</span>
+</span></span><span style=display:flex><span>        Stream<span style=color:#f92672>.</span><span style=color:#a6e22e>of</span><span style=color:#f92672>(</span>list1<span style=color:#f92672>,</span> list2<span style=color:#f92672>).</span><span style=color:#a6e22e>peek</span><span style=color:#f92672>(</span>list <span style=color:#f92672>-&gt;</span> list<span style=color:#f92672>.</span><span style=color:#a6e22e>addAll</span><span style=color:#f92672>(</span>Arrays<span style=color:#f92672>.</span><span style=color:#a6e22e>asList</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;E&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;F&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;J&#34;</span><span style=color:#f92672>))).</span><span style=color:#a6e22e>forEach</span><span style=color:#f92672>(</span>System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>::</span>println<span style=color:#f92672>);</span>     peek
+</span></span><span style=display:flex><span>        <span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>        输出<span style=color:#960050;background-color:#1e0010>：</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>[</span>A<span style=color:#f92672>,</span> B<span style=color:#f92672>,</span> C<span style=color:#f92672>,</span> D<span style=color:#f92672>,</span> E<span style=color:#f92672>,</span> F<span style=color:#f92672>,</span> J<span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>[</span>A<span style=color:#f92672>,</span> B<span style=color:#f92672>,</span> C<span style=color:#f92672>,</span> D<span style=color:#f92672>,</span> E<span style=color:#f92672>,</span> F<span style=color:#f92672>,</span> J<span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Author</span> <span style=color:#f92672>{</span>        作家
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>private</span> String mName<span style=color:#f92672>;</span>            姓名
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>int</span> mAge<span style=color:#f92672>;</span>                年龄
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>private</span> List<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> mArticle<span style=color:#f92672>;</span>   文章列表
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>private</span> <span style=color:#a6e22e>Author</span><span style=color:#f92672>(</span>String name<span style=color:#f92672>,</span> <span style=color:#66d9ef>int</span> age<span style=color:#f92672>,</span> List<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> article<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>            mName <span style=color:#f92672>=</span> name<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>            mAge <span style=color:#f92672>=</span> age<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>            mArticle <span style=color:#f92672>=</span> article<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>public</span> String <span style=color:#a6e22e>toString</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> mName<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
+</span></span></code></pre></div></div><div class=sharing style=text-align:center><br><p>捐赠支持</p><p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p><p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p><img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%><p></p><br>&copy; 2015-2020 XhstormR</div></div></div></div><div id=backtop><a href=# title>TOP</a></div><nav id=TableOfContents><ul><li><a href=#lambda>Lambda</a></li><li><a href=#functional-interface>Functional Interface</a></li><li><a href=#stream>Stream</a></li><li><a href=#optional>Optional</a></li><li><a href=#code>Code</a></li></ul></nav><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script>
-<script>hljs.initHighlightingOnLoad()</script>
-<script src=https://blog.xhstormr.tk/js/zoom.min.js></script>
-<script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script>
-<script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script>
-</body>
-</html>
+<script>hljs.initHighlightingOnLoad()</script><script src=https://blog.xhstormr.tk/js/zoom.min.js></script>
+<script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script><script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script></body></html>

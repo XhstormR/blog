@@ -1,403 +1,290 @@
-<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache>
-<head>
-<meta charset=utf-8>
-<meta name=renderer content="webkit">
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title> 常用 Git 命令清单 &#183; XhstormR </title>
-<link rel=alternate type=application/rss+xml title=XhstormR href>
-<link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico>
-<link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css>
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css>
-<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
-<script src=https://blog.xhstormr.tk/js/main.min.js async defer></script>
-</head>
-<body>
-<div id=scriptHeader>
-<span class="mobile btn-mobile-menu">
-<i class="fa fa-bars btn-mobile-menu__icon"></i>
-<i class="fa fa-times btn-mobile-close__icon hidden"></i>
-</span>
-<header class="panel-cover panel-cover--collapsed">
-<div class=panel-main>
-<div class="panel-main__inner panel-inverted">
-<div class=panel-main__content>
-<h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1>
-<hr class=panel-cover__divider>
-<p class=panel-cover__description> On a dark desert highway, cool wind in my hair. </p>
-<hr class="panel-cover__divider panel-cover__divider--secondary">
-<div class=navigation-wrapper>
-<nav class="cover-navigation cover-navigation--primary">
-<ul class=navigation>
-<li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li>
-</ul>
-</nav>
-</div>
-</div>
-</div>
-<div class=panel-cover--overlay></div>
-</div>
-</header>
-</div>
-<div class=bodytop>
-<div class=content-wrapper>
-<div class=content-wrapper__inner>
-<div class=post>
-<h1>常用 Git 命令清单</h1>
-<span class=post-date>2016-02-08</span>
-<p>Updated on 2016-11-07</p>
-<blockquote>
-<p style=text-align:center><img data-src=/uploads/git2.png alt title=Git data-action=zoom width></p>
-<script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(a){a.setAttribute("src",a.getAttribute("data-src")),a.onload=function(){a.removeAttribute("data-src")}})</script>
-<p><a href=https://git-scm.com/book/zh>https://git-scm.com/book/zh</a></p>
-<p><a href=https://ndpsoftware.com/git-cheatsheet.html>https://ndpsoftware.com/git-cheatsheet.html</a></p>
-<p><a href=https://backlog.com/git-tutorial/cn/contents/>https://backlog.com/git-tutorial/cn/contents/</a></p>
-<p><a href=https://rogerdudler.github.io/git-guide/index.zh.html>https://rogerdudler.github.io/git-guide/index.zh.html</a></p>
-<p><a href=https://marklodato.github.io/visual-git-guide/index-zh-cn.html>https://marklodato.github.io/visual-git-guide/index-zh-cn.html</a></p>
-<p><a href=https://www.sourcetreeapp.com/>https://www.sourcetreeapp.com/</a></p>
-<p><a href=https://npm.taobao.org/mirrors/git-for-windows/>https://npm.taobao.org/mirrors/git-for-windows/</a></p>
-<p><a href=https://github.com/git-for-windows/git/releases/latest>https://github.com/git-for-windows/git/releases/latest</a></p>
-<p>我把常用的 Git 命令按其类型整理在这里，以便查阅。</p>
-<p>一般来说，日常使用只要记住下图6个命令，就可以了。但是熟练使用，恐怕要记住60～100个命令。</p>
-<p style=text-align:center><img data-src=/uploads/git.png alt title=Git width></p>
-<script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(a){a.setAttribute("src",a.getAttribute("data-src")),a.onload=function(){a.removeAttribute("data-src")}})</script>
-</blockquote>
-<p>几个专用名词的译名如下:</p>
-<ul>
-<li>Workspace：工作区</li>
-<li>Index / Stage：暂存区</li>
-<li>Repository：仓库区 / 本地仓库</li>
-<li>Remote：远程仓库</li>
-</ul>
-<h2 id=1-新建代码库>1. 新建代码库</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml># 在当前目录新建一个Git代码库
-$ git init
-
-# 新建一个目录，将其初始化为Git代码库
-$ git init [project-name]
-
-# 下载一个项目和它的整个代码历史
-$ git clone [url]
-</code></pre></div><h2 id=2-配置>2. 配置</h2>
-<p>Git的设置文件为<code>.gitconfig</code>，它可以在用户主目录下（全局配置），也可以在项目目录下（项目配置）。</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml># 显示当前的Git配置
-$ git config --list
-
-# 编辑Git配置文件
-$ git config -e [--global]
-
-# 设置提交代码时的用户信息
-$ git config [--global] user.name &#34;[name]&#34;
-$ git config [--global] user.email &#34;[email address]&#34;
-</code></pre></div><h2 id=3-增加删除文件>3. 增加/删除文件</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml># 添加指定文件到暂存区
-$ git add [file1] [file2] ...
-
-# 添加指定目录到暂存区，包括子目录
-$ git add [dir]
-
-# 添加当前目录的所有文件到暂存区
-$ git add .
-
-# 删除工作区文件，并且将这次删除放入暂存区
-$ git rm [file1] [file2] ...
-
-# 停止追踪指定文件，但该文件会保留在工作区
-$ git rm --cached [file]
-
-# 改名文件，并且将这个改名放入暂存区
-$ git mv [file-original] [file-renamed]
-</code></pre></div><h2 id=4-代码提交>4. 代码提交</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml># 提交暂存区到仓库区
-$ git commit -m [message]
-
-# 提交暂存区的指定文件到仓库区
-$ git commit [file1] [file2] ... -m [message]
-
-# 提交工作区自上次commit之后的变化，直接到仓库区
-$ git commit -a
-
-# 提交时显示所有diff信息
-$ git commit -v
-
-# 使用一次新的commit，替代上一次提交
-# 如果代码没有任何新变化，则用来改写上一次commit的提交信息
-$ git commit --amend -m [message]
-
-# 重做上一次commit，并包括指定文件的新变化
-$ git commit --amend [file1] [file2] ...
-</code></pre></div><h2 id=5-分支>5. 分支</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml># 列出所有本地分支
-$ git branch
-
-# 列出所有远程分支
-$ git branch -r
-
-# 列出所有本地分支和远程分支
-$ git branch -a
-
-# 新建一个分支，但依然停留在当前分支
-$ git branch [branch-name]
-
-# 新建一个分支，并切换到该分支
-$ git checkout -b [branch]
-
-# 新建一个分支，指向指定commit
-$ git branch [branch] [commit]
-
-# 新建一个分支，与指定的远程分支建立追踪关系
-$ git branch --track [branch] [remote-branch]
-
-# 切换到指定分支，并更新工作区
-$ git checkout [branch-name]
-
-# 建立追踪关系，在现有分支与指定的远程分支之间
-$ git branch --set-upstream [branch] [remote-branch]
-
-# 合并指定分支到当前分支
-$ git merge [branch]
-
-# 选择一个commit，合并进当前分支
-$ git cherry-pick [commit]
-
-# 删除分支
-$ git branch -d [branch-name]
-
-# 删除远程分支
-$ git push origin --delete [branch-name]
-$ git branch -dr [remote/branch]
-</code></pre></div><h2 id=6-标签>6. 标签</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml># 列出所有tag
-$ git tag
-
-# 新建一个tag在当前commit
-$ git tag [tag]
-
-# 新建一个tag在指定commit
-$ git tag [tag] [commit]
-
-# 删除本地tag
-$ git tag -d [tag]
-
-# 删除远程tag
-$ git push origin :refs/tags/[tagName]
-
-# 查看tag信息
-$ git show [tag]
-
-# 提交指定tag
-$ git push [remote] [tag]
-
-# 提交所有tag
-$ git push [remote] --tags
-
-# 新建一个分支，指向某个tag
-$ git checkout -b [branch] [tag]
-</code></pre></div><h2 id=7-查看信息>7. 查看信息</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml># 显示有变更的文件
-$ git status
-
-# 显示当前分支的版本历史
-$ git log
-
-# 显示commit历史，以及每次commit发生变更的文件
-$ git log --stat
-
-# 显示某个commit之后的所有变动，每个commit占据一行
-$ git log [tag] HEAD --pretty=format:%s
-
-# 显示某个commit之后的所有变动，其&#34;提交说明&#34;必须符合搜索条件
-$ git log [tag] HEAD --grep feature
-
-# 显示某个文件的版本历史，包括文件改名
-$ git log --follow [file]
-$ git whatchanged [file]
-
-# 显示指定文件相关的每一次diff
-$ git log -p [file]
-
-# 显示指定文件是什么人在什么时间修改过
-$ git blame [file]
-
-# 显示暂存区和工作区的差异
-$ git diff
-
-# 显示暂存区和上一个commit的差异
-$ git diff --cached [file]
-
-# 显示工作区与当前分支最新commit之间的差异
-$ git diff HEAD
-
-# 显示两次提交之间的差异
-$ git diff [first-branch]...[second-branch]
-
-# 显示某次提交的元数据和内容变化
-$ git show [commit]
-
-# 显示某次提交发生变化的文件
-$ git show --name-only [commit]
-
-# 显示某次提交时，某个文件的内容
-$ git show [commit]:[filename]
-
-# 显示当前分支的最近几次提交
-$ git reflog
-</code></pre></div><h2 id=8-远程同步>8. 远程同步</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml># 下载远程仓库的所有变动
-$ git fetch [remote]
-
-# 显示所有远程仓库
-$ git remote -v
-
-# 显示某个远程仓库的信息
-$ git remote show [remote]
-
-# 增加一个新的远程仓库，并命名
-$ git remote add [shortname] [url]
-
-# 取回远程仓库的变化，并与本地分支合并（pull = fetch + merge）
-$ git pull [remote] [branch]
-
-# 上传本地指定分支到远程仓库
-$ git push [remote] [branch]
-
-# 强行推送当前分支到远程仓库，即使有冲突
-$ git push [remote] --force
-
-# 推送所有分支到远程仓库
-$ git push [remote] --all
-</code></pre></div><h2 id=9-撤销>9. 撤销</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml># 恢复暂存区的指定文件到工作区
-$ git checkout [file]
-
-# 恢复某个commit的指定文件到暂存区和工作区
-$ git checkout [commit] [file]
-
-# 恢复暂存区的所有文件到工作区
-$ git checkout .
-
-# 重置暂存区的指定文件，与上一次commit保持一致，但工作区不变
-$ git reset [file]
-
-# 重置暂存区与工作区，与上一次commit保持一致
-$ git reset --hard
-
-# 重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变
-$ git reset [commit]
-
-# 重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致
-$ git reset --hard [commit]
-
-# 重置当前HEAD为指定commit，但保持暂存区和工作区不变
-$ git reset --keep [commit]
-
-# 新建一个commit，用来撤销指定commit
-# 后者的所有变化都将被前者抵消，并且应用到当前分支
-$ git revert [commit]
-</code></pre></div><h2 id=10-其他>10. 其他</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml># 生成一个可供发布的压缩包
-$ git archive
-</code></pre></div><hr>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml>git config --global diff.context 0     全局设置 diff 时不显示上下文
-
--------------------------------------------------------
-
-git diff     工作区与暂存区比较
-git diff head     工作区与仓库区比较
-git diff --cached     暂存区与仓库区比较
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>vim ~/.bashrc
-    alias ll<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;ls -lhF --color=auto&#39;</span>
-    alias grep<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;grep -n --color=auto&#39;</span>
-source ~/.bashrc
-
--------------------------------------------------------
-
-updatedb --output<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;D:\Download\GIT\123.db&#34;</span> --localpaths<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;D:\Download\GIT&#34;</span>     更新数据库
-locate --database<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/d/Download/GIT/123.db&#34;</span> *java*md     查找文件
-grep http <span style=color:#e6db74>`</span>locate --database<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/d/Download/GIT/123.db&#34;</span> *java*md<span style=color:#e6db74>`</span>     查找文字
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>vim ~/.ssh/config
-----
-ProxyCommand ncat --proxy 127.0.0.1:1080 --proxy-type socks4 %h %p
-
-Host github.com
-  Hostname ssh.github.com
-  Port <span style=color:#ae81ff>443</span>
-
--------------------------------------------------------
-
-git clone git@github.com:XhstormR/Hugo.git HUGO     SSH connections over HTTPS
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>git config --global A.B C
-
--------------------------------------------------------
-
-C:<span style=color:#ae81ff>\U</span>sers<span style=color:#ae81ff>\X</span>hstormR<span style=color:#ae81ff>\.</span>gitconfig
-⇳
-<span style=color:#f92672>[</span>A<span style=color:#f92672>]</span>
-	B <span style=color:#f92672>=</span> C
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>git rm -r --cached .
-git add .
-
-git clean -fdxn
-
-git gc --prune<span style=color:#f92672>=</span>all
-
-git reset --soft HEAD^
-
-git submodule add -b master https://github.com/openssl/openssl.git
-git submodule update --remote
-
-git archive -o 123.zip HEAD
-
-git commit --amend --date<span style=color:#f92672>=</span>now --no-edit
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>java -jar bfg.jar --no-blob-protection --delete-folders <span style=color:#e6db74>&#34;bin&#34;</span> HUGO
-cd HUGO
-git reflog expire --expire<span style=color:#f92672>=</span>now --all <span style=color:#f92672>&amp;&amp;</span> git gc --prune<span style=color:#f92672>=</span>now --aggressive
-
-https://rtyley.github.io/bfg-repo-cleaner/
-https://maven.aliyun.com/repository/public/com/madgag/bfg/1.13.0/bfg-1.13.0.jar
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>git config --global gui.encoding <span style=color:#e6db74>&#39;utf-8&#39;</span>
-git config --global core.editor <span style=color:#e6db74>&#39;notepad&#39;</span>
-git config --global core.autocrlf <span style=color:#e6db74>&#39;true&#39;</span>
-git config --global core.ignorecase <span style=color:#e6db74>&#39;false&#39;</span>
-git config --global user.name <span style=color:#e6db74>&#39;XhstormR&#39;</span>
-git config --global user.email <span style=color:#e6db74>&#39;10527522+XhstormR@users.noreply.github.com&#39;</span>
-git config --global http.proxy <span style=color:#e6db74>&#39;socks5h://127.0.0.1:1080&#39;</span>
-
-git rebase -i 123b394c9c7f45e9d8a04c4b138c805cd7dd7419 -x <span style=color:#e6db74>&#34;git commit --amend --allow-empty --allow-empty-message --author &#39;XhstormR &lt;10527522+XhstormR@users.noreply.github.com&gt;&#39; -CHEAD&#34;</span>
-</code></pre></div>
-</div>
-<div class=sharing style=text-align:center>
-<br>
-<p>捐赠支持</p>
-<p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p>
-<p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p>
-<img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%>
-<p></p><br>&copy; 2015-2020 XhstormR
-</div>
-</div>
-</div>
-</div>
-<div id=backtop><a href=# title>TOP</a></div>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#1-新建代码库>1. 新建代码库</a></li>
-<li><a href=#2-配置>2. 配置</a></li>
-<li><a href=#3-增加删除文件>3. 增加/删除文件</a></li>
-<li><a href=#4-代码提交>4. 代码提交</a></li>
-<li><a href=#5-分支>5. 分支</a></li>
-<li><a href=#6-标签>6. 标签</a></li>
-<li><a href=#7-查看信息>7. 查看信息</a></li>
-<li><a href=#8-远程同步>8. 远程同步</a></li>
-<li><a href=#9-撤销>9. 撤销</a></li>
-<li><a href=#10-其他>10. 其他</a></li>
-</ul>
-</nav>
-<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script>
+<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache><head><meta charset=utf-8><meta name=renderer content="webkit"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>常用 Git 命令清单 &#183; XhstormR</title><link rel=alternate type=application/rss+xml title=XhstormR href><link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico><link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
+<script src=https://blog.xhstormr.tk/js/main.min.js async defer></script></head><body><div id=scriptHeader><span class="mobile btn-mobile-menu"><i class="fa fa-bars btn-mobile-menu__icon"></i>
+<i class="fa fa-times btn-mobile-close__icon hidden"></i></span><header class="panel-cover panel-cover--collapsed"><div class=panel-main><div class="panel-main__inner panel-inverted"><div class=panel-main__content><h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1><hr class=panel-cover__divider><p class=panel-cover__description>On a dark desert highway, cool wind in my hair.</p><hr class="panel-cover__divider panel-cover__divider--secondary"><div class=navigation-wrapper><nav class="cover-navigation cover-navigation--primary"><ul class=navigation><li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li></ul></nav></div></div></div><div class=panel-cover--overlay></div></div></header></div><div class=bodytop><div class=content-wrapper><div class=content-wrapper__inner><div class=post><h1>常用 Git 命令清单</h1><span class=post-date>2016-02-08</span><p>Updated on 2016-11-07</p><blockquote><p style=text-align:center><img data-src=/uploads/git2.png alt title=Git data-action=zoom width></p><script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(e){e.setAttribute("src",e.getAttribute("data-src")),e.onload=function(){e.removeAttribute("data-src")}})</script><p><a href=https://git-scm.com/book/zh>https://git-scm.com/book/zh</a></p><p><a href=https://ndpsoftware.com/git-cheatsheet.html>https://ndpsoftware.com/git-cheatsheet.html</a></p><p><a href=https://backlog.com/git-tutorial/cn/contents/>https://backlog.com/git-tutorial/cn/contents/</a></p><p><a href=https://rogerdudler.github.io/git-guide/index.zh.html>https://rogerdudler.github.io/git-guide/index.zh.html</a></p><p><a href=https://marklodato.github.io/visual-git-guide/index-zh-cn.html>https://marklodato.github.io/visual-git-guide/index-zh-cn.html</a></p><p><a href=https://www.sourcetreeapp.com/>https://www.sourcetreeapp.com/</a></p><p><a href=https://npm.taobao.org/mirrors/git-for-windows/>https://npm.taobao.org/mirrors/git-for-windows/</a></p><p><a href=https://github.com/git-for-windows/git/releases/latest>https://github.com/git-for-windows/git/releases/latest</a></p><p>我把常用的 Git 命令按其类型整理在这里，以便查阅。</p><p>一般来说，日常使用只要记住下图6个命令，就可以了。但是熟练使用，恐怕要记住60～100个命令。</p><p style=text-align:center><img data-src=/uploads/git.png alt title=Git width></p><script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(e){e.setAttribute("src",e.getAttribute("data-src")),e.onload=function(){e.removeAttribute("data-src")}})</script></blockquote><p>几个专用名词的译名如下:</p><ul><li>Workspace：工作区</li><li>Index / Stage：暂存区</li><li>Repository：仓库区 / 本地仓库</li><li>Remote：远程仓库</li></ul><h2 id=1-新建代码库>1. 新建代码库</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=display:flex><span># 在当前目录新建一个Git代码库
+</span></span><span style=display:flex><span>$ git init
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 新建一个目录，将其初始化为Git代码库
+</span></span><span style=display:flex><span>$ git init [project-name]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 下载一个项目和它的整个代码历史
+</span></span><span style=display:flex><span>$ git clone [url]
+</span></span></code></pre></div><h2 id=2-配置>2. 配置</h2><p>Git的设置文件为<code>.gitconfig</code>，它可以在用户主目录下（全局配置），也可以在项目目录下（项目配置）。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=display:flex><span># 显示当前的Git配置
+</span></span><span style=display:flex><span>$ git config --list
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 编辑Git配置文件
+</span></span><span style=display:flex><span>$ git config -e [--global]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 设置提交代码时的用户信息
+</span></span><span style=display:flex><span>$ git config [--global] user.name &#34;[name]&#34;
+</span></span><span style=display:flex><span>$ git config [--global] user.email &#34;[email address]&#34;
+</span></span></code></pre></div><h2 id=3-增加删除文件>3. 增加/删除文件</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=display:flex><span># 添加指定文件到暂存区
+</span></span><span style=display:flex><span>$ git add [file1] [file2] ...
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 添加指定目录到暂存区，包括子目录
+</span></span><span style=display:flex><span>$ git add [dir]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 添加当前目录的所有文件到暂存区
+</span></span><span style=display:flex><span>$ git add .
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 删除工作区文件，并且将这次删除放入暂存区
+</span></span><span style=display:flex><span>$ git rm [file1] [file2] ...
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 停止追踪指定文件，但该文件会保留在工作区
+</span></span><span style=display:flex><span>$ git rm --cached [file]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 改名文件，并且将这个改名放入暂存区
+</span></span><span style=display:flex><span>$ git mv [file-original] [file-renamed]
+</span></span></code></pre></div><h2 id=4-代码提交>4. 代码提交</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=display:flex><span># 提交暂存区到仓库区
+</span></span><span style=display:flex><span>$ git commit -m [message]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 提交暂存区的指定文件到仓库区
+</span></span><span style=display:flex><span>$ git commit [file1] [file2] ... -m [message]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 提交工作区自上次commit之后的变化，直接到仓库区
+</span></span><span style=display:flex><span>$ git commit -a
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 提交时显示所有diff信息
+</span></span><span style=display:flex><span>$ git commit -v
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 使用一次新的commit，替代上一次提交
+</span></span><span style=display:flex><span># 如果代码没有任何新变化，则用来改写上一次commit的提交信息
+</span></span><span style=display:flex><span>$ git commit --amend -m [message]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 重做上一次commit，并包括指定文件的新变化
+</span></span><span style=display:flex><span>$ git commit --amend [file1] [file2] ...
+</span></span></code></pre></div><h2 id=5-分支>5. 分支</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=display:flex><span># 列出所有本地分支
+</span></span><span style=display:flex><span>$ git branch
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 列出所有远程分支
+</span></span><span style=display:flex><span>$ git branch -r
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 列出所有本地分支和远程分支
+</span></span><span style=display:flex><span>$ git branch -a
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 新建一个分支，但依然停留在当前分支
+</span></span><span style=display:flex><span>$ git branch [branch-name]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 新建一个分支，并切换到该分支
+</span></span><span style=display:flex><span>$ git checkout -b [branch]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 新建一个分支，指向指定commit
+</span></span><span style=display:flex><span>$ git branch [branch] [commit]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 新建一个分支，与指定的远程分支建立追踪关系
+</span></span><span style=display:flex><span>$ git branch --track [branch] [remote-branch]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 切换到指定分支，并更新工作区
+</span></span><span style=display:flex><span>$ git checkout [branch-name]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 建立追踪关系，在现有分支与指定的远程分支之间
+</span></span><span style=display:flex><span>$ git branch --set-upstream [branch] [remote-branch]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 合并指定分支到当前分支
+</span></span><span style=display:flex><span>$ git merge [branch]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 选择一个commit，合并进当前分支
+</span></span><span style=display:flex><span>$ git cherry-pick [commit]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 删除分支
+</span></span><span style=display:flex><span>$ git branch -d [branch-name]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 删除远程分支
+</span></span><span style=display:flex><span>$ git push origin --delete [branch-name]
+</span></span><span style=display:flex><span>$ git branch -dr [remote/branch]
+</span></span></code></pre></div><h2 id=6-标签>6. 标签</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=display:flex><span># 列出所有tag
+</span></span><span style=display:flex><span>$ git tag
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 新建一个tag在当前commit
+</span></span><span style=display:flex><span>$ git tag [tag]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 新建一个tag在指定commit
+</span></span><span style=display:flex><span>$ git tag [tag] [commit]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 删除本地tag
+</span></span><span style=display:flex><span>$ git tag -d [tag]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 删除远程tag
+</span></span><span style=display:flex><span>$ git push origin :refs/tags/[tagName]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 查看tag信息
+</span></span><span style=display:flex><span>$ git show [tag]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 提交指定tag
+</span></span><span style=display:flex><span>$ git push [remote] [tag]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 提交所有tag
+</span></span><span style=display:flex><span>$ git push [remote] --tags
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 新建一个分支，指向某个tag
+</span></span><span style=display:flex><span>$ git checkout -b [branch] [tag]
+</span></span></code></pre></div><h2 id=7-查看信息>7. 查看信息</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=display:flex><span># 显示有变更的文件
+</span></span><span style=display:flex><span>$ git status
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 显示当前分支的版本历史
+</span></span><span style=display:flex><span>$ git log
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 显示commit历史，以及每次commit发生变更的文件
+</span></span><span style=display:flex><span>$ git log --stat
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 显示某个commit之后的所有变动，每个commit占据一行
+</span></span><span style=display:flex><span>$ git log [tag] HEAD --pretty=format:%s
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 显示某个commit之后的所有变动，其&#34;提交说明&#34;必须符合搜索条件
+</span></span><span style=display:flex><span>$ git log [tag] HEAD --grep feature
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 显示某个文件的版本历史，包括文件改名
+</span></span><span style=display:flex><span>$ git log --follow [file]
+</span></span><span style=display:flex><span>$ git whatchanged [file]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 显示指定文件相关的每一次diff
+</span></span><span style=display:flex><span>$ git log -p [file]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 显示指定文件是什么人在什么时间修改过
+</span></span><span style=display:flex><span>$ git blame [file]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 显示暂存区和工作区的差异
+</span></span><span style=display:flex><span>$ git diff
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 显示暂存区和上一个commit的差异
+</span></span><span style=display:flex><span>$ git diff --cached [file]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 显示工作区与当前分支最新commit之间的差异
+</span></span><span style=display:flex><span>$ git diff HEAD
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 显示两次提交之间的差异
+</span></span><span style=display:flex><span>$ git diff [first-branch]...[second-branch]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 显示某次提交的元数据和内容变化
+</span></span><span style=display:flex><span>$ git show [commit]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 显示某次提交发生变化的文件
+</span></span><span style=display:flex><span>$ git show --name-only [commit]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 显示某次提交时，某个文件的内容
+</span></span><span style=display:flex><span>$ git show [commit]:[filename]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 显示当前分支的最近几次提交
+</span></span><span style=display:flex><span>$ git reflog
+</span></span></code></pre></div><h2 id=8-远程同步>8. 远程同步</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=display:flex><span># 下载远程仓库的所有变动
+</span></span><span style=display:flex><span>$ git fetch [remote]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 显示所有远程仓库
+</span></span><span style=display:flex><span>$ git remote -v
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 显示某个远程仓库的信息
+</span></span><span style=display:flex><span>$ git remote show [remote]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 增加一个新的远程仓库，并命名
+</span></span><span style=display:flex><span>$ git remote add [shortname] [url]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 取回远程仓库的变化，并与本地分支合并（pull = fetch + merge）
+</span></span><span style=display:flex><span>$ git pull [remote] [branch]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 上传本地指定分支到远程仓库
+</span></span><span style=display:flex><span>$ git push [remote] [branch]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 强行推送当前分支到远程仓库，即使有冲突
+</span></span><span style=display:flex><span>$ git push [remote] --force
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 推送所有分支到远程仓库
+</span></span><span style=display:flex><span>$ git push [remote] --all
+</span></span></code></pre></div><h2 id=9-撤销>9. 撤销</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=display:flex><span># 恢复暂存区的指定文件到工作区
+</span></span><span style=display:flex><span>$ git checkout [file]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 恢复某个commit的指定文件到暂存区和工作区
+</span></span><span style=display:flex><span>$ git checkout [commit] [file]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 恢复暂存区的所有文件到工作区
+</span></span><span style=display:flex><span>$ git checkout .
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 重置暂存区的指定文件，与上一次commit保持一致，但工作区不变
+</span></span><span style=display:flex><span>$ git reset [file]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 重置暂存区与工作区，与上一次commit保持一致
+</span></span><span style=display:flex><span>$ git reset --hard
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变
+</span></span><span style=display:flex><span>$ git reset [commit]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致
+</span></span><span style=display:flex><span>$ git reset --hard [commit]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 重置当前HEAD为指定commit，但保持暂存区和工作区不变
+</span></span><span style=display:flex><span>$ git reset --keep [commit]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 新建一个commit，用来撤销指定commit
+</span></span><span style=display:flex><span># 后者的所有变化都将被前者抵消，并且应用到当前分支
+</span></span><span style=display:flex><span>$ git revert [commit]
+</span></span></code></pre></div><h2 id=10-其他>10. 其他</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=display:flex><span># 生成一个可供发布的压缩包
+</span></span><span style=display:flex><span>$ git archive
+</span></span></code></pre></div><hr><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=display:flex><span>git config --global diff.context 0     全局设置 diff 时不显示上下文
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>-------------------------------------------------------
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>git diff     工作区与暂存区比较
+</span></span><span style=display:flex><span>git diff head     工作区与仓库区比较
+</span></span><span style=display:flex><span>git diff --cached     暂存区与仓库区比较
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>vim ~/.bashrc
+</span></span><span style=display:flex><span>    alias ll<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;ls -lhF --color=auto&#39;</span>
+</span></span><span style=display:flex><span>    alias grep<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;grep -n --color=auto&#39;</span>
+</span></span><span style=display:flex><span>source ~/.bashrc
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>-------------------------------------------------------
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>updatedb --output<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;D:\Download\GIT\123.db&#34;</span> --localpaths<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;D:\Download\GIT&#34;</span>     更新数据库
+</span></span><span style=display:flex><span>locate --database<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/d/Download/GIT/123.db&#34;</span> *java*md     查找文件
+</span></span><span style=display:flex><span>grep http <span style=color:#e6db74>`</span>locate --database<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/d/Download/GIT/123.db&#34;</span> *java*md<span style=color:#e6db74>`</span>     查找文字
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>vim ~/.ssh/config
+</span></span><span style=display:flex><span>----
+</span></span><span style=display:flex><span>ProxyCommand ncat --proxy 127.0.0.1:1080 --proxy-type socks4 %h %p
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Host github.com
+</span></span><span style=display:flex><span>  Hostname ssh.github.com
+</span></span><span style=display:flex><span>  Port <span style=color:#ae81ff>443</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>-------------------------------------------------------
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>git clone git@github.com:XhstormR/Hugo.git HUGO     SSH connections over HTTPS
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>git config --global A.B C
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>-------------------------------------------------------
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>C:<span style=color:#ae81ff>\U</span>sers<span style=color:#ae81ff>\X</span>hstormR<span style=color:#ae81ff>\.</span>gitconfig
+</span></span><span style=display:flex><span>⇳
+</span></span><span style=display:flex><span><span style=color:#f92672>[</span>A<span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span>	B <span style=color:#f92672>=</span> C
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>git rm -r --cached .
+</span></span><span style=display:flex><span>git add .
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>git clean -fdxn
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>git gc --prune<span style=color:#f92672>=</span>all
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>git reset --soft HEAD^
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>git submodule add -b master https://github.com/openssl/openssl.git
+</span></span><span style=display:flex><span>git submodule update --remote
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>git archive -o 123.zip HEAD
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>git commit --amend --date<span style=color:#f92672>=</span>now --no-edit
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>java -jar bfg.jar --no-blob-protection --delete-folders <span style=color:#e6db74>&#34;bin&#34;</span> HUGO
+</span></span><span style=display:flex><span>cd HUGO
+</span></span><span style=display:flex><span>git reflog expire --expire<span style=color:#f92672>=</span>now --all <span style=color:#f92672>&amp;&amp;</span> git gc --prune<span style=color:#f92672>=</span>now --aggressive
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>https://rtyley.github.io/bfg-repo-cleaner/
+</span></span><span style=display:flex><span>https://maven.aliyun.com/repository/public/com/madgag/bfg/1.13.0/bfg-1.13.0.jar
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>git config --global gui.encoding <span style=color:#e6db74>&#39;utf-8&#39;</span>
+</span></span><span style=display:flex><span>git config --global core.editor <span style=color:#e6db74>&#39;notepad&#39;</span>
+</span></span><span style=display:flex><span>git config --global core.autocrlf <span style=color:#e6db74>&#39;true&#39;</span>
+</span></span><span style=display:flex><span>git config --global core.ignorecase <span style=color:#e6db74>&#39;false&#39;</span>
+</span></span><span style=display:flex><span>git config --global user.name <span style=color:#e6db74>&#39;XhstormR&#39;</span>
+</span></span><span style=display:flex><span>git config --global user.email <span style=color:#e6db74>&#39;10527522+XhstormR@users.noreply.github.com&#39;</span>
+</span></span><span style=display:flex><span>git config --global http.proxy <span style=color:#e6db74>&#39;socks5h://127.0.0.1:1080&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>git rebase -i 123b394c9c7f45e9d8a04c4b138c805cd7dd7419 -x <span style=color:#e6db74>&#34;git commit --amend --allow-empty --allow-empty-message --author &#39;XhstormR &lt;10527522+XhstormR@users.noreply.github.com&gt;&#39; -CHEAD&#34;</span>
+</span></span></code></pre></div></div><div class=sharing style=text-align:center><br><p>捐赠支持</p><p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p><p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p><img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%><p></p><br>&copy; 2015-2020 XhstormR</div></div></div></div><div id=backtop><a href=# title>TOP</a></div><nav id=TableOfContents><ul><li><a href=#1-新建代码库>1. 新建代码库</a></li><li><a href=#2-配置>2. 配置</a></li><li><a href=#3-增加删除文件>3. 增加/删除文件</a></li><li><a href=#4-代码提交>4. 代码提交</a></li><li><a href=#5-分支>5. 分支</a></li><li><a href=#6-标签>6. 标签</a></li><li><a href=#7-查看信息>7. 查看信息</a></li><li><a href=#8-远程同步>8. 远程同步</a></li><li><a href=#9-撤销>9. 撤销</a></li><li><a href=#10-其他>10. 其他</a></li></ul></nav><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script>
-<script>hljs.initHighlightingOnLoad()</script>
-<script src=https://blog.xhstormr.tk/js/zoom.min.js></script>
-<script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script>
-<script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script>
-</body>
-</html>
+<script>hljs.initHighlightingOnLoad()</script><script src=https://blog.xhstormr.tk/js/zoom.min.js></script>
+<script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script><script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script></body></html>

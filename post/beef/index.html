@@ -1,140 +1,43 @@
-<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache>
-<head>
-<meta charset=utf-8>
-<meta name=renderer content="webkit">
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title> BeEF &#183; XhstormR </title>
-<link rel=alternate type=application/rss+xml title=XhstormR href>
-<link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico>
-<link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css>
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css>
-<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
-<script src=https://blog.xhstormr.tk/js/main.min.js async defer></script>
-</head>
-<body>
-<div id=scriptHeader>
-<span class="mobile btn-mobile-menu">
-<i class="fa fa-bars btn-mobile-menu__icon"></i>
-<i class="fa fa-times btn-mobile-close__icon hidden"></i>
-</span>
-<header class="panel-cover panel-cover--collapsed">
-<div class=panel-main>
-<div class="panel-main__inner panel-inverted">
-<div class=panel-main__content>
-<h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1>
-<hr class=panel-cover__divider>
-<p class=panel-cover__description> On a dark desert highway, cool wind in my hair. </p>
-<hr class="panel-cover__divider panel-cover__divider--secondary">
-<div class=navigation-wrapper>
-<nav class="cover-navigation cover-navigation--primary">
-<ul class=navigation>
-<li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li>
-</ul>
-</nav>
-</div>
-</div>
-</div>
-<div class=panel-cover--overlay></div>
-</div>
-</header>
-</div>
-<div class=bodytop>
-<div class=content-wrapper>
-<div class=content-wrapper__inner>
-<div class=post>
-<h1>BeEF</h1>
-<span class=post-date>2020-01-21</span>
-<p>Updated on 2020-01-21</p>
-<blockquote>
-<p style=text-align:center><img data-src=/uploads/beef.png alt title=BeEF data-action=zoom width></p>
-<script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(a){a.setAttribute("src",a.getAttribute("data-src")),a.onload=function(){a.removeAttribute("data-src")}})</script>
-<p><a href=https://github.com/beefproject/beef>https://github.com/beefproject/beef</a></p>
-<p><a href=https://github.com/beefproject/beef/wiki>https://github.com/beefproject/beef/wiki</a></p>
-</blockquote>
-<h2 id=native>Native</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>wget https://github.com/beefproject/beef/archive/master.zip
-unzip master.zip
-cd beef-master/
-
-./install
-./set-new-pass.rb config.yaml <span style=color:#ae81ff>123456</span>
-./beef -p <span style=color:#ae81ff>9527</span> &amp;
-</code></pre></div><h3 id=ruby>Ruby</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>curl -sSL https://get.rvm.io | bash -s stable
-source /etc/profile.d/rvm.sh
-rvm reload
-rvm install 2.7
-rvm use 2.7 --default
-gem sources --add https://mirrors.tuna.tsinghua.edu.cn/rubygems/ --remove https://rubygems.org/
-
-rvm list known
-rvm -v
-ruby -v
-gem -v
-gem sources -l
-</code></pre></div><h3 id=sqlite>SQLite</h3>
-<ul>
-<li><a href=https://pkgs.org/download/sqlite>https://pkgs.org/download/sqlite</a></li>
-<li><a href=https://kojipkgs.fedoraproject.org/packages/sqlite>https://kojipkgs.fedoraproject.org/packages/sqlite</a></li>
-</ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>curl -O https://kojipkgs.fedoraproject.org/packages/sqlite/3.11.0/1.fc22/x86_64/sqlite-3.11.0-1.fc22.x86_64.rpm
-curl -O https://kojipkgs.fedoraproject.org/packages/sqlite/3.11.0/1.fc22/x86_64/sqlite-libs-3.11.0-1.fc22.x86_64.rpm
-curl -O https://kojipkgs.fedoraproject.org/packages/sqlite/3.11.0/1.fc22/x86_64/sqlite-devel-3.11.0-1.fc22.x86_64.rpm
-yum -y install *
-</code></pre></div><h2 id=docker>Docker</h2>
-<h3 id=kali>Kali</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker pull kalilinux/kali-rolling:latest
-docker run -it -p 9527:9527 kalilinux/kali-rolling
-apt update <span style=color:#f92672>&amp;&amp;</span> apt -y install beef-xss
-cd /usr/share/beef-xss <span style=color:#f92672>&amp;&amp;</span> ls -l
-</code></pre></div><h3 id=parrot>Parrot</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker pull parrotsec/security:latest
-docker run -it -p 9527:9527 parrotsec/security
-cd /usr/share/beef-xss <span style=color:#f92672>&amp;&amp;</span> ls -l
-</code></pre></div><hr>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker start b37fcb2827f8
-docker exec -it b37fcb2827f8 bash
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>export LANG<span style=color:#f92672>=</span>C.UTF-8
-export LANGUAGE<span style=color:#f92672>=</span>C.UTF-8
-export LC_ALL<span style=color:#f92672>=</span>C.UTF-8
-locale
-</code></pre></div>
-</div>
-<div class=sharing style=text-align:center>
-<br>
-<p>捐赠支持</p>
-<p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p>
-<p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p>
-<img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%>
-<p></p><br>&copy; 2015-2020 XhstormR
-</div>
-</div>
-</div>
-</div>
-<div id=backtop><a href=# title>TOP</a></div>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#native>Native</a>
-<ul>
-<li><a href=#ruby>Ruby</a></li>
-<li><a href=#sqlite>SQLite</a></li>
-</ul>
-</li>
-<li><a href=#docker>Docker</a>
-<ul>
-<li><a href=#kali>Kali</a></li>
-<li><a href=#parrot>Parrot</a></li>
-</ul>
-</li>
-</ul>
-</nav>
-<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script>
+<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache><head><meta charset=utf-8><meta name=renderer content="webkit"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>BeEF &#183; XhstormR</title><link rel=alternate type=application/rss+xml title=XhstormR href><link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico><link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
+<script src=https://blog.xhstormr.tk/js/main.min.js async defer></script></head><body><div id=scriptHeader><span class="mobile btn-mobile-menu"><i class="fa fa-bars btn-mobile-menu__icon"></i>
+<i class="fa fa-times btn-mobile-close__icon hidden"></i></span><header class="panel-cover panel-cover--collapsed"><div class=panel-main><div class="panel-main__inner panel-inverted"><div class=panel-main__content><h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1><hr class=panel-cover__divider><p class=panel-cover__description>On a dark desert highway, cool wind in my hair.</p><hr class="panel-cover__divider panel-cover__divider--secondary"><div class=navigation-wrapper><nav class="cover-navigation cover-navigation--primary"><ul class=navigation><li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li></ul></nav></div></div></div><div class=panel-cover--overlay></div></div></header></div><div class=bodytop><div class=content-wrapper><div class=content-wrapper__inner><div class=post><h1>BeEF</h1><span class=post-date>2020-01-21</span><p>Updated on 2020-01-21</p><blockquote><p style=text-align:center><img data-src=/uploads/beef.png alt title=BeEF data-action=zoom width></p><script>[].forEach.call(document.querySelectorAll("img[data-src]"),function(e){e.setAttribute("src",e.getAttribute("data-src")),e.onload=function(){e.removeAttribute("data-src")}})</script><p><a href=https://github.com/beefproject/beef>https://github.com/beefproject/beef</a></p><p><a href=https://github.com/beefproject/beef/wiki>https://github.com/beefproject/beef/wiki</a></p></blockquote><h2 id=native>Native</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>wget https://github.com/beefproject/beef/archive/master.zip
+</span></span><span style=display:flex><span>unzip master.zip
+</span></span><span style=display:flex><span>cd beef-master/
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>./install
+</span></span><span style=display:flex><span>./set-new-pass.rb config.yaml <span style=color:#ae81ff>123456</span>
+</span></span><span style=display:flex><span>./beef -p <span style=color:#ae81ff>9527</span> &amp;
+</span></span></code></pre></div><h3 id=ruby>Ruby</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>curl -sSL https://get.rvm.io | bash -s stable
+</span></span><span style=display:flex><span>source /etc/profile.d/rvm.sh
+</span></span><span style=display:flex><span>rvm reload
+</span></span><span style=display:flex><span>rvm install 2.7
+</span></span><span style=display:flex><span>rvm use 2.7 --default
+</span></span><span style=display:flex><span>gem sources --add https://mirrors.tuna.tsinghua.edu.cn/rubygems/ --remove https://rubygems.org/
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>rvm list known
+</span></span><span style=display:flex><span>rvm -v
+</span></span><span style=display:flex><span>ruby -v
+</span></span><span style=display:flex><span>gem -v
+</span></span><span style=display:flex><span>gem sources -l
+</span></span></code></pre></div><h3 id=sqlite>SQLite</h3><ul><li><a href=https://pkgs.org/download/sqlite>https://pkgs.org/download/sqlite</a></li><li><a href=https://kojipkgs.fedoraproject.org/packages/sqlite>https://kojipkgs.fedoraproject.org/packages/sqlite</a></li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>curl -O https://kojipkgs.fedoraproject.org/packages/sqlite/3.11.0/1.fc22/x86_64/sqlite-3.11.0-1.fc22.x86_64.rpm
+</span></span><span style=display:flex><span>curl -O https://kojipkgs.fedoraproject.org/packages/sqlite/3.11.0/1.fc22/x86_64/sqlite-libs-3.11.0-1.fc22.x86_64.rpm
+</span></span><span style=display:flex><span>curl -O https://kojipkgs.fedoraproject.org/packages/sqlite/3.11.0/1.fc22/x86_64/sqlite-devel-3.11.0-1.fc22.x86_64.rpm
+</span></span><span style=display:flex><span>yum -y install *
+</span></span></code></pre></div><h2 id=docker>Docker</h2><h3 id=kali>Kali</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>docker pull kalilinux/kali-rolling:latest
+</span></span><span style=display:flex><span>docker run -it -p 9527:9527 kalilinux/kali-rolling
+</span></span><span style=display:flex><span>apt update <span style=color:#f92672>&amp;&amp;</span> apt -y install beef-xss
+</span></span><span style=display:flex><span>cd /usr/share/beef-xss <span style=color:#f92672>&amp;&amp;</span> ls -l
+</span></span></code></pre></div><h3 id=parrot>Parrot</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>docker pull parrotsec/security:latest
+</span></span><span style=display:flex><span>docker run -it -p 9527:9527 parrotsec/security
+</span></span><span style=display:flex><span>cd /usr/share/beef-xss <span style=color:#f92672>&amp;&amp;</span> ls -l
+</span></span></code></pre></div><hr><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>docker start b37fcb2827f8
+</span></span><span style=display:flex><span>docker exec -it b37fcb2827f8 bash
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>export LANG<span style=color:#f92672>=</span>C.UTF-8
+</span></span><span style=display:flex><span>export LANGUAGE<span style=color:#f92672>=</span>C.UTF-8
+</span></span><span style=display:flex><span>export LC_ALL<span style=color:#f92672>=</span>C.UTF-8
+</span></span><span style=display:flex><span>locale
+</span></span></code></pre></div></div><div class=sharing style=text-align:center><br><p>捐赠支持</p><p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p><p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p><img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%><p></p><br>&copy; 2015-2020 XhstormR</div></div></div></div><div id=backtop><a href=# title>TOP</a></div><nav id=TableOfContents><ul><li><a href=#native>Native</a><ul><li><a href=#ruby>Ruby</a></li><li><a href=#sqlite>SQLite</a></li></ul></li><li><a href=#docker>Docker</a><ul><li><a href=#kali>Kali</a></li><li><a href=#parrot>Parrot</a></li></ul></li></ul></nav><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script>
-<script>hljs.initHighlightingOnLoad()</script>
-<script src=https://blog.xhstormr.tk/js/zoom.min.js></script>
-<script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script>
-<script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script>
-</body>
-</html>
+<script>hljs.initHighlightingOnLoad()</script><script src=https://blog.xhstormr.tk/js/zoom.min.js></script>
+<script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script><script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script></body></html>

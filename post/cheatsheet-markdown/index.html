@@ -1,128 +1,47 @@
-<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache>
-<head>
-<meta charset=utf-8>
-<meta name=renderer content="webkit">
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title> Markdown 简明语法手册 &#183; XhstormR </title>
-<link rel=alternate type=application/rss+xml title=XhstormR href>
-<link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico>
-<link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css>
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css>
-<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
-<script src=https://blog.xhstormr.tk/js/main.min.js async defer></script>
-</head>
-<body>
-<div id=scriptHeader>
-<span class="mobile btn-mobile-menu">
-<i class="fa fa-bars btn-mobile-menu__icon"></i>
-<i class="fa fa-times btn-mobile-close__icon hidden"></i>
-</span>
-<header class="panel-cover panel-cover--collapsed">
-<div class=panel-main>
-<div class="panel-main__inner panel-inverted">
-<div class=panel-main__content>
-<h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1>
-<hr class=panel-cover__divider>
-<p class=panel-cover__description> On a dark desert highway, cool wind in my hair. </p>
-<hr class="panel-cover__divider panel-cover__divider--secondary">
-<div class=navigation-wrapper>
-<nav class="cover-navigation cover-navigation--primary">
-<ul class=navigation>
-<li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li>
-</ul>
-</nav>
-</div>
-</div>
-</div>
-<div class=panel-cover--overlay></div>
-</div>
-</header>
-</div>
-<div class=bodytop>
-<div class=content-wrapper>
-<div class=content-wrapper__inner>
-<div class=post>
-<h1>Markdown 简明语法手册</h1>
-<span class=post-date>2016-02-08</span>
-<blockquote>
-<p><a href=http://commonmark.org/>http://commonmark.org/</a></p>
-<p>Markdown 是一种轻量级标记语言，创始人为约翰·格鲁伯（John Gruber）。它允许人们“使用易读易写的纯文本格式编写文档，然后转换成有效的XHTML(或者HTML)文档”。这种语言吸收了很多在电子邮件中已有的纯文本标记的特性。——维基百科</p>
-<p>我把与Markdown相关的基本语法按其类型整理在这里，以便查阅。</p>
-</blockquote>
-<h3 id=1-标题>1. 标题</h3>
-<pre><code> # 一级标题
+<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache><head><meta charset=utf-8><meta name=renderer content="webkit"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>Markdown 简明语法手册 &#183; XhstormR</title><link rel=alternate type=application/rss+xml title=XhstormR href><link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico><link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
+<script src=https://blog.xhstormr.tk/js/main.min.js async defer></script></head><body><div id=scriptHeader><span class="mobile btn-mobile-menu"><i class="fa fa-bars btn-mobile-menu__icon"></i>
+<i class="fa fa-times btn-mobile-close__icon hidden"></i></span><header class="panel-cover panel-cover--collapsed"><div class=panel-main><div class="panel-main__inner panel-inverted"><div class=panel-main__content><h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1><hr class=panel-cover__divider><p class=panel-cover__description>On a dark desert highway, cool wind in my hair.</p><hr class="panel-cover__divider panel-cover__divider--secondary"><div class=navigation-wrapper><nav class="cover-navigation cover-navigation--primary"><ul class=navigation><li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li></ul></nav></div></div></div><div class=panel-cover--overlay></div></div></header></div><div class=bodytop><div class=content-wrapper><div class=content-wrapper__inner><div class=post><h1>Markdown 简明语法手册</h1><span class=post-date>2016-02-08</span><blockquote><p><a href=http://commonmark.org/>http://commonmark.org/</a></p><p>Markdown 是一种轻量级标记语言，创始人为约翰·格鲁伯（John Gruber）。它允许人们“使用易读易写的纯文本格式编写文档，然后转换成有效的XHTML(或者HTML)文档”。这种语言吸收了很多在电子邮件中已有的纯文本标记的特性。——维基百科</p><p>我把与Markdown相关的基本语法按其类型整理在这里，以便查阅。</p></blockquote><h3 id=1-标题>1. 标题</h3><pre><code> # 一级标题
  ## 二级标题
  ### 三级标题
  #### 四级标题
  ##### 五级标题
  ###### 六级标题
-</code></pre>
-<h3 id=2-列表>2. 列表</h3>
-<pre><code> - 无序列表1
+</code></pre><h3 id=2-列表>2. 列表</h3><pre><code> - 无序列表1
  - 无序列表2
  - 无序列表3
 
  1. 有序列表1
  2. 有序列表2
  3. 有序列表3
-</code></pre>
-<h3 id=3-引用>3. 引用</h3>
-<pre><code> &gt; 这个是引用
+</code></pre><h3 id=3-引用>3. 引用</h3><pre><code> &gt; 这个是引用
  &gt; 是不是和电子邮件中的
  &gt; 引用格式很像
-</code></pre>
-<h3 id=4-粗体与斜体>4. 粗体与斜体</h3>
-<pre><code> **这个是粗体**
+</code></pre><h3 id=4-粗体与斜体>4. 粗体与斜体</h3><pre><code> **这个是粗体**
  *这个是斜体*
-</code></pre>
-<h3 id=5-链接与图片>5. 链接与图片</h3>
-<p>自动链接</p>
-<pre><code> &lt;http://xhstormr.github.io/&gt;
+</code></pre><h3 id=5-链接与图片>5. 链接与图片</h3><p>自动链接</p><pre><code> &lt;http://xhstormr.github.io/&gt;
  &lt;XhstormR@foxmail.com&gt;
-</code></pre>
-<p>插入链接</p>
-<pre><code> [link text](http://example.com/ &quot;optional title&quot;)
+</code></pre><p>插入链接</p><pre><code> [link text](http://example.com/ &quot;optional title&quot;)
 
  [link text][id]
  [id]: http://example.com/  &quot;optional title here&quot;
-</code></pre>
-<p>插入图片</p>
-<pre><code> ![](/path/to/img.jpg &quot;optional title&quot;){ImgCap}alt text{/ImgCap}
-</code></pre>
-<p>图片链接</p>
-<pre><code> [![][jane-eyre-pic]][jane-eyre-douban]
+</code></pre><p>插入图片</p><pre><code> ![](/path/to/img.jpg &quot;optional title&quot;){ImgCap}alt text{/ImgCap}
+</code></pre><p>图片链接</p><pre><code> [![][jane-eyre-pic]][jane-eyre-douban]
 
  [jane-eyre-pic]: http://img3.douban.com/mpic/s1108264.jpg
  [jane-eyre-douban]: http://book.douban.com/subject/1141406/
-</code></pre>
-<h3 id=6-代码>6. 代码</h3>
-<p>用TAB键起始的段落，会被认为是代码块</p>
-<pre><code>  &lt;php&gt;
+</code></pre><h3 id=6-代码>6. 代码</h3><p>用TAB键起始的段落，会被认为是代码块</p><pre><code>  &lt;php&gt;
        echo “hello world&quot;;
   &lt;/php&gt;
-</code></pre>
-<p>如果在一个行内需要引用代码，只要用反引号`引起来就好</p>
-<pre><code> Use the `printf()` function.
-</code></pre>
-<h3 id=7-分割线删除线>7. 分割线、删除线</h3>
-<p>可以在一行中用三个以上的星号、减号、底线来建立一个分隔线,用<code>~</code>可建立删除线。</p>
-<pre><code>---
+</code></pre><p>如果在一个行内需要引用代码，只要用反引号`引起来就好</p><pre><code> Use the `printf()` function.
+</code></pre><h3 id=7-分割线删除线>7. 分割线、删除线</h3><p>可以在一行中用三个以上的星号、减号、底线来建立一个分隔线,用<code>~</code>可建立删除线。</p><pre><code>---
 
  ~~Mistaken text.~~
-</code></pre>
-<h3 id=8-代码块与语法高亮>8. 代码块与语法高亮</h3>
-<pre><code> ```ruby
+</code></pre><h3 id=8-代码块与语法高亮>8. 代码块与语法高亮</h3><pre><code> ```ruby
  require 'redcarpet'
  markdown = Redcarpet.new(&quot;Hello World!&quot;)
  puts markdown.to_html
  ```
-</code></pre>
-<hr>
-<h2 id=段落标题区块代码>段落、标题、区块代码</h2>
-<p>区块引用则使用 email 形式的 &lsquo;<code>></code>&rsquo; 角括号。</p>
-<p>Markdown 语法:</p>
-<pre><code>A First Level Header
+</code></pre><hr><h2 id=段落标题区块代码>段落、标题、区块代码</h2><p>区块引用则使用 email 形式的 &lsquo;<code>></code>&rsquo; 角括号。</p><p>Markdown 语法:</p><pre><code>A First Level Header
 ====================
 A Second Level Header
 ---------------------
@@ -140,141 +59,56 @@ dog's back.
 &gt; This is the second paragraph in the blockquote.
 &gt;
 &gt; ## This is an H2 in a blockquote
-</code></pre>
-<h3 id=修辞和强调>修辞和强调</h3>
-<p>Markdown 使用星号和底线来标记需要强调的区段。</p>
-<p>Markdown 语法:</p>
-<pre><code>Some of these words *are emphasized*.
+</code></pre><h3 id=修辞和强调>修辞和强调</h3><p>Markdown 使用星号和底线来标记需要强调的区段。</p><p>Markdown 语法:</p><pre><code>Some of these words *are emphasized*.
 Some of these words _are emphasized also_.
 Use two asterisks for **strong emphasis**.
 Or, if you prefer, __use two underscores instead__.
-</code></pre>
-<h2 id=列表>列表</h2>
-<p>无序列表使用星号、加号和减号来做为列表的项目标记，这些符号是都可以使用的，使用星号：</p>
-<pre><code>* Candy.
+</code></pre><h2 id=列表>列表</h2><p>无序列表使用星号、加号和减号来做为列表的项目标记，这些符号是都可以使用的，使用星号：</p><pre><code>* Candy.
 * Gum.
 * Booze.
-</code></pre>
-<p>加号：</p>
-<pre><code>+ Candy.
+</code></pre><p>加号：</p><pre><code>+ Candy.
 + Gum.
 + Booze.
-</code></pre>
-<p>和减号</p>
-<pre><code>- Candy.
+</code></pre><p>和减号</p><pre><code>- Candy.
 - Gum.
 - Booze.
-</code></pre>
-<p>有序的列表则是使用一般的数字接着一个英文句点作为项目标记：</p>
-<pre><code>1. Red
+</code></pre><p>有序的列表则是使用一般的数字接着一个英文句点作为项目标记：</p><pre><code>1. Red
 2. Green
 3. Blue
-</code></pre>
-<p>如果你在项目之间插入空行，那项目的内容会用 <code>&lt;p></code> 包起来，你也可以在一个项目内放上多个段落，只要在它前面缩排 4 个空白或 1 个 tab 。</p>
-<pre><code>* A list item.
+</code></pre><p>如果你在项目之间插入空行，那项目的内容会用 <code>&lt;p></code> 包起来，你也可以在一个项目内放上多个段落，只要在它前面缩排 4 个空白或 1 个 tab 。</p><pre><code>* A list item.
 
 	With multiple paragraphs.
 
 * Another item in the list.
-</code></pre>
-<h3 id=链接>链接</h3>
-<p>Markdown 支援两种形式的链接语法： <em>行内</em> 和 <em>参考</em> 两种形式，两种都是使用角括号来把文字转成连结。</p>
-<p>行内形式是直接在后面用括号直接接上链接：</p>
-<pre><code>This is an [example link](http://example.com/).
-</code></pre>
-<p>你也可以选择性的加上 title 属性：</p>
-<pre><code>This is an [example link](http://example.com/ &quot;With a Title&quot;).
-</code></pre>
-<p>参考形式的链接让你可以为链接定一个名称，之后你可以在文件的其他地方定义该链接的内容：</p>
-<pre><code>I get 10 times more traffic from [Google][1] than from
+</code></pre><h3 id=链接>链接</h3><p>Markdown 支援两种形式的链接语法： <em>行内</em> 和 <em>参考</em> 两种形式，两种都是使用角括号来把文字转成连结。</p><p>行内形式是直接在后面用括号直接接上链接：</p><pre><code>This is an [example link](http://example.com/).
+</code></pre><p>你也可以选择性的加上 title 属性：</p><pre><code>This is an [example link](http://example.com/ &quot;With a Title&quot;).
+</code></pre><p>参考形式的链接让你可以为链接定一个名称，之后你可以在文件的其他地方定义该链接的内容：</p><pre><code>I get 10 times more traffic from [Google][1] than from
 [Yahoo][2] or [MSN][3].
 
 [1]: http://google.com/ &quot;Google&quot;
 [2]: http://search.yahoo.com/ &quot;Yahoo Search&quot;
 [3]: http://search.msn.com/ &quot;MSN Search&quot;
-</code></pre>
-<p>title 属性是选择性的，链接名称可以用字母、数字和空格，但是不分大小写：</p>
-<pre><code>I start my morning with a cup of coffee and
+</code></pre><p>title 属性是选择性的，链接名称可以用字母、数字和空格，但是不分大小写：</p><pre><code>I start my morning with a cup of coffee and
 [The New York Times][NY Times].
 
 [ny times]: http://www.nytimes.com/
-</code></pre>
-<h3 id=图片>图片</h3>
-<p>图片的语法和链接很像。</p>
-<p>行内形式（title 是选择性的）：</p>
-<pre><code>![alt text](/path/to/img.jpg &quot;Title&quot;)
-</code></pre>
-<p>参考形式：</p>
-<pre><code>![alt text][id]
+</code></pre><h3 id=图片>图片</h3><p>图片的语法和链接很像。</p><p>行内形式（title 是选择性的）：</p><pre><code>![alt text](/path/to/img.jpg &quot;Title&quot;)
+</code></pre><p>参考形式：</p><pre><code>![alt text][id]
 
 [id]: /path/to/img.jpg &quot;Title&quot;
-</code></pre>
-<p>上面两种方法都会输出 HTML 为：</p>
-<pre><code>&lt;img src=&quot;/path/to/img.jpg&quot; alt=&quot;alt text&quot; title=&quot;Title&quot; /&gt;
-</code></pre>
-<h3 id=代码>代码</h3>
-<p>在一般的段落文字中，你可以使用反引号 <code>`</code> 来标记代码区段，区段内的 <code>&</code>、<code>&lt;</code> 和 <code>></code> 都会被自动的转换成 HTML 实体，这项特性让你可以很容易的在代码区段内插入 HTML 码：</p>
-<pre><code>I strongly recommend against using any `&lt;blink&gt;` tags.
+</code></pre><p>上面两种方法都会输出 HTML 为：</p><pre><code>&lt;img src=&quot;/path/to/img.jpg&quot; alt=&quot;alt text&quot; title=&quot;Title&quot; /&gt;
+</code></pre><h3 id=代码>代码</h3><p>在一般的段落文字中，你可以使用反引号 <code>`</code> 来标记代码区段，区段内的 <code>&</code>、<code>&lt;</code> 和 <code>></code> 都会被自动的转换成 HTML 实体，这项特性让你可以很容易的在代码区段内插入 HTML 码：</p><pre><code>I strongly recommend against using any `&lt;blink&gt;` tags.
 
 I wish SmartyPants used named entities like `&amp;mdash;`
 instead of decimal-encoded entites like `&amp;#8212;`.
-</code></pre>
-<p>如果要建立一个已经格式化好的代码区块，只要每行都缩进 4 个空格或是一个 tab 就可以了，而 <code>&</code>、<code>&lt;</code> 和 <code>></code> 也一样会自动转成 HTML 实体。</p>
-<p>Markdown 语法:</p>
-<pre><code>If you want your page to validate under XHTML 1.0 Strict,
+</code></pre><p>如果要建立一个已经格式化好的代码区块，只要每行都缩进 4 个空格或是一个 tab 就可以了，而 <code>&</code>、<code>&lt;</code> 和 <code>></code> 也一样会自动转成 HTML 实体。</p><p>Markdown 语法:</p><pre><code>If you want your page to validate under XHTML 1.0 Strict,
 you've got to put paragraph tags in your blockquotes:
 
 &lt;blockquote&gt;
 &lt;p&gt;For example.&lt;/p&gt;
 &lt;/blockquote&gt;
-</code></pre>
-</div>
-<div class=sharing style=text-align:center>
-<br>
-<p>捐赠支持</p>
-<p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p>
-<p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p>
-<img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%>
-<p></p><br>&copy; 2015-2020 XhstormR
-</div>
-</div>
-</div>
-</div>
-<div id=backtop><a href=# title>TOP</a></div>
-<nav id=TableOfContents>
-<ul>
-<li>
-<ul>
-<li><a href=#1-标题>1. 标题</a></li>
-<li><a href=#2-列表>2. 列表</a></li>
-<li><a href=#3-引用>3. 引用</a></li>
-<li><a href=#4-粗体与斜体>4. 粗体与斜体</a></li>
-<li><a href=#5-链接与图片>5. 链接与图片</a></li>
-<li><a href=#6-代码>6. 代码</a></li>
-<li><a href=#7-分割线删除线>7. 分割线、删除线</a></li>
-<li><a href=#8-代码块与语法高亮>8. 代码块与语法高亮</a></li>
-</ul>
-</li>
-<li><a href=#段落标题区块代码>段落、标题、区块代码</a>
-<ul>
-<li><a href=#修辞和强调>修辞和强调</a></li>
-</ul>
-</li>
-<li><a href=#列表>列表</a>
-<ul>
-<li><a href=#链接>链接</a></li>
-<li><a href=#图片>图片</a></li>
-<li><a href=#代码>代码</a></li>
-</ul>
-</li>
-</ul>
-</nav>
-<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script>
+</code></pre></div><div class=sharing style=text-align:center><br><p>捐赠支持</p><p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p><p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p><img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%><p></p><br>&copy; 2015-2020 XhstormR</div></div></div></div><div id=backtop><a href=# title>TOP</a></div><nav id=TableOfContents><ul><li><ul><li><a href=#1-标题>1. 标题</a></li><li><a href=#2-列表>2. 列表</a></li><li><a href=#3-引用>3. 引用</a></li><li><a href=#4-粗体与斜体>4. 粗体与斜体</a></li><li><a href=#5-链接与图片>5. 链接与图片</a></li><li><a href=#6-代码>6. 代码</a></li><li><a href=#7-分割线删除线>7. 分割线、删除线</a></li><li><a href=#8-代码块与语法高亮>8. 代码块与语法高亮</a></li></ul></li><li><a href=#段落标题区块代码>段落、标题、区块代码</a><ul><li><a href=#修辞和强调>修辞和强调</a></li></ul></li><li><a href=#列表>列表</a><ul><li><a href=#链接>链接</a></li><li><a href=#图片>图片</a></li><li><a href=#代码>代码</a></li></ul></li></ul></nav><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script>
-<script>hljs.initHighlightingOnLoad()</script>
-<script src=https://blog.xhstormr.tk/js/zoom.min.js></script>
-<script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script>
-<script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script>
-</body>
-</html>
+<script>hljs.initHighlightingOnLoad()</script><script src=https://blog.xhstormr.tk/js/zoom.min.js></script>
+<script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script><script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script></body></html>

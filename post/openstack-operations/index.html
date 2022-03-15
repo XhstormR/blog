@@ -1,147 +1,93 @@
-<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache>
-<head>
-<meta charset=utf-8>
-<meta name=renderer content="webkit">
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title> OpenStack 不完全使用手册 &#183; XhstormR </title>
-<link rel=alternate type=application/rss+xml title=XhstormR href>
-<link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico>
-<link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css>
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css>
-<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
-<script src=https://blog.xhstormr.tk/js/main.min.js async defer></script>
-</head>
-<body>
-<div id=scriptHeader>
-<span class="mobile btn-mobile-menu">
-<i class="fa fa-bars btn-mobile-menu__icon"></i>
-<i class="fa fa-times btn-mobile-close__icon hidden"></i>
-</span>
-<header class="panel-cover panel-cover--collapsed">
-<div class=panel-main>
-<div class="panel-main__inner panel-inverted">
-<div class=panel-main__content>
-<h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1>
-<hr class=panel-cover__divider>
-<p class=panel-cover__description> On a dark desert highway, cool wind in my hair. </p>
-<hr class="panel-cover__divider panel-cover__divider--secondary">
-<div class=navigation-wrapper>
-<nav class="cover-navigation cover-navigation--primary">
-<ul class=navigation>
-<li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li>
-</ul>
-</nav>
-</div>
-</div>
-</div>
-<div class=panel-cover--overlay></div>
-</div>
-</header>
-</div>
-<div class=bodytop>
-<div class=content-wrapper>
-<div class=content-wrapper__inner>
-<div class=post>
-<h1>OpenStack 不完全使用手册</h1>
-<span class=post-date>2016-05-07</span>
-<p>Updated on 2016-10-06</p>
-<blockquote>
-<p><img src=/uploads/openstack-logo.svg alt></p>
-</blockquote>
-<h2 id=curl---命令行浏览器>curl - <em>命令行浏览器</em></h2>
-<p><em>OpenStack 服务提供 RESTful API，而 curl 能通过命令行直接发送和接收 HTTP 的请求和响应</em></p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>-X <span style=color:#f92672>[</span>HEAD,POST,GET,PUT,DELETE<span style=color:#f92672>]</span> <span style=color:#75715e># 指定 HTTP 的请求类型     Request</span>
--H <span style=color:#e6db74>&#34;name:123&#34;</span> <span style=color:#75715e>#添加 HTTP 请求头     Header</span>
--D <span style=color:#f92672>[</span>123,-<span style=color:#f92672>]</span> <span style=color:#75715e>#将 HTTP 响应头输出到[文件,终端]     Dump</span>
--i <span style=color:#75715e>#同时显示 HTTP 响应头     Include</span>
--I <span style=color:#75715e>#只显示文档信息     Head</span>
--u admin:pass <span style=color:#75715e>#登录验证     User</span>
--k <span style=color:#75715e>#忽略主机密钥（SSL 证书）     Insecure</span>
--s <span style=color:#75715e>#不显示进度条     Silent</span>
--v <span style=color:#75715e>#显示详细信息     Verbose</span>
--d @123.json <span style=color:#75715e>#指定 POST 数据包     Data</span>
--F file<span style=color:#f92672>=</span>@123.png <span style=color:#75715e>#指定表单数据     Form</span>
--------------------------------------------------------
--A <span style=color:#e6db74>&#34;Mozilla/5.0 (Linux; Android 5.1.1; Nexus 6 Build/LYZ28E) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.20 Mobile Safari/537.36&#34;</span> <span style=color:#75715e>#指定 User-Agent</span>
--e <span style=color:#e6db74>&#34;www.qq.com&#34;</span> <span style=color:#75715e>#指定 Referrer URL</span>
--x 10.34.3.71:808 <span style=color:#75715e>#指定代理服务器</span>
--o <span style=color:#e6db74>&#34;123.7z&#34;</span> <span style=color:#75715e>#保存至本地</span>
--O <span style=color:#75715e>#使用服务器上的文件名</span>
--R <span style=color:#75715e>#使用服务器上的文件修改时间</span>
--b <span style=color:#e6db74>&#34;NAME1=VALUE1; NAME2=VALUE2&#34;</span> <span style=color:#75715e>#设置 Cookie</span>
--b 123.txt <span style=color:#75715e>#读取 Cookie</span>
--c 123.txt <span style=color:#75715e>#保存 Cookie</span>
--C - <span style=color:#75715e>#断点续传     Continue</span>
--L <span style=color:#75715e>#自动重定向     Location</span>
---limit-rate 200K <span style=color:#75715e>#限速</span>
-
-https://curl.haxx.se/windows/
-https://curl.haxx.se/docs/manpage.html
-
-curl -s -H <span style=color:#e6db74>&#34;X-Auth-Token:123&#34;</span> http://0.0.0.0:35357/v2.0/tenants | python -mjson.tool <span style=color:#75715e>#格式化输出 JSON</span>
-
-<span style=color:#f92672>[</span>root@controller ~<span style=color:#f92672>]</span>$ a<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>keystone token-get | awk <span style=color:#e6db74>&#39;NR==5{print $4}&#39;</span><span style=color:#e6db74>`</span>
-<span style=color:#f92672>[</span>root@controller ~<span style=color:#f92672>]</span>$ echo $a
-<span style=color:#f92672>[</span>root@controller ~<span style=color:#f92672>]</span>$ curl -H <span style=color:#e6db74>&#34;X-Auth-Token:</span>$a<span style=color:#e6db74>&#34;</span> http://0.0.0.0:35357/v2.0/tenants
--------------------------------------------------------
-<span style=color:#f92672>[</span>root@controller ~<span style=color:#f92672>]</span>$ keystone --debug tenant-list     v2.0
-<span style=color:#f92672>[</span>root@controller ~<span style=color:#f92672>]</span>$ glance --debug image-list     v1
-<span style=color:#f92672>[</span>root@controller ~<span style=color:#f92672>]</span>$ nova --debug list     v2
--------------------------------------------------------
-keystone catalog
-nova endpoints
--------------------------------------------------------
-openstack-status
-openstack-service restart
-</code></pre></div><h2 id=keystone>KEYSTONE</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>keystone token-get | awk <span style=color:#e6db74>&#39;NR==5{print $4}&#39;</span>     获取 Token     第5行第4列
-nova endpoints | grep -A <span style=color:#ae81ff>7</span> keystone     获取 Endpoint     <span style=color:#ae81ff>35357</span>
-curl -H <span style=color:#e6db74>&#34;X-Auth-Token:</span>$a<span style=color:#e6db74>&#34;</span> http://0.0.0.0:35357/v2.0/users     返回用户
-curl -H <span style=color:#e6db74>&#34;X-Auth-Token:</span>$a<span style=color:#e6db74>&#34;</span> http://0.0.0.0:35357/v2.0/users/123     返回某个用户
-curl -H <span style=color:#e6db74>&#34;X-Auth-Token:</span>$a<span style=color:#e6db74>&#34;</span> http://0.0.0.0:35357/v2.0/tenants     返回租户
-curl -H <span style=color:#e6db74>&#34;X-Auth-Token:</span>$a<span style=color:#e6db74>&#34;</span> http://0.0.0.0:35357/v2.0/tenants/123     返回某个租户
-curl -H <span style=color:#e6db74>&#34;X-Auth-Token:</span>$a<span style=color:#e6db74>&#34;</span> http://0.0.0.0:35357/v2.0/tenants/123/users/123/roles     返回某个租户上用户被授予的角色
-curl -H <span style=color:#e6db74>&#34;X-Auth-Token:</span>$a<span style=color:#e6db74>&#34;</span> http://0.0.0.0:35357/v2.0/endpoints     返回服务端点
-curl -H <span style=color:#e6db74>&#34;X-Auth-Token:</span>$a<span style=color:#e6db74>&#34;</span> http://0.0.0.0:35357/v2.0/tokens/$a     检验 Token 有效性，并返回 Token 信息
-curl -I -H <span style=color:#e6db74>&#34;X-Auth-Token:</span>$a<span style=color:#e6db74>&#34;</span> http://0.0.0.0:35357/v2.0/tokens/$a     使用 Header 校验 Token 有效性
--------------------------------------------------------
-keystone user-role-list --user <span style=color:#ae81ff>123</span> --tenant admin     查看用户在某个租户中的角色
-keystone --os-token <span style=color:#ae81ff>123</span> --os-endpoint http://0.0.0.0:35357/v2.0 user-role-add --user admin --role admin --tenant admin     使用 Token 鉴权     keystone.conf - admin_token <span style=color:#f92672>=</span> <span style=color:#ae81ff>123</span>
-     Token 验证
-     export OS_SERVICE_TOKEN<span style=color:#f92672>=</span>cacb79002f
-     export OS_SERVICE_ENDPOINT<span style=color:#f92672>=</span>http://0.0.0.0:35357/v2.0
-     -----------
-     Password 验证
-     export OS_USERNAME<span style=color:#f92672>=</span>admin
-     export OS_PASSWORD<span style=color:#f92672>=</span><span style=color:#ae81ff>000000</span>
-     export OS_TENANT_NAME<span style=color:#f92672>=</span>admin
-     export OS_AUTH_URL<span style=color:#f92672>=</span>http://0.0.0.0:35357/v2.0
-</code></pre></div><h2 id=glance>GLANCE</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>keystone token-get | awk <span style=color:#e6db74>&#39;NR==5{print $4}&#39;</span>     获取 Token     第5行第4列
-nova endpoints | grep -A <span style=color:#ae81ff>7</span> glance     获取 Endpoint     <span style=color:#ae81ff>9292</span>
-curl -H <span style=color:#e6db74>&#34;X-Auth-Token:</span>$a<span style=color:#e6db74>&#34;</span> http://0.0.0.0:9292/v1/images     返回镜像列表
-curl -H <span style=color:#e6db74>&#34;X-Auth-Token:</span>$a<span style=color:#e6db74>&#34;</span> http://0.0.0.0:9292/v1/images/detail     返回镜像列表<span style=color:#f92672>(</span>详细<span style=color:#f92672>)</span>
-curl -H <span style=color:#e6db74>&#34;X-Auth-Token:</span>$a<span style=color:#e6db74>&#34;</span> http://0.0.0.0:9292/v1/images/detail?name<span style=color:#f92672>=</span>centos     返回某个镜像的详细信息
-curl -H <span style=color:#e6db74>&#34;X-Auth-Token:</span>$a<span style=color:#e6db74>&#34;</span> http://0.0.0.0:9292/v2/images     返回镜像列表<span style=color:#f92672>(</span>详细<span style=color:#f92672>)</span>
-curl -H <span style=color:#e6db74>&#34;X-Auth-Token:</span>$a<span style=color:#e6db74>&#34;</span> http://0.0.0.0:9292/v2/images/123     返回某个镜像的详细信息
-curl -I -X HEAD -H <span style=color:#e6db74>&#34;X-Auth-Token:</span>$a<span style=color:#e6db74>&#34;</span> http://0.0.0.0:9292/v1/images/123     返回某个镜像的 Metadata
-curl -X GET -H <span style=color:#e6db74>&#34;X-Auth-Token:</span>$a<span style=color:#e6db74>&#34;</span> http://0.0.0.0:9292/v1/images/123 &gt; test.img     下载某个镜像
--------------------------------------------------------
-glance image-create --name centos6.5 --disk-format qcow2 --container-format bare --is-public True --progress &lt; centos_65_x86_6420140327.qcow2     上传镜像
-glance image-update centos6.5 --property hw_disk_bus<span style=color:#f92672>=</span>scsi --property hw_scsi_model<span style=color:#f92672>=</span>virtio-scsi     更新镜像
-glance image-update centos6.5 --name centos6.5_scsi     更新镜像
-     Property：
-     hw_disk_bus<span style=color:#f92672>=</span>scsi
-     hw_scsi_model<span style=color:#f92672>=</span>virtio-scsi
-     hw_cdrom_bus<span style=color:#f92672>=</span>ide
--------------------------------------------------------
-CirrOS
-https://download.cirros-cloud.net/
-user:cirros     password:gocubsgo
-glance image-create --name cirros --disk-format qcow2 --container-format bare &lt; cirros-0.3.4-x86_64-disk.img
-</code></pre></div><h2 id=nova>NOVA</h2>
-<pre tabindex=0><code>nova secgroup-list     列出安全组
+<!doctype html><html lang=zh-cn manifest=https://blog.xhstormr.tk/offline.appcache><head><meta charset=utf-8><meta name=renderer content="webkit"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>OpenStack 不完全使用手册 &#183; XhstormR</title><link rel=alternate type=application/rss+xml title=XhstormR href><link rel=icon type=image/x-icon href=https://blog.xhstormr.tk/favicon.ico><link rel=stylesheet href=https://blog.xhstormr.tk/css/uno.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
+<script src=https://blog.xhstormr.tk/js/main.min.js async defer></script></head><body><div id=scriptHeader><span class="mobile btn-mobile-menu"><i class="fa fa-bars btn-mobile-menu__icon"></i>
+<i class="fa fa-times btn-mobile-close__icon hidden"></i></span><header class="panel-cover panel-cover--collapsed"><div class=panel-main><div class="panel-main__inner panel-inverted"><div class=panel-main__content><h1 class="panel-cover__title panel-title"><a href=https://blog.xhstormr.tk/ title="link to homepage for XhstormR">XhstormR</a></h1><hr class=panel-cover__divider><p class=panel-cover__description>On a dark desert highway, cool wind in my hair.</p><hr class="panel-cover__divider panel-cover__divider--secondary"><div class=navigation-wrapper><nav class="cover-navigation cover-navigation--primary"><ul class=navigation><li class=navigation__item><a href=https://blog.xhstormr.tk#blog title="link to XhstormR blog" class=blog-button>Blog</a></li></ul></nav></div></div></div><div class=panel-cover--overlay></div></div></header></div><div class=bodytop><div class=content-wrapper><div class=content-wrapper__inner><div class=post><h1>OpenStack 不完全使用手册</h1><span class=post-date>2016-05-07</span><p>Updated on 2016-10-06</p><blockquote><p><img src=/uploads/openstack-logo.svg alt></p></blockquote><h2 id=curl---命令行浏览器>curl - <em>命令行浏览器</em></h2><p><em>OpenStack 服务提供 RESTful API，而 curl 能通过命令行直接发送和接收 HTTP 的请求和响应</em></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>-X <span style=color:#f92672>[</span>HEAD,POST,GET,PUT,DELETE<span style=color:#f92672>]</span> <span style=color:#75715e># 指定 HTTP 的请求类型     Request</span>
+</span></span><span style=display:flex><span>-H <span style=color:#e6db74>&#34;name:123&#34;</span> <span style=color:#75715e>#添加 HTTP 请求头     Header</span>
+</span></span><span style=display:flex><span>-D <span style=color:#f92672>[</span>123,-<span style=color:#f92672>]</span> <span style=color:#75715e>#将 HTTP 响应头输出到[文件,终端]     Dump</span>
+</span></span><span style=display:flex><span>-i <span style=color:#75715e>#同时显示 HTTP 响应头     Include</span>
+</span></span><span style=display:flex><span>-I <span style=color:#75715e>#只显示文档信息     Head</span>
+</span></span><span style=display:flex><span>-u admin:pass <span style=color:#75715e>#登录验证     User</span>
+</span></span><span style=display:flex><span>-k <span style=color:#75715e>#忽略主机密钥（SSL 证书）     Insecure</span>
+</span></span><span style=display:flex><span>-s <span style=color:#75715e>#不显示进度条     Silent</span>
+</span></span><span style=display:flex><span>-v <span style=color:#75715e>#显示详细信息     Verbose</span>
+</span></span><span style=display:flex><span>-d @123.json <span style=color:#75715e>#指定 POST 数据包     Data</span>
+</span></span><span style=display:flex><span>-F file<span style=color:#f92672>=</span>@123.png <span style=color:#75715e>#指定表单数据     Form</span>
+</span></span><span style=display:flex><span>-------------------------------------------------------
+</span></span><span style=display:flex><span>-A <span style=color:#e6db74>&#34;Mozilla/5.0 (Linux; Android 5.1.1; Nexus 6 Build/LYZ28E) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.20 Mobile Safari/537.36&#34;</span> <span style=color:#75715e>#指定 User-Agent</span>
+</span></span><span style=display:flex><span>-e <span style=color:#e6db74>&#34;www.qq.com&#34;</span> <span style=color:#75715e>#指定 Referrer URL</span>
+</span></span><span style=display:flex><span>-x 10.34.3.71:808 <span style=color:#75715e>#指定代理服务器</span>
+</span></span><span style=display:flex><span>-o <span style=color:#e6db74>&#34;123.7z&#34;</span> <span style=color:#75715e>#保存至本地</span>
+</span></span><span style=display:flex><span>-O <span style=color:#75715e>#使用服务器上的文件名</span>
+</span></span><span style=display:flex><span>-R <span style=color:#75715e>#使用服务器上的文件修改时间</span>
+</span></span><span style=display:flex><span>-b <span style=color:#e6db74>&#34;NAME1=VALUE1; NAME2=VALUE2&#34;</span> <span style=color:#75715e>#设置 Cookie</span>
+</span></span><span style=display:flex><span>-b 123.txt <span style=color:#75715e>#读取 Cookie</span>
+</span></span><span style=display:flex><span>-c 123.txt <span style=color:#75715e>#保存 Cookie</span>
+</span></span><span style=display:flex><span>-C - <span style=color:#75715e>#断点续传     Continue</span>
+</span></span><span style=display:flex><span>-L <span style=color:#75715e>#自动重定向     Location</span>
+</span></span><span style=display:flex><span>--limit-rate 200K <span style=color:#75715e>#限速</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>https://curl.haxx.se/windows/
+</span></span><span style=display:flex><span>https://curl.haxx.se/docs/manpage.html
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>curl -s -H <span style=color:#e6db74>&#34;X-Auth-Token:123&#34;</span> http://0.0.0.0:35357/v2.0/tenants | python -mjson.tool <span style=color:#75715e>#格式化输出 JSON</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>[</span>root@controller ~<span style=color:#f92672>]</span>$ a<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>keystone token-get | awk <span style=color:#e6db74>&#39;NR==5{print $4}&#39;</span><span style=color:#e6db74>`</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>[</span>root@controller ~<span style=color:#f92672>]</span>$ echo $a
+</span></span><span style=display:flex><span><span style=color:#f92672>[</span>root@controller ~<span style=color:#f92672>]</span>$ curl -H <span style=color:#e6db74>&#34;X-Auth-Token:</span>$a<span style=color:#e6db74>&#34;</span> http://0.0.0.0:35357/v2.0/tenants
+</span></span><span style=display:flex><span>-------------------------------------------------------
+</span></span><span style=display:flex><span><span style=color:#f92672>[</span>root@controller ~<span style=color:#f92672>]</span>$ keystone --debug tenant-list     v2.0
+</span></span><span style=display:flex><span><span style=color:#f92672>[</span>root@controller ~<span style=color:#f92672>]</span>$ glance --debug image-list     v1
+</span></span><span style=display:flex><span><span style=color:#f92672>[</span>root@controller ~<span style=color:#f92672>]</span>$ nova --debug list     v2
+</span></span><span style=display:flex><span>-------------------------------------------------------
+</span></span><span style=display:flex><span>keystone catalog
+</span></span><span style=display:flex><span>nova endpoints
+</span></span><span style=display:flex><span>-------------------------------------------------------
+</span></span><span style=display:flex><span>openstack-status
+</span></span><span style=display:flex><span>openstack-service restart
+</span></span></code></pre></div><h2 id=keystone>KEYSTONE</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>keystone token-get | awk <span style=color:#e6db74>&#39;NR==5{print $4}&#39;</span>     获取 Token     第5行第4列
+</span></span><span style=display:flex><span>nova endpoints | grep -A <span style=color:#ae81ff>7</span> keystone     获取 Endpoint     <span style=color:#ae81ff>35357</span>
+</span></span><span style=display:flex><span>curl -H <span style=color:#e6db74>&#34;X-Auth-Token:</span>$a<span style=color:#e6db74>&#34;</span> http://0.0.0.0:35357/v2.0/users     返回用户
+</span></span><span style=display:flex><span>curl -H <span style=color:#e6db74>&#34;X-Auth-Token:</span>$a<span style=color:#e6db74>&#34;</span> http://0.0.0.0:35357/v2.0/users/123     返回某个用户
+</span></span><span style=display:flex><span>curl -H <span style=color:#e6db74>&#34;X-Auth-Token:</span>$a<span style=color:#e6db74>&#34;</span> http://0.0.0.0:35357/v2.0/tenants     返回租户
+</span></span><span style=display:flex><span>curl -H <span style=color:#e6db74>&#34;X-Auth-Token:</span>$a<span style=color:#e6db74>&#34;</span> http://0.0.0.0:35357/v2.0/tenants/123     返回某个租户
+</span></span><span style=display:flex><span>curl -H <span style=color:#e6db74>&#34;X-Auth-Token:</span>$a<span style=color:#e6db74>&#34;</span> http://0.0.0.0:35357/v2.0/tenants/123/users/123/roles     返回某个租户上用户被授予的角色
+</span></span><span style=display:flex><span>curl -H <span style=color:#e6db74>&#34;X-Auth-Token:</span>$a<span style=color:#e6db74>&#34;</span> http://0.0.0.0:35357/v2.0/endpoints     返回服务端点
+</span></span><span style=display:flex><span>curl -H <span style=color:#e6db74>&#34;X-Auth-Token:</span>$a<span style=color:#e6db74>&#34;</span> http://0.0.0.0:35357/v2.0/tokens/$a     检验 Token 有效性，并返回 Token 信息
+</span></span><span style=display:flex><span>curl -I -H <span style=color:#e6db74>&#34;X-Auth-Token:</span>$a<span style=color:#e6db74>&#34;</span> http://0.0.0.0:35357/v2.0/tokens/$a     使用 Header 校验 Token 有效性
+</span></span><span style=display:flex><span>-------------------------------------------------------
+</span></span><span style=display:flex><span>keystone user-role-list --user <span style=color:#ae81ff>123</span> --tenant admin     查看用户在某个租户中的角色
+</span></span><span style=display:flex><span>keystone --os-token <span style=color:#ae81ff>123</span> --os-endpoint http://0.0.0.0:35357/v2.0 user-role-add --user admin --role admin --tenant admin     使用 Token 鉴权     keystone.conf - admin_token <span style=color:#f92672>=</span> <span style=color:#ae81ff>123</span>
+</span></span><span style=display:flex><span>     Token 验证
+</span></span><span style=display:flex><span>     export OS_SERVICE_TOKEN<span style=color:#f92672>=</span>cacb79002f
+</span></span><span style=display:flex><span>     export OS_SERVICE_ENDPOINT<span style=color:#f92672>=</span>http://0.0.0.0:35357/v2.0
+</span></span><span style=display:flex><span>     -----------
+</span></span><span style=display:flex><span>     Password 验证
+</span></span><span style=display:flex><span>     export OS_USERNAME<span style=color:#f92672>=</span>admin
+</span></span><span style=display:flex><span>     export OS_PASSWORD<span style=color:#f92672>=</span><span style=color:#ae81ff>000000</span>
+</span></span><span style=display:flex><span>     export OS_TENANT_NAME<span style=color:#f92672>=</span>admin
+</span></span><span style=display:flex><span>     export OS_AUTH_URL<span style=color:#f92672>=</span>http://0.0.0.0:35357/v2.0
+</span></span></code></pre></div><h2 id=glance>GLANCE</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>keystone token-get | awk <span style=color:#e6db74>&#39;NR==5{print $4}&#39;</span>     获取 Token     第5行第4列
+</span></span><span style=display:flex><span>nova endpoints | grep -A <span style=color:#ae81ff>7</span> glance     获取 Endpoint     <span style=color:#ae81ff>9292</span>
+</span></span><span style=display:flex><span>curl -H <span style=color:#e6db74>&#34;X-Auth-Token:</span>$a<span style=color:#e6db74>&#34;</span> http://0.0.0.0:9292/v1/images     返回镜像列表
+</span></span><span style=display:flex><span>curl -H <span style=color:#e6db74>&#34;X-Auth-Token:</span>$a<span style=color:#e6db74>&#34;</span> http://0.0.0.0:9292/v1/images/detail     返回镜像列表<span style=color:#f92672>(</span>详细<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>curl -H <span style=color:#e6db74>&#34;X-Auth-Token:</span>$a<span style=color:#e6db74>&#34;</span> http://0.0.0.0:9292/v1/images/detail?name<span style=color:#f92672>=</span>centos     返回某个镜像的详细信息
+</span></span><span style=display:flex><span>curl -H <span style=color:#e6db74>&#34;X-Auth-Token:</span>$a<span style=color:#e6db74>&#34;</span> http://0.0.0.0:9292/v2/images     返回镜像列表<span style=color:#f92672>(</span>详细<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>curl -H <span style=color:#e6db74>&#34;X-Auth-Token:</span>$a<span style=color:#e6db74>&#34;</span> http://0.0.0.0:9292/v2/images/123     返回某个镜像的详细信息
+</span></span><span style=display:flex><span>curl -I -X HEAD -H <span style=color:#e6db74>&#34;X-Auth-Token:</span>$a<span style=color:#e6db74>&#34;</span> http://0.0.0.0:9292/v1/images/123     返回某个镜像的 Metadata
+</span></span><span style=display:flex><span>curl -X GET -H <span style=color:#e6db74>&#34;X-Auth-Token:</span>$a<span style=color:#e6db74>&#34;</span> http://0.0.0.0:9292/v1/images/123 &gt; test.img     下载某个镜像
+</span></span><span style=display:flex><span>-------------------------------------------------------
+</span></span><span style=display:flex><span>glance image-create --name centos6.5 --disk-format qcow2 --container-format bare --is-public True --progress &lt; centos_65_x86_6420140327.qcow2     上传镜像
+</span></span><span style=display:flex><span>glance image-update centos6.5 --property hw_disk_bus<span style=color:#f92672>=</span>scsi --property hw_scsi_model<span style=color:#f92672>=</span>virtio-scsi     更新镜像
+</span></span><span style=display:flex><span>glance image-update centos6.5 --name centos6.5_scsi     更新镜像
+</span></span><span style=display:flex><span>     Property：
+</span></span><span style=display:flex><span>     hw_disk_bus<span style=color:#f92672>=</span>scsi
+</span></span><span style=display:flex><span>     hw_scsi_model<span style=color:#f92672>=</span>virtio-scsi
+</span></span><span style=display:flex><span>     hw_cdrom_bus<span style=color:#f92672>=</span>ide
+</span></span><span style=display:flex><span>-------------------------------------------------------
+</span></span><span style=display:flex><span>CirrOS
+</span></span><span style=display:flex><span>https://download.cirros-cloud.net/
+</span></span><span style=display:flex><span>user:cirros     password:gocubsgo
+</span></span><span style=display:flex><span>glance image-create --name cirros --disk-format qcow2 --container-format bare &lt; cirros-0.3.4-x86_64-disk.img
+</span></span></code></pre></div><h2 id=nova>NOVA</h2><pre tabindex=0><code>nova secgroup-list     列出安全组
 nova secgroup-list-rules default     查看安全组
 nova secgroup-add-rule default tcp 1 65535 0.0.0.0/0     添加规则
 nova secgroup-add-rule default udp 1 65535 0.0.0.0/0     添加规则
@@ -180,71 +126,29 @@ nova floating-ip-pool-list     列出浮动 IP 池(外部网络)     GRE网络
 nova floating-ip-list     列出获取的浮动 IP     GRE网络
 nova floating-ip-create ext     获取浮动 IP     GRE网络
 nova floating-ip-associate 123 192.168.200.105     关联浮动 IP     GRE网络
-</code></pre><h2 id=cinder>CINDER</h2>
-<pre tabindex=0><code>3：MySQL+KEYSTONE+CINDER
+</code></pre><h2 id=cinder>CINDER</h2><pre tabindex=0><code>3：MySQL+KEYSTONE+CINDER
 -------------------------------------------------------
-</code></pre><h2 id=swift>SWIFT</h2>
-<pre tabindex=0><code>3：MySQL+KEYSTONE+SWIFT
+</code></pre><h2 id=swift>SWIFT</h2><pre tabindex=0><code>3：MySQL+KEYSTONE+SWIFT
 -------------------------------------------------------
 swift-init all restart     重新启动所有 SWIFT 服务
 swift -U 1:1 -K 1 -V 2 -A http://0.0.0.0:35357/v2.0 stat     查看特定用户信息
 swift --os-username=1 --os-password=1 --os-tenant-name=1 --os-auth-url=http://0.0.0.0:35357/v2.0 stat     查看特定用户信息
-</code></pre><h2 id=heat>Heat</h2>
-<pre tabindex=0><code>heat stack-list     列出栈
+</code></pre><h2 id=heat>Heat</h2><pre tabindex=0><code>heat stack-list     列出栈
 heat stack-create -f server.yml  -P ImageID=centos6.5 -P NetID=int mystack     创建栈
 heat event-list mystack     查看栈的事件日志
 heat event-show mystack server1 d9c12983-d4df-42ad-bd01-350c9b8abfd6     查看事件日志的详细信息
-</code></pre><h2 id=ceilometer>Ceilometer</h2>
-<pre tabindex=0><code>ceilometer meter-list     查看所有测量值
+</code></pre><h2 id=ceilometer>Ceilometer</h2><pre tabindex=0><code>ceilometer meter-list     查看所有测量值
 ceilometer resource-list     查看所有资源
 ceilometer resource-show -r  a3f74bc8-8200-4345-9f07-fa4aae11567d     查看资源详情
-</code></pre><h2 id=sahara>Sahara</h2>
-<pre tabindex=0><code>ssh cloud-user@192.168.200.104
+</code></pre><h2 id=sahara>Sahara</h2><pre tabindex=0><code>ssh cloud-user@192.168.200.104
 sudo passwd root #修改 root 密码
 su #转到 root 用户
 passwd cloud-user #修改 cloud-user 密码
 passwd hadoop #修改 hadoop 密码
 su hadoop #转到 hadoop 用户
 jps #查看 Hadoop 进程，开始 Hadoop 操作 &gt;&gt;&gt;
-</code></pre><hr>
-<h2 id=glance-1>GLANCE</h2>
-<p>使用未加 SCSI 属性的镜像创建的VM - virtio-blk</p>
-<p><img src=/uploads/openstack-glance-normal.png alt title=virtio-blk></p>
-<p>使用已加 SCSI 属性的镜像创建的VM - virtio-scsi（更灵活、更具扩展性）</p>
-<p><img src=/uploads/openstack-glance-scsi.png alt title=virtio-scsi></p>
-</div>
-<div class=sharing style=text-align:center>
-<br>
-<p>捐赠支持</p>
-<p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p>
-<p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p>
-<img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%>
-<p></p><br>&copy; 2015-2020 XhstormR
-</div>
-</div>
-</div>
-</div>
-<div id=backtop><a href=# title>TOP</a></div>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#curl---命令行浏览器>curl - <em>命令行浏览器</em></a></li>
-<li><a href=#keystone>KEYSTONE</a></li>
-<li><a href=#glance>GLANCE</a></li>
-<li><a href=#nova>NOVA</a></li>
-<li><a href=#cinder>CINDER</a></li>
-<li><a href=#swift>SWIFT</a></li>
-<li><a href=#heat>Heat</a></li>
-<li><a href=#ceilometer>Ceilometer</a></li>
-<li><a href=#sahara>Sahara</a></li>
-<li><a href=#glance-1>GLANCE</a></li>
-</ul>
-</nav>
-<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script>
+</code></pre><hr><h2 id=glance-1>GLANCE</h2><p>使用未加 SCSI 属性的镜像创建的VM - virtio-blk</p><p><img src=/uploads/openstack-glance-normal.png alt title=virtio-blk></p><p>使用已加 SCSI 属性的镜像创建的VM - virtio-scsi（更灵活、更具扩展性）</p><p><img src=/uploads/openstack-glance-scsi.png alt title=virtio-scsi></p></div><div class=sharing style=text-align:center><br><p>捐赠支持</p><p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p><p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p><img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%><p></p><br>&copy; 2015-2020 XhstormR</div></div></div></div><div id=backtop><a href=# title>TOP</a></div><nav id=TableOfContents><ul><li><a href=#curl---命令行浏览器>curl - <em>命令行浏览器</em></a></li><li><a href=#keystone>KEYSTONE</a></li><li><a href=#glance>GLANCE</a></li><li><a href=#nova>NOVA</a></li><li><a href=#cinder>CINDER</a></li><li><a href=#swift>SWIFT</a></li><li><a href=#heat>Heat</a></li><li><a href=#ceilometer>Ceilometer</a></li><li><a href=#sahara>Sahara</a></li><li><a href=#glance-1>GLANCE</a></li></ul></nav><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script>
-<script>hljs.initHighlightingOnLoad()</script>
-<script src=https://blog.xhstormr.tk/js/zoom.min.js></script>
-<script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script>
-<script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script>
-</body>
-</html>
+<script>hljs.initHighlightingOnLoad()</script><script src=https://blog.xhstormr.tk/js/zoom.min.js></script>
+<script>window.addEventListener("load",show),window.onscroll=show;function show(){document.documentElement.scrollTop+document.body.scrollTop>300?document.getElementById("backtop").style.display="block":document.getElementById("backtop").style.display="none"}</script><script type=text/javascript color=0,0,0 opacity=1 zindex=-2 count=49 src=https://cdnjs.cloudflare.com/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js></script></body></html>
