@@ -28,7 +28,7 @@ curl -k https://dl.google.com/android/repository/usb_driver_r12-windows.zip | bu
 
 ## TWRP
 * Redmi 6: https://dl.twrp.me/cereus/
-* OnePlus 5: https://dl.twrp.me/cheeseburger/
+* OnePlus 5: https://dl.twrp.me/cheeseburger_dumpling/
 
 ```bash
 adb devices -l
