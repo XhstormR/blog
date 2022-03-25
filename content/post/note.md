@@ -424,6 +424,7 @@ https://mirrors.sjtug.sjtu.edu.cn/
 https://opentuna.cn/
 https://mirrors.tuna.tsinghua.edu.cn/
 https://mirrors.ustc.edu.cn/
+https://mirrors.pku.edu.cn/Mirrors
 https://mirror.azure.cn/
 https://developer.aliyun.com/mirror/
 https://mirrors.huaweicloud.com/
@@ -1086,6 +1087,9 @@ echo > /var/log/lastlog
 
 无线网卡：
 https://wikidevi.wi-cat.ru/Wireless_adapters/Chipset_table
+
+无线路由器：
+https://openwrt.org/toh/start
 ```
 
 ## Android USB 代理网络
