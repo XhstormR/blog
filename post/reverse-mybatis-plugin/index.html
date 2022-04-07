@@ -28,7 +28,69 @@ list
 locals
 print new com.a.a.h.d.r().a(365)
 exit
-</code></pre><h2 id=aspectj-拦截方法>AspectJ 拦截方法</h2><ul><li><a href="https://search.maven.org/search?q=g:org.aspectj">https://search.maven.org/search?q=g:org.aspectj</a><ul><li><a href=https://mirrors.tuna.tsinghua.edu.cn/eclipse/tools/aspectj/>https://mirrors.tuna.tsinghua.edu.cn/eclipse/tools/aspectj/</a></li><li><a href=https://maven.aliyun.com/repository/jcenter/org/aspectj/aspectjrt/1.9.5/aspectjrt-1.9.5.jar>aspectjrt</a>,
+</code></pre><hr><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span><span style=color:#75715e>// 以代码方式监控特定类
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> classToWatch = <span style=color:#e6db74>&#34;org.example.Main&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// com.sun.tools.jdi.SocketAttachingConnector
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>val</span> connector = Bootstrap.virtualMachineManager()
+</span></span><span style=display:flex><span>        .attachingConnectors()
+</span></span><span style=display:flex><span>        .single { <span style=color:#66d9ef>it</span>.name() <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;com.sun.jdi.SocketAttach&#34;</span> }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> virtualMachine = with(connector.defaultArguments()) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>this</span>[<span style=color:#e6db74>&#34;port&#34;</span>]<span style=color:#f92672>?.</span>setValue(<span style=color:#e6db74>&#34;8000&#34;</span>)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>this</span>[<span style=color:#e6db74>&#34;hostname&#34;</span>]<span style=color:#f92672>?.</span>setValue(<span style=color:#e6db74>&#34;localhost&#34;</span>)
+</span></span><span style=display:flex><span>        connector.attach(<span style=color:#66d9ef>this</span>)
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> requestManager = virtualMachine.eventRequestManager()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>Field</span>.watch() {
+</span></span><span style=display:flex><span>        println(<span style=color:#e6db74>&#34;Watching field: </span><span style=color:#e6db74>$this</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>        with(requestManager.createModificationWatchpointRequest(<span style=color:#66d9ef>this</span>)) {
+</span></span><span style=display:flex><span>            setSuspendPolicy(EventRequest.SUSPEND_EVENT_THREAD)
+</span></span><span style=display:flex><span>            enable()
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> isEmpty = virtualMachine.classesByName(classToWatch).isEmpty()
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (isEmpty) {
+</span></span><span style=display:flex><span>        with(requestManager.createClassPrepareRequest()) {
+</span></span><span style=display:flex><span>            addClassFilter(classToWatch)
+</span></span><span style=display:flex><span>            enable()
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>val</span> referenceType = virtualMachine.classesByName(classToWatch).single()
+</span></span><span style=display:flex><span>        referenceType.allFields().forEach(Field<span style=color:#f92672>::</span>watch)
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    virtualMachine.resume()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> queue = virtualMachine.eventQueue()
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>while</span> (<span style=color:#66d9ef>true</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>val</span> set = queue.remove()
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>set</span>.forEach {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>when</span> (<span style=color:#66d9ef>it</span>) {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>is</span> ClassPrepareEvent <span style=color:#f92672>-&gt;</span> {
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>val</span> referenceType = <span style=color:#66d9ef>it</span>.referenceType()
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>if</span> (referenceType.name() <span style=color:#f92672>==</span> classToWatch) {
+</span></span><span style=display:flex><span>                        referenceType.allFields().forEach(Field<span style=color:#f92672>::</span>watch)
+</span></span><span style=display:flex><span>                    }
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>is</span> ModificationWatchpointEvent <span style=color:#f92672>-&gt;</span> {
+</span></span><span style=display:flex><span>                    with(<span style=color:#66d9ef>it</span>) { println(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${field()}</span><span style=color:#e6db74>: </span><span style=color:#e6db74>${valueCurrent()}</span><span style=color:#e6db74> -&gt; </span><span style=color:#e6db74>${valueToBe()}</span><span style=color:#e6db74>&#34;</span>) }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>val</span> thread = <span style=color:#66d9ef>it</span>.thread()
+</span></span><span style=display:flex><span>                    println(thread)
+</span></span><span style=display:flex><span>                    thread.frames().forEach {
+</span></span><span style=display:flex><span>                        with(<span style=color:#66d9ef>it</span>.location()) { println(<span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\t</span><span style=color:#e6db74>${method()}</span><span style=color:#e6db74> -&gt; </span><span style=color:#e6db74>$this</span><span style=color:#e6db74>&#34;</span>) }
+</span></span><span style=display:flex><span>                    }
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>set</span>.resume()
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=aspectj-拦截方法>AspectJ 拦截方法</h2><ul><li><a href="https://search.maven.org/search?q=g:org.aspectj">https://search.maven.org/search?q=g:org.aspectj</a><ul><li><a href=https://mirrors.tuna.tsinghua.edu.cn/eclipse/tools/aspectj/>https://mirrors.tuna.tsinghua.edu.cn/eclipse/tools/aspectj/</a></li><li><a href=https://maven.aliyun.com/repository/jcenter/org/aspectj/aspectjrt/1.9.5/aspectjrt-1.9.5.jar>aspectjrt</a>,
 <a href=https://maven.aliyun.com/repository/jcenter/org/aspectj/aspectjtools/1.9.5/aspectjtools-1.9.5.jar>aspectjtools</a>,
 <a href=https://maven.aliyun.com/repository/jcenter/org/aspectj/aspectjweaver/1.9.5/aspectjweaver-1.9.5.jar>aspectjweaver</a></li></ul></li><li><a href=https://www.eclipse.org/aspectj/doc/released/progguide/semantics.html>https://www.eclipse.org/aspectj/doc/released/progguide/semantics.html</a></li><li><a href=https://www.eclipse.org/aspectj/doc/released/devguide/ltw-configuration.html>https://www.eclipse.org/aspectj/doc/released/devguide/ltw-configuration.html</a></li><li><a href=https://www.eclipse.org/aspectj/doc/released/runtime-api/allclasses-frame.html>https://www.eclipse.org/aspectj/doc/released/runtime-api/allclasses-frame.html</a></li><li>使用加载时编织（Load-time Weaving），兼容性比较好。</li></ul><h3 id=tracingaj>Tracing.aj</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#f92672>import</span> org.aspectj.lang.JoinPoint<span style=color:#f92672>;</span>
 </span></span><span style=display:flex><span><span style=color:#f92672>import</span> org.aspectj.lang.reflect.MethodSignature<span style=color:#f92672>;</span>
