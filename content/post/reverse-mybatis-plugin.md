@@ -59,6 +59,73 @@ print new com.a.a.h.d.r().a(365)
 exit
 ```
 
+---
+
+```kotlin
+// 以代码方式监控特定类
+fun main() {
+    val classToWatch = "org.example.Main"
+
+    // com.sun.tools.jdi.SocketAttachingConnector
+    val connector = Bootstrap.virtualMachineManager()
+        .attachingConnectors()
+        .single { it.name() == "com.sun.jdi.SocketAttach" }
+
+    val virtualMachine = with(connector.defaultArguments()) {
+        this["port"]?.setValue("8000")
+        this["hostname"]?.setValue("localhost")
+        connector.attach(this)
+    }
+
+    val requestManager = virtualMachine.eventRequestManager()
+
+    fun Field.watch() {
+        println("Watching field: $this")
+        with(requestManager.createModificationWatchpointRequest(this)) {
+            setSuspendPolicy(EventRequest.SUSPEND_EVENT_THREAD)
+            enable()
+        }
+    }
+
+    val isEmpty = virtualMachine.classesByName(classToWatch).isEmpty()
+    if (isEmpty) {
+        with(requestManager.createClassPrepareRequest()) {
+            addClassFilter(classToWatch)
+            enable()
+        }
+    } else {
+        val referenceType = virtualMachine.classesByName(classToWatch).single()
+        referenceType.allFields().forEach(Field::watch)
+    }
+    virtualMachine.resume()
+
+    val queue = virtualMachine.eventQueue()
+    while (true) {
+        val set = queue.remove()
+        set.forEach {
+            when (it) {
+                is ClassPrepareEvent -> {
+                    val referenceType = it.referenceType()
+                    if (referenceType.name() == classToWatch) {
+                        referenceType.allFields().forEach(Field::watch)
+                    }
+                }
+                is ModificationWatchpointEvent -> {
+                    with(it) { println("${field()}: ${valueCurrent()} -> ${valueToBe()}") }
+
+                    val thread = it.thread()
+                    println(thread)
+                    thread.frames().forEach {
+                        with(it.location()) { println("\t${method()} -> $this") }
+                    }
+                }
+            }
+        }
+        set.resume()
+    }
+}
+```
+
 ## AspectJ 拦截方法
 * https://search.maven.org/search?q=g:org.aspectj
   * https://mirrors.tuna.tsinghua.edu.cn/eclipse/tools/aspectj/

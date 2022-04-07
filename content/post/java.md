@@ -17,7 +17,7 @@ Updated on 2016-06-30
 >
 > https://javadoc.io/
 >
-> https://openjfx.io/javadoc/16/
+> https://openjfx.io/javadoc/18/
 >
 > https://github.com/openjdk/jdk
 >
@@ -25,17 +25,17 @@ Updated on 2016-06-30
 >
 > https://www.oracle.com/technetwork/java/index.html
 >
-> https://docs.oracle.com/en/java/javase/16/
+> https://docs.oracle.com/en/java/javase/18/
 >
 > https://docs.oracle.com/javase/specs/index.html
 >
-> https://docs.oracle.com/javase/specs/jvms/se16/html/jvms-6.html
+> https://docs.oracle.com/javase/specs/jvms/se18/html/jvms-6.html
 >
 > https://docs.oracle.com/javase/8/docs/index.html
 >
-> https://docs.oracle.com/en/java/javase/16/docs/api/allclasses-index.html
+> https://docs.oracle.com/en/java/javase/18/docs/api/allclasses-index.html
 >
-> [class version](https://docs.oracle.com/javase/specs/jvms/se16/html/jvms-4.html#jvms-4.1-200-B.2)
+> [class version](https://docs.oracle.com/javase/specs/jvms/se18/html/jvms-4.html#jvms-4.1-200-B.2)
 
 ## IDE
 * Eclipse：https://www.eclipse.org/downloads/eclipse-packages/
