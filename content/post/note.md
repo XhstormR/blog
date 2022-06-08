@@ -466,6 +466,7 @@ https://zeroturnaround.com/software/jrebel/download/prev-releases/
 https://www.cs.princeton.edu/~bwk/btl.mirror/index.html
 
 https://github.com/Aegisub/Aegisub/releases/latest
+https://www.nikse.dk/subtitleedit/online
 
 https://jcenter.bintray.com/com/google/javascript/closure-compiler/v20180402/closure-compiler-v20180402.jar
 
