@@ -238,8 +238,8 @@ Windows -> Preferences -> Java -> Editor -> Content Assist -> Auto Activation ->
 ## [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * https://cdn.azul.com/zulu/bin/
 * https://bell-sw.com/pages/downloads/
-* https://adoptium.net/releases.html
-  * https://mirrors.tuna.tsinghua.edu.cn/AdoptOpenJDK/
+* https://adoptium.net/temurin/releases/
+  * https://mirrors.tuna.tsinghua.edu.cn/Adoptium/
 * JDK：Java Development Kit（Java 开发工具包）
   * JRE：Java Runtime Environment（Java 运行环境）
       * JVM：Java Virtual Machine（Java 虚拟机）

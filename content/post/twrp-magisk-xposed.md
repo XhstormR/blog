@@ -55,5 +55,8 @@ adb install -r EdXposedManager-4.5.4-45401-org.meowcat.edxposed.manager-release.
 ```
 
 ## LSPosed
-* https://github.com/RikkaApps/Riru/releases/latest
 * https://github.com/LSPosed/LSPosed/releases/latest
+
+## Non-root
+* https://github.com/twoyi/twoyi
+* https://github.com/taichi-framework/TaiChi

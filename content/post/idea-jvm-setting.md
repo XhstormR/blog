@@ -17,9 +17,10 @@ Updated on 2018-07-14
 
 ```ini
 -server
--Xms1g
--Xmx1g
+-Xms3g
+-Xmx3g
 -Xverify:none
+-XX:+UseG1GC
 ```
 
 ## Reference

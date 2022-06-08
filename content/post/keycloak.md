@@ -25,3 +25,5 @@ Updated on 2020-10-13
 
 ## Reference
 * [Script Mapper](https://github.com/keycloak/keycloak/blob/master/services/src/main/java/org/keycloak/protocol/oidc/mappers/ScriptBasedOIDCProtocolMapper.java#L144)
+* Alternative
+  * https://github.com/spring-projects/spring-authorization-server
