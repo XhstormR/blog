@@ -48,7 +48,24 @@
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>  }
 </span></span><span style=display:flex><span>}
-</span></span></code></pre></div></div><div class=sharing style=text-align:center><br><p>捐赠支持</p><p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p><p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p><img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%><p></p><br>&copy; 2015-2020 XhstormR</div></div></div></div><div id=backtop><a href=# title>TOP</a></div><nav id=TableOfContents><ul><li><a href=#tun2socks>Tun2socks</a><ul><li><a href=#reference>Reference</a></li></ul></li><li><a href=#postern>Postern</a></li><li><a href=#shadowsocks>Shadowsocks</a><ul><li><a href=#v2ray-config>V2ray Config</a></li></ul></li></ul></nav><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script>
+</span></span></code></pre></div><h2 id=clash>Clash</h2><ul><li><a href=https://github.com/Kr328/ClashForAndroid>https://github.com/Kr328/ClashForAndroid</a></li><li><a href=https://github.com/Dreamacro/clash/wiki/configuration>https://github.com/Dreamacro/clash/wiki/configuration</a></li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>mode</span>: <span style=color:#ae81ff>rule</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>log-level</span>: <span style=color:#ae81ff>info</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>proxies</span>:
+</span></span><span style=display:flex><span>  - { <span style=color:#f92672>name: burp, type: http, server: 192.168.1.100, port</span>: <span style=color:#ae81ff>8080</span> }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>proxy-groups</span>:
+</span></span><span style=display:flex><span>  - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>手动</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>type</span>: <span style=color:#ae81ff>select</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>proxies</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>burp</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>DIRECT</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>rules</span>:
+</span></span><span style=display:flex><span>  - <span style=color:#ae81ff>DOMAIN-SUFFIX,local,DIRECT</span>
+</span></span><span style=display:flex><span>  - <span style=color:#ae81ff>IP-CIDR,127.0.0.0/8,DIRECT,no-resolve</span>
+</span></span><span style=display:flex><span>  - <span style=color:#ae81ff>MATCH,手动</span>
+</span></span></code></pre></div></div><div class=sharing style=text-align:center><br><p>捐赠支持</p><p>如果我的文章对你有所帮助，欢迎通过支付宝的扫一扫，轻松的向我发起捐助。</p><p>对于你的支持，我会心怀感激且倍感荣幸地接受，并继续努力。</p><img src=https://ww4.sinaimg.cn/large/a15b4afegw1fbn096ql6dj20dw0dwwe9.jpg alt title data-action=zoom width=40%><p></p><br>&copy; 2015-2020 XhstormR</div></div></div></div><div id=backtop><a href=# title>TOP</a></div><nav id=TableOfContents><ul><li><a href=#tun2socks>Tun2socks</a><ul><li><a href=#reference>Reference</a></li></ul></li><li><a href=#postern>Postern</a></li><li><a href=#shadowsocks>Shadowsocks</a><ul><li><a href=#v2ray-config>V2ray Config</a></li></ul></li><li><a href=#clash>Clash</a></li></ul></nav><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/kotlin.min.js></script>
 <script>hljs.initHighlightingOnLoad()</script><script src=https://blog.xhstormr.tk/js/zoom.min.js></script>
