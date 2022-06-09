@@ -81,3 +81,27 @@ ss://YWVzLTI1Ni1nY206MTIzNDU2@192.168.1.4:1234
   }
 }
 ```
+
+## Clash
+* https://github.com/Kr328/ClashForAndroid
+* https://github.com/Dreamacro/clash/wiki/configuration
+
+```yaml
+mode: rule
+log-level: info
+
+proxies:
+  - { name: burp, type: http, server: 192.168.1.100, port: 8080 }
+
+proxy-groups:
+  - name: 手动
+    type: select
+    proxies:
+      - burp
+      - DIRECT
+
+rules:
+  - DOMAIN-SUFFIX,local,DIRECT
+  - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
+  - MATCH,手动
+```
