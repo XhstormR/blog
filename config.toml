@@ -1,4 +1,4 @@
-baseurl = "https://blog.xhstormr.tk"
+baseurl = "https://xhstormr.github.io/Hugo"
 languageCode = "zh-cn"
 title = "XhstormR"
 MetaDataFormat = "yaml"
