@@ -8,7 +8,7 @@
 </span></span><span style=display:flex><span><span style=color:#66d9ef>import</span> javax.servlet.http.HttpServletRequest
 </span></span><span style=display:flex><span><span style=color:#66d9ef>import</span> javax.servlet.http.HttpServletResponse
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#a6e22e>@WebServlet</span>(urlPatterns = arrayOf(<span style=color:#e6db74>&#34;/abc&#34;</span>), initParams = arrayOf(WebInitParam(name = <span style=color:#e6db74>&#34;name&#34;</span>, value = <span style=color:#e6db74>&#34;Tom&#34;</span>)), loadOnStartup = <span style=color:#ae81ff>1</span>)     <span style=color:#75715e>//通过注解方式配置 Servlet
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@WebServlet</span>(urlPatterns = arrayOf(<span style=color:#e6db74>&#34;/abc&#34;</span>), initParams = arrayOf(WebInitParam(name = <span style=color:#e6db74>&#34;name&#34;</span>, <span style=color:#66d9ef>value</span> = <span style=color:#e6db74>&#34;Tom&#34;</span>)), loadOnStartup = <span style=color:#ae81ff>1</span>)     <span style=color:#75715e>//通过注解方式配置 Servlet
 </span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MyServlet</span> : HttpServlet() {     继承 HttpServlet
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>init</span> {
 </span></span><span style=display:flex><span>        println(<span style=color:#e6db74>&#34;实例化&#34;</span>)

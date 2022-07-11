@@ -727,10 +727,10 @@
 </span></span><span style=display:flex><span>            println(<span style=color:#e6db74>&#34;Get&#34;</span>)
 </span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>field</span>
 </span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>set</span>(value) {     <span style=color:#66d9ef>set</span> 可见性可设置为 <span style=color:#66d9ef>private</span><span style=color:#960050;background-color:#1e0010>；</span>另外 <span style=color:#66d9ef>val</span> 没有 <span style=color:#66d9ef>set</span> 函数和后备 <span style=color:#66d9ef>field</span>
-</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> (value.startsWith(<span style=color:#e6db74>&#34;H&#34;</span>)) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>set</span>(<span style=color:#66d9ef>value</span>) {     <span style=color:#66d9ef>set</span> 可见性可设置为 <span style=color:#66d9ef>private</span><span style=color:#960050;background-color:#1e0010>；</span>另外 <span style=color:#66d9ef>val</span> 没有 <span style=color:#66d9ef>set</span> 函数和后备 <span style=color:#66d9ef>field</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> (<span style=color:#66d9ef>value</span>.startsWith(<span style=color:#e6db74>&#34;H&#34;</span>)) {
 </span></span><span style=display:flex><span>                println(<span style=color:#e6db74>&#34;Set true&#34;</span>)
-</span></span><span style=display:flex><span>                <span style=color:#66d9ef>field</span> = value     <span style=color:#66d9ef>field</span><span style=color:#960050;background-color:#1e0010>：</span>当前属性 s<span style=color:#960050;background-color:#1e0010>；</span><span style=color:#66d9ef>this</span><span style=color:#960050;background-color:#1e0010>：</span>当前类 A
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>field</span> = <span style=color:#66d9ef>value</span>     <span style=color:#66d9ef>field</span><span style=color:#960050;background-color:#1e0010>：</span>当前属性 s<span style=color:#960050;background-color:#1e0010>；</span><span style=color:#66d9ef>this</span><span style=color:#960050;background-color:#1e0010>：</span>当前类 A
 </span></span><span style=display:flex><span>            } <span style=color:#66d9ef>else</span> {
 </span></span><span style=display:flex><span>                println(<span style=color:#e6db74>&#34;Set false&#34;</span>)
 </span></span><span style=display:flex><span>            }
