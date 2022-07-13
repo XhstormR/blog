@@ -1,4 +1,4 @@
 User-Agent: *
 Allow: /
 
-Sitemap: https://blog.xhstormr.tk/sitemap.xml
+Sitemap: https://xhstormr.github.io/blog/sitemap.xml
