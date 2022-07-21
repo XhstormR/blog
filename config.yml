@@ -1,0 +1,60 @@
+baseURL: https://xhstormr.github.io/blog
+title: XhstormR
+theme: "PaperMod"
+
+minify:
+    disableXML: true
+    minifyOutput: true
+
+menu:
+    main:
+        - name: Archive
+          url: archives/
+          weight: 1
+        - name: Tags
+          url: tags/
+          weight: 2
+        - name: Search
+          url: search/
+          weight: 3
+
+outputs:
+    home:
+        - HTML
+        - RSS
+        - JSON
+
+params:
+    hideSummary: true
+    defaultTheme: dark
+    displayFullLangName: true
+    ShowShareButtons: true
+    ShowReadingTime: true
+    ShowPostNavLinks: true
+    ShowBreadCrumbs: true
+    ShowCodeCopyButtons: true
+    ShowRssButtonInSectionTermList: true
+    ShowToc: true
+    TocOpen: true
+    DateFormat: "2006-01-02"
+    profileMode:
+        enabled: true
+        title: XhstormR
+        subtitle: "On a dark desert highway, cool wind in my hair."
+        imageUrl: "./uploads/avatar.jpg"
+        buttons:
+            - name: Archives
+              url: archives/
+            - name: Tags
+              url: tags/
+    socialIcons:
+        - name: github
+          url: "https://github.com/XhstormR"
+        - name: rss
+          url: "index.xml"
+    assets:
+        favicon: "./favicon.ico"
+    editPost:
+        URL: "https://github.com/XhstormR/blog/tree/master/content"
+        Text: "Suggest Changes"
+        appendFilePath: true
