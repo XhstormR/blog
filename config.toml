@@ -1,7 +1,0 @@
-baseurl = "https://xhstormr.github.io/Hugo"
-languageCode = "zh-cn"
-title = "XhstormR"
-MetaDataFormat = "yaml"
-
-[Params]
-  description = "On a dark desert highway, cool wind in my hair."
