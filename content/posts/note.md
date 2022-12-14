@@ -339,6 +339,16 @@ C:\Windows\System32\drivers\etc\
 151.101.128.133 raw.githubusercontent.com
 ```
 
+## GApps
+```bash
+https://www.apkmirror.com/apk/google-inc/google-services-framework/
+https://www.apkmirror.com/apk/google-inc/google-play-services/
+https://www.apkmirror.com/apk/google-inc/google-play-store/
+
+https://github.com/MuntashirAkon/unapkm-android
+https://github.com/opengapps/opengapps
+```
+
 ## Google（Mirrors）
 ```html
 https://raw.githubusercontent.com/googlehosts/hosts/master/hosts-files/hosts
