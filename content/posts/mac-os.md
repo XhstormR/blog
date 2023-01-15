@@ -10,7 +10,7 @@ title: Mac OS
 
 Updated on 2021-07-22
 
-> {{< image "/uploads/mac-os-logo.png" "Mac OS" "1" "1" "275">}}
+> ![Mac OS](/uploads/mac-os-logo.png)
 
 ## Homebrew
 * https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/
@@ -136,7 +136,7 @@ prefix: /usr/local/Caskroom/miniconda/base
 * [spacefn.json](https://raw.githubusercontent.com/pqrs-org/KE-complex_modifications/main/public/json/spacefn.json)
 * [windows_shortcuts_on_macos.json](https://raw.githubusercontent.com/pqrs-org/KE-complex_modifications/main/public/json/windows_shortcuts_on_macos.json)
 
-{{< image "/uploads/mac-os-karabiner.png" "Karabiner" "1" "1" >}}
+![Karabiner](/uploads/mac-os-karabiner.png)
 
 ### 快捷键兼容
 ```
@@ -474,4 +474,4 @@ curl https://www.7-zip.org/a/7z2103-mac.tar.xz | tar -x 7zz && mv -f 7zz /usr/lo
 * https://github.com/JetBrains/JetBrainsMono
 * https://github.com/ryanoasis/nerd-fonts
 
-{{< image "/uploads/mac-os-font.png" "Font" "1" "1" >}}
+![Font](/uploads/mac-os-font.png)
