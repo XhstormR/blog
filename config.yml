@@ -1,6 +1,7 @@
 baseURL: https://xhstormr.github.io/blog
 title: XhstormR
 theme: "PaperMod"
+canonifyURLs: true
 
 minify:
     disableXML: true
