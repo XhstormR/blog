@@ -5,7 +5,16 @@
     <link>https://xhstormr.github.io/blog/posts/</link>
     <description>Recent content in Posts on XhstormR</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 18 Apr 2022 15:28:59 +0800</lastBuildDate><atom:link href="https://xhstormr.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 29 Jan 2023 22:12:53 +0800</lastBuildDate><atom:link href="https://xhstormr.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Patch SecureCRT &#43; SecureFX Bundle</title>
+      <link>https://xhstormr.github.io/blog/posts/patch-securecrt/</link>
+      <pubDate>Sun, 29 Jan 2023 22:12:53 +0800</pubDate>
+      
+      <guid>https://xhstormr.github.io/blog/posts/patch-securecrt/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Semgrep</title>
       <link>https://xhstormr.github.io/blog/posts/semgrep/</link>
