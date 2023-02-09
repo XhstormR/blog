@@ -201,9 +201,11 @@ https://github.com/mholt/caddy/blob/master/caddyhttp/browse/setup.go#L116
 ```html
 Curl：
 https://curl.haxx.se/download.html#Win64
-curl -x socks5://127.0.0.1:1080 www.baidu.com
+curl -x socks5h://127.0.0.1:1080 www.baidu.com
 
 curl -Oku XhstormR:123456 "sftp://127.0.0.1/d/download/123.txt"
+
+curl -u "KEY:SECRET" --aws-sigv4 "aws:amz:us-west-004:s3" "https://xhstormr.s3.us-west-004.backblazeb2.com/123.txt"
 
 Wget：
 https://eternallybored.org/misc/wget/current/wget.exe
