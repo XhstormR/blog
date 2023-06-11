@@ -5,6 +5,7 @@
     <link>https://xhstormr.github.io/blog/categories/security/</link>
     <description>Recent content in security on XhstormR</description>
     <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
     <lastBuildDate>Sun, 14 Mar 2021 14:40:49 +0800</lastBuildDate><atom:link href="https://xhstormr.github.io/blog/categories/security/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Load shellcode from UUID</title>
