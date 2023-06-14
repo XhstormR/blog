@@ -80,5 +80,5 @@ PSTAR XT2153-1
 * https://topjohnwu.github.io/Magisk/install.html
 * https://kfhost.net/flashfile
 * AOSP Enable Call Recording:
-    * https://github.com/jacopotediosi/GoogleDialerMod
+    * https://github.com/jacopotediosi/GAppsMod
     * https://github.com/chenxiaolong/BCR
