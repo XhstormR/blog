@@ -145,15 +145,15 @@
     </div>
 
     <ul id="task-contextmenu" class="dropdown-menu">
-      <li class="task-restart"><a href="#" id="menuRestart" >ReStart</a></li>
-      <li class="task-start"><a href="#" id="menuStart" >Start</a></li>
-      <li><a href="#" id="menuPause" >Pause</a></li>
-      <li><a href="#" id="menuRemove" >Remove</a></li>
+      <li class="task-restart"><a id="menuRestart" >ReStart</a></li>
+      <li class="task-start"><a id="menuStart" >Start</a></li>
+      <li class="task-pause"><a id="menuPause" >Pause</a></li>
+      <li class="task-remove"><a id="menuRemove" >Remove</a></li>
       <li class="task-move divider"></li>
-      <li class="task-move"><a href="#" id="menuMoveTop" >MoveTop</a></li>
-      <li class="task-move"><a href="#" id="menuMoveUp" >MoveUp</a></li>
-      <li class="task-move"><a href="#" id="menuMoveDown" >MoveDown</a></li>
-      <li class="task-move"><a href="#" id="menuMoveEnd" >MoveEnd</a></li>
+      <li class="task-move"><a id="menuMoveTop" >MoveTop</a></li>
+      <li class="task-move"><a id="menuMoveUp" >MoveUp</a></li>
+      <li class="task-move"><a id="menuMoveDown" >MoveDown</a></li>
+      <li class="task-move"><a id="menuMoveEnd" >MoveEnd</a></li>
     </ul>
 
     <section class="modal hide fade" id="add-task-modal">
@@ -262,7 +262,7 @@
           </div>
         </div>
         <div class="right-area">
-          <div class="progress">
+          <div class="progress {{progressStatus}}">
             <div class="bar" style="width: {{progress}}%">{{progress}}%</div>
           </div>
           <div class="progress-info">
@@ -296,10 +296,10 @@
           <div class="task-info pull-left">
             <span class="task-status" rel="tooltip" title="{{status}} {{#_v.error_msg}}{{errorCode}}{{/_v.error_msg}}"><i class="{{#_v.status_icon}}{{status}}{{/_v.status_icon}}"></i></span>
             <span>{{#_v.format_size}}{{totalLength}}{{/_v.format_size}}</span>
-            {{#uploadLength}}<span>(up {{#_v.format_size}}{{uploadLength}}{{/_v.format_size}}){{/uploadLength}}
+            {{#uploadLength}}<span>(up {{#_v.format_size}}{{uploadLength}}{{/_v.format_size}})</span>{{/uploadLength}}
           </div>
           <div class="pull-right">
-            <div class="progress">
+            <div class="progress {{progressStatus}}">
               <div class="bar" style="width: {{progress}}%">{{progress}}%</div>
             </div>
           </div>

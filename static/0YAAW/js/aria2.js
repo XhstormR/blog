@@ -67,7 +67,7 @@ if (typeof ARIA2=="undefined"||!ARIA2) var ARIA2=(function(){
     var title = "Unknown";
     if (result.bittorrent && result.bittorrent.info && result.bittorrent.info.name)
       title = result.bittorrent.info.name;
-    else if (result.files[0].path.replace(
+    else if (result.files[0].path && result.files[0].path.replace(
       new RegExp("^"+dir.replace(/\\/g, "/").replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')+"/?"), "").split("/").length) {
       title = result.files[0].path.replace(new RegExp("^"+dir.replace(/\\/g, "/").replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')+"/?"), "").split("/");
       if (result.bittorrent)
@@ -154,7 +154,7 @@ if (typeof ARIA2=="undefined"||!ARIA2) var ARIA2=(function(){
           }
         };
       } else {
-        main_alert("alert-error", "Unknow protocol");
+        main_alert("alert-error", "Unknown protocol");
       };
     },
 
@@ -265,7 +265,8 @@ if (typeof ARIA2=="undefined"||!ARIA2) var ARIA2=(function(){
       if (!$.isArray(uris)) uris = [uris];
       var params = [];
       for (var i=0; i<uris.length; i++) {
-        params.push([[uris[i]], options]);
+        var uri = uris[i].trim();
+        if (uri) params.push([[uri], options]);
       };
       ARIA2.batch_request("addUri", params,
         function(result) {
@@ -334,6 +335,7 @@ if (typeof ARIA2=="undefined"||!ARIA2) var ARIA2=(function(){
     },
 
     restart_task: function(gids) {
+      if (!$.isArray(gids)) gids = [gids];
       $.each(gids, function(n, gid) {
         var result = $("#task-gid-"+gid).data("raw");
         var uris = [];
@@ -341,6 +343,14 @@ if (typeof ARIA2=="undefined"||!ARIA2) var ARIA2=(function(){
           if (e.uris.length)
             uris.push(e.uris[0].uri);
         });
+        if (result.bittorrent) {
+          var magnet_link = "magnet:?xt=urn:btih:"+result.infoHash;
+          if (result.bittorrent.info.name)
+            magnet_link += "&dn="+result.bittorrent.info.name;
+          if (result.bittorrent.announceList.length)
+            magnet_link += "&tr="+result.bittorrent.announceList.join("&tr=");
+          uris.push(magnet_link);
+        }
         if (uris.length > 0) {
           ARIA2.request("getOption", [gid], function(result) {
             var options = result.result;
@@ -490,6 +500,13 @@ if (typeof ARIA2=="undefined"||!ARIA2) var ARIA2=(function(){
           result.progress = (result.completedLength * 1.0 / result.totalLength * 100).toFixed(2);
         result.eta = (result.totalLength - result.completedLength)/result.downloadSpeed;
 
+        result.progressStatus = {
+          "active"  : "progress-striped",
+          "complete": "progress-success",
+          "removed" : "progress-warning",
+          "error"   : "progress-danger"
+        }[result.status];
+
         result.downloadSpeed = parseInt(result.downloadSpeed);
         result.uploadSpeed = parseInt(result.uploadSpeed);
         result.uploadLength = parseInt(result.uploadLength);
@@ -502,6 +519,21 @@ if (typeof ARIA2=="undefined"||!ARIA2) var ARIA2=(function(){
 
     change_pos: function(gid, pos, how) {
       ARIA2.request("changePosition", [gid, pos, how],
+        function(result) {
+          //console.debug(result);
+
+          main_alert("alert-info", "Moved", 1000);
+          ARIA2.refresh();
+        }
+      );
+    },
+
+    change_selected_pos: function(gids, pos, how) {
+      var params = [];
+      $.each(gids, function(i, n) {
+        params.push([n, pos, how]);
+      });
+      ARIA2.batch_request("changePosition", params,
         function(result) {
           //console.debug(result);
 
@@ -753,8 +785,8 @@ if (typeof ARIA2=="undefined"||!ARIA2) var ARIA2=(function(){
             file.title = file.path.replace(new RegExp("^"+result.dir.replace(/\\/g, "[\\/]")+"/?"), "");
             file.selected = file.selected == "true" ? true : false;
             if (file.uris && file.uris.length) {
-              for (var i=0; i<file.uris.length; i++) {
-                var uri = file.uris[i].uri;
+              for (var j=0; j<file.uris.length; j++) {
+                var uri = file.uris[j].uri;
                 if (result.uris.indexOf(uri) == -1) {
                   result.uris.push(uri);
                 }

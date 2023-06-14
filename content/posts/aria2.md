@@ -32,10 +32,6 @@ disable-ipv6=true
 input-file=aria2.session
 save-session=aria2.session
 save-session-interval=60
-enable-rpc=true
-rpc-listen-all=true
-rpc-allow-origin-all=true
-rpc-secret=123456
 listen-port=51413
 enable-dht=true
 bt-enable-lpd=true
@@ -48,6 +44,11 @@ remote-time=true
 content-disposition-default-utf8=true
 user-agent=Windows
 referer=https://www.bilibili.com/
+bt-tracker=udp://93.158.213.92:1337/announce,udp://45.154.253.7:6969/announce
+enable-rpc=true
+rpc-listen-all=true
+rpc-allow-origin-all=true
+rpc-secret=123456
 ```
 
 ```
