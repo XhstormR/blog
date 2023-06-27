@@ -76,6 +76,15 @@ PSTAR XT2153-1
 
 * https://mirrors.lolinet.com/firmware/motorola/pstar/official/RETAIL/PSTAR_RETAIL_12_S1RAS32.41-20-16-9_subsidy-DEFAULT_regulatory-DEFAULT_CFC.xml.zip
 
+#### 更改 OTA 软件通道
+
+```bash
+adb devices -l
+adb reboot bootloader
+
+fastboot oem config carrier reteu
+```
+
 ## Reference
 * https://topjohnwu.github.io/Magisk/install.html
 * https://kfhost.net/flashfile
