@@ -91,3 +91,4 @@ fastboot oem config carrier reteu
 * AOSP Enable Call Recording:
     * https://github.com/jacopotediosi/GAppsMod
     * https://github.com/chenxiaolong/BCR
+* https://github.com/0x192/universal-android-debloater

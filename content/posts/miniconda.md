@@ -10,7 +10,7 @@ title: Miniconda
 
 Updated on 2019-10-23
 
-> [Python 发行版](https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-Windows-x86_64.exe)
+> [Python 发行版](https://github.com/mamba-org/mamba)
 >
 > https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/
 >
