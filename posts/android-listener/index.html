@@ -70,7 +70,7 @@
 </span></span></span><span style=display:flex><span><span style=color:#75715e></span>        button2<span style=color:#f92672>.</span><span style=color:#a6e22e>setOnClickListener</span><span style=color:#f92672>(</span><span style=color:#66d9ef>this</span><span style=color:#f92672>);</span>     <span style=color:#75715e>//自己实现了接口
 </span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#f92672>}</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>     <span style=color:#960050;background-color:#1e0010>实现接口方法</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>     实现接口方法
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onClick</span><span style=color:#f92672>(</span>View v<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
 </span></span><span style=display:flex><span>        Log<span style=color:#f92672>.</span><span style=color:#a6e22e>i</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Tag&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;有按钮被点击&#34;</span><span style=color:#f92672>);</span>
 </span></span><span style=display:flex><span>        <span style=color:#66d9ef>switch</span> <span style=color:#f92672>(</span>v<span style=color:#f92672>.</span><span style=color:#a6e22e>getId</span><span style=color:#f92672>())</span> <span style=color:#f92672>{</span>
@@ -83,7 +83,7 @@
 </span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
 </span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
 </span></span><span style=display:flex><span><span style=color:#f92672>}</span>
-</span></span></code></pre></div><h2 id=xml绑定>XML绑定<a hidden class=anchor aria-hidden=true href=#xml绑定>#</a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>布局文件</span>
+</span></span></code></pre></div><h2 id=xml绑定>XML绑定<a hidden class=anchor aria-hidden=true href=#xml绑定>#</a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span>布局文件
 </span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>Button
 </span></span><span style=display:flex><span>        android<span style=color:#f92672>:</span>onClick<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;a&#34;</span>     <span style=color:#75715e>//重点就是 onClick 属性
 </span></span></span><span style=display:flex><span><span style=color:#75715e></span>        android<span style=color:#f92672>:</span>id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@+id/but1&#34;</span>
@@ -94,7 +94,7 @@
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#f92672>----</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>Activity <span style=color:#960050;background-color:#1e0010>文件</span>
+</span></span><span style=display:flex><span>Activity 文件
 </span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>FirstActivity</span> <span style=color:#66d9ef>extends</span> AppCompatActivity <span style=color:#f92672>{</span>
 </span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>protected</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onCreate</span><span style=color:#f92672>(</span>Bundle savedInstanceState<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
