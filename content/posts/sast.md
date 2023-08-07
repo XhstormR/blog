@@ -10,6 +10,8 @@ title: SAST
 
 Updated on 2022-04-18
 
+> Static Application Security Testing
+>
 > https://docs.github.com/zh/code-security/guides
 
 ## Semgrep
@@ -19,7 +21,7 @@ Updated on 2022-04-18
 ```shell
 python3 -m pip install --index-url=https://mirrors.aliyun.com/pypi/simple/ --upgrade semgrep
 
-semgrep scan --verbose --disable-version-check --metrics off --config=r/java --config=r/contrib.owasp.java --sarif -o result.sarif.json src
+semgrep scan --verbose --disable-version-check --metrics off --scan-unknown-extensions --config=r/java --config=r/contrib.owasp.java --sarif -o semgrep-result.sarif.json '/Users/user/Documents/IdeaProjects/text-masker/'
 ```
 
 ## CodeQL
@@ -36,9 +38,31 @@ xcode-select --install
 ./codeql resolve languages
 
 mkdir db
-./codeql database create  ./db/text-masker --language java --command './gradlew classes --no-daemon --rerun-tasks' --source-root '/Users/user/Documents/IdeaProjects/text-masker'
+./codeql database create  ./db/text-masker --language java --command './gradlew classes --no-daemon --rerun-tasks' --source-root '/Users/user/Documents/IdeaProjects/text-masker/'
 ./codeql database upgrade ./db/text-masker
-./codeql database analyze ./db/text-masker --format sarif-latest --output result.sarif.json codeql/java/ql/src/Security/CWE/CWE-798/HardcodedCredentialsApiCall.ql
+./codeql database analyze ./db/text-masker --format sarif-latest --output codeql-result.sarif.json codeql/java/ql/src/Security/CWE/CWE-798/HardcodedCredentialsApiCall.ql
+```
+
+## Gitleaks
+* https://github.com/gitleaks/gitleaks
+
+```shell
+gitleaks detect -v -f sarif -r gitleaks-result.sarif.json -s '/Users/user/Documents/IdeaProjects/text-masker/'
+```
+
+## Gosec
+* https://github.com/securego/gosec
+
+```shell
+gosec -no-fail -fmt sarif -out gosec-result.sarif.json '/Users/user/Documents/IdeaProjects/text-masker/...'
+```
+
+## KICS
+* https://github.com/Checkmarx/kics
+* https://github.com/Checkmarx/kics/blob/master/Dockerfile
+
+```shell
+kics scan --no-progress --report-formats 'sarif,html,pdf' --output-name kics-result -o ./ -p '/Users/user/Documents/IdeaProjects/text-masker/'
 ```
 
 ## SARIF Format
