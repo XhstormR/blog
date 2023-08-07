@@ -562,7 +562,7 @@ https://www.ppsspp.org/downloads.html
 https://github.com/hrydgard/ppsspp
 https://buildbot.orphis.net/ppsspp/
 ----
-模拟手柄：https://github.com/RetroPie/RetroPie-Setup/wiki/PSP-FuSa-gamepad
+模拟手柄：https://github.com/RetroPie/RetroPie-Docs/blob/master/docs/PSP-FuSa-gamepad.md
 
 PS2：
 http://pcsx2.net/download/releases/windows/category/40-windows.html
@@ -572,7 +572,6 @@ https://buildbot.orphis.net/pcsx2/
 PS3：
 https://rpcs3.net/download
 https://github.com/RPCS3/rpcs3
-https://ci.appveyor.com/project/rpcs3/rpcs3/branch/master/artifacts
 
 PSV：
 https://github.com/Vita3K/Vita3K
