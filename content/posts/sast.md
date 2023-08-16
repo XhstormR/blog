@@ -21,7 +21,7 @@ Updated on 2022-04-18
 ```shell
 python3 -m pip install --index-url=https://mirrors.aliyun.com/pypi/simple/ --upgrade semgrep
 
-semgrep scan --verbose --disable-version-check --metrics off --scan-unknown-extensions --config=r/java --config=r/contrib.owasp.java --sarif -o semgrep-result.sarif.json '/Users/user/Documents/IdeaProjects/text-masker/'
+semgrep scan --verbose --disable-version-check --metrics off --scan-unknown-extensions --config r/java --config r/contrib.owasp.java --sarif -o semgrep-result.sarif.json '/Users/user/Documents/IdeaProjects/text-masker/'
 ```
 
 ## CodeQL
