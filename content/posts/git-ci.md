@@ -40,7 +40,6 @@ usermod -aG docker leo
 ```
 
 ```bash
-docker info #查看系统信息
 docker ps -a #查看容器
 docker images #查看镜像
 docker network ls #查看网络
@@ -50,6 +49,10 @@ docker rmi gitlab/gitlab-ce #删除镜像
 docker image prune -f #清除未使用镜像
 docker logs -f gitlab #查看容器日志
 docker exec -it gitlab sh #获得容器 Shell
+
+docker system info #查看系统信息
+docker system df #查看磁盘占用
+docker system prune --volumes #清除未使用数据
 ```
 
 ### Docker Compose
