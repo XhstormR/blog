@@ -24,4 +24,6 @@ Updated on 2020-09-15
 * https://docs.confluent.io/current/connect/transforms/index.html
 * https://docs.confluent.io/current/connect/references/restapi.html
 * https://docs.confluent.io/current/connect/managing/connectors.html
-* https://www.kafkatool.com/
+* GUI:
+  * https://www.kafkatool.com/
+  * https://github.com/provectus/kafka-ui
