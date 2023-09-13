@@ -12,7 +12,7 @@ Updated on 2020-02-05
 
 > https://github.com/openjdk/jfx
 >
-> https://openjfx.io/javadoc/15/
+> https://openjfx.io/javadoc/20/
 >
 > https://github.com/Kotlin/kotlinx.coroutines
 >

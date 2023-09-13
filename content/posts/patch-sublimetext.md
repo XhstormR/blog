@@ -43,9 +43,14 @@ curl -o ~/Library/'Application Support/Sublime Text'/Packages/User/Dracula.tmThe
     "font_size": 13,
     "word_wrap": false,
     "highlight_line": true,
+    "highlight_modified_tabs": true,
+    "match_brackets_angle": true,
+    "fade_fold_buttons": false,
     "save_on_focus_lost": true,
     "translate_tabs_to_spaces": true,
     "ensure_newline_at_eof_on_save": true,
+    "always_show_minimap_viewport": true,
+    "draw_minimap_border": true,
     "draw_white_space": "all",
     "trim_trailing_white_space_on_save": "all",
     "caret_style": "blink",
@@ -55,3 +60,4 @@ curl -o ~/Library/'Application Support/Sublime Text'/Packages/User/Dracula.tmThe
 
 ## Reference
 * https://gist.github.com/opastorello/4d494d627ec9012367028c89cb7a1945
+* https://gist.github.com/maboloshi/feaa63c35f4c2baab24c9aaf9b3f4e47
