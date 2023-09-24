@@ -10,7 +10,7 @@ title: Frida
 
 Updated on 2019-05-29
 
-> https://www.frida.re/docs/javascript-api/
+> https://frida.re/docs/javascript-api/#java
 
 ## Python
 ```bash
