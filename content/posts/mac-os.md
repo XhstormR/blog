@@ -22,7 +22,7 @@ brew update && brew upgrade --greedy
 ```
 
 ```
- ❯ brew list -1                                                                                                                                (base)
+ ❯ brew list -1
 ==> Formulae
 aria2
 coreutils
@@ -58,7 +58,7 @@ xnviewmp
 * https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/
 
 ```yaml
- ❯ conda env export                                                                                                                            (base)
+ ❯ conda env export
 name: base
 channels:
   - conda-forge
@@ -475,3 +475,10 @@ curl https://www.7-zip.org/a/7z2103-mac.tar.xz | tar -x 7zz && mv -f 7zz /usr/lo
 * https://github.com/ryanoasis/nerd-fonts
 
 ![Font](/uploads/mac-os-font.png)
+
+## Misc
+
+```bash
+networksetup -setdnsservers Wi-Fi 9.9.9.9 1.2.4.8
+networksetup -getdnsservers Wi-Fi
+```

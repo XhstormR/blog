@@ -440,7 +440,7 @@ https://mirrors.pku.edu.cn/Mirrors
 https://mirror.azure.cn/
 https://developer.aliyun.com/mirror/
 https://mirrors.huaweicloud.com/
-https://mirrors.cloud.tencent.com/
+https://mirrors.tencent.com/
 https://mirrors.163.com/
 http://mirrors.hust.edu.cn/
 http://mirror.bit.edu.cn/web/

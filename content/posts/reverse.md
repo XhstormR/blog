@@ -10,7 +10,7 @@ title: 内网穿透
 
 Updated on 2019-10-20
 
-> https://github.com/v2ray/manual/blob/master/zh_cn/chapter_02/reverse.md
+> https://github.com/v2fly/v2fly-github-io/blob/master/docs/config/reverse.md
 
 ## 内网
 ```json
