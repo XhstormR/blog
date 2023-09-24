@@ -9,7 +9,7 @@
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>        mMyBroadcastReceiver <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> MyBroadcastReceiver<span style=color:#f92672>();</span>     广播接收器
 </span></span><span style=display:flex><span>        IntentFilter intentFilter <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> IntentFilter<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;action1&#34;</span><span style=color:#f92672>);</span>     过滤信息<span style=color:#960050;background-color:#1e0010>（</span>匹配 Intent<span style=color:#960050;background-color:#1e0010>）</span>
-</span></span><span style=display:flex><span>        intentFilter<span style=color:#f92672>.</span><span style=color:#a6e22e>setPriority</span><span style=color:#f92672>(</span>100<span style=color:#f92672>);</span>     优先级
+</span></span><span style=display:flex><span>        intentFilter<span style=color:#f92672>.</span><span style=color:#a6e22e>setPriority</span><span style=color:#f92672>(</span><span style=color:#ae81ff>100</span><span style=color:#f92672>);</span>     优先级
 </span></span><span style=display:flex><span>        <span style=color:#a6e22e>registerReceiver</span><span style=color:#f92672>(</span>mMyBroadcastReceiver<span style=color:#f92672>,</span> intentFilter<span style=color:#f92672>);</span>     动态注册<span style=color:#960050;background-color:#1e0010>（</span>广播接收器<span style=color:#960050;background-color:#1e0010>，</span>过滤信息<span style=color:#960050;background-color:#1e0010>）</span>
 </span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
 </span></span><span style=display:flex><span>
@@ -47,10 +47,10 @@
 </span></span><span style=display:flex><span>        abortBroadcast<span style=color:#f92672>();</span>     中断广播
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>        传递数据
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>setResultCode</span><span style=color:#f92672>(</span>1<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>setResultCode</span><span style=color:#f92672>(</span><span style=color:#ae81ff>1</span><span style=color:#f92672>);</span>
 </span></span><span style=display:flex><span>        setResultData<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;ABC&#34;</span><span style=color:#f92672>);</span>
 </span></span><span style=display:flex><span>        setResultExtras<span style=color:#f92672>(</span>bundle<span style=color:#f92672>);</span>
-</span></span><span style=display:flex><span>        setResult<span style=color:#f92672>(</span>1<span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;ABC&#34;</span><span style=color:#f92672>,</span> bundle<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>        setResult<span style=color:#f92672>(</span><span style=color:#ae81ff>1</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;ABC&#34;</span><span style=color:#f92672>,</span> bundle<span style=color:#f92672>);</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>        接收数据
 </span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> resultCode <span style=color:#f92672>=</span> getResultCode<span style=color:#f92672>();</span>
