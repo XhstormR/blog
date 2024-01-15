@@ -74,7 +74,7 @@ adb install -r EdXposedManager-4.5.4-45401-org.meowcat.edxposed.manager-release.
 ### Motorola Edge S pro
 PSTAR XT2153-1
 
-* https://mirrors.lolinet.com/firmware/motorola/pstar/official/RETAIL/PSTAR_RETAIL_13_T1RAS33.55-15-16-5_subsidy-DEFAULT_regulatory-DEFAULT_cid50_CFC.xml.zip
+* https://mirrors.lolinet.com/firmware/motorola/pstar/official/RETAIL/PSTAR_RETAIL_13_T1RAS33.55-15-10-6_subsidy-DEFAULT_regulatory-DEFAULT_cid50_CFC.xml.zip
 
 #### 更改 OTA 软件通道
 

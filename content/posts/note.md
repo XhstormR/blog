@@ -205,7 +205,8 @@ curl -x socks5h://127.0.0.1:1080 www.baidu.com
 
 curl -Oku XhstormR:123456 "sftp://127.0.0.1/d/download/123.txt"
 
-curl -u "KEY:SECRET" --aws-sigv4 "aws:amz:us-west-004:s3" "https://xhstormr.s3.us-west-004.backblazeb2.com/123.txt"
+curl -u "KEY:SECRET" --aws-sigv4 "aws:amz:us-west-004:s3" "https://<MY_BUCKET_NAME>.s3.us-west-004.backblazeb2.com/123.txt"
+curl -u "KEY:SECRET" --aws-sigv4 "aws:amz:auto:s3" "https://<ACCOUNT_ID>.r2.cloudflarestorage.com/<MY_BUCKET_NAME>/123.txt"
 
 Wget：
 https://eternallybored.org/misc/wget/current/wget.exe
@@ -304,7 +305,7 @@ Windows：
 ```html
 chrome://net-internals/#hsts
 
-强制忽略证书错误：badidea
+强制忽略证书错误：badidea、thisisunsafe
 ```
 
 ## Chrome Screenshot

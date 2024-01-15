@@ -87,9 +87,6 @@ ss://YWVzLTI1Ni1nY206MTIzNDU2@192.168.1.4:1234
 * https://github.com/Dreamacro/clash/wiki/configuration
 
 ```yaml
-mode: rule
-log-level: info
-
 proxies:
   - { name: burp, type: http, server: 192.168.1.100, port: 8080 }
 
