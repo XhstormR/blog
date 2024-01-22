@@ -121,10 +121,10 @@
       <description></description>
     </item>
     <item>
-      <title>构建 kafkacat</title>
-      <link>https://xhstormr.github.io/blog/posts/cmake-build-kafkacat/</link>
+      <title>构建 kcat</title>
+      <link>https://xhstormr.github.io/blog/posts/cmake-build-kcat/</link>
       <pubDate>Sun, 20 Sep 2020 11:07:42 +0800</pubDate>
-      <guid>https://xhstormr.github.io/blog/posts/cmake-build-kafkacat/</guid>
+      <guid>https://xhstormr.github.io/blog/posts/cmake-build-kcat/</guid>
       <description></description>
     </item>
     <item>
