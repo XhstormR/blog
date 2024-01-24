@@ -479,6 +479,6 @@ curl https://www.7-zip.org/a/7z2103-mac.tar.xz | tar -x 7zz && mv -f 7zz /usr/lo
 ## Misc
 
 ```bash
-networksetup -setdnsservers Wi-Fi 9.9.9.9 1.2.4.8
+networksetup -setdnsservers Wi-Fi 8.8.8.8 9.9.9.9 1.2.4.8
 networksetup -getdnsservers Wi-Fi
 ```
