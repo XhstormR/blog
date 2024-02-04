@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Posts on XhstormR</title>
     <link>https://xhstormr.github.io/blog/posts/</link>
     <description>Recent content in Posts on XhstormR</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 20 Aug 2023 15:57:41 +0300</lastBuildDate>
+    <lastBuildDate>Sun, 04 Feb 2024 19:16:34 +0800</lastBuildDate>
     <atom:link href="https://xhstormr.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>sing-box</title>
+      <link>https://xhstormr.github.io/blog/posts/sing-box/</link>
+      <pubDate>Sun, 04 Feb 2024 19:16:34 +0800</pubDate>
+      <guid>https://xhstormr.github.io/blog/posts/sing-box/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Patch Sublime Text</title>
       <link>https://xhstormr.github.io/blog/posts/patch-sublimetext/</link>
