@@ -1,0 +1,196 @@
+---
+title: sing-box
+date: 2024-02-04T19:16:34+08:00
+author: XhstormR
+tags:
+-
+---
+
+<!--more-->
+
+> https://github.com/SagerNet/sing-box
+
+Note: `rules` 中的规则越靠前，优先级就越高。
+
+```json
+{
+  "log": {
+    "level": "info"
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "remote",
+        "address": "https://9.9.9.9/dns-query",
+        "detour": "自选"
+      },
+      {
+        "tag": "local",
+        "address": "https://223.5.5.5/dns-query",
+        "detour": "直连"
+      }
+    ],
+    "rules": [
+      {
+        "outbound": "any",
+        "server": "local"
+      },
+      {
+        "rule_set": "geosite-cn",
+        "server": "local"
+      },
+      {
+        "clash_mode": "Direct",
+        "server": "local"
+      },
+      {
+        "clash_mode": "Global",
+        "server": "remote"
+      }
+    ]
+  },
+  "inbounds": [
+    {
+      "type": "mixed",
+      "listen": "127.0.0.1",
+      "listen_port": 1080,
+      "set_system_proxy": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "自选",
+      "type": "selector",
+      "default": "台湾2023-1",
+      "outbounds": [
+        "香港2023-1",
+        "香港2023-2",
+        "台湾2023-1",
+        "台湾2023-2",
+        "香港1",
+        "首尔",
+        "东京",
+        "洛杉矶",
+        "法兰克福",
+        "巴林",
+        "孟买1",
+        "孟买2",
+        "雅加达",
+        "自动"
+      ]
+    },
+    {
+      "tag": "自动",
+      "type": "urltest",
+      "outbounds": [
+        "香港2023-1",
+        "香港2023-2",
+        "台湾2023-1",
+        "台湾2023-2",
+        "香港1",
+        "首尔",
+        "东京",
+        "洛杉矶",
+        "法兰克福",
+        "巴林",
+        "孟买1",
+        "孟买2",
+        "雅加达"
+      ]
+    },
+    {
+      "tag": "香港2023-1",
+      "type": "trojan",
+      "password": "123456",
+      "server": "fasidfe.wsone.icu",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "fasidfe.wsone.icu"
+      }
+    },
+    {
+      "tag": "直连",
+      "type": "direct"
+    },
+    {
+      "tag": "拦截",
+      "type": "block"
+    },
+    {
+      "tag": "域名",
+      "type": "dns"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "域名"
+      },
+      {
+        "ip_is_private": true,
+        "outbound": "直连"
+      },
+      {
+        "rule_set": [
+          "geosite-category-ads-all"
+        ],
+        "outbound": "拦截"
+      },
+      {
+        "rule_set": [
+          "geoip-cn",
+          "geosite-cn",
+          "geosite-tld-cn"
+        ],
+        "outbound": "直连"
+      },
+      {
+        "clash_mode": "Direct",
+        "outbound": "直连"
+      },
+      {
+        "clash_mode": "Global",
+        "outbound": "自选"
+      }
+    ],
+    "rule_set": [
+      {
+        "tag": "geoip-cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
+        "download_detour": "自选"
+      },
+      {
+        "tag": "geosite-cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs",
+        "download_detour": "自选"
+      },
+      {
+        "tag": "geosite-tld-cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-tld-cn.srs",
+        "download_detour": "自选"
+      },
+      {
+        "tag": "geosite-category-ads-all",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
+        "download_detour": "自选"
+      }
+    ]
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true
+    }
+  }
+}
+```
