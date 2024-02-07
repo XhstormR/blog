@@ -9,6 +9,8 @@ tags:
 <!--more-->
 
 > https://github.com/SagerNet/sing-box
+>
+> https://sing-box.sagernet.org/zh/configuration/
 
 Note: `rules` 中的规则越靠前，优先级就越高。
 
@@ -17,41 +19,16 @@ Note: `rules` 中的规则越靠前，优先级就越高。
   "log": {
     "level": "info"
   },
-  "dns": {
-    "servers": [
-      {
-        "tag": "remote",
-        "address": "https://9.9.9.9/dns-query",
-        "detour": "自选"
-      },
-      {
-        "tag": "local",
-        "address": "https://223.5.5.5/dns-query",
-        "detour": "直连"
-      }
-    ],
-    "rules": [
-      {
-        "outbound": "any",
-        "server": "local"
-      },
-      {
-        "rule_set": "geosite-cn",
-        "server": "local"
-      },
-      {
-        "clash_mode": "Direct",
-        "server": "local"
-      },
-      {
-        "clash_mode": "Global",
-        "server": "remote"
-      }
-    ]
-  },
   "inbounds": [
     {
-      "type": "mixed",
+      "type": "tun", // 透明代理
+      "inet4_address": "172.16.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "sniff": true
+    },
+    {
+      "type": "mixed", // SOCKS5 HTTP 代理
       "listen": "127.0.0.1",
       "listen_port": 1080,
       "set_system_proxy": true
@@ -122,6 +99,39 @@ Note: `rules` 中的规则越靠前，优先级就越高。
       "type": "dns"
     }
   ],
+  "dns": {
+    "strategy": "ipv4_only",
+    "servers": [
+      {
+        "tag": "remote",
+        "address": "https://9.9.9.9/dns-query",
+        "detour": "自选"
+      },
+      {
+        "tag": "local",
+        "address": "https://223.5.5.5/dns-query",
+        "detour": "直连"
+      }
+    ],
+    "rules": [
+      {
+        "outbound": "any",
+        "server": "local"
+      },
+      {
+        "rule_set": "geosite-cn",
+        "server": "local"
+      },
+      {
+        "clash_mode": "Direct",
+        "server": "local"
+      },
+      {
+        "clash_mode": "Global",
+        "server": "remote"
+      }
+    ]
+  },
   "route": {
     "auto_detect_interface": true,
     "rules": [
@@ -143,7 +153,7 @@ Note: `rules` 中的规则越靠前，优先级就越高。
         "rule_set": [
           "geoip-cn",
           "geosite-cn",
-          "geosite-tld-cn"
+          "geosite-private"
         ],
         "outbound": "直连"
       },
@@ -172,10 +182,10 @@ Note: `rules` 中的规则越靠前，优先级就越高。
         "download_detour": "自选"
       },
       {
-        "tag": "geosite-tld-cn",
+        "tag": "geosite-private",
         "type": "remote",
         "format": "binary",
-        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-tld-cn.srs",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-private.srs",
         "download_detour": "自选"
       },
       {
