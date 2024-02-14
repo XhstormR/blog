@@ -109,7 +109,7 @@ Note: `rules` 中的规则越靠前，优先级就越高。
       },
       {
         "tag": "local",
-        "address": "https://223.5.5.5/dns-query",
+        "address": "1.2.4.8",
         "detour": "直连"
       }
     ],
@@ -119,16 +119,16 @@ Note: `rules` 中的规则越靠前，优先级就越高。
         "server": "local"
       },
       {
-        "rule_set": "geosite-cn",
-        "server": "local"
-      },
-      {
         "clash_mode": "Direct",
         "server": "local"
       },
       {
         "clash_mode": "Global",
         "server": "remote"
+      },
+      {
+        "rule_set": "geosite-cn",
+        "server": "local"
       }
     ]
   },
@@ -144,6 +144,14 @@ Note: `rules` 中的规则越靠前，优先级就越高。
         "outbound": "直连"
       },
       {
+        "clash_mode": "Direct",
+        "outbound": "直连"
+      },
+      {
+        "clash_mode": "Global",
+        "outbound": "自选"
+      },
+      {
         "rule_set": [
           "geosite-category-ads-all"
         ],
@@ -156,14 +164,6 @@ Note: `rules` 中的规则越靠前，优先级就越高。
           "geosite-private"
         ],
         "outbound": "直连"
-      },
-      {
-        "clash_mode": "Direct",
-        "outbound": "直连"
-      },
-      {
-        "clash_mode": "Global",
-        "outbound": "自选"
       }
     ],
     "rule_set": [
