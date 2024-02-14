@@ -26,7 +26,7 @@ https://dl.google.com/android/repository/addon2-1.xml
 curl -k https://dl.google.com/android/repository/usb_driver_r12-windows.zip | busybox unzip -
 ```
 
-## TWRP
+## TWRP (Deprecated)
 * Redmi 6: https://dl.twrp.me/cereus/
 * OnePlus 5: https://dl.twrp.me/cheeseburger_dumpling/
 
@@ -41,6 +41,7 @@ fastboot reboot bootloader
 ```
 
 ## Magisk
+* https://topjohnwu.github.io/Magisk/install.html
 * https://github.com/topjohnwu/Magisk/releases/latest
 
 ```bash
@@ -74,7 +75,10 @@ adb install -r EdXposedManager-4.5.4-45401-org.meowcat.edxposed.manager-release.
 ### Motorola Edge S pro
 PSTAR XT2153-1
 
-* https://mirrors.lolinet.com/firmware/motorola/pstar/official/RETAIL/PSTAR_RETAIL_13_T1RAS33.55-15-10-6_subsidy-DEFAULT_regulatory-DEFAULT_cid50_CFC.xml.zip
+* https://mirrors.lolinet.com/firmware/lenomola/pstar/official/RETAIL/PSTAR_RETAIL_13_T1RAS33.55-15-10-6_subsidy-DEFAULT_regulatory-DEFAULT_cid50_CFC.xml.zip
+    * flashfile.xml
+        * https://github.com/dlenski/motoflash2sh
+        * https://kfhost.net/flashfile
 
 #### 更改 OTA 软件通道
 
@@ -86,8 +90,6 @@ fastboot oem config carrier reteu
 ```
 
 ## Reference
-* https://topjohnwu.github.io/Magisk/install.html
-* https://kfhost.net/flashfile
 * AOSP Enable Call Recording:
     * https://github.com/jacopotediosi/GAppsMod
     * https://github.com/chenxiaolong/BCR
