@@ -13,56 +13,70 @@
       <link>https://xhstormr.github.io/blog/posts/apk-repack/</link>
       <pubDate>Wed, 22 Apr 2020 11:20:33 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/apk-repack/</guid>
-      <description></description>
+      <description>Updated on 2020-04-22
+https://github.com/iBotPeaches/Apktool/releases/latest
+java -jar apktool_2.4.1.jar d QuanYingTong.apk java -jar apktool_2.4.1.jar b QuanYingTong cd QuanYingTong\dist keytool -genkeypair -keystore release.jks -storepass 123456 -alias release -keyalg RSA -dname &amp;#34;cn=123&amp;#34; -validity 365 jarsigner -keystore release.jks -storepass 123456 -signedjar QuanYingTong_signed.apk QuanYingTong.apk release </description>
     </item>
     <item>
       <title>JVM Class Dump</title>
       <link>https://xhstormr.github.io/blog/posts/jvm-class-dump/</link>
       <pubDate>Sun, 05 Jan 2020 21:30:48 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/jvm-class-dump/</guid>
-      <description></description>
+      <description>Updated on 2020-01-05
+jhsdb jps -lvm jhsdb clhsdb --pid 1234 buildreplayjars app javassist https://maven.aliyun.com/repository/jcenter/org/javassist/javassist/3.26.0-GA/javassist-3.26.0-GA.jar javac -cp javassist.jar -d 123 --release 8 ClassDump.java jar -uf javassist.jar -C 123 . -javaagent:javassist.jar ClassDump.java package instrument; import javassist.ClassPool; import java.io.ByteArrayInputStream; import java.lang.instrument.ClassFileTransformer; import java.lang.instrument.IllegalClassFormatException; import java.lang.instrument.Instrumentation; import java.security.ProtectionDomain; public class ClassDump implements ClassFileTransformer { public static void premain(String agentOps, Instrumentation inst) { inst.addTransformer(new ClassDump()); } @Override public byte[] transform(ClassLoader loader, String className, Class&amp;lt;?&amp;gt; classBeingRedefined, ProtectionDomain protectionDomain, byte[] classfileBuffer) throws IllegalClassFormatException { System.</description>
     </item>
     <item>
       <title>逆向 Minecraft</title>
       <link>https://xhstormr.github.io/blog/posts/reverse-minecraft/</link>
       <pubDate>Tue, 03 Dec 2019 13:39:27 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/reverse-minecraft/</guid>
-      <description></description>
+      <description>Updated on 2019-12-03
+Tracing.aj Hook 类构造方法，通过反射修改实例属性（劣，类名会变） ---- package aop; import java.lang.reflect.Field; aspect Tracing { after() : initialization(dgh.b.new(..)) { try { Object target = thisJoinPoint.getTarget(); Field field = target.getClass().getDeclaredField(&amp;#34;a&amp;#34;); field.setAccessible(true); field.setBoolean(target, false); } catch (Exception e) { e.printStackTrace(); } } } Hook 类库方法（优） ---- package aop; aspect Tracing { boolean around(String str): call(boolean joptsimple.OptionSet.has(String)) &amp;amp;&amp;amp; args(str) { if(str == &amp;#34;demo&amp;#34;) { return false; } else { return proceed(str); } } } 编译 java -cp aspectjtools-1.</description>
     </item>
     <item>
       <title>逆向 JxBrowser</title>
       <link>https://xhstormr.github.io/blog/posts/reverse-jxbrowser/</link>
       <pubDate>Mon, 17 Dec 2018 22:45:44 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/reverse-jxbrowser/</guid>
-      <description></description>
+      <description>Updated on 2018-12-17
+https://www.teamdev.com/jxbrowser
+Step 反编译 lib/jxbrowser-6.22.1.jar。 搜索 BigInteger，定位至 bb.class。 修改方法 b 的返回值为 true。 Code javap -c bb.class ---- 输出： public class com.teamdev.jxbrowser.chromium.bb { ... public final boolean b(); Code: 0: new #25 // class java/math/BigInteger 3: dup 4: aload_0 ... 147: getstatic #39 // Field d:Ljava/math/BigInteger; 150: invokevirtual #86 // Method java/math/BigInteger.modPow:(Ljava/math/BigInteger;Ljava/math/BigInteger;)Ljava/math/BigInteger; 153: invokevirtual #84 // Method java/math/BigInteger.equals:(Ljava/lang/Object;)Z 156: istore_1 157: iload_1 158: ireturn ... } 通过修改字节码： iload_1 ireturn ⬇️ iconst_1 ireturn 通过修改 16 进制代码： 1B AC ⬇️ 04 AC </description>
     </item>
     <item>
       <title>逆向 MyBatis plugin</title>
       <link>https://xhstormr.github.io/blog/posts/reverse-mybatis-plugin/</link>
       <pubDate>Sat, 14 Jul 2018 16:12:09 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/reverse-mybatis-plugin/</guid>
-      <description></description>
+      <description>Updated on 2018-07-15
+https://plugins.jetbrains.com/plugin/7293-mybatis-plugin
+两个模块： 本地端：使用 C 和 Rust 语言混合编写，主要用于与服务器验证激活。 插件端：使用 Java 和 Kotlin 语言混合编写，用于与 IDEA 进行交互。 使用 ZKM 进行代码混淆。 使用 jni-rs 从本地端通过 JNI 反射直接调用 Java 方法。 反混淆器 https://github.com/java-deobfuscator/deobfuscator java -jar deobfuscator-1.0.0.jar --config config.yml config.yml ---- input: iMybatis-3.67.jar output: output.jar path: - C:\Program Files\Java\jdk1.8.0_152\jre\lib\rt.jar - C:\Program Files\Java\jdk1.8.0_152\jre\lib\jce.jar - C:\Program Files\Java\jdk1.8.0_152\jre\lib\ext\jfxrt.jar - C:\Program Files\Java\jdk1.8.0_152\lib\tools.jar transformers: - com.javadeobfuscator.deobfuscator.transformers.zelix.string.SimpleStringEncryptionTransformer - com.javadeobfuscator.deobfuscator.transformers.zelix.string.EnhancedStringEncryptionTransformer JDB 动态调试 https://docs.oracle.com/javase/8/docs/technotes/tools/windows/jdb.html https://docs.oracle.com/javase/8/docs/technotes/guides/jpda/conninv.html Server: javac -g Main.java java -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=8000 Main Client: jdb -connect com.</description>
     </item>
     <item>
       <title>逆向 DBeaver</title>
       <link>https://xhstormr.github.io/blog/posts/reverse-dbeaver/</link>
       <pubDate>Thu, 07 Dec 2017 14:54:55 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/reverse-dbeaver/</guid>
-      <description></description>
+      <description>Updated on 2018-03-15
+https://dbeaver.com/files/dbeaver-ee-latest-win32.win32.x86_64.zip
+Step 反编译 org.jkiss.lm_1.0.17.jar。 搜索 hasProductLicense，定位至 LMLicenseManager.class。 修改方法 hasProductLicense 的返回值为 true。 Code 通过修改字节码： iconst_1 ireturn 通过修改 16 进制代码： 04 AC 03 AC ⬇️ 04 AC 04 AC jar -cfM org.jkiss.lm_1.0.17.jar -C org.jkiss.lm_1.0.17/ . echo hasProductLicense | busybox xxd </description>
     </item>
     <item>
       <title>逆向 Minecraft Launcher</title>
       <link>https://xhstormr.github.io/blog/posts/reverse-minecraft-launcher/</link>
       <pubDate>Tue, 08 Aug 2017 11:40:35 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/reverse-minecraft-launcher/</guid>
-      <description></description>
+      <description>Updated on 2017-08-08
+https://s3.amazonaws.com/Minecraft.Download/launcher/launcher.pack
+Step 提取　launcher.jar。 反编译 launcher.jar。 搜索 --demo，定位至 net.minecraft.launcher.game.MinecraftGameRunner.class。 移除 launchGame() 方法中的 --demo 参数。 删除 META-INF 目录中的 MOJANGCS.SF 文件。 清空 META-INF 目录中的 MANIFEST.MF 文件中的多余内容。 Code 7zr.exe x launcher.pack.lzma -y unpack200.exe launcher.pack launcher.jar ldc &amp;#34;--demo&amp;#34; ↓ ldc &amp;#34;&amp;#34; jar -cfM launcher.jar -C launcher/ . java -noverify -jar launcher.jar Reference https://docs.oracle.com/javase/8/docs/technotes/tools/windows/pack200.html https://docs.oracle.com/javase/8/docs/technotes/tools/windows/unpack200.html </description>
     </item>
     <item>
       <title>逆向 Charles</title>
       <link>https://xhstormr.github.io/blog/posts/reverse-charles/</link>
       <pubDate>Tue, 18 Jul 2017 20:36:06 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/reverse-charles/</guid>
-      <description></description>
+      <description>Updated on 2017-07-18
+https://www.charlesproxy.com/
+Step 反编译 charles.jar。 搜索 Unregistered，定位至 gIbD.class。 修改属性 PcqR 的值为 true。 修改方法 PcqR 的返回值为 XhstormR。 Code iconst_1 putfield com/xk72/charles/gIbD/PcqR Z ldc &amp;#34;XhstormR&amp;#34; areturn jar -cfM charles.jar -C charles/ . java -noverify -jar charles.jar Reference https://github.com/skylot/jadx https://github.com/pxb1988/dex2jar https://github.com/JesusFreke/smali https://github.com/iBotPeaches/Apktool https://github.com/deathmarine/Luyten https://github.com/java-decompiler/jd-gui https://github.com/Col-E/Recaf https://github.com/GraxCode/JByteMod-Beta https://github.com/Konloch/bytecode-viewer https://github.com/JetBrains/intellij-community/tree/master/plugins https://github.com/leibnitz27/cfr https://set.ee/jbe/ https://github.com/ingokegel/jclasslib https://github.com/apache/commons-bcel 代码生成： https://github.com/cglib/cglib https://github.com/raphw/byte-buddy https://github.com/jboss-javassist/javassist Android： https://github.com/CalebFenton/simplify jclasslib ---- java -cp i4jruntime.jar;jclasslib-browser.jar;jclasslib-library.jar;annotations-13.0.jar;kotlin-stdlib-1.1.50.jar;kotlinx.dom-0.0.10.jar;miglayout-core-5.0.jar;miglayout-swing-5.0.jar; org.gjt.jclasslib.browser.BrowserApplication cfr ---- java -jar cfr_0_123.jar 123.jar --caseinsensitivefs true --outputdir 123 </description>
     </item>
   </channel>
 </rss>

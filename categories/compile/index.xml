@@ -13,7 +13,9 @@
       <link>https://xhstormr.github.io/blog/posts/build-tmux/</link>
       <pubDate>Thu, 03 Oct 2019 17:00:34 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/build-tmux/</guid>
-      <description></description>
+      <description>Updated on 2019-10-03
+https://github.com/tmux/tmux
+wget https://github.com/tmux/tmux/archive/master.zip unzip master.zip cd tmux-master/ yum groups install &amp;#39;Development Tools&amp;#39; yum install -y ncurses-devel libevent-devel sh autogen.sh ./configure &amp;amp;&amp;amp; make install </description>
     </item>
   </channel>
 </rss>

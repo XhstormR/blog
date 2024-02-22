@@ -13,7 +13,9 @@
       <link>https://xhstormr.github.io/blog/posts/sql/</link>
       <pubDate>Sat, 07 Apr 2018 15:05:01 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/sql/</guid>
-      <description></description>
+      <description>Updated on 2018-04-14
+https://zh.m.wikipedia.org/zh-cn/SQL
+/*2 检索*/ SELECT * FROM Products; SELECT prod_name FROM Products; -- DISTINCT 去重，作用于所有列 SELECT DISTINCT vend_id FROM Products; -- LIMIT 限制数量，OFFSET 偏移数量 SELECT prod_name FROM Products LIMIT 5 OFFSET 5; /*3 排序*/ -- ORDER BY 排序 SELECT prod_name FROM Products ORDER BY prod_name; -- 按多个列排序 SELECT prod_id, prod_price, prod_name FROM Products ORDER BY prod_price, prod_name; -- 等同于 SELECT prod_id, prod_price, prod_name FROM Products ORDER BY 2, 3; -- DESC 降序排序（缺省为升序 ASC） SELECT prod_id, prod_price, prod_name FROM Products ORDER BY prod_price DESC, prod_name; /*4 过滤*/ -- 检查单个值 SELECT prod_name, prod_price FROM Products WHERE prod_price = 3.</description>
     </item>
   </channel>
 </rss>

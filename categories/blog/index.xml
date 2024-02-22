@@ -13,14 +13,16 @@
       <link>https://xhstormr.github.io/blog/posts/blog-changelog/</link>
       <pubDate>Mon, 08 Feb 2016 21:03:50 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/blog-changelog/</guid>
-      <description></description>
+      <description>我把我对本博客的一些更新整理在这里，以便查阅。
+后来因为太懒，就不整理了。😃
+Highlight &amp;lt;link rel=&amp;#34;stylesheet&amp;#34; href=&amp;#34;http://apps.bdimg.com/libs/highlight.js/9.1.0/styles/monokai_sublime.min.css&amp;#34;&amp;gt; &amp;lt;script src=&amp;#34;http://apps.bdimg.com/libs/highlight.js/9.1.0/highlight.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script&amp;gt;hljs.initHighlightingOnLoad();&amp;lt;/script&amp;gt; Scrollbar : : -webkit-scrollbar-track-piece { background-color: #FFFFFF; } : : -webkit-scrollbar-track-piece: horizontal { background-color: #23241f; } : : -webkit-scrollbar { height: 12px; width: 9px; } : : -webkit-scrollbar-thumb { background: #969CBD; } Font *: not([class*=&amp;#34;icon&amp;#34;]): not(i) { font-family: &amp;#34;Microsoft YaHei&amp;#34;,&amp;#34;Symbol&amp;#34; !important; } Particle &amp;lt;canvas id=&amp;#34;reactive-bg-canvas&amp;#34;&amp;gt;&amp;lt;/canvas&amp;gt; &amp;lt;script src=&amp;#34;http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;#34;http://cdn.bootcss.com/gsap/1.18.2/TweenLite.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;#34;magic-canvas.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script&amp;gt;$.magicCanvas.draw({type:&amp;#34;random-move&amp;#34;,rgb:function (circlePos) {var px = circlePos.x;var py = circlePos.y;return {r:0,g:0,b:0};}})&amp;lt;/script&amp;gt; Scroll Mouse function scrollPlus() { function e() { return m ?</description>
     </item>
     <item>
       <title>Categories &amp; Tags</title>
       <link>https://xhstormr.github.io/blog/posts/categories-tags/</link>
       <pubDate>Mon, 08 Feb 2016 21:03:48 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/categories-tags/</guid>
-      <description></description>
+      <description> Categories Tags(Doesn&amp;rsquo;t mean anything) </description>
     </item>
   </channel>
 </rss>

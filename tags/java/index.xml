@@ -13,126 +13,204 @@
       <link>https://xhstormr.github.io/blog/posts/java-socket/</link>
       <pubDate>Tue, 14 Feb 2017 15:29:22 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/java-socket/</guid>
-      <description></description>
+      <description>Updated on 2017-02-16
+Socket：属于 操作系统提供 的一个 API 接口，不属于 TCP/IP 协议栈，工作在应用层与传输层之间，由 协议 和 地址 共同确定。 协议：TCP（面向连接，可靠）、UDP（面向无连接，不可靠）。 地址： IP：IPv4（192.168.1.1）、IPv6。 端口：[0,65535]，其中 [0,1023] 为系统所保留。 Uniform Resource Locator（URL）：统一资源定位器，表示 Internet 上某一 资源地址。 http://blog.xhstormr.tk:80/post/jooq/index.html?abc=123&amp;amp;def=456#top 由 协议名 和 资源名 共同组成，中间用 冒号 隔开。 InetAddress fun main(args: Array&amp;lt;String&amp;gt;) { // InetAddress.getByName(&amp;#34;192.168.1.2&amp;#34;) // InetAddress.getByName(&amp;#34;DESKTOP-OPN10MH&amp;#34;) val inetAddress = InetAddress.getLocalHost() println(inetAddress) println(&amp;#34;计算机名：${inetAddress.hostName}&amp;#34;) println(&amp;#34;IP地址：${inetAddress.hostAddress}&amp;#34;) println(&amp;#34;IP地址（字节数组）：${Arrays.toString(inetAddress.address)}&amp;#34;) } ---- 输出： DESKTOP-OPN10MH/192.168.1.2 计算机名：DESKTOP-OPN10MH IP地址：192.168.1.2 IP地址（字节数组）：[-64, -88, 1, 2] URL fun main(args: Array&amp;lt;String&amp;gt;) { val url1 = URL(&amp;#34;http://blog.xhstormr.tk:80&amp;#34;) val url2 = URL(url1, &amp;#34;/post/jooq/index.</description>
     </item>
     <item>
       <title>jOOQ</title>
       <link>https://xhstormr.github.io/blog/posts/jooq/</link>
       <pubDate>Thu, 26 Jan 2017 20:22:26 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/jooq/</guid>
-      <description></description>
+      <description>Updated on 2017-02-01
+https://github.com/jOOQ/jOOQ
+https://www.jooq.org/javadoc/latest/allclasses-noframe.html
+https://jcenter.bintray.com/org/jooq/
+https://jcenter.bintray.com/org/postgresql/postgresql/
+Map java -Dorg.jooq.no-logo=true -cp jooq-3.9.1.jar;jooq-meta-3.9.1.jar;jooq-codegen-3.9.1.jar;postgresql-9.4.1212.jar;. org.jooq.util.GenerationTool 123.xml 123.xml ⇳ &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34; standalone=&amp;#34;yes&amp;#34;?&amp;gt; &amp;lt;configuration xmlns=&amp;#34;http://www.jooq.org/xsd/jooq-codegen-3.9.0.xsd&amp;#34;&amp;gt; &amp;lt;jdbc&amp;gt; &amp;lt;driver&amp;gt;org.postgresql.Driver&amp;lt;/driver&amp;gt; &amp;lt;url&amp;gt;jdbc:postgresql://127.0.0.1:5432/postgres&amp;lt;/url&amp;gt; &amp;lt;user&amp;gt;123&amp;lt;/user&amp;gt; &amp;lt;password&amp;gt;123456&amp;lt;/password&amp;gt; &amp;lt;/jdbc&amp;gt; &amp;lt;generator&amp;gt; &amp;lt;name&amp;gt;org.jooq.util.JavaGenerator&amp;lt;/name&amp;gt; &amp;lt;database&amp;gt; &amp;lt;name&amp;gt;org.jooq.util.postgres.PostgresDatabase&amp;lt;/name&amp;gt; &amp;lt;inputSchema&amp;gt;public&amp;lt;/inputSchema&amp;gt; &amp;lt;includes&amp;gt;.*&amp;lt;/includes&amp;gt; &amp;lt;excludes&amp;gt;&amp;lt;/excludes&amp;gt; &amp;lt;/database&amp;gt; &amp;lt;target&amp;gt; &amp;lt;packageName&amp;gt;sql.generated&amp;lt;/packageName&amp;gt; &amp;lt;directory&amp;gt;D:\123&amp;lt;/directory&amp;gt; &amp;lt;/target&amp;gt; &amp;lt;/generator&amp;gt; &amp;lt;/configuration&amp;gt; Query import org.jooq.impl.DSL import sql.generated.tables.Weather fun main(args: Array&amp;lt;String&amp;gt;) { System.setProperty(&amp;#34;org.jooq.no-logo&amp;#34;, &amp;#34;true&amp;#34;) val dslContext = DSL.using(&amp;#34;jdbc:postgresql://127.0.0.1:5432/postgres&amp;#34;, &amp;#34;123&amp;#34;, &amp;#34;123456&amp;#34;) val result = dslContext.select().from(Weather.WEATHER).fetch() result.forEach { val str = it[Weather.WEATHER.CITY] val i1 = it[Weather.</description>
     </item>
     <item>
       <title>Retrofit</title>
       <link>https://xhstormr.github.io/blog/posts/java-retrofit/</link>
       <pubDate>Mon, 05 Dec 2016 16:32:13 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/java-retrofit/</guid>
-      <description></description>
+      <description>Updated on 2016-12-22
+RESTful API
+网络请求框架
+Retrofitting OkHttp
+1.Retrofit 封装参数，2.OkHttp 访问网络，3.Retrofit 解析结果
+https://github.com/square/retrofit
+https://github.com/square/okhttp
+https://github.com/square/okio
+https://jcenter.bintray.com/com/squareup/retrofit2/
+Introduction String public interface DoubanService { 定义服务接口 @GET(&amp;#34;v2/book/{id}&amp;#34;) @Path：占位符 {id} （子 URL 不以 / 开头） Observable&amp;lt;String&amp;gt; book(@Path(&amp;#34;id&amp;#34;) int id); } ---- Retrofit retrofit = new Retrofit.Builder() ServiceFactory .baseUrl(&amp;#34;https://api.douban.com/&amp;#34;) （父 URL 以 / 结尾） .addCallAdapterFactory(RxJavaCallAdapterFactory.create()) 使用 RxJava 回调 .addConverterFactory(ScalarsConverterFactory.create()) 使用 String 格式 .build(); DoubanService service = retrofit.create(DoubanService.class); 创建服务实例 Observable&amp;lt;String&amp;gt; book = service.book(26840298); 调用服务接口，返回 Observable&amp;lt;String&amp;gt; 对象 book .</description>
     </item>
     <item>
       <title>Java Singleton</title>
       <link>https://xhstormr.github.io/blog/posts/java-singleton/</link>
       <pubDate>Sat, 19 Nov 2016 14:16:15 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/java-singleton/</guid>
-      <description></description>
+      <description>Updated on 2016-11-19
+https://zh.wikipedia.org/zh-cn/单例模式
+src
+饿汉方式 实例在 加载时 就创建。
+public class A { private static final A Instance = new A(); private A() { 私有构造方法 } public static A getInstance() { return Instance; } } 懒汉方式 实例在 使用时 才创建。
+public class A { 双重校验锁 private static volatile A Instance; 禁止指令重排并保证可见性 private A() { 私有构造方法 } public static A getInstance() { if (Instance == null) { 第一次检查 synchronized (A.class) { if (Instance == null) { 第二次检查（防止多个进程因同时判断实例为 null，而进入同步块，而再次实例化） Instance = new A(); } } } return Instance; } } public class A { 静态内部类 private A() { 私有构造方法 } public static A getInstance() { return InstanceHolder.</description>
     </item>
     <item>
       <title>RxJava</title>
       <link>https://xhstormr.github.io/blog/posts/java-rxjava/</link>
       <pubDate>Sun, 13 Nov 2016 19:48:15 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/java-rxjava/</guid>
-      <description></description>
+      <description>Updated on 2016-11-22
+观察者模式
+响应式编程 | 函数式编程
+https://github.com/ReactiveX/RxJava
+http://reactivex.io/RxJava/2.x/javadoc/io/reactivex/Observable.html
+Operators | Operators
+Book | Book
+Java Native import java.util.Observable; import java.util.Observer; public class Main { public static void main(String[] args) { Subject subject = new Subject(); Consumer consumer = new Consumer(); subject.addObserver(consumer); // 被观察者添加观察者 subject.setData(&amp;#34;123&amp;#34;); subject.setData(&amp;#34;123&amp;#34;); subject.setData(&amp;#34;456&amp;#34;); subject.setData(&amp;#34;456&amp;#34;); } private static class Subject extends Observable { // 被观察者需要继承类 private String data = &amp;#34;&amp;#34;; public String getData() { return data; } public void setData(String data) { if (data == null || this.</description>
     </item>
     <item>
       <title>Java 8</title>
       <link>https://xhstormr.github.io/blog/posts/java-8/</link>
       <pubDate>Fri, 04 Nov 2016 10:08:22 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/java-8/</guid>
-      <description></description>
+      <description>Updated on 2016-11-09
+StringJoiner | Optional
+https://docs.oracle.com/javase/10/docs/api/java/util/stream/Stream.html
+https://docs.oracle.com/javase/10/docs/api/java/util/stream/Collectors.html
+Lambda Lambda 表达式（匿名方法 or 闭包）：由 参数列表、-&amp;gt;、函数体 组成。 参数列表：可以省略参数类型，编译器会根据上下文推导。 函数体：引用的局部变量会被隐式声明为 final。 代码块：用 { } 包裹的多条执行代码。 表达式：只有一条执行代码，省略了 { } 和 return。 若 没有传入额外参数，而 仅调用对象方法，则可以进一步简化整个 Lambda 表达式，转换为 方法引用。对象名::方法名 类名::方法名 类名::new 类名[]::new Lambda 表达式只能出现在目标类型为函数式接口的上下文中。 Lambda 表达式不会引入新作用域，函数体中的变量和外部环境中的变量具有相同的语义。 Predicate&amp;lt;String&amp;gt; filter = (String s) -&amp;gt; { 代码块 return s.endsWith(&amp;#34;.txt&amp;#34;); }; Predicate&amp;lt;String&amp;gt; filter = (String s) -&amp;gt; s.endsWith(&amp;#34;.txt&amp;#34;); 表达式 Predicate&amp;lt;String&amp;gt; filter = s -&amp;gt; s.endsWith(&amp;#34;.txt&amp;#34;); 省略参数类型 ------------------------------------------------------- Runnable runnable = () -&amp;gt; { 代码块 System.</description>
     </item>
     <item>
       <title>Java 7</title>
       <link>https://xhstormr.github.io/blog/posts/java-7/</link>
       <pubDate>Tue, 01 Nov 2016 10:07:22 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/java-7/</guid>
-      <description></description>
+      <description>Updated on 2016-11-03
+二进制数字 int i = 0b1111; 15 数字可读性 int i = 100_000_000; 100000000 switch 支持字符串 String s = &amp;#34;A&amp;#34;; switch (s) { case &amp;#34;A&amp;#34;: System.out.println(&amp;#34;A&amp;#34;); break; case &amp;#34;B&amp;#34;: System.out.println(&amp;#34;B&amp;#34;); break; } catch 支持多重匹配 try { throw new ArithmeticException(); } catch (IllegalArgumentException | ArithmeticException | NullPointerException e) { 多重匹配 System.out.println(1); } catch (Exception e) { System.out.println(2); } 集合类型推断（Diamond） 之前：List&amp;lt;String&amp;gt; list = new ArrayList&amp;lt;String&amp;gt;(); 之后：List&amp;lt;String&amp;gt; list = new ArrayList&amp;lt;&amp;gt;(); 自动资源管理（ARM） 之前： BufferedWriter bufferedWriter = null; 资源 try { bufferedWriter = new BufferedWriter(new FileWriter(&amp;#34;D:/123.</description>
     </item>
     <item>
       <title>Java Thread</title>
       <link>https://xhstormr.github.io/blog/posts/java-thread/</link>
       <pubDate>Wed, 19 Oct 2016 18:12:06 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/java-thread/</guid>
-      <description></description>
+      <description>Updated on 2016-10-24
+Thread
+Thread.State
+Object.wait() | Object.notifyAll()
+进程：一块包含了某些资源的内存区域。 一个进程中至少包含一个或多个线程（执行单元）。 进程的内存区域仅能被它所包含的线程访问。 线程：进程的顺序执行流，系统中最小的执行单元。 线程只能归属于一个进程并且只能访问该进程的资源。 进程的所有线程共享同一块内存空间。 并发：OS 的线程调度机制将时间划分为很多时间片（分时），尽可能均匀分配给正在运行的线程（抢占），获得 CPU 时间片的线程得以被执行，其他则等待；而 CPU 则在这些线程上来回切换运行（上下文切换）。 微观上走走停停，宏观上都在运行。 创建线程 public class A extends Thread { 通过继承 Thread 类 public static void main(String[] args) { Thread a = new A(); 实例化线程 a.start(); 启动线程 } @Override public void run() { 执行逻辑 for (int i = 0; i &amp;lt; 5; i++) { System.out.println(&amp;#34;123&amp;#34;); } } } ---- public class A implements Runnable { 通过实现 Runnable 接口（推荐，因为单继承，多实现） public static void main(String[] args) { Thread a = new Thread(new A()); 实例化线程并传入线程体 a.</description>
     </item>
     <item>
       <title>Data Structure</title>
       <link>https://xhstormr.github.io/blog/posts/java-data-structure/</link>
       <pubDate>Sat, 15 Oct 2016 10:24:45 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/java-data-structure/</guid>
-      <description></description>
+      <description>Updated on 2016-12-16
+https://zh.wikipedia.org/zh-cn/数据结构
+https://zh.wikipedia.org/zh-cn/树_(数据结构)
+Trie 树（字典树） public class A { public static void main(String[] args) { final TrieNode root = new TrieNode(); 根节点 root.addStr(&amp;#34;babaab&amp;#34;); 添加字符串（字典） root.addStr(&amp;#34;babbbaaaa&amp;#34;); root.addStr(&amp;#34;abba&amp;#34;); root.addStr(&amp;#34;aaaaabaa&amp;#34;); root.addStr(&amp;#34;babaababb&amp;#34;); System.out.println(root.getStrCount(&amp;#34;babb&amp;#34;)); 返回以指定字符串开头的字典的个数 System.out.println(root.getStrCount(&amp;#34;baabaaa&amp;#34;)); System.out.println(root.getStrCount(&amp;#34;bab&amp;#34;)); System.out.println(root.getStrCount(&amp;#34;bb&amp;#34;)); System.out.println(root.getStrCount(&amp;#34;bbabbaab&amp;#34;)); } } class TrieNode { public final Map&amp;lt;Character, TrieNode&amp;gt; nextNodes = new HashMap&amp;lt;&amp;gt;(); 指向下一节点的引用 public char aChar; 该节点所代表的值 public int strCount; 该节点路径下所存在的单词个数 public boolean isStr; 该节点是否代表一个单词 public TrieNode() { 根节点构造方法 } public TrieNode(char aChar) { 子节点构造方法 this.</description>
     </item>
     <item>
       <title>进制转换</title>
       <link>https://xhstormr.github.io/blog/posts/binary/</link>
       <pubDate>Wed, 07 Sep 2016 16:15:33 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/binary/</guid>
-      <description></description>
+      <description>Updated on 2016-09-09
+单位 二进制 0,1 开头用 0b 表示 八进制 0,1,2,3,4,5,6,7 开头用 0 表示 十进制 0,1,2,3,4,5,6,7,8,9 十六进制 0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F 开头用 0x 表示 表示 - 235 二进制 - 11101011 八进制 - 353 十进制 - 235 十六进制 - eb 二进制 位运算 原码 按绝对值大小转换成的二进制数称为原码（正数）。
+14：00000000 00000000 00000000 00001110（正数 +14）
+反码 原码 取反 称为反码。
+14：11111111 11111111 11111111 11110001
+补码 反码 加1 称为补码（负数）。
+14：11111111 11111111 11111111 11110010（负数 -14）
+Code Integer.toBinaryString(57); 10 ➜ 2 Integer.toOctalString(57); 10 ➜ 8 Integer.</description>
     </item>
     <item>
       <title>Java IO Stream</title>
       <link>https://xhstormr.github.io/blog/posts/java-io/</link>
       <pubDate>Tue, 06 Sep 2016 11:52:11 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/java-io/</guid>
-      <description></description>
+      <description>Updated on 2016-11-11
+https://docs.oracle.com/javase/10/docs/api/java/nio/file/Path.html
+https://docs.oracle.com/javase/10/docs/api/java/nio/file/Files.html
+File 用于代表文件(夹)，是文件(夹)的抽象化形式，不能用于对文件内容的访问。
+File file = new File(&amp;#34;D:\\123&amp;#34;); \ 是转义字符 File file = new File(&amp;#34;D:/123&amp;#34;); File file = new File(&amp;#34;D:/&amp;#34;, &amp;#34;123&amp;#34;); File file = new File(&amp;#34;D:&amp;#34; + File.separator + &amp;#34;123&amp;#34;); file.createNewFile(); 创建为文件 file.mkdir(); 创建为文件夹 file.mkdirs(); 递归创建文件夹 file.delete(); 删除文件(夹) file.deleteOnExit(); 退出虚拟机时删除文件(夹) file.exists(); 判断文件(夹)是否存在 file.isFile(); 判断是否为文件（不存在返回 false） file.isDirectory(); 判断是否为文件夹（不存在返回 false） file.length(); 获得文件大小，以字节为单位 file.list(); 获得文件夹下的文件(夹)名称，返回 String 数组（不是文件夹返回 null） file.listFiles(); 获得文件夹下的文件(夹)抽象，返回 File 数组（不是文件夹返回 null） file.getName(); 获得文件(夹)名称，123 file.getParent(); 获得父路径，D:\ file.getAbsolutePath(); 获得文件(夹)的绝对路径，D:\123 file.</description>
     </item>
     <item>
       <title>通过 Java 实现扑克牌游戏</title>
       <link>https://xhstormr.github.io/blog/posts/java-poker/</link>
       <pubDate>Tue, 02 Aug 2016 09:41:40 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/java-poker/</guid>
-      <description></description>
+      <description>Updated on 2016-08-02
+分别创建了四个类：牌类(Card)、玩家类(Player)、方法类(Method)、入口类(Initial)
+Card.java class Card implements Comparable&amp;lt;Card&amp;gt; { String point; String suit; Integer pointWeight; Integer suitWeight; Card(String point, String suit, int pointWeight, int suitWeight) { this.point = point; this.suit = suit; this.pointWeight = pointWeight; this.suitWeight = suitWeight; } @Override public String toString() { return suit + point; } @Override public int compareTo(Card o) { int i = this.pointWeight.compareTo(o.pointWeight); switch (i) { case 1: return 1; case -1: return -1; case 0: return this.</description>
     </item>
     <item>
       <title>集合</title>
       <link>https://xhstormr.github.io/blog/posts/java-collection/</link>
       <pubDate>Wed, 27 Jul 2016 14:25:38 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/java-collection/</guid>
-      <description></description>
+      <description>Updated on 2016-08-01
+集合：能够存储 任意数量 且具有 共同属性 的对象的 容器。 集合容量可变，数组容量固定。各自工具类：java.util.Collections | java.util.Arrays。 集合中的元素是任意类型的对象的引用，泛型则规定集合只能存放特定类型的对象。 集合存储的是对象的 引用，默认为 Object 类型，可通过泛型指定存入集合的对象类型（泛型的子类也可存入集合）。 基本数据类型可通过包装类转换成引用数据类型。 List. and Set. List&amp;lt;String&amp;gt; list = new ArrayList&amp;lt;&amp;gt;(Arrays.asList(&amp;#34;A&amp;#34;, &amp;#34;B&amp;#34;, &amp;#34;C&amp;#34;)); Arrays.asList() 将数组转化为 List String[] strings = {&amp;#34;1&amp;#34;, &amp;#34;2&amp;#34;, &amp;#34;3&amp;#34;}; 集合转数组 String[] ListToArray = new String[list.size()]; list.toArray(ListToArray); 增 ---- list.add(&amp;#34;A&amp;#34;); A B C A 加入集合 list.add(0, &amp;#34;A&amp;#34;); A A B C 插入集合 list.addAll(1, Arrays.asList(strings)); A 1 2 3 B C 插入集合 删 ---- list.</description>
     </item>
     <item>
       <title>Queue and Stack</title>
       <link>https://xhstormr.github.io/blog/posts/java-stack/</link>
       <pubDate>Thu, 21 Jul 2016 13:17:17 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/java-stack/</guid>
-      <description></description>
+      <description>Updated on 2017-04-12
+双端队列
+双端队列 API
+数据结构：相互之间存在一种或多种特定 关系 的数据元素的 集合。 队列（两个口）（Queue）：先进先出（FIFO, First In First Out），队头 ⟺ 队尾。 普通队列（劣），环形队列（优）。 堆栈（一个口）（Stack）：先进后出（LIFO, Last In First Out），栈顶 ⟺ 栈底。 push：数据入栈。 pop：数据出栈，并作为此函数的值返回该对象。 peek：查看栈顶部的对象，但不从栈中移除它。 empty：测试栈是否为空。 search：返回对象在栈中的位置。 双端队列 import java.util.ArrayDeque; public class A { private static ArrayDeque&amp;lt;Integer&amp;gt; deque = new ArrayDeque&amp;lt;&amp;gt;(); 双端队列（ArrayDeque 非线程安全，LinkedBlockingDeque 线程安全） public static void main(String[] args) { System.out.println(&amp;#34;队列&amp;#34;); deque.offerLast(1); deque.offerLast(2); deque.offerLast(3); deque.offerLast(4); show(); deque.offerLast(deque.pollFirst()); show(); deque.offerLast(deque.pollFirst()); show(); deque.offerLast(deque.pollFirst()); show(); deque.offerLast(deque.pollFirst()); show(); System.out.println(&amp;#34;————————&amp;#34;); deque.clear(); 清空双端队列 System.</description>
     </item>
     <item>
       <title>关于 Java 中的 String</title>
       <link>https://xhstormr.github.io/blog/posts/java-string/</link>
       <pubDate>Wed, 20 Jul 2016 10:26:13 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/java-string/</guid>
-      <description></description>
+      <description>Updated on 2016-10-09
+String：字符串常量 一旦被创建就不能修改它的值，而是通过重新创建一个新的对象并重新引用。 StringBuffer：字符串变量（线程安全） 对 StringBuffer 本身进行操作，更适用于对字符串的修改。 StringBuilder：字符串变量（非线程安全） 等价于 StringBuffer，应用于单线程，不执行同步操作。 性能：StringBuilder &amp;gt; StringBuffer &amp;gt; String
+String String str = &amp;#34;ABCDEFGH&amp;#34;; String.valueOf(1.687f) 1.687 转换为字符串 String.format(&amp;#34;%s-%d-%b&amp;#34;, &amp;#34;abc&amp;#34;, 3, true) abc-3-true 格式化字符串 str.length() 8 字符串长度 str.charAt(2) C 索引字符串 str.indexOf(&amp;#34;EFG&amp;#34;) 4 索引字符串 str.isEmpty() false 是否为空 str.contains(&amp;#34;ABC&amp;#34;) true 是否包含 str.equals(&amp;#34;ABC&amp;#34;) false 比较内容 str.regionMatches(0, &amp;#34;DABC&amp;#34;, 1, 3) true 比较部分内容 原从0开始，新从1开始，比较长度为3 str.startsWith(&amp;#34;ABC&amp;#34;) true 比较开头 str.endsWith(&amp;#34;ABC&amp;#34;) false 比较结尾 str.trim() 去除开头和结尾的空格 str.toLowerCase() abcdefgh 大小写转换 str.concat(&amp;#34;123&amp;#34;) ABCDEFGH123 追加 str.</description>
     </item>
     <item>
       <title>关于 Java 中的 == 和 equals</title>
       <link>https://xhstormr.github.io/blog/posts/java-equals/</link>
       <pubDate>Sat, 16 Jul 2016 10:04:36 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/java-equals/</guid>
-      <description></description>
+      <description>Updated on 2016-07-16
+== 对于基本数据类型比较的就是数据本身，对于引用数据类型比较的就是内存地址。
+equals 对于引用数据类型比较的也是内存地址；但其中的 String 类比较特殊，重写了继承自 Object 类的 equals 方法，使其比较数据本身。
+打发时间的同时加深理解：)
+class Demo { public static void main(String[] args) { String a = &amp;#34;123&amp;#34;; String b = &amp;#34;123&amp;#34;; String c = new String(&amp;#34;123&amp;#34;); System.out.println(a == b); System.out.println(a.equals(b)); System.out.println(&amp;#34;--------------&amp;#34;); System.out.println(a == c); System.out.println(a.equals(c)); System.out.println(&amp;#34;--------------&amp;#34;); A a1 = new A(); A a2 = new A(); System.out.println((a1 == a2)); System.out.println(a1.equals(a2)); } } class A { } ---- 输出： true 多次出现的字符串，Java编译程序会将内存地址指向同一对象 true 内容相同 -------------- false 显式 new 了一个对象，内存地址不相同 true 内容相同 -------------- false false </description>
     </item>
     <item>
       <title>通过 Java 实现租车系统</title>
       <link>https://xhstormr.github.io/blog/posts/java-rent/</link>
       <pubDate>Fri, 01 Jul 2016 16:17:53 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/java-rent/</guid>
-      <description></description>
+      <description>Updated on 2016-07-02
+分别创建了三个类：车类(Car)、方法类(Method)、入口类(Initial)
+Car.java class Car { private String name; private int rent; private int mannedNum; private int goodsNum; Car(String name, int rent, int mannedNum, int goodsNum) { this.name = name; this.rent = rent; this.mannedNum = mannedNum; this.goodsNum = goodsNum; } String getName() { return name; } int getRent() { return rent; } int getMannedNum() { return mannedNum; } int getGoodsNum() { return goodsNum; } @Override public String toString() { String str1 = mannedNum !</description>
     </item>
     <item>
       <title>自学 Java</title>
       <link>https://xhstormr.github.io/blog/posts/java/</link>
       <pubDate>Fri, 10 Jun 2016 11:04:52 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/java/</guid>
-      <description></description>
+      <description>Updated on 2016-06-30
+https://www.tiobe.com/tiobe-index/
+https://package-search.jetbrains.com/
+https://javadoc.io/
+https://openjfx.io/javadoc/20/
+https://github.com/openjdk/jdk
+https://github.com/openjdk/jfx
+https://www.oracle.com/technetwork/java/index.html
+https://docs.oracle.com/en/java/javase/20/
+https://docs.oracle.com/javase/specs/index.html
+https://docs.oracle.com/javase/specs/jvms/se20/html/jvms-6.html
+https://docs.oracle.com/javase/8/docs/index.html
+https://docs.oracle.com/en/java/javase/20/docs/api/allclasses-index.html
+class version
+IDE Eclipse：https://www.eclipse.org/downloads/eclipse-packages/ 汉化包：https://www.eclipse.org/babel/downloads.php IntelliJ IDEA：https://www.jetbrains.com/idea/download/ 将系统时间调整至 1 年以后再点击试用（Evaluation）。 Scene Builder：https://gluonhq.com/products/scene-builder/ IDEA 无限试用 https://jetbra.in/s https://zhile.io @ echo off pushd . cd /d %USERPROFILE%/AppData/Roaming/JetBrains/IntelliJIdea2020.1 busybox rm -rf eval busybox sed -i &amp;#34;/evlsprt/d&amp;#34; options/other.xml reg delete HKEY_CURRENT_USER\SOFTWARE\JavaSoft\Prefs\jetbrains\idea /f popd IDEA 快捷键 Ctrl+Ctrl Run Anything Shift+Shift Search Everywhere F2 查找错误 F5 复制文件 F6 移动文件 Ctrl+[] 转至大括号处 Ctrl+Y 删除行 Ctrl+D 复制行 or 文件比较 Ctrl+G 转至行 Ctrl+B 转至声明处 Ctrl+R 替换文本 Ctrl+O 重写方法 Ctrl+I 实现方法 Ctrl+J 自动代码（Live Template） Alt+/ 文字补全 Alt+1 显示/隐藏工程面板 Alt+4 显示/隐藏运行面板 Alt+Enter 快速修正 Alt+下划线字母 选中/取消 Ctrl+Alt+T 代码包围 Ctrl+Alt+L 格式化代码 Ctrl+Alt+O 清除无效包引用 Ctrl+Shift+T 测试用例 Ctrl+Shift+J 合并行 Ctrl+Shift+U 大小写转换 Ctrl+Shift+Enter 完成声明 Shift+F6 重构 - 重命名（Rename） Ctrl+Alt+N 内联（Inline） Ctrl+Alt+V 提取为变量（Variable）（Extract） Ctrl+Alt+F 提取为属性（Field） Ctrl+Alt+P 提取为参数（Parameter） Ctrl+Alt+M 提取为方法（Method） Alt+Q 查看上下文 Ctrl+Q 查看快速文档 Ctrl+P 查看参数信息 Ctrl+Shift+I 查看快速定义 Ctrl+` 4 3 进入（退出）全屏 Ctrl+F5 Rerun Ctrl+F9 Build Project Ctrl+F10 Update Running JavaEE Application Shift+F10 Run Ctrl+Shift+F10 Run（Context） Ctrl+Shift+减 折叠所有代码块 Ctrl+Shift+加 展开所有代码块 Alt+J 多选关键字 Alt+Shift+J 退选关键字 Alt+Shift+Ctrl+J 全选关键字 Alt+Shift+Ctrl+点击 多选模式 Ctrl+Alt+S 设置 Ctrl+Shift+Alt+S 项目设置 Ctrl+Alt+U 显示 UML Ctrl+Shift+Alt+U 显示 UML（新窗口） F12 查看最近使用的工具窗口 Esc 返回编辑器 Shift+Esc 隐藏最近使用的工具窗口 Ctrl+F4 关闭文件 Alt+F4 关闭窗口 F3 搜索关键字 Alt+F3 高亮选中文本（same as Ctrl+F） F11 添加书签 Shift+F11 显示书签 滚轮 垂直滚动 Shift+滚轮 水平滚动 Ctrl+F12 查看文件结构 Ctrl+Alt+F12 查看文件路径 Ctrl+H 查看类型层级 Ctrl+Alt+H 查看调用层级 Alt+Insert 生成方法 Ctrl+Alt+Insert 新建文件 Ctrl+Shift+Insert 历史复制板 Ctrl+Shift+Alt+Insert 新建临时文件（Scratch） Ctrl+/ 注释行（单行注释） Ctrl+Shift+/ 添加注释（多行注释） Ctrl+Space 内容辅助（Class Name Completion 已被输入法占用，推荐设置为 Alt+。） Ctrl+Shift+Space 智能提示 Ctrl+E 最近访问文件 Ctrl+Shift+E 最近编辑文件 Ctrl+W 扩大选区 Ctrl+Shift+W 缩小选区 Ctrl+Z Undo Ctrl+Shift+Z Redo Ctrl+Shift+C 复制绝对路径 Ctrl+Shift+Alt+C 复制相对路径 Ctrl+N 查找类 Ctrl+Shift+N 查找文件 Ctrl+Shift+Alt+N 查找变量 Alt+↑↓ 切换方法 Alt+←→ 切换文件 Alt+Shift+←→ 切换编辑框 Alt+Ctrl+←→ 后向/向前 Shift+Alt+↑↓ 移动行 Shift+Ctrl+↑↓ 移动方法 Shift+Ctrl+Alt+←→ 移动方法参数 Shift+Enter 在当前行的下一行插入空行 Ctrl+Alt+Enter 在当前行的上一行插入空行 Eclipse 快捷键 F2 显示工具提示 F3 打开声明文件 F6 调试 - 单步跳过 Ctrl+D 删除行 Ctrl+L 转至行 Ctrl+Shift+F 格式化代码（最好改为 Ctrl+Alt+L） Ctrl+Shift+O 自动导入需要的包 Ctrl+.</description>
     </item>
   </channel>
 </rss>

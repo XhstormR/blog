@@ -13,14 +13,36 @@
       <link>https://xhstormr.github.io/blog/posts/github-page-hexo2/</link>
       <pubDate>Mon, 08 Feb 2016 21:05:48 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/github-page-hexo2/</guid>
-      <description></description>
+      <description>配置Hexo 站点配置用到两个文件 :
+对博客的配置 H:\hexo\_config.yml 对主题的配置 H:\hexo\themes\light_config.yml 对博客的配置 H:\hexo\_config.yml
+# Hexo Configuration ## Docs: http://zespia.tw/hexo/docs/configure.html ## Source: https://github.com/tommy351/hexo/ # Site 这里的配置，哪项配置反映在哪里，可以参考我的博客 title: Zippera&amp;#39;s blog #站点名，站点左上角 subtitle: Walk steps step by step #副标题，站点左上角 description: Walk steps step by step #给搜索引擎看的，对站点的描述，可以自定义 author: zippera #在站点左下角可以看到 email: #你的联系邮箱 language: zh-CN #中国人嘛，用中文 # URL #这项暂不配置，绑定域名后，欲创建sitemap.xml需要配置该项 ## If your site is put in a subdirectory, set url as &amp;#39;http://yoursite.com/child&amp;#39; and root as &amp;#39;/child/&amp;#39; url: http://zipperary.com root: / permalink: :year/:month/:day/:title/ tag_dir: tags archive_dir: archives category_dir: categories # Writing 文章布局、写作格式的定义，不修改 new_post_name: :title.</description>
     </item>
     <item>
       <title>Hexo(一)</title>
       <link>https://xhstormr.github.io/blog/posts/github-page-hexo1/</link>
       <pubDate>Mon, 08 Feb 2016 21:04:48 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/github-page-hexo1/</guid>
-      <description></description>
+      <description>仅针对Windows平台
+纯绿色,全便携
+下载运行环境 下载Node.js官方EXE单文件版程序：
+http://nodejs.org/download/
+选择Windows Binary(.exe)即可。
+将node.exe添加到系统环境变量Path中。
+从0.6.1开始，Node.js在Windows平台上提供了两种安装方式，一是.MSI安装文件，另外还有一个.EXE可执行文件。
+我选择了.EXE文件。因为.MSI安装文件除了将node.exe复制到C:\Program File (x86)\目录中及修改系统Path之外，没发现还有其他作用。
+下载便携版Git :
+https://github.com/msysgit/msysgit/releases/latest
+选择PortableGit-1.9.5-preview20141217.7z解压即可。
+下载npm源代码：
+https://github.com/npm/npm/releases/latest
+选择Source code(zip)解压即可。
+在命令提示符窗口中执行下面的操作，完成npm的编译：
+C:\&amp;gt;D: D:\&amp;gt;cd npmjs D:\npmjs&amp;gt;node cli.js install -gf 还有一种安装npm的方法,虽然很麻烦,但更绿色,我就是用的这种.
+1. 新建一个文件夹如D:\Node,在其中新建npm-cache,npm-global二个文件夹.把node.exe和解压好的npm源文件放在Node中. 2. 在D:\Node\node_modules中再复制一个npm文件夹(node.exe也要在其中). 3. 把D:\Node\bin中的npm,npm.cmd2个文件复制到D:\Node中. 4. 把npm-global文件夹添加到系统环境变量Path中. 5. 然后在CMD中运行 : npm config set prefix &amp;quot;D:\Node\npm-global&amp;quot; #全局安装路径 npm config set cache &amp;quot;D:\Node\npm-cache&amp;quot; #缓存文件路径 下载Hexo
+在解压后的PortableGit中运行Git bash.bat，输入npm 命令 ,Hexo就下载到本地了。
+$ npm install hexo -g 搭建Hexo 新建一个需要当做目录的文件夹(如H:\hexo)。
+进入该文件夹之后,加入hexo程序和npm依赖包。
+$ hexo init $ npm install 现在我们已经搭建起本地的hexo了，执行以下命令(在H:\hexo)，然后到浏览器输入localhost:4000看看。</description>
     </item>
   </channel>
 </rss>

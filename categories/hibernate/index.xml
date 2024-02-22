@@ -13,14 +13,25 @@
       <link>https://xhstormr.github.io/blog/posts/hibernate-hql/</link>
       <pubDate>Fri, 19 May 2017 20:17:25 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/hibernate-hql/</guid>
-      <description></description>
+      <description>Updated on 2017-05-19
+面向对象的查询语言
+select&amp;hellip; + from&amp;hellip; + where&amp;hellip; + group by&amp;hellip; + having&amp;hellip; + order by&amp;hellip;
+http://docs.huihoo.com/hibernate/reference-v3_zh-cn/queryhql.html
+检索对象：from sessionFactory.currentSession.use { it.beginTransaction() val query = it.createQuery(&amp;#34;from Customer&amp;#34;, Customer::class.java) query.list().forEach { println(it.name) } val query = it.createQuery(&amp;#34;from Commodity c,Seller s&amp;#34;, Array&amp;lt;Any&amp;gt;::class.java) 设置别名 query.list().forEach { println(Arrays.toString(it)) } 笛卡尓积 it.transaction.commit() } list() ：无视缓存并加载整个数据，发送 1 条 SQL 语句。 iterate()：检索缓存并延迟加载数据，发送 1+N 条 SQL 语句。 选择属性：select 单个属性： 原生对象 ---- val query = it.createQuery(&amp;#34;select birthday from Customer&amp;#34;, Date::class.</description>
     </item>
     <item>
       <title>Hibernate ORM</title>
       <link>https://xhstormr.github.io/blog/posts/hibernate/</link>
       <pubDate>Sun, 14 May 2017 15:31:36 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/hibernate/</guid>
-      <description></description>
+      <description>Updated on 2017-05-14
+https://hibernate.org/orm/
+https://github.com/hibernate/hibernate-orm
+https://docs.jboss.org/hibernate/orm/current/javadocs/allclasses-noframe.html
+https://docs.jboss.org/hibernate/orm/current/userguide/html_single/Hibernate_User_Guide.html
+https://www.postgresql.org/docs/current/static/index.html
+https://jcenter.bintray.com/org/hibernate/hibernate-core/
+Configuration build.gradle.kts compile(&amp;#34;org.postgresql:postgresql:+&amp;#34;) compile(&amp;#34;org.hibernate:hibernate-core:+&amp;#34;) hibernate.cfg.xml &amp;lt;?xml version=&amp;#39;1.0&amp;#39; encoding=&amp;#39;utf-8&amp;#39;?&amp;gt; &amp;lt;!DOCTYPE hibernate-configuration PUBLIC &amp;#34;-//Hibernate/Hibernate Configuration DTD//EN&amp;#34; &amp;#34;http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd&amp;#34;&amp;gt; &amp;lt;hibernate-configuration&amp;gt; &amp;lt;session-factory&amp;gt; &amp;lt;property name=&amp;#34;dialect&amp;#34;&amp;gt;org.hibernate.dialect.PostgreSQL95Dialect&amp;lt;/property&amp;gt; &amp;lt;property name=&amp;#34;connection.url&amp;#34;&amp;gt;jdbc:postgresql://127.0.0.1:5432/postgres&amp;lt;/property&amp;gt; &amp;lt;property name=&amp;#34;connection.driver_class&amp;#34;&amp;gt;org.postgresql.Driver&amp;lt;/property&amp;gt; &amp;lt;property name=&amp;#34;connection.username&amp;#34;&amp;gt;123&amp;lt;/property&amp;gt; &amp;lt;property name=&amp;#34;connection.password&amp;#34;&amp;gt;123456&amp;lt;/property&amp;gt; &amp;lt;property name=&amp;#34;show_sql&amp;#34;&amp;gt;true&amp;lt;/property&amp;gt; &amp;lt;property name=&amp;#34;format_sql&amp;#34;&amp;gt;false&amp;lt;/property&amp;gt; &amp;lt;property name=&amp;#34;hbm2ddl.auto&amp;#34;&amp;gt;update&amp;lt;/property&amp;gt; &amp;lt;property name=&amp;#34;current_session_context_class&amp;#34;&amp;gt;thread&amp;lt;/property&amp;gt; &amp;lt;mapping class=&amp;#34;entity.Student&amp;#34;/&amp;gt; 实体 &amp;lt;/session-factory&amp;gt; &amp;lt;/hibernate-configuration&amp;gt; hbm2ddl.auto（DDL 生成策略）： create：启动时重新创建表。 create-drop：启动时重新创建表，结束时再删除表。 update：启动时验证表结构，不一致时，更新表结构。 validate：启动时验证表结构，不一致时，抛出异常。 current_session_context_class ➜ thread ➜ org.hibernate.context.internal.ThreadLocalSessionContext 单表操作 entity Student package entity import java.util.* import javax.persistence.* JPA 注解 @Entity 实体 data class Student( @Id 主键 @GeneratedValue(strategy = GenerationType.</description>
     </item>
   </channel>
 </rss>

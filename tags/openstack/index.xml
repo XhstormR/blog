@@ -13,14 +13,24 @@
       <link>https://xhstormr.github.io/blog/posts/openstack-operations/</link>
       <pubDate>Sat, 07 May 2016 08:15:41 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/openstack-operations/</guid>
-      <description></description>
+      <description>Updated on 2016-10-06
+curl - 命令行浏览器 OpenStack 服务提供 RESTful API，而 curl 能通过命令行直接发送和接收 HTTP 的请求和响应
+-X [HEAD,POST,GET,PUT,DELETE] # 指定 HTTP 的请求类型 Request -H &amp;#34;name:123&amp;#34; #添加 HTTP 请求头 Header -D [123,-] #将 HTTP 响应头输出到[文件,终端] Dump -i #同时显示 HTTP 响应头 Include -I #只显示文档信息 Head -u admin:pass #登录验证 User -k #忽略主机密钥（SSL 证书） Insecure -s #不显示进度条 Silent -v #显示详细信息 Verbose -d @123.json #指定 POST 数据包 Data -F file=@123.png #指定表单数据 Form ------------------------------------------------------- -A &amp;#34;Mozilla/5.0 (Linux; Android 5.</description>
     </item>
     <item>
       <title>自学 OpenStack</title>
       <link>https://xhstormr.github.io/blog/posts/openstack/</link>
       <pubDate>Tue, 03 May 2016 15:54:58 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/openstack/</guid>
-      <description></description>
+      <description>Updated on 2016-05-26
+https://www.openstack.org/
+http://docs.openstack.org/
+概念架构 (Conceptual Architecture)
+逻辑架构 (Logical Architecture)
+OpenStack is a cloud operating system that controls large pools of compute, storage, and networking resources throughout a datacenter, all managed through a dashboard that gives administrators control while empowering their users to provision resources through a web interface.
+OpenStack，1化N，通过虚拟化的方式提供灵活高利用率的计算能力。
+Hadoop，N化1，通过分布式文件系统解决单台大机器无法解决的计算和存储问题。
+Projects Core Services (6) NAME SERVICE KEYSTONE Identity 认证* GLANCE Image 镜像* NOVA Compute 计算* NEUTRON Networking 网络* CINDER Block Storage 块存储 SWIFT Object Storage 对象存储 &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash; &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash; &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash; Optional Services (13) NAME SERVICE Horizon Dashboard 面板* Heat Orchestration 编配 Ceilometer Telemetry 监控 Sahara Elastic Map Reduce 大数据部署 &amp;hellip;&amp;hellip;.</description>
     </item>
   </channel>
 </rss>

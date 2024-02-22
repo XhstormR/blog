@@ -13,35 +13,65 @@
       <link>https://xhstormr.github.io/blog/posts/cheatsheet-tmux/</link>
       <pubDate>Sun, 10 Apr 2016 12:16:09 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/cheatsheet-tmux/</guid>
-      <description></description>
+      <description>Updated on 2016-04-14
+https://github.com/tmux/tmux
+https://man.openbsd.org/tmux
+https://leanpub.com/the-tao-of-tmux/read
+Tmux is a terminal multiplexer.It lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and reattach them to a different terminal.
+一个 Session 可以包含多个 Window，而每个 Window 又可以包含多个 Pane。
+Session 会话 Window 窗口 Pane 面板 Attach 连接 Detach 分离 [root@controller ~]$ yum -y installl tmux #安装 tmux [root@controller ~]$ tmux -V #查看版本号 [root@controller ~]$ tmux lscm #查看内置命令 [root@controller ~]$ tmux new -s home #创建一个叫做 home 的会话 [root@controller ~]$ tmux ls #列出所有会话 0: 1 windows (created Sun Apr 10 13:31:27 2016) [83x47] 1: 1 windows (created Sun Apr 10 13:32:15 2016) [83x47] home: 1 windows (created Sun Apr 10 13:32:07 2016) [83x47] [root@controller ~]$ tmux a -t home #连接到 home 会话，没有指定目标会自动连接到最近使用的会话 Target(目标) [root@controller ~]$ tmux kill-server #关闭所有会话 Ctrl+D or `exit` 退出 Ctrl+B - ?</description>
     </item>
     <item>
       <title>Libvirt 不完全使用手册</title>
       <link>https://xhstormr.github.io/blog/posts/cheatsheet-libvirt/</link>
       <pubDate>Wed, 06 Apr 2016 11:28:51 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/cheatsheet-libvirt/</guid>
-      <description></description>
+      <description>Updated on 2016-05-31
+https://libvirt.org/
+http://www.linux-kvm.org/page/Main_Page
+KVM 负责 CPU 和 RAM 的虚拟化；QEMU 则负责模拟 IO 设备，如网卡和硬盘；KVM 加上 QEMU 之后就能实现真正意义上的服务器虚拟化，称之为 QEMU-KVM。
+而 Libvirt 则是调用 KVM 虚拟化技术的接口间接控制 QEMU-KVM，包含一个API库，一个守护程序 Libvirtd，一个命令行工具 virsh，如果直接用 QEMU-KVM 的接口会非常繁琐。另外 OpenStack 也是用 Libvirt 的库管理 VM，可以控制除了 QEMU 以外的模拟器，包括 VMWARE, VirtualBox, Xen等等。
+Libvirt 部分 yum -y install virt-manager yum -y install libvirt yum -y install kvm yum -y install libguestfs-tools [root@controller ~]$ virsh net-start default #启动虚拟网络 [root@controller ~]$ virsh net-list #查看虚拟网络，默认为 NAT Name State Autostart Persistent -------------------------------------------------- default active yes yes [root@controller ~]$ qemu-img create -f qcow2 /tmp/1.</description>
     </item>
     <item>
       <title>Vim 命令不完全手册</title>
       <link>https://xhstormr.github.io/blog/posts/cheatsheet-vim/</link>
       <pubDate>Thu, 31 Mar 2016 11:09:57 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/cheatsheet-vim/</guid>
-      <description></description>
+      <description>Updated on 2018-01-02
+https://github.com/vim/vim
+https://vimhelp.org/options.txt.html
+http://www.lagmonster.org/docs/vi.html
+Vim is often called a &amp;ldquo;programmer&amp;rsquo;s editor,&amp;rdquo; and so useful for programming that many consider it an entire IDE. It&amp;rsquo;s not just for programmers, though. Vim is perfect for all kinds of text editing, from composing email to editing configuration files.
+只要接触 Linux ，不可避免的会用到 Vim 编辑器。一方面它基本上是所有 Linux 发行版的默认编辑器；另一方面它是也一个拥有20年历史的超级强大的文本编辑器。
+vim +5 file #打开文件并跳到第5行，无数字跳到最后一行 vim +/abc file #打开文件并搜索 `abc`，按 n 切换至下一个 `abc` vim file1 file2 file3 #打开3个文件，按 `:n` 切换至下一个文件，`:N` or `:prev` 切换至上一个文件 &amp;lt;----- a、i、o ↓↓ : -----&amp;gt; 输入模式 命令模式 底行模式 ESC -----&amp;gt; &amp;lt;----- ESC 输入模式常用指令 Ctrl+C ESC Ctrl+N 自动补全 next Ctrl+P 自动补全 previous Ctrl+Y 自动输入与上一行相对应的字符 Ctrl+W 删除光标前的一个单词 Ctrl+U 删除光标前的所有字符 Ctrl+R 插入寄存器内容 底行模式常用指令 :w 保存 :w 123 将当前编辑的文件保存到 123 文件中 :q 退出 :q!</description>
     </item>
     <item>
       <title>Linux 命令不完全手册</title>
       <link>https://xhstormr.github.io/blog/posts/cheatsheet-linux/</link>
       <pubDate>Wed, 23 Mar 2016 16:40:02 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/cheatsheet-linux/</guid>
-      <description></description>
+      <description>Updated on 2018-02-08
+https://www.centos.org/
+http://man7.org/linux/man-pages/dir_all_alphabetic.html
+最近因为要参加全国云计算比赛，需要使用 Linux；所以我把关于 Linux 系统的一些命令整理在这里，以便查阅。
+Update：市赛以第一名出线，国赛获得二等奖。
+Update 2：学校要求我留下，继续参加下一届比赛。
+pwd #查看当前路径 date #查看当前时间 type #查看命令类型 file #查看文件类型 -i 显示MIME类别 stat #查看文件属性 cat #查看文件内容 Concatenate head #查看文件内容头10行 tail #查看文件内容尾10行 -f 监视文件最新增加的内容 Follow touch #创建空文件 ip -s -h address #查看网卡信息 wc #统计文本 -l -w -c 行数 单词数 字节数 less #分屏显示 -5 每次显示5行 -N 显示行号 more #分页显示 -5 每次显示5行 推荐使用 less reset #初始化终端 env #查看环境变量 set #查看环境变量 + Shell 变量 ls -a #显示隐藏文件 -d #只显示当前文件夹信息 -l #以列表形式显示详细信息 -F #显示类型标识符 /目录 *可执行文件 @符号链接 =Sockets套接字 |FIFO命令管道 普通文件无标识符 Classify(分类) -h #人性化显示大小 -i #显示inode -I #排除匹配文件 -r #反向排序 Reverse(相反) -R #操作文件夹下的所有文件 Recursive(递归) -S #按文件大小降序排列 Size -t #按文件时间排序 Time [root@controller ~]$ ll -Shr #人性化显示大小并按大小升序排列 total 20K -rw-------.</description>
     </item>
     <item>
       <title>Markdown 简明语法手册</title>
       <link>https://xhstormr.github.io/blog/posts/cheatsheet-markdown/</link>
       <pubDate>Mon, 08 Feb 2016 21:08:48 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/cheatsheet-markdown/</guid>
-      <description></description>
+      <description>http://commonmark.org/
+Markdown 是一种轻量级标记语言，创始人为约翰·格鲁伯（John Gruber）。它允许人们“使用易读易写的纯文本格式编写文档，然后转换成有效的XHTML(或者HTML)文档”。这种语言吸收了很多在电子邮件中已有的纯文本标记的特性。——维基百科
+我把与Markdown相关的基本语法按其类型整理在这里，以便查阅。
+1. 标题 # 一级标题 ## 二级标题 ### 三级标题 #### 四级标题 ##### 五级标题 ###### 六级标题 2. 列表 - 无序列表1 - 无序列表2 - 无序列表3 1. 有序列表1 2. 有序列表2 3. 有序列表3 3. 引用 &amp;gt; 这个是引用 &amp;gt; 是不是和电子邮件中的 &amp;gt; 引用格式很像 4. 粗体与斜体 **这个是粗体** *这个是斜体* 5. 链接与图片 自动链接
+&amp;lt;http://xhstormr.github.io/&amp;gt; &amp;lt;XhstormR@foxmail.com&amp;gt; 插入链接
+[link text](http://example.com/ &amp;quot;optional title&amp;quot;) [link text][id] [id]: http://example.com/ &amp;quot;optional title here&amp;quot; 插入图片
+![](/path/to/img.jpg &amp;quot;optional title&amp;quot;){ImgCap}alt text{/ImgCap} 图片链接
+[![][jane-eyre-pic]][jane-eyre-douban] [jane-eyre-pic]: http://img3.</description>
     </item>
   </channel>
 </rss>

@@ -13,7 +13,9 @@
       <link>https://xhstormr.github.io/blog/posts/jsp-model1/</link>
       <pubDate>Sat, 18 Mar 2017 16:25:36 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/jsp-model1/</guid>
-      <description></description>
+      <description>Updated on 2017-03-18
+JavaBean 模式
+src dao ItemDAO package dao import entity.Item import util.DBHelp object ItemDAO { @JvmStatic fun getAllItems() = mutableListOf&amp;lt;Item&amp;gt;().apply { 从数据库中获取所有商品 DBHelp.connection .prepareStatement(&amp;#34;SELECT * FROM item;&amp;#34;) .executeQuery() .use { while (it.next()) { 遍历 ResultSet 并实例化 Item 实体 val item = Item( id = it.getInt(&amp;#34;id&amp;#34;), name = it.getString(&amp;#34;name&amp;#34;), city = it.getString(&amp;#34;city&amp;#34;), price = it.getInt(&amp;#34;price&amp;#34;), number = it.getInt(&amp;#34;number&amp;#34;), picture = it.getString(&amp;#34;picture&amp;#34;) ) this.add(item) } } } @JvmStatic fun getVisitedItems(s: String) = mutableListOf&amp;lt;Item&amp;gt;().</description>
     </item>
   </channel>
 </rss>

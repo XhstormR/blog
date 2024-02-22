@@ -13,154 +13,214 @@
       <link>https://xhstormr.github.io/blog/posts/android-databinding/</link>
       <pubDate>Sat, 26 Nov 2016 23:15:56 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/android-databinding/</guid>
-      <description></description>
+      <description>Updated on 2016-12-03
+Model（数据），View（界面），Controller（业务逻辑）
+MVC（Model - View - Controller）
+MVP（Model - View - Presenter）
+MVVM（Model - View - ViewModel）
+Model（数据），View（界面），ViewModel（双向绑定）
+https://developer.android.com/topic/libraries/data-binding/index.html
+双向绑定 View Listeners：将 View 响应事件产生的数据设置到 Model 中。 将 View 的事件映射到 Model 可以承载的数据格式。 Data Bindings：在 Model 发生变化时通知 View 作出响应。 将 Model 的数据映射到 View 的界面上。 启用 Data Binding build.gradle ⇳ android { dataBinding { enabled = true } } Binding Data @Override protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); ActivityMainBinding activityMainBinding = DataBindingUtil.</description>
     </item>
     <item>
       <title>RxBinding</title>
       <link>https://xhstormr.github.io/blog/posts/android-rxbinding/</link>
       <pubDate>Sat, 19 Nov 2016 14:12:15 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/android-rxbinding/</guid>
-      <description></description>
+      <description>Updated on 2016-11-19
+https://github.com/JakeWharton/RxBinding
+Button ActivityMainBinding activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main); Button button = activityMainBinding.button; ------------------------------------------------------- RxView .clicks(button) 绑定单击事件 .throttleFirst(1, TimeUnit.SECONDS) 防止多次点击（1 秒内只发送第一个点击事件） .subscribe(aVoid -&amp;gt; Log.w(&amp;#34;Tag&amp;#34;, &amp;#34;单击&amp;#34;)); or RxView .clicks(button) 绑定单击事件 .doOnNext(aVoid -&amp;gt; { button.setEnabled(false); 禁用按钮 Log.w(&amp;#34;Tag&amp;#34;, &amp;#34;单击&amp;#34;); }) .delay(1, TimeUnit.SECONDS) 延迟 1 秒（等待时默认会切换至计算线程） .observeOn(AndroidSchedulers.mainThread()) 切回至主线程 .doOnNext(aVoid -&amp;gt; button.setEnabled(true)) 启用按钮 .subscribe(); ------------------------------------------------------- RxView .longClicks(button) 绑定长按事件 .subscribe(aVoid -&amp;gt; Log.w(&amp;#34;Tag&amp;#34;, &amp;#34;长按&amp;#34;)); CheckBox ActivityMainBinding activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main); Button button = activityMainBinding.button; CheckBox checkBox = activityMainBinding.</description>
     </item>
     <item>
       <title>RxBus</title>
       <link>https://xhstormr.github.io/blog/posts/android-rxbus/</link>
       <pubDate>Sat, 19 Nov 2016 14:11:15 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/android-rxbus/</guid>
-      <description></description>
+      <description>Updated on 2016-11-19
+Subject 抽象类：继承 Observable 类并实现 Observer 接口，即同时充当被观察者和观察者，可以当作一个事件管道，一端输入，一端输出。 PublishSubject：观察者只能收到订阅之后被观察者所发送的事件。 之后 ReplaySubject：观察者能够收到订阅之前被观察者所发送的所有事件。 之前 + 之后 BehaviorSubject：观察者能够收到订阅之前被观察者所发送的最后一个事件。 1 + 之后 AsyncSubject：观察者只能收到被观察者结束后所发送的最后一个事件。 1 SerializedSubject：用于把 Subject 对象包装成线程安全的 Subject。 RxBus.java - v0.1 import android.support.annotation.NonNull; import rx.Observable; import rx.subjects.PublishSubject; import rx.subjects.SerializedSubject; import rx.subjects.Subject; import java.util.ArrayList; import java.util.List; import java.util.concurrent.ConcurrentHashMap; public class RxBus { private static final RxBus INSTANCE = new RxBus(); private final ConcurrentHashMap&amp;lt;Object, List&amp;lt;Subject&amp;gt;&amp;gt; mSubjectMap = new ConcurrentHashMap&amp;lt;&amp;gt;(); private RxBus() { } public static RxBus getInstance() { return INSTANCE; } public &amp;lt;T&amp;gt; Observable&amp;lt;T&amp;gt; register(@NonNull Object tag, @NonNull Class&amp;lt;T&amp;gt; classOfT) { List&amp;lt;Subject&amp;gt; subjectList = mSubjectMap.</description>
     </item>
     <item>
       <title>JsonUtil</title>
       <link>https://xhstormr.github.io/blog/posts/android-jsonutil/</link>
       <pubDate>Sat, 19 Nov 2016 08:00:39 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/android-jsonutil/</guid>
-      <description></description>
+      <description>Updated on 2016-11-19
+https://github.com/google/gson
+JsonUtil.java import com.google.gson.Gson; import com.google.gson.JsonArray; import com.google.gson.JsonParser; import java.util.ArrayList; import java.util.List; public class JsonUtil { private static Gson mGson = new Gson(); 单例模式 public static &amp;lt;T&amp;gt; String objectToString(T object) { 对象，List ➜ String return mGson.toJson(object); } public static &amp;lt;T&amp;gt; T stringToObject(String json, Class&amp;lt;T&amp;gt; classOfT) { String ➜ 对象 return mGson.fromJson(json, classOfT); } public static &amp;lt;T&amp;gt; List&amp;lt;T&amp;gt; stringToList(String json, Class&amp;lt;T&amp;gt; classOfT) { String ➜ List List&amp;lt;T&amp;gt; list = new ArrayList&amp;lt;&amp;gt;(); JsonArray jsonArray = new JsonParser().</description>
     </item>
     <item>
       <title>Retrolambda</title>
       <link>https://xhstormr.github.io/blog/posts/android-retrolambda/</link>
       <pubDate>Sat, 12 Nov 2016 21:15:01 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/android-retrolambda/</guid>
-      <description></description>
+      <description>Updated on 2016-11-12
+https://github.com/evant/gradle-retrolambda
+https://github.com/ReactiveX/RxAndroid
+https://github.com/JakeWharton/RxBinding
+https://github.com/square/retrofit
+Project build.gradle ⇳ classpath &amp;#39;com.android.tools.build:gradle:+&amp;#39; classpath &amp;#39;me.tatarka:gradle-retrolambda:+&amp;#39; Module build.gradle ⇳ apply plugin: &amp;#39;me.tatarka.retrolambda&amp;#39; android { compileOptions { sourceCompatibility JavaVersion.VERSION_1_8 targetCompatibility JavaVersion.VERSION_1_8 } } Gradle gradle-wrapper.properties ⇳ distributionUrl=http\://android-mirror.bugly.qq.com:8080/gradle/gradle-3.2.1-all.zip RxAndroid Module build.gradle ⇳ compile &amp;#39;io.reactivex:rxandroid:+&amp;#39; compile &amp;#39;io.reactivex:rxjava:+&amp;#39; RxBinding Module build.gradle ⇳ compile &amp;#39;com.jakewharton.rxbinding:rxbinding:+&amp;#39; Retrofit Module build.gradle ⇳ compile &amp;#39;com.squareup.retrofit2:retrofit:+&amp;#39; compile &amp;#39;com.squareup.retrofit2:converter-gson:+&amp;#39; converter：JSON compile &amp;#39;com.squareup.retrofit2:converter-scalars:+&amp;#39; converter：String compile &amp;#39;com.squareup.retrofit2:adapter-rxjava2:+&amp;#39; adapter：RxJava </description>
     </item>
     <item>
       <title>Android HTTP (待)</title>
       <link>https://xhstormr.github.io/blog/posts/android-http/</link>
       <pubDate>Mon, 31 Oct 2016 08:00:57 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/android-http/</guid>
-      <description></description>
+      <description>Updated on 2016-11-01
+加载网页和图片 MainActivity.java public class MainActivity extends Activity { private WebView mWebView; private ImageView mImageView; private Handler mHandler = new Handler(new Handler.Callback() { 传入回调接口，避免内存泄漏 @Override public boolean handleMessage(Message msg) { 处理 Message（主线程 Looper） switch (msg.what) { case 1: WebSettings settings = mWebView.getSettings(); 获得 WebSettings 对象 settings.setUserAgentString(&amp;#34;Nexus&amp;#34;); 设置 User Agent settings.setJavaScriptEnabled(true); 启用 JavaScript mWebView.loadDataWithBaseURL(null, msg.obj.toString(), &amp;#34;text/html;charset=utf-8&amp;#34;, null, null); 加载网页 break; case 2: mImageView.setScaleType(ImageView.ScaleType.FIT_XY); 设置图片缩放模式为铺满控件 mImageView.setImageBitmap(((Bitmap) msg.obj)); 加载图片 break; } return true; } }); @Override protected void onCreate(Bundle savedInstanceState) { super.</description>
     </item>
     <item>
       <title>Android Handler</title>
       <link>https://xhstormr.github.io/blog/posts/android-handler/</link>
       <pubDate>Tue, 25 Oct 2016 20:25:47 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/android-handler/</guid>
-      <description></description>
+      <description>Updated on 2016-10-29
+ThreadLocal
+WeakReference
+Source Insight
+Handler：负责发送和处理 Message。 ThreadLocal：负责保存 Looper，作为线程的局部变量。 Looper：负责接收并转发 Message。 MessageQueue：负责存储 Message 的容器。 post ➜ Runnable MainActivity.java public class MainActivity extends Activity { private ImageView mImageView; private final Handler mHandler = new Handler(); private final Runnable mRunnable = new Runnable() { A：第一种（postDelayed） private int[] colors = {Color.parseColor(&amp;#34;red&amp;#34;), Color.parseColor(&amp;#34;blue&amp;#34;), Color.parseColor(&amp;#34;green&amp;#34;)}; 颜色 private int index; 索引 @Override public void run() { index++; index %= 3; mImageView.setBackgroundColor(colors[index]); 设置背景颜色 mHandler.postDelayed(this, 1000); 封装线程体为 Message 中的 callback，再传递至 Looper 中的 MessageQueue，并延迟 1 秒后执行 } ↳ 使用了递归思想，无限循环 }; private Thread mThread = new Thread() { B：第二种（post） private int[] colors = {Color.</description>
     </item>
     <item>
       <title>Android 手势识别</title>
       <link>https://xhstormr.github.io/blog/posts/android-gesturedetector/</link>
       <pubDate>Tue, 18 Oct 2016 19:21:52 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/android-gesturedetector/</guid>
-      <description></description>
+      <description>Updated on 2016-10-18
+GestureDetector MainActivity.java public class MainActivity extends Activity { private ImageView mImageView; private GestureDetector mGestureDetector; @Override protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.activity_main); mImageView = (ImageView) findViewById(R.id.imageView); mGestureDetector = new GestureDetector(MainActivity.this, new MyGestureListener()); mImageView.setLongClickable(true); 设置可以长按 mImageView.setOnTouchListener(new View.OnTouchListener() { 设置监听器 @Override public boolean onTouch(View v, MotionEvent event) { mGestureDetector.onTouchEvent(event); 转发 MotionEvent 给 GestureDetector return true; 消耗掉事件（不继续传递） } }); } private class MyGestureListener extends GestureDetector.SimpleOnGestureListener { @Override public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) { e1 起始，e2 结束 if (e1.</description>
     </item>
     <item>
       <title>Android 系统服务</title>
       <link>https://xhstormr.github.io/blog/posts/android-systemservice/</link>
       <pubDate>Mon, 17 Oct 2016 17:13:39 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/android-systemservice/</guid>
-      <description></description>
+      <description>Updated on 2016-10-17
+MainActivity.java public class MainActivity extends Activity { @Override protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE); 通过 getSystemService 获得 LayoutInflater 对象 View view = inflater.inflate(R.layout.activity_main, null); setContentView(view); } public void onClick(View view) { ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE); 管理网络连接 WifiManager wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE); 管理 WIFI AudioManager audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE); 管理音量 ActivityManager activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE); 管理运行中的 Activity switch (view.getId()) { case R.id.button1: NetworkInfo networkInfo = connectivityManager.</description>
     </item>
     <item>
       <title>Android Service</title>
       <link>https://xhstormr.github.io/blog/posts/android-service/</link>
       <pubDate>Thu, 13 Oct 2016 12:21:04 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/android-service/</guid>
-      <description></description>
+      <description>Updated on 2016-10-16
+启动服务 调用 startService() 后服务便会在后台无限期运行，需手动停止服务。 如果服务已经启动，再调用 startService()，则只会调用 onStartCommand()。 MainActivity.java public class MainActivity extends Activity { @Override protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.activity_main); Intent intent = new Intent(this, MainActivity.class); PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0); 设置点击内容 Intent Notification.Builder builder = new Notification.Builder(this).setContentTitle(&amp;#34;标题&amp;#34;).setContentText(&amp;#34;内容&amp;#34;).setSmallIcon(R.mipmap.ic_launcher).setContentIntent(pendingIntent); 通知 NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE); 获得通知管理 notificationManager.notify(1, builder.build()); 显示状态栏通知（通知 ID，通知） } public void onClick(View view) { Intent intent = new Intent(MainActivity.this, MyService.class); intent.putExtra(&amp;#34;msg&amp;#34;, &amp;#34;信息&amp;#34;); switch (view.</description>
     </item>
     <item>
       <title>Android BroadcastReceiver</title>
       <link>https://xhstormr.github.io/blog/posts/android-broadcastreceiver/</link>
       <pubDate>Mon, 10 Oct 2016 20:16:37 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/android-broadcastreceiver/</guid>
-      <description></description>
+      <description>Updated on 2016-10-10
+Broadcast（发）：发送 Broadcast（Intent）用于进程或线程间进行通信。 普通广播：所有监听该广播的接收器都可以（理论上同时）接收到该广播。 动态注册的接收器 总是 先于静态注册的接收器收到广播。 并行处理。 有序广播：按照接收器的优先级顺序（链式）接收广播。（-1000 至 1000） 监听该广播的接收器可以中断传播，也可以放入数据传递给下一个接收器。 同等级 的动态注册的接收器先于静态注册的接收器收到广播。 串行处理。 BroadcastReceiver（收）：对 Broadcast 进行过滤接收并响应，四大组件之一。 静态注册：在 AndroidManifest.xml 中进行注册。( 常驻型 ) 动态注册：在运行时的 Java 代码中进行注册，程序结束后取消注册。( 非常驻型 ) MainActivity.java public class MainActivity extends Activity { private MyBroadcastReceiver mMyBroadcastReceiver; @Override protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.activity_main); mMyBroadcastReceiver = new MyBroadcastReceiver(); 广播接收器 IntentFilter intentFilter = new IntentFilter(&amp;#34;action1&amp;#34;); 过滤信息（匹配 Intent） intentFilter.setPriority(100); 优先级 registerReceiver(mMyBroadcastReceiver, intentFilter); 动态注册（广播接收器，过滤信息） } @Override protected void onDestroy() { super.</description>
     </item>
     <item>
       <title>Android 数据存储</title>
       <link>https://xhstormr.github.io/blog/posts/android-data/</link>
       <pubDate>Sun, 02 Oct 2016 13:27:20 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/android-data/</guid>
-      <description></description>
+      <description>Updated on 2016-10-06
+File
+SQLite
+SharedPreferences
+ContentProvider (组件)
+SharedPreferences 一种轻型的数据存储方式，基于 XML 文件存储（Key-Value）键值对数据。
+( String、int、long、float、boolean、Set&amp;lt;String&amp;gt; )
+SharedPreferences：获取数据 ( getXXX )。 SharedPreferences.Editor：修改数据 ( putXXX )，存储数据 ( commit、apply )。 MainActivity.java public class MainActivity extends Activity { private EditText mUserName, mPassword; private CheckBox mSaveUserName; private SharedPreferences mSharedPreferences; @Override protected void onCreate(@Nullable Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.main_activity); mUserName = (EditText) findViewById(R.id.editText); mPassword = (EditText) findViewById(R.id.editText2); mSaveUserName = (CheckBox) findViewById(R.id.checkBox); mSharedPreferences = getSharedPreferences(&amp;#34;123&amp;#34;, MODE_PRIVATE); 创建自定义 Preferences 文件 (123.</description>
     </item>
     <item>
       <title>Android 异步加载</title>
       <link>https://xhstormr.github.io/blog/posts/android-listview/</link>
       <pubDate>Wed, 28 Sep 2016 15:18:02 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/android-listview/</guid>
-      <description></description>
+      <description>Updated on 2016-09-28
+AsyncTask 异步访问网络
+LruCache 内存缓存图片
+ListView 加载图片（滚动状态，静止状态）
+BaseAdapter 缓存页面（convertView，ViewHolder）
+MainActivity.java public class MainActivity extends Activity { private ListView mListView; @Override protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.activity_main); mListView = (ListView) findViewById(R.id.list_item); new NewsAsyncTask().execute(&amp;#34;http://www.imooc.com/api/teacher?type=4&amp;amp;num=30&amp;#34;); 开始异步任务 } 输入参数，执行进度，返回结果 private class NewsAsyncTask extends AsyncTask&amp;lt;String, Void, List&amp;lt;CourseBean&amp;gt;&amp;gt; { @Override protected List&amp;lt;CourseBean&amp;gt; doInBackground(String... params) { 获得 ListView 的 Item 列表 List&amp;lt;CourseBean&amp;gt; courseBeanList = new ArrayList&amp;lt;&amp;gt;(); try { StringBuilder stringBuilder = new StringBuilder(); 下载 JSON BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new URL(params[0]).</description>
     </item>
     <item>
       <title>Android AsyncTask</title>
       <link>https://xhstormr.github.io/blog/posts/android-asynctask/</link>
       <pubDate>Fri, 02 Sep 2016 09:10:56 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/android-asynctask/</guid>
-      <description></description>
+      <description>Updated on 2016-09-02
+由于 Android 是单线程模型，只有主线程能够操作 UI，所以要避免在主线程中执行耗时操作，而是应该放到子线程中执行，以防止出现 ANR（Application Not Responding）对话框。
+MainActivity1.java public class MainActivity1 extends Activity { private ProgressBar progressBar; private MyAsyncTask myAsyncTask; @Override protected void onCreate(@Nullable Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.main_activity1); progressBar = (ProgressBar) findViewById(R.id.progressBar); myAsyncTask = new MyAsyncTask(); myAsyncTask.execute(); 执行任务 } @Override protected void onDestroy() { 与 Activity 生命周期进行绑定 super.onDestroy(); if (myAsyncTask != null &amp;amp;&amp;amp; myAsyncTask.getStatus() == AsyncTask.Status.RUNNING) { myAsyncTask.cancel(true); 标记为关闭状态 } } 输入参数，执行进度，返回结果 private class MyAsyncTask extends AsyncTask&amp;lt;Void, Integer, Void&amp;gt; { 内部类 @Override protected Void doInBackground(Void.</description>
     </item>
     <item>
       <title>Android BaseAdapter</title>
       <link>https://xhstormr.github.io/blog/posts/android-baseadapter/</link>
       <pubDate>Wed, 31 Aug 2016 11:27:51 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/android-baseadapter/</guid>
-      <description></description>
+      <description>Updated on 2016-08-31
+数据适配器把复杂的数据绑定至指定控件，是数据源和控件之间的桥梁。
+MainActivity.java public class MainActivity extends Activity { @Override protected void onCreate(@Nullable Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.main_activity); List&amp;lt;ItemBean&amp;gt; data = new ArrayList&amp;lt;&amp;gt;(); 数据源 for (int i = 0; i &amp;lt; 20; i++) { data.add(new ItemBean(R.mipmap.ic_launcher, &amp;#34;标题&amp;#34; + i, &amp;#34;内容&amp;#34; + i)); } ListView listView = (ListView) findViewById(R.id.listView); 1控件 MyBaseAdapter myBaseAdapter = new MyBaseAdapter(this, data); 2自定义适配器（上下文对象，数据源） listView.setAdapter(myBaseAdapter); 3将控件与适配器绑定 } } ItemBean.java public class ItemBean { 封装 item 数据，一个 ItemBean 对应一个页面 public int itemImage; 图片 public String itemTitle; 标题 public String itemContent; 内容 public ItemBean(int itemImage, String itemTitle, String itemContent) { 构造方法 this.</description>
     </item>
     <item>
       <title>Android ViewPager</title>
       <link>https://xhstormr.github.io/blog/posts/android-viewpager/</link>
       <pubDate>Tue, 16 Aug 2016 14:10:08 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/android-viewpager/</guid>
-      <description></description>
+      <description>Updated on 2016-08-20
+ViewPager 通常与 Fragment 搭配使用以实现页面导航。
+Activity public class MainActivity extends FragmentActivity implements ViewPager.OnPageChangeListener { ↳ 继承 v4 的 FragmentActivity @Override protected void onCreate(@Nullable Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.main_activity); List&amp;lt;View&amp;gt; viewList = new ArrayList&amp;lt;&amp;gt;(); 页面数据源 View view1 = View.inflate(this, R.layout.view1, null); Layout ➜ View（上下文对象，布局文件，添加父容器） View view2 = View.inflate(this, R.layout.view2, null); View view3 = View.inflate(this, R.layout.view3, null); View view4 = View.inflate(this, R.layout.view4, null); viewList.add(view1); viewList.add(view2); viewList.add(view3); viewList.add(view4); List&amp;lt;android.support.v4.app.Fragment&amp;gt; fragmentList = new ArrayList&amp;lt;&amp;gt;(); 页面数据源 fragmentList.</description>
     </item>
     <item>
       <title>Android Fragment</title>
       <link>https://xhstormr.github.io/blog/posts/android-fragment/</link>
       <pubDate>Fri, 12 Aug 2016 14:47:11 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/android-fragment/</guid>
-      <description></description>
+      <description>Updated on 2016-08-14
+FragmentManager findFragmentById() ⟺ findFragmentByTag()：获得 Fragment 对象。 addOnBackStackChangedListener()：添加监听回退栈变化的监听器。 popBackStack()：弹出回退栈，模拟用户按下返回按钮。 FragmentTransaction add() ⟺ remove()：onAttach()-onResume() ⟺ onPause()-onDetach() attach() ⟺ detach()：onCreateView()-onResume() ⟺ onPause()-onDestroyView() show() ⟺ hide()：不执行生命周期中的方法，仅仅是显示或隐藏。 replace()：销毁容器中所有的 Fragment，再添加一个指定的 Fragment。 创建 Fragment Fragment.java public class Fragment extends android.app.Fragment { 继承 Fragment @Nullable @Override public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) { Log.i(&amp;#34;Tag&amp;#34;, &amp;#34;Fragment ---&amp;gt; 3onCreateView&amp;#34;); View view = inflater.inflate(R.layout.fragment, container, false); Layout ➜ View（布局文件，所在父容器，是否添加父容器） TextView textView = (TextView) view.findViewById(R.id.textView); textView.setText(&amp;#34;我是Fragment&amp;#34;); return view; 可返回 null，即不显示 UI } @Override public void onAttach(Activity activity) { Log.</description>
     </item>
     <item>
       <title>Android 计算器</title>
       <link>https://xhstormr.github.io/blog/posts/android-calculator/</link>
       <pubDate>Tue, 19 Jul 2016 10:48:46 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/android-calculator/</guid>
-      <description></description>
+      <description>Updated on 2016-07-23
+FirstActivty.java package com.example.system.myapplication; import android.os.Bundle; import android.support.annotation.Nullable; import android.support.v7.app.AppCompatActivity; import android.view.View; import android.widget.Button; import android.widget.EditText; import java.util.Stack; public class FirstActivty extends AppCompatActivity implements View.OnClickListener { private Button btn_0; private Button btn_1; private Button btn_2; private Button btn_3; private Button btn_4; private Button btn_5; private Button btn_6; private Button btn_7; private Button btn_8; private Button btn_9; private Button btn_dian; private Button btn_jian; private Button btn_jia; private Button btn_cheng; private Button btn_chu; private Button btn_clear; private Button btn_delete; private Button btn_equal; private EditText editText; private String str = &amp;#34;&amp;#34;; @Override protected void onCreate(@Nullable Bundle savedInstanceState) { super.</description>
     </item>
     <item>
       <title>Android Activity</title>
       <link>https://xhstormr.github.io/blog/posts/android-activity/</link>
       <pubDate>Mon, 18 Jul 2016 09:57:11 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/android-activity/</guid>
-      <description></description>
+      <description>Updated on 2016-07-18
+Activity 的生命周期 根据 Activity 生命周期方法可以分为以下三组：
+完整生命周期（Entire lifetime） 前台生命周期（Foreground lifetime） 后台生命周期（Visible lifetime） 注册 Activity AndroidManifest.xml ⇳ &amp;lt;application android:allowBackup=&amp;#34;true&amp;#34; 允许导出备份文件 android:supportsRtl=&amp;#34;true&amp;#34; 支持左右翻转布局 android:label=&amp;#34;@string/app_name&amp;#34; 应用名称 android:icon=&amp;#34;@mipmap/ic_launcher&amp;#34; 应用图标 android:theme=&amp;#34;@style/AppTheme&amp;#34;&amp;gt; 应用主题 &amp;lt;activity android:name=&amp;#34;com.example.system.myapplication.MainActivity&amp;#34;&amp;gt; 注册 Activity &amp;lt;intent-filter&amp;gt; 标签 &amp;lt;action android:name=&amp;#34;android.intent.action.MAIN&amp;#34;/&amp;gt; 设置为入口 Activity &amp;lt;category android:name=&amp;#34;android.intent.category.LAUNCHER&amp;#34;/&amp;gt; &amp;lt;/intent-filter&amp;gt; &amp;lt;/activity&amp;gt; 其余组件 &amp;lt;/application&amp;gt; 保护 Activity 应用A - AndroidManifest.xml ⇳ &amp;lt;permission android:name=&amp;#34;aa.bb.cc.dd&amp;#34; android:protectionLevel=&amp;#34;normal&amp;#34;/&amp;gt; &amp;lt;activity android:name=&amp;#34;.MainActivity&amp;#34; android:permission=&amp;#34;aa.bb.cc.dd&amp;#34;/&amp;gt; 添加权限，受到保护 应用B - AndroidManifest.xml ⇳ &amp;lt;uses-permission android:name=&amp;#34;aa.bb.cc.dd&amp;#34;/&amp;gt; 申请权限 Activity 之间的通信 1 --- AndroidManifest.xml ⇳ &amp;lt;activity android:name=&amp;#34;.</description>
     </item>
     <item>
       <title>自定义 Android 控件</title>
       <link>https://xhstormr.github.io/blog/posts/android-custom-controls/</link>
       <pubDate>Wed, 13 Jul 2016 16:48:22 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/android-custom-controls/</guid>
-      <description></description>
+      <description>Updated on 2016-07-13
+通过自定义 Android 控件实现多个文本跑马灯效果。
+单个跑马灯 布局文件 &amp;lt;TextView android:id=&amp;#34;@+id/textView1&amp;#34; android:layout_width=&amp;#34;match_parent&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34; android:text=&amp;#34;Long Text,Long Text,Long Text.&amp;#34; android:textSize=&amp;#34;30sp&amp;#34; android:singleLine=&amp;#34;true&amp;#34; 强制为单行 android:ellipsize=&amp;#34;marquee&amp;#34; 文字溢出效果为跑马灯（需要在选中状态） android:focusable=&amp;#34;true&amp;#34; 可以设为选中状态 android:focusableInTouchMode=&amp;#34;true&amp;#34; 在触摸模式下可以设为选中状态 /&amp;gt; 多个跑马灯 布局文件 &amp;lt;com.example.system.myapplication.MyTextView 使用自定义控件的类 android:id=&amp;#34;@+id/textView1&amp;#34; android:layout_width=&amp;#34;match_parent&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34; android:text=&amp;#34;Long Text,Long Text,Long Text.&amp;#34; android:textSize=&amp;#34;30sp&amp;#34; android:singleLine=&amp;#34;true&amp;#34; 强制为单行 android:ellipsize=&amp;#34;marquee&amp;#34; 文字溢出效果为跑马灯（需要在选中状态） /&amp;gt; &amp;lt;com.example.system.myapplication.MyTextView android:id=&amp;#34;@+id/textView2&amp;#34; android:layout_width=&amp;#34;match_parent&amp;#34; android:layout_height=&amp;#34;wrap_content&amp;#34; android:text=&amp;#34;Long Text,Long Text,Long Text.&amp;#34; android:textSize=&amp;#34;30sp&amp;#34; android:singleLine=&amp;#34;true&amp;#34; android:ellipsize=&amp;#34;marquee&amp;#34; /&amp;gt; ---- 自定义控件的类 - MyTextView public class MyTextView extends TextView { 继承于 TextView 并重写它的 isFocused() 方法 public MyTextView(Context context) { super(context); } public MyTextView(Context context, AttributeSet attrs) { super(context, attrs); } public MyTextView(Context context, AttributeSet attrs, int defStyleAttr) { super(context, attrs, defStyleAttr); } @Override 重写判断是否为焦点的方法 public boolean isFocused() { return true; 始终返回 true，代表一直有焦点 } } </description>
     </item>
     <item>
       <title>实现 Android 监听事件</title>
       <link>https://xhstormr.github.io/blog/posts/android-listener/</link>
       <pubDate>Tue, 12 Jul 2016 11:25:48 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/android-listener/</guid>
-      <description></description>
+      <description>Updated on 2016-07-12
+实现 Android 监听事件的写法主要有5种：匿名内部类、内部类、外部类、接口、XML绑定。
+匿名内部类 Button button1 = (Button) findViewById(R.id.but1); //向下类型转换 button1.setOnClickListener(new View.OnClickListener() { //直接 new 接口 @Override //实现接口方法 public void onClick(View view) { System.out.println(&amp;#34;按钮1&amp;#34;); } }); 内部类 public class FirstActivity extends AppCompatActivity { @Override protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.first_layout); Button button1 = (Button) findViewById(R.id.but1); Button button2 = (Button) findViewById(R.id.but2); button1.setOnClickListener(A); //使用内部类对象 button2.setOnClickListener(A); //使用内部类对象 } private View.OnClickListener A = new View.OnClickListener() { @Override public void onClick(View v) { Log.</description>
     </item>
     <item>
       <title>自学 Android</title>
       <link>https://xhstormr.github.io/blog/posts/android/</link>
       <pubDate>Mon, 04 Jul 2016 19:30:21 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/android/</guid>
-      <description></description>
+      <description>Updated on 2016-08-27
+https://developers.google.cn/
+https://developer.android.google.cn/
+https://developer.android.google.cn/reference/kotlin/classes.html
+https://developer.android.google.cn/reference/tools/gradle-api/
+https://maven.google.com/web/
+api level
+开发环境 IntelliJ IDEA：https://www.jetbrains.com/idea/download/ Eclipse + ADT 已被 Google 弃用 Android SDK：https://developer.android.com/studio/index.html#win-tools2 Mirror1 Gradle：https://services.gradle.org/distributions/ GRADLE_HOME ➜ D:\Download\Java\gradle-2.14 PATH ➜ %GRADLE_HOME%\bin JDK：http://www.oracle.com/technetwork/java/javase/downloads/index.html 新建 Android 项目卡住 IDEA 的 Android 构建工具是 Gradle，新建项目时会联网下载对应版本的 Gradle 和 Cache。
+Gradle： C:\Users\XhstormR\IntelliJIDEAProjects\MyApplication\gradle\wrapper\gradle-wrapper.properties ⇳ distributionUrl=http\://android-mirror.bugly.qq.com:8080/gradle/gradle-3.2.1-all.zip Cache： C:\Users\XhstormR\IntelliJIDEAProjects\MyApplication\build.gradle ⇳ repositories { maven { url &amp;#34;http://maven.aliyun.com/nexus/content/groups/public/&amp;#34; } } 找不到主题文件 &amp;lt;style name=&amp;#34;AppTheme&amp;#34; parent=&amp;#34;@android:style/Theme.DeviceDefault.Light.NoActionBar&amp;#34;&amp;gt; 找不到资源文件 IDEA ➜ Build ➜ Make Project or Rebuild Project（重新生成 R.</description>
     </item>
   </channel>
 </rss>

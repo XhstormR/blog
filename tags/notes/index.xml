@@ -13,42 +13,78 @@
       <link>https://xhstormr.github.io/blog/posts/ssh-server/</link>
       <pubDate>Sat, 14 Jan 2017 08:49:47 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/ssh-server/</guid>
-      <description></description>
+      <description>Updated on 2017-01-14
+https://man.openbsd.org/sshd_config
+https://www.openssh.com/manual.html
+https://github.com/git-for-windows/git/releases/latest
+https://winscp.net/eng/download.php
+https://the.earth.li/~sgtatham/putty/latest/w64/psftp.exe
+https://the.earth.li/~sgtatham/putty/latest/w64/putty.exe
+配置 D:\Work\BLOG\GIT&amp;gt; type nul &amp;gt; etc\passwd echo sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin &amp;gt; etc\passwd md var\empty\sshd usr\bin\ssh-keygen -A 可选： type nul &amp;gt; etc\motd echo 登录信息： &amp;gt; etc\motd echo 你好！ &amp;gt;&amp;gt; etc\motd type nul &amp;gt; etc\ssh\sshd_config echo PrintMotd yes &amp;gt; etc\ssh\sshd_config echo PermitRootLogin no &amp;gt;&amp;gt; etc\ssh\sshd_config echo Subsystem sftp internal-sftp &amp;gt;&amp;gt; etc\ssh\sshd_config 设置公钥登录 ---- usr\bin\ssh-keygen copy /y &amp;#34;C:\Users\XhstormR\.ssh\id_rsa.pub&amp;#34; &amp;#34;C:\Users\XhstormR\.ssh\authorized_keys&amp;#34; echo AuthorizedKeysFile .ssh/authorized_keys &amp;gt;&amp;gt; etc\ssh\sshd_config 禁止密码登录 ---- echo PasswordAuthentication no &amp;gt;&amp;gt; etc\ssh\sshd_config PS： md .</description>
     </item>
     <item>
       <title>BiliBili API</title>
       <link>https://xhstormr.github.io/blog/posts/bilibili-api/</link>
       <pubDate>Sun, 18 Sep 2016 14:27:24 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/bilibili-api/</guid>
-      <description></description>
+      <description>Updated on 2016-09-18
+GetBilibili
+http://www.bilibili.com/video/av5262155/
+http://interface.bilibili.com/player?id=cid:8551612 &amp;lt;ip&amp;gt;221.7.77.107&amp;lt;/ip&amp;gt; &amp;lt;zoneid&amp;gt;151404674&amp;lt;/zoneid&amp;gt; &amp;lt;country&amp;gt;中国&amp;lt;/country&amp;gt; &amp;lt;isp&amp;gt;联通&amp;lt;/isp&amp;gt; &amp;lt;login&amp;gt;true&amp;lt;/login&amp;gt; &amp;lt;name&amp;gt;XhstormR [中国]&amp;lt;/name&amp;gt; &amp;lt;user&amp;gt;1824443&amp;lt;/user&amp;gt; &amp;lt;scores&amp;gt;5580&amp;lt;/scores&amp;gt; &amp;lt;money&amp;gt;793&amp;lt;/money&amp;gt; &amp;lt;face&amp;gt;http://i1.hdslb.com/bfs/face/df2cca3b4649ba7057583cd662daba034efd82f2.jpg&amp;lt;/face&amp;gt; &amp;lt;pwd&amp;gt;undefined&amp;lt;/pwd&amp;gt; &amp;lt;isadmin&amp;gt;true&amp;lt;/isadmin&amp;gt; &amp;lt;permission&amp;gt;10000,1001&amp;lt;/permission&amp;gt; &amp;lt;time&amp;gt;1474189543&amp;lt;/time&amp;gt; &amp;lt;rank&amp;gt;10000&amp;lt;/rank&amp;gt; &amp;lt;level&amp;gt;正式会员&amp;lt;/level&amp;gt; &amp;lt;level_info&amp;gt;{&amp;#34;current_level&amp;#34;:4,&amp;#34;current_min&amp;#34;:4500,&amp;#34;current_exp&amp;#34;:7441,&amp;#34;next_exp&amp;#34;:10800}&amp;lt;/level_info&amp;gt; &amp;lt;vip&amp;gt;{&amp;#34;vipType&amp;#34;:0,&amp;#34;vipDueDate&amp;#34;:0,&amp;#34;dueRemark&amp;#34;:&amp;#34;&amp;#34;,&amp;#34;accessStatus&amp;#34;:1,&amp;#34;vipStatus&amp;#34;:0,&amp;#34;vipStatusWarn&amp;#34;:&amp;#34;&amp;#34;}&amp;lt;/vip&amp;gt; &amp;lt;official_verify&amp;gt;{&amp;#34;type&amp;#34;:-1,&amp;#34;desc&amp;#34;:&amp;#34;&amp;#34;}&amp;lt;/official_verify&amp;gt; &amp;lt;shot&amp;gt;false&amp;lt;/shot&amp;gt; &amp;lt;suggest_comment&amp;gt;false&amp;lt;/suggest_comment&amp;gt; &amp;lt;maxlimit&amp;gt;1000&amp;lt;/maxlimit&amp;gt; &amp;lt;chatid&amp;gt;8551612&amp;lt;/chatid&amp;gt; &amp;lt;server&amp;gt;chat.bilibili.com&amp;lt;/server&amp;gt; &amp;lt;vtype&amp;gt;vupload&amp;lt;/vtype&amp;gt; &amp;lt;aid&amp;gt;5262155&amp;lt;/aid&amp;gt; &amp;lt;typeid&amp;gt;82&amp;lt;/typeid&amp;gt; &amp;lt;pid&amp;gt;1&amp;lt;/pid&amp;gt; &amp;lt;click&amp;gt;97&amp;lt;/click&amp;gt; &amp;lt;favourites&amp;gt;1&amp;lt;/favourites&amp;gt; &amp;lt;credits&amp;gt;0&amp;lt;/credits&amp;gt; &amp;lt;coins&amp;gt;0&amp;lt;/coins&amp;gt; &amp;lt;fw_click&amp;gt;4&amp;lt;/fw_click&amp;gt; &amp;lt;duration&amp;gt;4:43&amp;lt;/duration&amp;gt; &amp;lt;arctype&amp;gt;Copy&amp;lt;/arctype&amp;gt; &amp;lt;danmu&amp;gt;0&amp;lt;/danmu&amp;gt; &amp;lt;bottom&amp;gt;0&amp;lt;/bottom&amp;gt; &amp;lt;sinapi&amp;gt;1&amp;lt;/sinapi&amp;gt; &amp;lt;acceptguest&amp;gt;true&amp;lt;/acceptguest&amp;gt; &amp;lt;acceptaccel&amp;gt;false&amp;lt;/acceptaccel&amp;gt; http://interface.bilibili.com/count?key=27f582250563d5d6b11d6833&amp;amp;aid=5262155 111;$(&amp;#39;#dianji&amp;#39;).html(&amp;#39;97&amp;#39;);$(&amp;#39;#stow_count&amp;#39;).html(&amp;#39;1&amp;#39;);$(&amp;#39;#v_ctimes&amp;#39;).html(0);$(&amp;#39;.v_ctimes&amp;#39;).html(0);$(&amp;#39;#dm_count&amp;#39;).html(0);$(&amp;#39;.dm_count&amp;#39;).html(0); http://www.bilibili.com/widget/getPageList?aid=4044639 [ { &amp;#34;page&amp;#34;:1, &amp;#34;pagename&amp;#34;:&amp;#34;01 \u6df1\u5177\u4f20\u7edf\u7684\u53e4\u5178\u6587\u5b66\u90e8\u4e4b\u91cd\u751f&amp;#34;, &amp;#34;cid&amp;#34;:6525010 }, { &amp;#34;page&amp;#34;:2, &amp;#34;pagename&amp;#34;:&amp;#34;02 \u503c\u5f97\u5938\u8000\u7684\u53e4\u5178\u6587\u5b66\u90e8\u4e4b\u6d3b\u52a8&amp;#34;, &amp;#34;cid&amp;#34;:6525011 }, { &amp;#34;page&amp;#34;:3, &amp;#34;pagename&amp;#34;:&amp;#34;03 \u53e6\u6709\u9690\u60c5\u7684\u53e4\u5178\u6587\u5b66\u90e8\u4e4b\u540e\u88d4&amp;#34;, &amp;#34;cid&amp;#34;:6525012 }, { &amp;#34;page&amp;#34;:4, &amp;#34;pagename&amp;#34;:&amp;#34;04 \u7efd\u653e\u8363\u5149\u7684\u53e4\u5178\u6587\u5b66\u90e8\u4e4b\u8fc7\u5f80&amp;#34;, &amp;#34;cid&amp;#34;:6525013 }, { &amp;#34;page&amp;#34;:5, &amp;#34;pagename&amp;#34;:&amp;#34;05 \u72ec\u5177\u5386\u53f2\u7684\u53e4\u5178\u6587\u5b66\u90e8\u4e4b\u771f\u76f8&amp;#34;, &amp;#34;cid&amp;#34;:6525014 }, { &amp;#34;page&amp;#34;:6, &amp;#34;pagename&amp;#34;:&amp;#34;06 \u72af\u4e0b\u5927\u7f6a&amp;#34;, &amp;#34;cid&amp;#34;:6525015 }, { &amp;#34;page&amp;#34;:7, &amp;#34;pagename&amp;#34;:&amp;#34;07 \u521d\u89c1\u771f\u8eab&amp;#34;, &amp;#34;cid&amp;#34;:6525016 }, { &amp;#34;page&amp;#34;:8, &amp;#34;pagename&amp;#34;:&amp;#34;08 \u53bb\u53c2\u52a0\u8bd5\u6620\u4f1a\u5427\uff01&amp;#34;, &amp;#34;cid&amp;#34;:6525017 }, { &amp;#34;page&amp;#34;:9, &amp;#34;pagename&amp;#34;:&amp;#34;09 \u53e4\u4e18\u5e9f\u6751\u6740\u4eba\u4e8b\u4ef6&amp;#34;, &amp;#34;cid&amp;#34;:6525018 }, { &amp;#34;page&amp;#34;:10, &amp;#34;pagename&amp;#34;:&amp;#34;10 \u4e07\u4eba\u7684\u6b7b\u89d2&amp;#34;, &amp;#34;cid&amp;#34;:6525019 }, { &amp;#34;page&amp;#34;:11, &amp;#34;pagename&amp;#34;:&amp;#34;11 \u611a\u8005\u7684\u7247\u5c3e&amp;#34;, &amp;#34;cid&amp;#34;:6525020 }, { &amp;#34;page&amp;#34;:12, &amp;#34;pagename&amp;#34;:&amp;#34;11.</description>
     </item>
     <item>
       <title>HTTP Status Code</title>
       <link>https://xhstormr.github.io/blog/posts/http-status-code/</link>
       <pubDate>Thu, 12 May 2016 07:02:01 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/http-status-code/</guid>
-      <description></description>
+      <description>Updated on 2016-05-13
+W3C | Wikipedia | IETF | HTTPStatus
+我把 HTTP 状态码按其类型整理在这里，以便查阅。
+1xx 临时响应 表示临时响应并需要请求者继续执行操作
+100 继续 - 服务器返回此代码表示已收到请求的第一部分，正在等待其余部分。
+101 切换协议 - 请求者已要求服务器切换协议，服务器已确认并准备切换。
+2xx 成功 表示成功处理了请求
+200 正常 - 服务器成功处理了请求。
+201 已创建 - 请求成功并且服务器创建了新的资源。
+202 已接受 - 服务器已接受请求，但尚未处理。
+203 非授权信息 - 服务器成功处理了请求，但返回的信息可能来自另一来源。
+204 无内容 - 服务器成功处理了请求，但没有返回任何内容。
+205 重置内容 - 服务器成功处理了请求，但没有返回任何内容，并要求请求者重置文档视图。
+206 部分内容 - 服务器成功处理了部分 GET 请求。
+3xx 重定向 表示要完成请求，需要进一步操作
+300 多种选择 - 针对请求，服务器可执行多种操作，或提供操作列表供请求者选择。
+301 永久移动 - 请求的网页已永久移动到新位置，会自动将请求者转到新位置。
+302 临时移动 - 服务器目前从不同位置的网页响应请求，会自动将请求者转到不同的位置。</description>
     </item>
     <item>
       <title>Aria2 Configuration</title>
       <link>https://xhstormr.github.io/blog/posts/aria2/</link>
       <pubDate>Thu, 21 Apr 2016 21:58:45 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/aria2/</guid>
-      <description></description>
+      <description>Updated on 2016-08-23
+https://github.com/aria2/aria2
+aria2 is a lightweight multi-protocol &amp;amp; multi-source command-line download utility. It supports HTTP/HTTPS, FTP, SFTP, BitTorrent and Metalink. aria2 can be manipulated via built-in JSON-RPC and XML-RPC interfaces.The next generation download utility.
+我把我自定义的 Aria2 整理在这里，以便查阅。
+dir=D:\Download disk-cache=32M enable-mmap=true max-mmap-limit=2048M file-allocation=falloc continue=true max-concurrent-downloads=3 max-connection-per-server=10 min-split-size=5M split=10 disable-ipv6=true input-file=aria2.session save-session=aria2.session save-session-interval=60 listen-port=51413 enable-dht=true bt-enable-lpd=true follow-torrent=true http-no-cache=true check-certificate=false seed-time=0 max-overall-upload-limit=10K remote-time=true content-disposition-default-utf8=true user-agent=Windows referer=https://www.bilibili.com/ bt-tracker=udp://93.158.213.92:1337/announce,udp://45.154.253.7:6969/announce enable-rpc=true rpc-listen-all=true rpc-allow-origin-all=true rpc-secret=123456 # ws://token:123456@127.</description>
     </item>
     <item>
       <title>CMD 使用 UTF-8 编码</title>
       <link>https://xhstormr.github.io/blog/posts/cmd-use-utf8/</link>
       <pubDate>Sun, 27 Mar 2016 16:28:03 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/cmd-use-utf8/</guid>
-      <description></description>
+      <description>Updated on 2017-01-16
+修改 CMD 页面编码 chcp 65001 改用 UTF-8 编码 修改 CMD 页面字体 在标题栏上点击右键，选择 &amp;#34;属性&amp;#34; -&amp;gt; &amp;#34;字体&amp;#34;，将字体修改为 True Type 字体 &amp;#34;Consolas&amp;#34;。 其他编码格式 chcp 437 英文 chcp 932 日文 chcp 949 韩文 chcp 936 简体中文 chcp 950 繁体中文 修改 CMD 默认页面编码 更改 HKEY_CURRENT_USER\Console 或 HKEY_CURRENT_USER\Console\%SystemRoot%_system32_cmd.exe 中的 CodePage 为页面代码的 16 进制格式 使 CMD 支持 ANSI 转义序列 https://github.com/adoxa/ansicon/releases/latest </description>
     </item>
     <item>
       <title>uBlock Origin Filter</title>
       <link>https://xhstormr.github.io/blog/posts/ublock-origin-filter/</link>
       <pubDate>Sat, 27 Feb 2016 22:12:44 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/ublock-origin-filter/</guid>
-      <description></description>
+      <description>Updated on 2018-03-23
+uBlock Origin
+uBlock Origin is NOT an &amp;ldquo;ad blocker&amp;rdquo;: it is a wide-spectrum blocker &amp;ndash; which happens to be able to function as a mere &amp;ldquo;ad blocker&amp;rdquo;. The default behavior of uBlock Origin when newly installed is to block ads, trackers and malware sites.
+我把我自定义的 uBlock Origin Filter 整理在这里，以便查阅。
+{ &amp;#34;timeStamp&amp;#34;: 1525574244910, &amp;#34;version&amp;#34;: &amp;#34;1.16.4&amp;#34;, &amp;#34;userSettings&amp;#34;: { &amp;#34;advancedUserEnabled&amp;#34;: true, &amp;#34;alwaysDetachLogger&amp;#34;: false, &amp;#34;autoUpdate&amp;#34;: true, &amp;#34;cloudStorageEnabled&amp;#34;: true, &amp;#34;collapseBlocked&amp;#34;: true, &amp;#34;colorBlindFriendly&amp;#34;: false, &amp;#34;contextMenuEnabled&amp;#34;: true, &amp;#34;dynamicFilteringEnabled&amp;#34;: true, &amp;#34;externalLists&amp;#34;: &amp;#34;&amp;#34;, &amp;#34;firewallPaneMinimized&amp;#34;: true, &amp;#34;hyperlinkAuditingDisabled&amp;#34;: true, &amp;#34;ignoreGenericCosmeticFilters&amp;#34;: false, &amp;#34;largeMediaSize&amp;#34;: 50, &amp;#34;parseAllABPHideFilters&amp;#34;: true, &amp;#34;prefetchingDisabled&amp;#34;: true, &amp;#34;requestLogMaxEntries&amp;#34;: 1000, &amp;#34;showIconBadge&amp;#34;: true, &amp;#34;tooltipsDisabled&amp;#34;: false, &amp;#34;webrtcIPAddressHidden&amp;#34;: true }, &amp;#34;selectedFilterLists&amp;#34;: [ &amp;#34;CHN-0&amp;#34;, &amp;#34;CHN-1&amp;#34;, &amp;#34;plowe-0&amp;#34;, &amp;#34;easyprivacy&amp;#34;, &amp;#34;easylist&amp;#34;, &amp;#34;user-filters&amp;#34;, &amp;#34;ublock-unbreak&amp;#34;, &amp;#34;ublock-abuse&amp;#34;, &amp;#34;ublock-privacy&amp;#34;, &amp;#34;ublock-experimental&amp;#34;, &amp;#34;ublock-badware&amp;#34;, &amp;#34;ublock-annoyances&amp;#34;, &amp;#34;ublock-filters&amp;#34; ], &amp;#34;hiddenSettings&amp;#34;: { &amp;#34;assetFetchTimeout&amp;#34;: 30, &amp;#34;autoUpdateAssetFetchPeriod&amp;#34;: 120, &amp;#34;autoUpdatePeriod&amp;#34;: 7, &amp;#34;ignoreRedirectFilters&amp;#34;: false, &amp;#34;ignoreScriptInjectFilters&amp;#34;: false, &amp;#34;manualUpdateAssetFetchPeriod&amp;#34;: 500, &amp;#34;popupFontSize&amp;#34;: &amp;#34;unset&amp;#34;, &amp;#34;suspendTabsUntilReady&amp;#34;: false, &amp;#34;userResourcesLocation&amp;#34;: &amp;#34;unset&amp;#34; }, &amp;#34;netWhitelist&amp;#34;: &amp;#34;127.</description>
     </item>
   </channel>
 </rss>

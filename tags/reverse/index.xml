@@ -13,14 +13,18 @@
       <link>https://xhstormr.github.io/blog/posts/patch-sublimetext/</link>
       <pubDate>Sun, 20 Aug 2023 15:57:41 +0300</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/patch-sublimetext/</guid>
-      <description></description>
+      <description>Sublime Text Build 4152
+https://www.sublimetext.com/download
+https://hexed.it/
+80 78 05 00 0F 94 C1 -&amp;gt; C6 40 05 01 48 85 C9 Patch /Applications/&amp;#39;Sublime Text.app&amp;#39;/Contents/MacOS/sublime_text Sign codesign --force --deep --sign - /Applications/&amp;#39;Sublime Text.app&amp;#39; Config curl -o ~/Library/&amp;#39;Application Support/Sublime Text&amp;#39;/Packages/User/Dracula.tmTheme https://raw.githubusercontent.com/dracula/sublime/master/Dracula.tmTheme Preferences.sublime-settings { &amp;#34;color_scheme&amp;#34;: &amp;#34;Packages/User/Dracula.tmTheme&amp;#34;, &amp;#34;font_face&amp;#34;: &amp;#34;JetBrainsMono Nerd Font&amp;#34;, &amp;#34;font_size&amp;#34;: 13, &amp;#34;word_wrap&amp;#34;: false, &amp;#34;highlight_line&amp;#34;: true, &amp;#34;highlight_modified_tabs&amp;#34;: true, &amp;#34;match_brackets_angle&amp;#34;: true, &amp;#34;fade_fold_buttons&amp;#34;: false, &amp;#34;save_on_focus_lost&amp;#34;: true, &amp;#34;translate_tabs_to_spaces&amp;#34;: true, &amp;#34;ensure_newline_at_eof_on_save&amp;#34;: true, &amp;#34;always_show_minimap_viewport&amp;#34;: true, &amp;#34;draw_minimap_border&amp;#34;: true, &amp;#34;draw_white_space&amp;#34;: &amp;#34;all&amp;#34;, &amp;#34;trim_trailing_white_space_on_save&amp;#34;: &amp;#34;all&amp;#34;, &amp;#34;caret_style&amp;#34;: &amp;#34;blink&amp;#34;, &amp;#34;rulers&amp;#34;: [[80, &amp;#34;stippled&amp;#34;]], } Reference https://gist.</description>
     </item>
     <item>
       <title>Patch SecureCRT &#43; SecureFX Bundle</title>
       <link>https://xhstormr.github.io/blog/posts/patch-securecrt/</link>
       <pubDate>Sun, 29 Jan 2023 22:12:53 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/patch-securecrt/</guid>
-      <description></description>
+      <description> Mac 版本和 Windows 的注册机通用，Python 跨平台编译，搜索特征字符串进行替换。
+Bundle : scrt-sfx-9.3.1-2929.macos_x64.dmg Patcher: xf-vdkkg.exe License: Version: SecureCRT and SecureFX 9.3.1 (x64 build 2929) Name: X-FORCE Serial Number: 13-85-324670 License Key: AC9TQJ 6TR1SE ZQ1AQ8 MBBGEM ADED1M E28774 QPQ8TJ NP3MQW Issue Date: 01-29-2023 Config: /Users/user/Library/Application Support/VanDyke/SecureCRT/ Patch /Applications/SecureFX.app/Contents/MacOS/SecureFX /Applications/SecureCRT.app/Contents/MacOS/SecureCRT Sign codesign --force --deep --sign - /Applications/SecureCRT.app codesign --force --deep --sign - /Applications/SecureFX.app Reference https://www.unix.com/man-page/osx/1/codesign/ </description>
     </item>
   </channel>
 </rss>

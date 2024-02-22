@@ -13,14 +13,16 @@
       <link>https://xhstormr.github.io/blog/posts/android-arm/</link>
       <pubDate>Thu, 26 Nov 2020 17:11:51 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/android-arm/</guid>
-      <description></description>
+      <description>Updated on 2020-11-26
+AnBox https://docs.anbox.io/userguide/install.html https://github.com/geeks-r-us/anbox-playstore-installer Android-x86 https://mirrors.bfsu.edu.cn/osdn/android-x86/67834/android-x86_64-7.1-r4-k419.iso https://github.com/Rprop/libhoudini https://www.cnblogs.com/gao241/archive/2013/03/11/2953669.html 在 BIOS 界面选择 Debug 模式，之后： vi /mnt/grub/menu.lst ---- 在第一个 quiet 之后追加 nomodeset curl http://dl.android-x86.org/houdini/7_y/houdini.sfs -o /system/etc/houdini7_y.sfs curl http://dl.android-x86.org/houdini/7_z/houdini.sfs -o /system/etc/houdini7_z.sfs enable_nativebridge 之后到设置-&amp;gt;应用兼容性-&amp;gt;兼容模式-&amp;gt;启用 Alt-F1 = Console 模式 Alt-F7 = GUI 模式 adb connect 192.168.157.169 adb root Reference https://www.zhihu.com/question/48522805 </description>
     </item>
     <item>
       <title>TWRP Magisk EdXposed</title>
       <link>https://xhstormr.github.io/blog/posts/twrp-magisk-xposed/</link>
       <pubDate>Tue, 17 Dec 2019 10:34:56 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/twrp-magisk-xposed/</guid>
-      <description></description>
+      <description>Updated on 2019-12-17
+ADB https://dl.google.com/android/repository/repository2-1.xml curl -k https://dl.google.com/android/repository/platform-tools_r29.0.1-windows.zip | busybox unzip - Bootloader Driver https://dl.google.com/android/repository/addon2-1.xml curl -k https://dl.google.com/android/repository/usb_driver_r12-windows.zip | busybox unzip - TWRP (Deprecated) Redmi 6: https://dl.twrp.me/cereus/ OnePlus 5: https://dl.twrp.me/cheeseburger_dumpling/ adb devices -l adb reboot bootloader fastboot devices -l fastboot oem unlock fastboot flash recovery twrp.img fastboot reboot bootloader Magisk https://topjohnwu.github.io/Magisk/install.html https://github.com/topjohnwu/Magisk/releases/latest fastboot flash boot magisk_patched-25200_OIUkx.img # patched boot.img fastboot flash vbmeta --disable-verity --disable-verification vbmeta.img fastboot reboot EdXposed (Deprecated) https://github.com/RikkaApps/Riru/releases/latest https://github.</description>
     </item>
   </channel>
 </rss>

@@ -13,28 +13,46 @@
       <link>https://xhstormr.github.io/blog/posts/spring-mvc/</link>
       <pubDate>Sat, 17 Jun 2017 10:49:25 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/spring-mvc/</guid>
-      <description></description>
+      <description>Updated on 2017-06-22
+MappingJackson2HttpMessageConverter
+https://github.com/thymeleaf/thymeleaf
+http://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html
+Concept REST：将资源的 状态 以 适合 客户端的 格式 从服务端 传递 至客户端（或者反过来）。 资源通过 URL 进行标识，通过 HTTP Method 进行管理，通过 HTTP Header 表述格式。 资源：URL（统一资源定位器） 格式：Accept、Content-Type 头部信息。 动词：CRUD（增删改查） 幂等：同一操作 执行 任意次数 所产生的影响或结果 相同。 Configuration build.gradle.kts plugin(&amp;#34;war&amp;#34;) compile(&amp;#34;org.springframework:spring-webmvc:+&amp;#34;) compile(&amp;#34;javax.servlet:javax.servlet-api:+&amp;#34;) compile(&amp;#34;org.thymeleaf:thymeleaf-spring4:+&amp;#34;) compile(&amp;#34;org.slf4j:slf4j-jdk14:+&amp;#34;) compile(&amp;#34;org.hibernate:hibernate-validator:5.+&amp;#34;) compile(&amp;#34;com.fasterxml.jackson.core:jackson-databind:+&amp;#34;) Code AppConfig import org.springframework.web.filter.CharacterEncodingFilter import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer import javax.servlet.Filter import javax.servlet.MultipartConfigElement import javax.servlet.ServletRegistration class AppConfig : AbstractAnnotationConfigDispatcherServletInitializer() { override fun getServletMappings(): Array&amp;lt;String&amp;gt; = arrayOf(&amp;#34;/&amp;#34;) override fun getRootConfigClasses(): Array&amp;lt;Class&amp;lt;*&amp;gt;&amp;gt; = arrayOf(RootConfig::class.</description>
     </item>
     <item>
       <title>Spring Transaction</title>
       <link>https://xhstormr.github.io/blog/posts/spring-transaction/</link>
       <pubDate>Thu, 15 Jun 2017 12:53:18 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/spring-transaction/</guid>
-      <description></description>
+      <description>Updated on 2017-06-15
+https://github.com/brettwooldridge/HikariCP
+https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/transaction/TransactionDefinition.html
+https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/transaction/annotation/Transactional.html
+Concept 事务的传播行为：Propagation 作用：解决业务层中方法之间互相调用而产生的事务如何传递的问题。 在 相同 事务中：REQUIRED 在 不同 事务中：REQUIRES_NEW 在 嵌套 事务中：NESTED 事务的隔离级别：Isolation 只读事务：readOnly 作用：禁止 增删改 操作。 发生异常 回滚事务：-Exception 发生异常不回滚事务：+Exception Configuration build.gradle.kts compile(&amp;#34;org.springframework:spring-orm:+&amp;#34;) compile(&amp;#34;org.springframework:spring-context:+&amp;#34;) compile(&amp;#34;com.zaxxer:HikariCP:+&amp;#34;) compile(&amp;#34;org.slf4j:slf4j-jdk14:+&amp;#34;) compile(&amp;#34;org.postgresql:postgresql:+&amp;#34;) compile(&amp;#34;org.hibernate:hibernate-core:+&amp;#34;) compile(&amp;#34;org.hibernate:hibernate-hikaricp:+&amp;#34;) compile(&amp;#34;org.hibernate:hibernate-infinispan:+&amp;#34;) hibernate.properties hibernate.show_sql=true hibernate.format_sql=false hibernate.hbm2ddl.auto=update hibernate.dialect=org.hibernate.dialect.PostgreSQL95Dialect hibernate.current_session_context_class=org.springframework.orm.hibernate5.SpringSessionContext hibernate.connection.provider_class=org.hibernate.hikaricp.internal.HikariCPConnectionProvider hibernate.hikari.dataSourceClassName=org.postgresql.ds.PGSimpleDataSource hibernate.hikari.dataSource.url=jdbc:postgresql://127.0.0.1:5432/postgres hibernate.hikari.username=123 hibernate.hikari.password=123456 #hibernate.hikari.driverClassName=org.postgresql.Driver #hibernate.hikari.jdbcUrl=jdbc:postgresql://127.0.0.1:5432/postgres hibernate.cache.use_query_cache=true hibernate.cache.region.factory_class=org.hibernate.cache.infinispan.InfinispanRegionFactory hibernate.cache.infinispan.cfg=org/hibernate/cache/infinispan/builder/infinispan-configs-local.xml hibernate.cfg.xml &amp;lt;?xml version=&amp;#39;1.0&amp;#39; encoding=&amp;#39;utf-8&amp;#39;?&amp;gt; &amp;lt;!DOCTYPE hibernate-configuration PUBLIC &amp;#34;-//Hibernate/Hibernate Configuration DTD//EN&amp;#34; &amp;#34;http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd&amp;#34;&amp;gt; &amp;lt;hibernate-configuration&amp;gt; &amp;lt;session-factory&amp;gt; &amp;lt;mapping class=&amp;#34;entity.Account&amp;#34;/&amp;gt; &amp;lt;/session-factory&amp;gt; &amp;lt;/hibernate-configuration&amp;gt; 编程式事务管理 基于 TransactionTemplate entity Account package entity import org.</description>
     </item>
     <item>
       <title>Spring Framework</title>
       <link>https://xhstormr.github.io/blog/posts/spring2/</link>
       <pubDate>Wed, 07 Jun 2017 13:20:02 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/spring2/</guid>
-      <description></description>
+      <description>Updated on 2017-06-07
+Bean 的条件化注册 MyCondition import org.springframework.context.annotation.Condition; import org.springframework.context.annotation.ConditionContext; import org.springframework.core.env.Environment; import org.springframework.core.type.AnnotatedTypeMetadata; public class MyCondition implements Condition { @Override public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) { Environment environment = context.getEnvironment(); return environment.getProperty(&amp;#34;OS&amp;#34;).equals(&amp;#34;Windows_NT&amp;#34;); 注册条件 } } AppConfig import org.springframework.context.annotation.Bean; import org.springframework.context.annotation.Conditional; import org.springframework.context.annotation.Configuration; @Configuration public class AppConfig { @Bean @Conditional(MyCondition.class) 指示注册条件 public String str() { return &amp;#34;Hello, Windows&amp;#34;; } } Main import org.springframework.context.annotation.AnnotationConfigApplicationContext; public class Main { public static void main(String[] args) { AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.</description>
     </item>
     <item>
       <title>Spring Framework</title>
       <link>https://xhstormr.github.io/blog/posts/spring/</link>
       <pubDate>Sun, 21 May 2017 20:11:22 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/spring/</guid>
-      <description></description>
+      <description>Updated on 2017-07-11
+https://spring.io/projects
+https://github.com/spring-projects/spring-framework
+https://github.com/spring-projects/spring-boot
+Dependency
+Spring Doc | Spring API
+Spring Boot Doc | Spring Boot API
+Spring Security Doc | Spring Security API
+Spring Data JPA Doc | Spring Data JPA API
+Concept 控制反转（IOC）：应用程序本身不负责依赖对象的创建与维护，而是由外部容器负责管理。 依赖注入（DI）是其实现方式。 依赖对象 通过接口 了解注入对象并 表明依赖关系。（面向接口编程） 作用：负责 创建 对象并 维护 对象之间的依赖关系，使应用对象彼此之间保持 低耦合。 对象解耦。 面向切面编程（AOP）：用另一种编程架构的思想来 补充面向对象编程（OOP）的思想。 AOP 进行 提取，OOP 进行 封装。 AOP 主要的模块单元是 切面（Aspect），而 OOP 主要的模块单元是 类（Class）。 作用：使诸如日志管理等分散在各个应用对象的 逻辑（横切关注点）模块化为切面。 功能解耦。 装配：Wiring。 感知：Aware。 组件：@Component 控制层：@Controller 业务层：@Service 持久层：@Repository Configuration build.</description>
     </item>
   </channel>
 </rss>

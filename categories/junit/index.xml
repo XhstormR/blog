@@ -13,7 +13,9 @@
       <link>https://xhstormr.github.io/blog/posts/junit/</link>
       <pubDate>Fri, 12 May 2017 16:30:19 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/junit/</guid>
-      <description></description>
+      <description>Updated on 2017-05-12
+https://github.com/junit-team/junit5
+工作原理 ABC import org.junit.*; public class ABC { @BeforeClass public static void A() { 静态方法 System.out.println(&amp;#34;A&amp;#34;); } @AfterClass public static void B() { 静态方法 System.out.println(&amp;#34;B&amp;#34;); } @Before public void a() { System.out.println(&amp;#34;a&amp;#34;); } @After public void b() { System.out.println(&amp;#34;b&amp;#34;); } @Test 测试用例 public void test1() { System.out.println(&amp;#34;test1&amp;#34;); Assert.assertEquals(2, 1 + 1); 断言（预期值，实际值） } @Test(expected = AssertionError.class) 预期异常 public void test2() { System.out.println(&amp;#34;test2&amp;#34;); Assert.fail(); 直接失败（抛出 AssertionError 异常） } @Test(timeout = 1000) 超时设置（单位：毫秒） public void test3() throws InterruptedException { System.</description>
     </item>
   </channel>
 </rss>

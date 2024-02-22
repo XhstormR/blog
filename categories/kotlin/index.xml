@@ -13,7 +13,12 @@
       <link>https://xhstormr.github.io/blog/posts/kotlin-coroutines/</link>
       <pubDate>Wed, 05 Feb 2020 23:08:38 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/kotlin-coroutines/</guid>
-      <description></description>
+      <description>Updated on 2020-02-05
+https://github.com/openjdk/jfx
+https://openjfx.io/javadoc/20/
+https://github.com/Kotlin/kotlinx.coroutines
+https://kotlin.github.io/kotlinx.coroutines/
+Reference JavaFX http://www.javafxchina.net/ http://tutorials.jenkov.com/javafx/index.html https://gluonhq.com/products/scene-builder/ https://github.com/JonathanGiles/scenic-view Kotlin coroutines coroutines-guide coroutines-guide-ui </description>
     </item>
   </channel>
 </rss>

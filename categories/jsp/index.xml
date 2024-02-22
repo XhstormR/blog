@@ -13,42 +13,59 @@
       <link>https://xhstormr.github.io/blog/posts/jsp-practice/</link>
       <pubDate>Fri, 05 May 2017 18:43:44 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/jsp-practice/</guid>
-      <description></description>
+      <description>Updated on 2017-05-05
+生成验证码并验证 原生 JSP index.jsp ---- &amp;lt;%@ page contentType=&amp;#34;text/html;charset=UTF-8&amp;#34; language=&amp;#34;java&amp;#34; %&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;title&amp;gt;A&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;img id=&amp;#34;checkImg&amp;#34; src=&amp;#34;./abc&amp;#34;&amp;gt; &amp;lt;a href=&amp;#34;javascript:a()&amp;#34;&amp;gt;看不清!&amp;lt;/a&amp;gt; &amp;lt;form action=&amp;#34;./def&amp;#34; method=&amp;#34;post&amp;#34;&amp;gt; 验证码: &amp;lt;input name=&amp;#34;checkCode&amp;#34; type=&amp;#34;text&amp;#34; maxlength=&amp;#34;4&amp;#34; size=&amp;#34;4&amp;#34;&amp;gt; &amp;lt;input type=&amp;#34;submit&amp;#34;&amp;gt; &amp;lt;/form&amp;gt; &amp;lt;script&amp;gt; function a() { document.getElementById(&amp;#34;checkImg&amp;#34;).src = &amp;#34;./abc?&amp;#34; + new Date().getTime(); URL 附上时间戳，来改变网址，避免缓存 } &amp;lt;/script&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; MyServlet1 package a import java.awt.Color import java.awt.Font import java.awt.image.BufferedImage import java.util.* import javax.imageio.ImageIO import javax.servlet.annotation.WebServlet import javax.servlet.http.HttpServlet import javax.servlet.http.HttpServletRequest import javax.</description>
     </item>
     <item>
       <title>JSP Listener</title>
       <link>https://xhstormr.github.io/blog/posts/jsp-listener/</link>
       <pubDate>Tue, 02 May 2017 15:08:50 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/jsp-listener/</guid>
-      <description></description>
+      <description>Updated on 2017-05-02
+工作原理 用于监听 ServletContext、ServletRequest、HttpSession 等对象的创建、销毁以及属性增删事件。
+按监听对象划分 ServletContext（application） ServletContextListener ServletContextAttributeListener ServletRequest（request） ServletRequestListener ServletRequestAttributeListener HttpSession（session） HttpSessionListener HttpSessionAttributeListener JavaBean HttpSessionBindingListener（绑定 - 解绑） HttpSessionActivationListener（钝化 - 活化） 按监听事件划分 对象的创建与销毁 ServletContextListener ServletRequestListener HttpSessionListener 属性的增加、删除与替换 ServletContextAttributeListener ServletRequestAttributeListener HttpSessionAttributeListener 绑定至 HttpSession 中属性状态的改变 HttpSessionBindingListener（绑定 - 解绑） HttpSessionActivationListener（钝化 - 活化） User package a import java.io.Serializable import javax.servlet.http.HttpSessionActivationListener import javax.servlet.http.HttpSessionBindingEvent import javax.servlet.http.HttpSessionBindingListener import javax.servlet.http.HttpSessionEvent data class User(val name: String = &amp;#34;Tom&amp;#34;) : HttpSessionBindingListener, HttpSessionActivationListener, Serializable { override fun valueBound(event: HttpSessionBindingEvent) { println(&amp;#34;实体绑定：${event.</description>
     </item>
     <item>
       <title>JSP Model2</title>
       <link>https://xhstormr.github.io/blog/posts/jsp-model2/</link>
       <pubDate>Sun, 30 Apr 2017 20:41:07 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/jsp-model2/</guid>
-      <description></description>
+      <description>Updated on 2017-04-30
+MVC 模式
+MVC（Model - View - Controller）
+Model - JavaBean（数据）
+View - JSP（界面）
+Controller - Servlet（业务逻辑）
+src dao ItemDAO package dao import entity.Item import util.DBHelp object ItemDAO { @JvmStatic fun getAllItems() = mutableListOf&amp;lt;Item&amp;gt;().apply { DBHelp.connection .prepareStatement(&amp;#34;SELECT * FROM item;&amp;#34;) .executeQuery() .use { while (it.next()) { val item = Item( id = it.getInt(&amp;#34;id&amp;#34;), name = it.getString(&amp;#34;name&amp;#34;), city = it.getString(&amp;#34;city&amp;#34;), price = it.getInt(&amp;#34;price&amp;#34;), number = it.getInt(&amp;#34;number&amp;#34;), picture = it.getString(&amp;#34;picture&amp;#34;) ) this.</description>
     </item>
     <item>
       <title>JSP Servlet</title>
       <link>https://xhstormr.github.io/blog/posts/jsp-servlet/</link>
       <pubDate>Tue, 11 Apr 2017 18:15:43 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/jsp-servlet/</guid>
-      <description></description>
+      <description>Updated on 2017-04-11
+工作原理 MyServlet package a import javax.servlet.annotation.WebInitParam import javax.servlet.annotation.WebServlet import javax.servlet.http.HttpServlet import javax.servlet.http.HttpServletRequest import javax.servlet.http.HttpServletResponse @WebServlet(urlPatterns = arrayOf(&amp;#34;/abc&amp;#34;), initParams = arrayOf(WebInitParam(name = &amp;#34;name&amp;#34;, value = &amp;#34;Tom&amp;#34;)), loadOnStartup = 1) //通过注解方式配置 Servlet class MyServlet : HttpServlet() { 继承 HttpServlet init { println(&amp;#34;实例化&amp;#34;) } override fun init() { println(&amp;#34;初始化&amp;#34;) val s = getInitParameter(&amp;#34;name&amp;#34;) println(s) } override fun destroy() { println(&amp;#34;销毁&amp;#34;) } override fun doGet(req: HttpServletRequest, resp: HttpServletResponse) { 由 service 方法中转 println(&amp;#34;处理请求 Get&amp;#34;) resp.</description>
     </item>
     <item>
       <title>JSP Filter</title>
       <link>https://xhstormr.github.io/blog/posts/jsp-filter/</link>
       <pubDate>Mon, 03 Apr 2017 16:12:58 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/jsp-filter/</guid>
-      <description></description>
+      <description>Updated on 2017-04-03
+工作原理 用于 拦截 客户端的 请求 信息和服务端的 响应 信息，并对这些信息进行 过滤。
+MyFilter1 package a import javax.servlet.* class MyFilter1 : Filter { 继承 Filter override fun init(filterConfig: FilterConfig) { 用于读取 web.xml 中过滤器的配置参数（&amp;lt;init-param&amp;gt;） println(&amp;#34;init---MyFilter1&amp;#34;) } override fun doFilter(p0: ServletRequest, p1: ServletResponse, p2: FilterChain) { 核心方法 println(&amp;#34;doFilter---MyFilter1---Start&amp;#34;) 放行前 p2.doFilter(p0, p1) 不过滤（放行）：将请求传递给下一个过滤器（若已为最后一个过滤器，则为目标资源） println(&amp;#34;doFilter---MyFilter1---End&amp;#34;) 放行后 要过滤：通过请求转发（request）、请求重定向（response），跳转至其他资源。 } override fun destroy() { 用于释放过滤器所占用的资源 println(&amp;#34;destroy---MyFilter1&amp;#34;) } } MyFilter2 package a import javax.servlet.* class MyFilter2 : Filter { override fun init(filterConfig: FilterConfig) { println(&amp;#34;init---MyFilter2&amp;#34;) } override fun doFilter(p0: ServletRequest, p1: ServletResponse, p2: FilterChain) { println(&amp;#34;doFilter---MyFilter2---Start&amp;#34;) p2.</description>
     </item>
     <item>
       <title>Java Server Pages</title>
       <link>https://xhstormr.github.io/blog/posts/jsp/</link>
       <pubDate>Thu, 09 Mar 2017 23:30:26 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/jsp/</guid>
-      <description></description>
+      <description>Updated on 2017-03-09
+https://tomcat.apache.org/index.html
+https://tomcat.apache.org/tomcat-9.0-doc/api/allclasses-noframe.html
+https://tomcat.apache.org/tomcat-9.0-doc/jspapi/allclasses-noframe.html
+https://tomcat.apache.org/tomcat-9.0-doc/servletapi/allclasses-noframe.html
+Tomcat 环境变量 变量值 变量名 CATALINA_HOME D:\Download\apache-tomcat-9.0.0 配置 Tomcat 安装路径 &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash; &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash; &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash; 默认欢迎页 D:\Download\apache-tomcat-9.0.0\conf\web.xml ⇳ &amp;lt;welcome-file-list&amp;gt; &amp;lt;welcome-file&amp;gt;index.html&amp;lt;/welcome-file&amp;gt; &amp;lt;welcome-file&amp;gt;index.htm&amp;lt;/welcome-file&amp;gt; &amp;lt;welcome-file&amp;gt;index.jsp&amp;lt;/welcome-file&amp;gt; &amp;lt;/welcome-file-list&amp;gt; 默认端口号 D:\Download\apache-tomcat-9.0.0\conf\server.xml ⇳ &amp;lt;Connector port=&amp;#34;8080&amp;#34; protocol=&amp;#34;HTTP/1.1&amp;#34; connectionTimeout=&amp;#34;20000&amp;#34; redirectPort=&amp;#34;8443&amp;#34; /&amp;gt; 去掉空白行 全局 ---- D:\Download\apache-tomcat-9.0.0\conf\web.xml ⇳ &amp;lt;init-param&amp;gt; &amp;lt;param-name&amp;gt;trimSpaces&amp;lt;/param-name&amp;gt; &amp;lt;param-value&amp;gt;true&amp;lt;/param-value&amp;gt; &amp;lt;/init-param&amp;gt; 单个页面 ---- &amp;lt;%@ page trimDirectiveWhitespaces=&amp;#34;true&amp;#34; %&amp;gt; IDEA Deployment C:\Users\Administrator\.IntelliJIdea2016.3\system\tomcat\ IDEA Dependence Project Structure -&amp;gt; Modules -&amp;gt; Dependencies -&amp;gt; Add -&amp;gt; Library -&amp;gt; Tomcat JSP 指令 page &amp;lt;%@ page contentType=&amp;#34;text/html;charset=UTF-8&amp;#34; language=&amp;#34;java&amp;#34; %&amp;gt; &amp;lt;%@ page import=&amp;#34;java.</description>
     </item>
   </channel>
 </rss>

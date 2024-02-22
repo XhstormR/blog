@@ -13,14 +13,27 @@
       <link>https://xhstormr.github.io/blog/posts/kotlin-and-java/</link>
       <pubDate>Mon, 13 Feb 2017 13:33:59 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/kotlin-and-java/</guid>
-      <description></description>
+      <description>Updated on 2017-02-13
+Kotlin fun main(args: Array&amp;lt;String&amp;gt;) { a({ s -&amp;gt; println(s) }) Lambda 表达式 等同于 a { s -&amp;gt; println(s) } 移至括号外并省略括号 等同于 a { println(it) } 使用 `it` 替代 等同于 a(::println) 使用函数引用 } 等同于 fun main(args: Array&amp;lt;String&amp;gt;) = a(::println) 函数体只含有 1 句表达式，省略函数体和返回值 ---- fun a(block: (String) -&amp;gt; Unit): Unit { 高阶函数（函数参数使用函数类型表达）（函数为一等公民） block(&amp;#34;ABC&amp;#34;) } 等同于 fun a(block: (String) -&amp;gt; Unit) { 省略 Unit (void) 返回值 block(&amp;#34;ABC&amp;#34;) } 等同于 fun a(block: (String) -&amp;gt; Unit) = block(&amp;#34;ABC&amp;#34;) 函数体只含有 1 句表达式，省略函数体和返回值 ------------------------------------------------------- Finally： fun main(args: Array&amp;lt;String&amp;gt;) = a(::println) fun a(block: (String) -&amp;gt; Unit) = block(&amp;#34;ABC&amp;#34;) ---- 输出： ABC Java public class Main { public static void main(String[] args) { a((String s) -&amp;gt; { Lambda 表达式 System.</description>
     </item>
     <item>
       <title>Kotlin</title>
       <link>https://xhstormr.github.io/blog/posts/kotlin/</link>
       <pubDate>Sun, 25 Dec 2016 10:31:02 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/kotlin/</guid>
-      <description></description>
+      <description>Updated on 2017-04-13
+https://kotlin.link/
+https://kotlinlang.org/
+https://devdocs.io/kotlin-reference/
+https://kotlinlang.org/docs/reference/idioms.html
+https://kotlinlang.org/docs/reference/basic-syntax.html
+https://kotlinlang.org/api/latest/jvm/stdlib/index.html
+https://try.kotlinlang.org/
+https://kotlinlang.org/docs/kotlin-docs.pdf
+https://github.com/JetBrains/kotlin/releases/latest
+https://jcenter.bintray.com/org/jetbrains/kotlin/kotlin-stdlib/
+https://storage.googleapis.com/developers-playground/kp-wrapper-devsite.html
+Code // ABC /* DEF GHI */ ------------------------------------------------------- fun main(args: Array&amp;lt;String&amp;gt;) { main 函数（程序入口） println(&amp;#34;Hello World!&amp;#34;) } ------------------------------------------------------- val a: String 先声明后赋值（只适用于变量，没有赋值时，必须显式声明类型；作为属性时，必须在声明的同时进行赋值） a = &amp;#34;ABC&amp;#34; ---- val a: String = &amp;#34;ABC&amp;#34; 声明对象的同时进行实例化（显式声明类型） ---- val a = &amp;#34;ABC&amp;#34; 声明对象的同时进行实例化（自动推导类型） ------------------------------------------------------- Kotlin 中没有（Primitive）基本数据类型，一切皆为（Reference）引用数据类型。 var a = 123 变量（引用可变 get/set） val b = 123 常量（引用只读 get） ------------------------------------------------------- val a = &amp;#34;&amp;#34;&amp;#34; 原始字符串 fun helloWorld(val name : String) { println(&amp;#34;Hello, world!</description>
     </item>
   </channel>
 </rss>

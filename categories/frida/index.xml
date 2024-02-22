@@ -13,21 +13,28 @@
       <link>https://xhstormr.github.io/blog/posts/frida-gadget/</link>
       <pubDate>Thu, 07 Nov 2019 14:04:44 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/frida-gadget/</guid>
-      <description></description>
+      <description>Updated on 2019-11-07
+https://www.frida.re/docs/gadget/
+Put Src Path: code\app\src\main\jniLibs\armeabi-v7a\libfrida-gadget.so Bin Path: apk\lib\armeabi-v7a\libfrida-gadget.so Load Java: System.loadLibrary(&amp;#34;frida-gadget&amp;#34;); Smali: const-string v0, &amp;#34;frida-gadget&amp;#34; invoke-static {v0}, Ljava/lang/System;-&amp;gt;loadLibrary(Ljava/lang/String;)V Connect frida -U Gadget -l 123.js Reference https://koz.io/using-frida-on-android-without-root/ </description>
     </item>
     <item>
       <title>Android DEX Unpack</title>
       <link>https://xhstormr.github.io/blog/posts/dex-unpack/</link>
       <pubDate>Fri, 31 May 2019 16:50:54 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/dex-unpack/</guid>
-      <description></description>
+      <description>Updated on 2019-05-31
+https://source.android.google.cn/devices/tech/dalvik/dex-format
+https://source.android.google.cn/devices/tech/dalvik/dalvik-bytecode
+frida-trace -U -i *SizeOfClassWithoutEmbeddedTables* com.saicmotor.tocapp frida -U -f com.saicmotor.tocapp -l 123.js --no-pause --runtime=v8 var module = Module.getExportByName(&amp;#39;libart.so&amp;#39;, &amp;#39;_ZN3art11ClassLinker32SizeOfClassWithoutEmbeddedTablesERKNS_7DexFileERKNS1_8ClassDefE&amp;#39;) var dumped_dex = [] Interceptor.attach(module, { onEnter: function (args) { var dex_file = args[1].add(0x04).readPointer() // 由于类中含有虚函数，跳过 vfptr，32 位加 4，64 位加 8 var dex_file_size = dex_file.add(0x20).readUInt() var dex_header_size = dex_file.add(0x24).readUInt() for (var i = 0; i &amp;lt; dumped_dex.length; i++) { if(dumped_dex[i] == dex_file_size) return } // console.log(JSON.stringify(this.context)) // console.</description>
     </item>
     <item>
       <title>Frida</title>
       <link>https://xhstormr.github.io/blog/posts/frida/</link>
       <pubDate>Wed, 29 May 2019 11:22:56 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/frida/</guid>
-      <description></description>
+      <description>Updated on 2019-05-29
+https://frida.re/docs/javascript-api/#java
+Python https://npm.taobao.org/mirrors/python md 123 &amp;amp;&amp;amp; ^ curl -kL https://npm.taobao.org/mirrors/python/3.7.5/python-3.7.5-embed-amd64.zip | busybox unzip - -d 123 &amp;amp;&amp;amp; ^ cd 123 &amp;amp;&amp;amp; ^ curl -k https://raw.githubusercontent.com/pypa/get-pip/master/get-pip.py | python - &amp;#34;--index-url=https://mirrors.aliyun.com/pypi/simple/&amp;#34; &amp;amp;&amp;amp; ^ busybox sed -i &amp;#34;s/#import/import/&amp;#34; python37._pth Frida https://github.com/frida/frida/releases/latest # Install from Wheel python -m pip install --index-url=https://mirrors.aliyun.com/pypi/simple/ --upgrade frida-tools # Install from Egg wget https://mirrors.aliyun.com/pypi/packages/ab/44/eda688668b780277cc7f9306f02c3dea41d95f91f2404493ddf00b96187f/frida-14.2.2-py3.8-win-amd64.egg -P C:/Users/leo/ python -m easy_install --index-url=https://mirrors.aliyun.com/pypi/simple/ --upgrade frida-tools ADB https://dl.google.com/android/repository/repository2-1.xml curl -k https://dl.</description>
     </item>
   </channel>
 </rss>

@@ -13,42 +13,66 @@
       <link>https://xhstormr.github.io/blog/posts/java-completable-future/</link>
       <pubDate>Mon, 07 Aug 2017 19:25:50 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/java-completable-future/</guid>
-      <description></description>
+      <description>Updated on 2017-08-07
+CompletableFuture API
+Stream API
+CompletableFuture .supplyAsync(() -&amp;gt; &amp;#34;5&amp;#34;) //有结果工厂方法 .thenApplyAsync(v -&amp;gt; Integer.valueOf(v) + 5) //进行转换 .whenCompleteAsync((v, e) -&amp;gt; System.out.println(&amp;#34;记录: &amp;#34; + v + &amp;#34;, &amp;#34; + e)) //进行记录（peek） .exceptionally(e -&amp;gt; -1) //处理异常 .thenAcceptAsync(v -&amp;gt; System.out.println(v)) //进行消耗 .thenRunAsync(() -&amp;gt; System.out.println(&amp;#34;Done&amp;#34;)); ---- 输出： 记录: 10, null 10 Done 二选二 ------------------------------------------------------- CompletableFuture&amp;lt;Integer&amp;gt; completableFuture = CompletableFuture.completedFuture(5); CompletableFuture .supplyAsync(() -&amp;gt; 5) .thenCombineAsync(completableFuture, (x, y) -&amp;gt; x + y) //应用双方的结果（thenApplyAsync*2） .thenAcceptAsync(v -&amp;gt; System.out.println(v)); ---- 输出： 10 CompletableFuture&amp;lt;Integer&amp;gt; completableFuture = CompletableFuture.</description>
     </item>
     <item>
       <title>Java Concurrency Lock</title>
       <link>https://xhstormr.github.io/blog/posts/java-concurrency-lock/</link>
       <pubDate>Tue, 01 Aug 2017 11:14:11 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/java-concurrency-lock/</guid>
-      <description></description>
+      <description>Updated on 2017-08-05
+https://docs.oracle.com/javase/10/docs/api/java/util/concurrent | 中文
+Concept 阻塞 -&amp;gt; Unsafe 类 -&amp;gt; park 操作 Code 锁 LockSupport 内部封装了 Unsafe 类的 park 操作。 import java.util.concurrent.TimeUnit; import java.util.concurrent.locks.LockSupport; public class Main { public static void main(String[] args) { Thread a = new Thread(() -&amp;gt; { System.out.println(&amp;#34;a 开始阻塞 5s&amp;#34;); LockSupport.parkUntil(System.currentTimeMillis() + TimeUnit.MILLISECONDS.convert(5, TimeUnit.SECONDS)); 绝对时间 或 LockSupport.parkNanos(TimeUnit.NANOSECONDS.convert(5, TimeUnit.SECONDS)); 相对时间 System.out.println(&amp;#34;a 停止阻塞&amp;#34;); }); Thread b = new Thread(() -&amp;gt; { System.out.println(&amp;#34;b 开始阻塞 无期限&amp;#34;); LockSupport.park(); System.out.println(&amp;#34;b 停止阻塞&amp;#34;); }); Thread c = new Thread(() -&amp;gt; { try { TimeUnit.</description>
     </item>
     <item>
       <title>Java Concurrency</title>
       <link>https://xhstormr.github.io/blog/posts/java-concurrency/</link>
       <pubDate>Sun, 16 Jul 2017 20:48:40 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/java-concurrency/</guid>
-      <description></description>
+      <description>Updated on 2017-07-29
+https://docs.oracle.com/javase/10/docs/api/java/util/concurrent | 中文
+Concept 串行：多个线程 按照顺序 使用同一个核心。（单核心）（Serial） 并发：多个线程 共同轮流 使用同一个核心。（单核心）（线程 同时存在）（Concurrent） 并行：多个线程 各自分别 使用　一个核心。（多核心）（线程 同时执行）（Parallel） 并行是并发的一个 子集，区别在于 CPU 是否为多核心。 Blocking　：　阻塞并发，内部使用 锁。 Concurrent：非阻塞并发，内部使用 CAS 操作。 Code 线程体 无返回值：Runnable import java.util.concurrent.TimeUnit; public class Action implements Runnable { @Override public void run() { 方法签名无返回值，无检查异常 try { TimeUnit.SECONDS.sleep(1); } catch (InterruptedException e) { e.printStackTrace(); } System.out.println(&amp;#34;Action Done&amp;#34;); } } 有返回值：Callable import java.util.concurrent.Callable; import java.util.concurrent.TimeUnit; public class Task implements Callable&amp;lt;Integer&amp;gt; { @Override public Integer call() throws Exception { 方法签名有返回值，有检查异常 TimeUnit.</description>
     </item>
     <item>
       <title>Java Annotation</title>
       <link>https://xhstormr.github.io/blog/posts/java-annotation/</link>
       <pubDate>Tue, 09 May 2017 21:08:55 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/java-annotation/</guid>
-      <description></description>
+      <description>Updated on 2017-05-09
+注解 API
+元注解 负责注解注解的注解
+@Target（多个参数） 指示注解目标。
+ElementType TYPE：类、接口、枚举、注解 FIELD：属性 METHOD：方法 CONSTRUCTOR：构造方法 PARAMETER：参数 LOCAL_VARIABLE：变量 ANNOTATION_TYPE：注解 PACKAGE：包 @Retention（一个参数） 指示生命周期。
+RetentionPolicy SOURCE ：源代码，源码 注解。 CLASS ：字节码，编译 注解，注解在虚拟机 运行时被忽略。（缺省行为） RUNTIME：字节码，运行 注解，注解在虚拟机 运行时被保留，因此 可通过反射读取。 @Inherited（标识注解） 指示 自动继承 此注解。（仅对类注解有效）
+@Documented（标识注解） 指示 文档包含 此注解。
+Code @User import java.lang.annotation.*; @Target({ElementType.METHOD, ElementType.TYPE}) @Retention(RetentionPolicy.RUNTIME) @Inherited @Documented public @interface User { String name(); int age() default 15; String description() default &amp;#34;Description&amp;#34;; } A import java.lang.reflect.Method; @User(name = &amp;#34;Mack&amp;#34;, age = 18) public class A { @User(name = &amp;#34;Jack&amp;#34;, age = 27) public static void main(String[] args) { Class&amp;lt;A&amp;gt; c = A.</description>
     </item>
     <item>
       <title>Java Reflect</title>
       <link>https://xhstormr.github.io/blog/posts/java-reflect/</link>
       <pubDate>Mon, 08 May 2017 10:37:40 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/java-reflect/</guid>
-      <description></description>
+      <description>Updated on 2017-05-08
+反射 API
+Class 对象 类是 java.lang.Class 的实例对象。
+package a; public class A { public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException { 编译时刻就加载类（静态加载） Class&amp;lt;? extends A&amp;gt; c1 = new A().getClass(); 通过实例对象获得 Class 对象 Class&amp;lt;A&amp;gt; c2 = A.class; 通过静态成员获得 Class 对象 运行时刻才加载类（动态加载） Class&amp;lt;?&amp;gt; c3 = Class.forName(&amp;#34;a.A&amp;#34;); 动态加载类（可能会抛出 ClassNotFoundException 异常） System.out.println(c1); System.out.println(c2); System.out.println(c3); System.out.println(c1.getName()); 获得完全类名限定符 System.out.println(c1.getSimpleName()); 获得类名 System.out.println(c1 == c2); System.out.println(c2 == c3); A a = c1.newInstance(); 通过 Class 对象实例化类（需要有无参构造方法） A a = new A(); a 是 A 的实例对象 Class&amp;lt;A&amp;gt; c = A.</description>
     </item>
     <item>
       <title>Algorithm</title>
       <link>https://xhstormr.github.io/blog/posts/java-algorithm/</link>
       <pubDate>Sat, 15 Oct 2016 10:23:45 +0800</pubDate>
       <guid>https://xhstormr.github.io/blog/posts/java-algorithm/</guid>
-      <description></description>
+      <description>Updated on 2017-07-13
+https://visualgo.net/zh
+https://cpbook.net/#downloads
+https://www.cs.usfca.edu/~galles/visualization/Algorithms.html
+http://panthema.net/2013/sound-of-sorting/
+算法是解决问题的清晰指令，是用系统的方法描述解决问题的策略机制。
+冒泡排序 通过交换相邻数据来达到排序目的。
+public class A { public static void main(String[] args) { int[] ints = new int[10]; for (int i = 0; i &amp;lt; ints.length; i++) { ints[i] = ((int) (Math.random() * 100)); } System.out.println(Arrays.toString(ints)); 排序之前 b(ints); System.out.println(Arrays.toString(ints)); 排序之后 } private static void a(int[] ints) { 原始算法 int temp; for (int i = 0; i &amp;lt; ints.length - 1; i++) { 循环 9 次 for (int j = 0; j &amp;lt; ints.</description>
     </item>
   </channel>
 </rss>
