@@ -35,7 +35,7 @@ Updated on 2016-06-30
 >
 > https://docs.oracle.com/en/java/javase/20/docs/api/allclasses-index.html
 >
-> [class version](https://docs.oracle.com/javase/specs/jvms/se20/html/jvms-4.html#jvms-4.1-200-B.2)
+> [class version](https://docs.oracle.com/javase/specs/jvms/se22/html/jvms-4.html#jvms-4.1-200-B.2)
 
 ## IDE
 * Eclipse：https://www.eclipse.org/downloads/eclipse-packages/
