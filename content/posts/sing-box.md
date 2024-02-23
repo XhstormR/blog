@@ -38,18 +38,19 @@ Note: `rules` 中的规则越靠前，优先级就越高。
     {
       "tag": "自选",
       "type": "selector",
-      "default": "台湾2023-1",
+      "default": "台湾2024-1",
       "outbounds": [
-        "香港2023-1",
-        "香港2023-2",
-        "台湾2023-1",
-        "台湾2023-2",
-        "香港1",
+        "香港2024-1",
+        "香港2024-2",
+        "台湾2024-1",
         "首尔",
         "东京",
         "洛杉矶",
+        "悉尼",
+        "墨尔本",
         "法兰克福",
         "巴林",
+        "德里",
         "孟买1",
         "孟买2",
         "雅加达",
@@ -60,30 +61,31 @@ Note: `rules` 中的规则越靠前，优先级就越高。
       "tag": "自动",
       "type": "urltest",
       "outbounds": [
-        "香港2023-1",
-        "香港2023-2",
-        "台湾2023-1",
-        "台湾2023-2",
-        "香港1",
+        "香港2024-1",
+        "香港2024-2",
+        "台湾2024-1",
         "首尔",
         "东京",
         "洛杉矶",
+        "悉尼",
+        "墨尔本",
         "法兰克福",
         "巴林",
+        "德里",
         "孟买1",
         "孟买2",
         "雅加达"
       ]
     },
     {
-      "tag": "香港2023-1",
+      "tag": "香港2024-1",
       "type": "trojan",
       "password": "123456",
-      "server": "fasidfe.wsone.icu",
+      "server": "liads.wsone.icu",
       "server_port": 443,
       "tls": {
         "enabled": true,
-        "server_name": "fasidfe.wsone.icu"
+        "server_name": "liads.wsone.icu"
       }
     },
     {
@@ -178,7 +180,7 @@ Note: `rules` 中的规则越靠前，优先级就越高。
         "tag": "geosite-cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-cn.srs",
         "download_detour": "自选"
       },
       {
