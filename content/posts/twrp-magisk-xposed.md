@@ -95,3 +95,4 @@ fastboot oem config carrier reteu
     * https://github.com/chenxiaolong/BCR
 * https://github.com/0x192/universal-android-debloater
 * https://github.com/chiteroman/PlayIntegrityFix
+* https://github.com/Dr-TSNG/Hide-My-Applist
