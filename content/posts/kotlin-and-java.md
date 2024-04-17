@@ -9,7 +9,7 @@ title: 函数式编程：Kotlin 与 Java
 
 Updated on 2017-02-13
 
-> {{< image "/uploads/kotlin-and-java.png" "Function" "1" "1" >}}
+> {{< image "uploads/kotlin-and-java.png" "Function" "1" "1" >}}
 
 ## Kotlin
 ```kotlin

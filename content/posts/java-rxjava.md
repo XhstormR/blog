@@ -9,7 +9,7 @@ title: RxJava
 
 Updated on 2016-11-22
 
-> {{< image "/uploads/java-rxjava.png" "RxJava" "1" "1" >}}
+> {{< image "uploads/java-rxjava.png" "RxJava" "1" "1" >}}
 >
 > 观察者模式
 >

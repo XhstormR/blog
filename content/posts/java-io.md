@@ -9,7 +9,7 @@ title: Java IO Stream
 
 Updated on 2016-11-11
 
-> [{{< image "/uploads/java-io.svg" "IO 流" "1" "0" >}}](/uploads/java-io.svg)
+> [{{< image "uploads/java-io.svg" "IO 流" "1" "0" >}}](uploads/java-io.svg)
 >
 > https://docs.oracle.com/javase/10/docs/api/java/nio/file/Path.html
 >

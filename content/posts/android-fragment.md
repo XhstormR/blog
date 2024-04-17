@@ -9,7 +9,7 @@ title: Android Fragment
 
 Updated on 2016-08-14
 
-> {{< image "/uploads/android-fragment.svg" "Fragment 生命周期方法" "1" "1" >}}
+> {{< image "uploads/android-fragment.svg" "Fragment 生命周期方法" "1" "1" >}}
 
 ## FragmentManager
 * `findFragmentById()` ⟺ `findFragmentByTag()`：获得 Fragment 对象。

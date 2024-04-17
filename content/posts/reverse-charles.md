@@ -10,18 +10,18 @@ title: 逆向 Charles
 
 Updated on 2017-07-18
 
-> {{< image "/uploads/reverse-charles0.png" "Charles" "1" "1" >}}
+> {{< image "uploads/reverse-charles0.png" "Charles" "1" "1" >}}
 >
 > https://www.charlesproxy.com/
 
 ## Step
 1. 反编译 charles.jar。
 2. 搜索 **`Unregistered`**，定位至 `gIbD.class`。
-{{< image "/uploads/reverse-charles1.png" "" "1" "1" >}}
+{{< image "uploads/reverse-charles1.png" "" "1" "1" >}}
 3. 修改属性 `PcqR` 的值为 **`true`**。
-{{< image "/uploads/reverse-charles2.png" "" "1" "1" >}}
+{{< image "uploads/reverse-charles2.png" "" "1" "1" >}}
 4. 修改方法 `PcqR` 的返回值为 **`XhstormR`**。
-{{< image "/uploads/reverse-charles3.png" "" "1" "1" >}}
+{{< image "uploads/reverse-charles3.png" "" "1" "1" >}}
 
 ## Code
 ```
@@ -74,4 +74,4 @@ cfr
 java -jar cfr_0_123.jar 123.jar --caseinsensitivefs true --outputdir 123
 ```
 
-[{{< image "/uploads/file-into-picture2.png" "4.1.4" "0" "0" >}}](http://ww4.sinaimg.cn/large/a15b4afely1fhpf98jnuxj203k03k4r4)
+[{{< image "uploads/file-into-picture2.png" "4.1.4" "0" "0" >}}](http://ww4.sinaimg.cn/large/a15b4afely1fhpf98jnuxj203k03k4r4)

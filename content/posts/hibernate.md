@@ -10,7 +10,7 @@ title: Hibernate ORM
 
 Updated on 2017-05-14
 
-> {{< image "/uploads/hibernate.png" "Hibernate" "1" "1" >}}
+> {{< image "uploads/hibernate.png" "Hibernate" "1" "1" >}}
 >
 > https://hibernate.org/orm/
 >

@@ -13,7 +13,7 @@ Updated on 2016-05-22
 >
 > https://hadoop.apache.org/docs/r1.0.4/cn/
 >
-> ![](/uploads/hadoop-core.png)
+> ![](uploads/hadoop-core.png)
 >
 > 分布式存储(HDFS)，分布式计算(MapReduce)
 
@@ -49,7 +49,7 @@ Hadoop 的其它一些子项目
       * 文件被分成 block 存储在磁盘上
       * 为保证数据安全，文件会有多个副本
 
-![](/uploads/hadoop-hdfs.png)
+![](uploads/hadoop-hdfs.png)
 
 ## MapReduce 架构
 * 主从结构
@@ -60,7 +60,7 @@ Hadoop 的其它一些子项目
   * 从节点，有很多个 TaskTracker
       * 执行 JobTracker 分配的计算任务（Map 映射，Reduce 归约）
 
-![](/uploads/hadoop-mapreduce.png)
+![](uploads/hadoop-mapreduce.png)
 
 ## Yarn 架构
 * 主从结构

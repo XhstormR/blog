@@ -9,7 +9,7 @@ title: 自学 PostgreSQL
 
 Updated on 2017-02-19
 
-> {{< image "/uploads/postgresql.svg" "PostgreSQL" "1" "1" "375" >}}
+> {{< image "uploads/postgresql.svg" "PostgreSQL" "1" "1" "375" >}}
 >
 > https://www.postgresql.org/
 >
@@ -342,7 +342,7 @@ ALTER TABLE a RENAME TO b;
 
 ## Schema
 
-{{< image "/uploads/postgresql-schema.png" "PostgreSQL" "0" "1" >}}
+{{< image "uploads/postgresql-schema.png" "PostgreSQL" "0" "1" >}}
 
 ```sql
 一个数据库集簇（Cluster）中的所有数据库只会共享 pg_database（数据库列表）、pg_group（用户组列表）、pg_shadow（有效用户列表）。

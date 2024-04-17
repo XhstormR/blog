@@ -10,7 +10,7 @@ title: Spring MVC
 
 Updated on 2017-06-22
 
-> {{< image "/uploads/spring.png" "Spring Framework" "1" "1" >}}
+> {{< image "uploads/spring.png" "Spring Framework" "1" "1" >}}
 >
 > [MappingJackson2HttpMessageConverter](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/http/converter/json/MappingJackson2HttpMessageConverter.html)
 >

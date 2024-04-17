@@ -1,3 +1,6 @@
-<p style="text-align:center">
-    <img src="{{ .Site.BaseURL }}/{{ index .Params 0 }}" title="{{ index .Params 1 }}" {{ if .Get 3 | eq "1" }}data-action="zoom"{{ end }} width="{{ index .Params 4 }}"/>
-</p>
+<img
+    loading="lazy"
+    src="{{ index .Params 0 | safeURL | relURL }}"
+    {{- with index .Params 1 }} title="{{ . }}"{{ end -}}
+    {{- with index .Params 4 }} width="{{ . }}"{{ end -}}
+/>

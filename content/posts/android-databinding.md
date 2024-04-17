@@ -9,7 +9,7 @@ title: Data Binding Framework
 
 Updated on 2016-12-03
 
-> {{< image "/uploads/android-databinding.svg" "Data Binding" "1" "1" >}}
+> {{< image "uploads/android-databinding.svg" "Data Binding" "1" "1" >}}
 >
 > Model（数据），View（界面），Controller（业务逻辑）
 >

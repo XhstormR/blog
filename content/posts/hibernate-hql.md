@@ -10,7 +10,7 @@ title: Hibernate Query Language
 
 Updated on 2017-05-19
 
-> {{< image "/uploads/hibernate-hql.svg" "" "1" "1" >}}
+> {{< image "uploads/hibernate-hql.svg" "" "1" "1" >}}
 >
 > 面向对象的查询语言
 >

@@ -9,7 +9,7 @@ title: Windows SSH Server
 
 Updated on 2017-01-14
 
-> {{< image "/uploads/ssh-server.png" "OpenSSH" "1" "1" >}}
+> {{< image "uploads/ssh-server.png" "OpenSSH" "1" "1" >}}
 >
 > https://man.openbsd.org/sshd_config
 >

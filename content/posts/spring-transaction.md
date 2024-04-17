@@ -10,7 +10,7 @@ title: Spring Transaction
 
 Updated on 2017-06-15
 
-> {{< image "/uploads/spring.png" "Spring Framework" "1" "1" >}}
+> {{< image "uploads/spring.png" "Spring Framework" "1" "1" >}}
 >
 > https://github.com/brettwooldridge/HikariCP
 >

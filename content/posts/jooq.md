@@ -9,7 +9,7 @@ title: jOOQ
 
 Updated on 2017-02-01
 
-> {{< image "/uploads/jooq.png" "jOOQ" "1" "0" >}}
+> {{< image "uploads/jooq.png" "jOOQ" "1" "0" >}}
 >
 > https://github.com/jOOQ/jOOQ
 >

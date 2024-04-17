@@ -9,11 +9,11 @@ title: Android Activity
 
 Updated on 2016-07-18
 
-> {{< image "/uploads/android-activity-life-cycle.svg" "Activity 生命周期方法" "1" "1" >}}
+> {{< image "uploads/android-activity-life-cycle.svg" "Activity 生命周期方法" "1" "1" >}}
 
 ## Activity 的生命周期
 
-![](/uploads/android-activity-life.svg "Activity 生命周期")
+![](uploads/android-activity-life.svg "Activity 生命周期")
 
 根据 Activity 生命周期方法可以分为以下三组：
 

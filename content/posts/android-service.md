@@ -9,7 +9,7 @@ title: Android Service
 
 Updated on 2016-10-16
 
-> {{< image "/uploads/android-service.svg" "Service 生命周期方法" "1" "1" >}}
+> {{< image "uploads/android-service.svg" "Service 生命周期方法" "1" "1" >}}
 
 ## 启动服务
 * 调用 `startService()` 后服务便会在后台无限期运行，需手动停止服务。

@@ -10,7 +10,7 @@ title: SQL 必知必会
 
 Updated on 2018-04-14
 
-> {{< image "/uploads/sql-query-order.png" "Select Query Order" "1" "1" "650">}}
+> {{< image "uploads/sql-query-order.png" "Select Query Order" "1" "1" "650">}}
 >
 > https://zh.m.wikipedia.org/zh-cn/SQL
 

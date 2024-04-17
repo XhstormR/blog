@@ -10,7 +10,7 @@ title: Java Server Pages
 
 Updated on 2017-03-09
 
-> {{< image "/uploads/java-jsp.png" "Java Server Pages" "1" "1" "275">}}
+> {{< image "uploads/java-jsp.png" "Java Server Pages" "1" "1" "275">}}
 >
 > https://tomcat.apache.org/index.html
 >
@@ -21,7 +21,7 @@ Updated on 2017-03-09
 > https://tomcat.apache.org/tomcat-9.0-doc/servletapi/allclasses-noframe.html
 
 ## Tomcat
-{{< image "/uploads/java-jsp-tomcat.png" "Tomcat" "1" "1" "275">}}
+{{< image "uploads/java-jsp-tomcat.png" "Tomcat" "1" "1" "275">}}
 
 ### 环境变量
 |变量值|变量名||
@@ -203,7 +203,7 @@ ABC
 ```
 
 ## 生命周期
-{{< image "/uploads/java-jsp.svg" "Java Server Pages" "0" "1" >}}
+{{< image "uploads/java-jsp.svg" "Java Server Pages" "0" "1" >}}
 
 ## 内置对象
 

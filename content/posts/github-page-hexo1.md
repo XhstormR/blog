@@ -25,7 +25,7 @@ title: Hexo(一)
 
     我选择了.EXE文件。因为.MSI安装文件除了将node.exe复制到C:\Program File (x86)\目录中及修改系统Path之外，没发现还有其他作用。
 
-    ![node.exe](/uploads/node.png)
+    ![node.exe](uploads/node.png)
 
 2. 下载便携版Git :
 
@@ -33,7 +33,7 @@ title: Hexo(一)
 
     选择PortableGit-1.9.5-preview20141217.7z解压即可。
 
-    ![PortableGit](/uploads/PortableGit.png)
+    ![PortableGit](uploads/PortableGit.png)
 
 3. 下载npm源代码：
 
@@ -49,7 +49,7 @@ title: Hexo(一)
     D:\npmjs>node cli.js install -gf
     ````
 
-    ![npm.zip](/uploads/npm.png)
+    ![npm.zip](uploads/npm.png)
 
     还有一种安装npm的方法,虽然很麻烦,但更绿色,我就是用的这种.
 

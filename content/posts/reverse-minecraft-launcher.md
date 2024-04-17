@@ -10,7 +10,7 @@ title: 逆向 Minecraft Launcher
 
 Updated on 2017-08-08
 
-> {{< image "/uploads/reverse-minecraft-launcher.png" "Minecraft" "1" "1" >}}
+> {{< image "uploads/reverse-minecraft-launcher.png" "Minecraft" "1" "1" >}}
 >
 >[https://s3.amazonaws.com/Minecraft.Download/launcher/launcher.pack](https://s3.amazonaws.com/Minecraft.Download/launcher/launcher.pack.lzma)
 
@@ -47,4 +47,4 @@ java -noverify -jar launcher.jar
 * https://docs.oracle.com/javase/8/docs/technotes/tools/windows/pack200.html
 * https://docs.oracle.com/javase/8/docs/technotes/tools/windows/unpack200.html
 
-[{{< image "/uploads/file-into-picture2.png" "1.12.1" "0" "0" >}}](http://ww4.sinaimg.cn/large/a15b4afely1fich3epj1bj203k03knpf)
+[{{< image "uploads/file-into-picture2.png" "1.12.1" "0" "0" >}}](http://ww4.sinaimg.cn/large/a15b4afely1fich3epj1bj203k03knpf)

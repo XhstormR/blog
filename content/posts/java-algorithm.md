@@ -10,7 +10,7 @@ title: Algorithm
 
 Updated on 2017-07-13
 
-> {{< image "/uploads/algorithm1.svg" "12" "1" "1" >}}
+> {{< image "uploads/algorithm1.svg" "12" "1" "1" >}}
 >
 > https://visualgo.net/zh
 >
@@ -185,7 +185,7 @@ public class Main {
 
 ## 数字矩形
 
-![](/uploads/algorithm1.png "A")
+![](uploads/algorithm1.png "A")
 
 ```java
 public class A {
@@ -247,7 +247,7 @@ public class A {
 
 ---
 
-![](/uploads/algorithm2.png "B")
+![](uploads/algorithm2.png "B")
 
 ```java
 public class B {
@@ -1833,7 +1833,7 @@ public class Main {
 
 ## 图
 
-![](/uploads/algorithm-graph.png)
+![](uploads/algorithm-graph.png)
 
 ### BFS/DFS
 ```java

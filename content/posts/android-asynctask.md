@@ -9,7 +9,7 @@ title: Android AsyncTask
 
 Updated on 2016-09-02
 
-> {{< image "/uploads/android-asynctask.svg" "AsyncTask" "1" "1" >}}
+> {{< image "uploads/android-asynctask.svg" "AsyncTask" "1" "1" >}}
 >
 > 由于 Android 是单线程模型，只有主线程能够操作 UI，所以要避免在主线程中执行耗时操作，而是应该放到子线程中执行，以防止出现 ANR（Application Not Responding）对话框。
 

@@ -10,7 +10,7 @@ title: JSP Filter
 
 Updated on 2017-04-03
 
-> {{< image "/uploads/jsp-filter.svg" "Filter" "1" "1">}}
+> {{< image "uploads/jsp-filter.svg" "Filter" "1" "1">}}
 
 ## 工作原理
 用于 **拦截** 客户端的 **请求** 信息和服务端的 **响应** 信息，并对这些信息进行 **过滤**。

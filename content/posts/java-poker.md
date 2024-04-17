@@ -9,7 +9,7 @@ title: 通过 Java 实现扑克牌游戏
 
 Updated on 2016-08-02
 
-> {{< image "/uploads/java-poker.svg" "Java" "1" "1" >}}
+> {{< image "uploads/java-poker.svg" "Java" "1" "1" >}}
 >
 > 分别创建了四个类：牌类(Card)、玩家类(Player)、方法类(Method)、入口类(Initial)
 
@@ -192,4 +192,4 @@ class Initial {
 
 ## 实现效果
 
-{{< image "/uploads/java-poker.png" "Java" "0" "1" >}}
+{{< image "uploads/java-poker.png" "Java" "0" "1" >}}
