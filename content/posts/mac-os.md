@@ -133,7 +133,7 @@ prefix: /usr/local/Caskroom/miniconda/base
 ## Karabiner
 * https://karabiner-elements.pqrs.org/docs/json/
 * https://github.com/pqrs-org/Karabiner-Elements
-* [spacefn.json](https://raw.githubusercontent.com/pqrs-org/KE-complex_modifications/main/public/json/spacefn.json)
+* [spacefn_plus.json](https://raw.githubusercontent.com/pqrs-org/KE-complex_modifications/main/public/json/spacefn_plus.json)
 * [windows_shortcuts_on_macos.json](https://raw.githubusercontent.com/pqrs-org/KE-complex_modifications/main/public/json/windows_shortcuts_on_macos.json)
 
 ![Karabiner](uploads/mac-os-karabiner.png)
@@ -147,9 +147,10 @@ frontmost_application_unless_rule.json
 {
   "type": "frontmost_application_unless",
   "bundle_identifiers": [
-    "^io\\.alacritty$",
+    "^org\\.alacritty$",
     "^net\\.kovidgoyal\\.kitty$",
-    "^com\\.jetbrains\\.intellij$"
+    "^com\\.jetbrains\\.intellij$",
+    "^com\\.jetbrains\\.WebStorm$"
   ]
 }
 ```
@@ -370,7 +371,7 @@ frontmost_application_unless_rule.json
                 "^com\\.googlecode\\.iterm2$",
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
-                "^io\\.alacritty$",
+                "^org\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$"
               ],
               "type": "frontmost_application_unless"
@@ -426,7 +427,7 @@ frontmost_application_unless_rule.json
                 "^com\\.googlecode\\.iterm2$",
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
-                "^io\\.alacritty$",
+                "^org\\.alacritty$",
                 "^net\\.kovidgoyal\\.kitty$"
               ],
               "type": "frontmost_application_unless"
