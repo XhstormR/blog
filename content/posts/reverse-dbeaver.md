@@ -10,7 +10,7 @@ title: 逆向 DBeaver
 
 Updated on 2018-03-15
 
-> {{< image "/uploads/dbeaver.png" "DBeaver" "1" "1" "325" >}}
+> {{< image "uploads/dbeaver.png" "DBeaver" "1" "1" "325" >}}
 >
 > https://dbeaver.com/files/dbeaver-ee-latest-win32.win32.x86_64.zip
 
@@ -39,4 +39,4 @@ jar -cfM org.jkiss.lm_1.0.17.jar -C org.jkiss.lm_1.0.17/ .
 echo hasProductLicense | busybox xxd
 ```
 
-[{{< image "/uploads/file-into-picture2.png" "5.0.1" "0" "0" >}}](https://i.loli.net/2018/03/15/5aaa83d430291.png)
+[{{< image "uploads/file-into-picture2.png" "5.0.1" "0" "0" >}}](https://i.loli.net/2018/03/15/5aaa83d430291.png)

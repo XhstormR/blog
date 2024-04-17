@@ -9,11 +9,11 @@ title: Queue and Stack
 
 Updated on 2017-04-12
 
-> {{< image "/uploads/java-stack.svg" "Stack" "1" "1" >}}
+> {{< image "uploads/java-stack.svg" "Stack" "1" "1" >}}
 >
-> {{< image "/uploads/java-stack2.svg" "Stack" "1" "1" >}}
+> {{< image "uploads/java-stack2.svg" "Stack" "1" "1" >}}
 >
-> {{< image "/uploads/java-queue.svg" "Queue" "1" "1" >}}
+> {{< image "uploads/java-queue.svg" "Queue" "1" "1" >}}
 >
 > [双端队列](https://zh.wikipedia.org/wiki/双端队列)
 >
@@ -155,11 +155,11 @@ public class A {
 
 化简为递推公式：
 
-![](/uploads/java-stack-catalan1.png "Catalan")
+![](uploads/java-stack-catalan1.png "Catalan")
 
 推出通项公式：
 
-![](/uploads/java-stack-catalan2.png "Catalan")
+![](uploads/java-stack-catalan2.png "Catalan")
 
 ## 中缀表达式转后缀表达式的思路
 * stack1 ⟺ 操作符；stack2 ⟺ 操作数
@@ -177,7 +177,7 @@ Regex：http://help.mythicsoft.com/filelocatorpro/cn/quickstart.htm , [Java](htt
 
 LaTeX：https://latex.codecogs.com/eqneditor/editor.php
 
-{{< image "/uploads/java-stack.png" "Stack" "0" "1" >}}
+{{< image "uploads/java-stack.png" "Stack" "0" "1" >}}
 
 ```java
 10进制 转 2进制

@@ -13,10 +13,10 @@ Updated on 2016-05-26
 >
 > http://docs.openstack.org/
 >
-> ![](/uploads/openstack-architecture.png "概念架构")
+> ![](uploads/openstack-architecture.png "概念架构")
 > 概念架构 (Conceptual Architecture)
 >
-> ![](/uploads/openstack-architecture2.png "逻辑架构")
+> ![](uploads/openstack-architecture2.png "逻辑架构")
 > 逻辑架构 (Logical Architecture)
 >
 > OpenStack is a cloud operating system that controls large pools of compute, storage, and networking resources throughout a datacenter, all managed through a dashboard that gives administrators control while empowering their users to provision resources through a web interface.
@@ -26,7 +26,7 @@ Updated on 2016-05-26
 > Hadoop，N化1，通过分布式文件系统解决单台大机器无法解决的计算和存储问题。
 
 ## Projects
-![](/uploads/openstack-core.png)
+![](uploads/openstack-core.png)
 
 ### Core Services (6)
 |NAME|SERVICE||
@@ -51,7 +51,7 @@ Updated on 2016-05-26
 `注 * 为本人必须安装项`
 
 ## KEYSTONE
-![](/uploads/openstack-keystone.svg "流程")
+![](uploads/openstack-keystone.svg "流程")
 
 * Keystone：一个公司的安全部门
   * Authentication(认证) 和 Authorization(授权)
@@ -90,7 +90,7 @@ Updated on 2016-05-26
 ```
 
 ## GLANCE
-![](/uploads/openstack-glance.svg "架构")
+![](uploads/openstack-glance.svg "架构")
 
 * glance-api：对外提供 REST API，响应 Image 查询、获取和存储的调用
   * glance-api 不会真正处理请求
@@ -103,7 +103,7 @@ Updated on 2016-05-26
   * Glance 支持多种 backed，默认是`Local File System`，存储在`/var/lib/glance/images`中
   * 除了上图列举出的 backed，还有 GridFS、Ceph、Sheepdog、VMware ESX
 
----------------------------------------![](/uploads/openstack-glance2.svg "Glance 与 OpenStack 其他 Service 间的关系")---------------------------------------
+---------------------------------------![](uploads/openstack-glance2.svg "Glance 与 OpenStack 其他 Service 间的关系")---------------------------------------
 
 ```
 [root@controller ~]$ ps -e | grep glance | sort -uk 4

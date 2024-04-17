@@ -9,7 +9,7 @@ title: Java Socket
 
 Updated on 2017-02-16
 
-> {{< image "/uploads/java-socket.png" "Socket" "1" "1" >}}
+> {{< image "uploads/java-socket.png" "Socket" "1" "1" >}}
 
 * Socket：属于 **操作系统提供** 的一个 API 接口，**不属于** TCP/IP 协议栈，工作在应用层与传输层之间，由 **协议** 和 **地址** 共同确定。
   * 协议：TCP（面向连接，可靠）、UDP（面向无连接，不可靠）。

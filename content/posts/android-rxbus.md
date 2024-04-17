@@ -9,7 +9,7 @@ title: RxBus
 
 Updated on 2016-11-19
 
-> {{< image "/uploads/android-rxbus.png" "Subject" "1" "1" >}}
+> {{< image "uploads/android-rxbus.png" "Subject" "1" "1" >}}
 
 * Subject 抽象类：继承 Observable 类并实现 Observer 接口，即同时充当被观察者和观察者，可以当作一个事件管道，一端输入，一端输出。
   * PublishSubject：观察者只能收到订阅之后被观察者所发送的事件。

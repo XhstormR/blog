@@ -10,7 +10,7 @@ title: BeEF
 
 Updated on 2020-01-21
 
-> {{< image "/uploads/beef.png" "BeEF" "1" "1" >}}
+> {{< image "uploads/beef.png" "BeEF" "1" "1" >}}
 >
 > https://github.com/beefproject/beef
 >

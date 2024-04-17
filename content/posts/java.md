@@ -9,7 +9,7 @@ title: 自学 Java
 
 Updated on 2016-06-30
 
-> {{< image "/uploads/java.png" "Java" "1" "1" >}}
+> {{< image "uploads/java.png" "Java" "1" "1" >}}
 >
 > https://www.tiobe.com/tiobe-index/
 >
@@ -317,7 +317,7 @@ HelloWorld!
 2. 复制项目 JAR 文件至 `123` 目录。
 3. 在 `123` 目录新建 `123.bat` 文件。
 
-{{< image "/uploads/java-jre.png" "" "0" "1" >}}
+{{< image "uploads/java-jre.png" "" "0" "1" >}}
 
 ```xml
 123.bat
@@ -451,35 +451,35 @@ cmd /K jre\bin\java -jar 123.jar
 
 ## SVG
 
-![](/uploads/java-identifiers.svg "标识符")
+![](uploads/java-identifiers.svg "标识符")
 
-![](/uploads/java-final.svg "Final 关键字")
+![](uploads/java-final.svg "Final 关键字")
 
-![](/uploads/java-access.svg "访问修饰符")
+![](uploads/java-access.svg "访问修饰符")
 
-![](/uploads/java-wrapper.svg "包装类")
+![](uploads/java-wrapper.svg "包装类")
 
-![](/uploads/java-wrapper-method.svg "包装类")
+![](uploads/java-wrapper-method.svg "包装类")
 
-![](/uploads/java-arithmetic.svg "算术运算符")
+![](uploads/java-arithmetic.svg "算术运算符")
 
-![](/uploads/java-assignment.svg "赋值运算符")
+![](uploads/java-assignment.svg "赋值运算符")
 
-![](/uploads/java-comparison.svg "比较运算符")
+![](uploads/java-comparison.svg "比较运算符")
 
-![](/uploads/java-logical.svg "逻辑运算符")
+![](uploads/java-logical.svg "逻辑运算符")
 
-![](/uploads/java-interface.svg "接口")
+![](uploads/java-interface.svg "接口")
 
-![](/uploads/java-array.svg "数组")
+![](uploads/java-array.svg "数组")
 
-![](/uploads/java-datatype.svg "数据类型")
+![](uploads/java-datatype.svg "数据类型")
 
-![](/uploads/java-processControl.svg "流程控制语句")
+![](uploads/java-processControl.svg "流程控制语句")
 
-![](/uploads/java-variable.svg "变量")
+![](uploads/java-variable.svg "变量")
 
-![](/uploads/java-class.svg "类和对象")
+![](uploads/java-class.svg "类和对象")
 
 ## Code
 

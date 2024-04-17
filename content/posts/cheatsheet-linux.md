@@ -9,7 +9,7 @@ title: Linux 命令不完全手册
 
 Updated on 2018-02-08
 
-> ![](/uploads/linux-centos.svg)
+> ![](uploads/linux-centos.svg)
 >
 > https://www.centos.org/
 >

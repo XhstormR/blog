@@ -15,11 +15,11 @@ Updated on 2016-07-16
 >
 > 打发时间的同时加深理解：)
 
-{{< image "/uploads/java-equals.svg" "== and equals" "1" "1" >}}
+{{< image "uploads/java-equals.svg" "== and equals" "1" "1" >}}
 
-{{< image "/uploads/java-equals-object.png" "Object 类" "0" "1" >}}
+{{< image "uploads/java-equals-object.png" "Object 类" "0" "1" >}}
 
-{{< image "/uploads/java-equals-string.png" "String 类" "0" "1" >}}
+{{< image "uploads/java-equals-string.png" "String 类" "0" "1" >}}
 
 ```java
 class Demo {

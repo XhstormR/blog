@@ -10,7 +10,7 @@ title: JUnit
 
 Updated on 2017-05-12
 
-> {{< image "/uploads/junit.png" "JUnit" "1" "1" >}}
+> {{< image "uploads/junit.png" "JUnit" "1" "1" >}}
 >
 > https://github.com/junit-team/junit5
 

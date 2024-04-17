@@ -17,7 +17,7 @@ Updated on 2016-08-16
 >
 > Album: Children of the Sun (Single)
 
-[{{< image "/uploads/children-of-the-sun1.jpg" "Children of the Sun" "1" "0" >}}](/uploads/children-of-the-sun2.jpg)
+[{{< image "uploads/children-of-the-sun1.jpg" "Children of the Sun" "1" "0" >}}](uploads/children-of-the-sun2.jpg)
 
 {{< iframe "v1" "https://player.bilibili.com/player.html?aid=5262155" >}}
 

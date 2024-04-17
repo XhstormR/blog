@@ -7,7 +7,7 @@ title: Note
 
 <!--more-->
 
-> {{< image "/uploads/note.png" "Kratos" "1" "1" >}}
+> {{< image "uploads/note.png" "Kratos" "1" "1" >}}
 
 ## 特殊符号
 ```java

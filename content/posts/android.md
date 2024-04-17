@@ -9,7 +9,7 @@ title: 自学 Android
 
 Updated on 2016-08-27
 
-> {{< image "/uploads/android.svg" "Android" "1" "1" >}}
+> {{< image "uploads/android.svg" "Android" "1" "1" >}}
 >
 > https://developers.google.cn/
 >
@@ -36,14 +36,14 @@ Updated on 2016-08-27
 ### 新建 Android 项目卡住
 IDEA 的 Android 构建工具是 Gradle，新建项目时会联网下载对应版本的 Gradle 和 Cache。
 
-Gradle：![](/uploads/android-gradle.png)
+Gradle：![](uploads/android-gradle.png)
 ```html
 C:\Users\XhstormR\IntelliJIDEAProjects\MyApplication\gradle\wrapper\gradle-wrapper.properties
 ⇳
 distributionUrl=http\://android-mirror.bugly.qq.com:8080/gradle/gradle-3.2.1-all.zip
 ```
 
-Cache：![](/uploads/android-cache.png)
+Cache：![](uploads/android-cache.png)
 ```html
 C:\Users\XhstormR\IntelliJIDEAProjects\MyApplication\build.gradle
 ⇳
@@ -180,7 +180,7 @@ yes | ./sdkmanager --sdk_root=$ANDROID_SDK_ROOT --licenses
 ```
 
 ## Android 规范
-* [Android Design](/uploads/android-design.png "Android Design")
+* [Android Design](uploads/android-design.png "Android Design")
 * Android 组件：所有组件都需要在 `AndroidManifest.xml ➜ application` 里进行注册。
   * 活动（Activity）：一种包含用户界面的组件，主要用于和用户进行交互。
   * 服务（Service）：用于实现程序后台运行的组件，不需要和用户交互。
@@ -238,29 +238,29 @@ yes | ./sdkmanager --sdk_root=$ANDROID_SDK_ROOT --licenses
 
 ## SVG
 
-![](/uploads/android-architecture.svg "Android 架构")
+![](uploads/android-architecture.svg "Android 架构")
 
-![](/uploads/android-textview.svg "TextView")
+![](uploads/android-textview.svg "TextView")
 
-![](/uploads/android-edittext.svg "EditText")
+![](uploads/android-edittext.svg "EditText")
 
-![](/uploads/android-imageview.svg "ImageView")
+![](uploads/android-imageview.svg "ImageView")
 
-![](/uploads/android-button.svg "Button")
+![](uploads/android-button.svg "Button")
 
-![](/uploads/android-imagebutton.svg "ImageButton")
+![](uploads/android-imagebutton.svg "ImageButton")
 
-![](/uploads/android-autocompletetextview.svg "AutoCompleteTextView")
+![](uploads/android-autocompletetextview.svg "AutoCompleteTextView")
 
-![](/uploads/android-autocompletetextviewmulti.svg "MultiAutoCompleteTextView")
+![](uploads/android-autocompletetextviewmulti.svg "MultiAutoCompleteTextView")
 
-![](/uploads/android-togglebutton.svg "ToggleButton")
+![](uploads/android-togglebutton.svg "ToggleButton")
 
-![](/uploads/android-checkbox.svg "CheckBox")
+![](uploads/android-checkbox.svg "CheckBox")
 
-![](/uploads/android-radiobutton.svg "RadioButton")
+![](uploads/android-radiobutton.svg "RadioButton")
 
-![](/uploads/android-layout.svg "Layout")
+![](uploads/android-layout.svg "Layout")
 
 ## Code
 
@@ -1326,7 +1326,7 @@ RadioButton 做出 TAB 效果
 [Mirror](https://maven.aliyun.com/)
 
 Cache：
-[![](/uploads/file-into-picture2.png)](http://ww1.sinaimg.cn/large/a038ef72gw1f5lcbds6wvj203k03k1lf "Part1")
-[![](/uploads/file-into-picture2.png)](http://ww3.sinaimg.cn/large/a038ef72gw1f5lcbrppq1j203k03ku19 "Part2")
+[![](uploads/file-into-picture2.png)](http://ww1.sinaimg.cn/large/a038ef72gw1f5lcbds6wvj203k03k1lf "Part1")
+[![](uploads/file-into-picture2.png)](http://ww3.sinaimg.cn/large/a038ef72gw1f5lcbrppq1j203k03ku19 "Part2")
 Android USB Driver：
-[![](/uploads/file-into-picture2.png)](http://ww4.sinaimg.cn/large/a15b4afegw1f5l3t68pezj203k03k4qw)
+[![](uploads/file-into-picture2.png)](http://ww4.sinaimg.cn/large/a15b4afegw1f5l3t68pezj203k03k4qw)

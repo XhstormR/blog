@@ -9,7 +9,7 @@ title: OpenStack 不完全使用手册
 
 Updated on 2016-10-06
 
-> ![](/uploads/openstack-logo.svg)
+> ![](uploads/openstack-logo.svg)
 
 ## curl - *命令行浏览器*
 
@@ -203,8 +203,8 @@ jps #查看 Hadoop 进程，开始 Hadoop 操作 >>>
 
 使用未加 SCSI 属性的镜像创建的VM - virtio-blk
 
-![](/uploads/openstack-glance-normal.png "virtio-blk")
+![](uploads/openstack-glance-normal.png "virtio-blk")
 
 使用已加 SCSI 属性的镜像创建的VM - virtio-scsi（更灵活、更具扩展性）
 
-![](/uploads/openstack-glance-scsi.png "virtio-scsi")
+![](uploads/openstack-glance-scsi.png "virtio-scsi")

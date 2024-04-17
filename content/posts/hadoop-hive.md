@@ -9,11 +9,11 @@ title: 自学 Hive
 
 Updated on 2016-06-08
 
-> ![](/uploads/hadoop-hive-logo.png)
+> ![](uploads/hadoop-hive-logo.png)
 >
 > https://hive.apache.org/
 >
-> ![](/uploads/hadoop-hive.png)
+> ![](uploads/hadoop-hive.png)
 >
 > Hive 是 SQL 解析引擎，它将 SQL 语句转译成 Map/Reduce Job 然后在 Hadoop 执行；能够用类 SQL 的方式操作 HDFS 里面数据一个数据仓库的框架，这个类 SQL 我们称之为 HQL（Hive Query Language）。
 

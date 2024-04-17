@@ -9,7 +9,7 @@ title: 集合
 
 Updated on 2016-08-01
 
-> {{< image "/uploads/java-collection.svg" "集合框架" "1" "1" >}}
+> {{< image "uploads/java-collection.svg" "集合框架" "1" "1" >}}
 
 * 集合：能够存储 **任意数量** 且具有 **共同属性** 的对象的 **容器**。
   * 集合容量可变，数组容量固定。各自工具类：`java.util.Collections` | `java.util.Arrays`。

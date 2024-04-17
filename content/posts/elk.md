@@ -10,7 +10,7 @@ title: Elastic Stack
 
 Updated on 2020-08-08
 
-> {{< image "/uploads/elastic-stack.svg" "Elastic Stack" "1" "0" "600" >}}
+> {{< image "uploads/elastic-stack.svg" "Elastic Stack" "1" "0" "600" >}}
 >
 > https://github.com/elastic/
 >

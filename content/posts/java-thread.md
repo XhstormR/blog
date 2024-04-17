@@ -10,7 +10,7 @@ title: Java Thread
 
 Updated on 2016-10-24
 
-> {{< image "/uploads/java-thread.svg" "Thread 状态" "1" "1" >}}
+> {{< image "uploads/java-thread.svg" "Thread 状态" "1" "1" >}}
 >
 > [Thread](http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/java/lang/Thread.html)
 >

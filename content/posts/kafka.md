@@ -10,7 +10,7 @@ title: Kafka
 
 Updated on 2020-09-15
 
-> {{< image "/uploads/kafka.svg" "Kafka" "1" "1" >}}
+> {{< image "uploads/kafka.svg" "Kafka" "1" "1" >}}
 >
 > https://kafka.apache.org/
 >

@@ -10,16 +10,16 @@ title: 逆向 JxBrowser
 
 Updated on 2018-12-17
 
-> {{< image "/uploads/jxbrowser.jpg" "JxBrowser" "1" "1" "" >}}
+> {{< image "uploads/jxbrowser.jpg" "JxBrowser" "1" "1" "" >}}
 >
 > https://www.teamdev.com/jxbrowser
 
 ## Step
 1. 反编译 lib/jxbrowser-6.22.1.jar。
 2. 搜索 **`BigInteger`**，定位至 `bb.class`。
-{{< image "/uploads/reverse-jxbrowser1.png" "" "1" "1" >}}
+{{< image "uploads/reverse-jxbrowser1.png" "" "1" "1" >}}
 3. 修改方法 `b` 的返回值为 **`true`**。
-{{< image "/uploads/reverse-jxbrowser2.png" "" "1" "1" >}}
+{{< image "uploads/reverse-jxbrowser2.png" "" "1" "1" >}}
 
 ## Code
 ```java

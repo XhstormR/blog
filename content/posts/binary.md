@@ -9,7 +9,7 @@ title: 进制转换
 
 Updated on 2016-09-09
 
-> {{< image "/uploads/binary.svg" "" "0" "1" >}}
+> {{< image "uploads/binary.svg" "" "0" "1" >}}
 
 ## 单位
 ### 二进制
@@ -29,23 +29,23 @@ Updated on 2016-09-09
 
 ## 表示 - 235
 ### 二进制 - 11101011
-{{< image "/uploads/binary-2.png" "" "0" "1" >}}
+{{< image "uploads/binary-2.png" "" "0" "1" >}}
 
 ### 八进制 - 353
-{{< image "/uploads/binary-8.svg" "" "0" "1" >}}
-{{< image "/uploads/binary-8.png" "" "0" "1" >}}
+{{< image "uploads/binary-8.svg" "" "0" "1" >}}
+{{< image "uploads/binary-8.png" "" "0" "1" >}}
 
 ### 十进制 - 235
-{{< image "/uploads/binary-10.svg" "" "0" "1" >}}
-{{< image "/uploads/binary-10.png" "" "0" "1" >}}
+{{< image "uploads/binary-10.svg" "" "0" "1" >}}
+{{< image "uploads/binary-10.png" "" "0" "1" >}}
 
 ### 十六进制 - eb
-{{< image "/uploads/binary-16.svg" "" "0" "1" >}}
-{{< image "/uploads/binary-16.png" "" "0" "1" >}}
+{{< image "uploads/binary-16.svg" "" "0" "1" >}}
+{{< image "uploads/binary-16.png" "" "0" "1" >}}
 
 ## 二进制
 ### 位运算
-{{< image "/uploads/binary-bitwise.svg" "" "0" "1" >}}
+{{< image "uploads/binary-bitwise.svg" "" "0" "1" >}}
 
 ### 原码
 按绝对值大小转换成的二进制数称为原码（正数）。

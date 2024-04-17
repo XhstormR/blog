@@ -10,7 +10,7 @@ title: 逆向 Minecraft
 
 Updated on 2019-12-03
 
-> {{< image "/uploads/reverse-minecraft-launcher.png" "Minecraft" "1" "1" >}}
+> {{< image "uploads/reverse-minecraft-launcher.png" "Minecraft" "1" "1" >}}
 
 ## Tracing.aj
 ```java

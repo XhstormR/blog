@@ -9,7 +9,7 @@ title: 常用 Git 命令清单
 
 Updated on 2016-11-07
 
-> {{< image "/uploads/git2.png" "Git" "1" "1" >}}
+> {{< image "uploads/git2.png" "Git" "1" "1" >}}
 >
 > https://git-scm.com/book/zh
 >
@@ -31,7 +31,7 @@ Updated on 2016-11-07
 >
 > 一般来说，日常使用只要记住下图6个命令，就可以了。但是熟练使用，恐怕要记住60～100个命令。
 >
-> {{< image "/uploads/git.png" "Git" "1" "0" >}}
+> {{< image "uploads/git.png" "Git" "1" "0" >}}
 
 几个专用名词的译名如下:
 

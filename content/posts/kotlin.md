@@ -9,7 +9,7 @@ title: Kotlin
 
 Updated on 2017-04-13
 
-> {{< image "/uploads/kotlin2.svg" "Kotlin" "1" "1" "225" >}}
+> {{< image "uploads/kotlin2.svg" "Kotlin" "1" "1" "225" >}}
 >
 > https://kotlin.link/
 >
@@ -1301,7 +1301,7 @@ class java.lang.String     完全类名限定符
 class java.lang.String
 ```
 
-![](/uploads/kotlin-transform.png "Transform")
+![](uploads/kotlin-transform.png "Transform")
 
 ## Script
 ```

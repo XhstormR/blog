@@ -9,7 +9,7 @@ title: uBlock Origin Filter
 
 Updated on 2018-03-23
 
-> {{< image "/uploads/ublock.svg" "" "0" "1" >}}
+> {{< image "uploads/ublock.svg" "" "0" "1" >}}
 >
 > [uBlock Origin](https://github.com/gorhill/uBlock)
 >

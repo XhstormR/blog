@@ -10,7 +10,7 @@ title: Spring Framework
 
 Updated on 2017-07-11
 
-> {{< image "/uploads/spring.png" "Spring Framework" "1" "1" >}}
+> {{< image "uploads/spring.png" "Spring Framework" "1" "1" >}}
 >
 > https://spring.io/projects
 >

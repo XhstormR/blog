@@ -10,19 +10,19 @@ title: Java Concurrency
 
 Updated on 2017-07-29
 
-> {{< image "/uploads/java-concurrency1.svg" "Executor" "1" "1" >}}
+> {{< image "uploads/java-concurrency1.svg" "Executor" "1" "1" >}}
 >
 > -
 >
-> {{< image "/uploads/java-concurrency2.svg" "Future" "1" "1" >}}
+> {{< image "uploads/java-concurrency2.svg" "Future" "1" "1" >}}
 >
 > -
 >
-> {{< image "/uploads/java-concurrency3.svg" "Queue" "1" "1" >}}
+> {{< image "uploads/java-concurrency3.svg" "Queue" "1" "1" >}}
 >
 > -
 >
-> {{< image "/uploads/java-concurrency4.svg" "" "1" "1" >}}
+> {{< image "uploads/java-concurrency4.svg" "" "1" "1" >}}
 >
 > -
 >
