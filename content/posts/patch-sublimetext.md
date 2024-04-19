@@ -55,6 +55,7 @@ curl -o ~/Library/'Application Support/Sublime Text'/Packages/User/Dracula.tmThe
     "trim_trailing_white_space_on_save": "all",
     "caret_style": "blink",
     "rulers": [[80, "stippled"]],
+    "update_check": false,
 }
 ```
 

@@ -139,11 +139,10 @@ prefix: /usr/local/Caskroom/miniconda/base
 ![Karabiner](uploads/mac-os-karabiner.png)
 
 ### 快捷键兼容
-```
-jq --slurpfile input frontmost_application_unless_rule.json '.rules[].manipulators[].conditions += $input' 1.json > 2.json
 
-frontmost_application_unless_rule.json
-----
+#### frontmost_application_unless_rule.json
+
+```json
 {
   "type": "frontmost_application_unless",
   "bundle_identifiers": [
@@ -155,8 +154,14 @@ frontmost_application_unless_rule.json
 }
 ```
 
-### chrome_shortcuts.json
+```sh
+# 修改配置，排除某些应用。
+jq --slurpfile input frontmost_application_unless_rule.json '.rules[].manipulators[].conditions += $input' 1.json > 2.json
 ```
+
+#### chrome_shortcuts.json
+
+```json
 {
   "title": "chrome_shortcuts",
   "rules": [
