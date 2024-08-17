@@ -10,7 +10,7 @@ title: Android Proxy
 
 Updated on 2020-02-28
 
->
+> CA 证书（根证书）需要安装（导入）为系统证书（不是用户证书），才能解密应用SSL流量。
 
 ## Tun2socks
 * https://github.com/eycorsican/go-tun2socks
@@ -102,3 +102,6 @@ rules:
   - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
   - MATCH,手动
 ```
+
+## Reqable
+* https://github.com/reqable/reqable-app
