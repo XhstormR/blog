@@ -22,10 +22,11 @@ Note: `rules` 中的规则越靠前，优先级就越高。
   "inbounds": [
     {
       "type": "tun", // 透明代理
-      "inet4_address": "172.16.0.1/30",
+      "address": [
+        "172.19.0.1/30"
+      ],
       "auto_route": true,
-      "strict_route": true,
-      "sniff": true
+      "strict_route": true
     },
     {
       "type": "mixed", // SOCKS5 HTTP 代理
@@ -91,14 +92,6 @@ Note: `rules` 中的规则越靠前，优先级就越高。
     {
       "tag": "直连",
       "type": "direct"
-    },
-    {
-      "tag": "拦截",
-      "type": "block"
-    },
-    {
-      "tag": "域名",
-      "type": "dns"
     }
   ],
   "dns": {
@@ -111,7 +104,7 @@ Note: `rules` 中的规则越靠前，优先级就越高。
       },
       {
         "tag": "local",
-        "address": "1.2.4.8",
+        "address": "https://223.5.5.5/dns-query",
         "detour": "直连"
       }
     ],
@@ -138,8 +131,11 @@ Note: `rules` 中的规则越靠前，优先级就越高。
     "auto_detect_interface": true,
     "rules": [
       {
+        "action": "sniff"
+      },
+      {
         "protocol": "dns",
-        "outbound": "域名"
+        "action": "hijack-dns"
       },
       {
         "ip_is_private": true,
@@ -157,7 +153,7 @@ Note: `rules` 中的规则越靠前，优先级就越高。
         "rule_set": [
           "geosite-category-ads-all"
         ],
-        "outbound": "拦截"
+        "action": "reject"
       },
       {
         "rule_set": [
@@ -202,6 +198,13 @@ Note: `rules` 中的规则越靠前，优先级就越高。
   "experimental": {
     "cache_file": {
       "enabled": true
+    },
+    "clash_api": {
+      "external_controller": "127.0.0.1:9090",
+      "access_control_allow_origin": [
+        "https://yacd.haishan.me",
+        "https://metacubexd.pages.dev"
+      ]
     }
   }
 }
