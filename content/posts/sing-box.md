@@ -86,7 +86,12 @@ Note: `rules` 中的规则越靠前，优先级就越高。
       "server_port": 443,
       "tls": {
         "enabled": true,
-        "server_name": "liads.wsone.icu"
+        "server_name": "liads.wsone.icu",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        }
       }
     },
     {
@@ -201,8 +206,10 @@ Note: `rules` 中的规则越靠前，优先级就越高。
     },
     "clash_api": {
       "external_controller": "127.0.0.1:9090",
+      "secret": "123456",
       "access_control_allow_origin": [
         "https://yacd.haishan.me",
+        "https://yacd.metacubex.one",
         "https://metacubexd.pages.dev"
       ]
     }
