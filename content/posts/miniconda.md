@@ -27,14 +27,14 @@ conda init fish
 conda update --all
 conda clean --all
 
-conda create -y -n myenv3 pycurl pycrypto ripgrep python=3
+conda create -y -n myenv3 pycurl pycryptodome ripgrep python=3
 conda activate myenv3
 conda deactivate
 
-conda search pycrypto
-conda install pycrypto
-conda update pycrypto
-conda remove pycrypto
+conda search pycryptodome
+conda install pycryptodome
+conda update pycryptodome
+conda remove pycryptodome
 
 conda env list
 conda env export -n myenv3 -f myenv3.yml
