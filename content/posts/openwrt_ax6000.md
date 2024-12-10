@@ -11,6 +11,8 @@ tags:
 > https://openwrt.org/toh/xiaomi/redmi_ax6000
 >
 > https://firmware-selector.openwrt.org
+>
+> https://github.com/openwrt/openwrt
 
 ## uboot
 
