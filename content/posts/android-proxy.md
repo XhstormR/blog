@@ -103,5 +103,85 @@ rules:
   - MATCH,手动
 ```
 
+## sing-box
+
+```json
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "address": [
+        "172.19.0.1/30"
+      ],
+      "auto_route": true,
+      "strict_route": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "自选",
+      "type": "selector",
+      "outbounds": [
+        "burp",
+        "直连"
+      ]
+    },
+    {
+      "tag": "burp",
+      "type": "http",
+      "server": "192.168.100.2",
+      "server_port": 8080
+    },
+    {
+      "tag": "直连",
+      "type": "direct"
+    }
+  ],
+  "dns": {
+    "strategy": "ipv4_only",
+    "servers": [
+      {
+        "tag": "local",
+        "address": "https://9.9.9.9/dns-query",
+        "detour": "直连"
+      }
+    ],
+    "rules": [
+      {
+        "outbound": "any",
+        "server": "local"
+      }
+    ]
+  },
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "action": "sniff"
+      },
+      {
+        "protocol": "dns",
+        "action": "hijack-dns"
+      },
+      {
+        "ip_is_private": true,
+        "outbound": "直连"
+      },
+      {
+        "clash_mode": "Direct",
+        "outbound": "直连"
+      },
+      {
+        "clash_mode": "Global",
+        "outbound": "自选"
+      }
+    ]
+  }
+}
+```
+
 ## Reqable
 * https://github.com/reqable/reqable-app

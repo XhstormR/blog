@@ -1103,6 +1103,21 @@ https://wikidevi.wi-cat.ru/Wireless_adapters/Chipset_table
 https://openwrt.org/toh/start
 ```
 
+### BurpLoader
+```bash
+java \
+--add-opens=java.desktop/javax.swing=ALL-UNNAMED \
+--add-opens=java.base/java.lang=ALL-UNNAMED \
+--add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED \
+--add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED \
+--add-opens=java.base/jdk.internal.org.objectweb.asm.Opcodes=ALL-UNNAMED \
+-javaagent:burploader.jar -noverify -jar \
+burpsuite_pro_v2024.7.6.jar
+
+https://github.com/h3110w0r1d-y/BurpLoaderKeygen
+https://t.me/BurpLoaderKeygen
+```
+
 ## Android USB 代理网络
 ```bash
 adb reverse tcp:9527 tcp:8080
