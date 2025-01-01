@@ -461,7 +461,9 @@ https://launcher.nirsoft.net/downloads/index.html
 
 https://bellard.org/tcc/
 
-https://www.vmware.com/go/getworkstation-win
+https://softwareupdate.vmware.com/cds/vmw-desktop/
+https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware%20Fusion
+https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware%20Workstation%20Pro
 
 https://releases.llvm.org/download.html
 https://github.com/llvm/llvm-project/releases/latest
@@ -1101,6 +1103,21 @@ https://wikidevi.wi-cat.ru/Wireless_adapters/Chipset_table
 
 无线路由器：
 https://openwrt.org/toh/start
+```
+
+### BurpLoader
+```bash
+java \
+--add-opens=java.desktop/javax.swing=ALL-UNNAMED \
+--add-opens=java.base/java.lang=ALL-UNNAMED \
+--add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED \
+--add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED \
+--add-opens=java.base/jdk.internal.org.objectweb.asm.Opcodes=ALL-UNNAMED \
+-javaagent:burploader.jar -noverify -jar \
+burpsuite_pro_v2024.7.6.jar
+
+https://github.com/h3110w0r1d-y/BurpLoaderKeygen
+https://t.me/BurpLoaderKeygen
 ```
 
 ## Android USB 代理网络

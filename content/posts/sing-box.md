@@ -104,20 +104,18 @@ Note: `rules` 中的规则越靠前，优先级就越高。
     "servers": [
       {
         "tag": "remote",
-        "address": "https://9.9.9.9/dns-query",
+        "type": "https",
+        "server": "9.9.9.9",
         "detour": "自选"
       },
       {
         "tag": "local",
-        "address": "https://223.5.5.5/dns-query",
+        "type": "https",
+        "server": "223.5.5.5",
         "detour": "直连"
       }
     ],
     "rules": [
-      {
-        "outbound": "any",
-        "server": "local"
-      },
       {
         "clash_mode": "Direct",
         "server": "local"
@@ -134,6 +132,7 @@ Note: `rules` 中的规则越靠前，优先级就越高。
   },
   "route": {
     "auto_detect_interface": true,
+    "default_domain_resolver": "local",
     "rules": [
       {
         "action": "sniff"

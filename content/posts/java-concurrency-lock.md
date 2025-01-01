@@ -304,9 +304,9 @@ public class Main {
         ExecutorService executorService = Executors.newCachedThreadPool();
         for (int n = 0; n < 5; n++) {
             executorService.execute(() -> {
+                System.out.println(Thread.currentThread().getName() + " 等待信号...");
+                semaphore.acquire();     获得信号（应该在 try 块外获得信号，以防止不必要的释放信号）
                 try {
-                    System.out.println(Thread.currentThread().getName() + " 等待信号...");
-                    semaphore.acquire();     获得信号（应该在 try 块外获得信号，以防止不必要的释放信号）
                     System.out.println(Thread.currentThread().getName() + " 获得信号...");
                     for (int i = 0; i < 2; i++) {
                         System.out.println(Thread.currentThread().getName() + " 运行中...");
