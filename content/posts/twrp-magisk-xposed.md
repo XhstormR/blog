@@ -44,8 +44,15 @@ fastboot reboot bootloader
 * https://topjohnwu.github.io/Magisk/install.html
 * https://github.com/topjohnwu/Magisk/releases/latest
 
+获取 Root 权限，不需要刷全量包，只需要解锁并刷入修改后的 Bootloader。优先级： init_boot.img > boot.img > recovery.img
+
 ```bash
+fastboot flash init_boot magisk_patched-25200_OIUkx.img # patched init_boot.img
+or
 fastboot flash boot magisk_patched-25200_OIUkx.img # patched boot.img
+or
+fastboot flash recovery magisk_patched-25200_OIUkx.img # patched recovery.img
+
 fastboot flash vbmeta --disable-verity --disable-verification vbmeta.img
 fastboot reboot
 ```
@@ -88,6 +95,12 @@ adb reboot bootloader
 
 fastboot oem config carrier reteu
 ```
+
+### OnePlus 13
+PJZ110
+
+* https://github.com/snowwolf725/OnePlus12-fw-repos/releases
+* https://yun.daxiaamu.com/OnePlus_Roms/%E4%B8%80%E5%8A%A0OnePlus%2013/
 
 ## Reference
 * AOSP Enable Call Recording:
