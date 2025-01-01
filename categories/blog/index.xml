@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Blog on XhstormR</title>
+    <link>https://xhstormr.github.io/blog/categories/blog/</link>
+    <description>Recent content in Blog on XhstormR</description>
+    <generator>Hugo -- 0.140.2</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 08 Feb 2016 21:03:50 +0800</lastBuildDate>
+    <atom:link href="https://xhstormr.github.io/blog/categories/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Blog Changelog</title>
+      <link>https://xhstormr.github.io/blog/posts/blog-changelog/</link>
+      <pubDate>Mon, 08 Feb 2016 21:03:50 +0800</pubDate>
+      <guid>https://xhstormr.github.io/blog/posts/blog-changelog/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Categories &amp; Tags</title>
+      <link>https://xhstormr.github.io/blog/posts/categories-tags/</link>
+      <pubDate>Mon, 08 Feb 2016 21:03:48 +0800</pubDate>
+      <guid>https://xhstormr.github.io/blog/posts/categories-tags/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
