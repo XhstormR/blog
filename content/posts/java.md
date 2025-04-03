@@ -48,6 +48,7 @@ Updated on 2016-06-30
 * https://zhile.io
   * https://jetbra.in/s
   * https://jetbrain.live/
+  * https://jetbrain.tech/
 
 ```bash
 @ echo off
