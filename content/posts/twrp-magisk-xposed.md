@@ -16,14 +16,16 @@ Updated on 2019-12-17
 ```bash
 https://dl.google.com/android/repository/repository2-1.xml
 
-curl -k https://dl.google.com/android/repository/platform-tools_r29.0.1-windows.zip | busybox unzip -
+curl -k https://dl.google.com/android/repository/platform-tools_r36.0.0-win.zip | busybox unzip -
 ```
 
 ## Bootloader Driver
+* https://www.catalog.update.microsoft.com/Search.aspx?q=Google%20Android%20Bootloader%20Interface
+
 ```bash
 https://dl.google.com/android/repository/addon2-1.xml
 
-curl -k https://dl.google.com/android/repository/usb_driver_r12-windows.zip | busybox unzip -
+curl -k https://dl.google.com/android/repository/usb_driver_r13-windows.zip | busybox unzip -
 ```
 
 ## TWRP (Deprecated)
@@ -101,6 +103,13 @@ PJZ110
 
 * https://github.com/snowwolf725/OnePlus12-fw-repos/releases
 * https://yun.daxiaamu.com/OnePlus_Roms/%E4%B8%80%E5%8A%A0OnePlus%2013/
+
+#### payload.bin dumper
+
+```bash
+pip install git+https://github.com/5ec1cff/payload-dumper
+payload_dumper --partitions init_boot,boot payload.bin
+```
 
 ## Reference
 * AOSP Enable Call Recording:

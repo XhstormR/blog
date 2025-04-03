@@ -52,13 +52,15 @@ gnatdll proxy.o -e proxy.def -d proxy.dll
 ```
 
 ```bash
-i686-w64-mingw32-gcc proxy.c proxy.def -shared -o proxy.dll
+i686-w64-mingw32-gcc proxy.c proxy.def -o proxy.dll -shared -s
 ```
 
 ---
 
 ```bash
-gendef - nslicense.dll
+gendef - nslicense.dll > 123.txt
+
+awk 'NR==1 {print "EXPORTS" > "proxy.def"} {print $1 " = nslicense_old." $1 > "proxy.def"}' 123.txt
 
 strip -sv proxy.dll
 

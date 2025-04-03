@@ -371,7 +371,6 @@ type nul > "D:\Program Files\Chrome\User Data\SwReporter"
 
 CRX：
 http://yurl.sinaapp.com/crx.php
-http://chrome-extension-downloader.com/
 
 APK：
 https://apps.evozi.com/apk-downloader/
@@ -461,9 +460,8 @@ https://launcher.nirsoft.net/downloads/index.html
 
 https://bellard.org/tcc/
 
-https://softwareupdate.vmware.com/cds/vmw-desktop/
-https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware%20Fusion
-https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware%20Workstation%20Pro
+https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware%20Workstation%20Pro&freeDownloads=true
+https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware%20Fusion&freeDownloads=true
 
 https://releases.llvm.org/download.html
 https://github.com/llvm/llvm-project/releases/latest

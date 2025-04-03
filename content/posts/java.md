@@ -48,6 +48,7 @@ Updated on 2016-06-30
 * https://zhile.io
   * https://jetbra.in/s
   * https://jetbrain.live/
+  * https://jetbrain.tech/
 
 ```bash
 @ echo off
@@ -57,6 +58,13 @@ busybox rm -rf eval
 busybox sed -i "/evlsprt/d" options/other.xml
 reg delete HKEY_CURRENT_USER\SOFTWARE\JavaSoft\Prefs\jetbrains\idea /f
 popd
+```
+
+```bash
+#Mac VM Options
+"/Users/user/Library/Application Support/JetBrains/IntelliJIdea2025.1/idea.vmoptions"
+----
+-javaagent:/Users/user/Documents/jetbra/ja-netfilter.jar=jetbrains
 ```
 
 ### IDEA 快捷键
