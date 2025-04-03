@@ -38,7 +38,7 @@ BOOL WINAPI DllMain(HANDLE hModule, DWORD ul_reason_for_call, LPVOID lpReserved)
 ```bash
 gcc 123.c -o 123.dll -shared -s
 
-rundll32 123.dll msg
+rundll32 123.dll msg Hello World!
 ```
 
 ```bash
