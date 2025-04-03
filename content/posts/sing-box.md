@@ -111,8 +111,7 @@ Note: `rules` 中的规则越靠前，优先级就越高。
       {
         "tag": "local",
         "type": "https",
-        "server": "223.5.5.5",
-        "detour": "直连"
+        "server": "223.5.5.5"
       }
     ],
     "rules": [
