@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Notes on XhstormR</title>
+    <link>https://xhstormr.github.io/blog/tags/notes/</link>
+    <description>Recent content in Notes on XhstormR</description>
+    <generator>Hugo -- 0.146.7</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 14 Jan 2017 08:49:47 +0800</lastBuildDate>
+    <atom:link href="https://xhstormr.github.io/blog/tags/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Windows SSH Server</title>
+      <link>https://xhstormr.github.io/blog/posts/ssh-server/</link>
+      <pubDate>Sat, 14 Jan 2017 08:49:47 +0800</pubDate>
+      <guid>https://xhstormr.github.io/blog/posts/ssh-server/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>BiliBili API</title>
+      <link>https://xhstormr.github.io/blog/posts/bilibili-api/</link>
+      <pubDate>Sun, 18 Sep 2016 14:27:24 +0800</pubDate>
+      <guid>https://xhstormr.github.io/blog/posts/bilibili-api/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>HTTP Status Code</title>
+      <link>https://xhstormr.github.io/blog/posts/http-status-code/</link>
+      <pubDate>Thu, 12 May 2016 07:02:01 +0800</pubDate>
+      <guid>https://xhstormr.github.io/blog/posts/http-status-code/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Aria2 Configuration</title>
+      <link>https://xhstormr.github.io/blog/posts/aria2/</link>
+      <pubDate>Thu, 21 Apr 2016 21:58:45 +0800</pubDate>
+      <guid>https://xhstormr.github.io/blog/posts/aria2/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CMD 使用 UTF-8 编码</title>
+      <link>https://xhstormr.github.io/blog/posts/cmd-use-utf8/</link>
+      <pubDate>Sun, 27 Mar 2016 16:28:03 +0800</pubDate>
+      <guid>https://xhstormr.github.io/blog/posts/cmd-use-utf8/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>uBlock Origin Filter</title>
+      <link>https://xhstormr.github.io/blog/posts/ublock-origin-filter/</link>
+      <pubDate>Sat, 27 Feb 2016 22:12:44 +0800</pubDate>
+      <guid>https://xhstormr.github.io/blog/posts/ublock-origin-filter/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
