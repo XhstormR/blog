@@ -13,7 +13,7 @@ Updated on 2019-10-04
 ## 123.xml
 ```xml
 <?xml version="1.0" ?>
-<Task xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
+<Task version="1.6" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
   <RegistrationInfo>
     <Source>Microsoft Corporation</Source>
     <Author>Microsoft Corporation</Author>
@@ -36,28 +36,35 @@ Updated on 2019-10-04
     </Principal>
   </Principals>
   <Settings>
-    <MultipleInstancesPolicy>StopExisting</MultipleInstancesPolicy>
+    <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>
     <DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries>
-    <StopIfGoingOnBatteries>true</StopIfGoingOnBatteries>
-    <AllowHardTerminate>true</AllowHardTerminate>
+    <StopIfGoingOnBatteries>false</StopIfGoingOnBatteries>
+    <AllowHardTerminate>false</AllowHardTerminate>
     <StartWhenAvailable>true</StartWhenAvailable>
     <RunOnlyIfNetworkAvailable>false</RunOnlyIfNetworkAvailable>
     <IdleSettings>
-      <StopOnIdleEnd>true</StopOnIdleEnd>
-      <RestartOnIdle>false</RestartOnIdle>
+      <StopOnIdleEnd>false</StopOnIdleEnd>
+      <RestartOnIdle>true</RestartOnIdle>
     </IdleSettings>
     <AllowStartOnDemand>true</AllowStartOnDemand>
     <Enabled>true</Enabled>
     <Hidden>true</Hidden>
     <RunOnlyIfIdle>false</RunOnlyIfIdle>
-    <WakeToRun>false</WakeToRun>
+    <DisallowStartOnRemoteAppSession>false</DisallowStartOnRemoteAppSession>
+    <UseUnifiedSchedulingEngine>true</UseUnifiedSchedulingEngine>
+    <WakeToRun>true</WakeToRun>
     <ExecutionTimeLimit>PT0S</ExecutionTimeLimit>
     <Priority>0</Priority>
+    <RestartOnFailure>
+      <Interval>PT5M</Interval>
+      <Count>3</Count>
+    </RestartOnFailure>
   </Settings>
   <Actions Context="LocalSystem">
     <Exec>
-      <Command>%windir%\system32\rundll32.exe</Command>
-      <Arguments>main.dll msg</Arguments>
+      <Command>"%ProgramFiles%\Waves\python\pythonw.exe"</Command>
+      <Arguments>123.pyc</Arguments>
+      <WorkingDirectory>%ProgramFiles%\Waves\python</WorkingDirectory>
     </Exec>
   </Actions>
 </Task>
@@ -66,6 +73,19 @@ Updated on 2019-10-04
 ### Reference
 * https://docs.microsoft.com/zh-cn/windows/win32/taskschd/task-scheduler-schema
 * https://docs.microsoft.com/zh-cn/windows/security/identity-protection/access-control/security-identifiers
+
+## 123.pyc
+
+### 123.py
+
+```python
+import time
+while True: time.sleep(5)
+```
+
+```bash
+python -m compileall 123.py # output: __pycache__/123.cpython-313.pyc
+```
 
 ## 注册任务
 
