@@ -12,9 +12,9 @@ Updated on 2020-09-20
 
 > [cmake](https://github.com/Kitware/CMake/releases/latest)
 >
-> [kafkacat](https://github.com/edenhill/kafkacat/archive/master.zip)
+> [kafkacat](https://github.com/edenhill/kcat/archive/refs/heads/master.zip)
 >
-> [librdkafka](https://github.com/edenhill/librdkafka/archive/master.zip)
+> [librdkafka](https://github.com/confluentinc/librdkafka/archive/refs/heads/master.zip)
 
 ## Step
 ```bash
