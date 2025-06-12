@@ -124,6 +124,10 @@ Note: `rules` 中的规则越靠前，优先级就越高。
         "server": "remote"
       },
       {
+        "rule_set": "geosite-category-ads-all",
+        "action": "reject"
+      },
+      {
         "rule_set": "geosite-cn",
         "server": "local"
       }
@@ -162,6 +166,10 @@ Note: `rules` 中的规则越靠前，优先级就越高。
         "rule_set": [
           "geoip-cn",
           "geosite-cn",
+          "geosite-tld-cn",
+          "geosite-category-games-cn",
+          "geosite-category-companies@cn",
+          "geosite-connectivity-check",
           "geosite-private"
         ],
         "outbound": "直连"
@@ -183,10 +191,17 @@ Note: `rules` 中的规则越靠前，优先级就越高。
         "download_detour": "自选"
       },
       {
-        "tag": "geosite-private",
+        "tag": "geosite-tld-cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-private.srs",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-tld-cn.srs",
+        "download_detour": "自选"
+      },
+      {
+        "tag": "geosite-category-games-cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-games-cn.srs",
         "download_detour": "自选"
       },
       {
@@ -194,6 +209,27 @@ Note: `rules` 中的规则越靠前，优先级就越高。
         "type": "remote",
         "format": "binary",
         "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
+        "download_detour": "自选"
+      },
+      {
+        "tag": "geosite-category-companies@cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-companies@cn.srs",
+        "download_detour": "自选"
+      },
+      {
+        "tag": "geosite-connectivity-check",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-connectivity-check.srs",
+        "download_detour": "自选"
+      },
+      {
+        "tag": "geosite-private",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-private.srs",
         "download_detour": "自选"
       }
     ]

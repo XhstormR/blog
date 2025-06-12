@@ -25,6 +25,7 @@ outputs:
         - JSON
 
 params:
+    env: production
     hideSummary: true
     defaultTheme: dark
     displayFullLangName: true
