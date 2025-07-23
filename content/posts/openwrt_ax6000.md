@@ -19,7 +19,10 @@ tags:
 * https://cmi.hanwckf.top/p/mt798x-uboot-usage/
 * https://github.com/hanwckf/bl-mt798x/releases/latest
 
-按住路由器的RESET按钮之后通电，保持至少15秒后松开，路由器会自动进入uboot的failsafe模式，由于uboot没有DHCP功能，需要把电脑的IP地址设置成静态IP `192.168.31.100/24`，更新固件`http://192.168.31.1/`，更新uboot`http://192.168.31.1/uboot.html`。
+按住路由器的RESET按钮之后通电，保持至少15秒后松开，路由器会自动进入uboot的failsafe模式，由于uboot没有DHCP功能，需要把电脑的IP地址设置成静态IP `192.168.31.100/24`。
+
+* 更新固件: `http://192.168.31.1/`
+* 更新 uboot: `http://192.168.31.1/uboot.html`
 
 ```shell
 scp -O '/Users/user/Downloads/mt7986_redmi_ax6000-fip-fixed-parts-multi-layout.bin' root@192.168.1.1:/tmp/
