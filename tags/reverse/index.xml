@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Reverse on XhstormR</title>
+    <link>https://xhstormr.github.io/blog/tags/reverse/</link>
+    <description>Recent content in Reverse on XhstormR</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 20 Aug 2023 15:57:41 +0300</lastBuildDate>
+    <atom:link href="https://xhstormr.github.io/blog/tags/reverse/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Patch Sublime Text</title>
+      <link>https://xhstormr.github.io/blog/posts/patch-sublimetext/</link>
+      <pubDate>Sun, 20 Aug 2023 15:57:41 +0300</pubDate>
+      <guid>https://xhstormr.github.io/blog/posts/patch-sublimetext/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Patch SecureCRT &#43; SecureFX Bundle</title>
+      <link>https://xhstormr.github.io/blog/posts/patch-securecrt/</link>
+      <pubDate>Sun, 29 Jan 2023 22:12:53 +0800</pubDate>
+      <guid>https://xhstormr.github.io/blog/posts/patch-securecrt/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
