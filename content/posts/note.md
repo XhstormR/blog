@@ -1,5 +1,5 @@
 ---
-categories:
+tags:
 - Notes
 date: 2016-02-08T21:08:50+08:00
 title: Note

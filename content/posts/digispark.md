@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - MCU
 - BadUSB
 date: 2019-11-16T16:15:32+08:00

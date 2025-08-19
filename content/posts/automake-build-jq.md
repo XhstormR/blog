@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Notes
 date: 2017-09-01T20:21:40+08:00
 title: 构建 jq

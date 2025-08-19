@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Notes
 date: 2018-02-14T13:46:24+08:00
 title: 构建 libiconv

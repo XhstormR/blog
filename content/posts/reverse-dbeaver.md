@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Reverse
 date: 2017-12-07T14:54:55+08:00
 title: 逆向 DBeaver

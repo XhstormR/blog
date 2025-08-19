@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Notes
 date: 2020-10-08T11:45:51+08:00
 title: 构建 Redis

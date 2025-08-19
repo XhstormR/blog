@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Notes
 date: 2017-08-31T14:01:08+08:00
 title: 构建 cmark

@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Notes
 date: 2018-02-18T17:27:36+08:00
 title: 构建 libxml2

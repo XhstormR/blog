@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - V2Ray
 date: 2017-11-29T17:47:16+08:00
 title: V2Ray

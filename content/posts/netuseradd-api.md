@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - security
 date: 2019-10-01T09:59:16+08:00
 title: Win32 NetUserAdd API

@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Reverse
 date: 2018-07-14T16:12:09+08:00
 title: 逆向 MyBatis plugin

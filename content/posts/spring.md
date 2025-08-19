@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Spring
 date: 2017-05-21T20:11:22+08:00
 title: Spring Framework

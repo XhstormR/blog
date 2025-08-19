@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - JAVA
 date: 2017-08-01T11:14:11+08:00
 title: Java Concurrency Lock

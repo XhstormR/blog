@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Notes
 date: 2020-08-08T18:39:18+08:00
 title: Elastic Stack

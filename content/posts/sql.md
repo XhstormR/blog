@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - SQL
 date: 2018-04-07T15:05:01+08:00
 title: SQL 必知必会

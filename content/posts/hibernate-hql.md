@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Hibernate
 date: 2017-05-19T20:17:25+08:00
 title: Hibernate Query Language

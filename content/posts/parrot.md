@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Notes
 date: 2019-08-18T19:31:07+08:00
 title: Parrot

@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Notes
 date: 2021-01-27T16:40:13+08:00
 title: Java 反序列化漏洞利用

@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Notes
 date: 2018-03-02T15:55:56+08:00
 title: Swagger API

@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Notes
 date: 2019-03-01T14:11:28+08:00
 title: 构建 hydra

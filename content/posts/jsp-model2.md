@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - JSP
 date: 2017-04-30T20:41:07+08:00
 title: JSP Model2

@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Reverse
 date: 2017-08-08T11:40:35+08:00
 title: 逆向 Minecraft Launcher

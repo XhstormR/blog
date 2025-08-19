@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Assembly
 date: 2020-04-24T10:26:27+08:00
 title: Assembly language

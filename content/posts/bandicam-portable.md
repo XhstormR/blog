@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Notes
 date: 2018-02-14T19:51:46+08:00
 title: Bandicam Portable

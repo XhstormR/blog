@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Notes
 date: 2019-05-10T09:19:26+08:00
 title: 构建 OpenSSL

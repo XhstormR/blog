@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Reverse
 date: 2019-12-03T13:39:27+08:00
 title: 逆向 Minecraft

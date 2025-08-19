@@ -1,5 +1,5 @@
 ---
-categories:
+tags:
 - Blog
 date: 2016-02-08T21:03:50+08:00
 title: Blog Changelog

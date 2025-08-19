@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - JAVA
 date: 2017-05-08T10:37:40+08:00
 title: Java Reflect

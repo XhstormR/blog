@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - JUnit
 date: 2017-05-12T16:30:19+08:00
 title: JUnit

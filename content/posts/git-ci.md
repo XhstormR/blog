@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Notes
 date: 2019-04-04T15:32:27+08:00
 title: Git + CI

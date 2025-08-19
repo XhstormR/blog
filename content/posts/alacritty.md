@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Notes
 date: 2021-08-18T10:13:37+08:00
 title: Alacritty

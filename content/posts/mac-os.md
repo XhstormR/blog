@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Notes
 date: 2021-07-22T22:56:57+08:00
 title: Mac OS

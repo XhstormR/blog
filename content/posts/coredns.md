@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Notes
 date: 2020-05-03T10:03:50+08:00
 title: Proxy DNS

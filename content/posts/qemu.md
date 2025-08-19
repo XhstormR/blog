@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Notes
 date: 2018-04-20T10:29:55+08:00
 title: QEMU
