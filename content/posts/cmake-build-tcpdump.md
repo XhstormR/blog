@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Notes
 date: 2018-10-13T13:47:42+08:00
 title: 构建 tcpdump

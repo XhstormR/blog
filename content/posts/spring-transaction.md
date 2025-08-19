@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Spring
 date: 2017-06-15T12:53:18+08:00
 title: Spring Transaction

@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Notes
 date: 2020-02-21T23:20:13+08:00
 title: 构建 HAProxy

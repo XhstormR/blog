@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Notes
 date: 2020-03-15T17:16:19+08:00
 title: Fish Shell

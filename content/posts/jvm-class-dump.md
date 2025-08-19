@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Reverse
 date: 2020-01-05T21:30:48+08:00
 title: JVM Class Dump

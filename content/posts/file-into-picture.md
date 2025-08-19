@@ -1,5 +1,5 @@
 ---
-categories:
+tags:
 - Notes
 date: 2016-07-06T18:06:57+08:00
 title: 将文件伪装成图片

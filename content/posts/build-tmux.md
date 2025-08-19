@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Compile
 date: 2019-10-03T17:00:34+08:00
 title: 构建 tmux

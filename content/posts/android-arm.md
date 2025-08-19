@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Android
 date: 2020-11-26T17:11:51+08:00
 title: Android 模拟器启用 ARM 支持

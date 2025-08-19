@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Notes
 date: 2020-10-13T11:18:15+08:00
 title: JBoss Keycloak

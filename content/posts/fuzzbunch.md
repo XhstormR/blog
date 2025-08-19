@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Notes
 date: 2017-12-17T19:36:42+08:00
 title: FuZZbuNch

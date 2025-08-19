@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Frida
 date: 2019-11-07T14:04:44+08:00
 title: Frida Gadget

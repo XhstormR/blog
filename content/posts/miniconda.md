@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Notes
 date: 2019-10-23T22:54:54+08:00
 title: Miniconda

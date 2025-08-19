@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Android
 date: 2019-12-17T10:34:56+08:00
 title: TWRP Magisk EdXposed

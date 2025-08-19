@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Notes
 date: 2020-10-12T15:31:42+08:00
 title: JDK Keytool

@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Notes
 date: 2018-07-20T14:35:35+08:00
 title: MyBatis Generator

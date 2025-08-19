@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Notes
 date: 2020-09-20T11:07:42+08:00
 title: 构建 kcat

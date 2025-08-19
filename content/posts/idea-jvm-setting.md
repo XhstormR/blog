@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - IDEA
 date: 2018-07-14T16:12:08+08:00
 title: IntelliJ IDEA JVM 设置

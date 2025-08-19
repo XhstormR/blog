@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Notes
 date: 2020-03-15T00:14:57+08:00
 title: 构建 Lua

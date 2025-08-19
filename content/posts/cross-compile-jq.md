@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Notes
 date: 2020-01-31T20:14:56+08:00
 title: 交叉编译 jq

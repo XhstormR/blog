@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Hibernate
 date: 2017-05-14T15:31:36+08:00
 title: Hibernate ORM

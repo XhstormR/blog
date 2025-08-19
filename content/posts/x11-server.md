@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Notes
 date: 2020-01-24T11:05:41+08:00
 title: X11 Server

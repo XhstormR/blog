@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Notes
 date: 2020-02-17T16:45:32+08:00
 title: 交叉编译 masscan

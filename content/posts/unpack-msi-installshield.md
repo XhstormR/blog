@@ -1,5 +1,5 @@
 ---
-categories:
+tags:
 - Notes
 date: 2016-02-11T20:17:10+08:00
 title: 解包 MSI IS 文件

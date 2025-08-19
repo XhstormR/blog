@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Reverse
 date: 2018-12-17T22:45:44+08:00
 title: 逆向 JxBrowser

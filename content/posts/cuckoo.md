@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Notes
 date: 2020-04-27T22:18:01+08:00
 title: Cuckoo

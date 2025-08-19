@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Notes
 date: 2021-02-18T16:21:44+08:00
 title: PHP with Nginx

@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Notes
 date: 2020-01-28T21:49:39+08:00
 title: 构建 socat

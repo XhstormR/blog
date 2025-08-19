@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Notes
 date: 2017-09-21T20:01:46+08:00
 title: 构建 botan

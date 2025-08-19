@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Spring
 date: 2017-06-17T10:49:25+08:00
 title: Spring MVC

@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Frida
 date: 2019-05-31T16:50:54+08:00
 title: Android DEX Unpack

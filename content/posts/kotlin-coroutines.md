@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - Kotlin
 date: 2020-02-05T23:08:38+08:00
 title: JavaFX with Kotlin coroutines

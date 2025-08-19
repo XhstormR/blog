@@ -1,6 +1,6 @@
 ---
 author: XhstormR
-categories:
+tags:
 - V2Ray
 date: 2019-10-20T22:14:43+08:00
 title: 内网穿透
