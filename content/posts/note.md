@@ -456,7 +456,9 @@ https://docs.microsoft.com/zh-cn/sysinternals/downloads/
 https://live.sysinternals.com/
 https://download.sysinternals.com/files/SysinternalsSuite.zip
 
-https://launcher.nirsoft.net/downloads/index.html
+https://launcher.nirsoft.net/downloads/
+
+https://www.sordum.org/downloads/
 
 https://bellard.org/tcc/
 

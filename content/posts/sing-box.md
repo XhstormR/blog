@@ -12,7 +12,7 @@ tags:
 >
 > https://sing-box.sagernet.org/zh/configuration/
 
-Note: `rules` 中的规则越靠前，优先级就越高。
+Note: `rules` 中的规则越靠前（上），优先级就越高。
 
 ```json
 {
@@ -154,6 +154,10 @@ Note: `rules` 中的规则越靠前，优先级就越高。
       },
       {
         "clash_mode": "Global",
+        "outbound": "自选"
+      },
+      {
+        "domain": "services.googleapis.cn", // Google Play 应用更新
         "outbound": "自选"
       },
       {
