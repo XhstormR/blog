@@ -8,9 +8,9 @@ tags:
 
 <!--more-->
 
-> Mac: https://download.navicat.com/download/navicat162_premium_cs.dmg
+> Mac: https://download.navicat.com/download/navicat17_premium_cs.dmg
 >
-> Windows: https://download.navicat.com/download/navicat162_premium_cs_x64.exe
+> Windows: https://download.navicat.com/download/navicat17_premium_cs_x64.exe
 
 ```shell
 #!/bin/bash

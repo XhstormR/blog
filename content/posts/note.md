@@ -433,19 +433,18 @@ Linux（CentOS）：
 https://www.centos.org/download/
 https://mirrors.cqu.edu.cn/
 https://mirrors.sjtug.sjtu.edu.cn/
-https://opentuna.cn/
 https://mirrors.tuna.tsinghua.edu.cn/
 https://mirrors.ustc.edu.cn/
 https://mirrors.pku.edu.cn/Mirrors
-https://mirror.azure.cn/
-https://developer.aliyun.com/mirror/
+https://mirrors.hust.edu.cn/
 https://mirrors.huaweicloud.com/
 https://mirrors.tencent.com/
 https://mirrors.163.com/
-http://mirrors.hust.edu.cn/
-http://mirror.bit.edu.cn/web/
-http://mirrors.sohu.com/
-http://mirrors.yun-idc.com/
+https://mirrors.sohu.com/
+https://mirrors.yun-idc.com/
+https://developer.aliyun.com/mirror/
+https://mirror.azure.cn/
+https://mirrorz.org/
 
 RHEL：
 https://access.redhat.com/products/red-hat-enterprise-linux/
