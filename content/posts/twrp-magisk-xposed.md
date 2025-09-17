@@ -79,10 +79,12 @@ adb install -r EdXposedManager-4.5.4-45401-org.meowcat.edxposed.manager-release.
 
 - https://github.com/LSPosed/LSPosed/releases/latest
 - https://github.com/LSPosed/LSPosed.github.io/releases
+    - 推荐使用**白名单**模式: `/data/adb/shamiko/whitelist`
 
 ## KernelSU
 
 - https://github.com/tiann/KernelSU
+- https://github.com/Dr-TSNG/ZygiskNext
 - https://kernelsu.org/zh_CN/guide/installation.html#%E4%BD%BF%E7%94%A8%E7%AE%A1%E7%90%86%E5%99%A8
 
 ## Non-root
@@ -119,6 +121,14 @@ PJZ110
 
 #### payload.bin dumper
 
+- https://github.com/ssut/payload-dumper-go
+
+```bash
+payload-dumper-go --partitions init_boot,boot payload.bin
+```
+
+---
+
 ```bash
 pip install git+https://github.com/5ec1cff/payload-dumper
 payload_dumper --partitions init_boot,boot payload.bin
@@ -131,4 +141,5 @@ payload_dumper --partitions init_boot,boot payload.bin
     - https://github.com/chenxiaolong/BCR
 - https://github.com/0x192/universal-android-debloater
 - https://github.com/chiteroman/PlayIntegrityFix
+    - https://github.com/osm0sis/PlayIntegrityFork
 - https://github.com/Dr-TSNG/Hide-My-Applist

@@ -46,9 +46,10 @@ Updated on 2016-06-30
 
 ### IDEA 无限试用
 * https://zhile.io
+  * http://jetba.vip/
   * https://jetbra.in/s
-  * https://jetbrain.live/
   * https://jetbrain.tech/
+  * https://521868.xyz/
 
 ```bash
 @ echo off
