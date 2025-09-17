@@ -61,6 +61,7 @@ Note: `rules` 中的规则越靠前（上），优先级就越高。
     {
       "tag": "自动",
       "type": "urltest",
+      "interval": "3m",
       "outbounds": [
         "香港2024-1",
         "香港2024-2",
