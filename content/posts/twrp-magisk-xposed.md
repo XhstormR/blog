@@ -17,7 +17,7 @@ Updated on 2019-12-17
 ```bash
 https://dl.google.com/android/repository/repository2-1.xml
 
-curl -k https://dl.google.com/android/repository/platform-tools_r36.0.0-win.zip | busybox unzip -
+curl -k https://dl.google.com/android/repository/platform-tools_r36.0.2-win.zip | busybox unzip -
 ```
 
 ## Bootloader Driver
@@ -85,7 +85,17 @@ adb install -r EdXposedManager-4.5.4-45401-org.meowcat.edxposed.manager-release.
 
 - https://github.com/tiann/KernelSU
 - https://github.com/Dr-TSNG/ZygiskNext
-- https://kernelsu.org/zh_CN/guide/installation.html#%E4%BD%BF%E7%94%A8%E7%AE%A1%E7%90%86%E5%99%A8
+- GKI 模式 (Generic Kernel Image)：修补 `boot` 分区，模拟器、虚拟机使用。
+- LKM 模式 (Loadable Kernel Module)：修补 `init_boot` 分区，真实设备（手机）使用。
+    - 使用 `fastboot boot` 命令临时启动 KernelSU 提供的 GKI 内核（获得临时 root）-> 安装管理器 -> 在管理器中选择直接安装（无需下载官方全量包，无需提取固件镜像）
+
+```bash
+adb devices -l
+adb reboot bootloader
+
+# 解压 android15-6.6.66_2025-02-boot.img.gz
+fastboot boot android15-6.6.66_2025-02-boot.img
+```
 
 ## Non-root
 
