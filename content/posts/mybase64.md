@@ -8,6 +8,8 @@ tags:
 
 <!--more-->
 
+> https://play.kotlinlang.org
+
 ```kotlin
 import java.util.Base64
 

@@ -683,7 +683,7 @@ ffmpeg.exe -f gdigrab -i desktop 123.mp4
 https://ffmpeg.zeranoe.com/builds/
 ```
 
-## Win10 禁用 OneDrive、Defender 等组件
+## Windows 禁用 OneDrive、Defender 等组件
 ```bash
 gpedit.msc -> 计算机配置 -> 管理模板 -> Windows 组件 -> OneDrive & Windows Defender
 
@@ -711,10 +711,36 @@ CMD 操作示例：
 reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\TimeBrokerSvc /v Start /t REG_DWORD /d 4 /f
 ```
 
-## Win10 输入法
+## Windows 输入法
 ```
+语言和区域
+----
+英语(美国) -> 美式键盘
+简体中文(中国大陆) -> 微软拼音
+
+输入语言热键
+----
+切换输入语言：Ctrl+Shift or Win + 空格
+
+微软拼音输入法
+----
 切换半全角：Shift+Space
 切换简繁体：Ctrl+Shift+F
+```
+
+## Windows 镜像操作
+
+Vmware 虚拟机安装 ESD，WIM 格式的 Windows：
+1. 虚拟机系统镜像选择 Windows PE 的 ISO 镜像；
+2. 进入 PE 后，将虚拟磁盘转为 GPT 格式，创建 ESP 分区用于引导系统；
+3. 将 ESD，WIM 文件复制到 U 盘，插入主机并由虚拟机接管；
+4. 通过 WinNTSetup 部署系统，选择 U 盘里的系统文件，部署后重启开始安装。
+
+```
+https://www.wepe.com.cn/download.html
+https://www.ntlite.com/download/
+https://github.com/ebiggers/wimlib
+https://github.com/Chuyu-Team/Dism-Multi-language
 ```
 
 ## Domain
