@@ -27,6 +27,8 @@ busybox sed -i "s/#import/import/" python37._pth
 ```bash
 https://github.com/frida/frida/releases/latest
 
+# Install from pixi
+pixi add python && pixi add --pypi frida-tools
 # Install from Wheel
 python -m pip install --index-url=https://mirrors.aliyun.com/pypi/simple/ --upgrade frida-tools
 # Install from Egg
