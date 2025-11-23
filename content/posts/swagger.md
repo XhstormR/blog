@@ -10,12 +10,8 @@ title: Swagger API
 
 Updated on 2018-03-02
 
-> https://editor.swagger.io/
->
-> https://inspector.swagger.io/
-
 ```bash
-@ curl -LRko swagger-codegen-cli.jar https://jcenter.bintray.com/io/swagger/swagger-codegen-cli/2.3.1/swagger-codegen-cli-2.3.1.jar
+@ curl -LRko swagger-codegen-cli.jar https://maven.proxy.ustclug.org/maven2/io/swagger/codegen/v3/swagger-codegen-cli/3.0.75/swagger-codegen-cli-3.0.75.jar
 @ curl -RkO http://petstore.swagger.io/v2/swagger.json
 
 @ java -jar swagger-codegen-cli.jar generate ^
@@ -66,14 +62,22 @@ Updated on 2018-03-02
 
 ## Reference
 
-* Format：
+* Format:
   * https://jsonhero.io/
-  * http://www.jsonschema2pojo.org/
+  * https://www.jsonschema2pojo.org/
   * https://prettier.io/playground/
   * https://jsonformatter.curiousconcept.com/
   * https://github.com/tulios/json-viewer
-* Test：
+* Test:
   * https://httpbin.org/
   * https://docs.postman-echo.com/
   * https://www.getpostman.com/apps
   * https://www.soapui.org/downloads/latest-release.html
+* OpenAPI:
+  * https://editor.swagger.io/
+  * https://petstore.swagger.io/
+  * https://api.openapi-generator.tech/index.html
+  * https://swagger.io/docs/specification/v3_0/basic-structure/
+  * https://spec.openapis.org/oas/latest.html
+* Codegen:
+  * https://github.com/OpenAPITools/openapi-generator

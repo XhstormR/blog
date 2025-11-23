@@ -35,8 +35,8 @@ enable_nativebridge
 ```
 
 ```
-Alt-F1 = Console 模式
-Alt-F7 = GUI 模式
+Alt+F1 = Console 模式
+Alt+F7 = GUI 模式
 
 adb connect 192.168.157.169
 adb root
