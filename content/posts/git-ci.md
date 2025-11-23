@@ -28,6 +28,9 @@ hwclock -w
 * https://docs.docker.com/engine/reference/builder/
 * https://docs.docker.com/engine/reference/commandline/docker/
 * https://docs.docker.com/engine/reference/commandline/dockerd/
+* https://github.com/easzlab/kubeasz/blob/3.6.8/ezdown#L226-L233
+* https://rootlesscontaine.rs/getting-started/containerd/
+  * https://github.com/containerd/containerd/blob/main/docs/hosts.md
 
 ```bash
 curl -fsSL https://get.docker.com | bash -s -- docker --mirror Aliyun
