@@ -28,17 +28,16 @@ hwclock -w
 * https://docs.docker.com/engine/reference/builder/
 * https://docs.docker.com/engine/reference/commandline/docker/
 * https://docs.docker.com/engine/reference/commandline/dockerd/
+* https://rootlesscontaine.rs/getting-started/docker/
 * https://github.com/easzlab/kubeasz/blob/3.6.8/ezdown#L226-L233
-* https://rootlesscontaine.rs/getting-started/containerd/
-  * https://github.com/containerd/containerd/blob/main/docs/hosts.md
 
 ```bash
-curl -fsSL https://get.docker.com | bash -s -- docker --mirror Aliyun
+curl -fsSL https://get.docker.com/rootless | sh
 mkdir -p /etc/docker
 echo -e '{\n"userland-proxy": false,\n"registry-mirrors": ["https://docker.mirrors.ustc.edu.cn"]\n}' > /etc/docker/daemon.json
-systemctl start docker
-systemctl enable docker
-systemctl status docker
+systemctl --user start docker
+systemctl --user enable docker
+systemctl --user status docker
 usermod -aG docker leo
 ```
 

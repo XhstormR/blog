@@ -1318,12 +1318,12 @@ RadioButton 做出 TAB 效果
 
 ---
 
-[Maven0](https://search.maven.org/),
-[Maven1](https://mvnrepository.com/),
-[Maven2](https://repo1.maven.org/maven2/),
-[Maven3](https://repo.maven.apache.org/maven2/),
-[JCenter](https://jcenter.bintray.com/),
-[Mirror](https://maven.aliyun.com/)
+- https://central.sonatype.com/search
+- https://search.maven.org
+- https://mvnrepository.com
+- https://maven.aliyun.com
+- https://repo1.maven.org/maven2
+- https://repo.maven.apache.org/maven2
 
 Cache：
 [![](uploads/file-into-picture2.png)](http://ww1.sinaimg.cn/large/a038ef72gw1f5lcbds6wvj203k03k1lf "Part1")
