@@ -152,4 +152,6 @@ payload_dumper --partitions init_boot,boot payload.bin
 - https://github.com/0x192/universal-android-debloater
 - https://github.com/chiteroman/PlayIntegrityFix
     - https://github.com/osm0sis/PlayIntegrityFork
+- https://github.com/5ec1cff/TrickyStore
+    - https://github.com/KOWX712/Tricky-Addon-Update-Target-List
 - https://github.com/Dr-TSNG/Hide-My-Applist
