@@ -87,7 +87,7 @@ adb install -r EdXposedManager-4.5.4-45401-org.meowcat.edxposed.manager-release.
 - https://github.com/Dr-TSNG/ZygiskNext
 - GKI 模式 (Generic Kernel Image)：修补 `boot` 分区，模拟器、虚拟机使用。
 - LKM 模式 (Loadable Kernel Module)：修补 `init_boot` 分区，真实设备（手机）使用。
-    - 使用 `fastboot boot` 命令临时启动 KernelSU 提供的 GKI 内核（获得临时 root）-> 安装管理器 -> 在管理器中选择直接安装（无需下载官方全量包，无需提取固件镜像）
+    - 使用 `fastboot boot` 命令临时启动 KernelSU 提供的 GKI 内核（获得临时 root）-> 安装管理器 -> 在管理器中选择直接安装，修补 `init_boot` 分区（无需下载官方全量包，无需提取固件镜像）
 
 ```bash
 adb devices -l
@@ -131,6 +131,7 @@ PJZ110
 
 #### payload.bin dumper
 
+- https://android.github.io/analyseOTA/
 - https://github.com/ssut/payload-dumper-go
 
 ```bash
@@ -152,6 +153,7 @@ payload_dumper --partitions init_boot,boot payload.bin
 - https://github.com/0x192/universal-android-debloater
 - https://github.com/chiteroman/PlayIntegrityFix
     - https://github.com/osm0sis/PlayIntegrityFork
+    - https://github.com/KOWX712/PlayIntegrityFix
 - https://github.com/5ec1cff/TrickyStore
     - https://github.com/KOWX712/Tricky-Addon-Update-Target-List
 - https://github.com/Dr-TSNG/Hide-My-Applist
