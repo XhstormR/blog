@@ -29,6 +29,7 @@ params:
     hideSummary: true
     defaultTheme: dark
     displayFullLangName: true
+    comments: true
     ShowShareButtons: true
     ShowReadingTime: true
     ShowPostNavLinks: true

@@ -100,6 +100,7 @@ LLI低潜在抑制症会引发一系列幻想，想象内容的程度非常大�
 * https://www.zhihu.com/question/301999320/answer/1810481778
 * https://www.zhihu.com/question/29286285/answer/1897706881
 * https://www.zhihu.com/question/460088893/answer/1913380876
+* https://www.zhihu.com/question/1989505062725236457/answer/1997682960942523875
 * https://zhuanlan.zhihu.com/p/541169016
 * https://hauy.wordpress.com/2007/10/19/%E4%BD%8E%E6%BD%9C%E5%9C%A8%E6%8A%91%E5%88%B6%E7%97%87-low-latent-inhibition/
 * https://www.douban.com/note/90440925/?_i=7318883pIOHUBR
