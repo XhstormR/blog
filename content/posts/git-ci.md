@@ -74,6 +74,32 @@ docker-compose logs -f #查看容器日志
 docker-compose exec gitlab sh #获得容器 Shell
 ```
 
+## Podman (rootless)
+* https://github.com/containers/podman
+
+兼容 Docker CLI 和 Docker API。
+
+```bash
+sudo dnf -y install podman
+
+sudo firewall-cmd --add-port=8080/tcp --permanent
+sudo firewall-cmd --reload
+
+sudo useradd -m test
+sudo loginctl enable-linger test
+su - test
+
+echo export XDG_RUNTIME_DIR=/run/user/$(id -u) >> ~/.bashrc
+echo export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock >> ~/.bashrc
+source ~/.bashrc
+
+systemctl --user start podman.socket
+systemctl --user enable podman.socket
+systemctl --user daemon-reload
+
+systemctl --user status podman.socket
+```
+
 ## GitLab + Traefik + Portainer
 * https://docs.gitlab.com/omnibus/docker/
 * https://doc.traefik.io/traefik/routing/providers/docker/
