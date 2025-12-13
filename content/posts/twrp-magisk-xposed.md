@@ -10,7 +10,7 @@ title: TWRP Magisk EdXposed
 
 Updated on 2019-12-17
 
->
+> https://github.com/awesome-android-root/awesome-android-root
 
 ## ADB
 
