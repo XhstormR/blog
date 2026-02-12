@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Notes
+  - Notes
 date: 2020-04-27T22:18:01+08:00
 title: Cuckoo
 ---
@@ -15,6 +15,7 @@ Updated on 2020-04-27
 > https://cuckoo.sh/docs/installation/index.html
 
 ## Basic
+
 ```bash
 conda config --add channels conda-forge
 conda create -y -n myenv2 pycryptodome m2crypto python=2
@@ -30,11 +31,13 @@ cuckoo submit --package exe --options arguments="-Lvk http://www.qq.com" curl.ex
 ```
 
 ## Web
+
 ```bash
 cuckoo web runserver 0.0.0.0:1234
 ```
 
 ### MongoDB
+
 ```bash
 mongod --dbpath D:\Work\mongo\db --bind_ip_all
 
@@ -50,6 +53,7 @@ mongod --dbpath D:\Work\mongo\db --bind_ip_all --auth
 ```
 
 ## API
+
 ```bash
 cuckoo api -H 0.0.0.0 -p 1337
 
@@ -59,6 +63,7 @@ curl -H "Authorization: Bearer giDMhiP63PZiCfnI0Oz3Yw" http://127.0.0.1:1337/tas
 ```
 
 ## Misc
+
 ```bash
 mklink cuckoo cuckoo.exe
 ```
@@ -81,12 +86,13 @@ resultserver 的 IP 为主机 HOST-ONLY 网卡的 IPv4 地址，推荐设置为 
 ```
 
 ## Reference
-* https://sec.xiaomi.com/article/45
-* https://blog.csdn.net/baobaoyu_/article/details/103047082
+
+- https://sec.xiaomi.com/article/45
+- https://blog.csdn.net/baobaoyu_/article/details/103047082
 
 ---
 
-* https://www.mongodb.com/download-center/community
-* https://mirrors.huaweicloud.com/python/2.7.18/python-2.7.18.amd64.msi
-* https://mirrors.tuna.tsinghua.edu.cn/virtualbox/virtualbox-Win-latest.exe
-* https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-Windows-x86_64.exe
+- https://www.mongodb.com/download-center/community
+- https://mirrors.huaweicloud.com/python/2.7.18/python-2.7.18.amd64.msi
+- https://mirrors.tuna.tsinghua.edu.cn/virtualbox/virtualbox-Win-latest.exe
+- https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-Windows-x86_64.exe

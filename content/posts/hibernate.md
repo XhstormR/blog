@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Hibernate
+  - Hibernate
 date: 2017-05-14T15:31:36+08:00
 title: Hibernate ORM
 ---
@@ -25,13 +25,16 @@ Updated on 2017-05-14
 > https://jcenter.bintray.com/org/hibernate/hibernate-core/
 
 ## Configuration
+
 ### build.gradle.kts
+
 ```bash
 compile("org.postgresql:postgresql:+")
 compile("org.hibernate:hibernate-core:+")
 ```
 
 ### hibernate.cfg.xml
+
 ```xml
 <?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE hibernate-configuration PUBLIC
@@ -66,8 +69,11 @@ current_session_context_class ➜ thread ➜ org.hibernate.context.internal.Thre
 ```
 
 ## 单表操作
+
 ### entity
+
 #### Student
+
 ```kotlin
 package entity
 
@@ -99,6 +105,7 @@ date       日期
 ```
 
 #### Address
+
 ```kotlin
 package entity
 
@@ -113,6 +120,7 @@ data class Address(
 ```
 
 ### A
+
 ```kotlin
 import entity.Address
 import entity.Student
@@ -186,10 +194,13 @@ fun delete() {
 ```
 
 ## 多表关联
+
 ### 一对一
+
 只需持久化一方（Phone）。
 
 #### 单向引用
+
 ```kotlin
 import javax.persistence.*     JPA 注解
 
@@ -217,6 +228,7 @@ data class PhoneDetail(     主表（与平常状态一致，无需改动）
 ```
 
 #### 双向引用（优）
+
 ```kotlin
 @Entity
 data class Phone(     主表
@@ -256,9 +268,11 @@ data class PhoneDetail(     从表
 ```
 
 ### 一对多
+
 只需持久化一方（Person）。
 
 #### 单向引用（一方持有多方集合）
+
 会生成中间表 Person_Phone 来关联两个实体。
 
 ```kotlin
@@ -285,9 +299,11 @@ data class Phone(     与平常状态一致，无需改动
 ```
 
 ### 多对一
+
 因未设置级联属性，在不同事务中，需先持久化 **主表** Person，后持久化**从表** Phone。( 先主后从 )
 
 #### 单向引用（多方持有一方引用）
+
 ```kotlin
 @Entity
 data class Person(     主表（与平常状态一致，无需改动）
@@ -312,9 +328,11 @@ data class Phone(     从表
 ```
 
 ### 一（多）对多（一）
+
 只需持久化一方（Person）。
 
 #### 双向引用（优）
+
 ```kotlin
 @Entity
 data class Person(     主表
@@ -353,16 +371,17 @@ data class Phone(     从表
 ### 多对多（略）
 
 ## Reference
-* https://en.wikibooks.org/wiki/Java_Persistence/Relationships
-* domain
-  * [associations](https://docs.jboss.org/hibernate/orm/current/userguide/html_single/chapters/domain/associations.html)
-  * [collections](https://docs.jboss.org/hibernate/orm/current/userguide/html_single/chapters/domain/collections.html)
-* appendices
-  * [Annotations](https://docs.jboss.org/hibernate/orm/current/userguide/html_single/appendices/Annotations.html)
-  * [BestPractices](https://docs.jboss.org/hibernate/orm/current/userguide/html_single/appendices/BestPractices.html)
-  * [Configurations](https://docs.jboss.org/hibernate/orm/current/userguide/html_single/appendices/Configurations.html)
-* JPA API
-  * https://www.oracle.com/webfolder/technetwork/jsc/xml/ns/persistence/index.html
-  * https://www.oracle.com/technetwork/cn/middleware/ias/toplink-jpa-annotations-100895-zhs.html
-  * [Annotations](https://github.com/datanucleus/docs-accessplatform/blob/master/src/main/asciidoc/jpa/annotations.adoc)
-  * [XML](https://github.com/datanucleus/docs-accessplatform/blob/master/src/main/asciidoc/jpa/metadata_xml.adoc)
+
+- https://en.wikibooks.org/wiki/Java_Persistence/Relationships
+- domain
+  - [associations](https://docs.jboss.org/hibernate/orm/current/userguide/html_single/chapters/domain/associations.html)
+  - [collections](https://docs.jboss.org/hibernate/orm/current/userguide/html_single/chapters/domain/collections.html)
+- appendices
+  - [Annotations](https://docs.jboss.org/hibernate/orm/current/userguide/html_single/appendices/Annotations.html)
+  - [BestPractices](https://docs.jboss.org/hibernate/orm/current/userguide/html_single/appendices/BestPractices.html)
+  - [Configurations](https://docs.jboss.org/hibernate/orm/current/userguide/html_single/appendices/Configurations.html)
+- JPA API
+  - https://www.oracle.com/webfolder/technetwork/jsc/xml/ns/persistence/index.html
+  - https://www.oracle.com/technetwork/cn/middleware/ias/toplink-jpa-annotations-100895-zhs.html
+  - [Annotations](https://github.com/datanucleus/docs-accessplatform/blob/master/src/main/asciidoc/jpa/annotations.adoc)
+  - [XML](https://github.com/datanucleus/docs-accessplatform/blob/master/src/main/asciidoc/jpa/metadata_xml.adoc)

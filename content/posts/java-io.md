@@ -1,6 +1,6 @@
 ---
 tags:
-- JAVA
+  - JAVA
 date: 2016-09-06T11:52:11+08:00
 title: Java IO Stream
 ---
@@ -16,7 +16,9 @@ Updated on 2016-11-11
 > https://docs.oracle.com/javase/10/docs/api/java/nio/file/Files.html
 
 ## File
+
 用于代表文件(夹)，是文件(夹)的抽象化形式，不能用于对文件内容的访问。
+
 ```java
 File file = new File("D:\\123");     \ 是转义字符
 File file = new File("D:/123");
@@ -49,7 +51,9 @@ file.getCanonicalPath();     获得文件(夹)的绝对路径（规范后）
 ```
 
 ## RandomAccessFile
+
 用于对文件内容的访问，可读可写，可以访问文件的任意位置（任意字节）。
+
 ```java
 public class Test {
     public static void main(String[] args) throws IOException {
@@ -88,13 +92,15 @@ e5	a5	bd	41	31	0	0	0	e5	a5	bd	41	31
 ```
 
 ## 对象的序列化和反序列化
-* 一序列化：Object ➜ Byte 序列-----ObjectOutputStream.writeObject
-* 反序列化：Byte 序列 ➜ Object-----ObjectInputStream.readObject
-* 对象所属的类必须实现序列化接口（Serializable），才能够被序列化。
-  * 如果所属的类的父类已实现序列化接口，则子类便不需要再实现序列化接口。
-  * 如果所属的类的父类没有没有实现序列化接口，其父类的构造函数会被调用。
+
+- 一序列化：Object ➜ Byte 序列-----ObjectOutputStream.writeObject
+- 反序列化：Byte 序列 ➜ Object-----ObjectInputStream.readObject
+- 对象所属的类必须实现序列化接口（Serializable），才能够被序列化。
+  - 如果所属的类的父类已实现序列化接口，则子类便不需要再实现序列化接口。
+  - 如果所属的类的父类没有没有实现序列化接口，其父类的构造函数会被调用。
 
 ## Code
+
 ```java
 public class Test {
     public static void main(String[] args) throws UnsupportedEncodingException {
@@ -363,9 +369,11 @@ Student{id=1, age=21, name='张三'}
 ```
 
 # NIO
+
 用于替代原有的 IO 体系。
 
 ## Path
+
 用于代表文件(夹)，是文件(夹)的抽象化形式，不能用于对文件内容的访问。
 
 ```java
@@ -385,6 +393,7 @@ path.toFile().toPath();     相互转换
 ```
 
 ## Files
+
 包含一系列静态方法，用于对文件(夹)的具体操作。（注意 IO Stream 要关闭）
 
 ```java

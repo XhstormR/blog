@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Notes
+  - Notes
 date: 2020-09-15T19:22:58+08:00
 title: Kafka
 ---
@@ -22,10 +22,10 @@ Updated on 2020-09-15
 
 ## Reference
 
-* https://docs.confluent.io/current/connect/transforms/index.html
-* https://docs.confluent.io/current/connect/references/restapi.html
-* https://docs.confluent.io/current/connect/managing/connectors.html
-* GUI:
-    * https://www.kafkatool.com/
-    * https://github.com/provectus/kafka-ui
-    * https://github.com/Bronya0/Kafka-King
+- https://docs.confluent.io/current/connect/transforms/index.html
+- https://docs.confluent.io/current/connect/references/restapi.html
+- https://docs.confluent.io/current/connect/managing/connectors.html
+- GUI:
+  - https://www.kafkatool.com/
+  - https://github.com/provectus/kafka-ui
+  - https://github.com/Bronya0/Kafka-King

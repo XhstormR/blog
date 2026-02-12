@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Reverse
+  - Reverse
 date: 2018-07-14T16:12:09+08:00
 title: 逆向 MyBatis plugin
 ---
@@ -12,14 +12,15 @@ Updated on 2018-07-15
 
 > https://plugins.jetbrains.com/plugin/7293-mybatis-plugin
 
-* 两个模块：
-  * 本地端：使用 C 和 Rust 语言混合编写，主要用于与服务器验证激活。
-  * 插件端：使用 Java 和 Kotlin 语言混合编写，用于与 IDEA 进行交互。
-* 使用 ZKM 进行代码混淆。
-* 使用 [jni-rs](https://github.com/prevoty/jni-rs) 从本地端通过 JNI 反射直接调用 Java 方法。
+- 两个模块：
+  - 本地端：使用 C 和 Rust 语言混合编写，主要用于与服务器验证激活。
+  - 插件端：使用 Java 和 Kotlin 语言混合编写，用于与 IDEA 进行交互。
+- 使用 ZKM 进行代码混淆。
+- 使用 [jni-rs](https://github.com/prevoty/jni-rs) 从本地端通过 JNI 反射直接调用 Java 方法。
 
 ## 反混淆器
-* https://github.com/java-deobfuscator/deobfuscator
+
+- https://github.com/java-deobfuscator/deobfuscator
 
 ```ini
 java -jar deobfuscator-1.0.0.jar --config config.yml
@@ -39,8 +40,9 @@ transformers:
 ```
 
 ## JDB 动态调试
-* https://docs.oracle.com/javase/8/docs/technotes/tools/windows/jdb.html
-* https://docs.oracle.com/javase/8/docs/technotes/guides/jpda/conninv.html
+
+- https://docs.oracle.com/javase/8/docs/technotes/tools/windows/jdb.html
+- https://docs.oracle.com/javase/8/docs/technotes/guides/jpda/conninv.html
 
 ```
 Server:
@@ -127,17 +129,19 @@ fun main() {
 ```
 
 ## AspectJ 拦截方法
-* https://search.maven.org/search?q=g:org.aspectj
-  * https://mirrors.tuna.tsinghua.edu.cn/eclipse/tools/aspectj/
-  * [aspectjrt](https://maven.aliyun.com/repository/jcenter/org/aspectj/aspectjrt/1.9.5/aspectjrt-1.9.5.jar),
+
+- https://search.maven.org/search?q=g:org.aspectj
+  - https://mirrors.tuna.tsinghua.edu.cn/eclipse/tools/aspectj/
+  - [aspectjrt](https://maven.aliyun.com/repository/jcenter/org/aspectj/aspectjrt/1.9.5/aspectjrt-1.9.5.jar),
     [aspectjtools](https://maven.aliyun.com/repository/jcenter/org/aspectj/aspectjtools/1.9.5/aspectjtools-1.9.5.jar),
     [aspectjweaver](https://maven.aliyun.com/repository/jcenter/org/aspectj/aspectjweaver/1.9.5/aspectjweaver-1.9.5.jar)
-* https://www.eclipse.org/aspectj/doc/released/progguide/semantics.html
-* https://www.eclipse.org/aspectj/doc/released/devguide/ltw-configuration.html
-* https://www.eclipse.org/aspectj/doc/released/runtime-api/allclasses-frame.html
-* 使用加载时编织（Load-time Weaving），兼容性比较好。
+- https://www.eclipse.org/aspectj/doc/released/progguide/semantics.html
+- https://www.eclipse.org/aspectj/doc/released/devguide/ltw-configuration.html
+- https://www.eclipse.org/aspectj/doc/released/runtime-api/allclasses-frame.html
+- 使用加载时编织（Load-time Weaving），兼容性比较好。
 
 ### Tracing.aj
+
 ```java
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.reflect.MethodSignature;
@@ -225,6 +229,7 @@ public aspect Tracing {
 ```
 
 ### aop-ajc.xml
+
 ```xml
 <aspectj>
     <aspects>
@@ -238,11 +243,13 @@ public aspect Tracing {
 ```
 
 ### 编译
+
 ```bash
 java -cp aspectjtools-1.9.1.jar;aspectjrt-1.9.1.jar; org.aspectj.tools.ajc.Main -outjar 123.jar -outxml -1.8 -Xlint:ignore Tracing.aj
 ```
 
 ### 运行
+
 ```bash
 ideaIU-2018.1\bin\idea64.exe.vmoptions
 ----

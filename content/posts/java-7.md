@@ -1,6 +1,6 @@
 ---
 tags:
-- JAVA
+  - JAVA
 date: 2016-11-01T10:07:22+08:00
 title: Java 7
 ---
@@ -12,16 +12,19 @@ Updated on 2016-11-03
 >
 
 ## 二进制数字
+
 ```java
 int i = 0b1111;     15
 ```
 
 ## 数字可读性
+
 ```java
 int i = 100_000_000;     100000000
 ```
 
 ## switch 支持字符串
+
 ```java
 String s = "A";
 switch (s) {
@@ -35,6 +38,7 @@ switch (s) {
 ```
 
 ## catch 支持多重匹配
+
 ```java
 try {
     throw new ArithmeticException();
@@ -46,12 +50,14 @@ try {
 ```
 
 ## 集合类型推断（Diamond）
+
 ```java
 之前：List<String> list = new ArrayList<String>();
 之后：List<String> list = new ArrayList<>();
 ```
 
 ## 自动资源管理（ARM）
+
 ```java
 之前：
 BufferedWriter bufferedWriter = null;     资源

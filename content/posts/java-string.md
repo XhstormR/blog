@@ -1,6 +1,6 @@
 ---
 tags:
-- JAVA
+  - JAVA
 date: 2016-07-20T10:26:13+08:00
 title: 关于 Java 中的 String
 ---
@@ -11,16 +11,17 @@ Updated on 2016-10-09
 
 > {{< image "uploads/java-string.svg" "String" "1" "1" >}}
 
-* String：字符串常量
-  * 一旦被创建就不能修改它的值，而是通过重新创建一个新的对象并重新引用。
-* StringBuffer：字符串变量（线程安全）
-  * 对 StringBuffer 本身进行操作，更适用于对字符串的修改。
-* StringBuilder：字符串变量（非线程安全）
-  * 等价于 StringBuffer，应用于单线程，不执行同步操作。
+- String：字符串常量
+  - 一旦被创建就不能修改它的值，而是通过重新创建一个新的对象并重新引用。
+- StringBuffer：字符串变量（线程安全）
+  - 对 StringBuffer 本身进行操作，更适用于对字符串的修改。
+- StringBuilder：字符串变量（非线程安全）
+  - 等价于 StringBuffer，应用于单线程，不执行同步操作。
 
 性能：StringBuilder > StringBuffer > String
 
 ## String
+
 ```java
 String str = "ABCDEFGH";
 
@@ -54,6 +55,7 @@ substring 包括开始位置的字符，不包括结束位置的字符。   [2,6
 ```
 
 ## StringBuilder and StringBuffer
+
 ```java
 StringBuilder str = new StringBuilder("ABCDEFGH");
 

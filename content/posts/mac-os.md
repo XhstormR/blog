@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Notes
+  - Notes
 date: 2021-07-22T22:56:57+08:00
 title: Mac OS
 ---
@@ -13,8 +13,9 @@ Updated on 2021-07-22
 > ![Mac OS](uploads/mac-os-logo.png)
 
 ## Homebrew
-* https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/
-* https://brew.sh/
+
+- https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/
+- https://brew.sh/
 
 ```
 brew cleanup --prune=all -s
@@ -55,7 +56,8 @@ xnviewmp
 ```
 
 ## Miniconda
-* https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/
+
+- https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/
 
 ```yaml
  ❯ conda env export
@@ -131,10 +133,11 @@ prefix: /usr/local/Caskroom/miniconda/base
 ```
 
 ## Karabiner
-* https://karabiner-elements.pqrs.org/docs/json/
-* https://github.com/pqrs-org/Karabiner-Elements
-* [spacefn_plus.json](https://raw.githubusercontent.com/pqrs-org/KE-complex_modifications/main/public/json/spacefn_plus.json)
-* [windows_shortcuts_on_macos.json](https://raw.githubusercontent.com/pqrs-org/KE-complex_modifications/main/public/json/windows_shortcuts_on_macos.json)
+
+- https://karabiner-elements.pqrs.org/docs/json/
+- https://github.com/pqrs-org/Karabiner-Elements
+- [spacefn_plus.json](https://raw.githubusercontent.com/pqrs-org/KE-complex_modifications/main/public/json/spacefn_plus.json)
+- [windows_shortcuts_on_macos.json](https://raw.githubusercontent.com/pqrs-org/KE-complex_modifications/main/public/json/windows_shortcuts_on_macos.json)
 
 ![Karabiner](uploads/mac-os-karabiner.png)
 
@@ -172,29 +175,20 @@ jq --slurpfile input frontmost_application_unless_rule.json '.rules[].manipulato
           "conditions": [
             {
               "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.google\\.Chrome$"
-              ]
+              "bundle_identifiers": ["^com\\.google\\.Chrome$"]
             }
           ],
           "from": {
             "key_code": "j",
             "modifiers": {
-              "mandatory": [
-                "left_control"
-              ],
-              "optional": [
-                "any"
-              ]
+              "mandatory": ["left_control"],
+              "optional": ["any"]
             }
           },
           "to": [
             {
               "key_code": "l",
-              "modifiers": [
-                "left_command",
-                "left_alt"
-              ]
+              "modifiers": ["left_command", "left_alt"]
             }
           ],
           "type": "basic"
@@ -208,28 +202,20 @@ jq --slurpfile input frontmost_application_unless_rule.json '.rules[].manipulato
           "conditions": [
             {
               "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.google\\.Chrome$"
-              ]
+              "bundle_identifiers": ["^com\\.google\\.Chrome$"]
             }
           ],
           "from": {
             "key_code": "h",
             "modifiers": {
-              "mandatory": [
-                "left_control"
-              ],
-              "optional": [
-                "any"
-              ]
+              "mandatory": ["left_control"],
+              "optional": ["any"]
             }
           },
           "to": [
             {
               "key_code": "y",
-              "modifiers": [
-                "left_command"
-              ]
+              "modifiers": ["left_command"]
             }
           ],
           "type": "basic"
@@ -243,29 +229,20 @@ jq --slurpfile input frontmost_application_unless_rule.json '.rules[].manipulato
           "conditions": [
             {
               "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.google\\.Chrome$"
-              ]
+              "bundle_identifiers": ["^com\\.google\\.Chrome$"]
             }
           ],
           "from": {
             "key_code": "u",
             "modifiers": {
-              "mandatory": [
-                "left_control"
-              ],
-              "optional": [
-                "any"
-              ]
+              "mandatory": ["left_control"],
+              "optional": ["any"]
             }
           },
           "to": [
             {
               "key_code": "u",
-              "modifiers": [
-                "left_command",
-                "left_option"
-              ]
+              "modifiers": ["left_command", "left_option"]
             }
           ],
           "type": "basic"
@@ -279,25 +256,19 @@ jq --slurpfile input frontmost_application_unless_rule.json '.rules[].manipulato
           "conditions": [
             {
               "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.google\\.Chrome$"
-              ]
+              "bundle_identifiers": ["^com\\.google\\.Chrome$"]
             }
           ],
           "from": {
             "pointing_button": "button1",
             "modifiers": {
-              "mandatory": [
-                "left_control"
-              ]
+              "mandatory": ["left_control"]
             }
           },
           "to": [
             {
               "pointing_button": "button1",
-              "modifiers": [
-                "left_command"
-              ]
+              "modifiers": ["left_command"]
             }
           ],
           "type": "basic"
@@ -311,30 +282,20 @@ jq --slurpfile input frontmost_application_unless_rule.json '.rules[].manipulato
           "conditions": [
             {
               "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.google\\.Chrome$"
-              ]
+              "bundle_identifiers": ["^com\\.google\\.Chrome$"]
             }
           ],
           "from": {
             "key_code": "i",
             "modifiers": {
-              "mandatory": [
-                "left_control",
-                "left_shift"
-              ],
-              "optional": [
-                "any"
-              ]
+              "mandatory": ["left_control", "left_shift"],
+              "optional": ["any"]
             }
           },
           "to": [
             {
               "key_code": "i",
-              "modifiers": [
-                "left_command",
-                "left_alt"
-              ]
+              "modifiers": ["left_command", "left_alt"]
             }
           ],
           "type": "basic"
@@ -385,17 +346,13 @@ jq --slurpfile input frontmost_application_unless_rule.json '.rules[].manipulato
           "from": {
             "key_code": "left_arrow",
             "modifiers": {
-              "mandatory": [
-                "left_control"
-              ]
+              "mandatory": ["left_control"]
             }
           },
           "to": [
             {
               "key_code": "left_arrow",
-              "modifiers": [
-                "left_command"
-              ]
+              "modifiers": ["left_command"]
             }
           ],
           "type": "basic"
@@ -441,17 +398,13 @@ jq --slurpfile input frontmost_application_unless_rule.json '.rules[].manipulato
           "from": {
             "key_code": "right_arrow",
             "modifiers": {
-              "mandatory": [
-                "left_control"
-              ]
+              "mandatory": ["left_control"]
             }
           },
           "to": [
             {
               "key_code": "right_arrow",
-              "modifiers": [
-                "left_command"
-              ]
+              "modifiers": ["left_command"]
             }
           ],
           "type": "basic"
@@ -463,22 +416,26 @@ jq --slurpfile input frontmost_application_unless_rule.json '.rules[].manipulato
 ```
 
 ## IDEA
-* https://plugins.jetbrains.com/plugin/13094-xwin-keymap/
-* `~/Library/'Application Support'/JetBrains/IntelliJIdea2021.1/`
+
+- https://plugins.jetbrains.com/plugin/13094-xwin-keymap/
+- `~/Library/'Application Support'/JetBrains/IntelliJIdea2021.1/`
 
 ### 快捷键兼容
-* https://courses.ics.hawaii.edu/ics314s21/morea/development-environments/reading-intellij-macos-configuration.html
+
+- https://courses.ics.hawaii.edu/ics314s21/morea/development-environments/reading-intellij-macos-configuration.html
 
 ## 7z
-* https://www.7-zip.org/download.html
+
+- https://www.7-zip.org/download.html
 
 ```bash
 curl https://www.7-zip.org/a/7z2103-mac.tar.xz | tar -x 7zz && mv -f 7zz /usr/local/bin/
 ```
 
 ## Font
-* https://github.com/JetBrains/JetBrainsMono
-* https://github.com/ryanoasis/nerd-fonts
+
+- https://github.com/JetBrains/JetBrainsMono
+- https://github.com/ryanoasis/nerd-fonts
 
 ![Font](uploads/mac-os-font.png)
 

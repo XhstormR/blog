@@ -1,6 +1,6 @@
 ---
 tags:
-- JSP
+  - JSP
 date: 2017-03-18T16:25:36+08:00
 title: JSP Model1
 ---
@@ -16,6 +16,7 @@ Updated on 2017-03-18
 ### dao
 
 #### ItemDAO
+
 ```kotlin
 package dao
 
@@ -86,6 +87,7 @@ object ItemDAO {
 ### entity
 
 #### Item
+
 ```kotlin
 package entity
 
@@ -102,6 +104,7 @@ data class Item(     数据类：商品实体
 ### util
 
 #### DBHelp
+
 ```kotlin
 package util
 
@@ -118,6 +121,7 @@ object DBHelp {
 ```
 
 #### CookieHelp
+
 ```kotlin
 package util
 
@@ -135,7 +139,9 @@ object CookieHelp {
 ```
 
 ## web
+
 ### index.jsp
+
 ```html
 <%@ page import="dao.ItemDAO" %>
 <%@ page import="entity.Item" %>
@@ -190,6 +196,7 @@ object CookieHelp {
 ```
 
 ### details.jsp
+
 ```html
 <%@ page import="dao.ItemDAO" %>
 <%@ page import="entity.Item" %>
@@ -294,6 +301,7 @@ object CookieHelp {
 ```
 
 ## sql
+
 ```sql
 CREATE TABLE item (
   id      SERIAL,

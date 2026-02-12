@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Notes
+  - Notes
 date: 2020-08-08T18:39:18+08:00
 title: Elastic Stack
 ---
@@ -21,7 +21,7 @@ Updated on 2020-08-08
 ### docker-compose.yml
 
 ```yaml
-version: '3'
+version: "3"
 
 services:
   kibana:
@@ -48,7 +48,7 @@ services:
     environment:
       ES_JAVA_OPTS: -Xms256m -Xmx256m
       ELASTIC_PASSWORD: elastic
-      xpack.security.enabled: 'true'
+      xpack.security.enabled: "true"
       discovery.type: single-node
     volumes:
       - elasticsearch_data:/usr/share/elasticsearch/data
@@ -62,7 +62,7 @@ services:
     image: traefik:latest
     restart: always
     ports:
-      - '8080:80'
+      - "8080:80"
     command: --api --providers.docker
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
@@ -85,7 +85,8 @@ TRAEFIK_BASIC_AUTH=123:$2y$05$80HqrqBOoNaabteix3gYJ.S0kT.HP6sw5GjOplRfGhGezth0yL
 ```
 
 ## Beats
-* https://www.elastic.co/downloads/beats
+
+- https://www.elastic.co/downloads/beats
 
 ```
 filebeat -e modules enable nginx
@@ -96,7 +97,7 @@ filebeat -e
 ## Cluster
 
 ```yaml
-version: '3'
+version: "3"
 
 services:
   es01:
@@ -107,7 +108,7 @@ services:
       cluster.name: es-docker-cluster
       cluster.initial_master_nodes: es01,es02,es03,es04,es05,es06,es07,es08
       discovery.seed_hosts: es02,es03,es04,es05,es06,es07,es08
-      bootstrap.memory_lock: 'true'
+      bootstrap.memory_lock: "true"
       ES_JAVA_OPTS: -Xms32g -Xmx32g
     volumes:
       - es01_data:/usr/share/elasticsearch/data
@@ -126,7 +127,7 @@ services:
       cluster.name: es-docker-cluster
       cluster.initial_master_nodes: es01,es02,es03,es04,es05,es06,es07,es08
       discovery.seed_hosts: es01,es03,es04,es05,es06,es07,es08
-      bootstrap.memory_lock: 'true'
+      bootstrap.memory_lock: "true"
       ES_JAVA_OPTS: -Xms32g -Xmx32g
     volumes:
       - es02_data:/usr/share/elasticsearch/data
@@ -143,7 +144,7 @@ services:
       cluster.name: es-docker-cluster
       cluster.initial_master_nodes: es01,es02,es03,es04,es05,es06,es07,es08
       discovery.seed_hosts: es01,es02,es04,es05,es06,es07,es08
-      bootstrap.memory_lock: 'true'
+      bootstrap.memory_lock: "true"
       ES_JAVA_OPTS: -Xms32g -Xmx32g
     volumes:
       - es03_data:/usr/share/elasticsearch/data
@@ -160,7 +161,7 @@ services:
       cluster.name: es-docker-cluster
       cluster.initial_master_nodes: es01,es02,es03,es04,es05,es06,es07,es08
       discovery.seed_hosts: es01,es02,es03,es05,es06,es07,es08
-      bootstrap.memory_lock: 'true'
+      bootstrap.memory_lock: "true"
       ES_JAVA_OPTS: -Xms32g -Xmx32g
     volumes:
       - es04_data:/usr/share/elasticsearch/data
@@ -177,7 +178,7 @@ services:
       cluster.name: es-docker-cluster
       cluster.initial_master_nodes: es01,es02,es03,es04,es05,es06,es07,es08
       discovery.seed_hosts: es01,es02,es03,es04,es06,es07,es08
-      bootstrap.memory_lock: 'true'
+      bootstrap.memory_lock: "true"
       ES_JAVA_OPTS: -Xms32g -Xmx32g
     volumes:
       - es05_data:/usr/share/elasticsearch/data
@@ -194,7 +195,7 @@ services:
       cluster.name: es-docker-cluster
       cluster.initial_master_nodes: es01,es02,es03,es04,es05,es06,es07,es08
       discovery.seed_hosts: es01,es02,es03,es04,es05,es07,es08
-      bootstrap.memory_lock: 'true'
+      bootstrap.memory_lock: "true"
       ES_JAVA_OPTS: -Xms32g -Xmx32g
     volumes:
       - es06_data:/usr/share/elasticsearch/data
@@ -211,7 +212,7 @@ services:
       cluster.name: es-docker-cluster
       cluster.initial_master_nodes: es01,es02,es03,es04,es05,es06,es07,es08
       discovery.seed_hosts: es01,es02,es03,es04,es05,es06,es08
-      bootstrap.memory_lock: 'true'
+      bootstrap.memory_lock: "true"
       ES_JAVA_OPTS: -Xms32g -Xmx32g
     volumes:
       - es07_data:/usr/share/elasticsearch/data
@@ -228,7 +229,7 @@ services:
       cluster.name: es-docker-cluster
       cluster.initial_master_nodes: es01,es02,es03,es04,es05,es06,es07,es08
       discovery.seed_hosts: es01,es02,es03,es04,es05,es06,es07
-      bootstrap.memory_lock: 'true'
+      bootstrap.memory_lock: "true"
       ES_JAVA_OPTS: -Xms32g -Xmx32g
     volumes:
       - es08_data:/usr/share/elasticsearch/data
@@ -257,15 +258,16 @@ volumes:
 ```
 
 ## Reference
-* https://www.elastic.co/guide/index.html
-* kibana
-  * [settings](https://www.elastic.co/guide/en/kibana/current/settings.html)
-  * https://www.elastic.co/guide/cn/kibana/current/index.html
-* elasticsearch
-  * [rest-apis](https://www.elastic.co/guide/en/elasticsearch/reference/current/rest-apis.html)
-  * [java-rest-high-query-builders](https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-query-builders.html)
-  * [java-rest-high-aggregation-builders](https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-aggregation-builders.html)
-  * https://www.elastic.co/guide/cn/elasticsearch/guide/current/index.html
-* filebeat
-  * [inputs](https://www.elastic.co/guide/en/beats/filebeat/current/configuration-filebeat-options.html)
-  * [modules](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-modules.html)
+
+- https://www.elastic.co/guide/index.html
+- kibana
+  - [settings](https://www.elastic.co/guide/en/kibana/current/settings.html)
+  - https://www.elastic.co/guide/cn/kibana/current/index.html
+- elasticsearch
+  - [rest-apis](https://www.elastic.co/guide/en/elasticsearch/reference/current/rest-apis.html)
+  - [java-rest-high-query-builders](https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-query-builders.html)
+  - [java-rest-high-aggregation-builders](https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-aggregation-builders.html)
+  - https://www.elastic.co/guide/cn/elasticsearch/guide/current/index.html
+- filebeat
+  - [inputs](https://www.elastic.co/guide/en/beats/filebeat/current/configuration-filebeat-options.html)
+  - [modules](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-modules.html)

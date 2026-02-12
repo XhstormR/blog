@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- JAVA
+  - JAVA
 date: 2017-08-01T11:14:11+08:00
 title: Java Concurrency Lock
 ---
@@ -15,12 +15,16 @@ Updated on 2017-08-05
 > [中文](http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/java/util/concurrent/locks/package-summary.html)
 
 ## Concept
-* 阻塞 -> Unsafe 类 -> park 操作
+
+- 阻塞 -> Unsafe 类 -> park 操作
 
 ## Code
+
 ### 锁
+
 #### LockSupport
-* 内部封装了 Unsafe 类的 park 操作。
+
+- 内部封装了 Unsafe 类的 park 操作。
 
 ```java
 import java.util.concurrent.TimeUnit;
@@ -61,8 +65,10 @@ b 开始阻塞 无期限
 b 停止阻塞
 a 停止阻塞
 ```
+
 #### ReentrantLock
-* 独占锁（排它锁）
+
+- 独占锁（排它锁）
 
 ```java
 import java.util.concurrent.ExecutorService;
@@ -109,10 +115,12 @@ pool-1-thread-2 运行中...
 pool-1-thread-2 运行中...
 pool-1-thread-2 释放锁
 ```
+
 #### ReentrantReadWriteLock
-* 读写锁
-  * 读锁：**共享锁**，阻塞写锁　　　，同时只能有 **多个读**。
-  * 写锁：**独占锁**，阻塞写锁和读锁，同时只能有 **一个写**。
+
+- 读写锁
+  - 读锁：**共享锁**，阻塞写锁　　　，同时只能有 **多个读**。
+  - 写锁：**独占锁**，阻塞写锁和读锁，同时只能有 **一个写**。
 
 ```java
 import java.util.concurrent.ExecutorService;
@@ -187,9 +195,12 @@ pool-1-thread-4 运行中...
 pool-1-thread-3 释放读锁
 pool-1-thread-4 释放读锁
 ```
+
 ### 同步器
+
 #### CountDownLatch
-* 一次性栅栏
+
+- 一次性栅栏
 
 ```java
 import java.util.concurrent.*;
@@ -241,8 +252,10 @@ pool-1-thread-4 运行中...
 pool-1-thread-2 运行中...
 pool-1-thread-3 运行中...
 ```
+
 #### CyclicBarrier
-* 循环同步栅栏
+
+- 循环同步栅栏
 
 ```java
 import java.util.concurrent.*;
@@ -288,8 +301,10 @@ pool-1-thread-1 完成任务 4
 pool-1-thread-2 完成任务 4
 阶段性完成
 ```
+
 #### Semaphore
-* 计数信号量
+
+- 计数信号量
 
 ```java
 import java.util.concurrent.ExecutorService;
@@ -351,8 +366,10 @@ pool-1-thread-5 运行中...
 pool-1-thread-5 释放信号...
 pool-1-thread-4 释放信号...
 ```
+
 #### Exchanger
-* 用于在 **成对** 的线程之间 **同步交换数据**。
+
+- 用于在 **成对** 的线程之间 **同步交换数据**。
 
 ```java
 import java.util.concurrent.*;
@@ -394,12 +411,15 @@ pool-1-thread-2 B
 pool-1-thread-1 B
 pool-1-thread-2 A
 ```
+
 #### Phaser
-* 把多个线程 **协同** 执行的任务划分为 **多个** 阶段。
-  * 每个 **阶段** 可以为其加入 **任意** 数量的线程。
-  * 每个 **线程** 可以 **随时** 注册并参与某个阶段。
+
+- 把多个线程 **协同** 执行的任务划分为 **多个** 阶段。
+  - 每个 **阶段** 可以为其加入 **任意** 数量的线程。
+  - 每个 **线程** 可以 **随时** 注册并参与某个阶段。
 
 ##### 模拟 CountDownLatch
+
 ```java
 import java.util.concurrent.*;
 
@@ -469,7 +489,9 @@ public class Main {
 5 = 0 + 5 pool-1-thread-3 运行中...
 5 = 0 + 5 pool-1-thread-1 运行中...
 ```
+
 ##### 模拟 CyclicBarrier
+
 ```java
 import java.util.concurrent.*;
 

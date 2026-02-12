@@ -1,6 +1,6 @@
 ---
 tags:
-- Android
+  - Android
 date: 2016-09-28T15:18:02+08:00
 title: Android 异步加载
 ---
@@ -18,6 +18,7 @@ Updated on 2016-09-28
 > BaseAdapter 缓存页面（convertView，ViewHolder）
 
 ## MainActivity.java
+
 ```java
 public class MainActivity extends Activity {
     private ListView mListView;
@@ -69,6 +70,7 @@ public class MainActivity extends Activity {
 ```
 
 ## CourseBean.java
+
 ```java
 public class CourseBean {
     private String ImageURL;
@@ -117,6 +119,7 @@ public class CourseBean {
 ```
 
 ## ListAdapter.java
+
 ```java
 public class ListAdapter extends BaseAdapter implements AbsListView.OnScrollListener {
     public static String[] URLs;
@@ -209,6 +212,7 @@ public class ListAdapter extends BaseAdapter implements AbsListView.OnScrollList
 ```
 
 ## ImageLoader.java
+
 ```java
 public class ImageLoader {
     private ListView mListView;
@@ -295,6 +299,7 @@ public class ImageLoader {
 ```
 
 ## activity_main.xml
+
 ```xml
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
@@ -309,6 +314,7 @@ public class ImageLoader {
 ```
 
 ## item_layout.xml
+
 ```xml
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="horizontal"

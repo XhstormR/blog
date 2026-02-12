@@ -1,6 +1,6 @@
 ---
 tags:
-- Android
+  - Android
 date: 2016-10-10T20:16:37+08:00
 title: Android BroadcastReceiver
 ---
@@ -11,19 +11,20 @@ Updated on 2016-10-10
 
 >
 
-* Broadcast（发）：发送 Broadcast（Intent）用于进程或线程间进行通信。
-  * 普通广播：所有监听该广播的接收器都可以（理论上同时）接收到该广播。
-      * 动态注册的接收器 **总是** 先于静态注册的接收器收到广播。
-      * 并行处理。
-  * 有序广播：按照接收器的优先级顺序（链式）接收广播。（-1000 至 1000）
-      * 监听该广播的接收器可以中断传播，也可以放入数据传递给下一个接收器。
-      * **同等级** 的动态注册的接收器先于静态注册的接收器收到广播。
-      * 串行处理。
-* BroadcastReceiver（收）：对 Broadcast 进行过滤接收并响应，四大组件之一。
-  * 静态注册：在 AndroidManifest.xml 中进行注册。( 常驻型 )
-  * 动态注册：在运行时的 Java 代码中进行注册，程序结束后取消注册。( 非常驻型 )
+- Broadcast（发）：发送 Broadcast（Intent）用于进程或线程间进行通信。
+  - 普通广播：所有监听该广播的接收器都可以（理论上同时）接收到该广播。
+    - 动态注册的接收器 **总是** 先于静态注册的接收器收到广播。
+    - 并行处理。
+  - 有序广播：按照接收器的优先级顺序（链式）接收广播。（-1000 至 1000）
+    - 监听该广播的接收器可以中断传播，也可以放入数据传递给下一个接收器。
+    - **同等级** 的动态注册的接收器先于静态注册的接收器收到广播。
+    - 串行处理。
+- BroadcastReceiver（收）：对 Broadcast 进行过滤接收并响应，四大组件之一。
+  - 静态注册：在 AndroidManifest.xml 中进行注册。( 常驻型 )
+  - 动态注册：在运行时的 Java 代码中进行注册，程序结束后取消注册。( 非常驻型 )
 
 ## MainActivity.java
+
 ```java
 public class MainActivity extends Activity {
     private MyBroadcastReceiver mMyBroadcastReceiver;
@@ -63,6 +64,7 @@ public class MainActivity extends Activity {
 ```
 
 ## MyBroadcastReceiver.java
+
 ```java
 public class MyBroadcastReceiver extends BroadcastReceiver {
 
@@ -92,6 +94,7 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
 ```
 
 ## activity_main.xml
+
 ```xml
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -115,6 +118,7 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
 ```
 
 ## AndroidManifest.xml
+
 ```xml
 <application
 
@@ -137,7 +141,8 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
 ```
 
 ## LocalBroadcastManager
-* 应用内广播，更加安全，高效。
+
+- 应用内广播，更加安全，高效。
 
 ```java
 public class MainActivity extends Activity {

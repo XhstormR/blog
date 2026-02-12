@@ -1,6 +1,6 @@
 ---
 tags:
-- JAVA
+  - JAVA
 date: 2016-08-02T09:41:40+08:00
 title: 通过 Java 实现扑克牌游戏
 ---
@@ -14,6 +14,7 @@ Updated on 2016-08-02
 > 分别创建了四个类：牌类(Card)、玩家类(Player)、方法类(Method)、入口类(Initial)
 
 ## Card.java
+
 ```java
 class Card implements Comparable<Card> {
     String point;
@@ -51,6 +52,7 @@ class Card implements Comparable<Card> {
 ```
 
 ## Player.java
+
 ```java
 import java.util.ArrayList;
 import java.util.List;
@@ -74,6 +76,7 @@ class Player {
 ```
 
 ## Method.java
+
 ```java
 import java.util.ArrayList;
 import java.util.Collections;
@@ -177,6 +180,7 @@ class Method {
 ```
 
 ## Initial.java
+
 ```java
 import java.util.List;
 

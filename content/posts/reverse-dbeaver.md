@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Reverse
+  - Reverse
 date: 2017-12-07T14:54:55+08:00
 title: 逆向 DBeaver
 ---
@@ -15,11 +15,13 @@ Updated on 2018-03-15
 > https://dbeaver.com/files/dbeaver-ee-latest-win32.win32.x86_64.zip
 
 ## Step
+
 1. 反编译 org.jkiss.lm_1.0.17.jar。
 2. 搜索 **`hasProductLicense`**，定位至 `LMLicenseManager.class`。
 3. 修改方法 `hasProductLicense` 的返回值为 **`true`**。
 
 ## Code
+
 ```
 通过修改字节码：
 iconst_1

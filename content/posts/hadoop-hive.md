@@ -1,6 +1,6 @@
 ---
 tags:
-- Hadoop
+  - Hadoop
 date: 2016-04-19T07:49:53+08:00
 title: 自学 Hive
 ---
@@ -18,23 +18,25 @@ Updated on 2016-06-08
 > Hive 是 SQL 解析引擎，它将 SQL 语句转译成 Map/Reduce Job 然后在 Hadoop 执行；能够用类 SQL 的方式操作 HDFS 里面数据一个数据仓库的框架，这个类 SQL 我们称之为 HQL（Hive Query Language）。
 
 ## Hive 概念
-* Hive 的数据存储基于 HDFS
-  * Hive 中的表---HDFS 里的目录
-  * Hive 中的表的数据---HDFS 目录下的文件
-  * Hive 中的行列---HDFS 文件中的行列
-* Hive 的用户接口有三个：Shell、Web、JDBC/ODBC。
-* Hive 将元数据存储在数据库中（MetaStore），只支持 MySQL、Derby（默认，一次只能打开一个会话，不推荐）作为存储引擎；元数据包括表的名字、列、分区、是否为外部表以及数据所在目录等。
-* Hive 的数据存储在 HDFS 中，大部分的查询由 MapReduce 完成。（包含 * 查询，但 `select * from table` 不会生成 MapReduce 任务）
-* Hive 中的解释器、编译器、优化器完成 HQL 查询语句并生成查询计划；生成的查询计划存储在 HDFS 中，并随后由 MapReduce 调用执行，Hadoop 监控作业执行过程，然后返回作业执行结果给用户。（简单来说就是把类 SQL 语句转化为 MapReduce 任务运行，高延迟）
-  * Hive 在导入数据过程中不会对数据做任何修改，只是将数据移至 HDFS 目录中，所有数据都是在导入时确定。（纯移动/复制操作）
-  * 因此 Hive 并不提供实时的查询和基于行级的数据更新操作，不适合联机事务处理（低延迟）。
-* Hive 没有定义专门的数据格式，因此创建表时，指定Hive数据的列分隔符与行分隔符，Hive即可解析数据。
-  * 列分割符:','     '\t'(TAB)     '\040'(空格)     [[ASCII码表](http://defindit.com/ascii.html)]
-  * 行分隔符: '\n'(ENTER)
-  * 文件格式：TextFile(数据是纯文本)、SequenceFile(若需要压缩)
-* Hive 中的数据模型有4种：Table(内部表)、Partition(分区表)、External Table(外部表)、Bucket(桶表)
+
+- Hive 的数据存储基于 HDFS
+  - Hive 中的表---HDFS 里的目录
+  - Hive 中的表的数据---HDFS 目录下的文件
+  - Hive 中的行列---HDFS 文件中的行列
+- Hive 的用户接口有三个：Shell、Web、JDBC/ODBC。
+- Hive 将元数据存储在数据库中（MetaStore），只支持 MySQL、Derby（默认，一次只能打开一个会话，不推荐）作为存储引擎；元数据包括表的名字、列、分区、是否为外部表以及数据所在目录等。
+- Hive 的数据存储在 HDFS 中，大部分的查询由 MapReduce 完成。（包含 _ 查询，但 `select _ from table` 不会生成 MapReduce 任务）
+- Hive 中的解释器、编译器、优化器完成 HQL 查询语句并生成查询计划；生成的查询计划存储在 HDFS 中，并随后由 MapReduce 调用执行，Hadoop 监控作业执行过程，然后返回作业执行结果给用户。（简单来说就是把类 SQL 语句转化为 MapReduce 任务运行，高延迟）
+  - Hive 在导入数据过程中不会对数据做任何修改，只是将数据移至 HDFS 目录中，所有数据都是在导入时确定。（纯移动/复制操作）
+  - 因此 Hive 并不提供实时的查询和基于行级的数据更新操作，不适合联机事务处理（低延迟）。
+- Hive 没有定义专门的数据格式，因此创建表时，指定Hive数据的列分隔符与行分隔符，Hive即可解析数据。
+  - 列分割符:',' '\t'(TAB) '\040'(空格) [[ASCII码表](http://defindit.com/ascii.html)]
+  - 行分隔符: '\n'(ENTER)
+  - 文件格式：TextFile(数据是纯文本)、SequenceFile(若需要压缩)
+- Hive 中的数据模型有4种：Table(内部表)、Partition(分区表)、External Table(外部表)、Bucket(桶表)
 
 ## Hive 操作
+
 ```
 create database db1;     创建数据库
 show databases;     显示数据库
@@ -65,6 +67,7 @@ Hive 的历史命令存放在 ~/.hivehistory
 ```
 
 ## MySQL 操作
+
 ```
 mysql -uroot -p000000     登录 MySQL
 show databases;     显示数据库

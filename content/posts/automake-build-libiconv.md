@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Notes
+  - Notes
 date: 2018-02-14T13:46:24+08:00
 title: 构建 libiconv
 ---
@@ -15,6 +15,7 @@ Updated on 2018-02-14
 > [libiconv](https://mirrors.tuna.tsinghua.edu.cn/gnu/libiconv/)
 
 ## Step
+
 ```
 D:\Work\Download\libiconv>
 

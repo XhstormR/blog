@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Notes
+  - Notes
 date: 2020-10-12T15:31:42+08:00
 title: JDK Keytool
 ---
@@ -43,4 +43,5 @@ openssl pkcs12 -in release.p12 -password pass:changeit -out release.key -nocerts
 ```
 
 ## Reference
-* https://docs.oracle.com/en/java/javase/15/docs/specs/man/keytool.html
+
+- https://docs.oracle.com/en/java/javase/15/docs/specs/man/keytool.html

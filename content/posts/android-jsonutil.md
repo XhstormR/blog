@@ -1,6 +1,6 @@
 ---
 tags:
-- Android
+  - Android
 date: 2016-11-19T08:00:39+08:00
 title: JsonUtil
 ---
@@ -12,6 +12,7 @@ Updated on 2016-11-19
 > https://github.com/google/gson
 
 ## JsonUtil.java
+
 ```java
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -41,6 +42,7 @@ public class JsonUtil {
 ```
 
 ## Test.java
+
 ```java
 import java.util.Arrays;
 import java.util.List;

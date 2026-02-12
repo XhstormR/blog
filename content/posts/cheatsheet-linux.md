@@ -1,6 +1,6 @@
 ---
 tags:
-- CheatSheet
+  - CheatSheet
 date: 2016-03-23T16:40:02+08:00
 title: Linux 命令不完全手册
 ---
@@ -41,6 +41,7 @@ set #查看环境变量 + Shell 变量
 ```
 
 ## ls
+
 ```bash
 -a #显示隐藏文件
 -d #只显示当前文件夹信息
@@ -84,6 +85,7 @@ ll /root/{1,2}     等同于 ll /root/1 /root/2
 ```
 
 ## mkdir
+
 ```
 -p #递归创建目录
 
@@ -91,6 +93,7 @@ mkdir -p 1/2/3
 ```
 
 ## cd
+
 ```
 cd    #进入当前用户家目录
 cd ~  #进入当前用户家目录
@@ -99,11 +102,13 @@ cd .. #进入上一级目录
 ```
 
 ## rmdir
+
 ```
 rmdir #删除空白目录，不常用
 ```
 
 ## rm
+
 ```
 -r #操作文件夹下的所有文件     Recursive(递归)
 -f #不显示确认信息
@@ -122,6 +127,7 @@ cp 1 \\1     \1
 ```
 
 ## chattr
+
 ```
 -R #操作文件夹下的所有文件     Recursive(递归)
 + 属性 #开启属性
@@ -150,6 +156,7 @@ removed 123
 ```
 
 ## cp
+
 ```
 cp [选项] [原文件或目录] [目标目录]
 -u #只复制比目标新的文件
@@ -163,6 +170,7 @@ cp /root/123{,.bak}     备份文件，相当于 cp /root/123 /root/123.bak
 ```
 
 ## mv
+
 ```bash
 mv [选项] [原文件或目录] [目标目录]
 -u #只移动比目标新的文件
@@ -171,6 +179,7 @@ mv 123 1 #相当于重命名
 ```
 
 ## ln
+
 ```
 ln [原文件]  [目标文件]
 -s #创建软链接 soft，不加则创建硬链接 hard，需使用绝对路径
@@ -180,6 +189,7 @@ ln [原文件]  [目标文件]
 ```
 
 ## z
+
 ```bash
 echo '. ~/z.sh' >> .bashrc #安装 z
 
@@ -188,6 +198,7 @@ https://raw.githubusercontent.com/rupa/z/master/z.sh
 ```
 
 ## z.lua
+
 ```bash
 echo 'lua ~/z.lua --init fish once | source' >> ~/.config/fish/config.fish
 
@@ -196,6 +207,7 @@ https://raw.githubusercontent.com/skywind3000/z.lua/master/z.lua
 ```
 
 ## locate
+
 ```bash
 yum -y install mlocate #安装 locate
 locate [文件名] #在数据库中搜索文件名，速度非常快
@@ -206,6 +218,7 @@ updatedb #手动更新数据库
 ```
 
 ## ZModem
+
 ```
 yum -y install lrzsz #安装 ZModem
 rz #上传文件     对于 Linux Receive（接收）
@@ -213,6 +226,7 @@ sz #下载文件     对于 Linux Send（发送）
 ```
 
 ## parted
+
 ```bash
 yum -y install parted #安装 parted
 -l #输出分区信息
@@ -254,6 +268,7 @@ quit     退出，可简写为 q
 ```
 
 ## 7z
+
 ```bash
 yum -y install p7zip* #安装 7z     p7zip，p7zip-plugins，7za和7zr是7z的精简版，建议使用7z
 a     添加到压缩文件
@@ -276,6 +291,7 @@ x     以完整路径解压
 ```
 
 ## ncdu
+
 ```c
 yum -y install ncdu #安装 ncdu
 
@@ -313,6 +329,7 @@ ncdu 1.7 ~ Use the arrow keys to navigate, press ? for help
 ```
 
 ## nethogs
+
 ```
 yum -y install nethogs #安装 nethogs
 -d 2 #设置刷新频率为 2 秒，默认 1 秒     delay(延迟)
@@ -335,6 +352,7 @@ NetHogs version 0.8.0
 ```
 
 ## iftop
+
 ```
 yum -y install iftop #安装 iftop
 -i eth1 #设定监视网卡
@@ -376,6 +394,7 @@ TOTAL:                  729MB           13.7Kb                    5.23Kb  5.27Kb
 ```
 
 ## tree
+
 ```bash
 yum -y install tree #安装 tree
 -a #显示所有文件和目录     all
@@ -414,6 +433,7 @@ yum -y install tree #安装 tree
 ```
 
 ## ssh
+
 ```
 yum -y install openssh-clients #安装 SSH 套件
 ssh-keygen #在 ~/.ssh 目录下生成公钥和私钥
@@ -436,6 +456,7 @@ https://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-connectors/native/1.2.
 ```
 
 ## scp
+
 ```
 -r #操作文件夹下的所有文件     Recursive(递归)
 -P #指定远程主机的 SSH 端口号
@@ -447,6 +468,7 @@ rsync -Par -e 'ssh -i key.pem' source/ root@192.168.100.10:/destination # 断点
 ```
 
 ## find
+
 ```
 find [路径] [模式] [条件]
 find / -name 123.log
@@ -482,6 +504,7 @@ Tips :
 ```
 
 ## sort
+
 ```bash
 -u #去重
 -f #忽略大小写
@@ -495,6 +518,7 @@ sort -t ":" -k 3,3r -k 1,1f -o 2.txt 1.txt #以 3、1 列为目标排序，其�
 ```
 
 ## grep
+
 ```
 grep[选项] 字符串 文件名     在文件当中查找匹配符合条件的字符串
 -n #显示行号
@@ -525,6 +549,7 @@ grep -vn -e '^\s*#' -e '^\s*$' /etc/vsftpd/vsftpd.conf #使用正则表达式取
 ```
 
 ## awk
+
 ```bash
 awk '{print $2}' 1.txt             #输出每一行的第二列到屏幕
 awk '{print $0 > "2.txt"}' 1.txt   #输出每一行的每一列到文件
@@ -536,6 +561,7 @@ https://www.ibm.com/developerworks/cn/education/aix/au-gawk/index.html
 ```
 
 ## sed
+
 ```
 -i #将修改写入文件
 -e #执行多条编辑命令
@@ -552,6 +578,7 @@ https://www.gnu.org/software/sed/manual/html_node/sed-commands-list.html#sed-com
 ```
 
 ## mount
+
 ```
 mount #查询系统中已经挂载的设备
 mount -a #依据配置文件/etc/fstab的内容，自动挂载
@@ -601,6 +628,7 @@ cp /dev/cdrom /tmp/1.iso #从光盘制作光盘镜像文件
 ```
 
 ## echo
+
 ```
 echo [选项] [输出内容]
 -e #激活转义字符，支持反斜线控制的字符转换
@@ -615,6 +643,7 @@ echo -e "123\n45\f6" >> 123 #追加写入文件
 ```
 
 ## alias
+
 ```
 alias #查看系统中所有的命令别名
 alias 别名='原命令' #设定命令别名，重启失效
@@ -627,6 +656,7 @@ vi ~/.bashrc
 ```
 
 ## lsblk
+
 ```
 -a #显示所有设备
 -d #只显示磁盘
@@ -642,6 +672,7 @@ sda      8:0    0 278.9G  0 disk
 ```
 
 ## df
+
 ```bash
 -a #显示所有文件系统
 -h #大小人性化显示
@@ -656,6 +687,7 @@ tmpfs          tmpfs  5.8G     0  5.8G   0% /dev/shm
 ```
 
 ## du
+
 ```
 -a #同时显示文件大小
 -c #同时显示大小总和
@@ -690,6 +722,7 @@ tmpfs          tmpfs  5.8G     0  5.8G   0% /dev/shm
 ```
 
 ## yum
+
 ```
 -y #对所有提问都回答 yes
 
@@ -711,11 +744,13 @@ yum clean all #删除缓存
 ```
 
 ## rpm
+
 ```
 rpm -ivh --force *rpm #安装 RPM 包
 ```
 
 ## chown
+
 ```
 chown [选项] [参数]
 -R #操作文件夹下的所有文件     Recursive(递归)
@@ -728,6 +763,7 @@ chown user:market file01 #把 file01 给 user，并添加到 market 组中
 ```
 
 ## chmod
+
 ```
 chmod [选项] [参数]
 -R #操作文件夹下的所有文件     Recursive(递归)
@@ -747,6 +783,7 @@ Tips：
 ```
 
 ## getent
+
 ```bash
 getent passwd #查看用户
 getent shadow #查看密码
@@ -755,6 +792,7 @@ getent hosts #查看主机
 ```
 
 ## passwd
+
 ```
 -d #删除密码
 -l #锁住密码     Lock
@@ -767,6 +805,7 @@ passwd -d root #删除 root 用户的密码，注意删除 root 用户密码后�
 ```
 
 ## history
+
 ```
 history [选项]
 -c #清空历史命令
@@ -792,6 +831,7 @@ history [选项]
 ```
 
 ## uname
+
 ```
 -a #显示全部系统信息
 -m #电脑类型
@@ -804,6 +844,7 @@ Linux controller 2.6.32-431.el6.x86_64 井1 SMP Fri Nov 22 03:15:09 UTC 2013 x86
 ```
 
 ## lsb_release
+
 ```
 -a #显示全部发行版本信息
 
@@ -818,6 +859,7 @@ Tips：LSB 是 Linux Standard Base 的缩写
 ```
 
 ## free
+
 ```bash
 -m #以 MB 为单位
 -g #以 GB 为单位
@@ -841,6 +883,7 @@ Swap     交换分区
 ```
 
 ## netstat
+
 ```
 -a #显示所有端口
      -at #显示所有 TCP 端口
@@ -868,6 +911,7 @@ tcp        0      0 :::80                       :::*                        LIST
 ```
 
 ## 查看文件占用
+
 ```
 fuser -v 123.txt
 lsof 123.txt
@@ -877,6 +921,7 @@ lsof -i:80
 ```
 
 ## nmap
+
 ```
 -p - #扫描所有端口 (1-65535)
 
@@ -884,6 +929,7 @@ nmap -p 80,443 192.168.1.1-254 #扫描此网段的 80、443 端口
 ```
 
 ## ps
+
 ```
 -A #显示所有程序
 -f #显示所有内容
@@ -914,6 +960,7 @@ root      7542  2965  0 11:30 pts/1    00:00:00 grep vim
 ```
 
 ## pidof
+
 ```
 [root@controller ~]# pidof sshd # 返回符合进程名的进程 ID
 26051 3192
@@ -923,6 +970,7 @@ root      7542  2965  0 11:30 pts/1    00:00:00 grep vim
 ```
 
 ## shutdown
+
 ```
 shutdown [选项]  [时间 (now立即) ]
 -h #关机
@@ -935,6 +983,7 @@ shutdown -r now #立即重启
 ```
 
 ## init
+
 ```
 init [0-6] #切换系统运行级别
 runlevel #查询系统当前运行级别
@@ -947,6 +996,7 @@ Ctrl+Alt+F1~7 #在图形界面和字符界面中切换
 ```
 
 ## zip 压缩
+
 ```bash
 zip [压缩文件名] [源文件] #压缩文件
 zip -r [压缩文件名] [源目录] #压缩目录
@@ -954,6 +1004,7 @@ unzip [压缩文件名] #解压缩
 ```
 
 ## gz 压缩
+
 ```bash
 gzip [源文件] #压缩为.gz格式压缩文件，源文件会消失
 gzip -r [目录] #分别压缩目录下的所有子文件，不能压缩目录
@@ -964,6 +1015,7 @@ gzip -c abc > abc.gz
 ```
 
 ## bz2 压缩
+
 ```
 bzip2 [源文件] #压缩为.bz2格式的压缩文件，源文件会消失
 bzip2 -k [源文件] #压缩之后保留源文件
@@ -973,6 +1025,7 @@ Tips : bzip2不支持目录压缩
 ```
 
 ## tar 压缩
+
 ```
 tar -[cxt]f [打包解包文件名] [源文件]
 -c #打包
@@ -991,6 +1044,7 @@ tar -xJf 123.tar.xz -C /tmp/ #指定解包位置
 ## CentOS 7
 
 ### hostnamectl
+
 ```bash
 hostnamectl set-hostname controller     设置主机名
 
@@ -1010,6 +1064,7 @@ Architecture: x86-64
 ```
 
 ## 退出登录
+
 ```
 logout #退出并执行 ~/.bash_logout
 exit #退出
@@ -1019,6 +1074,7 @@ Ctrl+D #快捷键退出
 ```
 
 ## 修改环境变量
+
 ```
 vi ~/.bash_profile
 ----
@@ -1026,6 +1082,7 @@ PATH=$PATH:/opt/metasploit-framework/bin
 ```
 
 ## 搜索系统命令
+
 ```
 whereis [命令名] #查找可执行文件和帮助文件
 which [命令名] #查找可执行文件和默认别名
@@ -1038,6 +1095,7 @@ alias ls='ls --color=auto'
 ```
 
 ## 查看命令帮助
+
 ```
 whatis [命令]
 相当于
@@ -1046,6 +1104,7 @@ man -f [命令]
 ```
 
 ## 查看用户登录信息
+
 ```bash
 当前登录用户：
 w
@@ -1070,6 +1129,7 @@ lastlog命令默认读取 /var/log/lastlog 文件
 ```
 
 ## 通配符
+
 ```
 *     匹配任意字符     123*
 ?     匹配一个任意字符     12?.log
@@ -1079,6 +1139,7 @@ lastlog命令默认读取 /var/log/lastlog 文件
 ```
 
 ## 管道符
+
 ```
 命令1 | 命令2     命令1的正确输出作为命令2的操作对象（命令2必须能处理命令1的输出）
 
@@ -1089,6 +1150,7 @@ ps -e | grep nova | awk '{print $4}' | sort -u
 ```
 
 ## 重定向
+
 ```bash
 覆盖：>
 追加：>>
@@ -1102,6 +1164,7 @@ ps -e | grep nova | awk '{print $4}' | sort -u
 ```
 
 ## 命令连接符
+
 ```
 ;      命令1 ;  命令2     命令按顺序依次执行
 &&     命令1 && 命令2     逻辑与，只有当命令1执行成功时，命令2才会执行
@@ -1111,11 +1174,13 @@ ls && echo yes || echo no #判断命令是否执行成功
 ```
 
 ## 命令替换符
+
 ```
 ls `cat 123` #bash 会先执行 ` ` 包含的命令，其输出会作为另一个命令的参数
 ```
 
 ## 后台进程
+
 ```
 Ctrl+Z     挂起当前命令
 ping 127.0.0.1 &  #挂起当前命令
@@ -1127,6 +1192,7 @@ Tips : bg 和 fg 不带 %N 时默认对最后一个进程进行操作
 ```
 
 ## 自定义登录信息
+
 ```
 登录前 /etc/issue 本地设备     /etc/issue.net 远程设备
      \l 显示第几个终端机接口
@@ -1136,6 +1202,7 @@ Tips : bg 和 fg 不带 %N 时默认对最后一个进程进行操作
 ```
 
 ## 配置 DNS
+
 ```bash
 nmcli con show
 nmcli con mod eno16780032 ipv4.dns 1.2.4.8
@@ -1148,6 +1215,7 @@ nameserver 1.2.4.8
 ```
 
 ## 脚本
+
 ```
 vi hello.sh
 #!/bin/bash
@@ -1160,6 +1228,7 @@ echo -e "\e[1;36m 123456 \e[0m"
 ```
 
 ## Linux 目录
+
 ```
 /boot     启动文件目录
 /dev     设备文件目录
@@ -1179,6 +1248,7 @@ echo -e "\e[1;36m 123456 \e[0m"
 ```
 
 ## Linux 快捷键（Emacs 风格）
+
 ```
 Ctrl+L     清屏     （另外 CMD 下的清屏命令是 `cls`）
 Ctrl+Z     挂起当前命令
@@ -1205,6 +1275,7 @@ $+Tab*2     All Sys variables
 ```
 
 ## SecureCRT 快捷键
+
 ```bash
 Alt+B     新建选项卡
 Ctrl+Tab     切换选项卡

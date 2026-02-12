@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Spring
+  - Spring
 date: 2017-06-15T12:53:18+08:00
 title: Spring Transaction
 ---
@@ -19,19 +19,22 @@ Updated on 2017-06-15
 > https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/transaction/annotation/Transactional.html
 
 ## Concept
-* 事务的传播行为：Propagation
-  * 作用：解决业务层中方法之间互相调用而产生的事务如何传递的问题。
-  * 在 **相同** 事务中：REQUIRED
-  * 在 **不同** 事务中：REQUIRES_NEW
-  * 在 **嵌套** 事务中：NESTED
-* 事务的隔离级别：Isolation
-* 只读事务：readOnly
-  * 作用：禁止 **增删改** 操作。
-* 发生异常&#8195;回滚事务：-Exception
-* 发生异常不回滚事务：+Exception
+
+- 事务的传播行为：Propagation
+  - 作用：解决业务层中方法之间互相调用而产生的事务如何传递的问题。
+  - 在 **相同** 事务中：REQUIRED
+  - 在 **不同** 事务中：REQUIRES_NEW
+  - 在 **嵌套** 事务中：NESTED
+- 事务的隔离级别：Isolation
+- 只读事务：readOnly
+  - 作用：禁止 **增删改** 操作。
+- 发生异常&#8195;回滚事务：-Exception
+- 发生异常不回滚事务：+Exception
 
 ## Configuration
+
 ### build.gradle.kts
+
 ```bash
 compile("org.springframework:spring-orm:+")
 compile("org.springframework:spring-context:+")
@@ -46,6 +49,7 @@ compile("org.hibernate:hibernate-infinispan:+")
 ```
 
 ### hibernate.properties
+
 ```bash
 hibernate.show_sql=true
 hibernate.format_sql=false
@@ -67,6 +71,7 @@ hibernate.cache.infinispan.cfg=org/hibernate/cache/infinispan/builder/infinispan
 ```
 
 ### hibernate.cfg.xml
+
 ```xml
 <?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE hibernate-configuration PUBLIC
@@ -80,9 +85,13 @@ hibernate.cache.infinispan.cfg=org/hibernate/cache/infinispan/builder/infinispan
 ```
 
 ## 编程式事务管理
+
 ### 基于 TransactionTemplate
+
 #### entity
+
 ##### Account
+
 ```kotlin
 package entity
 
@@ -104,8 +113,11 @@ Hibernate 缓存策略：
 一级缓存：强制开启，以 Session        为单位。
 二级缓存：默认关闭，以 SessionFactory 为单位。
 ```
+
 #### dao
+
 ##### AccountDao
+
 ```kotlin
 package dao
 
@@ -114,7 +126,9 @@ interface AccountDao {
     fun inMoney(id: Int, money: Int)
 }
 ```
+
 ##### AccountDaoImpl
+
 ```kotlin
 package dao
 
@@ -139,8 +153,11 @@ open class AccountDaoImpl : AccountDao {
     }
 }
 ```
+
 #### service
+
 ##### AccountService
+
 ```kotlin
 package service
 
@@ -148,7 +165,9 @@ interface AccountService {
     fun transfer(out: Int, `in`: Int, money: Int)
 }
 ```
+
 ##### **AccountServiceImpl**
+
 ```kotlin
 package service
 
@@ -172,7 +191,9 @@ open class AccountServiceImpl : AccountService {
     }
 }
 ```
+
 #### **AppConfig**
+
 ```kotlin
 import org.hibernate.SessionFactory
 import org.hibernate.boot.MetadataSources
@@ -211,7 +232,9 @@ open class AppConfig {
     }
 }
 ```
+
 #### Main
+
 ```kotlin
 import entity.Account
 import org.hibernate.SessionFactory
@@ -237,9 +260,13 @@ fun main(args: Array<String>) {
 ```
 
 ## 声明式事务管理
+
 ### 基于 TransactionProxyFactoryBean
+
 #### 略
+
 #### service.AccountServiceImpl
+
 ```kotlin
 package service
 
@@ -258,7 +285,9 @@ open class AccountServiceImpl : AccountService {
     }
 }
 ```
+
 #### **AppConfig**
+
 ```kotlin
 import org.hibernate.SessionFactory
 import org.hibernate.boot.MetadataSources
@@ -303,7 +332,9 @@ open class AppConfig {
     }
 }
 ```
+
 #### **Main**
+
 ```kotlin
 import entity.Account
 import org.hibernate.SessionFactory
@@ -329,8 +360,11 @@ fun main(args: Array<String>) {
 ```
 
 ### 基于注解（推荐）
+
 #### 略
+
 #### **service.AccountServiceImpl**
+
 ```kotlin
 package service
 
@@ -351,7 +385,9 @@ open class AccountServiceImpl : AccountService {
     }
 }
 ```
+
 #### **AppConfig**
+
 ```kotlin
 import org.hibernate.SessionFactory
 import org.hibernate.boot.MetadataSources
@@ -384,7 +420,9 @@ open class AppConfig {
     }
 }
 ```
+
 #### Main
+
 ```kotlin
 import entity.Account
 import org.hibernate.SessionFactory

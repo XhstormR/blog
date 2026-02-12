@@ -1,6 +1,6 @@
 ---
 tags:
-- Android
+  - Android
 date: 2016-07-13T16:48:22+08:00
 title: 自定义 Android 控件
 ---
@@ -12,6 +12,7 @@ Updated on 2016-07-13
 > 通过自定义 Android 控件实现多个文本跑马灯效果。
 
 ## 单个跑马灯
+
 ```xml
 布局文件
 <TextView
@@ -29,6 +30,7 @@ Updated on 2016-07-13
 ```
 
 ## 多个跑马灯
+
 ```java
 布局文件
 <com.example.system.myapplication.MyTextView     使用自定义控件的类

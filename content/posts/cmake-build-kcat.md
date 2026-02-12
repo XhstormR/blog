@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Notes
+  - Notes
 date: 2020-09-20T11:07:42+08:00
 title: 构建 kcat
 ---
@@ -17,6 +17,7 @@ Updated on 2020-09-20
 > [librdkafka](https://github.com/confluentinc/librdkafka/archive/refs/heads/master.zip)
 
 ## Step
+
 ```bash
 D:\Work\Download\librdkafka-master>
 

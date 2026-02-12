@@ -1,6 +1,6 @@
 ---
 tags:
-- OpenStack
+  - OpenStack
 date: 2016-05-07T08:15:41+08:00
 title: OpenStack 不完全使用手册
 ---
@@ -11,9 +11,9 @@ Updated on 2016-10-06
 
 > ![](uploads/openstack-logo.svg)
 
-## curl - *命令行浏览器*
+## curl - _命令行浏览器_
 
-*OpenStack 服务提供 RESTful API，而 curl 能通过命令行直接发送和接收 HTTP 的请求和响应*
+_OpenStack 服务提供 RESTful API，而 curl 能通过命令行直接发送和接收 HTTP 的请求和响应_
 
 ```bash
 -X [HEAD,POST,GET,PUT,DELETE] # 指定 HTTP 的请求类型     Request
@@ -62,6 +62,7 @@ openstack-service restart
 ```
 
 ## KEYSTONE
+
 ```bash
 keystone token-get | awk 'NR==5{print $4}'     获取 Token     第5行第4列
 nova endpoints | grep -A 7 keystone     获取 Endpoint     35357
@@ -88,6 +89,7 @@ keystone --os-token 123 --os-endpoint http://0.0.0.0:35357/v2.0 user-role-add --
 ```
 
 ## GLANCE
+
 ```bash
 keystone token-get | awk 'NR==5{print $4}'     获取 Token     第5行第4列
 nova endpoints | grep -A 7 glance     获取 Endpoint     9292
@@ -114,6 +116,7 @@ glance image-create --name cirros --disk-format qcow2 --container-format bare < 
 ```
 
 ## NOVA
+
 ```
 nova secgroup-list     列出安全组
 nova secgroup-list-rules default     查看安全组
@@ -157,12 +160,14 @@ nova floating-ip-associate 123 192.168.200.105     关联浮动 IP     GRE网络
 ```
 
 ## CINDER
+
 ```
 3：MySQL+KEYSTONE+CINDER
 -------------------------------------------------------
 ```
 
 ## SWIFT
+
 ```
 3：MySQL+KEYSTONE+SWIFT
 -------------------------------------------------------
@@ -172,6 +177,7 @@ swift --os-username=1 --os-password=1 --os-tenant-name=1 --os-auth-url=http://0.
 ```
 
 ## Heat
+
 ```
 heat stack-list     列出栈
 heat stack-create -f server.yml  -P ImageID=centos6.5 -P NetID=int mystack     创建栈
@@ -180,6 +186,7 @@ heat event-show mystack server1 d9c12983-d4df-42ad-bd01-350c9b8abfd6     查看�
 ```
 
 ## Ceilometer
+
 ```
 ceilometer meter-list     查看所有测量值
 ceilometer resource-list     查看所有资源
@@ -187,6 +194,7 @@ ceilometer resource-show -r  a3f74bc8-8200-4345-9f07-fa4aae11567d     查看资�
 ```
 
 ## Sahara
+
 ```
 ssh cloud-user@192.168.200.104
 sudo passwd root #修改 root 密码

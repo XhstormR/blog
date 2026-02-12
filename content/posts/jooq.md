@@ -1,6 +1,6 @@
 ---
 tags:
-- JAVA
+  - JAVA
 date: 2017-01-26T20:22:26+08:00
 title: jOOQ
 ---
@@ -20,6 +20,7 @@ Updated on 2017-02-01
 > https://jcenter.bintray.com/org/postgresql/postgresql/
 
 ## Map
+
 ```bash
 java -Dorg.jooq.no-logo=true -cp jooq-3.9.1.jar;jooq-meta-3.9.1.jar;jooq-codegen-3.9.1.jar;postgresql-9.4.1212.jar;. org.jooq.util.GenerationTool 123.xml
 ```
@@ -55,6 +56,7 @@ java -Dorg.jooq.no-logo=true -cp jooq-3.9.1.jar;jooq-meta-3.9.1.jar;jooq-codegen
 ```
 
 ## Query
+
 ```kotlin
 import org.jooq.impl.DSL
 import sql.generated.tables.Weather
@@ -121,6 +123,7 @@ compile 'org.postgresql:postgresql:42.0.0'
 ```
 
 ## Insert
+
 ```kotlin
 import org.jooq.impl.DSL
 import sql.generated.tables.Weather.WEATHER
@@ -139,6 +142,7 @@ fun main(args: Array<String>) {
 ```
 
 ## JDBC Property
+
 ```kotlin
 val properties = Properties().apply { this.load(File("db.properties").inputStream()) }
 println(properties["jdbc.url"])
@@ -160,8 +164,10 @@ jdbc.password=123456
 ```
 
 ## Native Method
+
 ### Statement 接口
-* Statement 主要用于执行一次性静态 SQL 语句，效率不高，也不能防止 SQL Injection。
+
+- Statement 主要用于执行一次性静态 SQL 语句，效率不高，也不能防止 SQL Injection。
 
 ```kotlin
 import java.sql.DriverManager
@@ -193,8 +199,9 @@ fun main(args: Array<String>) {
 ```
 
 ### PreparedStatement 接口
-* 继承自 Statement 接口。
-* PreparedStatement 重用 SQL 语句并防止 SQL Injection（转义特殊字符）。
+
+- 继承自 Statement 接口。
+- PreparedStatement 重用 SQL 语句并防止 SQL Injection（转义特殊字符）。
 
 ```kotlin
 import java.sql.Date
@@ -234,6 +241,7 @@ fun main(args: Array<String>) {
 ```
 
 ### ResultSet 接口
+
 ```kotlin
 import java.sql.DriverManager
 import java.sql.ResultSet
@@ -271,6 +279,7 @@ PreparedStatement stmt = conn.prepareStatement(sql, type, concurrency);
 ```
 
 ### Transaction
+
 ```kotlin
 fun main(args: Array<String>) {
     val connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/postgres", "123", "123456")
@@ -291,6 +300,7 @@ fun main(args: Array<String>) {
 ```
 
 ### Batch
+
 ```kotlin
 Statement：
 fun main(args: Array<String>) {
@@ -332,6 +342,7 @@ fun main(args: Array<String>) {
 ```
 
 ### Paging
+
 ```kotlin
 每次只请求 1 页数据量，对内存压力较小，适合大数据量的表：
 fun main(args: Array<String>) {

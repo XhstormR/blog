@@ -1,6 +1,6 @@
 ---
 tags:
-- JAVA
+  - JAVA
 author: XhstormR
 date: 2016-10-19T18:12:06+08:00
 title: Java Thread
@@ -16,20 +16,21 @@ Updated on 2016-10-24
 >
 > [Thread.State](http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/java/lang/Thread.State.html)
 >
-> [Object.wait()](http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/java/lang/Object.html#wait())
+> [Object.wait()](<http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/java/lang/Object.html#wait()>)
 > |
-> [Object.notifyAll()](http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/java/lang/Object.html#notifyAll())
+> [Object.notifyAll()](<http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/java/lang/Object.html#notifyAll()>)
 
-* 进程：一块包含了某些资源的内存区域。
-  * 一个进程中至少包含一个或多个线程（执行单元）。
-  * 进程的内存区域仅能被它所包含的线程访问。
-* 线程：进程的顺序执行流，系统中最小的执行单元。
-  * 线程只能归属于一个进程并且只能访问该进程的资源。
-  * 进程的所有线程共享同一块内存空间。
-* 并发：OS 的线程调度机制将时间划分为很多时间片（**分时**），尽可能均匀分配给正在运行的线程（**抢占**），获得 CPU 时间片的线程得以被执行，其他则等待；而 CPU 则在这些线程上来回切换运行（**上下文切换**）。
-  * 微观上走走停停，宏观上都在运行。
+- 进程：一块包含了某些资源的内存区域。
+  - 一个进程中至少包含一个或多个线程（执行单元）。
+  - 进程的内存区域仅能被它所包含的线程访问。
+- 线程：进程的顺序执行流，系统中最小的执行单元。
+  - 线程只能归属于一个进程并且只能访问该进程的资源。
+  - 进程的所有线程共享同一块内存空间。
+- 并发：OS 的线程调度机制将时间划分为很多时间片（**分时**），尽可能均匀分配给正在运行的线程（**抢占**），获得 CPU 时间片的线程得以被执行，其他则等待；而 CPU 则在这些线程上来回切换运行（**上下文切换**）。
+  - 微观上走走停停，宏观上都在运行。
 
 ## 创建线程
+
 ```java
 public class A extends Thread {     通过继承 Thread 类
     public static void main(String[] args) {
@@ -91,6 +92,7 @@ public class A {     通过创建匿名内部类
 ## 操作线程
 
 ### 线程信息
+
 ```java
 public class A implements Runnable {
     public static void main(String[] args) throws InterruptedException {
@@ -134,6 +136,7 @@ public class A implements Runnable {
 ```
 
 ### 线程优先级
+
 ```java
 public class A implements Runnable {
     public static void main(String[] args) {
@@ -169,6 +172,7 @@ MyThread_1
 ```
 
 ### 守护线程
+
 ```java
 public class A implements Runnable {
     public static void main(String[] args) {
@@ -198,6 +202,7 @@ public class A implements Runnable {
 ### 阻塞线程
 
 #### sleep
+
 ```java
 public class A {
     public static void main(String[] args) {
@@ -224,6 +229,7 @@ public class A {
 ```
 
 #### join
+
 ```java
 public class A implements Runnable {     使用 join 方法
     public static void main(String[] args) {
@@ -292,6 +298,7 @@ MyThread_1::5
 ```
 
 ### yield
+
 ```java
 public class A implements Runnable {     使用 yield 方法
     public static void main(String[] args) {
@@ -356,6 +363,7 @@ MyThread_1
 ```
 
 ### 停止线程
+
 ```java
 public class A implements Runnable {     通过调用 interrupt 方法（实质为设置退出旗标）
     public static void main(String[] args) {
@@ -432,20 +440,21 @@ Stop!
 ```
 
 ### 同步线程
-* 异步一一一一：多线程并发，各干各的。
-* 同步（互斥）：有先后顺序，你干完我再干。
-  * `synchronized` 给修饰的代码块或方法加上 **同步锁**，保证了 **可见性** 和 **原子性**。
-      * 同步锁：同时只允许一个线程持有，且此时只有该线程能够执行该同步锁修饰的代码块或方法。
-          * 静态方法锁：锁对象是类对象。`Man.class`
-          * 非静态方法锁：锁对象是类的对象。`new Man()`
-      * 线程在进入同步代码块或方法时获得锁。
-      * 线程在退出同步代码块或方法时释放锁。
-* 可见性：对变量的读操作，总是能看到对这个变量最后的写操作。
-  * happens-before 关系：确保程序语句之间的排序在内存中的写对其他语句都是可见的。
-  * `volatile`修饰的变量强制线程每次读写的时候都需要与主内存进行同步，只会保存一份，保证了 **可见性**。
-      * 读：**直接读取** 主内存中的值。
-      * 写：**立即刷新** 主内存中的值。
-* 原子性：操作不可分割，视作一个整体，且 **不会被线程调度机制打断**，则称为原子操作。
+
+- 异步一一一一：多线程并发，各干各的。
+- 同步（互斥）：有先后顺序，你干完我再干。
+  - `synchronized` 给修饰的代码块或方法加上 **同步锁**，保证了 **可见性** 和 **原子性**。
+    - 同步锁：同时只允许一个线程持有，且此时只有该线程能够执行该同步锁修饰的代码块或方法。
+      - 静态方法锁：锁对象是类对象。`Man.class`
+      - 非静态方法锁：锁对象是类的对象。`new Man()`
+    - 线程在进入同步代码块或方法时获得锁。
+    - 线程在退出同步代码块或方法时释放锁。
+- 可见性：对变量的读操作，总是能看到对这个变量最后的写操作。
+  - happens-before 关系：确保程序语句之间的排序在内存中的写对其他语句都是可见的。
+  - `volatile`修饰的变量强制线程每次读写的时候都需要与主内存进行同步，只会保存一份，保证了 **可见性**。
+    - 读：**直接读取** 主内存中的值。
+    - 写：**立即刷新** 主内存中的值。
+- 原子性：操作不可分割，视作一个整体，且 **不会被线程调度机制打断**，则称为原子操作。
 
 ---
 

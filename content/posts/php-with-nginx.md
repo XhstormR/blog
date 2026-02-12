@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Notes
+  - Notes
 date: 2021-02-18T16:21:44+08:00
 title: PHP with Nginx
 ---
@@ -13,9 +13,11 @@ Updated on 2021-02-18
 >
 
 ## Nginx
-* https://mirror.azure.cn/nginx/download/
+
+- https://mirror.azure.cn/nginx/download/
 
 ### nginx.conf
+
 ```
 location ~ \.php$ {
     root           html;
@@ -27,9 +29,11 @@ location ~ \.php$ {
 ```
 
 ## PHP
-* https://windows.php.net/downloads/releases/latest/
+
+- https://windows.php.net/downloads/releases/latest/
 
 ### php.ini
+
 ```ini
 [PHP]
 extension=php_pdo_pgsql.dll

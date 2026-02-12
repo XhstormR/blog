@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Notes
+  - Notes
 date: 2019-10-23T22:54:54+08:00
 title: Miniconda
 ---
@@ -42,6 +42,7 @@ conda env remove -n myenv3
 ```
 
 ## .condarc
+
 ```bash
 channels:
   - conda-forge
@@ -62,6 +63,7 @@ custom_channels:
 ```
 
 ## PATH
+
 ```bash
 C:\Users\Leo\Miniconda3
 C:\Users\Leo\Miniconda3\Scripts

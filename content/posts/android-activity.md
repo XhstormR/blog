@@ -1,6 +1,6 @@
 ---
 tags:
-- Android
+  - Android
 date: 2016-07-18T09:57:11+08:00
 title: Android Activity
 ---
@@ -17,11 +17,12 @@ Updated on 2016-07-18
 
 根据 Activity 生命周期方法可以分为以下三组：
 
-* 完整生命周期（Entire lifetime）
-* 前台生命周期（Foreground lifetime）
-* 后台生命周期（Visible lifetime）
+- 完整生命周期（Entire lifetime）
+- 前台生命周期（Foreground lifetime）
+- 后台生命周期（Visible lifetime）
 
 ## 注册 Activity
+
 ```xml
 AndroidManifest.xml
 ⇳
@@ -45,6 +46,7 @@ AndroidManifest.xml
 ```
 
 ## 保护 Activity
+
 ```xml
 应用A - AndroidManifest.xml
 ⇳
@@ -61,6 +63,7 @@ AndroidManifest.xml
 ```
 
 ## Activity 之间的通信
+
 ```java
 1
 ---
@@ -219,5 +222,6 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 ## 关于 finish() 和 System.exit(0)
-* finish()：结束调用此方法的 `Activity` 的生命周期，也就是按顺序执行至 `onDestroy()`。
-* System.exit(0)：直接停止该 App 的虚拟机，相当于App直接断电，不应该使用此方法。
+
+- finish()：结束调用此方法的 `Activity` 的生命周期，也就是按顺序执行至 `onDestroy()`。
+- System.exit(0)：直接停止该 App 的虚拟机，相当于App直接断电，不应该使用此方法。

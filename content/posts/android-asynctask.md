@@ -1,6 +1,6 @@
 ---
 tags:
-- Android
+  - Android
 date: 2016-09-02T09:10:56+08:00
 title: Android AsyncTask
 ---
@@ -14,6 +14,7 @@ Updated on 2016-09-02
 > 由于 Android 是单线程模型，只有主线程能够操作 UI，所以要避免在主线程中执行耗时操作，而是应该放到子线程中执行，以防止出现 ANR（Application Not Responding）对话框。
 
 ## MainActivity1.java
+
 ```java
 public class MainActivity1 extends Activity {
     private ProgressBar progressBar;
@@ -84,6 +85,7 @@ public class MainActivity1 extends Activity {
 ---
 
 ## MainActivity2.java
+
 ```java
 public class MainActivity2 extends Activity {
     private ImageView imageView;

@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Notes
+  - Notes
 date: 2019-04-04T15:32:27+08:00
 title: Git + CI
 ---
@@ -13,6 +13,7 @@ Updated on 2019-04-04
 >
 
 ## Linux
+
 ```bash
 curl -o /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-7.repo
 yum makecache
@@ -24,12 +25,13 @@ hwclock -w
 ```
 
 ## Docker
-* https://docs.docker.com/reference/
-* https://docs.docker.com/engine/reference/builder/
-* https://docs.docker.com/engine/reference/commandline/docker/
-* https://docs.docker.com/engine/reference/commandline/dockerd/
-* https://rootlesscontaine.rs/getting-started/docker/
-* https://github.com/easzlab/kubeasz/blob/3.6.8/ezdown#L226-L233
+
+- https://docs.docker.com/reference/
+- https://docs.docker.com/engine/reference/builder/
+- https://docs.docker.com/engine/reference/commandline/docker/
+- https://docs.docker.com/engine/reference/commandline/dockerd/
+- https://rootlesscontaine.rs/getting-started/docker/
+- https://github.com/easzlab/kubeasz/blob/3.6.8/ezdown#L226-L233
 
 ```bash
 curl -fsSL https://get.docker.com/rootless | sh
@@ -58,9 +60,10 @@ docker system prune --volumes #清除未使用数据
 ```
 
 ### Docker Compose
-* https://docs.docker.com/compose/reference/
-* https://docs.docker.com/compose/compose-file/
-* https://github.com/compose-spec/compose-spec/blob/master/spec.md
+
+- https://docs.docker.com/compose/reference/
+- https://docs.docker.com/compose/compose-file/
+- https://github.com/compose-spec/compose-spec/blob/master/spec.md
 
 ```bash
 sudo curl -Lf https://github.com/docker/compose/releases/download/1.24.0/run.sh -o /usr/local/bin/docker-compose
@@ -75,7 +78,8 @@ docker-compose exec gitlab sh #获得容器 Shell
 ```
 
 ## Podman (rootless)
-* https://github.com/containers/podman
+
+- https://github.com/containers/podman
 
 兼容 Docker CLI 和 Docker API。
 
@@ -101,9 +105,10 @@ systemctl --user status podman.socket
 ```
 
 ## GitLab + Traefik + Portainer
-* https://docs.gitlab.com/omnibus/docker/
-* https://doc.traefik.io/traefik/routing/providers/docker/
-* https://portainer.readthedocs.io/en/stable/configuration.html
+
+- https://docs.gitlab.com/omnibus/docker/
+- https://doc.traefik.io/traefik/routing/providers/docker/
+- https://portainer.readthedocs.io/en/stable/configuration.html
 
 ```bash
 docker-compose pull
@@ -115,7 +120,7 @@ docker-compose exec runner gitlab-runner register
 ### docker-compose.yml
 
 ```yaml
-version: '3'
+version: "3"
 
 services:
   gitlab:
@@ -129,8 +134,8 @@ services:
         registry_nginx['ssl_certificate'] = "/certs/domain.crt"
         registry_nginx['ssl_certificate_key'] = "/certs/domain.key"
     ports:
-      - '5022:22'
-      - '5100:5100'
+      - "5022:22"
+      - "5100:5100"
     volumes:
       - ./certs:/certs
       - gitlab_config:/etc/gitlab
@@ -146,7 +151,7 @@ services:
     environment:
       CI_SERVER_URL: ${GITLAB_SERVER_URL}
       REGISTRATION_TOKEN: ${RUNNER_REGISTRATION_TOKEN}
-      REGISTER_NON_INTERACTIVE: 'true'
+      REGISTER_NON_INTERACTIVE: "true"
       RUNNER_EXECUTOR: docker
       DOCKER_IMAGE: alpine:latest
     volumes:
@@ -174,7 +179,7 @@ services:
     image: traefik:latest
     restart: always
     ports:
-      - '80:80'
+      - "80:80"
     command: --api --providers.docker
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
@@ -301,14 +306,15 @@ gitlab-ctl tail
 ```
 
 ## Reference
-* https://docs.docker.com/samples/
-* https://github.com/wagoodman/dive
-* Docker mirror
-  * https://dockerhub.azk8s.cn/v2/
-  * https://hub-mirror.c.163.com/v2/
-  * https://docker.mirrors.ustc.edu.cn/v2/
-  * https://ustc-edu-cn.mirror.aliyuncs.com/v2/
-  * https://cr.console.aliyun.com/cn-shanghai/instances/mirrors
-* GitLab CI
-  * https://docs.gitlab.com/ee/ci/yaml/
-  * https://docs.gitlab.com/ee/ci/variables/predefined_variables.html
+
+- https://docs.docker.com/samples/
+- https://github.com/wagoodman/dive
+- Docker mirror
+  - https://dockerhub.azk8s.cn/v2/
+  - https://hub-mirror.c.163.com/v2/
+  - https://docker.mirrors.ustc.edu.cn/v2/
+  - https://ustc-edu-cn.mirror.aliyuncs.com/v2/
+  - https://cr.console.aliyun.com/cn-shanghai/instances/mirrors
+- GitLab CI
+  - https://docs.gitlab.com/ee/ci/yaml/
+  - https://docs.gitlab.com/ee/ci/variables/predefined_variables.html

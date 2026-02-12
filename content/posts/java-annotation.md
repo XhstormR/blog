@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- JAVA
+  - JAVA
 date: 2017-05-09T21:08:55+08:00
 title: Java Annotation
 ---
@@ -15,38 +15,46 @@ Updated on 2017-05-09
 > [注解 API](http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/java/lang/annotation/package-summary.html)
 
 ## 元注解
+
 负责注解注解的注解
 
 ### @Target（多个参数）
+
 指示注解目标。
 
 #### ElementType
-* TYPE：类、接口、枚举、注解
-* FIELD：属性
-* METHOD：方法
-* CONSTRUCTOR：构造方法
-* PARAMETER：参数
-* LOCAL_VARIABLE：变量
-* ANNOTATION_TYPE：注解
-* PACKAGE：包
+
+- TYPE：类、接口、枚举、注解
+- FIELD：属性
+- METHOD：方法
+- CONSTRUCTOR：构造方法
+- PARAMETER：参数
+- LOCAL_VARIABLE：变量
+- ANNOTATION_TYPE：注解
+- PACKAGE：包
 
 ### @Retention（一个参数）
+
 指示生命周期。
 
 #### RetentionPolicy
-* SOURCE&#8196;&#8196;：源代码，**源码** 注解。
-* CLASS&#8195;&#8196;&#8196;：字节码，**编译** 注解，注解在虚拟机 **运行时被忽略**。（缺省行为）
-* RUNTIME：字节码，**运行** 注解，注解在虚拟机 **运行时被保留**，因此 **可通过反射读取**。
+
+- SOURCE&#8196;&#8196;：源代码，**源码** 注解。
+- CLASS&#8195;&#8196;&#8196;：字节码，**编译** 注解，注解在虚拟机 **运行时被忽略**。（缺省行为）
+- RUNTIME：字节码，**运行** 注解，注解在虚拟机 **运行时被保留**，因此 **可通过反射读取**。
 
 ### @Inherited（标识注解）
+
 指示 **自动继承** 此注解。（仅对类注解有效）
 
 ### @Documented（标识注解）
+
 指示 **文档包含** 此注解。
 
 ## Code
 
 ### @User
+
 ```java
 import java.lang.annotation.*;
 
@@ -64,6 +72,7 @@ public @interface User {
 ```
 
 ### A
+
 ```java
 import java.lang.reflect.Method;
 
@@ -112,6 +121,7 @@ public class A {
 ---
 
 ### @Table
+
 ```java
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -126,6 +136,7 @@ public @interface Table {
 ```
 
 ### @Column
+
 ```java
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -140,6 +151,7 @@ public @interface Column {
 ```
 
 ### Filter
+
 ```java
 @Table("user")
 public class Filter {
@@ -207,6 +219,7 @@ public class Filter {
 ```
 
 ### A
+
 ```java
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;

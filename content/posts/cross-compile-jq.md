@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Notes
+  - Notes
 date: 2020-01-31T20:14:56+08:00
 title: 交叉编译 jq
 ---
@@ -13,6 +13,7 @@ Updated on 2020-01-31
 > [jq](https://github.com/stedolan/jq)
 
 ## Step
+
 ```bash
 docker pull ubuntu:rolling
 docker run -it --rm -v `pwd`:`pwd` -w `pwd` ubuntu:rolling
@@ -59,5 +60,6 @@ yum -y install java-latest-openjdk-devel.x86_64
 ```
 
 ## Reference
-* https://pkgs.org/download/mingw64-gcc
-* https://pkgs.org/download/gcc-mingw-w64
+
+- https://pkgs.org/download/mingw64-gcc
+- https://pkgs.org/download/gcc-mingw-w64

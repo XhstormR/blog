@@ -1,6 +1,6 @@
 ---
 tags:
-- Kotlin
+  - Kotlin
 date: 2017-02-13T13:33:59+08:00
 title: 函数式编程：Kotlin 与 Java
 ---
@@ -12,6 +12,7 @@ Updated on 2017-02-13
 > {{< image "uploads/kotlin-and-java.png" "Function" "1" "1" >}}
 
 ## Kotlin
+
 ```kotlin
 fun main(args: Array<String>) {
     a({ s -> println(s) })     Lambda 表达式
@@ -49,6 +50,7 @@ ABC
 ```
 
 ## Java
+
 ```java
 public class Main {
     public static void main(String[] args) {
@@ -96,6 +98,7 @@ ABC
 ```
 
 ## 对比
+
 ```kotlin
 Kotlin：
 fun main(args: Array<String>) = a(::println)

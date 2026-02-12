@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Notes
+  - Notes
 date: 2020-02-21T23:20:13+08:00
 title: 构建 HAProxy
 ---
@@ -17,6 +17,7 @@ Updated on 2020-02-21
 > [HAProxy](https://mirror.azure.cn/haproxy/2.1/src/haproxy-2.1.3.tar.gz)
 
 ## Step
+
 ```bash
 D:\Work\Download\haproxy-2.1.3>
 
@@ -28,6 +29,7 @@ strip -sv haproxy.exe
 ```
 
 ## 端口复用
+
 ```bash
 global
     daemon
@@ -56,6 +58,7 @@ backend socks
 ```
 
 ## 端口转发
+
 ```bash
 Linux Iptables:
 iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 1025
@@ -67,5 +70,6 @@ netsh interface portproxy delete v4tov4 listenport=80
 ```
 
 ## Reference
-* https://mirror.azure.cn/haproxy/2.1/doc/configuration.txt
-* [SOCKS5 RFC](https://www.ietf.org/rfc/rfc1928.html)
+
+- https://mirror.azure.cn/haproxy/2.1/doc/configuration.txt
+- [SOCKS5 RFC](https://www.ietf.org/rfc/rfc1928.html)

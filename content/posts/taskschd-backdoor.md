@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- security
+  - security
 date: 2019-10-04T14:00:20+08:00
 title: 计划任务 Backdoor
 ---
@@ -11,6 +11,7 @@ title: 计划任务 Backdoor
 Updated on 2019-10-04
 
 ## 123.xml
+
 ```xml
 <?xml version="1.0" ?>
 <Task version="1.6" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
@@ -71,8 +72,9 @@ Updated on 2019-10-04
 ```
 
 ### Reference
-* https://docs.microsoft.com/zh-cn/windows/win32/taskschd/task-scheduler-schema
-* https://docs.microsoft.com/zh-cn/windows/security/identity-protection/access-control/security-identifiers
+
+- https://docs.microsoft.com/zh-cn/windows/win32/taskschd/task-scheduler-schema
+- https://docs.microsoft.com/zh-cn/windows/security/identity-protection/access-control/security-identifiers
 
 ## 123.pyc
 
@@ -113,12 +115,14 @@ cscript.exe：输出至 Console。
 ```
 
 #### Reference
-* https://ss64.com/vb/filesystemobject.html
-* https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.visualbasic.constants
-* https://docs.microsoft.com/zh-cn/office/vba/language/reference/user-interface-help/filesystemobject-object
-* https://github.com/DoctorLai/VBScript_Obfuscator
+
+- https://ss64.com/vb/filesystemobject.html
+- https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.visualbasic.constants
+- https://docs.microsoft.com/zh-cn/office/vba/language/reference/user-interface-help/filesystemobject-object
+- https://github.com/DoctorLai/VBScript_Obfuscator
 
 ### 工具
+
 ```
 schtasks.exe /create /tn "\Microsoft\Windows\MemoryDiagnostic\ProcessMemoryDiagnosticEvents" /f /xml 123.xml
 schtasks.exe /query  /tn "\Microsoft\Windows\MemoryDiagnostic\ProcessMemoryDiagnosticEvents" /v /fo list

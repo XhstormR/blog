@@ -1,6 +1,6 @@
 ---
 tags:
-- Android
+  - Android
 date: 2016-11-19T14:11:15+08:00
 title: RxBus
 ---
@@ -11,18 +11,19 @@ Updated on 2016-11-19
 
 > {{< image "uploads/android-rxbus.png" "Subject" "1" "1" >}}
 
-* Subject 抽象类：继承 Observable 类并实现 Observer 接口，即同时充当被观察者和观察者，可以当作一个事件管道，一端输入，一端输出。
-  * PublishSubject：观察者只能收到订阅之后被观察者所发送的事件。
-      * 之后
-  * ReplaySubject：观察者能够收到订阅之前被观察者所发送的所有事件。
-      * 之前 + 之后
-  * BehaviorSubject：观察者能够收到订阅之前被观察者所发送的最后一个事件。
-      * 1 + 之后
-  * AsyncSubject：观察者只能收到被观察者结束后所发送的最后一个事件。
-      * 1
-  * SerializedSubject：用于把 Subject 对象包装成线程安全的 Subject。
+- Subject 抽象类：继承 Observable 类并实现 Observer 接口，即同时充当被观察者和观察者，可以当作一个事件管道，一端输入，一端输出。
+  - PublishSubject：观察者只能收到订阅之后被观察者所发送的事件。
+    - 之后
+  - ReplaySubject：观察者能够收到订阅之前被观察者所发送的所有事件。
+    - 之前 + 之后
+  - BehaviorSubject：观察者能够收到订阅之前被观察者所发送的最后一个事件。
+    - 1 + 之后
+  - AsyncSubject：观察者只能收到被观察者结束后所发送的最后一个事件。
+    - 1
+  - SerializedSubject：用于把 Subject 对象包装成线程安全的 Subject。
 
 ## RxBus.java - v0.1
+
 ```java
 import android.support.annotation.NonNull;
 import rx.Observable;
@@ -82,6 +83,7 @@ public class RxBus {
 ```
 
 ## RxBus.java - v0.2
+
 ```java
 import android.support.annotation.NonNull;
 import rx.Observable;
@@ -111,6 +113,7 @@ public class RxBus {
 ```
 
 ### MessageEvent.java
+
 ```java
 public class MessageEvent {     POJO（plain old Java object）
     public final int mId;
@@ -124,6 +127,7 @@ public class MessageEvent {     POJO（plain old Java object）
 ```
 
 ## 实例
+
 ```java
 public class MainActivity extends Activity {
     private final CompositeSubscription mCompositeSubscription = new CompositeSubscription();     Subscription 集合

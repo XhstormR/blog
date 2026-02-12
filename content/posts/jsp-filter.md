@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- JSP
+  - JSP
 date: 2017-04-03T16:12:58+08:00
 title: JSP Filter
 ---
@@ -13,9 +13,11 @@ Updated on 2017-04-03
 > {{< image "uploads/jsp-filter.svg" "Filter" "1" "1">}}
 
 ## 工作原理
+
 用于 **拦截** 客户端的 **请求** 信息和服务端的 **响应** 信息，并对这些信息进行 **过滤**。
 
 ### MyFilter1
+
 ```kotlin
 package a
 
@@ -41,6 +43,7 @@ class MyFilter1 : Filter {     继承 Filter
 ```
 
 ### MyFilter2
+
 ```kotlin
 package a
 
@@ -64,6 +67,7 @@ class MyFilter2 : Filter {
 ```
 
 ### index.jsp
+
 ```
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
@@ -79,6 +83,7 @@ class MyFilter2 : Filter {
 ```
 
 ### web.xml
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -110,28 +115,23 @@ class MyFilter2 : Filter {
 ```
 
 ### Output
+
 ```html
-init---MyFilter1
-init---MyFilter2
-
-doFilter---MyFilter1---Start
-doFilter---MyFilter2---Start
-index.jsp
-doFilter---MyFilter2---End
-doFilter---MyFilter1---End
-
-destroy---MyFilter1
-destroy---MyFilter2
+init---MyFilter1 init---MyFilter2 doFilter---MyFilter1---Start
+doFilter---MyFilter2---Start index.jsp doFilter---MyFilter2---End
+doFilter---MyFilter1---End destroy---MyFilter1 destroy---MyFilter2
 ```
 
 ## Dispatcher
-* REQUEST：当目标资源是通过 **用户直接访问** 时，将调用该过滤器。（缺省值）
-* FORWARD：当目标资源是通过 **RequestDispatcher.forward()**访问时，将调用该过滤器。
-* INCLUDE：当目标资源是通过 **RequestDispatcher.include()** 访问时，将调用该过滤器。
-* ERROR：当目标资源是通过 **异常处理机制** 访问时，将调用该过滤器。
-* ASYNC：支持异步处理。
+
+- REQUEST：当目标资源是通过 **用户直接访问** 时，将调用该过滤器。（缺省值）
+- FORWARD：当目标资源是通过 **RequestDispatcher.forward()**访问时，将调用该过滤器。
+- INCLUDE：当目标资源是通过 **RequestDispatcher.include()** 访问时，将调用该过滤器。
+- ERROR：当目标资源是通过 **异常处理机制** 访问时，将调用该过滤器。
+- ASYNC：支持异步处理。
 
 ### web.xml
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -160,6 +160,7 @@ destroy---MyFilter2
 ```
 
 ### MyFilter1
+
 ```kotlin
 package a
 
@@ -180,6 +181,7 @@ class MyFilter1 : Filter {
 ```
 
 ### error.jsp
+
 ```
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -194,7 +196,9 @@ class MyFilter1 : Filter {
 ```
 
 ## 登录页面案例
+
 ### JSP
+
 ```
 index.jsp
 ----
@@ -270,6 +274,7 @@ login_failed.jsp
 ```
 
 ### MyFilter
+
 ```kotlin
 class MyFilter : Filter {
     lateinit var noFilterList: List<String>
@@ -299,6 +304,7 @@ class MyFilter : Filter {
 ```
 
 ### web.xml
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

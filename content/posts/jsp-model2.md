@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- JSP
+  - JSP
 date: 2017-04-30T20:41:07+08:00
 title: JSP Model2
 ---
@@ -25,6 +25,7 @@ Updated on 2017-04-30
 ### dao
 
 #### ItemDAO
+
 ```kotlin
 package dao
 
@@ -82,6 +83,7 @@ object ItemDAO {
 ### entity
 
 #### Item
+
 ```kotlin
 package entity
 
@@ -96,6 +98,7 @@ data class Item(
 ```
 
 #### Cart
+
 ```kotlin
 package entity
 
@@ -125,6 +128,7 @@ data class Cart(val goods: HashMap<Item, Int> = hashMapOf()) {
 ### servlet
 
 #### MyServlet
+
 ```kotlin
 package servlet
 
@@ -190,6 +194,7 @@ class MyServlet : HttpServlet() {
 ### util
 
 #### DBHelp
+
 ```kotlin
 package util
 
@@ -205,7 +210,9 @@ object DBHelp {
 ```
 
 ## web
+
 ### index.jsp
+
 ```html
 <%@ page import="dao.ItemDAO" %>
 <%@ page import="entity.Item" %>
@@ -261,122 +268,131 @@ object DBHelp {
 ```
 
 ### details.jsp
+
 ```html
-<%@ page import="dao.ItemDAO" %>
-<%@ page import="entity.Item" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="dao.ItemDAO" %> <%@ page import="entity.Item" %> <%@ page
+contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
+  <head>
     <title>商品详情</title>
     <style type="text/css">
-        div {
-            float: left;
-            margin: 10px;
-        }
+      div {
+        float: left;
+        margin: 10px;
+      }
 
-        div dd {
-            margin: 0;
-            font-size: 10pt;
-        }
+      div dd {
+        margin: 0;
+        font-size: 10pt;
+      }
     </style>
-</head>
-<body>
-<h1>商品详情</h1>
-<hr>
-<%
-    request.setCharacterEncoding("UTF-8");
-%>
-<%
-    final int id = Integer.valueOf(request.getParameter("id"));
-    final Item item = ItemDAO.getItemById(id);
-%>
-<center>
-    <table width="700" cellpadding="0" cellspacing="0" border="0">
+  </head>
+  <body>
+    <h1>商品详情</h1>
+    <hr />
+    <% request.setCharacterEncoding("UTF-8"); %> <% final int id =
+    Integer.valueOf(request.getParameter("id")); final Item item =
+    ItemDAO.getItemById(id); %>
+    <center>
+      <table width="700" cellpadding="0" cellspacing="0" border="0">
         <tr>
-            <td valign="top">
-                <table>
-                    <tr>
-                        <td rowspan="4"><img src="images/<%=item.getPicture()%>" width="200" height="160"/></td>
-                    </tr>
-                    <tr>
-                        <td><B><%=item.getName()%>
-                        </B></td>
-                    </tr>
-                    <tr>
-                        <td>产地：<%=item.getCity()%>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>价格：<%=item.getPrice()%>￥</td>
-                    </tr>
-                    <tr>
-                        <td>购买数量：
-                            <input id="number" type="number" min="1" max="100" value="1"/>
-                            <span onclick="c(0)">-</span>
-                            <span onclick="c(1)">+</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a onclick="a()"><img src="images/in_cart.png"></a>
-                            <a onclick="b()"><img src="images/view_cart.jpg"/></a>
-                        </td>
-                    </tr>
-                </table>
-            </td>
+          <td valign="top">
+            <table>
+              <tr>
+                <td rowspan="4">
+                  <img
+                    src="images/<%=item.getPicture()%>"
+                    width="200"
+                    height="160"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td><b><%=item.getName()%> </b></td>
+              </tr>
+              <tr>
+                <td>产地：<%=item.getCity()%></td>
+              </tr>
+              <tr>
+                <td>价格：<%=item.getPrice()%>￥</td>
+              </tr>
+              <tr>
+                <td>
+                  购买数量：
+                  <input
+                    id="number"
+                    type="number"
+                    min="1"
+                    max="100"
+                    value="1"
+                  />
+                  <span onclick="c(0)">-</span>
+                  <span onclick="c(1)">+</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a onclick="a()"><img src="images/in_cart.png" /></a>
+                  <a onclick="b()"><img src="images/view_cart.jpg" /></a>
+                </td>
+              </tr>
+            </table>
+          </td>
         </tr>
-    </table>
-</center>
-<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-<script>
-    function a() {
-        var id = new URLSearchParams(location.search).get('id');
+      </table>
+    </center>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script>
+      function a() {
+        var id = new URLSearchParams(location.search).get("id");
         var num = parseInt(document.getElementById("number").value);
         var data = {
-            action: "add",
-            id: id,
-            num: num
+          action: "add",
+          id: id,
+          num: num,
         };
         $.ajax({
-            url: "/abc",
-            type: "get",
-            data: data,
-            success: function (s) {
-                alert(s);
-            }
+          url: "/abc",
+          type: "get",
+          data: data,
+          success: function (s) {
+            alert(s);
+          },
         });
-    }
+      }
 
-    function b() {
+      function b() {
         var data = {
-            action: "show"
+          action: "show",
         };
         var params = decodeURIComponent($.param(data));
-        location.href = location.protocol + '//' + location.host + '/abc?' + params;
-    }
+        location.href =
+          location.protocol + "//" + location.host + "/abc?" + params;
+      }
 
-    function c(flag) {
+      function c(flag) {
         var e = document.getElementById("number");
         var num = parseInt(e.value);
         if (flag === 0) {
-            num--;
+          num--;
         } else if (flag === 1) {
-            num++;
+          num++;
         }
         if (num < 1) {
-            e.value = 1;
+          e.value = 1;
         } else if (num > 100) {
-            e.value = 100;
+          e.value = 100;
         } else {
-            e.value = num;
+          e.value = num;
         }
-    }
-</script>
-</body>
+      }
+    </script>
+  </body>
 </html>
 ```
 
 ### cart.jsp
+
 ```html
 <%@ page import="entity.Cart" %>
 <%@ page import="entity.Item" %>
@@ -436,6 +452,7 @@ object DBHelp {
 ```
 
 ## sql
+
 ```sql
 CREATE TABLE item (
   id      SERIAL,

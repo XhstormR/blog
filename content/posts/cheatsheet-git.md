@@ -1,6 +1,6 @@
 ---
 tags:
-- CheatSheet
+  - CheatSheet
 date: 2016-02-08T21:08:48+08:00
 title: 常用 Git 命令清单
 ---
@@ -35,12 +35,13 @@ Updated on 2016-11-07
 
 几个专用名词的译名如下:
 
-* Workspace：工作区
-* Index / Stage：暂存区
-* Repository：仓库区 / 本地仓库
-* Remote：远程仓库
+- Workspace：工作区
+- Index / Stage：暂存区
+- Repository：仓库区 / 本地仓库
+- Remote：远程仓库
 
 ## 1. 新建代码库
+
 ```xml
 # 在当前目录新建一个Git代码库
 $ git init
@@ -53,6 +54,7 @@ $ git clone [url]
 ```
 
 ## 2. 配置
+
 Git的设置文件为`.gitconfig`，它可以在用户主目录下（全局配置），也可以在项目目录下（项目配置）。
 
 ```xml
@@ -68,6 +70,7 @@ $ git config [--global] user.email "[email address]"
 ```
 
 ## 3. 增加/删除文件
+
 ```xml
 # 添加指定文件到暂存区
 $ git add [file1] [file2] ...
@@ -89,6 +92,7 @@ $ git mv [file-original] [file-renamed]
 ```
 
 ## 4. 代码提交
+
 ```xml
 # 提交暂存区到仓库区
 $ git commit -m [message]
@@ -111,6 +115,7 @@ $ git commit --amend [file1] [file2] ...
 ```
 
 ## 5. 分支
+
 ```xml
 # 列出所有本地分支
 $ git branch
@@ -154,6 +159,7 @@ $ git branch -dr [remote/branch]
 ```
 
 ## 6. 标签
+
 ```xml
 # 列出所有tag
 $ git tag
@@ -184,6 +190,7 @@ $ git checkout -b [branch] [tag]
 ```
 
 ## 7. 查看信息
+
 ```xml
 # 显示有变更的文件
 $ git status
@@ -236,6 +243,7 @@ $ git reflog
 ```
 
 ## 8. 远程同步
+
 ```xml
 # 下载远程仓库的所有变动
 $ git fetch [remote]
@@ -263,6 +271,7 @@ $ git push [remote] --all
 ```
 
 ## 9. 撤销
+
 ```xml
 # 恢复暂存区的指定文件到工作区
 $ git checkout [file]
@@ -294,6 +303,7 @@ $ git revert [commit]
 ```
 
 ## 10. 其他
+
 ```xml
 # 生成一个可供发布的压缩包
 $ git archive

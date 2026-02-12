@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Notes
+  - Notes
 date: 2019-05-10T09:19:26+08:00
 title: 构建 OpenSSL
 ---
@@ -13,6 +13,7 @@ Updated on 2019-05-10
 > [OpenSSL](https://www.openssl.org/source/)
 
 ## Step
+
 ```bash
 docker pull gcc:latest
 

@@ -1,6 +1,6 @@
 ---
 tags:
-- JAVA
+  - JAVA
 date: 2016-11-19T14:16:15+08:00
 title: Java Singleton
 ---
@@ -14,6 +14,7 @@ Updated on 2016-11-19
 > [src](https://github.com/bumptech/glide/blob/master/integration/okhttp/src/main/java/com/bumptech/glide/integration/okhttp/OkHttpUrlLoader.java#L40)
 
 ## 饿汉方式
+
 实例在 **加载时** 就创建。
 
 ```java
@@ -30,6 +31,7 @@ public class A {
 ```
 
 ## 懒汉方式
+
 实例在 **使用时** 才创建。
 
 ```java

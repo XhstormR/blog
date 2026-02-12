@@ -1,6 +1,6 @@
 ---
 tags:
-- Android
+  - Android
 date: 2016-07-12T11:25:48+08:00
 title: 实现 Android 监听事件
 ---
@@ -12,6 +12,7 @@ Updated on 2016-07-12
 > 实现 Android 监听事件的写法主要有5种：匿名内部类、内部类、外部类、接口、XML绑定。
 
 ## 匿名内部类
+
 ```java
 Button button1 = (Button) findViewById(R.id.but1);     //向下类型转换
 button1.setOnClickListener(new View.OnClickListener() {     //直接 new 接口
@@ -23,6 +24,7 @@ button1.setOnClickListener(new View.OnClickListener() {     //直接 new 接口
 ```
 
 ## 内部类
+
 ```java
 public class FirstActivity extends AppCompatActivity {
     @Override
@@ -54,6 +56,7 @@ public class FirstActivity extends AppCompatActivity {
 ```
 
 ## 外部类
+
 ```java
 Button button1 = (Button) findViewById(R.id.but1);
 Button button2 = (Button) findViewById(R.id.but2);
@@ -83,6 +86,7 @@ public class A implements View.OnClickListener {
 ```
 
 ## 接口
+
 ```java
 public class FirstActivity extends AppCompatActivity implements View.OnClickListener {
     @Override
@@ -112,6 +116,7 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
 ```
 
 ## XML绑定
+
 ```java
 布局文件
 <Button

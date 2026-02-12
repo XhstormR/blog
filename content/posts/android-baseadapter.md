@@ -1,6 +1,6 @@
 ---
 tags:
-- Android
+  - Android
 date: 2016-08-31T11:27:51+08:00
 title: Android BaseAdapter
 ---
@@ -14,6 +14,7 @@ Updated on 2016-08-31
 > 数据适配器把复杂的数据绑定至指定控件，是数据源和控件之间的桥梁。
 
 ## MainActivity.java
+
 ```java
 public class MainActivity extends Activity {
 
@@ -35,6 +36,7 @@ public class MainActivity extends Activity {
 ```
 
 ## ItemBean.java
+
 ```java
 public class ItemBean {     封装 item 数据，一个 ItemBean 对应一个页面
     public int itemImage;     图片
@@ -50,6 +52,7 @@ public class ItemBean {     封装 item 数据，一个 ItemBean 对应一个页
 ```
 
 ## MyBaseAdapter.java
+
 ```java
 public class MyBaseAdapter extends BaseAdapter {     自定义适配器
     private List<ItemBean> list;     数据源
@@ -142,6 +145,7 @@ public class MyBaseAdapter extends BaseAdapter {     自定义适配器
 ---
 
 ## main_activity.xml
+
 ```xml
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
@@ -156,6 +160,7 @@ public class MyBaseAdapter extends BaseAdapter {     自定义适配器
 ```
 
 ## item.xml
+
 ```xml
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"

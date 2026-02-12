@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Notes
+  - Notes
 date: 2020-01-28T21:49:39+08:00
 title: 构建 socat
 ---
@@ -17,6 +17,7 @@ Updated on 2020-01-28
 > [socat](http://www.dest-unreach.org/socat/download/socat-1.7.3.4.tar.gz)
 
 ## Step
+
 ```bash
 D:\Work\Download\socat>
 
@@ -101,4 +102,5 @@ ssh -o ProxyCommand='socat - PROXY:127.0.0.1:%h:%p,proxyport=8080' root@192.168.
 ```
 
 ## Reference
-* http://www.dest-unreach.org/socat/doc/socat.html
+
+- http://www.dest-unreach.org/socat/doc/socat.html

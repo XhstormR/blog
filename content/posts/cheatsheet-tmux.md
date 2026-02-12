@@ -1,6 +1,6 @@
 ---
 tags:
-- CheatSheet
+  - CheatSheet
 date: 2016-04-10T12:16:09+08:00
 title: Tmux 不完全使用手册
 ---
@@ -81,6 +81,7 @@ Prefix = Ctrl+B
 ```
 
 ## .tmux.conf
+
 ```
 set -g default-terminal "screen-256color"
 set -ga terminal-overrides "*-256color:Tc"
@@ -173,6 +174,7 @@ bind -T copy-mode-vi MouseDragEnd1Pane send -X copy-pipe-and-cancel "tmux show-b
 ```
 
 ## .bashrc
+
 ```bash
 if which tmux >/dev/null 2>&1; then
     #if not inside a tmux session, and if no session is started, start a new session

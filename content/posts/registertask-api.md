@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- security
+  - security
 date: 2019-10-04T17:46:10+08:00
 title: Win32 RegisterTask API
 ---
@@ -97,4 +97,5 @@ objdump -x a.exe | findstr DLL
 ```
 
 ## Reference
-* https://github.com/qemu/qemu/blob/v4.1.0/qga/vss-win32/install.cpp#L485
+
+- https://github.com/qemu/qemu/blob/v4.1.0/qga/vss-win32/install.cpp#L485

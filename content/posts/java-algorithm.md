@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- JAVA
+  - JAVA
 date: 2016-10-15T10:23:45+08:00
 title: Algorithm
 ---
@@ -23,7 +23,9 @@ Updated on 2017-07-13
 > 算法是解决问题的清晰指令，是用系统的方法描述解决问题的策略机制。
 
 ## 冒泡排序
+
 通过交换相邻数据来达到排序目的。
+
 ```java
 public class A {
     public static void main(String[] args) {
@@ -87,7 +89,9 @@ public class A {
 ```
 
 ## 选择排序
+
 每次从数组中选取最小值来排列。
+
 ```java
 public class A {
     public static void main(String[] args) {
@@ -138,7 +142,9 @@ public class A {
 ```
 
 ## 快速排序
+
 分区 + 递归
+
 ```java
 public class Main {
     private static void qSort(int[] arr, int head, int tail) {
@@ -321,6 +327,7 @@ public class B {
 ```
 
 ## 使用位运算实现加减乘
+
 ```java
 public class A {
     public static void main(String[] args) {
@@ -416,6 +423,7 @@ PS：除法最后没实现，因为解决不了小数点的问题。
 ```
 
 ## Beautiful [String](https://hihocoder.com/contest/mstest2015oct/problem/1)
+
 ```java
 public class A {
     private static boolean isFirst = true;
@@ -468,6 +476,7 @@ NO
 ```
 
 ## 一个数的平方数的末三位等于其本身
+
 ```java
 public class A {
     public static void main(String[] args) {
@@ -497,6 +506,7 @@ public class A {
 ```
 
 ## N 皇后（八皇后）
+
 ```java
 import java.util.Scanner;
 
@@ -564,6 +574,7 @@ public class Main {
 ```
 
 ## 2N 皇后
+
 ```java
 import java.util.Scanner;
 
@@ -651,6 +662,7 @@ public class Main {
 ```
 
 ## 组合算法
+
 ```java
 public class Main {
     private static int[] ints = {1, 2, 3, 4};//数据
@@ -696,6 +708,7 @@ C 4 3 共 4 种
 ```
 
 ## 排列算法（全排列）
+
 ```java
 import java.util.Arrays;
 import java.util.Scanner;
@@ -765,6 +778,7 @@ A 3 3 共 6 种
 ```
 
 ## 排列组合算法
+
 ```java
 public class Main {
     private static int[] ints = {1, 2, 3, 4};//数据
@@ -824,6 +838,7 @@ public class Main {
 ```
 
 ## 凑算式
+
 ```java
 暴力解法
 ----
@@ -935,6 +950,7 @@ public class Main {
 ```
 
 ## 百钱买百鸡
+
 ```java
 import java.util.Arrays;
 
@@ -974,6 +990,7 @@ public class Main {
 ```
 
 ## 1 到 16 分出两组数字使其和、平方和、立方和都相等
+
 ```java
 public class Main {
     private static int[] ints = new int[7];     每组肯定都是 8 个数字，只需求出包含 1 的那一组数字
@@ -1052,6 +1069,7 @@ public class Main {
 ```
 
 ## 猜算式
+
 ```java
 public class Main {
     private static int[] ints;
@@ -1128,6 +1146,7 @@ public class Main {
 ```
 
 ## 地产大亨
+
 ```java
 public class Main {
     private static int[] ints = new int[10];//下标为指数，值为个数
@@ -1193,6 +1212,7 @@ public class Main {
 ```
 
 ## 质数判断
+
 ```java
 import java.util.Scanner;
 
@@ -1223,6 +1243,7 @@ public class Main {
 ```
 
 ## 煤球数目
+
 ```java
 import java.util.Scanner;
 
@@ -1243,6 +1264,7 @@ public class Main {
 ```
 
 ## 平方怪圈
+
 ```java
 import java.util.Scanner;
 
@@ -1319,6 +1341,7 @@ public class Main {
 ```
 
 ## 报数游戏
+
 ```java
 import java.util.Arrays;
 
@@ -1362,6 +1385,7 @@ public class Main {
 ```
 
 ## 立方尾不变
+
 ```java
 public class Main {
     public static void main(String[] args) {
@@ -1390,6 +1414,7 @@ public class Main {
 ```
 
 ## 汉诺塔
+
 ```java
 public class Main {
     public static void main(String[] args) {
@@ -1418,6 +1443,7 @@ Move 1 from 1 -> 3
 ```
 
 ## 斐波那契数列
+
 ```java
 public class A {
     public static void main(String[] args) {
@@ -1503,6 +1529,7 @@ int main(){
 ```
 
 ## 01 背包
+
 ```java
 import java.util.Scanner;
 
@@ -1600,6 +1627,7 @@ public class Main {
 ```
 
 ## 最长递增子序列
+
 ```java
 import java.util.Scanner;
 
@@ -1753,6 +1781,7 @@ public class Main {
 ```
 
 ## String reorder
+
 ```java
 import java.util.Scanner;
 
@@ -1836,6 +1865,7 @@ public class Main {
 ![](uploads/algorithm-graph.png)
 
 ### BFS/DFS
+
 ```java
 import java.util.*;
 
@@ -1900,6 +1930,7 @@ A
 ```
 
 ### Dijkstra
+
 ```java
 import java.util.*;
 

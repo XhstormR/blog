@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Hibernate
+  - Hibernate
 date: 2017-05-19T20:17:25+08:00
 title: Hibernate Query Language
 ---
@@ -19,6 +19,7 @@ Updated on 2017-05-19
 > http://docs.huihoo.com/hibernate/reference-v3_zh-cn/queryhql.html
 
 ## 检索对象：from
+
 ```kotlin
 sessionFactory.currentSession.use {
     it.beginTransaction()
@@ -37,6 +38,7 @@ iterate()：检索缓存并延迟加载数据，发送 1+N 条 SQL 语句。
 ```
 
 ## 选择属性：select
+
 ```kotlin
 单个属性：
 
@@ -77,11 +79,13 @@ query.list().forEach { println(it) }
 ```
 
 ### Test
+
 ```kotlin
 data class Test(var s1: String, var s2: String, var s3: String)
 ```
 
 ## 限制范围：where
+
 ```kotlin
 比较运算：
 
@@ -165,8 +169,9 @@ println(customer.name)
 ```
 
 ## 排序结果：order by
-* 升序排序（由低到高）：asc
-* 降序排序（由高到低）：desc
+
+- 升序排序（由低到高）：asc
+- 降序排序（由高到低）：desc
 
 ```kotlin
 val query = it.createQuery("from Commodity c order by c.seller.id asc,c.price desc,c.name asc", Commodity::class.java)     多排序规则
@@ -189,6 +194,7 @@ query.list().forEach { println("${it.seller?.id}  ${it.price}  ${it.name}") }
 ## Code
 
 ### Seller（商家）
+
 ```kotlin
 import javax.persistence.*
 
@@ -220,6 +226,7 @@ data class Seller(
 ```
 
 ### Commodity（商品）
+
 ```kotlin
 import javax.persistence.*
 
@@ -251,6 +258,7 @@ data class Commodity(
 ```
 
 ### Customer（客户）
+
 ```kotlin
 import java.util.*
 import javax.persistence.*
@@ -284,6 +292,7 @@ data class Customer(
 ```
 
 ### OrderForm（订单）
+
 ```kotlin
 import java.util.*
 import javax.persistence.*
@@ -314,6 +323,7 @@ data class OrderForm(
 ```
 
 ### OrderItem（订单明细）
+
 ```kotlin
 import javax.persistence.*
 
@@ -333,6 +343,7 @@ data class OrderItem(
 ```
 
 ### A
+
 ```kotlin
 import org.hibernate.SessionFactory
 import org.hibernate.boot.MetadataSources

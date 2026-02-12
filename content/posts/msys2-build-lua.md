@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Notes
+  - Notes
 date: 2020-03-15T00:14:57+08:00
 title: 构建 Lua
 ---
@@ -13,6 +13,7 @@ Updated on 2020-03-15
 > https://www.lua.org/download.html
 
 ## Step
+
 ```bash
 pacman -Syu
 pacman -S --noconfirm --needed gcc make

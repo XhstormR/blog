@@ -1,6 +1,6 @@
 ---
 tags:
-- Android
+  - Android
 date: 2016-10-25T20:25:47+08:00
 title: Android Handler
 ---
@@ -17,13 +17,15 @@ Updated on 2016-10-29
 >
 > [Source Insight](http://www.sourceinsight.com/down35.html)
 
-* Handler：负责发送和处理 Message。
-* ThreadLocal：负责保存 Looper，作为线程的局部变量。
-  * Looper：负责接收并转发 Message。
-      * MessageQueue：负责存储 Message 的容器。
+- Handler：负责发送和处理 Message。
+- ThreadLocal：负责保存 Looper，作为线程的局部变量。
+  - Looper：负责接收并转发 Message。
+    - MessageQueue：负责存储 Message 的容器。
 
 ## post ➜ Runnable
+
 ### MainActivity.java
+
 ```java
 public class MainActivity extends Activity {
     private ImageView mImageView;
@@ -103,6 +105,7 @@ public class MainActivity extends Activity {
 ```
 
 ### activity_main.xml
+
 ```xml
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -131,7 +134,9 @@ public class MainActivity extends Activity {
 ```
 
 ## sendMessage ➜ Message
+
 ### MainActivity.java
+
 ```java
 public class MainActivity extends Activity {
     private TextView mTextView;
@@ -188,6 +193,7 @@ public class MainActivity extends Activity {
 ```
 
 ### activity_main.xml
+
 ```xml
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -212,16 +218,17 @@ public class MainActivity extends Activity {
 ```
 
 ## 防止 Handler 导致内存泄漏
-* 导致原因：
-  * 非静态的内部类默认持有其外部类的强引用。
-  * Handler 对象发送的 Message 对象会持有此 Handler 对象的引用。
-  * Message ➜ Handler ➜ Activity ➜ Activity 资源无法回收（内存泄漏）
-* 解决方案：
-  * 声明 Handler 为 `static` 或者使用 `Handler.Callback` 接口或者为其新建类文件。
-  * 通过弱引用持有外部 Activity。
-* 弱引用：只持有弱引用的对象随时都会被回收，用于避免内存泄漏。（WeakReference）
-* 软引用：只持有软引用的对象内存不足时回收，用于实现缓存机制。（SoftReference）
-* 引用级别：强引用 > 软引用 > 弱引用 > 虚引用
+
+- 导致原因：
+  - 非静态的内部类默认持有其外部类的强引用。
+  - Handler 对象发送的 Message 对象会持有此 Handler 对象的引用。
+  - Message ➜ Handler ➜ Activity ➜ Activity 资源无法回收（内存泄漏）
+- 解决方案：
+  - 声明 Handler 为 `static` 或者使用 `Handler.Callback` 接口或者为其新建类文件。
+  - 通过弱引用持有外部 Activity。
+- 弱引用：只持有弱引用的对象随时都会被回收，用于避免内存泄漏。（WeakReference）
+- 软引用：只持有软引用的对象内存不足时回收，用于实现缓存机制。（SoftReference）
+- 引用级别：强引用 > 软引用 > 弱引用 > 虚引用
 
 ```java
 public class MainActivity extends Activity {
@@ -282,6 +289,7 @@ public class MainActivity extends Activity {
 ```
 
 ## 自定义 Looper 线程
+
 ```java
 public class MainActivity extends Activity {
     private final MyHandler mMyHandler = new MyHandler();     与主线程进行关联
@@ -332,6 +340,7 @@ public class MainActivity extends Activity {
 ```
 
 ### HandlerThread
+
 ```java
 public class MainActivity extends Activity {
     private final HandlerThread mHandlerThread = new HandlerThread("123");     已封装好的 Looper 线程，推荐这种方式
@@ -372,6 +381,7 @@ public class MainActivity extends Activity {
 ```
 
 ## 线程之间的交互
+
 ```java
 public class MainActivity extends Activity {
     private final HandlerThread mHandlerThread = new HandlerThread("123");
@@ -425,6 +435,7 @@ public class MainActivity extends Activity {
 ```
 
 ## 更新 UI 的 4 种方式
+
 ```java
 public class MainActivity extends Activity {
     private final MyHandler mMyHandler = new MyHandler(this);

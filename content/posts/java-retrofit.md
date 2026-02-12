@@ -1,6 +1,6 @@
 ---
 tags:
-- JAVA
+  - JAVA
 date: 2016-12-05T16:32:13+08:00
 title: Retrofit
 ---
@@ -26,7 +26,9 @@ Updated on 2016-12-22
 > https://jcenter.bintray.com/com/squareup/retrofit2/
 
 ## Introduction
+
 ### String
+
 ```java
 public interface DoubanService {     定义服务接口
     @GET("v2/book/{id}")     @Path：占位符 {id}     （子 URL 不以 / 开头）
@@ -70,6 +72,7 @@ call.cancel();     取消请求
 ```
 
 ### JSON
+
 ```java
 public interface DoubanService {     定义服务接口
     @GET("v2/book/{id}")     @Path：占位符 {id}
@@ -121,6 +124,7 @@ public class Book {     定义 JSON 对象
 ```
 
 ## Interceptor
+
 ```java
 OkHttpClient okHttpClient = new OkHttpClient.Builder()     自定义 OkHttpClient（OkHttpClient 在整个 App 中应为单例）
         .addInterceptor(new Interceptor() {     添加拦截器
@@ -141,6 +145,7 @@ Retrofit retrofit = new Retrofit.Builder()
 ```
 
 ## Code
+
 ```java
 public interface APIService {
     @GET("get")
@@ -294,4 +299,4 @@ public class MainActivity extends Activity {
 
 ## Reference
 
-* https://zhuanlan.zhihu.com/p/21808012
+- https://zhuanlan.zhihu.com/p/21808012

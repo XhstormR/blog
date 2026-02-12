@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Notes
+  - Notes
 date: 2017-08-31T14:01:08+08:00
 title: 构建 cmark
 ---
@@ -17,6 +17,7 @@ Updated on 2017-08-31
 > [cmark](https://github.com/commonmark/cmark/archive/master.zip)
 
 ## Step
+
 ```
 D:\Work\Download\cmark-master>
 
@@ -38,6 +39,7 @@ ldd cmark.exe                    #查看动态链接库
 ```
 
 ## Reference
-* [MinGW-W64](https://wiki.qt.io/MinGW-64-bit)
-* [MinGW Generator](https://cmake.org/cmake/help/latest/generator/MinGW%20Makefiles.html)
-* [CMake Documentation](https://cmake.org/cmake/help/latest/)
+
+- [MinGW-W64](https://wiki.qt.io/MinGW-64-bit)
+- [MinGW Generator](https://cmake.org/cmake/help/latest/generator/MinGW%20Makefiles.html)
+- [CMake Documentation](https://cmake.org/cmake/help/latest/)

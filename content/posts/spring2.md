@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Spring
+  - Spring
 date: 2017-06-07T13:20:02+08:00
 title: Spring Framework
 ---
@@ -21,7 +21,9 @@ Updated on 2017-06-07
 > {{< image "uploads/spring-aop.svg" "面向切面编程" "1" "1" >}}
 
 ## Bean 的条件化注册
+
 ### MyCondition
+
 ```java
 import org.springframework.context.annotation.Condition;
 import org.springframework.context.annotation.ConditionContext;
@@ -36,7 +38,9 @@ public class MyCondition implements Condition {
     }
 }
 ```
+
 ### AppConfig
+
 ```java
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Conditional;
@@ -51,7 +55,9 @@ public class AppConfig {
     }
 }
 ```
+
 ### Main
+
 ```java
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -71,7 +77,9 @@ true
 ```
 
 ## Bean 的装配歧义
+
 ### food.Dessert
+
 ```java
 package food;
 
@@ -91,7 +99,9 @@ class Cake implements Dessert {
 class IceCream implements Dessert {
 }
 ```
+
 ### AppConfig
+
 ```java
 import food.Dessert;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -116,12 +126,14 @@ Bean 的一名称的缺省值为 Bean 的类名（@Component）或者方法名�
 ```
 
 ## Bean 的作用域
-* 单例：每个 **容器** 创建一个。（Singleton）（默认）
-* 原型：每次 **注入** 创建一个。（Prototype）
-* 会话：每个 **会话** 创建一个。（Session）
-* 请求：每个 **请求** 创建一个。（Request）
+
+- 单例：每个 **容器** 创建一个。（Singleton）（默认）
+- 原型：每次 **注入** 创建一个。（Prototype）
+- 会话：每个 **会话** 创建一个。（Session）
+- 请求：每个 **请求** 创建一个。（Request）
 
 ### AppConfig
+
 ```java
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
@@ -137,7 +149,9 @@ public class AppConfig {
     }
 }
 ```
+
 ### Main
+
 ```java
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -157,11 +171,15 @@ false
 ```
 
 ## 运行时值注入
+
 ### 123.properties
+
 ```java
 name=David
 ```
+
 ### AppConfig
+
 ```java
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -188,7 +206,9 @@ public class AppConfig {
     }
 }
 ```
+
 ### Main
+
 ```java
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -212,7 +232,9 @@ David
 ```
 
 ## 加载外部资源
+
 ### Main
+
 ```java
 import org.springframework.context.support.GenericXmlApplicationContext;
 import org.springframework.core.io.Resource;
@@ -242,10 +264,15 @@ https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/core/
 ```
 
 ## 面向切面编程
+
 ### 方法包装
+
 #### 无参
+
 ##### concert
+
 ###### Performance
+
 ```java
 package concert;
 
@@ -253,7 +280,9 @@ public interface Performance {
     void perform();
 }
 ```
+
 ###### Concert
+
 ```java
 package concert;
 
@@ -267,7 +296,9 @@ public class Concert implements Performance {
     }
 }
 ```
+
 ###### **Audience**
+
 ```java
 package concert;
 
@@ -325,7 +356,9 @@ public class Audience {     切面
 
 execution 匹配执行方法（连接点）。
 ```
+
 ##### **AppConfig**
+
 ```java
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -337,7 +370,9 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 public class AppConfig {
 }
 ```
+
 ##### Main
+
 ```java
 import concert.Performance;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -363,9 +398,13 @@ public class Main {
 观众鼓掌喝彩
 class com.sun.proxy.$Proxy16     使用基于接口的代理（推荐）
 ```
+
 #### 有参
+
 ##### log
+
 ###### Log
+
 ```java
 package log;
 
@@ -378,7 +417,9 @@ public class Log {
     }
 }
 ```
+
 ###### **LogInterceptor**
+
 ```java
 package log;
 
@@ -403,7 +444,9 @@ public class LogInterceptor {     切面
 execution 匹配执行方法（连接点）。
 args 指示将被通知方法的入参传递给通知方法。（Arguments）
 ```
+
 ##### **AppConfig**
+
 ```java
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -415,7 +458,9 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 public class AppConfig {
 }
 ```
+
 ##### Main
+
 ```java
 import log.Log;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -445,5 +490,7 @@ public class Main {
 A
 class log.Log$$EnhancerBySpringCGLIB$$72b5a387     由于 Bean 未实现任何接口，使用 CGLib 生成基于类的代理（不推荐）
 ```
+
 ### 方法引入
+
 Kotlin 原生支持扩展函数。

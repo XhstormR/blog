@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Notes
+  - Notes
 date: 2018-07-20T14:35:35+08:00
 title: MyBatis Generator
 ---
@@ -13,6 +13,7 @@ Updated on 2018-07-20
 > https://github.com/mybatis/generator
 
 ## start.bat
+
 ```bash
 @ echo off
 if not exist mybatis-generator-core-1.3.7.jar curl -LROk https://jcenter.bintray.com/org/mybatis/generator/mybatis-generator-core/1.3.7/mybatis-generator-core-1.3.7.jar
@@ -25,6 +26,7 @@ java -cp mybatis-generator-core-1.3.7.jar; org.mybatis.generator.api.ShellRunner
 ```
 
 ## generatorConfig.xml
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE generatorConfiguration
@@ -89,6 +91,7 @@ java -cp mybatis-generator-core-1.3.7.jar; org.mybatis.generator.api.ShellRunner
 ```
 
 ## MyCommentGenerator.java
+
 ```java
 import org.mybatis.generator.api.CommentGenerator;
 import org.mybatis.generator.api.IntrospectedColumn;
@@ -207,6 +210,7 @@ public class MyCommentGenerator implements CommentGenerator {
 ```
 
 ## MyResultMapGenerator.java
+
 ```java
 import org.mybatis.generator.api.GeneratedXmlFile;
 import org.mybatis.generator.api.IntrospectedTable;
@@ -263,5 +267,6 @@ public class MyResultMapGenerator extends PluginAdapter {
 ```
 
 ## Reference
-* http://www.mybatis.org/mybatis-3/zh/dynamic-sql.html
-* https://github.com/mybatis/mybatis-dynamic-sql/releases/latest
+
+- http://www.mybatis.org/mybatis-3/zh/dynamic-sql.html
+- https://github.com/mybatis/mybatis-dynamic-sql/releases/latest

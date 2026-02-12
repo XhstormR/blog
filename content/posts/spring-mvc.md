@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Spring
+  - Spring
 date: 2017-06-17T10:49:25+08:00
 title: Spring MVC
 ---
@@ -19,15 +19,18 @@ Updated on 2017-06-22
 > http://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html
 
 ## Concept
-* REST：将资源的 **状态** 以 **适合** 客户端的 **格式** 从服务端 **传递** 至客户端（或者反过来）。
-  * 资源通过 URL 进行标识，通过 HTTP Method 进行管理，通过 HTTP Header 表述格式。
-      * 资源：URL（统一资源定位器）
-      * 格式：Accept、Content-Type 头部信息。
-      * 动词：[CRUD](/post/postgresql/#concept)（增删改查）
-          * 幂等：**同一操作** 执行 **任意次数** 所产生的影响或结果 **相同**。
+
+- REST：将资源的 **状态** 以 **适合** 客户端的 **格式** 从服务端 **传递** 至客户端（或者反过来）。
+  - 资源通过 URL 进行标识，通过 HTTP Method 进行管理，通过 HTTP Header 表述格式。
+    - 资源：URL（统一资源定位器）
+    - 格式：Accept、Content-Type 头部信息。
+    - 动词：[CRUD](/post/postgresql/#concept)（增删改查）
+      - 幂等：**同一操作** 执行 **任意次数** 所产生的影响或结果 **相同**。
 
 ## Configuration
+
 ### build.gradle.kts
+
 ```bash
 plugin("war")
 
@@ -43,7 +46,9 @@ compile("com.fasterxml.jackson.core:jackson-databind:+")
 ```
 
 ## Code
+
 ### AppConfig
+
 ```kotlin
 import org.springframework.web.filter.CharacterEncodingFilter
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer
@@ -66,7 +71,9 @@ class AppConfig : AbstractAnnotationConfigDispatcherServletInitializer() {
     }
 }
 ```
+
 ### WebConfig
+
 ```kotlin
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.ComponentScan
@@ -123,14 +130,18 @@ open class WebConfig : WebMvcConfigurerAdapter() {
     }
 }
 ```
+
 ### RootConfig
+
 ```kotlin
 import org.springframework.context.annotation.Configuration
 
 @Configuration
 open class RootConfig
 ```
+
 ### MyInterceptor
+
 ```kotlin
 import org.springframework.web.servlet.ModelAndView
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter
@@ -160,7 +171,9 @@ class MyInterceptor : HandlerInterceptorAdapter() {     拦截器
 过滤器：基于 Servlet 容器，能够过滤所有请求，使用回调函数。（Filter）
 拦截器：基于 Spring  容器，只能拦截部分请求，使用反射机制。（Interceptor）
 ```
+
 ### MyDateFormatter
+
 ```kotlin
 import org.springframework.format.Formatter
 import java.text.SimpleDateFormat
@@ -174,7 +187,9 @@ class MyDateFormatter : Formatter<Date> {     Formatter：String <-> T
     override fun print(`object`: Date, locale: Locale): String = sdf.format(`object`)
 }
 ```
+
 ### MyStringToDateConverter
+
 ```kotlin
 import org.springframework.core.convert.converter.Converter
 import java.text.SimpleDateFormat
@@ -186,8 +201,11 @@ class MyStringToDateConverter : Converter<String, Date> {     Converter：S --> 
     override fun convert(source: String): Date = sdf.parse(source)
 }
 ```
+
 ### entity
+
 #### Account
+
 ```kotlin
 package entity
 
@@ -207,8 +225,11 @@ data class Account(
         var age: Int? = null
 )
 ```
+
 ### controller
+
 #### HomeController
+
 ```kotlin
 package controller
 
@@ -225,7 +246,9 @@ class HomeController {
     }
 }
 ```
+
 #### AController
+
 ```kotlin
 package controller
 
@@ -315,7 +338,9 @@ class AController {     视图
     }
 }
 ```
+
 #### BController
+
 ```kotlin
 package controller
 
@@ -361,7 +386,9 @@ data class Error(
         val message: String
 )
 ```
+
 #### CController
+
 ```kotlin
 package controller
 
@@ -441,7 +468,9 @@ class CController {
     fun map(@RequestBody accounts: Map<String, Account>) = accounts
 }
 ```
+
 #### AppErrorHandler
+
 ```kotlin
 package controller
 
@@ -456,53 +485,59 @@ class AppErrorHandler {
     }
 }
 ```
+
 ## HTML
+
 ### a.html
+
 ```html
-<html xmlns:th="http://www.thymeleaf.org">     Thymeleaf 命名空间
-<head>
-    <meta charset="UTF-8">
+<html xmlns:th="http://www.thymeleaf.org">
+  Thymeleaf 命名空间
+  <head>
+    <meta charset="UTF-8" />
     <title>Title</title>
-</head>
-<body>
-<p th:text="${account}"></p>
-</body>
+  </head>
+  <body>
+    <p th:text="${account}"></p>
+  </body>
 </html>
 
-变量表达式：${ }，基于 SpEL 表达式。
-选择表达式：*{ }，基于选中对象。
-路径表达式：@{ }。
-对象表达式：#{ }。
+变量表达式：${ }，基于 SpEL 表达式。 选择表达式：*{ }，基于选中对象。
+路径表达式：@{ }。 对象表达式：#{ }。
 ```
+
 ### b.html
+
 ```html
 <html>
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Title</title>
-</head>
-<body>
-<form action="/a/form" method="post">
-    <input name="username" type="text"><br>
-    <input name="password" type="text"><br>
-    <input name="age" type="number"><br>
-    <input type="submit"><br>
-</form>
-</body>
+  </head>
+  <body>
+    <form action="/a/form" method="post">
+      <input name="username" type="text" /><br />
+      <input name="password" type="text" /><br />
+      <input name="age" type="number" /><br />
+      <input type="submit" /><br />
+    </form>
+  </body>
 </html>
 ```
+
 ### c.html
+
 ```html
 <html>
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Title</title>
-</head>
-<body>
-<form action="/a/upload" method="post" enctype="multipart/form-data">     以 multipart 格式提交表单
-    <input name="myPic" type="file"><br>
-    <input type="submit"><br>
-</form>
-</body>
+  </head>
+  <body>
+    <form action="/a/upload" method="post" enctype="multipart/form-data">
+      以 multipart 格式提交表单 <input name="myPic" type="file" /><br />
+      <input type="submit" /><br />
+    </form>
+  </body>
 </html>
 ```

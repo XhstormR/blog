@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- security
+  - security
 date: 2019-09-30T19:31:07+08:00
 title: Alternate Data Stream
 ---
@@ -21,6 +21,7 @@ cmd.exe - < ...:payload.bat
 ```
 
 ## main.xml
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <scriptlet>
@@ -39,6 +40,7 @@ cmd.exe - < ...:payload.bat
 ```
 
 ## delete.bat
+
 ```bash
 del /f /a /q \\?\%1
 rd /s /q \\?\%1
@@ -60,6 +62,7 @@ cscript ...:run.vbs
 ```
 
 ## Reference
-* https://ss64.com/vb/shell.html
-* https://attack.mitre.org/techniques/T1117/
-* https://docs.microsoft.com/zh-cn/dotnet/visual-basic/programming-guide/program-structure/how-to-break-and-combine-statements-in-code
+
+- https://ss64.com/vb/shell.html
+- https://attack.mitre.org/techniques/T1117/
+- https://docs.microsoft.com/zh-cn/dotnet/visual-basic/programming-guide/program-structure/how-to-break-and-combine-statements-in-code

@@ -3,7 +3,7 @@ title: sing-box
 date: 2024-02-04T19:16:34+08:00
 author: XhstormR
 tags:
--
+  -
 ---
 
 <!--more-->
@@ -22,9 +22,7 @@ Note: `rules` 中的规则越靠前（上），优先级就越高。
   "inbounds": [
     {
       "type": "tun", // 透明代理
-      "address": [
-        "172.19.0.1/30"
-      ],
+      "address": ["172.19.0.1/30"],
       "auto_route": true,
       "strict_route": true
     },
@@ -162,9 +160,7 @@ Note: `rules` 中的规则越靠前（上），优先级就越高。
         "outbound": "自选"
       },
       {
-        "rule_set": [
-          "geosite-category-ads-all"
-        ],
+        "rule_set": ["geosite-category-ads-all"],
         "action": "reject"
       },
       {

@@ -1,6 +1,6 @@
 ---
 tags:
-- CheatSheet
+  - CheatSheet
 date: 2016-03-31T11:09:57+08:00
 title: Vim 命令不完全手册
 ---
@@ -173,6 +173,7 @@ https://raw.githubusercontent.com/vim/vim/master/runtime/doc/options.txt
 ```
 
 ## vimrc
+
 ```
 set nocp     "取消兼容 Vi
 set hlsearch     "高亮搜索

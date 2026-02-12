@@ -1,6 +1,6 @@
 ---
 tags:
-- Android
+  - Android
 date: 2016-11-19T14:12:15+08:00
 title: RxBinding
 ---
@@ -12,6 +12,7 @@ Updated on 2016-11-19
 > https://github.com/JakeWharton/RxBinding
 
 ## Button
+
 ```java
 ActivityMainBinding activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 Button button = activityMainBinding.button;
@@ -43,6 +44,7 @@ RxView
 ```
 
 ## CheckBox
+
 ```java
 ActivityMainBinding activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 Button button = activityMainBinding.button;
@@ -55,6 +57,7 @@ RxCompoundButton
 ```
 
 ## ListView
+
 ```java
 ActivityMainBinding activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 Character[] res = new Character[20];     数据源

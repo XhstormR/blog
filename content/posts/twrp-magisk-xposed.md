@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-    - Android
+  - Android
 date: 2019-12-17T10:34:56+08:00
 title: TWRP Magisk EdXposed
 ---
@@ -79,7 +79,7 @@ adb install -r EdXposedManager-4.5.4-45401-org.meowcat.edxposed.manager-release.
 
 - https://github.com/LSPosed/LSPosed/releases/latest
 - https://github.com/LSPosed/LSPosed.github.io/releases
-    - 推荐使用**白名单**模式: `/data/adb/shamiko/whitelist`
+  - 推荐使用**白名单**模式: `/data/adb/shamiko/whitelist`
 
 ## KernelSU
 
@@ -87,7 +87,7 @@ adb install -r EdXposedManager-4.5.4-45401-org.meowcat.edxposed.manager-release.
 - https://github.com/Dr-TSNG/ZygiskNext
 - GKI 模式 (Generic Kernel Image)：修补 `boot` 分区，模拟器、虚拟机使用。
 - LKM 模式 (Loadable Kernel Module)：修补 `init_boot` 分区，真实设备（手机）使用。
-    - 使用 `fastboot boot` 命令临时启动 KernelSU 提供的 GKI 内核（获得临时 root）-> 安装管理器 -> 在管理器中选择直接安装，修补 `init_boot` 分区（无需下载官方全量包，无需提取固件镜像）
+  - 使用 `fastboot boot` 命令临时启动 KernelSU 提供的 GKI 内核（获得临时 root）-> 安装管理器 -> 在管理器中选择直接安装，修补 `init_boot` 分区（无需下载官方全量包，无需提取固件镜像）
 
 ```bash
 adb devices -l
@@ -109,9 +109,9 @@ fastboot boot android15-6.6.66_2025-02-boot.img
 PSTAR XT2153-1
 
 - https://mirrors.lolinet.com/firmware/lenomola/2021/pstar/official/RETAIL/PSTAR_RETAIL_13_T1RAS33.55-15-10-6_subsidy-DEFAULT_regulatory-DEFAULT_cid50_CFC.xml.zip
-    - flashfile.xml
-        - https://github.com/dlenski/motoflash2sh
-        - https://kfhost.net/flashfile
+  - flashfile.xml
+    - https://github.com/dlenski/motoflash2sh
+    - https://kfhost.net/flashfile
 
 #### 更改 OTA 软件通道
 
@@ -148,12 +148,12 @@ payload_dumper --partitions init_boot,boot payload.bin
 ## Reference
 
 - AOSP Enable Call Recording:
-    - https://github.com/jacopotediosi/GAppsMod
-    - https://github.com/chenxiaolong/BCR
+  - https://github.com/jacopotediosi/GAppsMod
+  - https://github.com/chenxiaolong/BCR
 - https://github.com/0x192/universal-android-debloater
 - https://github.com/chiteroman/PlayIntegrityFix
-    - https://github.com/osm0sis/PlayIntegrityFork
-    - https://github.com/KOWX712/PlayIntegrityFix
+  - https://github.com/osm0sis/PlayIntegrityFork
+  - https://github.com/KOWX712/PlayIntegrityFix
 - https://github.com/5ec1cff/TrickyStore
-    - https://github.com/KOWX712/Tricky-Addon-Update-Target-List
+  - https://github.com/KOWX712/Tricky-Addon-Update-Target-List
 - https://github.com/Dr-TSNG/Hide-My-Applist
