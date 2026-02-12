@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Reverse
+  - Reverse
 date: 2020-01-05T21:30:48+08:00
 title: JVM Class Dump
 ---
@@ -13,6 +13,7 @@ Updated on 2020-01-05
 >
 
 ## jhsdb
+
 ```bash
 jps -lvm
 jhsdb clhsdb --pid 1234
@@ -20,7 +21,8 @@ buildreplayjars app
 ```
 
 ## javassist
-* https://maven.aliyun.com/repository/jcenter/org/javassist/javassist/3.26.0-GA/javassist-3.26.0-GA.jar
+
+- https://maven.aliyun.com/repository/jcenter/org/javassist/javassist/3.26.0-GA/javassist-3.26.0-GA.jar
 
 ```bash
 javac -cp javassist.jar -d 123 --release 8 ClassDump.java
@@ -30,6 +32,7 @@ jar -uf javassist.jar -C 123 .
 ```
 
 ### ClassDump.java
+
 ```java
 package instrument;
 
@@ -66,6 +69,7 @@ public class ClassDump implements ClassFileTransformer {
 ```
 
 ### MANIFEST.MF
+
 ```
 Manifest-Version: 1.0
 Can-Redefine-Classes: true
@@ -73,5 +77,6 @@ Premain-Class: instrument.ClassDump
 ```
 
 ## Reference
-* [jdk.hotspot.agent](https://github.com/openjdk/jdk/blob/master/src/jdk.hotspot.agent/share/classes/sun/jvm/hotspot/CommandProcessor.java#L555)
-* https://docs.oracle.com/en/java/javase/13/docs/specs/man/jhsdb.html
+
+- [jdk.hotspot.agent](https://github.com/openjdk/jdk/blob/master/src/jdk.hotspot.agent/share/classes/sun/jvm/hotspot/CommandProcessor.java#L555)
+- https://docs.oracle.com/en/java/javase/13/docs/specs/man/jhsdb.html

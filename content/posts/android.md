@@ -1,6 +1,6 @@
 ---
 tags:
-- Android
+  - Android
 date: 2016-07-04T19:30:21+08:00
 title: 自学 Android
 ---
@@ -24,19 +24,22 @@ Updated on 2016-08-27
 > [api level](https://developer.android.google.cn/guide/topics/manifest/uses-sdk-element#api-level-table)
 
 ## 开发环境
-* IntelliJ IDEA：https://www.jetbrains.com/idea/download/
-  * ~~[Eclipse](https://eclipse.org/downloads/eclipse-packages/) + [ADT](https://developer.android.com/studio/tools/sdk/eclipse-adt.html) 已被 Google 弃用~~
-* Android SDK：https://developer.android.com/studio/index.html#win-tools2
-  * [Mirror1](http://mirrors.neusoft.edu.cn/android/)
-  * [Gradle](https://services.gradle.org/versions/current)：https://services.gradle.org/distributions/
-      * GRADLE_HOME ➜ D:\Download\Java\gradle-2.14
-      * PATH ➜ %GRADLE_HOME%\bin
-* JDK：http://www.oracle.com/technetwork/java/javase/downloads/index.html
+
+- IntelliJ IDEA：https://www.jetbrains.com/idea/download/
+  - ~~[Eclipse](https://eclipse.org/downloads/eclipse-packages/) + [ADT](https://developer.android.com/studio/tools/sdk/eclipse-adt.html) 已被 Google 弃用~~
+- Android SDK：https://developer.android.com/studio/index.html#win-tools2
+  - [Mirror1](http://mirrors.neusoft.edu.cn/android/)
+  - [Gradle](https://services.gradle.org/versions/current)：https://services.gradle.org/distributions/
+    - GRADLE_HOME ➜ D:\Download\Java\gradle-2.14
+    - PATH ➜ %GRADLE_HOME%\bin
+- JDK：http://www.oracle.com/technetwork/java/javase/downloads/index.html
 
 ### 新建 Android 项目卡住
+
 IDEA 的 Android 构建工具是 Gradle，新建项目时会联网下载对应版本的 Gradle 和 Cache。
 
 Gradle：![](uploads/android-gradle.png)
+
 ```html
 C:\Users\XhstormR\IntelliJIDEAProjects\MyApplication\gradle\wrapper\gradle-wrapper.properties
 ⇳
@@ -44,106 +47,75 @@ distributionUrl=http\://android-mirror.bugly.qq.com:8080/gradle/gradle-3.2.1-all
 ```
 
 Cache：![](uploads/android-cache.png)
+
 ```html
-C:\Users\XhstormR\IntelliJIDEAProjects\MyApplication\build.gradle
-⇳
-repositories {
-    maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
-}
+C:\Users\XhstormR\IntelliJIDEAProjects\MyApplication\build.gradle ⇳ repositories
+{ maven { url "http://maven.aliyun.com/nexus/content/groups/public/" } }
 ```
 
 ### 找不到主题文件
+
 ```xml
 <style name="AppTheme" parent="@android:style/Theme.DeviceDefault.Light.NoActionBar">
 ```
 
 ### 找不到资源文件
+
 IDEA ➜ Build ➜ `Make Project` or `Rebuild Project`（重新生成 R.java）
 
 ### 没有 Assets 文件夹
+
 IDEA ➜ File ➜ New ➜ Folder ➜ Assets Folder（src/main/assets/）
 
 ### 导入 SDK 源码
+
 IDEA ➜ File ➜ Project Structure ➜ SDKs ➜ Sourcepath
 
 ## [Android Debug Bridge](https://developer.android.google.cn/studio/command-line/adb)
-* 手机开启 USB 调试模式
-* 电脑安装 Android USB 驱动
+
+- 手机开启 USB 调试模式
+- 电脑安装 Android USB 驱动
 
 ```html
-adb start-server     启动 ADB
-adb kill-server     停止 ADB
-adb root     使 ADBD 获得 ROOT 权限
-
-adb reboot     重启手机
-adb reboot recovery     重启至 Recovery 模式
-adb reboot bootloader     重启至 Fastboot 模式
-
-adb install D:\Download\1.apk     安装 App     -r 允许覆盖安装     -d 允许降级安装
-adb uninstall com.baidu.mobile     卸载 App（包名）     -k 保留数据和缓存
-
-adb push D:\Download\1.txt  /mnt/sdcard/Download/1.txt     发送至手机
-adb pull /mnt/sdcard/Download/1.txt  D:\Download\1.txt     下载至电脑
-----
+adb start-server 启动 ADB adb kill-server 停止 ADB adb root 使 ADBD 获得 ROOT
+权限 adb reboot 重启手机 adb reboot recovery 重启至 Recovery 模式 adb reboot
+bootloader 重启至 Fastboot 模式 adb install D:\Download\1.apk 安装 App -r
+允许覆盖安装 -d 允许降级安装 adb uninstall com.baidu.mobile 卸载 App（包名） -k
+保留数据和缓存 adb push D:\Download\1.txt /mnt/sdcard/Download/1.txt 发送至手机
+adb pull /mnt/sdcard/Download/1.txt D:\Download\1.txt 下载至电脑 ----
 /mnt/sdcard/Download/ <=> /storage/emulated/0/Download/
-
-D:\Download\Java\android-sdk-windows\platform-tools\adb.exe devices -l     查看设备
-List of devices attached
-0123456789ABCDEF       device product:2013023 model:2013023 device:HM2013023
-
-D:\Download\Java\android-sdk-windows\platform-tools\adb.exe shell     登录设备
-shell@HM2013023:/ $ su
-root@HM2013023:/ # ls
-root@HM2013023:/ # exit
-
-wm size     查看屏幕分辨率
-wm density     查看屏幕密度
-dumpsys window displays     查看显示屏参数
-screencap -p /sdcard/123.png     截图
-screenrecord /sdcard/123.mp4     录屏
-date -s 20160823.131500     设置日期和时间
-cat /system/build.prop     查看硬件和系统属性
-cat /data/misc/wifi/*.conf     查看连接过的 WIFI 密码
-
-PackageManager
-pm list packages     显示所有应用     -d 禁用的应用     -e 启用的应用     -3 第三方应用     -s 系统应用
-pm list packages google     包名带 google 字段的应用
-pm clear com.baidu.mobile     清除数据和缓存
-pm list users     查看用户
-pm list libraries     查看系统安装的库
-pm list features     查看系统支持的功能
-（总应用个数 = 禁用+启用 = 系统+第三方）
-
-ActivityManager
-am start -n com.example.app/.ExampleActivity -es str ABC     调用 Activity 并发送数据 extra string（Key-Value）
-am start -a android.intent.action.CALL -d tel:10086     发送 Intent（拨打电话）
-am start -a android.intent.action.VIEW -d http://xhstormr.tk/     发送 Intent（打开网站）
-am startservice ...     调用 Service
-am broadcast ...     发送广播
-am force-stop com.baidu.mobile     强制停止 App
-dumpsys activity activities | grep mFocusedActivity     查看前台 Activity
-
-/data/property/persist.sys.usb.config     配置 USB
-⇳
-mtp,adb     作为媒体设备,开启调试模式
-
-远程 ADB
-adb devices -l
-    List of devices attached
-    10.32.17.39:1234       device product:2013023 model:2013023 device:HM2013023
-启动
-adb tcpip 1234     连接手机
-adb connect 10.32.17.39:1234
-停止
-adb disconnect
-adb usb     连接手机
+D:\Download\Java\android-sdk-windows\platform-tools\adb.exe devices -l 查看设备
+List of devices attached 0123456789ABCDEF device product:2013023 model:2013023
+device:HM2013023 D:\Download\Java\android-sdk-windows\platform-tools\adb.exe
+shell 登录设备 shell@HM2013023:/ $ su root@HM2013023:/ # ls root@HM2013023:/ #
+exit wm size 查看屏幕分辨率 wm density 查看屏幕密度 dumpsys window displays
+查看显示屏参数 screencap -p /sdcard/123.png 截图 screenrecord /sdcard/123.mp4
+录屏 date -s 20160823.131500 设置日期和时间 cat /system/build.prop
+查看硬件和系统属性 cat /data/misc/wifi/*.conf 查看连接过的 WIFI 密码
+PackageManager pm list packages 显示所有应用 -d 禁用的应用 -e 启用的应用 -3
+第三方应用 -s 系统应用 pm list packages google 包名带 google 字段的应用 pm clear
+com.baidu.mobile 清除数据和缓存 pm list users 查看用户 pm list libraries
+查看系统安装的库 pm list features 查看系统支持的功能 （总应用个数 = 禁用+启用 =
+系统+第三方） ActivityManager am start -n com.example.app/.ExampleActivity -es
+str ABC 调用 Activity 并发送数据 extra string（Key-Value） am start -a
+android.intent.action.CALL -d tel:10086 发送 Intent（拨打电话） am start -a
+android.intent.action.VIEW -d http://xhstormr.tk/ 发送 Intent（打开网站） am
+startservice ... 调用 Service am broadcast ... 发送广播 am force-stop
+com.baidu.mobile 强制停止 App dumpsys activity activities | grep
+mFocusedActivity 查看前台 Activity /data/property/persist.sys.usb.config 配置
+USB ⇳ mtp,adb 作为媒体设备,开启调试模式 远程 ADB adb devices -l List of devices
+attached 10.32.17.39:1234 device product:2013023 model:2013023 device:HM2013023
+启动 adb tcpip 1234 连接手机 adb connect 10.32.17.39:1234 停止 adb disconnect
+adb usb 连接手机
 ```
 
 ### Vysor
-* Link：[WebStore](https://chrome.google.com/webstore/detail/vysor/gidgenkbbabolejbgbpnhbimgjbffefm),[Github](https://github.com/koush/vysor.io/releases/latest)
-* 破解：uglify.js ➜ function e(){this.licensed=**true**;this.licenseCached=**true**}
+
+- Link：[WebStore](https://chrome.google.com/webstore/detail/vysor/gidgenkbbabolejbgbpnhbimgjbffefm),[Github](https://github.com/koush/vysor.io/releases/latest)
+- 破解：uglify.js ➜ function e(){this.licensed=**true**;this.licenseCached=**true**}
 
 ## [SDK Manager](https://developer.android.google.cn/studio/command-line/sdkmanager)
+
 ```bash
 nslookup g.cn
 
@@ -180,61 +152,62 @@ yes | ./sdkmanager --sdk_root=$ANDROID_SDK_ROOT --licenses
 ```
 
 ## Android 规范
-* [Android Design](uploads/android-design.png "Android Design")
-* Android 组件：所有组件都需要在 `AndroidManifest.xml ➜ application` 里进行注册。
-  * 活动（Activity）：一种包含用户界面的组件，主要用于和用户进行交互。
-  * 服务（Service）：用于实现程序后台运行的组件，不需要和用户交互。
-  * 广播接收器（Broadcast Receiver）：用于接收和发送广播的组件。
-  * 内容提供器（Content Provider）：用于实现不同应用程序之间共享数据的组件。
-* 控件属性：
-  * sp：Scale-independent Pixels（可伸缩像素），文字尺寸一律使用 `sp` 单位。
-  * dp：Density-independent Pixels（密度无关像素），非文字尺寸使用 `dp` 单位。
-  * orientation（方向）：`horizontal`（水平） | `vertical`（垂直）
-  * wrap_content：包裹内容。
-  * match_parent：铺满容器。
-  * layout_weight：占据父容器 **剩余空间** 的比例。**外**
-      * 假设屏幕宽度为 X，2个控件的宽度都为 `match_parent` 的情况下，原有宽度为 X，2个控件的宽度也都为 X，那么剩余宽度为 X-(X+X)=-X；左边的控件占三分之一，所以左边总宽度为 X+(-X)*(1/3)=(2/3)X。
-      * 建议将 `width` 或 `height` 设为 `0dp`，这样就可以理解为屏占比了。
-  * margin：外边距，控件边框与控件边框的距离。**外**
-  * padding：内边距，控件边框与控件内容的距离。**里**
-  * layout_gravity：控件位置。**外**
-  * gravity：内容位置。**里**
-* 布局优化：布局层次一样的情况下，LinearLayout 的性能要稍高于 RelativeLayout。
-  * include：将可重用的布局提取出来并通过 `include` 标签导入使用。
-      * merge：若通过 `include` 标签导入的布局不需要顶节点，可以将顶节点标签替换为`merge`，顶节点会被直接忽略而子控件会被直接导入，以降低布局嵌套层次。
-  * ViewStub：导入的布局会惰性加载，在创建主布局时不进行实例化，需要在代码中手动实例化，以节省内存并加快布局创建速度。（不支持导入 `merge` 布局）
+
+- [Android Design](uploads/android-design.png "Android Design")
+- Android 组件：所有组件都需要在 `AndroidManifest.xml ➜ application` 里进行注册。
+  - 活动（Activity）：一种包含用户界面的组件，主要用于和用户进行交互。
+  - 服务（Service）：用于实现程序后台运行的组件，不需要和用户交互。
+  - 广播接收器（Broadcast Receiver）：用于接收和发送广播的组件。
+  - 内容提供器（Content Provider）：用于实现不同应用程序之间共享数据的组件。
+- 控件属性：
+  - sp：Scale-independent Pixels（可伸缩像素），文字尺寸一律使用 `sp` 单位。
+  - dp：Density-independent Pixels（密度无关像素），非文字尺寸使用 `dp` 单位。
+  - orientation（方向）：`horizontal`（水平） | `vertical`（垂直）
+  - wrap_content：包裹内容。
+  - match_parent：铺满容器。
+  - layout_weight：占据父容器 **剩余空间** 的比例。**外**
+    - 假设屏幕宽度为 X，2个控件的宽度都为 `match_parent` 的情况下，原有宽度为 X，2个控件的宽度也都为 X，那么剩余宽度为 X-(X+X)=-X；左边的控件占三分之一，所以左边总宽度为 X+(-X)\*(1/3)=(2/3)X。
+    - 建议将 `width` 或 `height` 设为 `0dp`，这样就可以理解为屏占比了。
+  - margin：外边距，控件边框与控件边框的距离。**外**
+  - padding：内边距，控件边框与控件内容的距离。**里**
+  - layout_gravity：控件位置。**外**
+  - gravity：内容位置。**里**
+- 布局优化：布局层次一样的情况下，LinearLayout 的性能要稍高于 RelativeLayout。
+  - include：将可重用的布局提取出来并通过 `include` 标签导入使用。
+    - merge：若通过 `include` 标签导入的布局不需要顶节点，可以将顶节点标签替换为`merge`，顶节点会被直接忽略而子控件会被直接导入，以降低布局嵌套层次。
+  - ViewStub：导入的布局会惰性加载，在创建主布局时不进行实例化，需要在代码中手动实例化，以节省内存并加快布局创建速度。（不支持导入 `merge` 布局）
 
 ---
 
-* ListView：以 **列表** 形式显示条目的控件。（行）
-  * 数据适配器：把复杂的数据绑定至指定控件上，是数据源和控件之间的桥梁。
-      * ArrayAdapter（数组适配器）：用于绑定格式单一的数据。（数组或集合）
-      * SimpleAdapter（简单适配器）：用于绑定格式复杂的数据。（特定泛型集合）
-  * 事件监听器：监听某种动作行为并做出响应，是程序和用户系统交互的桥梁。
-      * OnItemClickListener：监听列表中单个条目的点击事件。
-      * OnScrollListener：监听列表的滚动。
-* GridView：以 **表格** 形式显示条目的控件。（格）（可以用于替代 TableLayout 布局）
-* Spinner：以 **下拉列表** 形式显示条目的控件。（行）
-* DatePicker && TimePicker：日期选择器 && 时间选择器。
-* ProgressBar：环形进度条、水平进度条（精确）。
-  * SeekBar：拖动条，ProgressBar 的子类。
-* WebView：显示网页的控件。
-* ViewFlipper：多页面自动轮播并且带有动画效果的控件。
-  * `setInAnimation()` ⟺ `setOutAnimation()`：设置进入(退出)屏幕时的动画。
-  * `showPrevious()` ⟺ `showNext()`：显示前(后)一页。
-  * `startFlipping()` ⟺ `stopFlipping()`：开始(停止)循环切换。
-  * `setFlipInterval()`：设置切换页面的时间间隔，eg. 1s = 1000。
-* ScrollView：包裹的子控件屏幕显示不完全，需要通过滚动来显示完整的控件。
-  * ScrollView 垂直滚动，HorizontalScrollView 水平滚动。
-  * `getScrollY()`：获得滚动条的滚动距离。
-  * `scrollTo()`：使滚动条移动至指定位置。
-  * `scrollBy()`：使滚动条的滚动距离增加或减少。
-  * `getHeight()`：获得控件的高度。（在 onLayout 方法运行后被确定）
-  * `getMeasuredHeight()`：获得控件的高度。（在 onMeasure 方法运行后被确定）
-      * 在 onLayout 方法中使用 `getMeasuredHeight()`，除此之外都使用`getHeight()`。
-* Gallery：画廊、缩略图浏览器。
-* ImageSwitcher：用于显示图片并切换的控件，可以设置切换时的动画效果。
-  * ImageView 的选择器，需要实现 ViewFactory 中的 makeView() 方法为其返回 ImageView。
+- ListView：以 **列表** 形式显示条目的控件。（行）
+  - 数据适配器：把复杂的数据绑定至指定控件上，是数据源和控件之间的桥梁。
+    - ArrayAdapter（数组适配器）：用于绑定格式单一的数据。（数组或集合）
+    - SimpleAdapter（简单适配器）：用于绑定格式复杂的数据。（特定泛型集合）
+  - 事件监听器：监听某种动作行为并做出响应，是程序和用户系统交互的桥梁。
+    - OnItemClickListener：监听列表中单个条目的点击事件。
+    - OnScrollListener：监听列表的滚动。
+- GridView：以 **表格** 形式显示条目的控件。（格）（可以用于替代 TableLayout 布局）
+- Spinner：以 **下拉列表** 形式显示条目的控件。（行）
+- DatePicker && TimePicker：日期选择器 && 时间选择器。
+- ProgressBar：环形进度条、水平进度条（精确）。
+  - SeekBar：拖动条，ProgressBar 的子类。
+- WebView：显示网页的控件。
+- ViewFlipper：多页面自动轮播并且带有动画效果的控件。
+  - `setInAnimation()` ⟺ `setOutAnimation()`：设置进入(退出)屏幕时的动画。
+  - `showPrevious()` ⟺ `showNext()`：显示前(后)一页。
+  - `startFlipping()` ⟺ `stopFlipping()`：开始(停止)循环切换。
+  - `setFlipInterval()`：设置切换页面的时间间隔，eg. 1s = 1000。
+- ScrollView：包裹的子控件屏幕显示不完全，需要通过滚动来显示完整的控件。
+  - ScrollView 垂直滚动，HorizontalScrollView 水平滚动。
+  - `getScrollY()`：获得滚动条的滚动距离。
+  - `scrollTo()`：使滚动条移动至指定位置。
+  - `scrollBy()`：使滚动条的滚动距离增加或减少。
+  - `getHeight()`：获得控件的高度。（在 onLayout 方法运行后被确定）
+  - `getMeasuredHeight()`：获得控件的高度。（在 onMeasure 方法运行后被确定）
+    - 在 onLayout 方法中使用 `getMeasuredHeight()`，除此之外都使用`getHeight()`。
+- Gallery：画廊、缩略图浏览器。
+- ImageSwitcher：用于显示图片并切换的控件，可以设置切换时的动画效果。
+  - ImageView 的选择器，需要实现 ViewFactory 中的 makeView() 方法为其返回 ImageView。
 
 ## SVG
 

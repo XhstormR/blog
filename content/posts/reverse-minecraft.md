@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Reverse
+  - Reverse
 date: 2019-12-03T13:39:27+08:00
 title: 逆向 Minecraft
 ---
@@ -13,6 +13,7 @@ Updated on 2019-12-03
 > {{< image "uploads/reverse-minecraft-launcher.png" "Minecraft" "1" "1" >}}
 
 ## Tracing.aj
+
 ```java
 Hook 类构造方法，通过反射修改实例属性（劣，类名会变）
 ----
@@ -49,12 +50,14 @@ aspect Tracing {
 ```
 
 ## 编译
+
 ```bash
 java -cp aspectjtools-1.9.1.jar;aspectjrt-1.9.1.jar; org.aspectj.tools.ajc.Main -d 123 -outxml -1.8 -Xlint:ignore Tracing.aj
 jar -uf aspectjweaver-1.9.1.jar -C 123 .
 ```
 
 ## 运行
+
 ```bash
 -javaagent:D:\Download\aspectjweaver-1.9.1.jar
 ```

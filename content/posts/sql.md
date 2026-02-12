@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- SQL
+  - SQL
 date: 2018-04-07T15:05:01+08:00
 title: SQL 必知必会
 ---
@@ -589,9 +589,10 @@ CREATE TRIGGER emp_stamp
 ```
 
 ## Reference
-* SQL 风格
-  * https://www.sqlstyle.guide/zh/
-  * https://launchbylunch.com/posts/2014/Feb/16/sql-naming-conventions/
-* SQL Select
-  * [https://www.sqlite.org/lang_select.html](https://www.sqlite.org/lang_select.html#fromclause)
-  * [https://www.postgresql.org/docs/current/queries-table-expressions.html](https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-FROM)
+
+- SQL 风格
+  - https://www.sqlstyle.guide/zh/
+  - https://launchbylunch.com/posts/2014/Feb/16/sql-naming-conventions/
+- SQL Select
+  - [https://www.sqlite.org/lang_select.html](https://www.sqlite.org/lang_select.html#fromclause)
+  - [https://www.postgresql.org/docs/current/queries-table-expressions.html](https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-FROM)

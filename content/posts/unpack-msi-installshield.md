@@ -1,6 +1,6 @@
 ---
 tags:
-- Notes
+  - Notes
 date: 2016-02-11T20:17:10+08:00
 title: 解包 MSI IS 文件
 ---
@@ -26,11 +26,13 @@ title: 解包 MSI IS 文件
     SourceTreeSetup_1.9.10.0.exe /extract
 
 ## More
+
 [7zr](https://blog.xhstormr.tk/uploads/bin/7zr.exe),
 [innounp](https://blog.xhstormr.tk/uploads/bin/innounp.exe),
 [lessmsi](https://github.com/activescott/lessmsi/releases/latest)
 
 ## Reference
+
 [MSI](https://helpnet.flexerasoftware.com/installshield24helplib/helplibrary/IHelpCmdLineMSI.htm),
 [InnoSetup](http://www.jrsoftware.org/ishelp/topic_setupcmdline.htm),
 [InstallShield](https://helpnet.flexerasoftware.com/installshield24helplib/helplibrary/IsCabView.htm),

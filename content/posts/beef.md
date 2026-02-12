@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- security
+  - security
 date: 2020-01-21T19:59:06+08:00
 title: BeEF
 ---
@@ -46,8 +46,9 @@ gem sources -l
 ```
 
 ### SQLite
-* https://pkgs.org/download/sqlite
-* https://kojipkgs.fedoraproject.org/packages/sqlite
+
+- https://pkgs.org/download/sqlite
+- https://kojipkgs.fedoraproject.org/packages/sqlite
 
 ```bash
 curl -O https://kojipkgs.fedoraproject.org/packages/sqlite/3.11.0/1.fc22/x86_64/sqlite-3.11.0-1.fc22.x86_64.rpm
@@ -59,6 +60,7 @@ yum -y install *
 ## Docker
 
 ### Kali
+
 ```bash
 docker pull kalilinux/kali-rolling:latest
 docker run -it -p 9527:9527 kalilinux/kali-rolling
@@ -67,6 +69,7 @@ cd /usr/share/beef-xss && ls -l
 ```
 
 ### Parrot
+
 ```bash
 docker pull parrotsec/security:latest
 docker run -it -p 9527:9527 parrotsec/security

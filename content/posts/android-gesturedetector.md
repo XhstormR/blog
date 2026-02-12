@@ -1,6 +1,6 @@
 ---
 tags:
-- Android
+  - Android
 date: 2016-10-18T19:21:52+08:00
 title: Android 手势识别
 ---
@@ -12,7 +12,9 @@ Updated on 2016-10-18
 >
 
 ## GestureDetector
+
 ### MainActivity.java
+
 ```java
 public class MainActivity extends Activity {
     private ImageView mImageView;
@@ -106,6 +108,7 @@ public class MainActivity extends Activity {
 ```
 
 ### activity_main.xml
+
 ```xml
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -122,11 +125,13 @@ public class MainActivity extends Activity {
 ```
 
 ## GestureOverlayView
-* 生成手势文件并放入项目：
+
+- 生成手势文件并放入项目：
   1. [samples-23_r02.zip](http://mirrors.neusoft.edu.cn/android/repository/samples-23_r02.zip)\android-6.0\legacy\GestureBuilder
   2. /mnt/sdcard/gestures ➜ res\raw\gestures
 
 ### MainActivity.java
+
 ```java
 public class MainActivity extends Activity implements GestureOverlayView.OnGesturePerformedListener {
     private GestureOverlayView mGestureOverlayView;
@@ -173,6 +178,7 @@ public class MainActivity extends Activity implements GestureOverlayView.OnGestu
 ```
 
 ### activity_main.xml
+
 ```xml
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"

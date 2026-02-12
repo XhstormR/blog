@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- JSP
+  - JSP
 date: 2017-05-02T15:08:50+08:00
 title: JSP Listener
 ---
@@ -13,35 +13,37 @@ Updated on 2017-05-02
 >
 
 ## 工作原理
+
 用于监听 ServletContext、ServletRequest、HttpSession 等对象的创建、销毁以及属性增删事件。
 
-* 按监听对象划分
-  * ServletContext（application）
-      * Servlet**Context**Listener
-      * Servlet**Context**AttributeListener
-  * ServletRequest（request）
-      * Servlet**Request**Listener
-      * Servlet**Request**AttributeListener
-  * HttpSession（session）
-      * Http**Session**Listener
-      * Http**Session**AttributeListener
-  * JavaBean
-      * Http**Session**BindingListener（绑定 - 解绑）
-      * Http**Session**ActivationListener（钝化 - 活化）
-* 按监听事件划分
-  * 对象的创建与销毁
-      * Servlet**Context**Listener
-      * Servlet**Request**Listener
-      * Http**Session**Listener
-  * 属性的增加、删除与替换
-      * Servlet**Context**AttributeListener
-      * Servlet**Request**AttributeListener
-      * Http**Session**AttributeListener
-  * 绑定至 HttpSession 中属性状态的改变
-      * Http**Session**BindingListener（绑定 - 解绑）
-      * Http**Session**ActivationListener（钝化 - 活化）
+- 按监听对象划分
+  - ServletContext（application）
+    - Servlet**Context**Listener
+    - Servlet**Context**AttributeListener
+  - ServletRequest（request）
+    - Servlet**Request**Listener
+    - Servlet**Request**AttributeListener
+  - HttpSession（session）
+    - Http**Session**Listener
+    - Http**Session**AttributeListener
+  - JavaBean
+    - Http**Session**BindingListener（绑定 - 解绑）
+    - Http**Session**ActivationListener（钝化 - 活化）
+- 按监听事件划分
+  - 对象的创建与销毁
+    - Servlet**Context**Listener
+    - Servlet**Request**Listener
+    - Http**Session**Listener
+  - 属性的增加、删除与替换
+    - Servlet**Context**AttributeListener
+    - Servlet**Request**AttributeListener
+    - Http**Session**AttributeListener
+  - 绑定至 HttpSession 中属性状态的改变
+    - Http**Session**BindingListener（绑定 - 解绑）
+    - Http**Session**ActivationListener（钝化 - 活化）
 
 ### User
+
 ```kotlin
 package a
 
@@ -71,6 +73,7 @@ data class User(val name: String = "Tom") : HttpSessionBindingListener, HttpSess
 ```
 
 ### MyListener
+
 ```kotlin
 package a
 
@@ -125,6 +128,7 @@ class MyListener : ServletContextListener, ServletRequestListener, HttpSessionLi
 ```
 
 ### web.xml
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -142,7 +146,9 @@ class MyListener : ServletContextListener, ServletRequestListener, HttpSessionLi
 ```
 
 ## 在线用户案例
+
 ### JSP
+
 ```
 index.jsp
 ----
@@ -170,6 +176,7 @@ ID：<%=user.getId()%>，IP：<%=user.getIp()%>，FirstAccessTime：<%=user.getF
 ```
 
 ### MyListener
+
 ```kotlin
 package a
 
@@ -224,6 +231,7 @@ class MyListener : ServletContextListener, HttpSessionListener, ServletRequestLi
 ```
 
 ### User
+
 ```kotlin
 package a
 

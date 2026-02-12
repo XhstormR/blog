@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Notes
+  - Notes
 date: 2018-04-20T10:29:55+08:00
 title: QEMU
 ---
@@ -16,7 +16,7 @@ Updated on 2018-04-22
 
 ## QEMU
 
-* https://qemu.weilnetz.de/w64/
+- https://qemu.weilnetz.de/w64/
 
 ```bash
 创建镜像：qemu-img.exe create -f qcow2 123.qcow2 512M
@@ -29,7 +29,7 @@ Updated on 2018-04-22
 
 ## TAP
 
-* https://build.openvpn.net/downloads/releases/tap-windows-9.24.2.zip
+- https://build.openvpn.net/downloads/releases/tap-windows-9.24.2.zip
 
 ```bash
 安装：tapinstall install OemVista.inf TAP0901
@@ -46,8 +46,8 @@ https://github.com/OpenVPN/tap-windows6
 
 ## Linux
 
-* [https://mirrors.tuna.tsinghua.edu.cn/alpine/latest-stable/releases/x86_64/alpine.iso](https://mirrors.tuna.tsinghua.edu.cn/alpine/latest-stable/releases/x86_64/alpine-virt-3.7.0-x86_64.iso)
-* [https://mirrors.tuna.tsinghua.edu.cn/tinycorelinux/9.x/x86_64/release/CorePure64.iso](https://mirrors.tuna.tsinghua.edu.cn/tinycorelinux/9.x/x86_64/release/CorePure64-current.iso)
+- [https://mirrors.tuna.tsinghua.edu.cn/alpine/latest-stable/releases/x86_64/alpine.iso](https://mirrors.tuna.tsinghua.edu.cn/alpine/latest-stable/releases/x86_64/alpine-virt-3.7.0-x86_64.iso)
+- [https://mirrors.tuna.tsinghua.edu.cn/tinycorelinux/9.x/x86_64/release/CorePure64.iso](https://mirrors.tuna.tsinghua.edu.cn/tinycorelinux/9.x/x86_64/release/CorePure64-current.iso)
 
 ```bash
 Alpine
@@ -65,7 +65,7 @@ echo PermitRootLogin yes >> /etc/ssh/sshd_config
 
 ## Windows
 
-* https://sourceforge.net/projects/reactos/files/ReactOS/
+- https://sourceforge.net/projects/reactos/files/ReactOS/
 
 ## 网络连接
 

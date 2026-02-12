@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Notes
+  - Notes
 date: 2020-10-08T11:45:51+08:00
 title: 构建 Redis
 ---
@@ -17,6 +17,7 @@ Updated on 2020-10-08
 > [Redis](https://github.com/redis/redis/archive/unstable.zip)
 
 ## Step
+
 ```bash
 D:\Work\Download\redis-unstable>
 
@@ -27,6 +28,7 @@ make CFLAGS='-s -Os -D_GNU_SOURCE' LDFLAGS='-static'
 ```
 
 ## Tool
-* https://github.com/laixintao/iredis
-* https://redislabs.com/redisinsight/
-  * https://downloads.redisinsight.redislabs.com/latest/redisinsight-win.msi
+
+- https://github.com/laixintao/iredis
+- https://redislabs.com/redisinsight/
+  - https://downloads.redisinsight.redislabs.com/latest/redisinsight-win.msi

@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Notes
+  - Notes
 date: 2017-12-17T19:36:42+08:00
 title: FuZZbuNch
 ---
@@ -17,10 +17,12 @@ Updated on 2017-12-17
 > https://github.com/fuzzbunch/fuzzbunch/archive/master.zip
 
 ## Concept
-* 目标地址：RHOST（Remote Host）
-* 监听地址：LHOST（Listener Host）
+
+- 目标地址：RHOST（Remote Host）
+- 监听地址：LHOST（Listener Host）
 
 ## Step
+
 ```bash
 reg import 123.reg
 pywin32-221.win32-py2.6.exe
@@ -55,8 +57,9 @@ Windows Registry Editor Version 5.00
 ```
 
 ## Reference
-* http://bobao.360.cn/learning/detail/3743.html
-* https://danderspritz.com/
-* https://github.com/nixawk/labs
-* [https://github.com/rapid7/metasploit-framework/wiki/How-to-use-a-reverse-shell](https://github.com/rapid7/metasploit-framework/wiki/How-to-use-a-reverse-shell-in-Metasploit)
-* [https://github.com/rapid7/metasploit-payloads/blob/master/java/javapayload](https://github.com/rapid7/metasploit-payloads/blob/master/java/javapayload/src/main/java/metasploit/Payload.java)
+
+- http://bobao.360.cn/learning/detail/3743.html
+- https://danderspritz.com/
+- https://github.com/nixawk/labs
+- [https://github.com/rapid7/metasploit-framework/wiki/How-to-use-a-reverse-shell](https://github.com/rapid7/metasploit-framework/wiki/How-to-use-a-reverse-shell-in-Metasploit)
+- [https://github.com/rapid7/metasploit-payloads/blob/master/java/javapayload](https://github.com/rapid7/metasploit-payloads/blob/master/java/javapayload/src/main/java/metasploit/Payload.java)

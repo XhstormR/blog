@@ -1,6 +1,6 @@
 ---
 tags:
-- JAVA
+  - JAVA
 date: 2017-02-14T15:29:22+08:00
 title: Java Socket
 ---
@@ -11,16 +11,17 @@ Updated on 2017-02-16
 
 > {{< image "uploads/java-socket.png" "Socket" "1" "1" >}}
 
-* Socket：属于 **操作系统提供** 的一个 API 接口，**不属于** TCP/IP 协议栈，工作在应用层与传输层之间，由 **协议** 和 **地址** 共同确定。
-  * 协议：TCP（面向连接，可靠）、UDP（面向无连接，不可靠）。
-  * 地址：
-      * IP：IPv4（192.168.1.1）、IPv6。
-      * 端口：[0,65535]，其中 [0,1023] 为系统所保留。
-* Uniform Resource Locator（URL）：统一资源定位器，表示 Internet 上某一 **资源地址**。
-  * `http://blog.xhstormr.tk:80/post/jooq/index.html?abc=123&def=456#top`
-      * 由 **协议名** 和 **资源名** 共同组成，中间用 **冒号** 隔开。
+- Socket：属于 **操作系统提供** 的一个 API 接口，**不属于** TCP/IP 协议栈，工作在应用层与传输层之间，由 **协议** 和 **地址** 共同确定。
+  - 协议：TCP（面向连接，可靠）、UDP（面向无连接，不可靠）。
+  - 地址：
+    - IP：IPv4（192.168.1.1）、IPv6。
+    - 端口：[0,65535]，其中 [0,1023] 为系统所保留。
+- Uniform Resource Locator（URL）：统一资源定位器，表示 Internet 上某一 **资源地址**。
+  - `http://blog.xhstormr.tk:80/post/jooq/index.html?abc=123&def=456#top`
+    - 由 **协议名** 和 **资源名** 共同组成，中间用 **冒号** 隔开。
 
 ## InetAddress
+
 ```kotlin
 fun main(args: Array<String>) {
 //    InetAddress.getByName("192.168.1.2")
@@ -41,6 +42,7 @@ IP地址（字节数组）：[-64, -88, 1, 2]
 ```
 
 ## URL
+
 ```kotlin
 fun main(args: Array<String>) {
     val url1 = URL("http://blog.xhstormr.tk:80")
@@ -68,8 +70,9 @@ http://blog.xhstormr.tk:80/post/jooq/index.html?abc=123&def=456#top
 ```
 
 ## TCP
-* Socket
-* ServerSocket
+
+- Socket
+- ServerSocket
 
 ```kotlin
 服务端（多线程）：
@@ -128,8 +131,9 @@ Receive：Hello Client!
 ```
 
 ## UDP
-* DatagramPacket
-* DatagramSocket
+
+- DatagramPacket
+- DatagramSocket
 
 ```kotlin
 服务端：

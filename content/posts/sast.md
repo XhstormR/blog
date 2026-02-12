@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-    -
+  -
 date: 2022-04-18T15:28:59+08:00
 title: SAST
 ---
@@ -15,8 +15,9 @@ Updated on 2022-04-18
 > https://docs.github.com/zh/code-security/guides
 
 ## Semgrep
-* https://github.com/returntocorp/semgrep
-* https://github.com/returntocorp/semgrep-rules
+
+- https://github.com/returntocorp/semgrep
+- https://github.com/returntocorp/semgrep-rules
 
 ```shell
 python3 -m pip install --index-url=https://mirrors.aliyun.com/pypi/simple/ --upgrade semgrep
@@ -25,10 +26,11 @@ semgrep scan --verbose --disable-version-check --metrics off --scan-unknown-exte
 ```
 
 ## CodeQL
-* https://codeql.github.com/docs
-* https://github.com/github/codeql-action/releases/latest
-    * https://github.com/github/codeql
-    * https://github.com/github/codeql-cli-binaries
+
+- https://codeql.github.com/docs
+- https://github.com/github/codeql-action/releases/latest
+  - https://github.com/github/codeql
+  - https://github.com/github/codeql-cli-binaries
 
 ```shell
 xcode-select --install
@@ -44,31 +46,36 @@ mkdir db
 ```
 
 ## Gitleaks
-* https://github.com/gitleaks/gitleaks
+
+- https://github.com/gitleaks/gitleaks
 
 ```shell
 gitleaks detect -v -f sarif -r gitleaks-result.sarif.json -s '/Users/user/Documents/IdeaProjects/text-masker/'
 ```
 
 ## Gosec
-* https://github.com/securego/gosec
+
+- https://github.com/securego/gosec
 
 ```shell
 gosec -no-fail -fmt sarif -out gosec-result.sarif.json '/Users/user/Documents/IdeaProjects/text-masker/...'
 ```
 
 ## KICS
-* https://github.com/Checkmarx/kics
-* https://github.com/Checkmarx/kics/blob/master/Dockerfile
+
+- https://github.com/Checkmarx/kics
+- https://github.com/Checkmarx/kics/blob/master/Dockerfile
 
 ```shell
 kics scan --no-progress --report-formats 'sarif,html,pdf' --output-name kics-result -o ./ -p '/Users/user/Documents/IdeaProjects/text-masker/'
 ```
 
 ## SARIF Format
-* https://sarif.info/Validation
-* https://microsoft.github.io/sarif-web-component
+
+- https://sarif.info/Validation
+- https://microsoft.github.io/sarif-web-component
 
 ## Reference
-* Other code scanning tools
-  * https://github.com/SonarSource/sonarqube
+
+- Other code scanning tools
+  - https://github.com/SonarSource/sonarqube

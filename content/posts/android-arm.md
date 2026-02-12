@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Android
+  - Android
 date: 2020-11-26T17:11:51+08:00
 title: Android 模拟器启用 ARM 支持
 ---
@@ -13,13 +13,15 @@ Updated on 2020-11-26
 >
 
 ## AnBox
-* https://docs.anbox.io/userguide/install.html
-* https://github.com/geeks-r-us/anbox-playstore-installer
+
+- https://docs.anbox.io/userguide/install.html
+- https://github.com/geeks-r-us/anbox-playstore-installer
 
 ## Android-x86
-* https://mirrors.bfsu.edu.cn/osdn/android-x86/67834/android-x86_64-7.1-r4-k419.iso
-* https://github.com/Rprop/libhoudini
-* https://www.cnblogs.com/gao241/archive/2013/03/11/2953669.html
+
+- https://mirrors.bfsu.edu.cn/osdn/android-x86/67834/android-x86_64-7.1-r4-k419.iso
+- https://github.com/Rprop/libhoudini
+- https://www.cnblogs.com/gao241/archive/2013/03/11/2953669.html
 
 ```
 在 BIOS 界面选择 Debug 模式，之后：
@@ -43,4 +45,5 @@ adb root
 ```
 
 ## Reference
-* https://www.zhihu.com/question/48522805
+
+- https://www.zhihu.com/question/48522805

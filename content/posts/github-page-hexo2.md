@@ -1,6 +1,6 @@
 ---
 tags:
-- Hexo
+  - Hexo
 date: 2016-02-08T21:05:48+08:00
 title: Hexo(二)
 ---
@@ -11,10 +11,11 @@ title: Hexo(二)
 
 站点配置用到两个文件 :
 
-- 对博客的配置 H:\hexo\\_config.yml
+- 对博客的配置 H:\hexo\\\_config.yml
 - 对主题的配置 H:\hexo\themes\light_config.yml
 
-对博客的配置 H:\hexo\\_config.yml
+对博客的配置 H:\hexo\\\_config.yml
+
 ```
 # Hexo Configuration
 ## Docs: http://zespia.tw/hexo/docs/configure.html
@@ -104,6 +105,7 @@ deploy:
 ```
 
 对主题的配置 H:\hexo\themes\light_config.yml
+
 ```
 menu: #站点右上角导航栏，暂时默认，后面介绍修改
   首页: /
@@ -145,20 +147,25 @@ rss:  #生成RSS，需要配置路径，暂时默认，后面介绍
 ```
 
 ## 新建一篇photo文章
+
 ```
 hexo new photo "my new photo"
 ```
 
 ## 新建一个页面
+
 ```
 hexo new page "my new page"
 ```
 
 ## 新建一篇文章
+
 ```
 hexo new post "my new post"     #hexo n "my new post"
 ```
-在H:\hexo\source\_posts中打开这个文件（打开方式用“记事本”即可），配置开头。
+
+在H:\hexo\source_posts中打开这个文件（打开方式用“记事本”即可），配置开头。
+
 ```
 title: title #文章标题
 date: 2015-02-05 12:47:44 #文章生成时间
@@ -168,14 +175,18 @@ description: #你对本页的描述 可以省略
 ---
 这里开始使用markdown格式输入你的正文。
 ```
+
 想在首页文章预览添加图片可以添加photo参数 这个需要fancybox=true 如下:
+
 ```
 photos:
 - http://bruce.u.qiniudn.com/2013/11/27/reading/photos-0.jpg
 ```
 
 ## 主页文章显示摘要
+
 编辑md文件的时候，在要作为摘要的文字后面添加即可。
+
 ```
 以上是文章摘要
 <!-- more -->
@@ -183,13 +194,16 @@ photos:
 ```
 
 ## 不解析Html文件
+
 hexo默认是解析html文件的，于是，html文件只要放入相应目录下命名好，hexo解析完成，将其作为一篇“文章”“插入”到模板中。如果不希望被解析，在单个html文件开头添加如下信息：
+
 ```
 layout: false
 ---
 ```
 
 ## 生成post时默认生成categories配置项
+
 在scaffolds/post.md中，添加一行categories:。同理可应用在page.md和photo.md。
 
 ## 添加RSS和Sitemap插件
@@ -198,7 +212,9 @@ layout: false
 npm install hexo-generator-feed
 npm install hexo-generator-sitemap
 ```
+
 在博客配置文件中启用插件
+
 ```
 plugins:
 - hexo-generator-feed
@@ -206,11 +222,14 @@ plugins:
 ```
 
 ## 文章中插入图片
+
 - 使用本地路径：在`hexo/source`目录下新建一个`uploads`文件夹，将图片放入该文件夹下，插入图片时链接即为`/uploads/图片名称`。
 - 使用微博等图床，推荐[七牛](https://portal.qiniu.com/signup?code=3lpah2qd7hidu)。
 
 ## 批量部署
-编辑 _config.yml。
+
+编辑 \_config.yml。
+
 ```
 deploy:
   type: git
@@ -221,6 +240,7 @@ deploy:
 ```
 
 ## 通过SSH建立Github与本地的通信
+
 ```
 $ ssh -T git@github.com
 ```

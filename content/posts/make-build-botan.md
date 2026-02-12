@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Notes
+  - Notes
 date: 2017-09-21T20:01:46+08:00
 title: 构建 botan
 ---
@@ -19,6 +19,7 @@ Updated on 2017-09-21
 > [botan](https://github.com/randombit/botan/archive/master.zip)
 
 ## Step
+
 ```bash
 D:\Work\Download\botan-master>
 
@@ -29,6 +30,7 @@ botan.exe rng 25
 ```
 
 ## Reference
-* [cli](https://botan.randombit.net/manual/cli.html)
+
+- [cli](https://botan.randombit.net/manual/cli.html)
 
 [{{< image "uploads/file-into-picture2.png" "" "0" "0" >}}](http://ww4.sinaimg.cn/large/a15b4afegy1fjsksn4s1kj203k03k7wh)

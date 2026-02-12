@@ -1,6 +1,6 @@
 ---
 tags:
-- Android
+  - Android
 date: 2016-08-12T14:47:11+08:00
 title: Android Fragment
 ---
@@ -12,20 +12,24 @@ Updated on 2016-08-14
 > {{< image "uploads/android-fragment.svg" "Fragment 生命周期方法" "1" "1" >}}
 
 ## FragmentManager
-* `findFragmentById()` ⟺ `findFragmentByTag()`：获得 Fragment 对象。
-* `addOnBackStackChangedListener()`：添加监听回退栈变化的监听器。
-* `popBackStack()`：弹出回退栈，模拟用户按下返回按钮。
+
+- `findFragmentById()` ⟺ `findFragmentByTag()`：获得 Fragment 对象。
+- `addOnBackStackChangedListener()`：添加监听回退栈变化的监听器。
+- `popBackStack()`：弹出回退栈，模拟用户按下返回按钮。
 
 ## FragmentTransaction
-* `add()` ⟺ `remove()`：`onAttach()-onResume()` ⟺ `onPause()-onDetach()`
-* `attach()` ⟺ `detach()`：`onCreateView()-onResume()` ⟺ `onPause()-onDestroyView()`
-* `show()` ⟺ `hide()`：不执行生命周期中的方法，仅仅是显示或隐藏。
-* `replace()`：销毁容器中所有的 Fragment，再添加一个指定的 Fragment。
+
+- `add()` ⟺ `remove()`：`onAttach()-onResume()` ⟺ `onPause()-onDetach()`
+- `attach()` ⟺ `detach()`：`onCreateView()-onResume()` ⟺ `onPause()-onDestroyView()`
+- `show()` ⟺ `hide()`：不执行生命周期中的方法，仅仅是显示或隐藏。
+- `replace()`：销毁容器中所有的 Fragment，再添加一个指定的 Fragment。
 
 ---
 
 ## 创建 Fragment
+
 ### Fragment.java
+
 ```java
 public class Fragment extends android.app.Fragment {     继承 Fragment
 
@@ -104,6 +108,7 @@ public class Fragment extends android.app.Fragment {     继承 Fragment
 ```
 
 ### fragment.xml
+
 ```xml
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
@@ -118,7 +123,9 @@ public class Fragment extends android.app.Fragment {     继承 Fragment
 ```
 
 ## 加载 Fragment
+
 ### 静态加载
+
 ```xml
 main_activity.xml
 ⇳
@@ -130,6 +137,7 @@ main_activity.xml
 ```
 
 ### 动态加载
+
 ```java
 main_activity.xml
 ⇳
@@ -150,7 +158,9 @@ fragmentTransaction.commit();     提交事务
 ```
 
 ## Fragment 通信
+
 ### 传入
+
 ```java
 不存在
 ----
@@ -194,6 +204,7 @@ public void setText(String string) {     实现接口方法
 ```
 
 ### 传出
+
 ```java
 接口 (MyListener.java)
 interface MyListener {

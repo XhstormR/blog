@@ -1,6 +1,6 @@
 ---
 tags:
-- Android
+  - Android
 date: 2016-10-02T13:27:20+08:00
 title: Android 数据存储
 ---
@@ -18,14 +18,16 @@ Updated on 2016-10-06
 > ContentProvider (组件)
 
 ## SharedPreferences
+
 一种轻型的数据存储方式，基于 XML 文件存储（Key-Value）键值对数据。
 
 ( String、int、long、float、boolean、Set\<String\> )
 
-* SharedPreferences：获取数据 ( getXXX )。
-* SharedPreferences.Editor：修改数据 ( putXXX )，存储数据 ( commit、apply )。
+- SharedPreferences：获取数据 ( getXXX )。
+- SharedPreferences.Editor：修改数据 ( putXXX )，存储数据 ( commit、apply )。
 
 ### MainActivity.java
+
 ```java
 public class MainActivity extends Activity {
     private EditText mUserName, mPassword;
@@ -82,6 +84,7 @@ public class MainActivity extends Activity {
 ```
 
 ### main_activity.xml
+
 ```xml
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:orientation="vertical"
@@ -164,20 +167,22 @@ public class MainActivity extends Activity {
 ```
 
 ## SQLite
+
 一种轻量级的数据库，无需依赖，无需配置，无需安装，所有数据都存储在一个文件当中。
 
 ( NULL (空值)、INTEGER (整形)、REAL (浮点型)、TEXT (字符串)、BLOB (二进制) )
 
-* SQLiteDatabase：操作数据库的类。
-  * 原生 SQL 语句方法：execSQL、rawQuery。
-  * 执行 SDK 封装方法：insert、delete、update、query。
-* SQLiteOpenHelper：管理数据库的类。
-  * onCreate：创建数据库时调用。
-  * onUpgrade：更新数据库时调用。
-  * getWritableDatabase：以读写方式打开数据库。
-  * getReadableDatabase：以只读方式打开数据库。（假）
+- SQLiteDatabase：操作数据库的类。
+  - 原生 SQL 语句方法：execSQL、rawQuery。
+  - 执行 SDK 封装方法：insert、delete、update、query。
+- SQLiteOpenHelper：管理数据库的类。
+  - onCreate：创建数据库时调用。
+  - onUpgrade：更新数据库时调用。
+  - getWritableDatabase：以读写方式打开数据库。
+  - getReadableDatabase：以只读方式打开数据库。（假）
 
 ### MainActivity.java
+
 ```java
 public class MainActivity extends Activity {
 
@@ -259,6 +264,7 @@ public class MainActivity extends Activity {
 ```
 
 ### MySQLiteOpenHelper.java
+
 ```java
 public class MySQLiteOpenHelper extends SQLiteOpenHelper {     继承 SQLiteOpenHelper
     public MySQLiteOpenHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
@@ -278,9 +284,11 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {     继承 SQLiteOpen
 ```
 
 ## File
+
 自定义数据文件。
 
 ### MainActivity.java
+
 ```java
 public class MainActivity extends Activity {
     private EditText editText;
@@ -340,6 +348,7 @@ public class MainActivity extends Activity {
 ```
 
 ### main_activity.xml
+
 ```xml
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
@@ -375,13 +384,15 @@ public class MainActivity extends Activity {
 ```
 
 ## ContentProvider
+
 用于实现不同应用程序之间共享数据的组件。
 
-* ContentProvider：内容提供器，通过 Uri 地址给外部应用程序访问来提供数据。`out`
-* ContentResolver：内容解析器，通过访问外部应用程序的 Uri 地址来获得数据。`in`
-* ContentResolver 通过指定 Uri 访问 ContentProvider，调用其提供的增删改查方法。
+- ContentProvider：内容提供器，通过 Uri 地址给外部应用程序访问来提供数据。`out`
+- ContentResolver：内容解析器，通过访问外部应用程序的 Uri 地址来获得数据。`in`
+- ContentResolver 通过指定 Uri 访问 ContentProvider，调用其提供的增删改查方法。
 
 ### MainActivity.java
+
 ```java
 import android.provider.ContactsContract.CommonDataKinds.Email;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
@@ -462,6 +473,7 @@ public class MainActivity extends Activity {
 ```
 
 ### MyContentProvider.java
+
 ```java
 public class MyContentProvider extends ContentProvider {     继承 ContentProvider
     @Override

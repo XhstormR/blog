@@ -1,6 +1,6 @@
 ---
 tags:
-- JAVA
+  - JAVA
 date: 2016-07-01T16:17:53+08:00
 title: 通过 Java 实现租车系统
 ---
@@ -14,6 +14,7 @@ Updated on 2016-07-02
 > 分别创建了三个类：车类(Car)、方法类(Method)、入口类(Initial)
 
 ## Car.java
+
 ```java
 class Car {
     private String name;
@@ -54,6 +55,7 @@ class Car {
 ```
 
 ## Method.java
+
 ```java
 import java.util.Scanner;
 
@@ -138,6 +140,7 @@ class Method {
 ```
 
 ## Initial.java
+
 ```java
 import java.util.Scanner;
 

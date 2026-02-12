@@ -1,6 +1,6 @@
 ---
 tags:
-- Android
+  - Android
 date: 2016-10-13T12:21:04+08:00
 title: Android Service
 ---
@@ -12,10 +12,12 @@ Updated on 2016-10-16
 > {{< image "uploads/android-service.svg" "Service 生命周期方法" "1" "1" >}}
 
 ## 启动服务
-* 调用 `startService()` 后服务便会在后台无限期运行，需手动停止服务。
-* 如果服务已经启动，再调用 `startService()`，则只会调用 `onStartCommand()`。
+
+- 调用 `startService()` 后服务便会在后台无限期运行，需手动停止服务。
+- 如果服务已经启动，再调用 `startService()`，则只会调用 `onStartCommand()`。
 
 ### MainActivity.java
+
 ```java
 public class MainActivity extends Activity {
 
@@ -48,6 +50,7 @@ public class MainActivity extends Activity {
 ```
 
 ### MyService.java
+
 ```java
 public class MyService extends Service {
 
@@ -92,6 +95,7 @@ public class MyService extends Service {
 ```
 
 ### activity_main.xml
+
 ```xml
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -115,11 +119,13 @@ public class MyService extends Service {
 ```
 
 ## 绑定服务
-* 绑定服务可以获得服务对象，获取服务的状态和数据并调用服务中的方法，与之通信。
-* 通过 `bindService()` 启动的服务，通过 `unbindService()` 解绑后，如果没有绑定对象，服务会自动停止。
-* 服务可以同时通过 `startService()` 和 `bindService()` 启动，但之后必须手动调用 `stopService()` 停止服务且停止时服务中没有绑定对象。
+
+- 绑定服务可以获得服务对象，获取服务的状态和数据并调用服务中的方法，与之通信。
+- 通过 `bindService()` 启动的服务，通过 `unbindService()` 解绑后，如果没有绑定对象，服务会自动停止。
+- 服务可以同时通过 `startService()` 和 `bindService()` 启动，但之后必须手动调用 `stopService()` 停止服务且停止时服务中没有绑定对象。
 
 ### MainActivity.java
+
 ```java
 public class MainActivity extends Activity {
     private MyService mService;
@@ -177,6 +183,7 @@ public class MainActivity extends Activity {
 ```
 
 ### MyService.java
+
 ```java
 public class MyService extends Service {
     private final Binder mBinder = new MyBinder();
@@ -219,6 +226,7 @@ public class MyService extends Service {
 ```
 
 ### activity_main.xml
+
 ```xml
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -248,6 +256,7 @@ public class MyService extends Service {
 ```
 
 ## AndroidManifest.xml
+
 ```xml
 <application
 

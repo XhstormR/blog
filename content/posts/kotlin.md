@@ -1,6 +1,6 @@
 ---
 tags:
-- Kotlin
+  - Kotlin
 date: 2016-12-25T10:31:02+08:00
 title: Kotlin
 ---
@@ -34,6 +34,7 @@ Updated on 2017-04-13
 > https://storage.googleapis.com/developers-playground/kp-wrapper-devsite.html
 
 ## Code
+
 ```kotlin
 // ABC
 
@@ -1304,11 +1305,13 @@ class java.lang.String
 ![](uploads/kotlin-transform.png "Transform")
 
 ## Script
+
 ```
 D:\Download\kotlinc\bin>kotlinc -script DeleteFile.kts
 ```
 
 ## JavaScript
+
 ```
 D:\Download\kotlinc\bin>kotlinc-js -output 123.js A.kt
 ```
@@ -1331,23 +1334,23 @@ external fun alert(message: Any?)//暴露外部 API
 
 ```html
 <html>
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>123</title>
-</head>
-<body>
+  </head>
+  <body>
     <script type="text/javascript" src="kotlin.js"></script>
     <script type="text/javascript" src="123.js"></script>
-</body>
+  </body>
 </html>
 ```
 
 ## Reference
 
-* https://realm.io/cn/news/droidcon-michael-pardo-kotlin/
-* https://realm.io/cn/news/getting-started-with-kotlin-and-anko/
-* https://realm.io/cn/news/oredev-jake-wharton-kotlin-advancing-android-dev/
-* JavaScript：
-  * https://github.com/Kotlin/dukat
-  * https://github.com/vuejs/vue/tree/dev/types
-  * https://www.typescriptlang.org/dt/search
+- https://realm.io/cn/news/droidcon-michael-pardo-kotlin/
+- https://realm.io/cn/news/getting-started-with-kotlin-and-anko/
+- https://realm.io/cn/news/oredev-jake-wharton-kotlin-advancing-android-dev/
+- JavaScript：
+  - https://github.com/Kotlin/dukat
+  - https://github.com/vuejs/vue/tree/dev/types
+  - https://www.typescriptlang.org/dt/search

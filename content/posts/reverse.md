@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- V2Ray
+  - V2Ray
 date: 2019-10-20T22:14:43+08:00
 title: 内网穿透
 ---
@@ -13,6 +13,7 @@ Updated on 2019-10-20
 > https://github.com/v2fly/v2fly-github-io/blob/master/docs/config/reverse.md
 
 ## 内网
+
 ```json
 {
   "log": {
@@ -55,19 +56,13 @@ Updated on 2019-10-20
     "rules": [
       {
         "type": "field",
-        "inboundTag": [
-          "bridge"
-        ],
-        "domain": [
-          "full:example.com"
-        ],
+        "inboundTag": ["bridge"],
+        "domain": ["full:example.com"],
         "outboundTag": "tunnel"
       },
       {
         "type": "field",
-        "inboundTag": [
-          "bridge"
-        ],
+        "inboundTag": ["bridge"],
         "outboundTag": "out"
       }
     ]
@@ -76,6 +71,7 @@ Updated on 2019-10-20
 ```
 
 ## 公网
+
 ```json
 {
   "log": {
@@ -122,19 +118,13 @@ Updated on 2019-10-20
     "rules": [
       {
         "type": "field",
-        "inboundTag": [
-          "tunnel"
-        ],
-        "domain": [
-          "full:example.com"
-        ],
+        "inboundTag": ["tunnel"],
+        "domain": ["full:example.com"],
         "outboundTag": "portal"
       },
       {
         "type": "field",
-        "inboundTag": [
-          "in"
-        ],
+        "inboundTag": ["in"],
         "outboundTag": "portal"
       }
     ]
@@ -158,6 +148,7 @@ Updated on 2019-10-20
 ```
 
 ## 客户端
+
 ```json
 {
   "log": {

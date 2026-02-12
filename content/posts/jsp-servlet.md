@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- JSP
+  - JSP
 date: 2017-04-11T18:15:43+08:00
 title: JSP Servlet
 ---
@@ -13,7 +13,9 @@ Updated on 2017-04-11
 >
 
 ## 工作原理
+
 ### MyServlet
+
 ```kotlin
 package a
 
@@ -60,6 +62,7 @@ https://tomcat.apache.org/tomcat-9.0-doc/servletapi/javax/servlet/http/HttpServl
 ```
 
 ### web.xml
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

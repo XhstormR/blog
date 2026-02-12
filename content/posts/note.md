@@ -1,6 +1,6 @@
 ---
 tags:
-- Notes
+  - Notes
 date: 2016-02-08T21:08:50+08:00
 title: Note
 ---
@@ -10,6 +10,7 @@ title: Note
 > {{< image "uploads/note.png" "Kratos" "1" "1" >}}
 
 ## 特殊符号
+
 ```java
 特殊符号：
 ·⊙①◎Θ⊙●○¤㊣㈱＠の■□★☆◆◇◣◢◤◥▲△▼▽⊿◢▂▃▄▅▆▇█▉▊▋▌▍▎▏■□〓≡↑↓→←↘↙♀♂┇┅‖$@* amp;#※卍卐∞Ψ§∮№⌒＊◆◇◎●☉
@@ -44,6 +45,7 @@ http://emojipedia.org/cross-mark/
 ```
 
 ## DOTA2
+
 ```java
 启动：
 -novid -console -high
@@ -54,6 +56,7 @@ dota_disable_range_finder 0
 ```
 
 ## 纯 UEFI 模式下转换 GPT 格式
+
 ```java
 1. BIOS 设置中启动项关闭兼容模式
 2. 插入 Win8 启动盘后，出现第一个"下一步"，按shift+f10调出命令对话框
@@ -66,12 +69,14 @@ dota_disable_range_finder 0
 ```
 
 ## GPU & CPU 天梯表
+
 ```bash
 http://malu.me/gpu/
 http://malu.me/cpu/
 ```
 
 ## DNS
+
 ```bash
 OpenDNS:
 208.67.222.222
@@ -83,17 +88,20 @@ https://dns11.quad9.net/dns-query
 ```
 
 ## 磁盘分区空间量设置
+
 ```java
 100 G：
 100 * 1024 + 615 = 103015
 ```
 
 ## Git-GUI
+
 ```java
 "D:\Download\PortableGit-MSysGit\bin\wish.exe D:/Download/PortableGit-MSysGit/libexec/git-core/git-gui"
 ```
 
 ## Clevo mirror
+
 ```bash
 BIOS：
 https://repo.palkeo.com/clevo-mirror/
@@ -103,6 +111,7 @@ https://www.sagernotebook.com/drivers.php?cat=580
 ```
 
 ## VPN
+
 ```bash
 http://www.ipmana.com/
 
@@ -119,6 +128,7 @@ userpass
 ```
 
 ## 无界
+
 ```bash
 无界：
 https://ultrasurf.us/index.html
@@ -138,11 +148,13 @@ https://getlantern.org
 ```
 
 ## 在线输入法（书签）
+
 ```bash
 javascript:void(document.body.appendChild(document.createElement('script')).src='https://www.baidu.com/olime/bdime_open.js')
 ```
 
 ## Firefox
+
 ```bash
 https://ftp.mozilla.org/pub/firefox/
 https://download-origin.cdn.mozilla.net/pub/firefox/
@@ -150,6 +162,7 @@ https://download-installer.cdn.mozilla.net/pub/firefox/
 ```
 
 ## Server（Win）
+
 ```bash
 Apache：
 https://www.apachehaus.com/cgi-bin/download.plx
@@ -166,6 +179,7 @@ https://downloads.solarwinds.com/solarwinds/Release/SU/15.1.6/SU-FTP-Server-Wind
 ```
 
 ## 目录索引
+
 ```
 Nginx：
 nginx.exe -s reload
@@ -187,6 +201,7 @@ https://github.com/mholt/caddy/blob/master/caddyhttp/browse/setup.go#L116
 ```
 
 ## 善用佳软
+
 ```bash
 游览器：Chrome
 播放器：MPC-BE
@@ -198,26 +213,27 @@ https://github.com/mholt/caddy/blob/master/caddyhttp/browse/setup.go#L116
 ```
 
 ## Aria2 Curl Wget 代理下载
+
 ```html
-Curl：
-https://curl.haxx.se/download.html#Win64
-curl -x socks5h://127.0.0.1:1080 www.baidu.com
-
-curl -Oku XhstormR:123456 "sftp://127.0.0.1/d/download/123.txt"
-
-curl -u "KEY:SECRET" --aws-sigv4 "aws:amz:us-west-004:s3" "https://<MY_BUCKET_NAME>.s3.us-west-004.backblazeb2.com/123.txt"
-curl -u "KEY:SECRET" --aws-sigv4 "aws:amz:auto:s3" "https://<ACCOUNT_ID>.r2.cloudflarestorage.com/<MY_BUCKET_NAME>/123.txt"
-
-Wget：
-https://eternallybored.org/misc/wget/current/wget.exe
-wget -e "http_proxy=10.34.3.71:808" www.baidu.com
-
-Aria2：
-https://github.com/aria2/aria2/releases/latest
-aria2c --all-proxy="10.34.3.71:808" -s16 -x16 -k1M http://www.baidu.com/
+Curl： https://curl.haxx.se/download.html#Win64 curl -x socks5h://127.0.0.1:1080
+www.baidu.com curl -Oku XhstormR:123456 "sftp://127.0.0.1/d/download/123.txt"
+curl -u "KEY:SECRET" --aws-sigv4 "aws:amz:us-west-004:s3"
+"https://<MY_BUCKET_NAME
+  >.s3.us-west-004.backblazeb2.com/123.txt" curl -u "KEY:SECRET" --aws-sigv4
+  "aws:amz:auto:s3" "https://<ACCOUNT_ID
+    >.r2.cloudflarestorage.com/<MY_BUCKET_NAME
+      >/123.txt" Wget： https://eternallybored.org/misc/wget/current/wget.exe
+      wget -e "http_proxy=10.34.3.71:808" www.baidu.com Aria2：
+      https://github.com/aria2/aria2/releases/latest aria2c
+      --all-proxy="10.34.3.71:808" -s16 -x16 -k1M
+      http://www.baidu.com/</MY_BUCKET_NAME
+    ></ACCOUNT_ID
+  ></MY_BUCKET_NAME
+>
 ```
 
 ## Wget 镜像网站
+
 ```bash
 @ curl -so 123.html http://pdf7.tarena.com.cn/tts8_source/ttsPage/VIP/VIP_ESD00/index/mytts.html
 
@@ -251,45 +267,41 @@ https://www.gnu.org/software/wget/manual/wget.html
 ```
 
 ## Xshell & Xftp
+
 ```bash
 Xshell：保持活动状态 -> 字符串 -> 0 \n
 ```
 
 ## Video Download
+
 ```html
-youtube-dl：（FFmpeg 自动合并）
-https://yt-dl.org/downloads/latest/
-youtube-dl.exe --proxy socks5://127.0.0.1:1080 -F URL
-youtube-dl.exe --proxy socks5://127.0.0.1:1080 -f 137+140 URL
-
-you-get：
-https://github.com/soimort/you-get/releases/latest
-
-Bilibili：
-http://www.bilibilijj.com/DownLoad/Cid/10143543
-
-Andy's FLV Joiner：（FLV 合并）
-http://www.videohelp.com/download/FLVJoin0.6.zip
-
-yamdi：（FLV 关键帧）
-https://sourceforge.net/projects/yamdi/files/
-yamdi -i src.flv -o dst.flv
-
-XML to ASS：（弹幕转字幕）
-https://tiansh.github.io/us-danmaku/bilibili/
+youtube-dl：（FFmpeg 自动合并） https://yt-dl.org/downloads/latest/
+youtube-dl.exe --proxy socks5://127.0.0.1:1080 -F URL youtube-dl.exe --proxy
+socks5://127.0.0.1:1080 -f 137+140 URL you-get：
+https://github.com/soimort/you-get/releases/latest Bilibili：
+http://www.bilibilijj.com/DownLoad/Cid/10143543 Andy's FLV Joiner：（FLV 合并）
+http://www.videohelp.com/download/FLVJoin0.6.zip yamdi：（FLV 关键帧）
+https://sourceforge.net/projects/yamdi/files/ yamdi -i src.flv -o dst.flv XML to
+ASS：（弹幕转字幕） https://tiansh.github.io/us-danmaku/bilibili/
 https://danmu2ass.codeplex.com/releases
 ```
 
 ## Chrome CSS
-```css
-正则排除网址：((?!localhost|xhstormr.tk).)*
 
-a{text-decoration:none !important}
-a:hover { text-decoration: underline !important;}
-*:not([class*="icon"]):not(i){font-family: "Microsoft YaHei","Symbol" !important;}
+```css
+正则排除网址：((?!localhost|xhstormr.tk).)* a {
+  text-decoration: none !important;
+}
+a:hover {
+  text-decoration: underline !important;
+}
+*:not([class*="icon"]):not(i) {
+  font-family: "Microsoft YaHei", "Symbol" !important;
+}
 ```
 
 ## Chrome User Agent
+
 ```bash
 iPhone：
 --User-Agent="Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X; en-us) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53"
@@ -302,18 +314,19 @@ Windows：
 ```
 
 ## Chrome HSTS
-```html
-chrome://net-internals/#hsts
 
-强制忽略证书错误：badidea、thisisunsafe
+```html
+chrome://net-internals/#hsts 强制忽略证书错误：badidea、thisisunsafe
 ```
 
 ## Chrome Screenshot
+
 ```html
 F12 -> Ctrl+Shift+P -> full size screenshot
 ```
 
 ## Search
+
 ```bash
 https://duckduckgo.com/?q=123
 
@@ -329,6 +342,7 @@ intitle:标题
 ```
 
 ## Hosts
+
 ```bash
 C:\Windows\System32\drivers\etc\
 ⇳
@@ -343,6 +357,7 @@ C:\Windows\System32\drivers\etc\
 ```
 
 ## GApps
+
 ```bash
 https://www.apkmirror.com/apk/google-inc/google-services-framework/
 https://www.apkmirror.com/apk/google-inc/google-play-services/
@@ -353,30 +368,19 @@ https://github.com/opengapps/opengapps
 ```
 
 ## Google（Mirrors）
+
 ```html
 https://raw.githubusercontent.com/googlehosts/hosts/master/hosts-files/hosts
-
-EXE：
-https://en.m.wikipedia.org/wiki/Google_Chrome
-https://api.shuax.com/tools/getchrome
-https://repo.fdzh.org/chrome/exe/
--
+EXE： https://en.m.wikipedia.org/wiki/Google_Chrome
+https://api.shuax.com/tools/getchrome https://repo.fdzh.org/chrome/exe/ -
 https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html
 https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html?prefix=Android/523313/
 https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html?prefix=Win_x64/523309/
 https://commondatastorage.googleapis.com/chromium-browser-snapshots/Android/LAST_CHANGE
 https://commondatastorage.googleapis.com/chromium-browser-snapshots/Win_x64/LAST_CHANGE
--
-type nul > "D:\Program Files\Chrome\User Data\SwReporter"
-
-CRX：
-http://yurl.sinaapp.com/crx.php
-
-APK：
-https://apps.evozi.com/apk-downloader/
-https://apkleecher.com/
-https://m.apkpure.com/
-https://www.apk4fun.com/
+- type nul > "D:\Program Files\Chrome\User Data\SwReporter" CRX：
+http://yurl.sinaapp.com/crx.php APK： https://apps.evozi.com/apk-downloader/
+https://apkleecher.com/ https://m.apkpure.com/ https://www.apk4fun.com/
 ```
 
 ```bash
@@ -419,6 +423,7 @@ Windows Registry Editor Version 5.00
 ```
 
 ## Operating System（Mirrors）
+
 ```bash
 MSDN：
 https://msdn.itellyou.cn/
@@ -600,6 +605,7 @@ https://github.com/libretro/RetroArch
 ```
 
 ## SQL
+
 ```bash
 osquery：
 https://github.com/facebook/osquery
@@ -657,6 +663,7 @@ WHERE USERNAME = 'ADMIN';
 ```
 
 ## FFmpeg
+
 ```bash
 ffmpeg.exe -i http://example.com/1.m3u8 -c copy 123.mkv
 ffplay.exe "http://example.com/1.m3u8"
@@ -684,6 +691,7 @@ https://ffmpeg.zeranoe.com/builds/
 ```
 
 ## Windows 禁用 OneDrive、Defender 等组件
+
 ```bash
 gpedit.msc -> 计算机配置 -> 管理模板 -> Windows 组件 -> OneDrive & Windows Defender
 
@@ -712,6 +720,7 @@ reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\TimeBrokerSvc /v St
 ```
 
 ## Windows 输入法
+
 ```
 语言和区域
 ----
@@ -731,6 +740,7 @@ reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\TimeBrokerSvc /v St
 ## Windows 镜像操作
 
 Vmware 虚拟机安装 ESD，WIM 格式的 Windows：
+
 1. 虚拟机系统镜像选择 Windows PE 的 ISO 镜像；
 2. 进入 PE 后，将虚拟磁盘转为 GPT 格式，创建 ESP 分区用于引导系统；
 3. 将 ESD，WIM 文件复制到 U 盘，插入主机并由虚拟机接管；
@@ -744,6 +754,7 @@ https://github.com/Chuyu-Team/Dism-Multi-language
 ```
 
 ## Domain
+
 ```bash
 注册：https://my.freenom.com/
 解析：https://www.cloudxns.net/
@@ -752,6 +763,7 @@ https://github.com/Chuyu-Team/Dism-Multi-language
 ```
 
 ## Pandoc
+
 ```bash
 Markdown ➜ HTML：
 pandoc -s -o 123.html --self-contained 123.md
@@ -775,6 +787,7 @@ https://github.com/JetBrains/kotlin-web-site/blob/master/src/pdf.py
 ```
 
 ## Xpdf
+
 ```bash
 pdftotext -layout -nopgbrk -enc UTF-8 123.pdf - | grep 123
 
@@ -782,62 +795,49 @@ https://www.xpdfreader.com/pdftotext-man.html
 ```
 
 ## ImageMagick
+
 ```html
-magick.exe convert -size 1000 123.svg 123.png     svg ➜ png
-magick.exe convert -density 300 123.pdf 123.png     pdf ➜ png
-magick.exe convert -extent +0+10 -crop 0x2000 123.png 456.png     分割图片
-magick.exe convert -transparent white -fuzz 25% 123.png 456.png     透明图片
-
-https://www.imagemagick.org/script/download.php#windows
-----
-转换 PDF: https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/latest     将 gswin64c.exe 更名为 gs.exe
-操作 PDF: https://github.com/coherentgraphics/cpdf-binaries
-查看 PDF: https://mupdf.com/downloads/
-
-https://pngquant.org/
+magick.exe convert -size 1000 123.svg 123.png svg ➜ png magick.exe convert
+-density 300 123.pdf 123.png pdf ➜ png magick.exe convert -extent +0+10 -crop
+0x2000 123.png 456.png 分割图片 magick.exe convert -transparent white -fuzz 25%
+123.png 456.png 透明图片 https://www.imagemagick.org/script/download.php#windows
+---- 转换 PDF:
+https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/latest 将
+gswin64c.exe 更名为 gs.exe 操作 PDF:
+https://github.com/coherentgraphics/cpdf-binaries 查看 PDF:
+https://mupdf.com/downloads/ https://pngquant.org/
 http://advsys.net/ken/utils.htm
-https://sourceforge.net/projects/optipng/files/OptiPNG/
-
-https://tinify.cn/
-http://m.2gei.com/bgremover/
-https://imageoptim.com/mozjpeg
-
+https://sourceforge.net/projects/optipng/files/OptiPNG/ https://tinify.cn/
+http://m.2gei.com/bgremover/ https://imageoptim.com/mozjpeg
 http://editor.method.ac/
 http://127.0.0.1/draw/war/index.html?lang=zh&https=0&local=1&demo=1
 ```
 
 ## UTF-8 with BOM
+
 ```bash
 (busybox printf "\xEF\xBB\xBF" & iconv -f UTF-16 -t UTF-8 123.txt) > 456.txt
 ```
 
 ## 回车和换行
+
 ```html
-回车（CR）：\r
-换行（LF）：\n
-
-Unix：\n
-Mac ：\r
-Dos ：\r\n
-
-FOR /R %G IN (*.md)  DO (unix2dos.exe -q "%G")
-FOR /L %G IN (1,1,5) DO (type nul > %G.txt)
-
+回车（CR）：\r 换行（LF）：\n Unix：\n Mac ：\r Dos ：\r\n FOR /R %G IN (*.md)
+DO (unix2dos.exe -q "%G") FOR /L %G IN (1,1,5) DO (type nul > %G.txt)
 http://www.efgh.com/software/unix2dos.htm
 https://waterlan.home.xs4all.nl/dos2unix.html
 ```
 
 ## 代码格式化
+
 ```html
-FOR /R "D:\Download\code" %%i IN (*) DO (uncrustify.exe -c 123.cfg --no-backup "%%i")
-
-http://astyle.sourceforge.net/
-https://github.com/uncrustify/uncrustify
-
+FOR /R "D:\Download\code" %%i IN (*) DO (uncrustify.exe -c 123.cfg --no-backup
+"%%i") http://astyle.sourceforge.net/ https://github.com/uncrustify/uncrustify
 http://ww4.sinaimg.cn/large/a15b4afegy1fkfjyuhmvlj203k03kaor
 ```
 
 ## 修改环境变量
+
 ```bash
 set
 echo %PATH%
@@ -865,94 +865,65 @@ busybox realpath 123.txt
 ```
 
 ## WebX
+
 ```html
 https://storage.googleapis.com/downloads.webmproject.org/releases/webm/index.html
 https://storage.googleapis.com/downloads.webmproject.org/releases/webp/index.html
 ```
 
 ## Translation
+
 ```html
-https://cn.bing.com/translator
-https://www.deepl.com/translator
-https://translate.google.cn/m/translate
-
-https://m.dict.cn/
-https://dict.eudic.net/
-https://dict.youdao.com/m
-https://www.collinsdictionary.com/zh/
-
-简繁转换：https://github.com/BYVoid/OpenCC
+https://cn.bing.com/translator https://www.deepl.com/translator
+https://translate.google.cn/m/translate https://m.dict.cn/
+https://dict.eudic.net/ https://dict.youdao.com/m
+https://www.collinsdictionary.com/zh/ 简繁转换：https://github.com/BYVoid/OpenCC
 ```
 
 ## Bilibili 专栏取消复制限制
+
 ```html
 $(".article-holder").removeClass("unable-reprint");
 $(".article-holder").off("copy");
 ```
 
 ## SumatraPDF
-```html
-TextColor = #a9b7c6
-BackgroundColor = #2b2b2b
-SelectionColor = #b3d4fc
 
+```html
+TextColor = #a9b7c6 BackgroundColor = #2b2b2b SelectionColor = #b3d4fc
 https://www.sumatrapdfreader.org/settings.html
 https://www.sumatrapdfreader.org/prerelease.html
 ```
 
 ## C
+
 ```html
-C：
-https://zh.m.wikipedia.org/zh-cn/C语言
-
+C： https://zh.m.wikipedia.org/zh-cn/C语言
 https://en.wikibooks.org/wiki/C_Programming
-https://code.google.com/archive/p/msys-cn/
-
-https://zh.cppreference.com/w/c
+https://code.google.com/archive/p/msys-cn/ https://zh.cppreference.com/w/c
 http://www.cplusplus.com/reference/clibrary/
 https://pubs.opengroup.org/onlinepubs/9699919799/idx/index.html
 http://docwiki.embarcadero.com/RADStudio/Rio/en/C_Run-Time_Library_Reference
 https://docs.microsoft.com/zh-cn/cpp/c-runtime-library/run-time-routines-by-category
 https://docs.microsoft.com/zh-cn/cpp/c-language/organization-of-the-c-language-reference
-
-CMake：
-https://cmake.org/cmake/help/latest/
-
-MFC：
-https://docs.microsoft.com/zh-cn/cpp/mfc/mfc-desktop-applications
-
-GCC：
-https://gcc.gnu.org/onlinedocs/gcc/Option-Index.html
-
-IDE：
+CMake： https://cmake.org/cmake/help/latest/ MFC：
+https://docs.microsoft.com/zh-cn/cpp/mfc/mfc-desktop-applications GCC：
+https://gcc.gnu.org/onlinedocs/gcc/Option-Index.html IDE：
 https://www1.qt.io/offline-installers/#section-11
 https://www.jetbrains.com/clion/download/
-https://sourceforge.net/projects/orwelldevcpp/
-
-Templates：
+https://sourceforge.net/projects/orwelldevcpp/ Templates：
 https://svn.code.sf.net/p/codeblocks/code/trunk/src/templates/
-https://sourceforge.net/p/orwelldevcpp/code/ci/master/tree/Templates/
-
-Linux Code:
-https://elixir.bootlin.com/
+https://sourceforge.net/p/orwelldevcpp/code/ci/master/tree/Templates/ Linux
+Code: https://elixir.bootlin.com/
 ```
 
 ## C\#（.NET Core）
+
 ```html
-dotnet new console -n hello && cd hello
------
-dotnet publish -c abc
-dotnet hello.dll
------
-dotnet publish -c abc -r win-x64
-hello.exe
-
-Core：
-https://www.microsoft.com/net/download/windows
-Framework：
-C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe
-
-API：
+dotnet new console -n hello && cd hello ----- dotnet publish -c abc dotnet
+hello.dll ----- dotnet publish -c abc -r win-x64 hello.exe Core：
+https://www.microsoft.com/net/download/windows Framework：
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe API：
 https://docs.microsoft.com/zh-cn/dotnet/api/index?view=netframework-4.7
 https://docs.microsoft.com/zh-cn/dotnet/api/system.math.sqrt?view=netframework-4.7
 ```
@@ -967,12 +938,14 @@ class Hello {
 ```
 
 ## Office
+
 ```bash
 多窗口切换：视图 -> 切换窗口
 快捷键设置：选项 -> 自定义功能区 -> 键盘快捷方式 -> 视图选项卡 -> WindowList -> Alt+Shift+Q
 ```
 
 ### Excel
+
 ```bash
 https://support.office.com/zh-cn/article/Excel-函数（按字母顺序）-b3944572-255d-4efb-bb96-c6d90033e188
 https://support.office.com/zh-cn/article/面向-Windows-的-Excel-键盘快捷方式和功能键-1798d9d5-842a-42b8-9c99-9b7213f0040f
@@ -989,17 +962,17 @@ Ctrl+D     向下填充
 ```
 
 ### Install
-#### C2R（零售版）
-```html
-setup.exe /download 123.xml
-setup.exe /configure 123.xml
 
+#### C2R（零售版）
+
+```html
+setup.exe /download 123.xml setup.exe /configure 123.xml
 https://config.office.com/
 https://www.microsoft.com/en-us/download/confirmation.aspx?id=49117
 https://support.office.com/zh-cn/article/d3879f0d-766c-469c-9440-0a9a2a905ca8
-https://support.microsoft.com/zh-cn/help/257757
------
-PS：4 天死磕的教训，软件编程方面少跟 **微软的系统组件** 打交道，特别是关于注册表、DCOM、Office 之类的。
+https://support.microsoft.com/zh-cn/help/257757 ----- PS：4
+天死磕的教训，软件编程方面少跟 **微软的系统组件**
+打交道，特别是关于注册表、DCOM、Office 之类的。
 ```
 
 ```xml
@@ -1025,6 +998,7 @@ PS：4 天死磕的教训，软件编程方面少跟 **微软的系统组件** �
 ```
 
 #### MSI（批量授权版）
+
 ```bash
 http://blog.sina.com.cn/s/blog_17b2ea0820102x7ds.html
 
@@ -1036,6 +1010,7 @@ cscript.exe //Nologo "%CD%\Office16\OSPP.vbs" /dstatus
 ```
 
 ## Replace Notepad
+
 ```bash
 Install:
 reg add "HKLM\Software\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\notepad.exe" /v "Debugger" /t REG_SZ /d "\"%~dp0Notepad2.exe\" /z" /f
@@ -1044,6 +1019,7 @@ reg delete "HKLM\Software\Microsoft\Windows NT\CurrentVersion\Image File Executi
 ```
 
 ## Photoshop
+
 ```
 1. 仿制图章
 2. 栅格化文字
@@ -1052,12 +1028,14 @@ reg delete "HKLM\Software\Microsoft\Windows NT\CurrentVersion\Image File Executi
 ```
 
 ## Warcraft III CD-Key
+
 ```bash
    Reign of Chaos: K30EKC-XZ85-6FHWP5-QNY3-314OF6
 The Frozen Throne: WGZPYW-V6CY-7P7JTR-YH4F-8ZH9PC
 ```
 
 ## Hacker
+
 ```bash
 漏洞：
 https://drops.tuisec.win/
@@ -1131,6 +1109,7 @@ https://openwrt.org/toh/start
 ```
 
 ### BurpLoader
+
 ```bash
 java \
 --add-opens=java.desktop/javax.swing=ALL-UNNAMED \
@@ -1146,6 +1125,7 @@ https://t.me/BurpLoaderKeygen
 ```
 
 ## Android USB 代理网络
+
 ```bash
 adb reverse tcp:9527 tcp:8080
 adb reverse --list

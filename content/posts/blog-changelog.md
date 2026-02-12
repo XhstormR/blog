@@ -1,6 +1,6 @@
 ---
 tags:
-- Blog
+  - Blog
 date: 2016-02-08T21:03:50+08:00
 title: Blog Changelog
 ---
@@ -14,26 +14,31 @@ title: Blog Changelog
 ## Highlight
 
 ```html
-<link rel="stylesheet" href="http://apps.bdimg.com/libs/highlight.js/9.1.0/styles/monokai_sublime.min.css">
+<link
+  rel="stylesheet"
+  href="http://apps.bdimg.com/libs/highlight.js/9.1.0/styles/monokai_sublime.min.css"
+/>
 <script src="http://apps.bdimg.com/libs/highlight.js/9.1.0/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
 ```
 
 ## Scrollbar
 
 ```css
 : : -webkit-scrollbar-track-piece {
-    background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 : : -webkit-scrollbar-track-piece: horizontal {
-    background-color: #23241f;
+  background-color: #23241f;
 }
 : : -webkit-scrollbar {
-    height: 12px;
-    width: 9px;
+  height: 12px;
+  width: 9px;
 }
 : : -webkit-scrollbar-thumb {
-    background: #969CBD;
+  background: #969cbd;
 }
 ```
 
@@ -41,7 +46,7 @@ title: Blog Changelog
 
 ```css
 *: not([class*="icon"]): not(i) {
-    font-family: "Microsoft YaHei","Symbol" !important;
+  font-family: "Microsoft YaHei", "Symbol" !important;
 }
 ```
 
@@ -52,7 +57,16 @@ title: Blog Changelog
 <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="http://cdn.bootcss.com/gsap/1.18.2/TweenLite.min.js"></script>
 <script src="magic-canvas.min.js"></script>
-<script>$.magicCanvas.draw({type:"random-move",rgb:function (circlePos) {var px = circlePos.x;var py = circlePos.y;return {r:0,g:0,b:0};}})</script>
+<script>
+  $.magicCanvas.draw({
+    type: "random-move",
+    rgb: function (circlePos) {
+      var px = circlePos.x;
+      var py = circlePos.y;
+      return { r: 0, g: 0, b: 0 };
+    },
+  });
+</script>
 ```
 
 ## Scroll Mouse
@@ -108,35 +122,35 @@ function scrollPlus() {
 window === window.top && "" !== window.document.title && setTimeout(scrollPlus, 100);
 ```
 
-----
+---
 
 ```css
 /*Gradient Image*/
 img {
-    opacity: 1;
-    transition: opacity 0.6s;
+  opacity: 1;
+  transition: opacity 0.6s;
 }
 img[data-src] {
-    opacity: 0;
+  opacity: 0;
 }
 /*Selection*/
 ::selection {
-    background: #d6edff;
-    color: #222;
-    text-shadow: none;
+  background: #d6edff;
+  color: #222;
+  text-shadow: none;
 }
 /* Rotate*/
 .rotate {
-    transition: All 0.4s ease-in-out;
-    -webkit-transition: All 0.4s ease-in-out;
-    -moz-transition: All 0.4s ease-in-out;
-    -o-transition: All 0.4s ease-in-out;
+  transition: All 0.4s ease-in-out;
+  -webkit-transition: All 0.4s ease-in-out;
+  -moz-transition: All 0.4s ease-in-out;
+  -o-transition: All 0.4s ease-in-out;
 }
 .rotate:hover {
-    transform: rotate(360deg) scale(1.3);
-    -webkit-transform: rotate(360deg) scale(1.3);
-    -moz-transform: rotate(360deg) scale(1.3);
-    -o-transform: rotate(360deg) scale(1.3);
-    -ms-transform: rotate(360deg) scale(1.3);
+  transform: rotate(360deg) scale(1.3);
+  -webkit-transform: rotate(360deg) scale(1.3);
+  -moz-transform: rotate(360deg) scale(1.3);
+  -o-transform: rotate(360deg) scale(1.3);
+  -ms-transform: rotate(360deg) scale(1.3);
 }
 ```

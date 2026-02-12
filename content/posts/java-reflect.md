@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- JAVA
+  - JAVA
 date: 2017-05-08T10:37:40+08:00
 title: Java Reflect
 ---
@@ -15,6 +15,7 @@ Updated on 2017-05-08
 > [反射 API](http://download.java.net/jdk/jdk-api-localizations/jdk-api-zh-cn/publish/1.6.0/html/zh_CN/api/java/lang/reflect/package-summary.html)
 
 ## Class 对象
+
 类是 java.lang.Class 的实例对象。
 
 ```java
@@ -57,6 +58,7 @@ Java 中的静态成员和基本数据类型不是面向对象的。
 ```
 
 ## Method 对象
+
 ```java
 package a;
 
@@ -101,6 +103,7 @@ show  void  [class [Ljava.lang.reflect.Method;]
 ```
 
 ### Method Invoke
+
 ```java
 package a;
 
@@ -154,6 +157,7 @@ null
 ```
 
 ## Field 对象
+
 ```java
 package a;
 
@@ -193,6 +197,7 @@ CASE_INSENSITIVE_ORDER  Comparator
 ```
 
 ## Constructor 对象
+
 ```java
 package a;
 
@@ -229,9 +234,12 @@ java.lang.Integer  [class java.lang.String]
 ```
 
 ## 通过反射理解泛型本质
+
 1. 反射的操作都是在**运行时刻**进行。
 2. **编译之后**的集合会**去掉泛型约束**。
-  * 泛型约束只在编译阶段有效。
+
+- 泛型约束只在编译阶段有效。
+
 3. 绕过编译 ➜ 绕过泛型。
 
 ```java

@@ -3,7 +3,7 @@ title: 低潜在抑制症
 date: 2024-06-26T09:26:12+03:00
 author: XhstormR
 tags:
--
+  -
 ---
 
 <!--more-->
@@ -95,13 +95,14 @@ LLI低潜在抑制症文章内有提及。由于LLI在生活中很少见，有�
 LLI低潜在抑制症会引发一系列幻想，想象内容的程度非常大，低于平均智商或年纪偏小的人，可能无法承受，引致精神分裂。
 
 ## Reference
-* https://psycnet.apa.org/record/2010-16421-001
-* https://baike.baidu.com/item/%E4%BD%8E%E6%BD%9C%E5%9C%A8%E6%8A%91%E5%88%B6%E7%97%87/10807860#
-* https://www.zhihu.com/question/301999320/answer/1810481778
-* https://www.zhihu.com/question/29286285/answer/1897706881
-* https://www.zhihu.com/question/460088893/answer/1913380876
-* https://www.zhihu.com/question/1989505062725236457/answer/1997682960942523875
-* https://zhuanlan.zhihu.com/p/541169016
-* https://hauy.wordpress.com/2007/10/19/%E4%BD%8E%E6%BD%9C%E5%9C%A8%E6%8A%91%E5%88%B6%E7%97%87-low-latent-inhibition/
-* https://www.douban.com/note/90440925/?_i=7318883pIOHUBR
-* https://vocus.cc/article/650dceabfd89780001ae13aa
+
+- https://psycnet.apa.org/record/2010-16421-001
+- https://baike.baidu.com/item/%E4%BD%8E%E6%BD%9C%E5%9C%A8%E6%8A%91%E5%88%B6%E7%97%87/10807860#
+- https://www.zhihu.com/question/301999320/answer/1810481778
+- https://www.zhihu.com/question/29286285/answer/1897706881
+- https://www.zhihu.com/question/460088893/answer/1913380876
+- https://www.zhihu.com/question/1989505062725236457/answer/1997682960942523875
+- https://zhuanlan.zhihu.com/p/541169016
+- https://hauy.wordpress.com/2007/10/19/%E4%BD%8E%E6%BD%9C%E5%9C%A8%E6%8A%91%E5%88%B6%E7%97%87-low-latent-inhibition/
+- https://www.douban.com/note/90440925/?_i=7318883pIOHUBR
+- https://vocus.cc/article/650dceabfd89780001ae13aa

@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- JSP
+  - JSP
 date: 2017-05-05T18:43:44+08:00
 title: JSP 实例
 ---
@@ -17,6 +17,7 @@ Updated on 2017-05-05
 ### 原生
 
 #### JSP
+
 ```
 index.jsp
 ----
@@ -45,6 +46,7 @@ index.jsp
 ```
 
 #### MyServlet1
+
 ```kotlin
 package a
 
@@ -84,6 +86,7 @@ class MyServlet1 : HttpServlet() {     生成
 ```
 
 #### MyServlet2
+
 ```kotlin
 package a
 
@@ -112,11 +115,13 @@ class MyServlet2 : HttpServlet() {     验证
 ```
 
 ### 使用开源组件 kaptcha
+
 ```
 compile 'com.github.penggle:kaptcha:2.3.2'
 ```
 
 #### JSP
+
 ```
 index.jsp
 ----
@@ -145,6 +150,7 @@ index.jsp
 ```
 
 #### MyServlet
+
 ```kotlin
 package a
 
@@ -173,6 +179,7 @@ class MyServlet : HttpServlet() {     验证
 ```
 
 #### web.xml
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

@@ -1,6 +1,6 @@
 ---
 tags:
-- JAVA
+  - JAVA
 date: 2016-11-13T19:48:15+08:00
 title: RxJava
 ---
@@ -30,6 +30,7 @@ Updated on 2016-11-22
 > [Book](https://rxjava.yuxingxin.com/)
 
 ## Java Native
+
 ```java
 import java.util.Observable;
 import java.util.Observer;
@@ -77,6 +78,7 @@ Update: 456
 ```
 
 ## Observable - 被观察者
+
 ```java
 Observable<String> observable = Observable.create(new Observable.OnSubscribe<String>() {     传入 OnSubscribe，描述事件
     @Override
@@ -123,6 +125,7 @@ Note：
 ```
 
 ## Observer - 观察者
+
 ```java
 Observer<String> observer = new Observer<String>() {     接口（最终会被包装为 Subscriber）
     @Override
@@ -180,11 +183,12 @@ Action1<String> action1 = System.out::println;     简化为方法引用
 ```
 
 ## Scheduler - 线程调度
+
 默认情况下调用链（事件流）在调用 subscribe() 的线程上运行，可以通过以下 2 种方法指定运行线程：
 
-* （一次）`subscribeOn()`：指定其运行线程。
-* （多次）`observeOn()`：切换其运行线程。
-  * `subscribeOn()` 用于指定最开始调用链（事件流）的运行线程，后期可通过 `observeOn()` 随时切换其运行线程。
+- （一次）`subscribeOn()`：指定其运行线程。
+- （多次）`observeOn()`：切换其运行线程。
+  - `subscribeOn()` 用于指定最开始调用链（事件流）的运行线程，后期可通过 `observeOn()` 随时切换其运行线程。
 
 ```java
 Observable
@@ -244,9 +248,11 @@ Observable
 ```
 
 ## Operators - 操作符
+
 类似于 Java 8 中的 Stream 的内部迭代。
 
 ### 转换
+
 ```java
 public class A {
     private static final List<Author> LIST = Arrays.asList(
@@ -338,6 +344,7 @@ Ruby2
 ```
 
 ### 过滤
+
 ```java
 public class A {
     private static final List<Author> LIST = Arrays.asList(
@@ -458,6 +465,7 @@ public class A {
 ```
 
 ### 组合
+
 ```java
 public class A {
     private static String[] strings = {"A", "B", "C", "D", "E"};

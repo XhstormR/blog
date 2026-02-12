@@ -1,6 +1,6 @@
 ---
 tags:
-- Android
+  - Android
 date: 2016-11-26T23:15:56+08:00
 title: Data Binding Framework
 ---
@@ -24,12 +24,14 @@ Updated on 2016-12-03
 > https://developer.android.com/topic/libraries/data-binding/index.html
 
 ## 双向绑定
-* View Listeners：将 View 响应事件产生的数据设置到 Model 中。
-  * 将 View 的事件映射到 Model 可以承载的数据格式。
-* Data Bindings：在 Model 发生变化时通知 View 作出响应。
-  * 将 Model 的数据映射到 View 的界面上。
+
+- View Listeners：将 View 响应事件产生的数据设置到 Model 中。
+  - 将 View 的事件映射到 Model 可以承载的数据格式。
+- Data Bindings：在 Model 发生变化时通知 View 作出响应。
+  - 将 Model 的数据映射到 View 的界面上。
 
 ## 启用 Data Binding
+
 ```java
 build.gradle
 ⇳
@@ -41,6 +43,7 @@ android {
 ```
 
 ## Binding Data
+
 ```java
 @Override
 protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +85,9 @@ protected void onCreate(Bundle savedInstanceState) {
 ```
 
 ## Data Objects（Data Bindings）
+
 ### 可观测对象
+
 ```java
 public class User extends BaseObservable {     继承已实现 Observable 接口的 BaseObservable
     private String name;
@@ -135,6 +140,7 @@ android:text='@{""+user.age}'
 ```
 
 ### 可观测字段
+
 ```java
 public class User {
     public final ObservableField<String> name = new ObservableField<>();     ObservableField（可观测对象）
@@ -167,7 +173,9 @@ android:text='@{""+user.age}'
 ```
 
 ### 可观测集合
+
 #### ObservableArrayMap
+
 索引为对象
 
 ```java
@@ -196,6 +204,7 @@ android:text='@{""+user["age"]}'
 ```
 
 #### ObservableArrayList
+
 索引为整数
 
 ```java
@@ -224,8 +233,11 @@ android:text='@{""+user[1]}'
 ```
 
 ## Event Handling（View Listeners）
+
 ### Method References
+
 数据绑定时就评估表达式，方法签名需相同。
+
 ```java
 public class A {
     public void a(View view) {     对应接口 OnClickListener 中的 onClick 方法
@@ -263,7 +275,9 @@ public class A {
 ```
 
 ### Listener Bindings
+
 事件发生时才评估表达式，只需返回值相同。
+
 ```java
 public class A {
     public void a(User user) {     onClick 返回 void
@@ -305,7 +319,9 @@ public class A {
 ```
 
 ### @={}
+
 仅支持 text、checked、year、mouth、hour、rating、progress 等属性。
+
 ```xml
 <data>
     <variable
@@ -337,6 +353,7 @@ public class A {
 ```
 
 ### OnPropertyChangedCallback
+
 ```java
 Observable.OnPropertyChangedCallback propertyChangedCallback = new Observable.OnPropertyChangedCallback() {     抽象类
     @Override
@@ -350,10 +367,13 @@ user.name.removeOnPropertyChangedCallback(propertyChangedCallback);     移除�
 ```
 
 ## 注解
+
 ### BindingAdapter
+
 将 XML 中定义的属性值与对应的实现方法绑定在一起。
 
 #### 绑定自定义属性
+
 **添加** 新的 XML 属性及其实现。
 
 ```java
@@ -390,6 +410,7 @@ public static void a(TextView view, int oldHeight, int newHeight) {     另外�
 ```
 
 #### 绑定系统属性
+
 对原有 XML 属性进行 **重写**。
 
 ```java
@@ -432,6 +453,7 @@ public static void b(ImageView view, String url) {     为 ImageView 加载图�
 ```
 
 #### 组合
+
 ```java
 注解（同时关联自定义属性 i1，i2，false 表示控件使用二者其一便可匹配该方法，缺失的属性用其初始值替代，默认为 true）
 例：
@@ -476,6 +498,7 @@ public static void a(ImageView view, String url, int pic) {     图片加载完�
 ```
 
 ### BindingConversion
+
 ```java
 @BindingConversion
 public static ColorDrawable a(int color) {     接收 int，转换为 ColorDrawable 对象（该方法可以写在任意位置）

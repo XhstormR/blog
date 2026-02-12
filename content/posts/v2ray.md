@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- V2Ray
+  - V2Ray
 date: 2017-11-29T17:47:16+08:00
 title: V2Ray
 ---
@@ -19,6 +19,7 @@ Updated on 2017-11-29
 ## 客户端
 
 ### socks -> socks
+
 ```json
 {
   "log": {
@@ -53,6 +54,7 @@ Updated on 2017-11-29
 ```
 
 ### socks, http -> vmess
+
 ```json
 {
   "log": {
@@ -119,25 +121,17 @@ Updated on 2017-11-29
         {
           "outboundTag": "direct",
           "type": "field",
-          "ip": [
-            "geoip:cn",
-            "geoip:private"
-          ]
+          "ip": ["geoip:cn", "geoip:private"]
         },
         {
           "outboundTag": "direct",
           "type": "field",
-          "domain": [
-            "geosite:cn",
-            "geosite:private"
-          ]
+          "domain": ["geosite:cn", "geosite:private"]
         },
         {
           "outboundTag": "blocked",
           "type": "field",
-          "domain": [
-            "geosite:category-ads-all"
-          ]
+          "domain": ["geosite:category-ads-all"]
         }
       ]
     }
@@ -148,15 +142,16 @@ Updated on 2017-11-29
 ## 服务端
 
 ### docker-compose.yml
+
 ```yaml
-version: '3'
+version: "3"
 
 services:
   v2ray:
     image: v2fly/v2fly-core:latest
     restart: always
     ports:
-      - '8080:8080'
+      - "8080:8080"
     volumes:
       - ./config.json:/etc/v2ray/config.json:ro
       - ./tls_key.pem:/root/tls_key.pem:ro
@@ -164,6 +159,7 @@ services:
 ```
 
 ### vmess
+
 ```json
 {
   "log": {
@@ -214,16 +210,12 @@ services:
     "rules": [
       {
         "type": "field",
-        "ip": [
-          "geoip:private"
-        ],
+        "ip": ["geoip:private"],
         "outboundTag": "blocked"
       },
       {
         "type": "field",
-        "domain": [
-          "geosite:private"
-        ],
+        "domain": ["geosite:private"],
         "outboundTag": "blocked"
       }
     ]
@@ -232,6 +224,7 @@ services:
 ```
 
 ### socks
+
 ```json
 {
   "log": {

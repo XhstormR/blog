@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Notes
+  - Notes
 date: 2020-02-28T14:06:07+08:00
 title: Android Proxy
 ---
@@ -13,13 +13,16 @@ Updated on 2020-02-28
 > CA 证书（根证书）需要安装（导入）为系统证书（不是用户证书），才能解密应用SSL流量。
 
 ## Tun2socks
-* https://github.com/eycorsican/go-tun2socks
+
+- https://github.com/eycorsican/go-tun2socks
 
 ### Reference
-* https://github.com/ambrop72/badvpn/wiki/Tun2socks
+
+- https://github.com/ambrop72/badvpn/wiki/Tun2socks
 
 ## Postern
-* https://github.com/postern-overwal/postern-stuff
+
+- https://github.com/postern-overwal/postern-stuff
 
 ```bash
 [Proxy]
@@ -30,13 +33,15 @@ FINAL,Proxy
 ```
 
 ## Shadowsocks
-* https://github.com/shadowsocks/shadowsocks-android
+
+- https://github.com/shadowsocks/shadowsocks-android
 
 ```bash
 ss://YWVzLTI1Ni1nY206MTIzNDU2@192.168.1.4:1234
 ```
 
 ### V2ray Config
+
 ```json
 {
   "log": {
@@ -83,8 +88,9 @@ ss://YWVzLTI1Ni1nY206MTIzNDU2@192.168.1.4:1234
 ```
 
 ## Clash
-* https://github.com/Kr328/ClashForAndroid
-* https://github.com/Dreamacro/clash/wiki/configuration
+
+- https://github.com/Kr328/ClashForAndroid
+- https://github.com/Dreamacro/clash/wiki/configuration
 
 ```yaml
 proxies:
@@ -113,9 +119,7 @@ rules:
   "inbounds": [
     {
       "type": "tun",
-      "address": [
-        "172.19.0.1/30"
-      ],
+      "address": ["172.19.0.1/30"],
       "auto_route": true,
       "strict_route": true
     }
@@ -124,10 +128,7 @@ rules:
     {
       "tag": "自选",
       "type": "selector",
-      "outbounds": [
-        "burp",
-        "直连"
-      ]
+      "outbounds": ["burp", "直连"]
     },
     {
       "tag": "burp",
@@ -180,4 +181,5 @@ rules:
 ```
 
 ## Reqable
-* https://github.com/reqable/reqable-app
+
+- https://github.com/reqable/reqable-app

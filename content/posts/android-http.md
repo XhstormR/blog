@@ -1,6 +1,6 @@
 ---
 tags:
-- Android
+  - Android
 date: 2016-10-31T08:00:57+08:00
 title: Android HTTP (待)
 ---
@@ -12,7 +12,9 @@ Updated on 2016-11-01
 >
 
 ## 加载网页和图片
+
 ### MainActivity.java
+
 ```java
 public class MainActivity extends Activity {
     private WebView mWebView;
@@ -93,6 +95,7 @@ public class MainActivity extends Activity {
 ```
 
 ### activity_main.xml
+
 ```xml
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"

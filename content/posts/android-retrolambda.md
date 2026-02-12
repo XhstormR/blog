@@ -1,6 +1,6 @@
 ---
 tags:
-- Android
+  - Android
 date: 2016-11-12T21:15:01+08:00
 title: Retrolambda
 ---
@@ -18,6 +18,7 @@ Updated on 2016-11-12
 > https://github.com/square/retrofit
 
 ## Project
+
 ```java
 build.gradle
 ⇳
@@ -26,6 +27,7 @@ classpath 'me.tatarka:gradle-retrolambda:+'
 ```
 
 ## Module
+
 ```java
 build.gradle
 ⇳
@@ -40,6 +42,7 @@ android {
 ```
 
 ## Gradle
+
 ```xml
 gradle-wrapper.properties
 ⇳
@@ -47,7 +50,9 @@ distributionUrl=http\://android-mirror.bugly.qq.com:8080/gradle/gradle-3.2.1-all
 ```
 
 # RxAndroid
+
 ## Module
+
 ```java
 build.gradle
 ⇳
@@ -56,7 +61,9 @@ compile 'io.reactivex:rxjava:+'
 ```
 
 # RxBinding
+
 ## Module
+
 ```java
 build.gradle
 ⇳
@@ -64,7 +71,9 @@ compile 'com.jakewharton.rxbinding:rxbinding:+'
 ```
 
 # Retrofit
+
 ## Module
+
 ```java
 build.gradle
 ⇳

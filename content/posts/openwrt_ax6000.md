@@ -3,7 +3,7 @@ title: OpenWrt Redmi AX6000
 date: 2024-11-25T05:30:18+03:00
 author: XhstormR
 tags:
-- openwrt
+  - openwrt
 ---
 
 <!--more-->
@@ -16,18 +16,17 @@ tags:
 
 ## uboot
 
-* https://cmi.hanwckf.top/p/mt798x-uboot-usage/
-* https://github.com/hanwckf/bl-mt798x/releases/latest
+- https://cmi.hanwckf.top/p/mt798x-uboot-usage/
+- https://github.com/hanwckf/bl-mt798x/releases/latest
 
 按住路由器的RESET按钮之后通电，保持至少15秒后松开，路由器会自动进入uboot的failsafe模式，由于uboot没有DHCP功能，需要把电脑的IP地址设置成静态IP `192.168.31.100/24`。
 
-* 更新固件: `http://192.168.31.1/`
-* 更新 uboot: `http://192.168.31.1/uboot.html`
+- 更新固件: `http://192.168.31.1/`
+- 更新 uboot: `http://192.168.31.1/uboot.html`
 
 ```shell
 scp -O '/Users/user/Downloads/mt7986_redmi_ax6000-fip-fixed-parts-multi-layout.bin' root@192.168.1.1:/tmp/
 ```
-
 
 ```shell
 opkg update && opkg install wget kmod-mtd-rw
@@ -39,8 +38,8 @@ mtd verify /tmp/mt7986_redmi_ax6000-fip-fixed-parts-multi-layout.bin FIP
 
 ## sing-box
 
-* https://github.com/SagerNet/sing-box/releases
-* https://github.com/openwrt/packages/blob/master/net/sing-box/files/sing-box.conf
+- https://github.com/SagerNet/sing-box/releases
+- https://github.com/openwrt/packages/blob/master/net/sing-box/files/sing-box.conf
 
 ```shell
 opkg update && opkg install sing-box
@@ -85,5 +84,6 @@ option user 'root'
 ![](uploads/openwrt_ax6000_2.png)
 
 ## Reference
-* https://www.right.com.cn/forum/thread-8261104-1-1.html
-* https://www.right.com.cn/forum/thread-8265832-1-1.html
+
+- https://www.right.com.cn/forum/thread-8261104-1-1.html
+- https://www.right.com.cn/forum/thread-8265832-1-1.html

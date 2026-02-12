@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- JSP
+  - JSP
 date: 2017-03-09T23:30:26+08:00
 title: Java Server Pages
 ---
@@ -21,15 +21,18 @@ Updated on 2017-03-09
 > https://tomcat.apache.org/tomcat-9.0-doc/servletapi/allclasses-noframe.html
 
 ## Tomcat
+
 {{< image "uploads/java-jsp-tomcat.png" "Tomcat" "1" "1" "275">}}
 
 ### 环境变量
-|变量值|变量名||
-|:--|:--|:--|
-|CATALINA_HOME|D:\Download\apache-tomcat-9.0.0|配置 Tomcat 安装路径|
-|------------------------------|---------------------------------------------------|------------------------------|
+
+| 变量值                         | 变量名                                              |                                |
+| :----------------------------- | :-------------------------------------------------- | :----------------------------- |
+| CATALINA_HOME                  | D:\Download\apache-tomcat-9.0.0                     | 配置 Tomcat 安装路径           |
+| ------------------------------ | --------------------------------------------------- | ------------------------------ |
 
 ### 默认欢迎页
+
 ```xml
 D:\Download\apache-tomcat-9.0.0\conf\web.xml
 ⇳
@@ -41,6 +44,7 @@ D:\Download\apache-tomcat-9.0.0\conf\web.xml
 ```
 
 ### 默认端口号
+
 ```xml
 D:\Download\apache-tomcat-9.0.0\conf\server.xml
 ⇳
@@ -50,6 +54,7 @@ D:\Download\apache-tomcat-9.0.0\conf\server.xml
 ```
 
 ### 去掉空白行
+
 ```xml
 全局
 ----
@@ -66,11 +71,13 @@ D:\Download\apache-tomcat-9.0.0\conf\web.xml
 ```
 
 ### IDEA Deployment
+
 ```
 C:\Users\Administrator\.IntelliJIdea2016.3\system\tomcat\
 ```
 
 ### IDEA Dependence
+
 ```
 Project Structure -> Modules -> Dependencies -> Add -> Library -> Tomcat
 ```
@@ -80,6 +87,7 @@ Project Structure -> Modules -> Dependencies -> Add -> Library -> Tomcat
 ### 指令
 
 #### page
+
 ```xml
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.Arrays" %>
@@ -87,6 +95,7 @@ Project Structure -> Modules -> Dependencies -> Add -> Library -> Tomcat
 ```
 
 #### include
+
 ```
 index.jsp
 ----
@@ -118,20 +127,22 @@ date.jsp     被包含的页面
 ```
 
 ##### include 指令与 include 动作的对比
-||include 指令|include 动作|
-|:--|:--|:--|
-||静态包含|动态包含|
-|生成内容|文件内容|执行结果|
-|生成 Servlet|合并|独立|
-|编译时间|较慢|较快（不解析资源）|
-|执行时间|较快（不解析资源）|较慢|
-|作用时间|编译期间|请求期间|
-|适用页面|变化较少|经常变化|
-|------------------|------------------------------|-----------------------------|
+
+|                    | include 指令                   | include 动作                  |
+| :----------------- | :----------------------------- | :---------------------------- |
+|                    | 静态包含                       | 动态包含                      |
+| 生成内容           | 文件内容                       | 执行结果                      |
+| 生成 Servlet       | 合并                           | 独立                          |
+| 编译时间           | 较慢                           | 较快（不解析资源）            |
+| 执行时间           | 较快（不解析资源）             | 较慢                          |
+| 作用时间           | 编译期间                       | 请求期间                      |
+| 适用页面           | 变化较少                       | 经常变化                      |
+| ------------------ | ------------------------------ | ----------------------------- |
 
 #### taglib
 
 ### 注释
+
 ```
 客户端可见注释：
 
@@ -150,6 +161,7 @@ date.jsp     被包含的页面
 ```
 
 ### 声明
+
 ```
 <%!     Servlet 中的成员（可声明为 static）
     private String s = "ABC";     属性
@@ -161,6 +173,7 @@ date.jsp     被包含的页面
 ```
 
 ### 脚本
+
 ```
 <%     Servlet 中的 jspService() 的方法代码
     System.out.println("你好");     输出至控制台
@@ -169,6 +182,7 @@ date.jsp     被包含的页面
 ```
 
 ### 表达式
+
 ```
 <%=s%>     调用属性（注意表达式不加分号）
 <br>
@@ -203,6 +217,7 @@ ABC
 ```
 
 ## 生命周期
+
 {{< image "uploads/java-jsp.svg" "Java Server Pages" "0" "1" >}}
 
 ## 内置对象
@@ -210,6 +225,7 @@ ABC
 ### out
 
 ### request
+
 ```
 index.jsp
 ----
@@ -294,6 +310,7 @@ Note：
 ```
 
 ### response
+
 ```
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -327,6 +344,7 @@ Note：
 ```
 
 ### session
+
 ```
 index.jsp
 ----
@@ -402,6 +420,7 @@ D:\Download\apache-tomcat-9.0.0\conf\web.xml（全局）
 ```
 
 ### application
+
 ```
 application 对象类似于 Java 中的 static 成员，属于 Web APP，由所有用户共享，可用于存放全局变量。
 application 对象始于服务器，终于服务器。
@@ -428,6 +447,7 @@ Apache Tomcat/9.0.0.M18
 ```
 
 ### page
+
 ```
 page 对象类似于 Java 中的 this 指针，指代当前 JSP 页面本身，是 java.lang.Object 的实例。
 
@@ -440,6 +460,7 @@ org.apache.jsp.index_jsp@2445d4f1
 ```
 
 ### pageContext
+
 ```
 pageContext 对象提供了对 JSP 页面内所有的命名空间的访问，相当于页面中所有功能的集大成者。
 
@@ -450,6 +471,7 @@ pageContext.include("a.jsp");     使当前位置包含另一个页面的内容�
 ```
 
 ### config
+
 ```
 <%
     StringBuilder s = new StringBuilder();
@@ -471,6 +493,7 @@ xpoweredBy = false
 ```
 
 ### exception
+
 ```
 index.jsp
 ----
@@ -575,9 +598,11 @@ login_failed.jsp
 ```
 
 ## JavaBean
+
 符合某种设计规范的类，用于封装业务数据和业务逻辑，减少代码冗余，提高代码的可维护性。
 
 ### UserBean
+
 ```java
 package a;
 
@@ -615,6 +640,7 @@ public class User {     公有类
 ```
 
 ### JSP 动作：useBean、set（get）Property
+
 ```
 <%@ page import="a.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -951,10 +977,11 @@ user.jsp
 ```
 
 ### Cookie 与 Session 的对比
-||Session|Cookie|
-|:--|:--|:--|
-|保存位置|服务端|客户端|
-|保存类型|Object 类|String 类|
-|保存数据|保存 **重要** 的数据|保存 **不重要** 的数据|
-|保存时间|随 **会话结束** 而结束|可以 **长期** 保存至客户端|
-|---------------|--------------------------|--------------------------------|
+
+|                 | Session                    | Cookie                           |
+| :-------------- | :------------------------- | :------------------------------- |
+| 保存位置        | 服务端                     | 客户端                           |
+| 保存类型        | Object 类                  | String 类                        |
+| 保存数据        | 保存 **重要** 的数据       | 保存 **不重要** 的数据           |
+| 保存时间        | 随 **会话结束** 而结束     | 可以 **长期** 保存至客户端       |
+| --------------- | -------------------------- | -------------------------------- |

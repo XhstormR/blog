@@ -1,6 +1,6 @@
 ---
 tags:
-- Android
+  - Android
 date: 2016-08-16T14:10:08+08:00
 title: Android ViewPager
 ---
@@ -12,6 +12,7 @@ Updated on 2016-08-20
 > ViewPager 通常与 Fragment 搭配使用以实现页面导航。
 
 ## Activity
+
 ```java
 public class MainActivity extends FragmentActivity implements ViewPager.OnPageChangeListener {
                                                                ↳ 继承 v4 的 FragmentActivity
@@ -77,7 +78,9 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
 ```
 
 ## Adapter
+
 ### PagerAdapter
+
 ```java
 public class MyPagerAdapter extends PagerAdapter {     实现适配器
     private List<View> viewList;     页面数据源
@@ -118,7 +121,9 @@ public class MyPagerAdapter extends PagerAdapter {     实现适配器
 -------------------------------------------------------
 最多同时加载三个页面。
 ```
+
 #### 数据源：View（Layout）
+
 ```xml
 view1
 ----
@@ -136,6 +141,7 @@ view1
 ```
 
 ### Fragment(State)PagerAdapter
+
 ```java
 public class MyFragmentPagerAdapter extends FragmentPagerAdapter {     实现适配器
     private List<Fragment> fragmentList;     页面数据源
@@ -170,7 +176,9 @@ public class MyFragmentPagerAdapter extends FragmentPagerAdapter {     实现适
 FragmentPagerAdapter：执行至 onDestroyView()。
 FragmentStatePagerAdapter：执行至 onDetach()，完全销毁。
 ```
+
 #### 数据源：Fragment
+
 ```java
 MyFragment1
 ----
@@ -185,6 +193,7 @@ public class MyFragment1 extends android.support.v4.app.Fragment {     继承 v4
 ```
 
 ## Layout
+
 ```xml
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"

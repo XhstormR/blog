@@ -1,6 +1,6 @@
 ---
 tags:
-- Android
+  - Android
 date: 2016-07-19T10:48:46+08:00
 title: Android 计算器
 ---
@@ -12,6 +12,7 @@ Updated on 2016-07-23
 > [{{< image "uploads/android-calculator.png" "Calculator" "1" "0" >}}](http://ww4.sinaimg.cn/large/a15b4afegw1f650hwobvnj203k03kk3x)
 
 ## FirstActivty.java
+
 ```java
 package com.example.system.myapplication;
 
@@ -232,6 +233,7 @@ public class FirstActivty extends AppCompatActivity implements View.OnClickListe
 ```
 
 ## first_activity.xml
+
 ```xml
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
@@ -495,6 +497,7 @@ public class FirstActivty extends AppCompatActivity implements View.OnClickListe
 ```
 
 ## drawable
+
 ```xml
 view_bg.xml
 ---
@@ -581,6 +584,7 @@ styles.xml
 ```
 
 ## colors.xml
+
 ```xml
 <color name="pink">#ffc0cb</color><!--粉红色 -->
 <color name="lightpink">#ffb6c1</color><!--亮粉红色 -->

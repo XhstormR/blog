@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Notes
+  - Notes
 date: 2018-02-18T17:27:36+08:00
 title: 构建 libxml2
 ---
@@ -15,6 +15,7 @@ Updated on 2018-02-18
 > [libxml2](https://github.com/GNOME/libxml2/archive/mainline.zip)
 
 ## Step
+
 ```bash
 D:\Work\Download\libxml2-mainline\win32>
 

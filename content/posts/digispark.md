@@ -1,8 +1,8 @@
 ---
 author: XhstormR
 tags:
-- MCU
-- BadUSB
+  - MCU
+  - BadUSB
 date: 2019-11-16T16:15:32+08:00
 title: Digispark BadUSB
 ---
@@ -16,6 +16,7 @@ Updated on 2019-11-16
 > 基于 Attiny85 单片机
 
 ## Code
+
 ```c
 #include "DigiKeyboard.h"
 
@@ -49,13 +50,15 @@ void loop() {
 ```
 
 ## Install
-* https://github.com/arduino/Arduino
-* https://github.com/digistump/arduino-boards-index
-* https://github.com/digistump/DigistumpArduino/releases/latest
+
+- https://github.com/arduino/Arduino
+- https://github.com/digistump/arduino-boards-index
+- https://github.com/digistump/DigistumpArduino/releases/latest
 
 ## Reference
-* https://github.com/toxydose/Duckyspark
-* [Digispark Example](https://github.com/digistump/DigistumpArduino/tree/master/digistump-avr/libraries/Digispark_Examples)
-* [DigiMouse.h](https://github.com/digistump/DigistumpArduino/blob/master/digistump-avr/libraries/DigisparkMouse/DigiMouse.h)
-* [DigiKeyboard.h](https://github.com/digistump/DigistumpArduino/blob/master/digistump-avr/libraries/DigisparkKeyboard/DigiKeyboard.h)
-* [HID Usage Tables](https://source.android.google.cn/devices/input/keyboard-devices#hid-keyboard-and-keypad-page-0x07)
+
+- https://github.com/toxydose/Duckyspark
+- [Digispark Example](https://github.com/digistump/DigistumpArduino/tree/master/digistump-avr/libraries/Digispark_Examples)
+- [DigiMouse.h](https://github.com/digistump/DigistumpArduino/blob/master/digistump-avr/libraries/DigisparkMouse/DigiMouse.h)
+- [DigiKeyboard.h](https://github.com/digistump/DigistumpArduino/blob/master/digistump-avr/libraries/DigisparkKeyboard/DigiKeyboard.h)
+- [HID Usage Tables](https://source.android.google.cn/devices/input/keyboard-devices#hid-keyboard-and-keypad-page-0x07)

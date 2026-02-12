@@ -1,6 +1,6 @@
 ---
 tags:
-- Notes
+  - Notes
 date: 2017-01-14T08:49:47+08:00
 title: Windows SSH Server
 ---
@@ -24,6 +24,7 @@ Updated on 2017-01-14
 > https://the.earth.li/~sgtatham/putty/latest/w64/putty.exe
 
 ## 配置
+
 ```bash
 D:\Work\BLOG\GIT>
 
@@ -61,11 +62,13 @@ type nul > .123   创建 '.' 前缀文件
 ```
 
 ## 启动
+
 ```bash
 D:\Work\BLOG\GIT\usr\bin\sshd
 ```
 
 ## 停止
+
 ```bash
 netstat -ano | findstr "0.0.0.0:22"
 

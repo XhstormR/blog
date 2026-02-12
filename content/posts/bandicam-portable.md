@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Notes
+  - Notes
 date: 2018-02-14T19:51:46+08:00
 title: Bandicam Portable
 ---
@@ -13,6 +13,7 @@ Updated on 2018-03-15
 > https://sg-dl.bandicam.com/bdcamsetup.exe
 
 ## Export
+
 ```bash
 export.bat
 ⇳
@@ -36,6 +37,7 @@ export.bat
 ```
 
 ## Import
+
 ```bash
 import.bat
 ⇳
@@ -50,6 +52,7 @@ popd
 ```
 
 ## Hosts
+
 ```bash
 C:\Windows\System32\drivers\etc\hosts
 ⇳
@@ -61,6 +64,7 @@ C:\Windows\System32\drivers\etc\hosts
 ```
 
 ## Registry
+
 ```bash
 6.reg
 ⇳

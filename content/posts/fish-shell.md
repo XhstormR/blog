@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Notes
+  - Notes
 date: 2020-03-15T17:16:19+08:00
 title: Fish Shell
 ---
@@ -19,6 +19,7 @@ Updated on 2020-03-15
 > https://software.opensuse.org/package/fish
 
 ## Build
+
 ```bash
 yum -y install gcc make cmake ncurses-devel
 
@@ -31,6 +32,7 @@ make install
 ```
 
 ## config.fish
+
 ```
 export TERM='screen-256color'
 export LANG='zh_CN.UTF-8'

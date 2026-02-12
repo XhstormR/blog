@@ -1,6 +1,6 @@
 ---
 tags:
-- Android
+  - Android
 date: 2016-10-17T17:13:39+08:00
 title: Android 系统服务
 ---
@@ -12,6 +12,7 @@ Updated on 2016-10-17
 >
 
 ## MainActivity.java
+
 ```java
 public class MainActivity extends Activity {
 
@@ -61,6 +62,7 @@ public class MainActivity extends Activity {
 ```
 
 ## activity_main.xml
+
 ```xml
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -104,6 +106,7 @@ public class MainActivity extends Activity {
 ```
 
 ## AndroidManifest.xml
+
 ```xml
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>     获得网络状态
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>     获得 WIFI 状态

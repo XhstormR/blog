@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Notes
+  - Notes
 date: 2018-10-13T13:47:42+08:00
 title: 构建 tcpdump
 ---
@@ -21,6 +21,7 @@ Updated on 2018-10-13
 > [tcpdump](https://github.com/the-tcpdump-group/tcpdump/archive/master.zip)
 
 ## Step
+
 ```bash
 D:\Work\Download\tcpdump-master>
 
@@ -39,6 +40,7 @@ md 123 && cd 123 && cmake .. && mingw32-make && mingw32-make install
 ```
 
 ## Reference
-* https://www.tcpdump.org/manpages/tcpdump.1.html
-* [npcap](https://github.com/nmap/npcap)
-* [GCC Variadic Macros](https://gcc.gnu.org/onlinedocs/gcc/Variadic-Macros.html)
+
+- https://www.tcpdump.org/manpages/tcpdump.1.html
+- [npcap](https://github.com/nmap/npcap)
+- [GCC Variadic Macros](https://gcc.gnu.org/onlinedocs/gcc/Variadic-Macros.html)

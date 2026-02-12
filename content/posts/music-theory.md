@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Notes
+  - Notes
 date: 2021-06-05T16:46:13+08:00
 title: 乐理
 ---

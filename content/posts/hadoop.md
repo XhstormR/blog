@@ -1,6 +1,6 @@
 ---
 tags:
-- Hadoop
+  - Hadoop
 date: 2016-04-14T21:45:01+08:00
 title: 自学 Hadoop
 ---
@@ -18,59 +18,64 @@ Updated on 2016-05-22
 > 分布式存储(HDFS)，分布式计算(MapReduce)
 
 ## Hadoop
+
 Hadoop 主要包括 4 个模块
 
-* Common：通用的基础程序以支持其他Hadoop的模块。
+- Common：通用的基础程序以支持其他Hadoop的模块。
 
-* HDFS：分布式文件系统，它提供对应用程序数据的高吞吐量访问。     (Hadoop Distributed File System)
+- HDFS：分布式文件系统，它提供对应用程序数据的高吞吐量访问。 (Hadoop Distributed File System)
 
-* YARN：一种作业调度和集群资源管理平台，在上面运行分布式计算，典型的计算框架有 MapReduce（批处理） , Storm（流式处理） , Spark（内存计算）。
+- YARN：一种作业调度和集群资源管理平台，在上面运行分布式计算，典型的计算框架有 MapReduce（批处理） , Storm（流式处理） , Spark（内存计算）。
 
-* MapReduce：基于 YARN 系统的大型数据并行计算框架。
+- MapReduce：基于 YARN 系统的大型数据并行计算框架。
 
 Hadoop 的其它一些子项目
 
-* Hive™：支持数据汇总和即席查询的数据仓库。
+- Hive™：支持数据汇总和即席查询的数据仓库。
 
-* HBase™：一种可扩展的支持大量结构化数据存储的分布式数据库。
+- HBase™：一种可扩展的支持大量结构化数据存储的分布式数据库。
 
-* Mahout™：一种可扩展的机器学习和数据挖掘库。
+- Mahout™：一种可扩展的机器学习和数据挖掘库。
 
-* Pig™：一个高层次的数据流语言和并行计算框架。
+- Pig™：一个高层次的数据流语言和并行计算框架。
 
 ## HDFS 架构
-* 主从结构（Master , Slaver）
-  * 主节点，可以有多个 namenode （Activity - Standby）
-      * 接收用户操作请求，是用户操作的入口
-      * 维护文件系统的目录结构，称作命名空间
-      * 管理文件与 block 之间关系，block 与 datanode 之间关系
-  * 从节点，有很多个 datanode
-      * 存储文件
-      * 文件被分成 block 存储在磁盘上
-      * 为保证数据安全，文件会有多个副本
+
+- 主从结构（Master , Slaver）
+  - 主节点，可以有多个 namenode （Activity - Standby）
+    - 接收用户操作请求，是用户操作的入口
+    - 维护文件系统的目录结构，称作命名空间
+    - 管理文件与 block 之间关系，block 与 datanode 之间关系
+  - 从节点，有很多个 datanode
+    - 存储文件
+    - 文件被分成 block 存储在磁盘上
+    - 为保证数据安全，文件会有多个副本
 
 ![](uploads/hadoop-hdfs.png)
 
 ## MapReduce 架构
-* 主从结构
-  * 主节点，只有一个 JobTracker
-      * 接收客户提交的计算任务
-      * 把计算任务分给 TaskTracker 执行，即任务调度
-      * 监控 TaskTracker 的执行情况
-  * 从节点，有很多个 TaskTracker
-      * 执行 JobTracker 分配的计算任务（Map 映射，Reduce 归约）
+
+- 主从结构
+  - 主节点，只有一个 JobTracker
+    - 接收客户提交的计算任务
+    - 把计算任务分给 TaskTracker 执行，即任务调度
+    - 监控 TaskTracker 的执行情况
+  - 从节点，有很多个 TaskTracker
+    - 执行 JobTracker 分配的计算任务（Map 映射，Reduce 归约）
 
 ![](uploads/hadoop-mapreduce.png)
 
 ## Yarn 架构
-* 主从结构
-  * 主节点，只有一个 ResourceManager
-      * 集群资源的分配与调度
-      * MapReduce、Storm、Spark 等应用必须实现 ApplicationMaster 接口才能被 RM 管理
-  * 从节点，有很多个 NodeManager
-      * 单节点资源的管理
+
+- 主从结构
+  - 主节点，只有一个 ResourceManager
+    - 集群资源的分配与调度
+    - MapReduce、Storm、Spark 等应用必须实现 ApplicationMaster 接口才能被 RM 管理
+  - 从节点，有很多个 NodeManager
+    - 单节点资源的管理
 
 ## Hadoop
+
 ```
 [root@master sbin]$ ./start-all.sh #启动 Hadoop 集群
 [root@master sbin]$ ./stop-all.sh #停止 Hadoop 集群
@@ -98,6 +103,7 @@ Hadoop 的其它一些子项目
 ```
 
 ## HDFS
+
 ```
 [root@master ~]$ hadoop fs
 等同于

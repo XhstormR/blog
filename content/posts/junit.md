@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- JUnit
+  - JUnit
 date: 2017-05-12T16:30:19+08:00
 title: JUnit
 ---
@@ -15,7 +15,9 @@ Updated on 2017-05-12
 > https://github.com/junit-team/junit5
 
 ## 工作原理
+
 ### ABC
+
 ```java
 import org.junit.*;
 
@@ -83,7 +85,9 @@ B
 ```
 
 ## 测试套件
+
 ### A
+
 ```java
 import org.junit.Test;
 
@@ -101,6 +105,7 @@ public class A {
 ```
 
 ### B
+
 ```java
 import org.junit.Test;
 
@@ -118,6 +123,7 @@ public class B {
 ```
 
 ### C
+
 ```java
 import org.junit.Test;
 
@@ -135,6 +141,7 @@ public class C {
 ```
 
 ### ABC
+
 ```java
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
@@ -155,7 +162,9 @@ C.test2
 ```
 
 ## 参数设置
+
 ### ABC
+
 ```java
 import org.junit.Assert;
 import org.junit.Test;

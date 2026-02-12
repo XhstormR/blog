@@ -1,6 +1,6 @@
 ---
 tags:
-- JAVA
+  - JAVA
 date: 2016-10-15T10:24:45+08:00
 title: Data Structure
 ---
@@ -11,9 +11,10 @@ Updated on 2016-12-16
 
 > https://zh.wikipedia.org/zh-cn/数据结构
 >
-> [https://zh.wikipedia.org/zh-cn/树_(数据结构)](https://zh.wikipedia.org/zh-cn/树_(数据结构))
+> [https://zh.wikipedia.org/zh-cn/树\_(数据结构)](<https://zh.wikipedia.org/zh-cn/树_(数据结构)>)
 
 ## Trie 树（字典树）
+
 ```java
 public class A {
     public static void main(String[] args) {

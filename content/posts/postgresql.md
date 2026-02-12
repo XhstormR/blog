@@ -1,6 +1,6 @@
 ---
 tags:
-- SQL
+  - SQL
 date: 2017-02-19T20:39:57+08:00
 title: 自学 PostgreSQL
 ---
@@ -34,37 +34,38 @@ Updated on 2017-02-19
 > [Step 3](https://get.enterprisedb.com/postgresql/postgresql-10.4-1-windows-x64-binaries.zip)
 
 ## Concept
-* 结构化查询语言（SQL）：Structured Query Language
-  * 数据定义语言（DDL）：Data Definition Language
-      * 用于建立（CREATE）、修改（ALTER）、删除（DROP）数据库对象。
-  * 数据操纵语言（DML）：Data Manipulation Language
-      * 用于改变（INSERT、UPDATE、DELETE）数据库数据。
-  * 数据查询语言（DQL）：Data Query Language
-      * 用于查询（SELECT）所需要的数据。
-  * 数据控制语言（DCL）：Data Control Language
-      * 用于权限的授予（GRANT）和收回（REVOKE），创建用户（CREATE USER）。
-  * 事务控制语言（TCL）：Transaction Control Language
-      * 用于维护数据一致性的语句，包括提交（COMMIT）、回滚（ROLLBACK）、保存点（SAVEPOINT）。
-* 增删改查（CRUD）： SQL；HTTP
-  * **增**加（**C**reate）：INSERT；POST（非幂等）
-  * **查**询（**R**etrieve）：SELECT；GET
-  * 修**改**（**U**pdate）：UPDATE；PATCH（更新资源：非幂等），PUT（替换资源：幂等）
-  * **删**除（**D**elete）：DELETE；DELETE
-* 事务（Transaction）：逻辑上的 **一组操作**，这组操作只能一起成功或者一起失败。
-  * 数据库中 **保证事务可靠** 的机制（ACID）。
-      * 原子性（**A**tomicity）：对于数据修改，要么全都执行，要么全都不执行。
-      * 一致性（**C**onsistency）：所有的数据都保持一致状态。
-      * 隔离性（**I**solation）：与其它并发事务所作的修改隔离。
-      * 持久性（**D**urability）：对于系统的影响是永久性的。
-* 数据访问对象（DAO）：Data Access Object
-  * 用于封装所有对数据库的访问，使数据访问逻辑和业务逻辑分开。
-  * 数据传递对象
-      * 值对象（Value Object）
-      * 实体对象（Entity）
-* 对象关系映射（ORM）：Object Relation Mapping
-      * **类**中的**对象**的**属性**（Java）<— 映射（ORM） —>**表**中的**记录**的**字段**（Database）
+
+- 结构化查询语言（SQL）：Structured Query Language
+  - 数据定义语言（DDL）：Data Definition Language
+    - 用于建立（CREATE）、修改（ALTER）、删除（DROP）数据库对象。
+  - 数据操纵语言（DML）：Data Manipulation Language
+    - 用于改变（INSERT、UPDATE、DELETE）数据库数据。
+  - 数据查询语言（DQL）：Data Query Language
+    - 用于查询（SELECT）所需要的数据。
+  - 数据控制语言（DCL）：Data Control Language
+    - 用于权限的授予（GRANT）和收回（REVOKE），创建用户（CREATE USER）。
+  - 事务控制语言（TCL）：Transaction Control Language
+    - 用于维护数据一致性的语句，包括提交（COMMIT）、回滚（ROLLBACK）、保存点（SAVEPOINT）。
+- 增删改查（CRUD）： SQL；HTTP
+  - **增**加（**C**reate）：INSERT；POST（非幂等）
+  - **查**询（**R**etrieve）：SELECT；GET
+  - 修**改**（**U**pdate）：UPDATE；PATCH（更新资源：非幂等），PUT（替换资源：幂等）
+  - **删**除（**D**elete）：DELETE；DELETE
+- 事务（Transaction）：逻辑上的 **一组操作**，这组操作只能一起成功或者一起失败。
+  - 数据库中 **保证事务可靠** 的机制（ACID）。
+    - 原子性（**A**tomicity）：对于数据修改，要么全都执行，要么全都不执行。
+    - 一致性（**C**onsistency）：所有的数据都保持一致状态。
+    - 隔离性（**I**solation）：与其它并发事务所作的修改隔离。
+    - 持久性（**D**urability）：对于系统的影响是永久性的。
+- 数据访问对象（DAO）：Data Access Object
+  - 用于封装所有对数据库的访问，使数据访问逻辑和业务逻辑分开。
+  - 数据传递对象
+    - 值对象（Value Object）
+    - 实体对象（Entity）
+- 对象关系映射（ORM）：Object Relation Mapping \* **类**中的**对象**的**属性**（Java）<— 映射（ORM） —>**表**中的**记录**的**字段**（Database）
 
 ## Initial
+
 ```bash
 initdb.exe -A scram-sha-256 -E UTF8 --no-locale --lc-messages="Chinese (Simplified)_China.936" -U 123 -W -D D:\12345
 pg_ctl.exe -l D:\log.txt -D D:\12345 start
@@ -79,6 +80,7 @@ compile("org.postgresql:postgresql:+")
 ```
 
 ## Operate
+
 ```bash
 \c     切换数据库
 \l     列出数据库
@@ -136,7 +138,9 @@ select pg_postmaster_start_time();     显示系统启动日期
 ```
 
 ## Table
+
 ### Create
+
 ```sql
 DROP TABLE a;
 
@@ -297,6 +301,7 @@ CREATE TABLE b (     从表
 ```
 
 ### Alter
+
 ```sql
 添加字段（列）
 -------------------------------------------------------
@@ -379,6 +384,7 @@ SET search_path TO a,public;     设置
 ```
 
 ## Inherit
+
 ```sql
 CREATE TABLE a (     创建父表
   a_id INTEGER
@@ -483,6 +489,7 @@ FROM a;
 ```
 
 ## Partition
+
 ```sql
 分区：通过继承来实现数据分离。
 范围划分
@@ -508,7 +515,9 @@ CREATE TABLE b2 (
 ```
 
 ## Function
+
 ### SQL（查询语言函数）
+
 ```sql
 函数：可重载，有多态。
 函数体：包含在字符文本中的 SQL 语句集合（''、$$$$（推荐））。
@@ -799,6 +808,7 @@ SELECT a('a' :: TEXT, 'b', 'c');
 ```
 
 ### PL/pgSQL（程序语言函数）
+
 ```sql
 块结构：
 [ <<label>> ]
@@ -1084,8 +1094,9 @@ SELECT * FROM pg_extension; --查询已加载插件
 ```
 
 ## Tool
-* https://www.postgresql.org/ftp/pgadmin/pgadmin4/
-* https://github.com/sosedoff/pgweb/releases/latest
-* https://github.com/dbcli/pgcli
-* https://www.heidisql.com/download.php
-* https://www.jetbrains.com/datagrip/
+
+- https://www.postgresql.org/ftp/pgadmin/pgadmin4/
+- https://github.com/sosedoff/pgweb/releases/latest
+- https://github.com/dbcli/pgcli
+- https://www.heidisql.com/download.php
+- https://www.jetbrains.com/datagrip/

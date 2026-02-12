@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Notes
+  - Notes
 date: 2019-08-18T19:31:07+08:00
 title: Parrot
 ---
@@ -19,5 +19,6 @@ echo deb https://mirrors.tuna.tsinghua.edu.cn/parrot/ rolling main contrib non-f
 ```
 
 ## Mirror
-* https://docs.parrotlinux.org/mirror-list/
-* https://mirrors.tuna.tsinghua.edu.cn/parrot/iso/4.7/Parrot-security-4.7_x64.iso
+
+- https://docs.parrotlinux.org/mirror-list/
+- https://mirrors.tuna.tsinghua.edu.cn/parrot/iso/4.7/Parrot-security-4.7_x64.iso

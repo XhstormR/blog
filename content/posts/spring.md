@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-- Spring
+  - Spring
 date: 2017-05-21T20:11:22+08:00
 title: Spring Framework
 ---
@@ -37,25 +37,28 @@ Updated on 2017-07-11
 > [Spring Data JPA API](https://docs.spring.io/spring-data/jpa/docs/current/api/allclasses-noframe.html)
 
 ## Concept
-* 控制反转（IOC）：应用程序本身不负责依赖对象的创建与维护，而是**由外部容器负责管理**。
-  * 依赖注入（DI）是其实现方式。
-  * 依赖对象 **通过接口** 了解注入对象并 **表明依赖关系**。（面向接口编程）
-  * 作用：负责 **创建** 对象并 **维护** 对象之间的依赖关系，使应用对象彼此之间保持 **低耦合**。
-  * 对象解耦。
-* 面向切面编程（AOP）：用另一种编程架构的思想来 **补充面向对象编程**（OOP）的思想。
-  * AOP 进行 **提取**，OOP 进行 **封装**。
-  * AOP 主要的模块单元是 **切面**（Aspect），而 OOP 主要的模块单元是 **类**（Class）。
-  * 作用：使诸如日志管理等分散在各个应用对象的 **逻辑（横切关注点）模块化为切面**。
-  * 功能解耦。
-* 装配：Wiring。
-* 感知：Aware。
-* 组件：@Component
-  * 控制层：@Controller
-  * 业务层：@Service
-  * 持久层：@Repository
+
+- 控制反转（IOC）：应用程序本身不负责依赖对象的创建与维护，而是**由外部容器负责管理**。
+  - 依赖注入（DI）是其实现方式。
+  - 依赖对象 **通过接口** 了解注入对象并 **表明依赖关系**。（面向接口编程）
+  - 作用：负责 **创建** 对象并 **维护** 对象之间的依赖关系，使应用对象彼此之间保持 **低耦合**。
+  - 对象解耦。
+- 面向切面编程（AOP）：用另一种编程架构的思想来 **补充面向对象编程**（OOP）的思想。
+  - AOP 进行 **提取**，OOP 进行 **封装**。
+  - AOP 主要的模块单元是 **切面**（Aspect），而 OOP 主要的模块单元是 **类**（Class）。
+  - 作用：使诸如日志管理等分散在各个应用对象的 **逻辑（横切关注点）模块化为切面**。
+  - 功能解耦。
+- 装配：Wiring。
+- 感知：Aware。
+- 组件：@Component
+  - 控制层：@Controller
+  - 业务层：@Service
+  - 持久层：@Repository
 
 ## Configuration
+
 ### build.gradle.kts
+
 ```bash
 compile("org.springframework:spring-context:+")
 
@@ -63,9 +66,13 @@ compile("org.springframework:spring-aspects:+")
 ```
 
 ## 装配方式
+
 ### 组件扫描和自动装配（隐式装配）
+
 #### soundsystem
+
 ##### CompactDisc
+
 ```java
 package soundsystem;
 
@@ -73,7 +80,9 @@ public interface CompactDisc {
     void play();
 }
 ```
+
 ##### MediaPlayer
+
 ```java
 package soundsystem;
 
@@ -81,7 +90,9 @@ public interface MediaPlayer {
     void play();
 }
 ```
+
 ##### **SgtPeppers**
+
 ```java
 package soundsystem;
 
@@ -100,7 +111,9 @@ public class SgtPeppers implements CompactDisc {
 
 Bean 名称的缺省值为类名（首字母小写）（@Component）。
 ```
+
 ##### **CDPlayer**
+
 ```java
 package soundsystem;
 
@@ -122,7 +135,9 @@ public class CDPlayer implements MediaPlayer {
     }
 }
 ```
+
 #### **AppConfig**
+
 ```java
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -132,7 +147,9 @@ import org.springframework.context.annotation.Configuration;
 public class AppConfig {
 }
 ```
+
 #### Main
+
 ```java
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import soundsystem.CDPlayer;
@@ -154,8 +171,11 @@ Playing Sgt. Pepper's Lonely Hearts Club Band by The Beatles
 ```
 
 ### Java 注解（显式装配）
+
 #### soundsystem
+
 ##### CompactDisc
+
 ```java
 package soundsystem;
 
@@ -163,7 +183,9 @@ public interface CompactDisc {
     void play();
 }
 ```
+
 ##### MediaPlayer
+
 ```java
 package soundsystem;
 
@@ -171,7 +193,9 @@ public interface MediaPlayer {
     void play();
 }
 ```
+
 ##### SgtPeppers
+
 ```java
 package soundsystem;
 
@@ -185,7 +209,9 @@ public class SgtPeppers implements CompactDisc {
     }
 }
 ```
+
 ##### CDPlayer
+
 ```java
 package soundsystem;
 
@@ -202,7 +228,9 @@ public class CDPlayer implements MediaPlayer {
     }
 }
 ```
+
 #### **AppConfig**
+
 ```java
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -226,7 +254,9 @@ public class AppConfig {
 
 Bean 名称的缺省值为方法名（@Bean）。
 ```
+
 #### Main
+
 ```java
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import soundsystem.CDPlayer;
@@ -248,8 +278,11 @@ Playing Sgt. Pepper's Lonely Hearts Club Band by The Beatles
 ```
 
 ### XML 文件（显式装配）
+
 #### soundsystem
+
 ##### CompactDisc
+
 ```java
 package soundsystem;
 
@@ -257,7 +290,9 @@ public interface CompactDisc {
     void play();
 }
 ```
+
 ##### MediaPlayer
+
 ```java
 package soundsystem;
 
@@ -265,7 +300,9 @@ public interface MediaPlayer {
     void play();
 }
 ```
+
 ##### SgtPeppers
+
 ```java
 package soundsystem;
 
@@ -279,7 +316,9 @@ public class SgtPeppers implements CompactDisc {
     }
 }
 ```
+
 ##### CDPlayer
+
 ```java
 package soundsystem;
 
@@ -296,7 +335,9 @@ public class CDPlayer implements MediaPlayer {
     }
 }
 ```
+
 #### Main
+
 ```java
 import org.springframework.context.support.GenericXmlApplicationContext;
 import soundsystem.CDPlayer;
@@ -316,7 +357,9 @@ public class Main {
 输出：
 Playing Sgt. Pepper's Lonely Hearts Club Band by The Beatles
 ```
+
 #### **123.xml**
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE beans PUBLIC
@@ -338,7 +381,9 @@ Playing Sgt. Pepper's Lonely Hearts Club Band by The Beatles
 ```
 
 ### 混合使用
+
 #### **cd-config.xml**
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE beans PUBLIC
@@ -348,7 +393,9 @@ Playing Sgt. Pepper's Lonely Hearts Club Band by The Beatles
     <bean class="soundsystem.SgtPeppers"/>
 </beans>
 ```
+
 #### **PlayerConfig**
+
 ```java
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -364,7 +411,9 @@ public class PlayerConfig {
     }
 }
 ```
+
 #### **AppConfig**
+
 ```java
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -376,7 +425,9 @@ import org.springframework.context.annotation.ImportResource;
 public class AppConfig {
 }
 ```
+
 #### Main
+
 ```java
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import soundsystem.CDPlayer;
