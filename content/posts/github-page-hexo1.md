@@ -1,4 +1,5 @@
 ---
+author: XhstormR
 tags:
   - Hexo
 date: 2016-02-08T21:04:48+08:00
