@@ -3,7 +3,7 @@ title: Vibe Coding
 date: 2025-12-13T14:03:49+03:00
 author: XhstormR
 tags:
-  -
+    -
 ---
 
 <!--more-->
@@ -32,4 +32,5 @@ tags:
 - https://github.com/mcp
 - https://skillsmp.com
 - https://github.com/BloopAI/vibe-kanban
-  - `bunx vibe-kanban@latest`
+    - `bunx vibe-kanban@latest`
+- https://github.com/gsd-build/get-shit-done
