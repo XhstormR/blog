@@ -3,7 +3,7 @@ title: Vibe Coding
 date: 2025-12-13T14:03:49+03:00
 author: XhstormR
 tags:
-  -
+    -
 ---
 
 <!--more-->
@@ -28,8 +28,13 @@ tags:
 ## Reference
 
 - https://stitch.withgoogle.com
+    - https://github.com/google-labs-code/stitch-skills
+    - https://github.com/mapbox/pixelmatch
 - https://registry.modelcontextprotocol.io
 - https://github.com/mcp
 - https://skillsmp.com
 - https://github.com/BloopAI/vibe-kanban
-  - `bunx vibe-kanban@latest`
+    - `bunx vibe-kanban@latest`
+- https://github.com/gsd-build/get-shit-done
+- https://github.com/garrytan/gstack
+- https://github.com/BerriAI/litellm

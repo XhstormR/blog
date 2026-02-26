@@ -17,12 +17,12 @@ Updated on 2021-07-22
 - https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/
 - https://brew.sh/
 
-```
+```bash
 brew cleanup --prune=all -s
 brew update && brew upgrade --greedy
 ```
 
-```
+```bash
  ❯ brew list -1
 ==> Formulae
 aria2
@@ -136,6 +136,7 @@ prefix: /usr/local/Caskroom/miniconda/base
 
 - https://karabiner-elements.pqrs.org/docs/json/
 - https://github.com/pqrs-org/Karabiner-Elements
+- https://karabiner.ts.evanliu.dev/
 - [spacefn_plus.json](https://raw.githubusercontent.com/pqrs-org/KE-complex_modifications/main/public/json/spacefn_plus.json)
 - [windows_shortcuts_on_macos.json](https://raw.githubusercontent.com/pqrs-org/KE-complex_modifications/main/public/json/windows_shortcuts_on_macos.json)
 
@@ -150,6 +151,7 @@ prefix: /usr/local/Caskroom/miniconda/base
   "type": "frontmost_application_unless",
   "bundle_identifiers": [
     "^org\\.alacritty$",
+    "^com\\.mitchellh\\.ghostty$",
     "^net\\.kovidgoyal\\.kitty$",
     "^com\\.jetbrains\\.intellij$",
     "^com\\.jetbrains\\.WebStorm$"
