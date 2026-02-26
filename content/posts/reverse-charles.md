@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-  - Reverse
+    - Reverse
 date: 2017-07-18T20:36:06+08:00
 title: 逆向 Charles
 ---
@@ -52,20 +52,21 @@ java -noverify -jar charles.jar
 - https://github.com/iBotPeaches/Apktool
 - https://github.com/deathmarine/Luyten
 - https://github.com/java-decompiler/jd-gui
+- https://github.com/jar-analyzer/jar-analyzer
 - https://github.com/Col-E/Recaf
 - https://github.com/GraxCode/JByteMod-Beta
 - https://github.com/Konloch/bytecode-viewer
 - [https://github.com/JetBrains/intellij-community/tree/master/plugins](https://github.com/JetBrains/intellij-community/tree/master/plugins/java-decompiler/engine)
 - https://github.com/leibnitz27/cfr
 - https://set.ee/jbe/
-  - https://github.com/ingokegel/jclasslib
-  - https://github.com/apache/commons-bcel
+    - https://github.com/ingokegel/jclasslib
+    - https://github.com/apache/commons-bcel
 - 代码生成：
-  - https://github.com/cglib/cglib
-  - https://github.com/raphw/byte-buddy
-  - https://github.com/jboss-javassist/javassist
+    - https://github.com/cglib/cglib
+    - https://github.com/raphw/byte-buddy
+    - https://github.com/jboss-javassist/javassist
 - Android：
-  - https://github.com/CalebFenton/simplify
+    - https://github.com/CalebFenton/simplify
 
 ```bash
 jclasslib

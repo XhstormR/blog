@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-  - Notes
+    - Notes
 date: 2020-05-03T10:03:50+08:00
 title: Proxy DNS
 ---
@@ -17,22 +17,22 @@ Updated on 2020-05-03
 
 ```json
 {
-  "inbound": {
-    "port": 1080,
-    "listen": "127.0.0.1",
-    "protocol": "socks"
-  },
-  "outbound": {
-    "protocol": "freedom",
-    "settings": {
-      "domainStrategy": "UseIPv4"
+    "inbound": {
+        "port": 1080,
+        "listen": "127.0.0.1",
+        "protocol": "socks"
+    },
+    "outbound": {
+        "protocol": "freedom",
+        "settings": {
+            "domainStrategy": "UseIPv4"
+        }
+    },
+    "dns": {
+        "queryStrategy": "UseIPv4",
+        "disableCache": false,
+        "servers": ["https://9.9.9.9/dns-query"]
     }
-  },
-  "dns": {
-    "queryStrategy": "UseIPv4",
-    "disableCache": false,
-    "servers": ["https://9.9.9.9/dns-query"]
-  }
 }
 ```
 
@@ -43,11 +43,11 @@ Updated on 2020-05-03
 
 ```yaml
 dns:
-  enable: true
-  default-nameserver:
-    - 8.8.8.8
-  nameserver:
-    - https://9.9.9.9/dns-query
+    enable: true
+    default-nameserver:
+        - 8.8.8.8
+    nameserver:
+        - https://9.9.9.9/dns-query
 ```
 
 ```bash
@@ -78,4 +78,5 @@ nslookup google.com 127.0.0.1
 
 ## Reference
 
-- https://www.alidns.com
+- <https://8.8.8.8/resolve?name=www.youtube.com>
+- <https://223.5.5.5/resolve?name=www.youtube.com> (解析境外网站返回错误IP，残废DNS)
