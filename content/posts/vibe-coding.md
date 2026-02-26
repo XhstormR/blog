@@ -3,7 +3,7 @@ title: Vibe Coding
 date: 2025-12-13T14:03:49+03:00
 author: XhstormR
 tags:
-  -
+    -
 ---
 
 <!--more-->
@@ -25,11 +25,30 @@ tags:
 /speckit.implement 按照计划执行所有任务以构建该功能
 ```
 
+---
+
+Engineering 的三个层次：
+
+- Harness Engineering (驾驭工程) -> 制定约束
+    - Context Engineering (上下文工程) -> 提供信息
+        - Prompt Engineering (提示词工程) -> 表达方式
+
+Harness 的三个层次：
+
+- 人类如何驾驭框架 (例如spec-kit)
+    - 框架如何驾驭 Agent
+        - Agent 如何驾驭 LLM
+
 ## Reference
 
 - https://stitch.withgoogle.com
+    - https://github.com/google-labs-code/stitch-skills
+    - https://github.com/mapbox/pixelmatch
 - https://registry.modelcontextprotocol.io
 - https://github.com/mcp
 - https://skillsmp.com
 - https://github.com/BloopAI/vibe-kanban
-  - `bunx vibe-kanban@latest`
+    - `bun x vibe-kanban@latest`
+- https://github.com/gsd-build/get-shit-done
+- https://github.com/garrytan/gstack
+- https://github.com/BerriAI/litellm

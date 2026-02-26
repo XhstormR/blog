@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-  - Notes
+    - Notes
 date: 2019-10-23T22:54:54+08:00
 title: Miniconda
 ---
@@ -77,3 +77,10 @@ C:\Users\Leo\Miniconda3\Scripts\activate.bat
 ```bash
 C:\Users\Leo\AppData\Roaming\Microsoft\Windows\Start Menu\Programs
 ```
+
+## Reference
+
+- meta.yaml
+    - https://docs.conda.io/projects/conda-build/en/latest/user-guide/environment-variables.html
+- recipe.yaml
+    - https://rattler-build.prefix.dev/latest/build_script/
