@@ -1,6 +1,7 @@
 ---
+author: XhstormR
 tags:
-  - Notes
+    - Notes
 date: 2016-04-21T21:58:45+08:00
 title: Aria2 Configuration
 ---
@@ -12,6 +13,8 @@ Updated on 2016-08-23
 > [![](uploads/file-into-picture2.png)](https://i.loli.net/2018/02/08/5a7bcbdc94dec.png)
 >
 > https://github.com/aria2/aria2
+>
+> https://binux.github.io/yaaw/demo/
 >
 > aria2 is a lightweight multi-protocol & multi-source command-line download utility. It supports HTTP/HTTPS, FTP, SFTP, BitTorrent and Metalink. aria2 can be manipulated via built-in JSON-RPC and XML-RPC interfaces.The next generation download utility.
 >

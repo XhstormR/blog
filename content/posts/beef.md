@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-  - security
+    - security
 date: 2020-01-21T19:59:06+08:00
 title: BeEF
 ---
@@ -80,12 +80,11 @@ cd /usr/share/beef-xss && ls -l
 
 ```bash
 docker start b37fcb2827f8
-docker exec -it b37fcb2827f8 bash
+docker exec -it b37fcb2827f8 sh
 ```
 
 ```bash
 export LANG=C.UTF-8
-export LANGUAGE=C.UTF-8
 export LC_ALL=C.UTF-8
 locale
 ```
