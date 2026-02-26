@@ -60,3 +60,6 @@ params:
         URL: "https://github.com/XhstormR/blog/tree/master/content"
         Text: "Suggest Changes"
         appendFilePath: true
+    author:
+        name: XhstormR
+        email: xhstormr@example.org
