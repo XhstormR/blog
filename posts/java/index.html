@@ -1,0 +1,845 @@
+<!doctype html><html lang=en dir=auto data-theme=dark><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>自学 Java | XhstormR</title><meta name=keywords content="JAVA"><meta name=description content="自学 Java - XhstormR"><meta name=author content="map[email:xhstormr@example.org name:XhstormR]"><link rel=canonical href=https://xhstormr.github.io/blog/posts/java/><link crossorigin=anonymous href=/blog/assets/css/stylesheet.da3211e5ef867bf2b75fd5a6515cfed7195c011e8ab735694e203810a827097b.css integrity="sha256-2jIR5e+Ge/K3X9WmUVz+1xlcAR6KtzVpTiA4EKgnCXs=" rel="preload stylesheet" as=style><link rel=icon href=https://xhstormr.github.io/blog/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://xhstormr.github.io/blog/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://xhstormr.github.io/blog/favicon-32x32.png><link rel=apple-touch-icon href=https://xhstormr.github.io/blog/apple-touch-icon.png><link rel=mask-icon href=https://xhstormr.github.io/blog/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://xhstormr.github.io/blog/posts/java/><noscript><style>#theme-toggle,.top-link{display:none}</style></noscript><script>localStorage.getItem("pref-theme")==="light"&&(document.querySelector("html").dataset.theme="light")</script><meta property="og:url" content="https://xhstormr.github.io/blog/posts/java/"><meta property="og:site_name" content="XhstormR"><meta property="og:title" content="自学 Java"><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2016-06-10T11:04:52+08:00"><meta property="article:modified_time" content="2016-06-10T11:04:52+08:00"><meta property="article:tag" content="JAVA"><meta name=twitter:card content="summary"><meta name=twitter:title content="自学 Java"><meta name=twitter:description content><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://xhstormr.github.io/blog/posts/"},{"@type":"ListItem","position":2,"name":"自学 Java","item":"https://xhstormr.github.io/blog/posts/java/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"自学 Java","name":"自学 Java","description":"","keywords":["JAVA"],"articleBody":"Updated on 2016-06-30\nhttps://www.tiobe.com/tiobe-index/\nhttps://package-search.jetbrains.com/\nhttps://javadoc.io/\nhttps://openjfx.io/javadoc/20/\nhttps://github.com/openjdk/jdk\nhttps://github.com/openjdk/jfx\nhttps://www.oracle.com/technetwork/java/index.html\nhttps://docs.oracle.com/en/java/javase/20/\nhttps://docs.oracle.com/javase/specs/index.html\nhttps://docs.oracle.com/javase/specs/jvms/se20/html/jvms-6.html\nhttps://docs.oracle.com/javase/8/docs/index.html\nhttps://docs.oracle.com/en/java/javase/20/docs/api/allclasses-index.html\nclass version\nIDE Eclipse：https://www.eclipse.org/downloads/eclipse-packages/ 汉化包：https://www.eclipse.org/babel/downloads.php IntelliJ IDEA：https://www.jetbrains.com/idea/download/ 将系统时间调整至 1 年以后再点击试用（Evaluation）。 Scene Builder：https://gluonhq.com/products/scene-builder/ IDEA 无限试用 https://zhile.io http://jetba.vip/ https://jetbra.in/s https://jetbrain.tech/ https://521868.xyz/ @ echo off pushd . cd /d %USERPROFILE%/AppData/Roaming/JetBrains/IntelliJIdea2020.1 busybox rm -rf eval busybox sed -i \"/evlsprt/d\" options/other.xml reg delete HKEY_CURRENT_USER\\SOFTWARE\\JavaSoft\\Prefs\\jetbrains\\idea /f popd #Mac VM Options \"/Users/user/Library/Application Support/JetBrains/IntelliJIdea2025.1/idea.vmoptions\" ---- -javaagent:/Users/user/Documents/jetbra/ja-netfilter.jar=jetbrains IDEA 快捷键 Ctrl+Ctrl Run Anything Shift+Shift Search Everywhere F2 查找错误 F5 复制文件 F6 移动文件 Ctrl+[] 转至大括号处 Ctrl+Y 删除行 Ctrl+D 复制行 or 文件比较 Ctrl+G 转至行 Ctrl+B 转至声明处 Ctrl+R 替换文本 Ctrl+O 重写方法 Ctrl+I 实现方法 Ctrl+J 自动代码（Live Template） Alt+/ 文字补全 Alt+1 显示/隐藏工程面板 Alt+4 显示/隐藏运行面板 Alt+Enter 快速修正 Alt+下划线字母 选中/取消 Ctrl+Alt+T 代码包围 Ctrl+Alt+L 格式化代码 Ctrl+Alt+O 清除无效包引用 Ctrl+Shift+T 测试用例 Ctrl+Shift+J 合并行 Ctrl+Shift+U 大小写转换 Ctrl+Shift+Enter 完成声明 Shift+F6 重构 - 重命名（Rename） Ctrl+Alt+N 内联（Inline） Ctrl+Alt+V 提取为变量（Variable）（Extract） Ctrl+Alt+F 提取为属性（Field） Ctrl+Alt+P 提取为参数（Parameter） Ctrl+Alt+M 提取为方法（Method） Alt+Q 查看上下文 Ctrl+Q 查看快速文档 Ctrl+P 查看参数信息 Ctrl+Shift+I 查看快速定义 Ctrl+` 4 3 进入（退出）全屏 Ctrl+F5 Rerun Ctrl+F9 Build Project Ctrl+F10 Update Running JavaEE Application Shift+F10 Run Ctrl+Shift+F10 Run（Context） Ctrl+Shift+减 折叠所有代码块 Ctrl+Shift+加 展开所有代码块 Alt+J 多选关键字 Alt+Shift+J 退选关键字 Alt+Shift+Ctrl+J 全选关键字 Alt+Shift+Ctrl+点击 多选模式 Ctrl+Alt+S 设置 Ctrl+Shift+Alt+S 项目设置 Ctrl+Alt+U 显示 UML Ctrl+Shift+Alt+U 显示 UML（新窗口） F12 查看最近使用的工具窗口 Esc 返回编辑器 Shift+Esc 隐藏最近使用的工具窗口 Ctrl+F4 关闭文件 Alt+F4 关闭窗口 F3 搜索关键字 Alt+F3 高亮选中文本（same as Ctrl+F） F11 添加书签 Shift+F11 显示书签 滚轮 垂直滚动 Shift+滚轮 水平滚动 Ctrl+F12 查看文件结构 Ctrl+Alt+F12 查看文件路径 Ctrl+H 查看类型层级 Ctrl+Alt+H 查看调用层级 Alt+Insert 生成方法 Ctrl+Alt+Insert 新建文件 Ctrl+Shift+Insert 历史复制板 Ctrl+Shift+Alt+Insert 新建临时文件（Scratch） Ctrl+/ 注释行（单行注释） Ctrl+Shift+/ 添加注释（多行注释） Ctrl+Space 内容辅助（Class Name Completion 已被输入法占用，推荐设置为 Alt+。） Ctrl+Shift+Space 智能提示 Ctrl+E 最近访问文件 Ctrl+Shift+E 最近编辑文件 Ctrl+W 扩大选区 Ctrl+Shift+W 缩小选区 Ctrl+Z Undo Ctrl+Shift+Z Redo Ctrl+Shift+C 复制绝对路径 Ctrl+Shift+Alt+C 复制相对路径 Ctrl+N 查找类 Ctrl+Shift+N 查找文件 Ctrl+Shift+Alt+N 查找变量 Alt+↑↓ 切换方法 Alt+←→ 切换文件 Alt+Shift+←→ 切换编辑框 Alt+Ctrl+←→ 后向/向前 Shift+Alt+↑↓ 移动行 Shift+Ctrl+↑↓ 移动方法 Shift+Ctrl+Alt+←→ 移动方法参数 Shift+Enter 在当前行的下一行插入空行 Ctrl+Alt+Enter 在当前行的上一行插入空行 Eclipse 快捷键 F2 显示工具提示 F3 打开声明文件 F6 调试 - 单步跳过 Ctrl+D 删除行 Ctrl+L 转至行 Ctrl+Shift+F 格式化代码（最好改为 Ctrl+Alt+L） Ctrl+Shift+O 自动导入需要的包 Ctrl+. 快速查找 Ctrl+1 快速修正 Ctrl+2 快速帮助 L 分配为变量（Local） F 分配为属性（Field） M 提取为方法（Method） R 重构 - 重命名（Rename） Alt+Shift+↑↓ 扩大选区 Alt+Shift+I 内联（Inline） Alt+Shift+L 提取为变量（Variable）（Extract） Alt+Shift+M 提取为方法（Method） Alt+Shift+R 重构 - 重命名 Ctrl+/ 单行注释 Alt+Shift+J 文档注释 F11 调试运行 Ctrl+F11 运行 Ctrl+S 保存 Ctrl+Shift+S 全部保存 Ctrl+W 关闭 Ctrl+Shift+W 全部关闭 Alt+↑↓ 移动行 Ctrl+Alt+↑↓ 复制行 Alt+/ 内容辅助 Ctrl+Alt+/ 文字补全 Shift+Enter 在当前行的下一行插入空行 Ctrl+Shift+Enter 在当前行的上一行插入空行 Windows -\u003e Preferences -\u003e Java -\u003e Editor -\u003e Content Assist -\u003e Auto Activation -\u003e Trigger for Java 自动代码提示 JDK https://cdn.azul.com/zulu/bin/ https://bell-sw.com/pages/downloads/ https://adoptium.net/temurin/releases/ https://mirrors.tuna.tsinghua.edu.cn/Adoptium/ JDK：Java Development Kit（Java 开发工具包） JRE：Java Runtime Environment（Java 运行环境） JVM：Java Virtual Machine（Java 虚拟机） Edition 微型版(Micro Edition) 标准版(Standard Edition) 企业版(Enterprise Edition) 旧名 J2ME J2SE J2EE 新名 Java ME Java SE Java EE 类库 只包含SE中的一部分 核心类库 包含SE中的和企业扩展类 ——— ——————————– ———————————– ———————————– 环境变量 变量值 变量名 JAVA_HOME C:\\Program Files\\Java\\jdk1.8.0_92 配置JDK安装路径 PATH %JAVA_HOME%\\bin 配置执行文件位置 CLASSPATH .;%JAVA_HOME%\\lib 配置类库文件位置 ——————— ———————————————— ———————– setx JAVA_HOME \"C:\\Program Files\\Java\\jdk1.8.0_92\" /m setx PATH \"%PATH%;%JAVA_HOME%\\bin\" /m setx CLASSPATH \".;%JAVA_HOME%\\lib\" /m 跨平台原理 a.java javac a.class java JVM HelloWorld! 源代码 编译器 字节码 解释器 虚拟机 ———– ———– ———– ———– ———– —————》 CMD public class A { public static void main(String[] args) { System.out.println(\"HelloWorld!\"); } } D:\\\u003ejavac A.java D:\\\u003ejava A java命令不跟文件名，而是跟完全类名限定符 HelloWorld! ------------------------------------------------------- package abc; public class A { public static void main(String[] args) { System.out.println(\"HelloWorld!\"); } } D:\\\u003ejavac abc\\A.java D:\\\u003ejava abc.A HelloWorld! ------------------------------------------------------- fun main(args: Array\u003cString\u003e) { println(\"HelloWorld!\") } D:\\kotlinc\\bin\u003ekotlinc A.kt D:\\kotlinc\\bin\u003ejava -cp kotlin-stdlib.jar; AKt HelloWorld! or D:\\kotlinc\\bin\u003ekotlinc -include-runtime -d 123.jar A.kt D:\\kotlinc\\bin\u003ejava -jar 123.jar HelloWorld! JRE and JAR 复制 JAVA_HOME 下的 jre 目录到 123 目录。 复制项目 JAR 文件至 123 目录。 在 123 目录新建 123.bat 文件。 123.bat ⇳ cmd /K jre\\bin\\java -jar 123.jar 合并多个 JAR 文件 将所有 JAR 文件解压至同一个目录。 在此目录下执行 jar -cfM 123.jar . Java 规范 源文件名：源文件名应该和其中的 public 类名相同。 程序入口：所有的 Java 程序由 public static void main(String[] args) 方法处开始执行。 变量：包含变量类型、变量名、变量值 3 个元素。String name=\"Dave\"; 常量：一种特殊的变量，由 final 修饰，值不能被改变。final char SEX = '男'; final 在修饰成员变量时，必须同时设定初值。 自动类型转换：表数范围小的可以向表数范围大的进行自动类型转换；将一个小容器的水倒入一个大容器没有问题，但是将一个大容器的水倒入一个小容器则会装不下，会溢出。byte→short(char)→int→long→float→double 强制类型转换：直接截断，不会进行四舍五入。int a = (int)3.1415926; 注释：单行注释（//），多行注释（/**/），文档注释（/***/）。 标识符：用于给 Java 程序中类、方法、变量等命名的符号，严格区分大小写。 只能由字母，数字， _ ， $ 组成，且不能以数字开头。 类名：首字母大写，大驼峰式命名法，MyFirstJavaClass。 方法名，变量名：首字母小写，小驼峰式命名法，stuName。 运算符：算术运算符、赋值运算符、比较运算符、逻辑运算符、条件运算符。 条件运算符：也称为三元运算符（?:）。String str1 = (8 \u003e 5) ? \"8大于5\" : \"8不大于5\"; 语法形式：布尔表达式 ？ 表达式1 ：表达式2 运算过程：如果布尔表达式的值为 true ，则返回 表达式1 的值，否则返回 表达式2 的值。 条件语句 switch：当 switch 后表达式的值和 case 语句后的值相同时，从该位置开始向下执行，直到遇到 break 语句或者 switch 语句块结束；如果没有匹配的 case 语句则执行 default 块的代码。 switch 后面小括号中表达式的值必须是 整型或字符型 。 case 匹配后，如果没有遇见 break 会继续执行下一个的 case 块的内容，直到遇到 break 语句或者 switch 语句块结束。 default 块可以出现在 任意位置，也 可以省略。 循环语句 for：for 关键字后面括号中的三个表达式都可以省略，但两个 ; 不能省略。 for 循环变量初始化和循环变量变化部分，可以使用 , 同时初始化或改变多个循环变量的值。 数组（Array）：使用 数组名.length 获取数组的长度；使用 数组名[下标] 来访问；数组的下标从 0 开始，如长度为 3 ，则下标为 0，1，2。 二维数组：特殊的一维数组，它的每个数组空间中保存的是一个一维数组。 方法：用来解决一类问题的代码组合，是一个功能模块。通过 对象名.方法名() 调用方法。 访问修饰符：public、protected、private、缺省。 返回值类型：方法不返回任何值，则返回值类型指定为 void；方法具有返回值，则需要指定返回值的类型，并且在方法体中使用 return 语句返回值。 形参：定义方法时的参数，目的是用来定义方法需要传入的参数的个数和类型。 实参：调用方法时的参数，是传递给方法真正被处理的值。 重载： 方法名相同 ，但是形参的个数、顺序或类型不同，则称为方法的重载。 当调用被重载的方法时， Java 会根据参数的个数和类型来判断应该调用哪个重载方法，参数完全匹配的方法将被执行。 判断方法重载的依据：●必须是在同一个类中●方法名相同●方法参数的个数、顺序或类型不同。 构造方法：是用来初始化对象的方法，与类同名且没有返回值。 people a = new people(); 当没有指定构造方法时，系统会自动生成一个无参构造方法。所以 创建对象时,其实执行的是构造方法 。 有参构造方法的目的就是初始化对象中成员变量的值，并且可以通过条件语句判断值是否合理并赋予默认值。 static：可以修饰变量、方法、初始化块，被称为静态成员，它属于整个类所有，即 被类的所有对象共享 ；可以 直接使用类名访问 ，不需要创建对象。 静态成员属于整个类，当系统第一次使用该类时，就会为其分配内存空间直到该类被卸载才会进行资源回收。 静态变量：无需创建对象直接通过类名访问。 静态方法：无需创建对象直接通过类名访问。 静态初始化块：静态初始化块只在类加载时执行，所以只会执行一次，同时静态初始化块只能给静态变量赋值，不能初始化普通的成员变量。 初始化块：当创建类的实例时，会依次执行初始化块 {...}，可以通过初始化块进行数据赋值。 对象实例化执行顺序：静态初始化块 ➜ 初始化块 ➜ 构造方法。 封装：将类的某些信息隐藏在类内部，不允许外部程序直接访问，而是通过该类提供的方法来实现对隐藏信息的操作和访问。 优点：●只能通过规定的方法访问数据●隐藏类的实例细节，方便修改和实现。 步骤：设置属性为 private ➜ 创建 getter/setter 方法用于属性的读写 ➜ 在 getter/setter 方法中对属性值的合法性进行判断。 this：代表当前对象（调用者），在封装时常用于区分属性和参数。不能对静态成员使用 this，因为它跟对象没有关系。 this.属性：操作当前对象的属性。 this.方法：调用当前对象的方法。 内部类（Inner Class）：定义在 一个类里面的类 ；与之对应，包含内部类的类被称为外部类，并且内部类默认持有其外部类的强引用。 优点：●内部类提供了更好的封装，可以把内部类隐藏在外部类之内，不允许同一个包中的其他类访问该类●内部类的方法可以直接访问外部类的所有数据，包括私有的数据。 成员内部类：定义了成员内部类后，必须通过外部类对象来创建内部类对象，而不能直接去 new 一个内部类对象。内部类 对象名 = 外部类对象.new 内部类( ); 静态内部类：用 static 修饰的成员内部类，不需要外部类的对象，可以直接创建；相当于独立出来的类，不会持有其外部类的强引用。内部类 对象名= new 内部类(); 方法内部类：定义在方法中的类，只在该方法的内部可见，即只在该方法内可以使用。 继承（extends）：是类与类的一种关系，子类继承于父类（SuperClass），一个类只有一个父类，即单继承。class 子类 extends 父类 {...} 优点：子类拥有父类所有的属性和方法（不能为 private），实现代码复用。 重写：子类可以重写父类继承的方法，当调用方法时会优先调用子类的方法。 规则：返回值类型、方法名、参数类型及个数都要与父类继承的方法相同，才为方法的重写。（换句话说 只重写方法体） 继承初始化执行顺序：初始化父类（属性初始化 ➜ 构造方法） ➜ 初始化子类（相同） 子类的构造过程中必须调用其父类的构造方法。如果子类的构造方法中没有显式调用父类的构造方法，则系统默认隐式调用父类无参构造方法 super();；若显式调用构造方法，则必须放在子类的构造方法第一行。 super：代表父类对象。 super.属性：访问父类的属性。 super.方法：访问父类的方法。 Object类：是 所有类的父类；如果一个类没有明确使用 extends 关键字继承另外一个类，那么这个类默认继承于 Object类，且 Object类中的方法适用于所有子类。 toString() 方法：输出对象在内存中的地址字符串。可以通过重写该方法输出对象的属性值，Eclipse 的源码(Source)菜单中的 生成toString() 能自动完成。 equals() 方法：比较对象的引用是否指向同一块内存地址（比较是否为同一部手机）（== 运算符也可以做到）。可以通过重写该方法比较两个对象的属性值是否一致（比较两部手机的属性），Eclipse 的源码(Source)菜单中的 生成hashCode()和equals() 能自动完成。 getClass() 方法：返回类对象。example：Man b = new Man(); 类对象：关注类的代码信息(有哪些属性、方法)。Man.class 类的对象：关注对象的数据信息(属性值是多少)。new Man() 多态：对象的多种形态；继承 是多态的实现基础。 引用多态 父类的引用可以指向本类的对象。Animal a = new Animal(); 父类的引用可以指向 子类 的对象。Animal b = new Dog(); 方法多态 指向本类对象时，调用的方法为本类方法。 指向子类对象时，调用的方法为 子类重写或继承的方法。 即子类独有的方法不可访问，不能通过父类的引用调用子类独有的方法。 引用类型转换：使用 instanceof 运算符判断一个引用是否是某个类型或某个类型的子类型，从而判断是否可以使用强制类型转换，返回布尔值，通常与 if 配合使用。b instanceof Dog 向上类型转换（自动类型转换）：小类型到大类型的转换。Animal b = new Dog(); 向下类型转换（强制类型转换）：大类型到小类型的转换。Dog c = (Dog)b; 抽象类：用 abstract 修饰的类。public abstract class Phone {...} 作用： 通过抽象方法约束子类 必须包含某些方法，但不关注子类如何实现。 规则 用 abstract 修饰抽象方法，只有声明， 没有方法体。public abstract void call(); 包含抽象方法的类是抽象类。 抽象类可以包含普通方法，也可以没有抽象方法。 抽象类不能直接创建，通过 引用多态 指向子类对象来使用。Phone a = new SmartPhone(); 接口（interface）：使用 interface 定义接口，由全局常量和公共的抽象方法所组成。 类描述对象的属性和方法，接口则包含类要具有的属性和要实现的方法，它定义了某一批类所要遵守的 规范。 接口中的属性：常量，系统会自动添加 public static final 修饰符。 接口中的方法：抽象方法，系统会自动添加 public abstract 修饰符。 父类单继承（extends），接口多实现（ implements）。Java 中的类只能继承单个父类，不够灵活，可以 通过实现多个接口做补充。 继承是 is a（是什么） 的关系；接口是 has a（有什么） 的关系。 接口不能直接创建，通过 引用多态 指向实现接口的对象来使用。IPlayGame b = new SmartPhone(); 接口在使用过程中，经常与匿名内部类配合使用。 匿名内部类：没有名字的内部类，不关注类的名字，在使用的时候才定义。 项目分析 数据模型分析：通过对现实世界事物的主要特征进行抽象化处理，构建出数据结构。（类：方法、属性） 业务模型分析：在设计应用程序之前，应该明确业务开展过程中需要的功能。 显示和流程分析：显示界面的执行过程和流程的处理步骤。 面向对象编程（Object Oriented Programming）遵循 高内聚，低耦合 的设计原则。 高内聚：块内联系，每个模块尽可能的独立完成某个 特定的功能，单一责任原则。 低耦合：块间联系，模块之间的接口尽可能的 少而简单。 通常各模块的内聚程度越高，模块间的耦合程度就越低。 SVG Code int i = 5; int b = i++; //先进行赋值，再执行自增，b=5 ---- int i = 5; int b = ++i; //先执行自增，再进行赋值，b=6 String a = \"你好\"; //声明变量的同时进行初始化 ---- String a; //先声明后赋值 a = \"你好\"; Man b = new Man(); //声明对象的同时进行实例化 ---- Man b; //先声明后实例化 b = new Man(); int[] scores = new int[4]; //声明数组的同时进行分配空间，数组长度为 4 ---- int[] scores; //先声明后分配空间，再赋值放入数据，数组长度为 4 scores = new int[4]; scores[0] = 76; ---- int[] scores = { 76, 83, 92, 87 }; //声明数组的同时进行分配空间和赋值 ------------------------------------------------------- 流程控制语句 条件语句 if int score = 85; if (score \u003e 80) { System.out.println(\"奖励手机\"); } 条件语句 if...else int score = 85; if (score \u003e 80) { System.out.println(\"奖励手机\"); } else { System.out.println(\"罚做俯卧撑\"); } 条件语句 多重if int score = 85; if (score \u003e 80) { System.out.println(\"奖励手机\"); } else if (score \u003e 60) { System.out.println(\"奖励鼠标\"); } else { //前面的条件均不成立时，才会执行 else 块内的代码 System.out.println(\"罚做俯卧撑\"); } 条件语句 嵌套if String today = \"周末\"; String weather = \"晴朗\"; if (today.equals(\"周末\")) { //String 类的 equals() 用于判断字符串内容是否相同 //内层if 开始 if (weather.equals(\"晴朗\")) { System.out.println(\"去散步\"); } else { System.out.println(\"待在家\"); } //内层if 结束 } else { System.out.println(\"去上班\"); } 条件语句 switch int num = 1; switch (num) { case 1: System.out.println(\"第一名\"); break; case 2: System.out.println(\"第二名\"); break; case 3: System.out.println(\"第三名\"); break; case 4: //可以把功能相同的 case 语句合并起来 case 5: System.out.println(\"鼓励奖\"); break; default: System.out.println(\"没有名次\"); break; } 循环语句 while int i = 1; while (i \u003c= 5) { //先判断，后执行 System.out.println(i); i++; } 循环语句 do...while int i = 1; do { //先执行，后判断，所以至少会无条件执行一次 System.out.println(i); i++; } while (i \u003c= 5); 循环语句 for for (int i = 1; i \u003c= 5; i++) { //结构更加简洁易读 System.out.println(i); } 循环跳转语句 break int sum = 0; for (int i = 1; i \u003c= 10; i++) { sum = sum + i; if (sum \u003e 20) { System.out.print(\"当前的累加值为:\" + sum); break; //循环将 1 到 10 之间的整数相加，如果满足累加值大于 20，则跳出循环 } } 循环跳转语句 continue int sum = 0; for (int i = 1; i \u003c= 10; i++) { if (i % 2 == 1) { continue; //如果i为奇数,结束本次循环，进行下一次循环 } sum = sum + i; } System.out.print(\"1到10之间的所有偶数的和为：\" + sum); ---- i % 2 == 1 //i是奇数 i % 2 == 0 //i是偶数 循环语句 多重循环 打印九九乘法表 //外层循环每执行一次，内层循环要执行一圈 for (int i = 1; i \u003c= 9; i++) { //外层循环控制打印行数 for (int x = 1, y = i; x \u003c= y; x++) { //内层循环控制打印公式 System.out.print(x + \"*\" + y + \"=\" + x * y + \" \"); //print() 不会换行，println() 会换行 } System.out.println(); //打印完毕换行 } 获取用户输入数字并判断位数 ---- import java.util.Scanner; //导入 java.util 包下的 Scanner 类 public class HelloWorld { public static void main(String[] args) { Scanner a1 = new Scanner(System.in); //实例化 Scanner 对象为 a1 System.out.print(\"请输入:\"); //提示用户输入，使用 print() 不换行 int num = a1.nextInt(); //获取用户输入并保存在变量中 int count = 0; for (; num != 0; count++) { num /= 10; } System.out.println(count + \"位\"); a1.close(); //关闭输入 } } 获取用户输入班级成绩并计算平均分 ---- import java.util.*; //导入 java.util 包下的所有类 public class HelloWorld { public static void main(String[] args) { int classNum = 3; //班级数量 int stuNum = 4; //学生数量 double sum = 0; double avg = 0; Scanner a1 = new Scanner(System.in); //实例化 Scanner 对象为 a1 for (int i = 1; i \u003c= classNum; i++) { sum = 0; //重置班级总分 System.out.println(\"请输入第\" + i + \"个班级的成绩\"); for (int j = 1; j \u003c= stuNum; j++) { System.out.print(\"请输入成绩:\"); sum = sum + a1.nextInt(); //获取用户输入成绩并累加 } avg = sum / stuNum; System.out.println(\"第\" + i + \"个班级的平均分是\" + avg); } a1.close(); //关闭输入 } } ------------------------------------------------------- 循环遍历数组 ---- int[] nums = { 1, 2, 3 }; for (int i = 0; i \u003c nums.length; i++) { //nums.length 获取数组长度 System.out.println(nums[i]); } ---- int[] nums = { 1, 2, 3 }; for (int a : nums) { System.out.println(a); //可以使用foreach形式来遍历数组和集合，for 语句的简化版，更简单便捷 } 循环遍历二维数组 ---- int[][] nums = { { 1, 2, 3 }, { 4, 5, 6 } }; for (int i = 0; i \u003c nums.length; i++) { for (int j = 0; j \u003c nums[i].length; j++) { System.out.println(nums[i][j]); } System.out.println(); } 使用 Arrays 类操作数组 ---- import java.util.Arrays; public class HelloWorld { public static void main(String[] args) { int[] scores = { 76, 83, 92, 87 }; Arrays.sort(scores); //将数组按升序排序 String a = Arrays.toString(scores); //将数组输出为字符串 System.out.println(a); } } 根据用户输入数字，随机生成排序后的数组，并打印数组输出的成字符串 ---- import java.util.Arrays; import java.util.Scanner; public class HelloWorld { public static void main(String[] args) { HelloWorld a = new HelloWorld(); //创建对象 Scanner b = new Scanner(System.in); //创建对象 System.out.print(\"请输入：\"); int num = b.nextInt(); //接收用户输入数字到变量 int[] arrays = a.arrays(num); //传递数字 System.out.println(Arrays.toString(arrays)); //将数组输出为字符串 b.close(); //关闭输入 } public int[] arrays(int a) { //方法 int[] arrays = new int[a]; //生成数组 for (int i = 0; i \u003c arrays.length; i++) { arrays[i] = (int) (Math.random() * 100); //生成随机数并赋值给数组 } Arrays.sort(arrays); //排序数组 return arrays; //返回数组 } } 遍历数组输出前三名并判断成绩有效性 ---- import java.util.Arrays; public class HelloWorld { public static void main(String[] args) { int[] scores = { 89, -23, 64, 91, 119, 52, 73 }; HelloWorld a = new HelloWorld(); a.rank(scores); } public void rank(int[] a) { //方法 Arrays.sort(a); //排序数组 System.out.println(\"前三名：\"); for (int i = a.length - 1, count = 0; count \u003c 3; i--) { //倒序遍历数组 if (a[i] \u003e 100 || a[i] \u003c 0) { //判断成绩有效性 continue; } System.out.println(a[i]); count++; } } } 遍历数组输出学生年龄的最大值 ---- public class HelloWorld2 { public static void main(String[] args) { HelloWorld2 a = new HelloWorld2(); //创建对象 int maxScore = a.getMaxAge(); //接收返回值 System.out.println(\"最大年龄为：\" + maxScore); } public int getMaxAge() { //方法 int[] a = { 19, 23, 21, 19, 25, 29, 17 }; int max = 0; for (int i : a) { //使用 foreach 形式来遍历数组 max = max \u003e i ? max : i; //三元运算符 } return max; } } ------------------------------------------------------- 匿名内部类实现接口 ---- IPlayGame i = new IPlayGame() { public void playGame() { System.out.println(\"匿名内部类实现接口的方式1\"); } }; i.playGame(); ---- new IPlayGame() { public void playGame() { System.out.println(\"匿名内部类实现接口的方式2\"); //推荐方式2 } }.playGame(); ------------------------------------------------------- return 的用法 ---- public class A { public static void main(String[] args) { b(a()); } private static String a() { return \"ABC\"; 返回值 } private static void b(String s) { if (s == null) { 提前结束方法 return; } System.out.println(s); } } ------------------------------------------------------- Scanner.nextLine() 的用法 ---- Scanner scanner = new Scanner(System.in); while (true) { try { int i = scanner.nextInt(); System.out.println(i); break; } catch (Exception e) { scanner.nextLine(); 消耗之前的错误输出，避免死循环 System.out.println(\"请重新输入!\"); } } ---- public class A { public static void main(String[] args) { Scanner scanner = new Scanner(System.in); for (int i = 0; i \u003c 5; i++) { System.out.print(\"请输入：\"); int num; while (true) { try { num = scanner.nextInt(); break; } catch (Exception e) { scanner.nextLine(); System.out.print(\"请重新输入：\"); } } switch (num) { case 1: System.out.println(\"第一名\"); break; case 2: System.out.println(\"第二名\"); break; case 3: System.out.println(\"第三名\"); break; default: System.out.println(\"无名次\"); break; } } } } ------------------------------------------------------- Math 类 ---- double i = 12.85; Math.ceil(i) 13.0 返回大于参数的最小整数（向上取整） 天花板 Math.floor(i) 12.0 返回小于参数的最大整数（向下取整） 地板 Math.round(i) 13 返回四舍五入后的整数 (int)i 12 强制类型转换，直接截断 Math.random() 0.6019044390548263 返回 [0,1) 之间的随机浮点数 ------------------------------------------------------- double d = 123456789.123456789; NumberFormat numberFormat = NumberFormat.getInstance(); numberFormat.setGroupingUsed(true); 设置数字分组 numberFormat.setMaximumIntegerDigits(4); 设置最大整数位 numberFormat.setMaximumFractionDigits(4); 设置最大小数位 numberFormat.setRoundingMode(RoundingMode.HALF_UP); 设置舍入模式 String s = numberFormat.format(d); 6,789.1235 ------------------------------------------------------- System.currentTimeMillis() Unix 时间戳，单位为毫秒（除以 1000 为标准 Unix 时间戳 (秒)） System.nanoTime() 精确计时器，单位为纳秒 long l1 = System.nanoTime(); Some code ... long l2 = System.nanoTime(); System.out.println(l2 - l1); String date = new SimpleDateFormat(\"yyyy-MM-dd HH:mm:ss\").format(new java.util.Date(1475819315880L)); //2016-10-07 13:48:35 ------------------------------------------------------- System.getProperties().list(System.out); 获取系统属性 Map\u003cString, String\u003e getenv = System.getenv(); 获取环境变量 for (String s : getenv.keySet()) { System.out.println(s + \"=\" + getenv.get(s)); } ------------------------------------------------------- val list = ScriptEngineManager().engineFactories 查看已经安装的脚本引擎 list.forEach { println(it.engineName + \" :: \" + it.engineVersion) println(it.languageName + \" :: \" + it.languageVersion) println(it.scriptEngine) println(it.extensions) println(it.mimeTypes) println(it.names) } ---- 输出： Oracle Nashorn :: 1.8.0_112 ECMAScript :: ECMA - 262 Edition 5.1 jdk.nashorn.api.scripting.NashornScriptEngine@6c3708b3 [js] [application/javascript, application/ecmascript, text/javascript, text/ecmascript] [nashorn, Nashorn, js, JS, JavaScript, javascript, ECMAScript, ecmascript] ------------------------------------------------------- GraphicsEnvironment graphicsEnvironment = GraphicsEnvironment.getLocalGraphicsEnvironment(); String[] familyNames = graphicsEnvironment.getAvailableFontFamilyNames(); 获取所有字体系列名称 int i = 0; for (String s : familyNames) { System.out.println(++i + \"：\" + s); } Font[] fonts = graphicsEnvironment.getAllFonts(); 获取所有字体 i = 0; for (Font font : fonts) { System.out.println(++i + \"：\" + font); } ------------------------------------------------------- int i = 5; while (i --\u003e 0) { 5 先与 0 比较，之后再自减 1 //while (i-- \u003e 0) { System.out.println(i); } ---- 输出： 4 3 2 1 0 ------------------------------------------------------- private static String formatFileSize(long size) { 格式化文件大小 NumberFormat numberFormat = NumberFormat.getInstance(); numberFormat.setMaximumFractionDigits(1); numberFormat.setMinimumFractionDigits(1); int divisor; String unit; if (size \u003e (divisor = 1024 * 1024 * 1024)) { unit = \"GB\"; } else if (size \u003e (divisor /= 1024)) { unit = \"MB\"; } else if (size \u003e (divisor /= 1024)) { unit = \"KB\"; } else { divisor /= 1024; unit = \"B\"; } return numberFormat.format(size * 1.0 / divisor) + \" \" + unit; } ------------------------------------------------------- 布尔集合 ---- BitSet set = new BitSet(); set.set(0); set.set(1); set.set(2); set.set(5, false); set.set(6, true); set.set(7, true); set.flip(6); 反转 System.out.println(set); System.out.println(set.cardinality()); 真值数量 System.out.println(set.length()); 从最开始到最后 1(true) 位的位置的长度 System.out.println(set.size()); 总数量 for (int i = set.nextSetBit(0); i \u003e= 0; i = set.nextSetBit(i + 1)) { System.out.printf(\"%d \", i); } ---- 输出： {0, 1, 2, 7} 4 8 64 0 1 2 7 判断字符串使用了哪些字符 ---- String str = \"How do you do\"; BitSet set = new BitSet(); for (char c : str.toCharArray()) { set.set(c); } set.clear(32); //将空格置为 false for (int i = set.nextSetBit(0); i \u003e= 0; i = set.nextSetBit(i + 1)) { System.out.print((char) i); } ---- 输出： Hdouwy 判断有几组成对数字 ---- int[] ints = {1, 2, 2, 1, 1, 3, 5, 1, 2, 3}; int pair = 0; BitSet set = new BitSet(); for (int i : ints) { if (set.get(i)) { pair++; } set.flip(i); } System.out.println(set); 落单数字 System.out.println(pair); 成对数字组数 ---- 输出： {2, 5} 4 继承初始化执行顺序 class Test1 { static { System.out.println(\"1父类静态初始化块\"); } { System.out.println(\"2父类初始化块\"); } Test1() { System.out.println(\"3父类构造方法\"); } } ---- class Test2 extends Test1 { static { System.out.println(\"1子类静态初始化块\"); } { System.out.println(\"2子类初始化块\"); } Test2() { System.out.println(\"3子类构造方法\"); } } ---- class Initial { public static void main(String[] args) { Test1 a = new Test2(); } } ---- 输出： 1父类静态初始化块 1子类静态初始化块 2父类初始化块 3父类构造方法 2子类初始化块 3子类构造方法 装箱和拆箱 装箱：把基本类型转换为包装类，使其具有对象的性质，分为手动装箱和自动装箱。 拆箱：和装箱相反，把包装类对象转换为基本类型的值，分为手动拆箱和自动拆箱。 int i = 5; ---- Integer x = new Integer(i); 手动装箱 Integer y = i; 自动装箱 Integer j = new Integer(10); ---- int m = j.intValue(); 手动拆箱 int n = j; 自动拆箱 repo1 https://mirrors.huaweicloud.com/repository/maven/ repo1 https://mirrors.huaweicloud.com/repository/maven/ ","wordCount":"2550","inLanguage":"en","datePublished":"2016-06-10T11:04:52+08:00","dateModified":"2016-06-10T11:04:52+08:00","author":{"@type":"Person","name":{"email":"xhstormr@example.org","name":"XhstormR"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://xhstormr.github.io/blog/posts/java/"},"publisher":{"@type":"Organization","name":"XhstormR","logo":{"@type":"ImageObject","url":"https://xhstormr.github.io/blog/favicon.ico"}}}</script></head><body id=top><header class=header><nav class=nav><div class=logo><a href=https://xhstormr.github.io/blog/ accesskey=h title="XhstormR (Alt + H)">XhstormR</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://xhstormr.github.io/blog/archives/ title=Archive><span>Archive</span></a></li><li><a href=https://xhstormr.github.io/blog/tags/ title=Tags><span>Tags</span></a></li><li><a href=https://xhstormr.github.io/blog/search/ title="Search (Alt + /)" accesskey=/><span>Search</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://xhstormr.github.io/blog/>Home</a>&nbsp;»&nbsp;<a href=https://xhstormr.github.io/blog/posts/>Posts</a></div><h1 class="post-title entry-hint-parent">自学 Java</h1><div class=post-meta><span title='2016-06-10 11:04:52 +0800 +0800'>2016-06-10</span>&nbsp;·&nbsp;<span>12 min</span>&nbsp;·&nbsp;<span>map[email:xhstormr@example.org name:XhstormR]</span>&nbsp;|&nbsp;<span>
+<a href=https://github.com/XhstormR/blog/tree/master/content/posts/java.md rel="noopener noreferrer edit" target=_blank>Suggest Changes</a></span></div></header><div class=toc><details open><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><ul><li><a href=#ide aria-label=IDE>IDE</a><ul><li><a href=#idea-%e6%97%a0%e9%99%90%e8%af%95%e7%94%a8 aria-label="IDEA 无限试用">IDEA 无限试用</a></li><li><a href=#idea-%e5%bf%ab%e6%8d%b7%e9%94%ae aria-label="IDEA 快捷键">IDEA 快捷键</a></li><li><a href=#eclipse-%e5%bf%ab%e6%8d%b7%e9%94%ae aria-label="Eclipse 快捷键">Eclipse 快捷键</a></li></ul></li><li><a href=#jdk aria-label=JDK>JDK</a></li><li><a href=#edition aria-label=Edition>Edition</a></li><li><a href=#%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f aria-label=环境变量>环境变量</a></li><li><a href=#%e8%b7%a8%e5%b9%b3%e5%8f%b0%e5%8e%9f%e7%90%86 aria-label=跨平台原理>跨平台原理</a></li><li><a href=#cmd aria-label=CMD>CMD</a></li><li><a href=#jre-and-jar aria-label="JRE and JAR">JRE and JAR</a><ul><li><a href=#%e5%90%88%e5%b9%b6%e5%a4%9a%e4%b8%aa-jar-%e6%96%87%e4%bb%b6 aria-label="合并多个 JAR 文件">合并多个 JAR 文件</a></li></ul></li><li><a href=#java-%e8%a7%84%e8%8c%83 aria-label="Java 规范">Java 规范</a></li><li><a href=#svg aria-label=SVG>SVG</a></li><li><a href=#code aria-label=Code>Code</a><ul><li><a href=#%e7%bb%a7%e6%89%bf%e5%88%9d%e5%a7%8b%e5%8c%96%e6%89%a7%e8%a1%8c%e9%a1%ba%e5%ba%8f aria-label=继承初始化执行顺序>继承初始化执行顺序</a></li><li><a href=#%e8%a3%85%e7%ae%b1%e5%92%8c%e6%8b%86%e7%ae%b1 aria-label=装箱和拆箱>装箱和拆箱</a></li></ul></li></ul></div></details></div><div class=post-content><p>Updated on 2016-06-30</p><blockquote><img loading=lazy src=/blog/uploads/java.png title=Java><p><a href=https://www.tiobe.com/tiobe-index/>https://www.tiobe.com/tiobe-index/</a></p><p><a href=https://package-search.jetbrains.com/>https://package-search.jetbrains.com/</a></p><p><a href=https://javadoc.io/>https://javadoc.io/</a></p><p><a href=https://openjfx.io/javadoc/20/>https://openjfx.io/javadoc/20/</a></p><p><a href=https://github.com/openjdk/jdk>https://github.com/openjdk/jdk</a></p><p><a href=https://github.com/openjdk/jfx>https://github.com/openjdk/jfx</a></p><p><a href=https://www.oracle.com/technetwork/java/index.html>https://www.oracle.com/technetwork/java/index.html</a></p><p><a href=https://docs.oracle.com/en/java/javase/20/>https://docs.oracle.com/en/java/javase/20/</a></p><p><a href=https://docs.oracle.com/javase/specs/index.html>https://docs.oracle.com/javase/specs/index.html</a></p><p><a href=https://docs.oracle.com/javase/specs/jvms/se20/html/jvms-6.html>https://docs.oracle.com/javase/specs/jvms/se20/html/jvms-6.html</a></p><p><a href=https://docs.oracle.com/javase/8/docs/index.html>https://docs.oracle.com/javase/8/docs/index.html</a></p><p><a href=https://docs.oracle.com/en/java/javase/20/docs/api/allclasses-index.html>https://docs.oracle.com/en/java/javase/20/docs/api/allclasses-index.html</a></p><p><a href=https://docs.oracle.com/javase/specs/jvms/se22/html/jvms-4.html#jvms-4.1-200-B.2>class version</a></p></blockquote><h2 id=ide>IDE<a hidden class=anchor aria-hidden=true href=#ide>#</a></h2><ul><li>Eclipse：https://www.eclipse.org/downloads/eclipse-packages/<ul><li>汉化包：https://www.eclipse.org/babel/downloads.php</li></ul></li><li><a href="https://confluence.jetbrains.com/collector/pages.action?key=IDEADEV">IntelliJ IDEA</a>：https://www.jetbrains.com/idea/download/<ul><li>将系统时间调整至 1 年以后再点击试用（Evaluation）。</li></ul></li><li>Scene Builder：https://gluonhq.com/products/scene-builder/</li></ul><h3 id=idea-无限试用>IDEA 无限试用<a hidden class=anchor aria-hidden=true href=#idea-无限试用>#</a></h3><ul><li><a href=https://zhile.io>https://zhile.io</a><ul><li><a href=http://jetba.vip/>http://jetba.vip/</a></li><li><a href=https://jetbra.in/s>https://jetbra.in/s</a></li><li><a href=https://jetbrain.tech/>https://jetbrain.tech/</a></li><li><a href=https://521868.xyz/>https://521868.xyz/</a></li></ul></li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>@ echo off
+</span></span><span style=display:flex><span>pushd .
+</span></span><span style=display:flex><span>cd /d %USERPROFILE%/AppData/Roaming/JetBrains/IntelliJIdea2020.1
+</span></span><span style=display:flex><span>busybox rm -rf eval
+</span></span><span style=display:flex><span>busybox sed -i <span style=color:#e6db74>&#34;/evlsprt/d&#34;</span> options/other.xml
+</span></span><span style=display:flex><span>reg delete HKEY_CURRENT_USER<span style=color:#ae81ff>\S</span>OFTWARE<span style=color:#ae81ff>\J</span>avaSoft<span style=color:#ae81ff>\P</span>refs<span style=color:#ae81ff>\j</span>etbrains<span style=color:#ae81ff>\i</span>dea /f
+</span></span><span style=display:flex><span>popd
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e>#Mac VM Options</span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34;/Users/user/Library/Application Support/JetBrains/IntelliJIdea2025.1/idea.vmoptions&#34;</span>
+</span></span><span style=display:flex><span>----
+</span></span><span style=display:flex><span>-javaagent:/Users/user/Documents/jetbra/ja-netfilter.jar<span style=color:#f92672>=</span>jetbrains
+</span></span></code></pre></div><h3 id=idea-快捷键>IDEA 快捷键<a hidden class=anchor aria-hidden=true href=#idea-快捷键>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-xml data-lang=xml><span style=display:flex><span>Ctrl+Ctrl     Run Anything
+</span></span><span style=display:flex><span>Shift+Shift     Search Everywhere
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>F2     查找错误
+</span></span><span style=display:flex><span>F5     复制文件
+</span></span><span style=display:flex><span>F6     移动文件
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Ctrl+[]     转至大括号处
+</span></span><span style=display:flex><span>Ctrl+Y     删除行
+</span></span><span style=display:flex><span>Ctrl+D     复制行 or 文件比较
+</span></span><span style=display:flex><span>Ctrl+G     转至行
+</span></span><span style=display:flex><span>Ctrl+B     转至声明处
+</span></span><span style=display:flex><span>Ctrl+R     替换文本
+</span></span><span style=display:flex><span>Ctrl+O     重写方法
+</span></span><span style=display:flex><span>Ctrl+I     实现方法
+</span></span><span style=display:flex><span>Ctrl+J     自动代码（Live Template）
+</span></span><span style=display:flex><span>Alt+/     文字补全
+</span></span><span style=display:flex><span>Alt+1     显示/隐藏工程面板
+</span></span><span style=display:flex><span>Alt+4     显示/隐藏运行面板
+</span></span><span style=display:flex><span>Alt+Enter     快速修正
+</span></span><span style=display:flex><span>Alt+下划线字母     选中/取消
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Ctrl+Alt+T     代码包围
+</span></span><span style=display:flex><span>Ctrl+Alt+L     格式化代码
+</span></span><span style=display:flex><span>Ctrl+Alt+O     清除无效包引用
+</span></span><span style=display:flex><span>Ctrl+Shift+T     测试用例
+</span></span><span style=display:flex><span>Ctrl+Shift+J     合并行
+</span></span><span style=display:flex><span>Ctrl+Shift+U     大小写转换
+</span></span><span style=display:flex><span>Ctrl+Shift+Enter     完成声明
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Shift+F6     重构 - 重命名（Rename）
+</span></span><span style=display:flex><span>Ctrl+Alt+N     内联（Inline）
+</span></span><span style=display:flex><span>Ctrl+Alt+V     提取为变量（Variable）（Extract）
+</span></span><span style=display:flex><span>Ctrl+Alt+F     提取为属性（Field）
+</span></span><span style=display:flex><span>Ctrl+Alt+P     提取为参数（Parameter）
+</span></span><span style=display:flex><span>Ctrl+Alt+M     提取为方法（Method）
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Alt+Q     查看上下文
+</span></span><span style=display:flex><span>Ctrl+Q     查看快速文档
+</span></span><span style=display:flex><span>Ctrl+P     查看参数信息
+</span></span><span style=display:flex><span>Ctrl+Shift+I     查看快速定义
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Ctrl+` 4 3     进入（退出）全屏
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Ctrl+F5     Rerun
+</span></span><span style=display:flex><span>Ctrl+F9     Build Project
+</span></span><span style=display:flex><span>Ctrl+F10     Update Running JavaEE Application
+</span></span><span style=display:flex><span>Shift+F10     Run
+</span></span><span style=display:flex><span>Ctrl+Shift+F10     Run（Context）
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Ctrl+Shift+减     折叠所有代码块
+</span></span><span style=display:flex><span>Ctrl+Shift+加     展开所有代码块
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Alt+J     多选关键字
+</span></span><span style=display:flex><span>Alt+Shift+J     退选关键字
+</span></span><span style=display:flex><span>Alt+Shift+Ctrl+J     全选关键字
+</span></span><span style=display:flex><span>Alt+Shift+Ctrl+点击     多选模式
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Ctrl+Alt+S     设置
+</span></span><span style=display:flex><span>Ctrl+Shift+Alt+S     项目设置
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Ctrl+Alt+U     显示 UML
+</span></span><span style=display:flex><span>Ctrl+Shift+Alt+U     显示 UML（新窗口）
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>F12     查看最近使用的工具窗口
+</span></span><span style=display:flex><span>Esc     返回编辑器
+</span></span><span style=display:flex><span>Shift+Esc     隐藏最近使用的工具窗口
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Ctrl+F4     关闭文件
+</span></span><span style=display:flex><span>Alt+F4     关闭窗口
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>F3     搜索关键字
+</span></span><span style=display:flex><span>Alt+F3     高亮选中文本（same as Ctrl+F）
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>F11     添加书签
+</span></span><span style=display:flex><span>Shift+F11     显示书签
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>滚轮     垂直滚动
+</span></span><span style=display:flex><span>Shift+滚轮     水平滚动
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Ctrl+F12     查看文件结构
+</span></span><span style=display:flex><span>Ctrl+Alt+F12     查看文件路径
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Ctrl+H     查看类型层级
+</span></span><span style=display:flex><span>Ctrl+Alt+H     查看调用层级
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Alt+Insert     生成方法
+</span></span><span style=display:flex><span>Ctrl+Alt+Insert     新建文件
+</span></span><span style=display:flex><span>Ctrl+Shift+Insert     历史复制板
+</span></span><span style=display:flex><span>Ctrl+Shift+Alt+Insert     新建临时文件（Scratch）
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Ctrl+/     注释行（单行注释）
+</span></span><span style=display:flex><span>Ctrl+Shift+/     添加注释（多行注释）
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Ctrl+Space   内容辅助（Class Name Completion 已被输入法占用，推荐设置为 Alt+。）
+</span></span><span style=display:flex><span>Ctrl+Shift+Space     智能提示
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Ctrl+E     最近访问文件
+</span></span><span style=display:flex><span>Ctrl+Shift+E     最近编辑文件
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Ctrl+W     扩大选区
+</span></span><span style=display:flex><span>Ctrl+Shift+W     缩小选区
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Ctrl+Z     Undo
+</span></span><span style=display:flex><span>Ctrl+Shift+Z     Redo
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Ctrl+Shift+C     复制绝对路径
+</span></span><span style=display:flex><span>Ctrl+Shift+Alt+C     复制相对路径
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Ctrl+N     查找类
+</span></span><span style=display:flex><span>Ctrl+Shift+N     查找文件
+</span></span><span style=display:flex><span>Ctrl+Shift+Alt+N     查找变量
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Alt+↑↓     切换方法
+</span></span><span style=display:flex><span>Alt+←→     切换文件
+</span></span><span style=display:flex><span>Alt+Shift+←→     切换编辑框
+</span></span><span style=display:flex><span>Alt+Ctrl+←→     后向/向前
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Shift+Alt+↑↓     移动行
+</span></span><span style=display:flex><span>Shift+Ctrl+↑↓     移动方法
+</span></span><span style=display:flex><span>Shift+Ctrl+Alt+←→     移动方法参数
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Shift+Enter     在当前行的下一行插入空行
+</span></span><span style=display:flex><span>Ctrl+Alt+Enter     在当前行的上一行插入空行
+</span></span></code></pre></div><h3 id=eclipse-快捷键>Eclipse 快捷键<a hidden class=anchor aria-hidden=true href=#eclipse-快捷键>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-xml data-lang=xml><span style=display:flex><span>F2     显示工具提示
+</span></span><span style=display:flex><span>F3     打开声明文件
+</span></span><span style=display:flex><span>F6     调试 - 单步跳过
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Ctrl+D     删除行
+</span></span><span style=display:flex><span>Ctrl+L     转至行
+</span></span><span style=display:flex><span>Ctrl+Shift+F     格式化代码（最好改为 Ctrl+Alt+L）
+</span></span><span style=display:flex><span>Ctrl+Shift+O     自动导入需要的包
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Ctrl+.     快速查找
+</span></span><span style=display:flex><span>Ctrl+1     快速修正
+</span></span><span style=display:flex><span>Ctrl+2     快速帮助
+</span></span><span style=display:flex><span>  L     分配为变量（Local）
+</span></span><span style=display:flex><span>  F     分配为属性（Field）
+</span></span><span style=display:flex><span>  M     提取为方法（Method）
+</span></span><span style=display:flex><span>  R     重构 - 重命名（Rename）
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Alt+Shift+↑↓     扩大选区
+</span></span><span style=display:flex><span>Alt+Shift+I     内联（Inline）
+</span></span><span style=display:flex><span>Alt+Shift+L     提取为变量（Variable）（Extract）
+</span></span><span style=display:flex><span>Alt+Shift+M     提取为方法（Method）
+</span></span><span style=display:flex><span>Alt+Shift+R     重构 - 重命名
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Ctrl+/     单行注释
+</span></span><span style=display:flex><span>Alt+Shift+J     文档注释
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>F11     调试运行
+</span></span><span style=display:flex><span>Ctrl+F11     运行
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Ctrl+S     保存
+</span></span><span style=display:flex><span>Ctrl+Shift+S     全部保存
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Ctrl+W     关闭
+</span></span><span style=display:flex><span>Ctrl+Shift+W     全部关闭
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Alt+↑↓     移动行
+</span></span><span style=display:flex><span>Ctrl+Alt+↑↓     复制行
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Alt+/     内容辅助
+</span></span><span style=display:flex><span>Ctrl+Alt+/     文字补全
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Shift+Enter     在当前行的下一行插入空行
+</span></span><span style=display:flex><span>Ctrl+Shift+Enter     在当前行的上一行插入空行
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Windows -&gt; Preferences -&gt; Java -&gt; Editor -&gt; Content Assist -&gt; Auto Activation -&gt; Trigger for Java     自动代码提示
+</span></span></code></pre></div><h2 id=jdk><a href=http://www.oracle.com/technetwork/java/javase/downloads/index.html>JDK</a><a hidden class=anchor aria-hidden=true href=#jdk>#</a></h2><ul><li><a href=https://cdn.azul.com/zulu/bin/>https://cdn.azul.com/zulu/bin/</a></li><li><a href=https://bell-sw.com/pages/downloads/>https://bell-sw.com/pages/downloads/</a></li><li><a href=https://adoptium.net/temurin/releases/>https://adoptium.net/temurin/releases/</a><ul><li><a href=https://mirrors.tuna.tsinghua.edu.cn/Adoptium/>https://mirrors.tuna.tsinghua.edu.cn/Adoptium/</a></li></ul></li><li>JDK：Java Development Kit（Java 开发工具包）<ul><li>JRE：Java Runtime Environment（Java 运行环境）<ul><li>JVM：Java Virtual Machine（Java 虚拟机）</li></ul></li></ul></li></ul><h2 id=edition>Edition<a hidden class=anchor aria-hidden=true href=#edition>#</a></h2><table><thead><tr><th style=text-align:left></th><th style=text-align:left>微型版(Micro Edition)</th><th style=text-align:left>标准版(Standard Edition)</th><th style=text-align:left>企业版(Enterprise Edition)</th></tr></thead><tbody><tr><td style=text-align:left>旧名</td><td style=text-align:left>J2ME</td><td style=text-align:left>J2SE</td><td style=text-align:left>J2EE</td></tr><tr><td style=text-align:left>新名</td><td style=text-align:left>Java ME</td><td style=text-align:left>Java SE</td><td style=text-align:left>Java EE</td></tr><tr><td style=text-align:left>类库</td><td style=text-align:left>只包含SE中的一部分</td><td style=text-align:left>核心类库</td><td style=text-align:left>包含SE中的和企业扩展类</td></tr><tr><td style=text-align:left>&mdash;&mdash;&mdash;</td><td style=text-align:left>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;</td><td style=text-align:left>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;</td><td style=text-align:left>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;</td></tr></tbody></table><h2 id=环境变量>环境变量<a hidden class=anchor aria-hidden=true href=#环境变量>#</a></h2><table><thead><tr><th style=text-align:left>变量值</th><th style=text-align:left>变量名</th><th style=text-align:left></th></tr></thead><tbody><tr><td style=text-align:left>JAVA_HOME</td><td style=text-align:left>C:\Program Files\Java\jdk1.8.0_92</td><td style=text-align:left>配置JDK安装路径</td></tr><tr><td style=text-align:left>PATH</td><td style=text-align:left>%JAVA_HOME%\bin</td><td style=text-align:left>配置执行文件位置</td></tr><tr><td style=text-align:left>CLASSPATH</td><td style=text-align:left>.;%JAVA_HOME%\lib</td><td style=text-align:left>配置类库文件位置</td></tr><tr><td style=text-align:left>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td><td style=text-align:left>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td><td style=text-align:left>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;</td></tr></tbody></table><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>setx JAVA_HOME <span style=color:#e6db74>&#34;C:\Program Files\Java\jdk1.8.0_92&#34;</span> /m
+</span></span><span style=display:flex><span>setx PATH <span style=color:#e6db74>&#34;%PATH%;%JAVA_HOME%\bin&#34;</span> /m
+</span></span><span style=display:flex><span>setx CLASSPATH <span style=color:#e6db74>&#34;.;%JAVA_HOME%\lib&#34;</span> /m
+</span></span></code></pre></div><h2 id=跨平台原理>跨平台原理<a hidden class=anchor aria-hidden=true href=#跨平台原理>#</a></h2><table><thead><tr><th style=text-align:left>a.java</th><th style=text-align:left>javac</th><th style=text-align:left>a.class</th><th style=text-align:left>java</th><th style=text-align:left>JVM</th><th style=text-align:left>HelloWorld!</th></tr></thead><tbody><tr><td style=text-align:left>源代码</td><td style=text-align:left>编译器</td><td style=text-align:left>字节码</td><td style=text-align:left>解释器</td><td style=text-align:left>虚拟机</td><td></td></tr><tr><td style=text-align:left>&mdash;&mdash;&mdash;&ndash;</td><td style=text-align:left>&mdash;&mdash;&mdash;&ndash;</td><td style=text-align:left>&mdash;&mdash;&mdash;&ndash;</td><td style=text-align:left>&mdash;&mdash;&mdash;&ndash;</td><td style=text-align:left>&mdash;&mdash;&mdash;&ndash;</td><td style=text-align:left>&mdash;&mdash;&mdash;&mdash;&mdash;》</td></tr></tbody></table><h2 id=cmd>CMD<a hidden class=anchor aria-hidden=true href=#cmd>#</a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span>(String<span style=color:#f92672>[]</span> args) {
+</span></span><span style=display:flex><span>        System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;HelloWorld!&#34;</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>D:<span style=color:#960050;background-color:#1e0010>\</span><span style=color:#f92672>&gt;</span>javac A.<span style=color:#a6e22e>java</span>
+</span></span><span style=display:flex><span>D:<span style=color:#960050;background-color:#1e0010>\</span><span style=color:#f92672>&gt;</span>java A     java命令不跟文件名<span style=color:#960050;background-color:#1e0010>，</span>而是跟完全类名限定符
+</span></span><span style=display:flex><span>HelloWorld<span style=color:#f92672>!</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>package</span> abc;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span>(String<span style=color:#f92672>[]</span> args) {
+</span></span><span style=display:flex><span>        System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;HelloWorld!&#34;</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>D:<span style=color:#960050;background-color:#1e0010>\</span><span style=color:#f92672>&gt;</span>javac abc<span style=color:#960050;background-color:#1e0010>\</span>A.<span style=color:#a6e22e>java</span>
+</span></span><span style=display:flex><span>D:<span style=color:#960050;background-color:#1e0010>\</span><span style=color:#f92672>&gt;</span>java abc.<span style=color:#a6e22e>A</span>
+</span></span><span style=display:flex><span>HelloWorld<span style=color:#f92672>!</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>fun <span style=color:#a6e22e>main</span>(args: Array<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span>) {
+</span></span><span style=display:flex><span>    println(<span style=color:#e6db74>&#34;HelloWorld!&#34;</span>)
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>D:<span style=color:#960050;background-color:#1e0010>\</span>kotlinc<span style=color:#960050;background-color:#1e0010>\</span>bin<span style=color:#f92672>&gt;</span>kotlinc A.<span style=color:#a6e22e>kt</span>
+</span></span><span style=display:flex><span>D:<span style=color:#960050;background-color:#1e0010>\</span>kotlinc<span style=color:#960050;background-color:#1e0010>\</span>bin<span style=color:#f92672>&gt;</span>java <span style=color:#f92672>-</span>cp kotlin<span style=color:#f92672>-</span>stdlib.<span style=color:#a6e22e>jar</span>; AKt
+</span></span><span style=display:flex><span>HelloWorld<span style=color:#f92672>!</span>
+</span></span><span style=display:flex><span>or
+</span></span><span style=display:flex><span>D:<span style=color:#960050;background-color:#1e0010>\</span>kotlinc<span style=color:#960050;background-color:#1e0010>\</span>bin<span style=color:#f92672>&gt;</span>kotlinc <span style=color:#f92672>-</span>include<span style=color:#f92672>-</span>runtime <span style=color:#f92672>-</span>d 123.<span style=color:#a6e22e>jar</span> A.<span style=color:#a6e22e>kt</span>
+</span></span><span style=display:flex><span>D:<span style=color:#960050;background-color:#1e0010>\</span>kotlinc<span style=color:#960050;background-color:#1e0010>\</span>bin<span style=color:#f92672>&gt;</span>java <span style=color:#f92672>-</span>jar 123.<span style=color:#a6e22e>jar</span>
+</span></span><span style=display:flex><span>HelloWorld<span style=color:#f92672>!</span>
+</span></span></code></pre></div><h2 id=jre-and-jar>JRE and JAR<a hidden class=anchor aria-hidden=true href=#jre-and-jar>#</a></h2><ol><li>复制 <code>JAVA_HOME</code> 下的 <code>jre</code> 目录到 <code>123</code> 目录。</li><li>复制项目 JAR 文件至 <code>123</code> 目录。</li><li>在 <code>123</code> 目录新建 <code>123.bat</code> 文件。</li></ol><img loading=lazy src=/blog/uploads/java-jre.png><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-xml data-lang=xml><span style=display:flex><span>123.bat
+</span></span><span style=display:flex><span>⇳
+</span></span><span style=display:flex><span>cmd /K jre\bin\java -jar 123.jar
+</span></span></code></pre></div><h3 id=合并多个-jar-文件>合并多个 JAR 文件<a hidden class=anchor aria-hidden=true href=#合并多个-jar-文件>#</a></h3><ol><li>将所有 JAR 文件解压至同一个目录。</li><li>在此目录下执行 <code>jar -cfM 123.jar .</code></li></ol><h2 id=java-规范>Java 规范<a hidden class=anchor aria-hidden=true href=#java-规范>#</a></h2><ul><li>源文件名：源文件名应该和其中的 <code>public</code> 类名相同。</li><li>程序入口：所有的 Java 程序由 <code>public static void main(String[] args)</code> 方法处开始执行。</li><li>变量：包含变量类型、变量名、变量值 3 个元素。<code>String name="Dave";</code><ul><li>常量：一种特殊的变量，由 final 修饰，值不能被改变。<code>final char SEX = '男';</code><ul><li>final 在修饰成员变量时，必须同时设定初值。</li></ul></li></ul></li><li>自动类型转换：表数范围小的可以向表数范围大的进行自动类型转换；将一个小容器的水倒入一个大容器没有问题，但是将一个大容器的水倒入一个小容器则会装不下，会溢出。byte→short(char)→int→long→float→double</li><li>强制类型转换：直接截断，不会进行四舍五入。<code>int a = (int)3.1415926;</code></li><li>注释：单行注释（<code>//</code>），多行注释（<code>/**/</code>），文档注释（<code>/***/</code>）。</li><li>标识符：用于给 Java 程序中类、方法、变量等命名的符号，严格区分大小写。<ul><li>只能由字母，数字， <code>_</code> ， <code>$</code> 组成，且不能以数字开头。</li><li>类名：首字母大写，大驼峰式命名法，MyFirstJavaClass。</li><li>方法名，变量名：首字母小写，小驼峰式命名法，stuName。</li></ul></li><li>运算符：算术运算符、赋值运算符、比较运算符、逻辑运算符、条件运算符。<ul><li>条件运算符：也称为三元运算符（?:）。<code>String str1 = (8 > 5) ? "8大于5" : "8不大于5";</code><ul><li>语法形式：<strong>布尔表达式 ？ 表达式1 ：表达式2</strong></li><li>运算过程：如果布尔表达式的值为 <strong>true</strong> ，则返回 <strong>表达式1</strong> 的值，否则返回 <strong>表达式2</strong> 的值。</li></ul></li></ul></li><li>条件语句 switch：当 switch 后表达式的值和 case 语句后的值相同时，从该位置开始向下执行，直到遇到 break 语句或者 switch 语句块结束；如果没有匹配的 case 语句则执行 <strong>default</strong> 块的代码。<ul><li>switch 后面小括号中表达式的值必须是 <strong>整型或字符型</strong> 。</li><li>case 匹配后，如果没有遇见 <strong>break</strong> 会继续执行下一个的 case 块的内容，直到遇到 break 语句或者 switch 语句块结束。</li><li>default 块可以出现在 <strong>任意位置</strong>，也 <strong>可以省略</strong>。</li></ul></li><li>循环语句 for：for 关键字后面括号中的三个表达式都可以省略，但两个 <code>;</code> 不能省略。<ul><li>for 循环变量初始化和循环变量变化部分，可以使用 <code>,</code> 同时初始化或改变多个循环变量的值。</li></ul></li><li>数组（Array）：使用 <code>数组名.length</code> 获取数组的长度；使用 <code>数组名[下标]</code> 来访问；数组的下标从 0 开始，如长度为 3 ，则下标为 0，1，2。<ul><li>二维数组：特殊的一维数组，它的每个数组空间中保存的是一个一维数组。</li></ul></li><li>方法：用来解决一类问题的代码组合，是一个功能模块。通过 <code>对象名.方法名()</code> 调用方法。<ul><li>访问修饰符：public、protected、private、缺省。</li><li>返回值类型：方法不返回任何值，则返回值类型指定为 void；方法具有返回值，则需要指定返回值的类型，并且在方法体中使用 return 语句返回值。</li><li>形参：定义方法时的参数，目的是用来定义方法需要传入的参数的个数和类型。</li><li>实参：调用方法时的参数，是传递给方法真正被处理的值。</li><li>重载： <strong>方法名相同</strong> ，但是形参的个数、顺序或类型不同，则称为方法的重载。<ul><li>当调用被重载的方法时， Java 会根据参数的个数和类型来判断应该调用哪个重载方法，参数完全匹配的方法将被执行。</li><li>判断方法重载的依据：●必须是在同一个类中●方法名相同●方法参数的个数、顺序或类型不同。</li></ul></li></ul></li></ul><hr><ul><li>构造方法：是用来初始化对象的方法，与类同名且没有返回值。 <code>people a = new people();</code><ul><li>当没有指定构造方法时，系统会自动生成一个无参构造方法。所以 <strong>创建对象时,其实执行的是构造方法</strong> 。</li><li>有参构造方法的目的就是初始化对象中成员变量的值，并且可以通过条件语句判断值是否合理并赋予默认值。</li></ul></li><li>static：可以修饰变量、方法、初始化块，被称为静态成员，它属于整个类所有，即 <strong>被类的所有对象共享</strong> ；可以 <strong>直接使用类名访问</strong> ，不需要创建对象。<ul><li>静态成员属于整个类，当系统第一次使用该类时，就会为其分配内存空间直到该类被卸载才会进行资源回收。</li><li>静态变量：无需创建对象直接通过类名访问。</li><li>静态方法：无需创建对象直接通过类名访问。</li><li>静态初始化块：静态初始化块只在类加载时执行，所以只会执行一次，同时静态初始化块只能给静态变量赋值，不能初始化普通的成员变量。<ul><li>初始化块：当创建类的实例时，会依次执行初始化块 <code>{...}</code>，可以通过初始化块进行数据赋值。</li><li>对象实例化执行顺序：静态初始化块 ➜ 初始化块 ➜ 构造方法。</li></ul></li></ul></li></ul><hr><ul><li>封装：将类的某些信息隐藏在类内部，不允许外部程序直接访问，而是通过该类提供的方法来实现对隐藏信息的操作和访问。<ul><li>优点：●只能通过规定的方法访问数据●隐藏类的实例细节，方便修改和实现。</li><li>步骤：设置属性为 private ➜ 创建 getter/setter 方法用于属性的读写 ➜ 在 getter/setter 方法中对属性值的合法性进行判断。</li></ul></li><li>this：代表当前对象（调用者），在封装时常用于区分属性和参数。不能对静态成员使用 this，因为它跟对象没有关系。<ul><li>this.属性：操作当前对象的属性。</li><li>this.方法：调用当前对象的方法。</li></ul></li><li>内部类（Inner Class）：定义在 <strong>一个类里面的类</strong> ；与之对应，包含内部类的类被称为外部类，并且内部类默认持有其外部类的强引用。<ul><li>优点：●内部类提供了更好的封装，可以把内部类隐藏在外部类之内，不允许同一个包中的其他类访问该类●内部类的方法可以直接访问外部类的所有数据，包括私有的数据。</li><li>成员内部类：定义了成员内部类后，必须通过外部类对象来创建内部类对象，而不能直接去 new 一个内部类对象。<code>内部类 对象名 = 外部类对象.new 内部类( );</code></li><li>静态内部类：用 <code>static</code> 修饰的成员内部类，不需要外部类的对象，可以直接创建；相当于独立出来的类，不会持有其外部类的强引用。<code>内部类 对象名= new 内部类();</code></li><li>方法内部类：定义在方法中的类，只在该方法的内部可见，即只在该方法内可以使用。</li></ul></li></ul><hr><ul><li>继承（extends）：是类与类的一种关系，子类继承于父类（SuperClass），一个类只有一个父类，即单继承。<code>class 子类 extends 父类 {...}</code><ul><li>优点：子类拥有父类所有的属性和方法（不能为 private），实现代码复用。</li><li>重写：子类可以重写父类继承的方法，当调用方法时会优先调用子类的方法。<ul><li>规则：返回值类型、方法名、参数类型及个数都要与父类继承的方法相同，才为方法的重写。（换句话说 <strong>只重写方法体</strong>）</li></ul></li><li>继承初始化执行顺序：初始化父类（属性初始化 ➜ 构造方法） ➜ 初始化子类（相同）<ul><li>子类的构造过程中必须调用其父类的构造方法。如果子类的构造方法中没有显式调用父类的构造方法，则系统默认隐式调用父类无参构造方法 <code>super();</code>；若显式调用构造方法，则必须放在子类的构造方法第一行。</li></ul></li></ul></li><li>super：代表父类对象。<ul><li>super.属性：访问父类的属性。</li><li>super.方法：访问父类的方法。</li></ul></li><li>Object类：是 <strong>所有类的父类</strong>；如果一个类没有明确使用 extends 关键字继承另外一个类，那么这个类默认继承于 Object类，且 Object类中的方法适用于所有子类。<ul><li><code>toString()</code> 方法：输出对象在内存中的地址字符串。可以通过重写该方法输出对象的属性值，Eclipse 的源码(Source)菜单中的 <code>生成toString()</code> 能自动完成。</li><li><code>equals()</code> 方法：比较对象的引用是否指向同一块内存地址（比较是否为同一部手机）（<code>==</code> 运算符也可以做到）。可以通过重写该方法比较两个对象的属性值是否一致（比较两部手机的属性），Eclipse 的源码(Source)菜单中的 <code>生成hashCode()和equals()</code> 能自动完成。</li><li><code>getClass()</code> 方法：返回类对象。<code>example：Man b = new Man();</code><ul><li>类对象：关注类的代码信息(有哪些属性、方法)。<code>Man.class</code></li><li>类的对象：关注对象的数据信息(属性值是多少)。<code>new Man()</code></li></ul></li></ul></li></ul><hr><ul><li>多态：对象的多种形态；<strong>继承</strong> 是多态的实现基础。<ul><li>引用多态<ul><li>父类的引用可以指向本类的对象。<code>Animal a = new Animal();</code></li><li>父类的引用可以指向 <strong>子类</strong> 的对象。<code>Animal b = new Dog();</code></li></ul></li><li>方法多态<ul><li>指向本类对象时，调用的方法为本类方法。</li><li>指向子类对象时，调用的方法为 <strong>子类重写或继承的方法</strong>。<ul><li>即子类独有的方法不可访问，不能通过父类的引用调用子类独有的方法。</li></ul></li></ul></li></ul></li><li>引用类型转换：使用 <code>instanceof</code> 运算符判断一个引用是否是某个类型或某个类型的子类型，从而判断是否可以使用强制类型转换，返回布尔值，通常与 <code>if</code> 配合使用。<code>b instanceof Dog</code><ul><li>向上类型转换（自动类型转换）：小类型到大类型的转换。<code>Animal b = new Dog();</code></li><li>向下类型转换（强制类型转换）：大类型到小类型的转换。<code>Dog c = (Dog)b;</code></li></ul></li><li>抽象类：用 <code>abstract</code> 修饰的类。<code>public abstract class Phone {...}</code><ul><li>作用： <strong>通过抽象方法约束子类</strong> 必须包含某些方法，但不关注子类如何实现。</li><li>规则<ul><li>用 <code>abstract</code> 修饰抽象方法，只有声明， <strong>没有方法体</strong>。<code>public abstract void call();</code></li><li>包含抽象方法的类是抽象类。</li><li>抽象类可以包含普通方法，也可以没有抽象方法。</li><li>抽象类不能直接创建，通过 <strong>引用多态</strong> 指向子类对象来使用。<code>Phone a = new SmartPhone();</code></li></ul></li></ul></li><li>接口（interface）：使用 <code>interface</code> 定义接口，由全局常量和公共的抽象方法所组成。<ul><li>类描述对象的属性和方法，接口则包含类要具有的属性和要实现的方法，它定义了某一批类所要遵守的 <strong>规范</strong>。<ul><li>接口中的属性：常量，系统会自动添加 <code>public static final</code> 修饰符。</li><li>接口中的方法：抽象方法，系统会自动添加 <code>public abstract</code> 修饰符。</li></ul></li><li>父类单继承（extends），接口多实现（ <strong>implements</strong>）。Java 中的类只能继承单个父类，不够灵活，可以 <strong>通过实现多个接口做补充</strong>。<ul><li>继承是 <strong>is a（是什么）</strong> 的关系；接口是 <strong>has a（有什么）</strong> 的关系。</li></ul></li><li>接口不能直接创建，通过 <strong>引用多态</strong> 指向实现接口的对象来使用。<code>IPlayGame b = new SmartPhone();</code></li><li>接口在使用过程中，经常与匿名内部类配合使用。<ul><li>匿名内部类：没有名字的内部类，不关注类的名字，在使用的时候才定义。</li></ul></li></ul></li></ul><hr><ul><li>项目分析<ul><li>数据模型分析：通过对现实世界事物的主要特征进行抽象化处理，构建出数据结构。（类：方法、属性）</li><li>业务模型分析：在设计应用程序之前，应该明确业务开展过程中需要的功能。</li><li>显示和流程分析：显示界面的执行过程和流程的处理步骤。</li></ul></li><li>面向对象编程（Object Oriented Programming）遵循 <strong>高内聚，低耦合</strong> 的设计原则。<ul><li>高内聚：块内联系，每个模块尽可能的独立完成某个 <strong>特定的功能</strong>，单一责任原则。</li><li>低耦合：块间联系，模块之间的接口尽可能的 <strong>少而简单</strong>。</li><li>通常各模块的内聚程度越高，模块间的耦合程度就越低。</li></ul></li></ul><h2 id=svg>SVG<a hidden class=anchor aria-hidden=true href=#svg>#</a></h2><p><img loading=lazy src=/blog/uploads/java-identifiers.svg title=标识符></p><p><img loading=lazy src=/blog/uploads/java-final.svg title="Final 关键字"></p><p><img loading=lazy src=/blog/uploads/java-access.svg title=访问修饰符></p><p><img loading=lazy src=/blog/uploads/java-wrapper.svg title=包装类></p><p><img loading=lazy src=/blog/uploads/java-wrapper-method.svg title=包装类></p><p><img loading=lazy src=/blog/uploads/java-arithmetic.svg title=算术运算符></p><p><img loading=lazy src=/blog/uploads/java-assignment.svg title=赋值运算符></p><p><img loading=lazy src=/blog/uploads/java-comparison.svg title=比较运算符></p><p><img loading=lazy src=/blog/uploads/java-logical.svg title=逻辑运算符></p><p><img loading=lazy src=/blog/uploads/java-interface.svg title=接口></p><p><img loading=lazy src=/blog/uploads/java-array.svg title=数组></p><p><img loading=lazy src=/blog/uploads/java-datatype.svg title=数据类型></p><p><img loading=lazy src=/blog/uploads/java-processControl.svg title=流程控制语句></p><p><img loading=lazy src=/blog/uploads/java-variable.svg title=变量></p><p><img loading=lazy src=/blog/uploads/java-class.svg title=类和对象></p><h2 id=code>Code<a hidden class=anchor aria-hidden=true href=#code>#</a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 5;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> b <span style=color:#f92672>=</span> i<span style=color:#f92672>++</span>;     <span style=color:#75715e>//先进行赋值，再执行自增，b=5</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 5;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> b <span style=color:#f92672>=</span> <span style=color:#f92672>++</span>i;     <span style=color:#75715e>//先执行自增，再进行赋值，b=6</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>String a <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;你好&#34;</span>;     <span style=color:#75715e>//声明变量的同时进行初始化</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>String a;     <span style=color:#75715e>//先声明后赋值</span>
+</span></span><span style=display:flex><span>a <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;你好&#34;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Man b <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Man();     <span style=color:#75715e>//声明对象的同时进行实例化</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>Man b;     <span style=color:#75715e>//先声明后实例化</span>
+</span></span><span style=display:flex><span>b <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Man();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> scores <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>int</span><span style=color:#f92672>[</span>4<span style=color:#f92672>]</span>;     <span style=color:#75715e>//声明数组的同时进行分配空间，数组长度为 4</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> scores;     <span style=color:#75715e>//先声明后分配空间，再赋值放入数据，数组长度为 4</span>
+</span></span><span style=display:flex><span>scores <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>int</span><span style=color:#f92672>[</span>4<span style=color:#f92672>]</span>;
+</span></span><span style=display:flex><span>scores<span style=color:#f92672>[</span>0<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> 76;
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> scores <span style=color:#f92672>=</span> { 76, 83, 92, 87 };     <span style=color:#75715e>//声明数组的同时进行分配空间和赋值</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>流程控制语句
+</span></span><span style=display:flex><span>条件语句 <span style=color:#66d9ef>if</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> score <span style=color:#f92672>=</span> 85;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> (score <span style=color:#f92672>&gt;</span> 80) {
+</span></span><span style=display:flex><span>    System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;奖励手机&#34;</span>);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>条件语句 <span style=color:#66d9ef>if</span>...<span style=color:#a6e22e>else</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> score <span style=color:#f92672>=</span> 85;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> (score <span style=color:#f92672>&gt;</span> 80) {
+</span></span><span style=display:flex><span>    System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;奖励手机&#34;</span>);
+</span></span><span style=display:flex><span>} <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>    System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;罚做俯卧撑&#34;</span>);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>条件语句 多重if
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> score <span style=color:#f92672>=</span> 85;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> (score <span style=color:#f92672>&gt;</span> 80) {
+</span></span><span style=display:flex><span>    System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;奖励手机&#34;</span>);
+</span></span><span style=display:flex><span>} <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (score <span style=color:#f92672>&gt;</span> 60) {
+</span></span><span style=display:flex><span>    System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;奖励鼠标&#34;</span>);
+</span></span><span style=display:flex><span>} <span style=color:#66d9ef>else</span> {     <span style=color:#75715e>//前面的条件均不成立时，才会执行 else 块内的代码</span>
+</span></span><span style=display:flex><span>    System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;罚做俯卧撑&#34;</span>);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>条件语句 嵌套if
+</span></span><span style=display:flex><span>String today <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;周末&#34;</span>;
+</span></span><span style=display:flex><span>String weather <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;晴朗&#34;</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> (today.<span style=color:#a6e22e>equals</span>(<span style=color:#e6db74>&#34;周末&#34;</span>)) {     <span style=color:#75715e>//String 类的 equals() 用于判断字符串内容是否相同</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//内层if 开始</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (weather.<span style=color:#a6e22e>equals</span>(<span style=color:#e6db74>&#34;晴朗&#34;</span>)) {
+</span></span><span style=display:flex><span>        System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;去散步&#34;</span>);
+</span></span><span style=display:flex><span>    } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>        System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;待在家&#34;</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//内层if 结束</span>
+</span></span><span style=display:flex><span>} <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>    System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;去上班&#34;</span>);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>条件语句 <span style=color:#66d9ef>switch</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> num <span style=color:#f92672>=</span> 1;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>switch</span> (num) {
+</span></span><span style=display:flex><span><span style=color:#66d9ef>case</span> 1:
+</span></span><span style=display:flex><span>	System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;第一名&#34;</span>);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>case</span> 2:
+</span></span><span style=display:flex><span>	System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;第二名&#34;</span>);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>case</span> 3:
+</span></span><span style=display:flex><span>	System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;第三名&#34;</span>);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>case</span> 4:     <span style=color:#75715e>//可以把功能相同的 case 语句合并起来</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>case</span> 5:
+</span></span><span style=display:flex><span>	System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;鼓励奖&#34;</span>);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>default</span>:
+</span></span><span style=display:flex><span>	System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;没有名次&#34;</span>);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>循环语句 <span style=color:#66d9ef>while</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 1;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>while</span> (i <span style=color:#f92672>&lt;=</span> 5) {     <span style=color:#75715e>//先判断，后执行</span>
+</span></span><span style=display:flex><span>	System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(i);
+</span></span><span style=display:flex><span>	i<span style=color:#f92672>++</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>循环语句 <span style=color:#66d9ef>do</span>...<span style=color:#a6e22e>while</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 1;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>do</span> {     <span style=color:#75715e>//先执行，后判断，所以至少会无条件执行一次</span>
+</span></span><span style=display:flex><span>	System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(i);
+</span></span><span style=display:flex><span>	i<span style=color:#f92672>++</span>;
+</span></span><span style=display:flex><span>} <span style=color:#66d9ef>while</span> (i <span style=color:#f92672>&lt;=</span> 5);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>循环语句 <span style=color:#66d9ef>for</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 1; i <span style=color:#f92672>&lt;=</span> 5; i<span style=color:#f92672>++</span>) {     <span style=color:#75715e>//结构更加简洁易读</span>
+</span></span><span style=display:flex><span>	System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(i);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>循环跳转语句 <span style=color:#66d9ef>break</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> sum <span style=color:#f92672>=</span> 0;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 1; i <span style=color:#f92672>&lt;=</span> 10; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>	sum <span style=color:#f92672>=</span> sum <span style=color:#f92672>+</span> i;
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span> (sum <span style=color:#f92672>&gt;</span> 20) {
+</span></span><span style=display:flex><span>		System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>print</span>(<span style=color:#e6db74>&#34;当前的累加值为:&#34;</span> <span style=color:#f92672>+</span> sum);
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>break</span>;     <span style=color:#75715e>//循环将 1 到 10 之间的整数相加，如果满足累加值大于 20，则跳出循环</span>
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>循环跳转语句 <span style=color:#66d9ef>continue</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> sum <span style=color:#f92672>=</span> 0;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 1; i <span style=color:#f92672>&lt;=</span> 10; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span> (i <span style=color:#f92672>%</span> 2 <span style=color:#f92672>==</span> 1) {
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>continue</span>;     <span style=color:#75715e>//如果i为奇数,结束本次循环，进行下一次循环</span>
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	sum <span style=color:#f92672>=</span> sum <span style=color:#f92672>+</span> i;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>print</span>(<span style=color:#e6db74>&#34;1到10之间的所有偶数的和为：&#34;</span> <span style=color:#f92672>+</span> sum);
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>i <span style=color:#f92672>%</span> 2 <span style=color:#f92672>==</span> 1     <span style=color:#75715e>//i是奇数</span>
+</span></span><span style=display:flex><span>i <span style=color:#f92672>%</span> 2 <span style=color:#f92672>==</span> 0     <span style=color:#75715e>//i是偶数</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>循环语句 多重循环 打印九九乘法表     <span style=color:#75715e>//外层循环每执行一次，内层循环要执行一圈</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 1; i <span style=color:#f92672>&lt;=</span> 9; i<span style=color:#f92672>++</span>) {     <span style=color:#75715e>//外层循环控制打印行数</span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> x <span style=color:#f92672>=</span> 1, y <span style=color:#f92672>=</span> i; x <span style=color:#f92672>&lt;=</span> y; x<span style=color:#f92672>++</span>) {     <span style=color:#75715e>//内层循环控制打印公式</span>
+</span></span><span style=display:flex><span>		System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>print</span>(x <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;*&#34;</span> <span style=color:#f92672>+</span> y <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;=&#34;</span> <span style=color:#f92672>+</span> x <span style=color:#f92672>*</span> y <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;  &#34;</span>);     <span style=color:#75715e>//print() 不会换行，println() 会换行</span>
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>();     <span style=color:#75715e>//打印完毕换行</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>获取用户输入数字并判断位数
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> java.util.Scanner;     <span style=color:#75715e>//导入 java.util 包下的 Scanner 类</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>HelloWorld</span> {
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span>(String<span style=color:#f92672>[]</span> args) {
+</span></span><span style=display:flex><span>		Scanner a1 <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Scanner(System.<span style=color:#a6e22e>in</span>);     <span style=color:#75715e>//实例化 Scanner 对象为 a1</span>
+</span></span><span style=display:flex><span>		System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>print</span>(<span style=color:#e6db74>&#34;请输入:&#34;</span>);     <span style=color:#75715e>//提示用户输入，使用 print() 不换行</span>
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>int</span> num <span style=color:#f92672>=</span> a1.<span style=color:#a6e22e>nextInt</span>();     <span style=color:#75715e>//获取用户输入并保存在变量中</span>
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>int</span> count <span style=color:#f92672>=</span> 0;
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>for</span> (; num <span style=color:#f92672>!=</span> 0; count<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>			num <span style=color:#f92672>/=</span> 10;
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>		System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(count <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;位&#34;</span>);
+</span></span><span style=display:flex><span>		a1.<span style=color:#a6e22e>close</span>();     <span style=color:#75715e>//关闭输入</span>
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>获取用户输入班级成绩并计算平均分
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> java.util.*;     <span style=color:#75715e>//导入 java.util 包下的所有类</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>HelloWorld</span> {
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span>(String<span style=color:#f92672>[]</span> args) {
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>int</span> classNum <span style=color:#f92672>=</span> 3;     <span style=color:#75715e>//班级数量</span>
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>int</span> stuNum <span style=color:#f92672>=</span> 4;     <span style=color:#75715e>//学生数量</span>
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>double</span> sum <span style=color:#f92672>=</span> 0;
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>double</span> avg <span style=color:#f92672>=</span> 0;
+</span></span><span style=display:flex><span>		Scanner a1 <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Scanner(System.<span style=color:#a6e22e>in</span>);     <span style=color:#75715e>//实例化 Scanner 对象为 a1</span>
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 1; i <span style=color:#f92672>&lt;=</span> classNum; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>			sum <span style=color:#f92672>=</span> 0;     <span style=color:#75715e>//重置班级总分</span>
+</span></span><span style=display:flex><span>			System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;请输入第&#34;</span> <span style=color:#f92672>+</span> i <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;个班级的成绩&#34;</span>);
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> j <span style=color:#f92672>=</span> 1; j <span style=color:#f92672>&lt;=</span> stuNum; j<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>				System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>print</span>(<span style=color:#e6db74>&#34;请输入成绩:&#34;</span>);
+</span></span><span style=display:flex><span>				sum <span style=color:#f92672>=</span> sum <span style=color:#f92672>+</span> a1.<span style=color:#a6e22e>nextInt</span>();     <span style=color:#75715e>//获取用户输入成绩并累加</span>
+</span></span><span style=display:flex><span>			}
+</span></span><span style=display:flex><span>			avg <span style=color:#f92672>=</span> sum <span style=color:#f92672>/</span> stuNum;
+</span></span><span style=display:flex><span>			System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;第&#34;</span> <span style=color:#f92672>+</span> i <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;个班级的平均分是&#34;</span> <span style=color:#f92672>+</span> avg);
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>		a1.<span style=color:#a6e22e>close</span>();     <span style=color:#75715e>//关闭输入</span>
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>循环遍历数组
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> nums <span style=color:#f92672>=</span> { 1, 2, 3 };
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 0; i <span style=color:#f92672>&lt;</span> nums.<span style=color:#a6e22e>length</span>; i<span style=color:#f92672>++</span>) {     <span style=color:#75715e>//nums.length 获取数组长度</span>
+</span></span><span style=display:flex><span>	System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(nums<span style=color:#f92672>[</span>i<span style=color:#f92672>]</span>);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> nums <span style=color:#f92672>=</span> { 1, 2, 3 };
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> a : nums) {
+</span></span><span style=display:flex><span>	System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(a);     <span style=color:#75715e>//可以使用foreach形式来遍历数组和集合，for 语句的简化版，更简单便捷</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>循环遍历二维数组
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span><span style=color:#f92672>[][]</span> nums <span style=color:#f92672>=</span> { { 1, 2, 3 }, { 4, 5, 6 } };
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 0; i <span style=color:#f92672>&lt;</span> nums.<span style=color:#a6e22e>length</span>; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> j <span style=color:#f92672>=</span> 0; j <span style=color:#f92672>&lt;</span> nums<span style=color:#f92672>[</span>i<span style=color:#f92672>]</span>.<span style=color:#a6e22e>length</span>; j<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>		System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(nums<span style=color:#f92672>[</span>i<span style=color:#f92672>][</span>j<span style=color:#f92672>]</span>);
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>();
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>使用 Arrays 类操作数组
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> java.util.Arrays;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>HelloWorld</span> {
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span>(String<span style=color:#f92672>[]</span> args) {
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> scores <span style=color:#f92672>=</span> { 76, 83, 92, 87 };
+</span></span><span style=display:flex><span>		Arrays.<span style=color:#a6e22e>sort</span>(scores);     <span style=color:#75715e>//将数组按升序排序</span>
+</span></span><span style=display:flex><span>		String a <span style=color:#f92672>=</span> Arrays.<span style=color:#a6e22e>toString</span>(scores);     <span style=color:#75715e>//将数组输出为字符串</span>
+</span></span><span style=display:flex><span>		System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(a);
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>根据用户输入数字<span style=color:#960050;background-color:#1e0010>，</span>随机生成排序后的数组<span style=color:#960050;background-color:#1e0010>，</span>并打印数组输出的成字符串
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> java.util.Arrays;
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> java.util.Scanner;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>HelloWorld</span> {
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span>(String<span style=color:#f92672>[]</span> args) {
+</span></span><span style=display:flex><span>		HelloWorld a <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> HelloWorld();     <span style=color:#75715e>//创建对象</span>
+</span></span><span style=display:flex><span>		Scanner b <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Scanner(System.<span style=color:#a6e22e>in</span>);     <span style=color:#75715e>//创建对象</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>		System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>print</span>(<span style=color:#e6db74>&#34;请输入：&#34;</span>);
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>int</span> num <span style=color:#f92672>=</span> b.<span style=color:#a6e22e>nextInt</span>();     <span style=color:#75715e>//接收用户输入数字到变量</span>
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> arrays <span style=color:#f92672>=</span> a.<span style=color:#a6e22e>arrays</span>(num);     <span style=color:#75715e>//传递数字</span>
+</span></span><span style=display:flex><span>		System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(Arrays.<span style=color:#a6e22e>toString</span>(arrays));     <span style=color:#75715e>//将数组输出为字符串</span>
+</span></span><span style=display:flex><span>		b.<span style=color:#a6e22e>close</span>();     <span style=color:#75715e>//关闭输入</span>
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> <span style=color:#a6e22e>arrays</span>(<span style=color:#66d9ef>int</span> a) {     <span style=color:#75715e>//方法</span>
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> arrays <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>int</span><span style=color:#f92672>[</span>a<span style=color:#f92672>]</span>;     <span style=color:#75715e>//生成数组</span>
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 0; i <span style=color:#f92672>&lt;</span> arrays.<span style=color:#a6e22e>length</span>; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>			arrays<span style=color:#f92672>[</span>i<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> (<span style=color:#66d9ef>int</span>) (Math.<span style=color:#a6e22e>random</span>() <span style=color:#f92672>*</span> 100);     <span style=color:#75715e>//生成随机数并赋值给数组</span>
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>		Arrays.<span style=color:#a6e22e>sort</span>(arrays);     <span style=color:#75715e>//排序数组</span>
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>return</span> arrays;     <span style=color:#75715e>//返回数组</span>
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>遍历数组输出前三名并判断成绩有效性
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> java.util.Arrays;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>HelloWorld</span> {
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span>(String<span style=color:#f92672>[]</span> args) {
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> scores <span style=color:#f92672>=</span> { 89, <span style=color:#f92672>-</span>23, 64, 91, 119, 52, 73 };
+</span></span><span style=display:flex><span>		HelloWorld a <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> HelloWorld();
+</span></span><span style=display:flex><span>		a.<span style=color:#a6e22e>rank</span>(scores);
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>rank</span>(<span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> a) {     <span style=color:#75715e>//方法</span>
+</span></span><span style=display:flex><span>		Arrays.<span style=color:#a6e22e>sort</span>(a);     <span style=color:#75715e>//排序数组</span>
+</span></span><span style=display:flex><span>		System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;前三名：&#34;</span>);
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> a.<span style=color:#a6e22e>length</span> <span style=color:#f92672>-</span> 1, count <span style=color:#f92672>=</span> 0; count <span style=color:#f92672>&lt;</span> 3; i<span style=color:#f92672>--</span>) {     <span style=color:#75715e>//倒序遍历数组</span>
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>if</span> (a<span style=color:#f92672>[</span>i<span style=color:#f92672>]</span> <span style=color:#f92672>&gt;</span> 100 <span style=color:#f92672>||</span> a<span style=color:#f92672>[</span>i<span style=color:#f92672>]</span> <span style=color:#f92672>&lt;</span> 0) {     <span style=color:#75715e>//判断成绩有效性</span>
+</span></span><span style=display:flex><span>				<span style=color:#66d9ef>continue</span>;
+</span></span><span style=display:flex><span>			}
+</span></span><span style=display:flex><span>			System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(a<span style=color:#f92672>[</span>i<span style=color:#f92672>]</span>);
+</span></span><span style=display:flex><span>			count<span style=color:#f92672>++</span>;
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>遍历数组输出学生年龄的最大值
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>HelloWorld2</span> {
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span>(String<span style=color:#f92672>[]</span> args) {
+</span></span><span style=display:flex><span>		HelloWorld2 a <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> HelloWorld2();     <span style=color:#75715e>//创建对象</span>
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>int</span> maxScore <span style=color:#f92672>=</span> a.<span style=color:#a6e22e>getMaxAge</span>();     <span style=color:#75715e>//接收返回值</span>
+</span></span><span style=display:flex><span>		System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;最大年龄为：&#34;</span> <span style=color:#f92672>+</span> maxScore);
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>int</span> <span style=color:#a6e22e>getMaxAge</span>() {     <span style=color:#75715e>//方法</span>
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> a <span style=color:#f92672>=</span> { 19, 23, 21, 19, 25, 29, 17 };
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>int</span> max <span style=color:#f92672>=</span> 0;
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i : a) {     <span style=color:#75715e>//使用 foreach 形式来遍历数组</span>
+</span></span><span style=display:flex><span>			max <span style=color:#f92672>=</span> max <span style=color:#f92672>&gt;</span> i <span style=color:#f92672>?</span> max : i;     <span style=color:#75715e>//三元运算符</span>
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>return</span> max;
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>匿名内部类实现接口
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>IPlayGame i <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> IPlayGame() {
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>playGame</span>() {
+</span></span><span style=display:flex><span>		System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;匿名内部类实现接口的方式1&#34;</span>);
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span>i.<span style=color:#a6e22e>playGame</span>();
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>new</span> IPlayGame() {
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>playGame</span>() {
+</span></span><span style=display:flex><span>		System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;匿名内部类实现接口的方式2&#34;</span>);     <span style=color:#75715e>//推荐方式2</span>
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>}.<span style=color:#a6e22e>playGame</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>return</span> 的用法
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span>(String<span style=color:#f92672>[]</span> args) {
+</span></span><span style=display:flex><span>        b(a());
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> String <span style=color:#a6e22e>a</span>() {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;ABC&#34;</span>;     返回值
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>b</span>(String s) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (s <span style=color:#f92672>==</span> <span style=color:#66d9ef>null</span>) {     提前结束方法
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span>;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(s);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Scanner.<span style=color:#a6e22e>nextLine</span>() 的用法
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>Scanner scanner <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Scanner(System.<span style=color:#a6e22e>in</span>);
+</span></span><span style=display:flex><span><span style=color:#66d9ef>while</span> (<span style=color:#66d9ef>true</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>try</span> {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> scanner.<span style=color:#a6e22e>nextInt</span>();
+</span></span><span style=display:flex><span>        System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(i);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>    } <span style=color:#66d9ef>catch</span> (Exception e) {
+</span></span><span style=display:flex><span>        scanner.<span style=color:#a6e22e>nextLine</span>();     消耗之前的错误输出<span style=color:#960050;background-color:#1e0010>，</span>避免死循环
+</span></span><span style=display:flex><span>        System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;请重新输入!&#34;</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>A</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span>(String<span style=color:#f92672>[]</span> args) {
+</span></span><span style=display:flex><span>        Scanner scanner <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Scanner(System.<span style=color:#a6e22e>in</span>);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 0; i <span style=color:#f92672>&lt;</span> 5; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>            System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>print</span>(<span style=color:#e6db74>&#34;请输入：&#34;</span>);
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>int</span> num;
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>while</span> (<span style=color:#66d9ef>true</span>) {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>try</span> {
+</span></span><span style=display:flex><span>                    num <span style=color:#f92672>=</span> scanner.<span style=color:#a6e22e>nextInt</span>();
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>                } <span style=color:#66d9ef>catch</span> (Exception e) {
+</span></span><span style=display:flex><span>                    scanner.<span style=color:#a6e22e>nextLine</span>();
+</span></span><span style=display:flex><span>                    System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>print</span>(<span style=color:#e6db74>&#34;请重新输入：&#34;</span>);
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>switch</span> (num) {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>case</span> 1:
+</span></span><span style=display:flex><span>                    System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;第一名&#34;</span>);
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>case</span> 2:
+</span></span><span style=display:flex><span>                    System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;第二名&#34;</span>);
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>case</span> 3:
+</span></span><span style=display:flex><span>                    System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;第三名&#34;</span>);
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>default</span>:
+</span></span><span style=display:flex><span>                    System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;无名次&#34;</span>);
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Math 类
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>double</span> i <span style=color:#f92672>=</span> 12.<span style=color:#a6e22e>85</span>;
+</span></span><span style=display:flex><span>Math.<span style=color:#a6e22e>ceil</span>(i)      13.<span style=color:#a6e22e>0</span>     返回大于参数的最小整数<span style=color:#960050;background-color:#1e0010>（</span>向上取整<span style=color:#960050;background-color:#1e0010>）</span>     天花板
+</span></span><span style=display:flex><span>Math.<span style=color:#a6e22e>floor</span>(i)     12.<span style=color:#a6e22e>0</span>     返回小于参数的最大整数<span style=color:#960050;background-color:#1e0010>（</span>向下取整<span style=color:#960050;background-color:#1e0010>）</span>     地板
+</span></span><span style=display:flex><span>Math.<span style=color:#a6e22e>round</span>(i)     13       <span style=color:#a6e22e>返回四舍五入后的整数</span>
+</span></span><span style=display:flex><span>(<span style=color:#66d9ef>int</span>)i     12     强制类型转换<span style=color:#960050;background-color:#1e0010>，</span>直接截断
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Math.<span style=color:#a6e22e>random</span>()     0.<span style=color:#a6e22e>6019044390548263</span>     返回 <span style=color:#f92672>[</span>0,1) 之间的随机浮点数
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>double</span> d <span style=color:#f92672>=</span> 123456789.<span style=color:#a6e22e>123456789</span>;
+</span></span><span style=display:flex><span>NumberFormat numberFormat <span style=color:#f92672>=</span> NumberFormat.<span style=color:#a6e22e>getInstance</span>();
+</span></span><span style=display:flex><span>numberFormat.<span style=color:#a6e22e>setGroupingUsed</span>(<span style=color:#66d9ef>true</span>);                   设置数字分组
+</span></span><span style=display:flex><span>numberFormat.<span style=color:#a6e22e>setMaximumIntegerDigits</span>(4);              设置最大整数位
+</span></span><span style=display:flex><span>numberFormat.<span style=color:#a6e22e>setMaximumFractionDigits</span>(4);             设置最大小数位
+</span></span><span style=display:flex><span>numberFormat.<span style=color:#a6e22e>setRoundingMode</span>(RoundingMode.<span style=color:#a6e22e>HALF_UP</span>);   设置舍入模式
+</span></span><span style=display:flex><span>String s <span style=color:#f92672>=</span> numberFormat.<span style=color:#a6e22e>format</span>(d);     6,789.<span style=color:#a6e22e>1235</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>System.<span style=color:#a6e22e>currentTimeMillis</span>()     Unix 时间戳<span style=color:#960050;background-color:#1e0010>，</span>单位为毫秒<span style=color:#960050;background-color:#1e0010>（</span>除以 1000 为标准 Unix <span style=color:#a6e22e>时间戳</span> (秒)<span style=color:#960050;background-color:#1e0010>）</span>
+</span></span><span style=display:flex><span>System.<span style=color:#a6e22e>nanoTime</span>()     精确计时器<span style=color:#960050;background-color:#1e0010>，</span>单位为纳秒
+</span></span><span style=display:flex><span>     <span style=color:#66d9ef>long</span> l1 <span style=color:#f92672>=</span> System.<span style=color:#a6e22e>nanoTime</span>();
+</span></span><span style=display:flex><span>     Some code ...
+</span></span><span style=display:flex><span>     <span style=color:#66d9ef>long</span> l2 <span style=color:#f92672>=</span> System.<span style=color:#a6e22e>nanoTime</span>();
+</span></span><span style=display:flex><span>     System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(l2 <span style=color:#f92672>-</span> l1);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>String date <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> SimpleDateFormat(<span style=color:#e6db74>&#34;yyyy-MM-dd HH:mm:ss&#34;</span>).<span style=color:#a6e22e>format</span>(<span style=color:#66d9ef>new</span> java.<span style=color:#a6e22e>util</span>.<span style=color:#a6e22e>Date</span>(1475819315880L));
+</span></span><span style=display:flex><span><span style=color:#75715e>//2016-10-07 13:48:35</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>System.<span style=color:#a6e22e>getProperties</span>().<span style=color:#a6e22e>list</span>(System.<span style=color:#a6e22e>out</span>);     获取系统属性
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Map<span style=color:#f92672>&lt;</span>String, String<span style=color:#f92672>&gt;</span> getenv <span style=color:#f92672>=</span> System.<span style=color:#a6e22e>getenv</span>();     获取环境变量
+</span></span><span style=display:flex><span><span style=color:#a6e22e>for</span> (String s : getenv.<span style=color:#a6e22e>keySet</span>()) {
+</span></span><span style=display:flex><span>    System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(s <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;=&#34;</span> <span style=color:#f92672>+</span> getenv.<span style=color:#a6e22e>get</span>(s));
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>val list <span style=color:#f92672>=</span> ScriptEngineManager().<span style=color:#a6e22e>engineFactories</span>     查看已经安装的脚本引擎
+</span></span><span style=display:flex><span>list.<span style=color:#a6e22e>forEach</span> {
+</span></span><span style=display:flex><span>    println(it.<span style=color:#a6e22e>engineName</span> <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34; :: &#34;</span> <span style=color:#f92672>+</span> it.<span style=color:#a6e22e>engineVersion</span>)
+</span></span><span style=display:flex><span>    println(it.<span style=color:#a6e22e>languageName</span> <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34; :: &#34;</span> <span style=color:#f92672>+</span> it.<span style=color:#a6e22e>languageVersion</span>)
+</span></span><span style=display:flex><span>    println(it.<span style=color:#a6e22e>scriptEngine</span>)
+</span></span><span style=display:flex><span>    println(it.<span style=color:#a6e22e>extensions</span>)
+</span></span><span style=display:flex><span>    println(it.<span style=color:#a6e22e>mimeTypes</span>)
+</span></span><span style=display:flex><span>    println(it.<span style=color:#a6e22e>names</span>)
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>输出<span style=color:#960050;background-color:#1e0010>：</span>
+</span></span><span style=display:flex><span>Oracle Nashorn :: 1.<span style=color:#a6e22e>8</span>.<span style=color:#a6e22e>0_112</span>
+</span></span><span style=display:flex><span>ECMAScript :: ECMA <span style=color:#f92672>-</span> 262 Edition 5.<span style=color:#a6e22e>1</span>
+</span></span><span style=display:flex><span>jdk.<span style=color:#a6e22e>nashorn</span>.<span style=color:#a6e22e>api</span>.<span style=color:#a6e22e>scripting</span>.<span style=color:#a6e22e>NashornScriptEngine</span><span style=color:#a6e22e>@6c3708b3</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>[</span>js<span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>[</span>application<span style=color:#f92672>/</span>javascript, application<span style=color:#f92672>/</span>ecmascript, text<span style=color:#f92672>/</span>javascript, text<span style=color:#f92672>/</span>ecmascript<span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>[</span>nashorn, Nashorn, js, JS, JavaScript, javascript, ECMAScript, ecmascript<span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>GraphicsEnvironment graphicsEnvironment <span style=color:#f92672>=</span> GraphicsEnvironment.<span style=color:#a6e22e>getLocalGraphicsEnvironment</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>String<span style=color:#f92672>[]</span> familyNames <span style=color:#f92672>=</span> graphicsEnvironment.<span style=color:#a6e22e>getAvailableFontFamilyNames</span>();     获取所有字体系列名称
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 0;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> (String s : familyNames) {
+</span></span><span style=display:flex><span>    System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#f92672>++</span>i <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;：&#34;</span> <span style=color:#f92672>+</span> s);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Font<span style=color:#f92672>[]</span> fonts <span style=color:#f92672>=</span> graphicsEnvironment.<span style=color:#a6e22e>getAllFonts</span>();     获取所有字体
+</span></span><span style=display:flex><span>i <span style=color:#f92672>=</span> 0;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> (Font font : fonts) {
+</span></span><span style=display:flex><span>    System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#f92672>++</span>i <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;：&#34;</span> <span style=color:#f92672>+</span> font);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 5;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>while</span> (i <span style=color:#f92672>--&gt;</span> 0) {     5 先与 0 比较<span style=color:#960050;background-color:#1e0010>，</span>之后再自减 1
+</span></span><span style=display:flex><span><span style=color:#75715e>//while (i-- &gt; 0) {</span>
+</span></span><span style=display:flex><span>      System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(i);
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>输出<span style=color:#960050;background-color:#1e0010>：</span>
+</span></span><span style=display:flex><span>4
+</span></span><span style=display:flex><span>3
+</span></span><span style=display:flex><span>2
+</span></span><span style=display:flex><span>1
+</span></span><span style=display:flex><span>0
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> String <span style=color:#a6e22e>formatFileSize</span>(<span style=color:#66d9ef>long</span> size) {     格式化文件大小
+</span></span><span style=display:flex><span>    NumberFormat numberFormat <span style=color:#f92672>=</span> NumberFormat.<span style=color:#a6e22e>getInstance</span>();
+</span></span><span style=display:flex><span>    numberFormat.<span style=color:#a6e22e>setMaximumFractionDigits</span>(1);
+</span></span><span style=display:flex><span>    numberFormat.<span style=color:#a6e22e>setMinimumFractionDigits</span>(1);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span> divisor;
+</span></span><span style=display:flex><span>    String unit;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (size <span style=color:#f92672>&gt;</span> (divisor <span style=color:#f92672>=</span> 1024 <span style=color:#f92672>*</span> 1024 <span style=color:#f92672>*</span> 1024)) {
+</span></span><span style=display:flex><span>        unit <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;GB&#34;</span>;
+</span></span><span style=display:flex><span>    } <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (size <span style=color:#f92672>&gt;</span> (divisor <span style=color:#f92672>/=</span> 1024)) {
+</span></span><span style=display:flex><span>        unit <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;MB&#34;</span>;
+</span></span><span style=display:flex><span>    } <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (size <span style=color:#f92672>&gt;</span> (divisor <span style=color:#f92672>/=</span> 1024)) {
+</span></span><span style=display:flex><span>        unit <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;KB&#34;</span>;
+</span></span><span style=display:flex><span>    } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>        divisor <span style=color:#f92672>/=</span> 1024;
+</span></span><span style=display:flex><span>        unit <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;B&#34;</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> numberFormat.<span style=color:#a6e22e>format</span>(size <span style=color:#f92672>*</span> 1.<span style=color:#a6e22e>0</span> <span style=color:#f92672>/</span> divisor) <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34; &#34;</span> <span style=color:#f92672>+</span> unit;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>布尔集合
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>BitSet set <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> BitSet();
+</span></span><span style=display:flex><span>set.<span style=color:#a6e22e>set</span>(0);
+</span></span><span style=display:flex><span>set.<span style=color:#a6e22e>set</span>(1);
+</span></span><span style=display:flex><span>set.<span style=color:#a6e22e>set</span>(2);
+</span></span><span style=display:flex><span>set.<span style=color:#a6e22e>set</span>(5, <span style=color:#66d9ef>false</span>);
+</span></span><span style=display:flex><span>set.<span style=color:#a6e22e>set</span>(6, <span style=color:#66d9ef>true</span>);
+</span></span><span style=display:flex><span>set.<span style=color:#a6e22e>set</span>(7, <span style=color:#66d9ef>true</span>);
+</span></span><span style=display:flex><span>set.<span style=color:#a6e22e>flip</span>(6);     反转
+</span></span><span style=display:flex><span>System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(set);
+</span></span><span style=display:flex><span>System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(set.<span style=color:#a6e22e>cardinality</span>());     真值数量
+</span></span><span style=display:flex><span>System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(set.<span style=color:#a6e22e>length</span>());     从最开始到最后 <span style=color:#a6e22e>1</span>(<span style=color:#66d9ef>true</span>) 位的位置的长度
+</span></span><span style=display:flex><span>System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(set.<span style=color:#a6e22e>size</span>());     总数量
+</span></span><span style=display:flex><span><span style=color:#a6e22e>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> set.<span style=color:#a6e22e>nextSetBit</span>(0); i <span style=color:#f92672>&gt;=</span> 0; i <span style=color:#f92672>=</span> set.<span style=color:#a6e22e>nextSetBit</span>(i <span style=color:#f92672>+</span> 1)) {
+</span></span><span style=display:flex><span>    System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;%d &#34;</span>, i);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>输出<span style=color:#960050;background-color:#1e0010>：</span>
+</span></span><span style=display:flex><span>{0, 1, 2, 7}
+</span></span><span style=display:flex><span>4
+</span></span><span style=display:flex><span>8
+</span></span><span style=display:flex><span>64
+</span></span><span style=display:flex><span>0 1 2 7
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>判断字符串使用了哪些字符
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>String str <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;How do you do&#34;</span>;
+</span></span><span style=display:flex><span>BitSet set <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> BitSet();
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>char</span> c : str.<span style=color:#a6e22e>toCharArray</span>()) {
+</span></span><span style=display:flex><span>    set.<span style=color:#a6e22e>set</span>(c);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>set.<span style=color:#a6e22e>clear</span>(32); <span style=color:#75715e>//将空格置为 false</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> set.<span style=color:#a6e22e>nextSetBit</span>(0); i <span style=color:#f92672>&gt;=</span> 0; i <span style=color:#f92672>=</span> set.<span style=color:#a6e22e>nextSetBit</span>(i <span style=color:#f92672>+</span> 1)) {
+</span></span><span style=display:flex><span>    System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>print</span>((<span style=color:#66d9ef>char</span>) i);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>输出<span style=color:#960050;background-color:#1e0010>：</span>
+</span></span><span style=display:flex><span>Hdouwy
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>判断有几组成对数字
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> ints <span style=color:#f92672>=</span> {1, 2, 2, 1, 1, 3, 5, 1, 2, 3};
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> pair <span style=color:#f92672>=</span> 0;
+</span></span><span style=display:flex><span>BitSet set <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> BitSet();
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i : ints) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (set.<span style=color:#a6e22e>get</span>(i)) {
+</span></span><span style=display:flex><span>        pair<span style=color:#f92672>++</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    set.<span style=color:#a6e22e>flip</span>(i);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(set);     落单数字
+</span></span><span style=display:flex><span>System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(pair);    成对数字组数
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>输出<span style=color:#960050;background-color:#1e0010>：</span>
+</span></span><span style=display:flex><span>{2, 5}
+</span></span><span style=display:flex><span>4
+</span></span></code></pre></div><h3 id=继承初始化执行顺序>继承初始化执行顺序<a hidden class=anchor aria-hidden=true href=#继承初始化执行顺序>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Test1</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>static</span> {
+</span></span><span style=display:flex><span>        System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;1父类静态初始化块&#34;</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;2父类初始化块&#34;</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    Test1() {
+</span></span><span style=display:flex><span>        System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;3父类构造方法&#34;</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Test2</span> <span style=color:#66d9ef>extends</span> Test1 {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>static</span> {
+</span></span><span style=display:flex><span>        System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;1子类静态初始化块&#34;</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;2子类初始化块&#34;</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    Test2() {
+</span></span><span style=display:flex><span>        System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;3子类构造方法&#34;</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Initial</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span>(String<span style=color:#f92672>[]</span> args) {
+</span></span><span style=display:flex><span>        Test1 a <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Test2();
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>输出<span style=color:#960050;background-color:#1e0010>：</span>
+</span></span><span style=display:flex><span>1父类静态初始化块
+</span></span><span style=display:flex><span>1子类静态初始化块
+</span></span><span style=display:flex><span>2父类初始化块
+</span></span><span style=display:flex><span>3父类构造方法
+</span></span><span style=display:flex><span>2子类初始化块
+</span></span><span style=display:flex><span>3子类构造方法
+</span></span></code></pre></div><h3 id=装箱和拆箱>装箱和拆箱<a hidden class=anchor aria-hidden=true href=#装箱和拆箱>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-java data-lang=java><span style=display:flex><span>装箱<span style=color:#960050;background-color:#1e0010>：</span>把基本类型转换为包装类<span style=color:#960050;background-color:#1e0010>，</span>使其具有对象的性质<span style=color:#960050;background-color:#1e0010>，</span>分为手动装箱和自动装箱<span style=color:#960050;background-color:#1e0010>。</span>
+</span></span><span style=display:flex><span>拆箱<span style=color:#960050;background-color:#1e0010>：</span>和装箱相反<span style=color:#960050;background-color:#1e0010>，</span>把包装类对象转换为基本类型的值<span style=color:#960050;background-color:#1e0010>，</span>分为手动拆箱和自动拆箱<span style=color:#960050;background-color:#1e0010>。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 5;
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>Integer x <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Integer(i);     手动装箱
+</span></span><span style=display:flex><span>Integer y <span style=color:#f92672>=</span> i;     自动装箱
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Integer j <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Integer(10);
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> m <span style=color:#f92672>=</span> j.<span style=color:#a6e22e>intValue</span>();     手动拆箱
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> n <span style=color:#f92672>=</span> j;     自动拆箱
+</span></span></code></pre></div><hr><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-xml data-lang=xml><span style=display:flex><span><span style=color:#75715e>&lt;!-- pom.xml maven mirrors --&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;repositories&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;repository&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&lt;id&gt;</span>repo1<span style=color:#f92672>&lt;/id&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&lt;url&gt;</span>https://mirrors.huaweicloud.com/repository/maven/<span style=color:#f92672>&lt;/url&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;/repository&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;/repositories&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;pluginRepositories&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;pluginRepository&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&lt;id&gt;</span>repo1<span style=color:#f92672>&lt;/id&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&lt;url&gt;</span>https://mirrors.huaweicloud.com/repository/maven/<span style=color:#f92672>&lt;/url&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;/pluginRepository&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;/pluginRepositories&gt;</span>
+</span></span></code></pre></div></div><footer class=post-footer><ul class=post-tags><li><a href=https://xhstormr.github.io/blog/tags/java/>JAVA</a></li></ul><nav class=paginav><a class=prev href=https://xhstormr.github.io/blog/posts/java-rent/><span class=title>« Prev</span><br><span>通过 Java 实现租车系统</span>
+</a><a class=next href=https://xhstormr.github.io/blog/posts/loner/><span class=title>Next »</span><br><span>Loner</span></a></nav><ul class=share-buttons><li><a target=_blank rel="noopener noreferrer" aria-label="share 自学 Java on x" href="https://x.com/intent/tweet/?text=%e8%87%aa%e5%ad%a6%20Java&amp;url=https%3a%2f%2fxhstormr.github.io%2fblog%2fposts%2fjava%2f&amp;hashtags=JAVA"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentColor"><path d="M512 62.554V449.446C512 483.97 483.97 512 449.446 512H62.554C28.03 512 0 483.97.0 449.446V62.554C0 28.03 28.029.0 62.554.0H449.446C483.971.0 512 28.03 512 62.554zM269.951 190.75 182.567 75.216H56L207.216 272.95 63.9 436.783h61.366L235.9 310.383l96.667 126.4H456L298.367 228.367l134-153.151H371.033zM127.633 110h36.468l219.38 290.065H349.5z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share 自学 Java on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fxhstormr.github.io%2fblog%2fposts%2fjava%2f&amp;title=%e8%87%aa%e5%ad%a6%20Java&amp;summary=%e8%87%aa%e5%ad%a6%20Java&amp;source=https%3a%2f%2fxhstormr.github.io%2fblog%2fposts%2fjava%2f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentColor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share 自学 Java on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fxhstormr.github.io%2fblog%2fposts%2fjava%2f&title=%e8%87%aa%e5%ad%a6%20Java"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentColor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share 自学 Java on facebook" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fxhstormr.github.io%2fblog%2fposts%2fjava%2f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentColor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H342.978V319.085h66.6l12.672-82.621h-79.272v-53.617c0-22.603 11.073-44.636 46.58-44.636H425.6v-70.34s-32.71-5.582-63.982-5.582c-65.288.0-107.96 39.569-107.96 111.204v62.971h-72.573v82.621h72.573V512h-191.104c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share 自学 Java on whatsapp" href="https://api.whatsapp.com/send?text=%e8%87%aa%e5%ad%a6%20Java%20-%20https%3a%2f%2fxhstormr.github.io%2fblog%2fposts%2fjava%2f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentColor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zm-58.673 127.703c-33.842-33.881-78.847-52.548-126.798-52.568-98.799.0-179.21 80.405-179.249 179.234-.013 31.593 8.241 62.428 23.927 89.612l-25.429 92.884 95.021-24.925c26.181 14.28 55.659 21.807 85.658 21.816h.074c98.789.0 179.206-80.413 179.247-179.243.018-47.895-18.61-92.93-52.451-126.81zM263.976 403.485h-.06c-26.734-.01-52.954-7.193-75.828-20.767l-5.441-3.229-56.386 14.792 15.05-54.977-3.542-5.637c-14.913-23.72-22.791-51.136-22.779-79.287.033-82.142 66.867-148.971 149.046-148.971 39.793.014 77.199 15.531 105.329 43.692 28.128 28.16 43.609 65.592 43.594 105.4-.034 82.149-66.866 148.983-148.983 148.984zm81.721-111.581c-4.479-2.242-26.499-13.075-30.604-14.571-4.105-1.495-7.091-2.241-10.077 2.241-2.986 4.483-11.569 14.572-14.182 17.562-2.612 2.988-5.225 3.364-9.703 1.12-4.479-2.241-18.91-6.97-36.017-22.23C231.8 264.15 222.81 249.484 220.198 245s-.279-6.908 1.963-9.14c2.016-2.007 4.48-5.232 6.719-7.847 2.24-2.615 2.986-4.484 4.479-7.472 1.493-2.99.747-5.604-.374-7.846-1.119-2.241-10.077-24.288-13.809-33.256-3.635-8.733-7.327-7.55-10.077-7.688-2.609-.13-5.598-.158-8.583-.158-2.986.0-7.839 1.121-11.944 5.604-4.105 4.484-15.675 15.32-15.675 37.364.0 22.046 16.048 43.342 18.287 46.332 2.24 2.99 31.582 48.227 76.511 67.627 10.685 4.615 19.028 7.371 25.533 9.434 10.728 3.41 20.492 2.929 28.209 1.775 8.605-1.285 26.499-10.833 30.231-21.295 3.732-10.464 3.732-19.431 2.612-21.298-1.119-1.869-4.105-2.99-8.583-5.232z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share 自学 Java on telegram" href="https://telegram.me/share/url?text=%e8%87%aa%e5%ad%a6%20Java&amp;url=https%3a%2f%2fxhstormr.github.io%2fblog%2fposts%2fjava%2f"><svg viewBox="2 2 28 28" height="30" width="30" fill="currentColor"><path d="M26.49 29.86H5.5a3.37 3.37.0 01-2.47-1 3.35 3.35.0 01-1-2.47V5.48A3.36 3.36.0 013 3 3.37 3.37.0 015.5 2h21A3.38 3.38.0 0129 3a3.36 3.36.0 011 2.46V26.37a3.35 3.35.0 01-1 2.47 3.38 3.38.0 01-2.51 1.02zm-5.38-6.71a.79.79.0 00.85-.66L24.73 9.24a.55.55.0 00-.18-.46.62.62.0 00-.41-.17q-.08.0-16.53 6.11a.59.59.0 00-.41.59.57.57.0 00.43.52l4 1.24 1.61 4.83a.62.62.0 00.63.43.56.56.0 00.4-.17L16.54 20l4.09 3A.9.9.0 0021.11 23.15zM13.8 20.71l-1.21-4q8.72-5.55 8.78-5.55c.15.0.23.0.23.16a.18.18.0 010 .06s-2.51 2.3-7.52 6.8z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share 自学 Java on ycombinator" href="https://news.ycombinator.com/submitlink?t=%e8%87%aa%e5%ad%a6%20Java&u=https%3a%2f%2fxhstormr.github.io%2fblog%2fposts%2fjava%2f"><svg width="30" height="30" viewBox="0 0 512 512" fill="currentColor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554V449.446C512 483.97 483.97 512 449.446 512H62.554C28.03 512 0 483.97.0 449.446V62.554C0 28.03 28.029.0 62.554.0H449.446zM183.8767 87.9921h-62.034L230.6673 292.4508V424.0079h50.6655V292.4508L390.1575 87.9921H328.1233L256 238.2489z"/></svg></a></li></ul></footer><script src=https://giscus.app/client.js data-repo=XhstormR/blog data-repo-id="MDEwOlJlcG9zaXRvcnk1MTI5OTI1NQ==" data-category=Announcements data-category-id=DIC_kwDOAw7Dt84C1abT data-mapping=og:title data-strict=1 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=bottom data-theme=preferred_color_scheme data-lang=zh-CN data-loading=lazy crossorigin=anonymous async></script></article></main><footer class=footer><span>&copy; 2026 <a href=https://xhstormr.github.io/blog/>XhstormR</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>

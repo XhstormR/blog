@@ -1,0 +1,980 @@
+<!doctype html><html lang=en dir=auto data-theme=dark><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>自学 PostgreSQL | XhstormR</title><meta name=keywords content="SQL"><meta name=description content="自学 PostgreSQL - XhstormR"><meta name=author content="map[email:xhstormr@example.org name:XhstormR]"><link rel=canonical href=https://xhstormr.github.io/blog/posts/postgresql/><link crossorigin=anonymous href=/blog/assets/css/stylesheet.da3211e5ef867bf2b75fd5a6515cfed7195c011e8ab735694e203810a827097b.css integrity="sha256-2jIR5e+Ge/K3X9WmUVz+1xlcAR6KtzVpTiA4EKgnCXs=" rel="preload stylesheet" as=style><link rel=icon href=https://xhstormr.github.io/blog/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://xhstormr.github.io/blog/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://xhstormr.github.io/blog/favicon-32x32.png><link rel=apple-touch-icon href=https://xhstormr.github.io/blog/apple-touch-icon.png><link rel=mask-icon href=https://xhstormr.github.io/blog/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://xhstormr.github.io/blog/posts/postgresql/><noscript><style>#theme-toggle,.top-link{display:none}</style></noscript><script>localStorage.getItem("pref-theme")==="light"&&(document.querySelector("html").dataset.theme="light")</script><meta property="og:url" content="https://xhstormr.github.io/blog/posts/postgresql/"><meta property="og:site_name" content="XhstormR"><meta property="og:title" content="自学 PostgreSQL"><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2017-02-19T20:39:57+08:00"><meta property="article:modified_time" content="2017-02-19T20:39:57+08:00"><meta property="article:tag" content="SQL"><meta name=twitter:card content="summary"><meta name=twitter:title content="自学 PostgreSQL"><meta name=twitter:description content><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://xhstormr.github.io/blog/posts/"},{"@type":"ListItem","position":2,"name":"自学 PostgreSQL","item":"https://xhstormr.github.io/blog/posts/postgresql/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"自学 PostgreSQL","name":"自学 PostgreSQL","description":"","keywords":["SQL"],"articleBody":"Updated on 2017-02-19\nhttps://www.postgresql.org/\nhttps://jdbc.postgresql.org/download.html\nhttps://www.postgresql.org/docs/current/index.html\nhttps://github.com/pgjdbc/pgjdbc\nhttps://github.com/postgis/postgis\nhttps://github.com/postgres/postgres\nhttps://jcenter.bintray.com/org/postgresql/postgresql/\nhttps://yum.postgresql.org/repopackages.php\nStep 1 | Step 2 | Step 3\nConcept 结构化查询语言（SQL）：Structured Query Language 数据定义语言（DDL）：Data Definition Language 用于建立（CREATE）、修改（ALTER）、删除（DROP）数据库对象。 数据操纵语言（DML）：Data Manipulation Language 用于改变（INSERT、UPDATE、DELETE）数据库数据。 数据查询语言（DQL）：Data Query Language 用于查询（SELECT）所需要的数据。 数据控制语言（DCL）：Data Control Language 用于权限的授予（GRANT）和收回（REVOKE），创建用户（CREATE USER）。 事务控制语言（TCL）：Transaction Control Language 用于维护数据一致性的语句，包括提交（COMMIT）、回滚（ROLLBACK）、保存点（SAVEPOINT）。 增删改查（CRUD）： SQL；HTTP 增加（Create）：INSERT；POST（非幂等） 查询（Retrieve）：SELECT；GET 修改（Update）：UPDATE；PATCH（更新资源：非幂等），PUT（替换资源：幂等） 删除（Delete）：DELETE；DELETE 事务（Transaction）：逻辑上的 一组操作，这组操作只能一起成功或者一起失败。 数据库中 保证事务可靠 的机制（ACID）。 原子性（Atomicity）：对于数据修改，要么全都执行，要么全都不执行。 一致性（Consistency）：所有的数据都保持一致状态。 隔离性（Isolation）：与其它并发事务所作的修改隔离。 持久性（Durability）：对于系统的影响是永久性的。 数据访问对象（DAO）：Data Access Object 用于封装所有对数据库的访问，使数据访问逻辑和业务逻辑分开。 数据传递对象 值对象（Value Object） 实体对象（Entity） 对象关系映射（ORM）：Object Relation Mapping * 类中的对象的属性（Java）\u003c— 映射（ORM） —\u003e表中的记录的字段（Database） Initial initdb.exe -A scram-sha-256 -E UTF8 --no-locale --lc-messages=\"Chinese (Simplified)_China.936\" -U 123 -W -D D:\\12345 pg_ctl.exe -l D:\\log.txt -D D:\\12345 start pg_ctl.exe -l D:\\log.txt -D D:\\12345 status pg_ctl.exe -l D:\\log.txt -D D:\\12345 stop psql.exe -e -E -h 127.0.0.1 -p 5432 -U 123 -W -d postgres compile(\"org.postgresql:postgresql:+\") 导出：pg_dump -h 127.0.0.1 -p 5432 -U 123 -W -d postgres -n erp -Fc -f data.dump 导入：pg_restore -h 127.0.0.1 -p 5432 -U 123 -W -d postgres -c data.dump Operate \\c 切换数据库 \\l 列出数据库 \\d 列出表、序列、视图 \\dt 列出表 \\du 列出角色 \\dn 列出模式 \\df 列出函数 \\dx 列出扩展 \\g 执行查询缓存区 \\p 显示查询缓存区 \\r 重置查询缓存区 \\e 使用外部编辑器编辑查询缓存区 \\w 将当前查询缓存区写至文件 \\o 将所有查询结果写至文件 \\i 将文件写至查询缓存区 \\x 垂直显示查询结果（\\x\\g\\x） \\t 只显示查询结果（无页眉和页脚） \\H 切换为 HTML 输出模式 \\q 退出 psql \\h SQL 语法说明 \\! 执行外部命令 \\set PROMPT1 123 设置提示符（https://www.postgresql.org/docs/current/app-psql.html#APP-PSQL-PROMPTING） \\pset pager off 关闭分页 \\timing 计时 \\conninfo 显示连接信息 \\password 修改密码 \\encoding 修改客户端编码 show all; 显示所有系统信息 show config_file; 显示系统配置文件 show server_version; 显示系统版本 show server_encoding; 显示服务端编码 show client_encoding; 显示客户端编码 select version(); 显示系统版本 select now(); 显示当前日期+时间 select current_timestamp; 显示当前日期+时间 select current_date; 显示当前日期 select current_time; 显示当前时间 select current_user; 显示当前用户 select current_database(); 显示当前数据库 select pg_postmaster_start_time(); 显示系统启动日期 {} 必选项 [] 可选项 | 选择分隔符 '' 表示字符串 \"\" 表示标识符（用于区分大小写和关键字；不常用，因为一般情况下标识符都为小写，并且不会与关键字重名，空格用 '_' 代替） 建议双引号要么都带，要么都不带。 Table Create DROP TABLE a; ------------------------------------------------------- CREATE TABLE a ( id INTEGER, name TEXT, price NUMERIC ); ------------------------------------------------------- 缺省值字段 CREATE TABLE a ( id SERIAL, 整形自增 name TEXT, price NUMERIC DEFAULT 9.99 默认值 ); ------------------------------------------------------- 表约束和列约束的区别是声明的位置不一样。 非空约束 检查约束（字段需要满足某个布尔表达式） CREATE TABLE a ( id INTEGER, name TEXT NOT NULL, 非空约束 price NUMERIC, CHECK (price \u003e 0), \"a_price_check\"（检查约束）（表约束）（匿名） CONSTRAINT abc CHECK (price \u003e 0) \"abc\"（检查约束）（表约束）（命名） ); ---- 唯一性约束 CREATE TABLE a ( id INTEGER UNIQUE, \"a_id_key\"（唯一性约束）（列约束）（匿名） name TEXT, price NUMERIC ); 等同于 CREATE TABLE a ( id INTEGER, name TEXT, price NUMERIC, UNIQUE (id) \"a_id_key\"（唯一性约束）（表约束）（匿名） ); 等同于 CREATE TABLE a ( id INTEGER, name TEXT, price NUMERIC, CONSTRAINT abc UNIQUE (id) \"abc\"（唯一性约束）（表约束）（命名） ); ---- 联合唯一性约束 = 列组 + 唯一性约束 CREATE TABLE a ( id INTEGER, name TEXT, price NUMERIC, UNIQUE (id, name) \"a_id_name_key\"（联合唯一性约束）（表约束）（匿名） ); ------------------------------------------------------- 主键 = 主键约束（列或列组）= 唯一且非空 = 唯一性约束 + 非空约束 = 记录的唯一标识符 PRIMARY KEY = UNIQUE NOT NULL CREATE TABLE a ( id INTEGER PRIMARY KEY, \"a_pkey\"（匿名） name TEXT, price NUMERIC ); 等同于 CREATE TABLE a ( id INTEGER CONSTRAINT abc PRIMARY KEY, \"abc\"（命名） name TEXT, price NUMERIC ); 等同于 CREATE TABLE a ( id INTEGER, name TEXT, price NUMERIC, PRIMARY KEY (id) \"a_pkey\"（表约束） ); ---- 联合主键 = 列组 + 主键 CREATE TABLE a ( id INTEGER, name TEXT, price NUMERIC, PRIMARY KEY (id, name) \"a_pkey\" ); ------------------------------------------------------- 外键 = 外键约束（列或列组）= 匹配（引用）另一张表的主键 = 维持关联表之间的引用完整性（数据一致性） CREATE TABLE a ( 主表 id INTEGER PRIMARY KEY, 主键 name TEXT, price NUMERIC ); CREATE TABLE b ( 从表 id INTEGER PRIMARY KEY, 主键 a_no INTEGER REFERENCES a (id), 外键 count INTEGER ); 等同于 CREATE TABLE b ( id INTEGER PRIMARY KEY, a_no INTEGER REFERENCES a, 自动将被引用表的主键作为被引用列 count INTEGER ); 等同于 CREATE TABLE b ( id INTEGER PRIMARY KEY, a_no INTEGER, count INTEGER, FOREIGN KEY (a_no) REFERENCES a 表约束 ); 等同于 CREATE TABLE b ( 从表 id INTEGER, a_no INTEGER, count INTEGER, PRIMARY KEY (id), 主键（表约束）（匿名） FOREIGN KEY (a_no) REFERENCES a 外键（表约束）（匿名） ); ------------------------------------------------------- 当删除或更新主表中的某条记录中的主键字段时，由于该条记录的主键字段被从表中某条记录所引用，所以操作将会失败（缺省）。 操作（主表）： ON DELETE ON UPDATE 响应（从表）： NO ACTION 不允许该操作（事务晚些时候检查）（缺省） RESTRICT 不允许该操作（事务早些时候检查）（常用） CASCADE 递归操作（删除引用行 or 引用行字段置为更新值）（常用） SET DEFAULT 引用行字段置为默认值 SET NULL 引用行字段置为 NULL CREATE TABLE b ( 从表 id INTEGER, a_no INTEGER, count INTEGER, PRIMARY KEY (id), 主键 FOREIGN KEY (a_no) REFERENCES a ON UPDATE CASCADE 外键（主表中被引用的记录不允许删除，但允许更新） ); Alter 添加字段（列） ------------------------------------------------------- ALTER TABLE a ADD COLUMN description TEXT; 已存在的记录的新字段将自动填充 NULL ALTER TABLE a ADD COLUMN description TEXT DEFAULT '未描述' CHECK (description != ''); 可以使用 CREATE TABLE 中对字段的描述语法 删除字段（列） ------------------------------------------------------- ALTER TABLE a DROP COLUMN description; 添加约束 表中的数据需在约束被添加之前就已经符合约束，否则将添加失败 ------------------------------------------------------- ALTER TABLE a ADD CHECK (name != ''); 检查约束 ALTER TABLE a ADD UNIQUE (name); 唯一性约束 ALTER TABLE a ADD FOREIGN KEY (name) REFERENCES b; 外键约束 ALTER TABLE a ALTER COLUMN name SET NOT NULL; 非空约束（没有表约束，只有列约束；并且没有名称） 删除约束 ------------------------------------------------------- ALTER TABLE a DROP CONSTRAINT \"a_name_check\"; 约束 ALTER TABLE a ALTER COLUMN name DROP NOT NULL; 非空约束（没有表约束，只有列约束；并且没有名称） 更改列的默认值 不会影响已存在的记录 ------------------------------------------------------- ALTER TABLE a ALTER COLUMN description SET DEFAULT '未描述'; 添加 ALTER TABLE a ALTER COLUMN description DROP DEFAULT; 删除（默认值为 NULL） 更改列的数据类型 表中的数据需通过隐式转换才能成功，否则需要使用 USING 子句进行显式转换 ------------------------------------------------------- ALTER TABLE a ALTER COLUMN description TYPE VARCHAR; 重命名字段 ------------------------------------------------------- ALTER TABLE a RENAME COLUMN description TO characterization; 重命名表 ------------------------------------------------------- ALTER TABLE a RENAME TO b; Schema 一个数据库集簇（Cluster）中的所有数据库只会共享 pg_database（数据库列表）、pg_group（用户组列表）、pg_shadow（有效用户列表）。 一个数据库中又包含一个或多个模式（Schema）。 一个模式中又包含表、函数、操作符、数据类型等其他类型。 层次：服务器 -\u003e 数据库 -\u003e 模式 -\u003e 对象（表...） ------------------------------------------------------- CREATE SCHEMA a; 创建模式 ------------------------------------------------------- DROP SCHEMA a; 删除模式（模式需清空） DROP SCHEMA a CASCADE; 递归删除模式 ------------------------------------------------------- PostgreSQL 会自动将不带限定名的访问指向 public 模式。 CREATE TABLE a (); 等同于 CREATE TABLE public.a (); ------------------------------------------------------- 模式搜索路径 SHOW search_path; 查看 SET search_path TO a,public; 设置 Inherit CREATE TABLE a ( 创建父表 a_id INTEGER ); CREATE TABLE b ( 创建子表 b_id INTEGER ) INHERITS (a); 继承自 a 表（拥有 a 表的所有字段） ---- postgres=# \\d+ a 查看父表属性 数据表 \"public.a\" 栏位 | 类型 | 修饰词 | 存储 | 统计目标 | 描述 a_id | integer | | plain | | 子表: b postgres=# \\d+ b 查看子表属性 数据表 \"public.b\" 栏位 | 类型 | 修饰词 | 存储 | 统计目标 | 描述 a_id | integer | | plain | | b_id | integer | | plain | | 继承: a ------------------------------------------------------- INSERT INTO a VALUES (1); 父表插入记录 INSERT INTO a VALUES (2); INSERT INTO a VALUES (3); INSERT INTO b VALUES (1, 101); 子表插入记录 SELECT * FROM a; 默认包括所有子表记录 a_id ------ 1 2 3 1 SELECT * FROM ONLY a; 显式声明只查看父表记录（SELECT、UPDATE、DELETE 都支持 ONLY 关键字;） a_id ------ 1 2 3 SELECT * FROM b; 查看子表记录 a_id | b_id ------+------ 1 | 101 ------------------------------------------------------- TRUNCATE TABLE a; 使用 TRUNCATE 清空父表记录时，子表记录会一同被清空 SELECT * FROM a; 默认包括所有子表记录 a_id ------ ------------------------------------------------------- 确定记录来源 SELECT a.*, a.TABLEOID tableoid 为系统隐含字段 FROM a; a_id | tableoid ------+---------- 1 | 17126 2 | 17126 3 | 17126 1 | 17129 SELECT a.*, p.relname FROM a, pg_class p WHERE a.TABLEOID = p.OID; 将 tableoid 与系统表 pg_class 进行关联以获得实际表名 a_id | relname ------+--------- 1 | a 2 | a 3 | a 1 | b ---- SELECT a.*, a.TABLEOID :: REGCLASS FROM a; a_id | tableoid ------+---------- 1 | a 2 | a 3 | a 1 | b ------------------------------------------------------- 多表继承：一个表可以有多个父表，此时它拥有所有父表们的字段总和。 若出现同名字段，则必须是相同数据类型，否则将继承失败；合并后的字段拥有它所继承的字段的所有约束（检查、非空）。 约束：父表上的检查约束和非空约束都会被继承，而其他类型的约束（唯一、主键、外键）则不会被继承。 访问权限：表的继承并不包括访问权限；因此，访问父表的用户还必须具有访问子表的权限，或者使用 ONLY 关键字显式声明只查看父表记录。 Partition 分区：通过继承来实现数据分离。 范围划分 列表划分 CREATE TABLE a ( id INTEGER, gender TEXT, name TEXT ); CREATE TABLE b1 ( PRIMARY KEY (id), CHECK (gender = '男') ) INHERITS (a); CREATE TABLE b2 ( PRIMARY KEY (id), CHECK (gender = '女') ) INHERITS (a); Function SQL（查询语言函数） 函数：可重载，有多态。 函数体：包含在字符文本中的 SQL 语句集合（''、$$$$（推荐））。 参数修饰：IN（输入）（缺省），OUT（输出），INOUT（输入+输出），VARIADIC（可变长参数）。 CREATE TABLE a ( 测试表 name TEXT, age INTEGER, salary NUMERIC ); INSERT INTO a VALUES ('小张', 25, 4999.9); 测试数据 INSERT INTO a VALUES ('小陈', 23, 3999.9); ------------------------------------------------------- 若函数返回值不为 Void，则最后一条语句必须是 SELECT、INSERT、UPDATE、带有 RETURNING 子句的 DELETE。 CREATE OR REPLACE FUNCTION a(IN INTEGER, OUT VOID) AS $$ 接收 INTEGER，返回 Void（创建） $$ LANGUAGE SQL; 等同于 CREATE OR REPLACE FUNCTION a(INTEGER) RETURNS VOID AS $$ IN：缺省值，可省略；OUT：需显式声明（单个结果可在括号外声明） $$ LANGUAGE SQL; 等同于 CREATE OR REPLACE FUNCTION a(INTEGER) RETURNS VOID AS '' 使用 '' 替代 $$$$ 表示字符串 LANGUAGE SQL; DROP FUNCTION a( INTEGER ); （删除） SELECT a(1); 返回 Void（NULL）（调用） ------------------------------------------------------- 基本类型 CREATE OR REPLACE FUNCTION a(OUT INTEGER) AS $$ 无参，返回 INTEGER SELECT 1; 返回 1 $$ LANGUAGE SQL; DROP FUNCTION a(); SELECT a(); ---- CREATE OR REPLACE FUNCTION a(OUT VOID) AS $$ 无参，返回 NULL DROP TABLE a CASCADE; 递归删除表 a $$ LANGUAGE SQL; DROP FUNCTION a(); SELECT a(); ---- CREATE OR REPLACE FUNCTION a(INTEGER, INTEGER, OUT INTEGER) AS $$ SELECT $1 + $2; 通过 $n 调用入参 $$ LANGUAGE SQL; DROP FUNCTION a( INTEGER, INTEGER ); SELECT a(1, 2); 返回 3 ------------------------------------------------------- CREATE OR REPLACE FUNCTION a(a a, OUT INTEGER) AS $$ SELECT (a.salary * 2) :: INTEGER; NUMERIC ➜ INTEGER $$ LANGUAGE SQL; DROP FUNCTION a( a ); SELECT name, a(a) dream FROM a; name | dream ------+------- 小张 | 10000 小陈 | 8000 SELECT name, a(ROW (name, age, salary * 1.1)) dream FROM a; ROW 构造函数 name | dream ------+------- 小张 | 11000 小陈 | 8800 ------------------------------------------------------- 返回值为复合类型（多个列（结果）） CREATE OR REPLACE FUNCTION a(OUT a) AS $$ 返回 a 类型 SELECT ROW ('小红', 21, 3499.9) :: a; Record ➜ a $$ LANGUAGE SQL; DROP FUNCTION a(); SELECT ROW ('小红', 21, 3499.9) :: a; 等同于 SELECT a(); row ------------------ (小红,21,3499.9) SELECT (a()).name; name ------ 小红 SELECT * FROM a(); name | age | salary ------+-----+-------- 小红 | 21 | 3499.9 ---- CREATE OR REPLACE FUNCTION a(x INTEGER, y INTEGER, OUT sum INTEGER, OUT multiply INTEGER) AS $$ 返回 Record 类型 SELECT x + y, x * y; 命名参数 $$ LANGUAGE SQL; DROP FUNCTION a( INTEGER, INTEGER ); SELECT * FROM a(5, 10); 等同于 SELECT (a(5, 10)).*; sum | multiply -----+---------- 15 | 50 ------------------------------------------------------- 返回值为多条记录，此类函数多用于 FROM 子句：SETOF、RETURNS TABLE 若无以上关键字，则默认只取第一条记录。 CREATE OR REPLACE FUNCTION a() RETURNS SETOF a AS $$ 返回 a 类型 SELECT * FROM a; $$ LANGUAGE SQL; DROP FUNCTION a(); SELECT * FROM a(); name | age | salary ------+-----+-------- 小张 | 25 | 4999.9 小陈 | 23 | 3999.9 ---- CREATE OR REPLACE FUNCTION a(OUT name TEXT, OUT salary NUMERIC) RETURNS SETOF RECORD AS $$ 返回 Record 类型 SELECT name, salary FROM a; $$ LANGUAGE SQL; DROP FUNCTION a(); SELECT * FROM a(); name | salary ------+-------- 小张 | 4999.9 小陈 | 3999.9 等同于 CREATE OR REPLACE FUNCTION a() RETURNS TABLE(name TEXT, salary NUMERIC) AS $$ RETURNS TABLE 可用于替代 RETURNS SETOF 的 Record 类型，语法更简洁 SELECT name, salary FROM a; $$ LANGUAGE SQL; DROP FUNCTION a(); SELECT * FROM a(); name | salary ------+-------- 小张 | 4999.9 小陈 | 3999.9 ------------------------------------------------------- 多态函数：ANYELEMENT、ANYARRAY、ANYNONARRAY、ANYENUM CREATE OR REPLACE FUNCTION a(ANYELEMENT, ANYELEMENT, OUT ANYARRAY) AS $$ SELECT ARRAY [$1, $2]; $$ LANGUAGE SQL; DROP FUNCTION a( ANYELEMENT, ANYELEMENT ); SELECT a(1, 2), a('A' :: TEXT, 'B'); 参数类型需一致，并且显式声明其类型 a | a -------+------- {1,2} | {A,B} ---- CREATE OR REPLACE FUNCTION a(ANYELEMENT, ANYELEMENT, OUT BOOLEAN) AS $$ SELECT $1 \u003e $2; $$ LANGUAGE SQL; DROP FUNCTION a( ANYELEMENT, ANYELEMENT ); SELECT a(2, 1), a(1, 2), a('A' :: TEXT, 'B'); a | a | a ---+---+--- t | f | f ---- CREATE OR REPLACE FUNCTION a(i ANYELEMENT, OUT o1 ANYELEMENT, OUT o2 ANYARRAY) AS $$ SELECT i, ARRAY [i, i]; $$ LANGUAGE SQL; DROP FUNCTION a( ANYELEMENT ); SELECT * FROM a(2); o1 | o2 ----+------- 2 | {2,2} ------------------------------------------------------- 默认参数值：DEFAULT CREATE OR REPLACE FUNCTION a(x INTEGER DEFAULT 1, y INTEGER DEFAULT 10, z INTEGER DEFAULT 100, OUT INTEGER) AS $$ SELECT x + y + z; $$ LANGUAGE SQL; DROP FUNCTION a( INTEGER, INTEGER, INTEGER ); SELECT a(); a ----- 111 SELECT a(0); a ----- 110 SELECT a(0, 0); a ----- 100 SELECT a(0, 0, 0); a --- 0 SELECT a(z := 0); 命名参数 a ---- 11 ------------------------------------------------------- 可变长参数（数组）：VARIADIC CREATE OR REPLACE FUNCTION a(VARIADIC TEXT [], OUT INTEGER) AS $$ SELECT array_length($1, 1); 返回（一维数组的）数组长度 $$ LANGUAGE SQL; DROP FUNCTION a( TEXT [] ); SELECT a('a', 'b', 'c'); a --- 3 SELECT a(VARIADIC ARRAY ['a', 'b', 'c']); a --- 3 SELECT a(VARIADIC ARRAY []:: TEXT []); 返回 NULL ---- SELECT generate_subscripts(ARRAY ['a', 'b', 'c'], 1); 返回（一维数组的）数组下标 generate_subscripts --------------------- 1 2 3 等同于 SELECT * FROM generate_subscripts(ARRAY ['a', 'b', 'c'], 1) abc(def); def ----- 1 2 3 CREATE OR REPLACE FUNCTION a(VARIADIC ANYARRAY, OUT ANYELEMENT) AS $$; SELECT min($1 [def]) FROM generate_subscripts($1, 1) abc(def); 利用多态和可变长参数求任意数组最小值 $$ LANGUAGE SQL; Note： min($1 [def]) 通过数组下标 def 取出数组的所有元素，再通过系统函数 min() 求出列的最小值。 DROP FUNCTION a( ANYARRAY ); SELECT a(10, -1, 5, 4, 6); a ---- -1 SELECT a('a' :: TEXT, 'b', 'c'); a --- a PL/pgSQL（程序语言函数） 块结构： [ \u003c\u003clabel\u003e\u003e ] [ DECLARE declarations ] BEGIN statements END [ label ]; ------------------------------------------------------- CREATE OR REPLACE FUNCTION a() RETURNS INTEGER AS $$ BEGIN RAISE NOTICE '% %', 'ABC', 123; RETURN 1; END; $$ LANGUAGE PLPGSQL; DROP FUNCTION a(); SELECT a(); 注意: ABC 123 a --- 1 ------------------------------------------------------- 变量作用域 CREATE OR REPLACE FUNCTION a() RETURNS INTEGER AS $$ \u003c\u003c abc \u003e\u003e DECLARE a INTEGER := 30; BEGIN RAISE NOTICE 'Out: a = %', a; 30 a := 50; \u003c\u003c def \u003e\u003e 子块开始 DECLARE a INTEGER := 100; BEGIN RAISE NOTICE 'In: a = %', a; 100 RAISE NOTICE 'In: def.a = %', def.a; 100 RAISE NOTICE 'In: abc.a = %', abc.a; 50 END; 子块结束 RAISE NOTICE 'Out: a = %', a; 50 RETURN a; END; $$ LANGUAGE PLPGSQL; DROP FUNCTION a(); SELECT a(); 注意: Out: a = 30 注意: In: a = 100 注意: In: def.a = 100 注意: In: abc.a = 50 注意: Out: a = 50 a ---- 50 ------------------------------------------------------- 变量声明：PL/pgSQL 中的变量都需在 DECLARE 块中声明，声明格式： name [ CONSTANT ] type [ COLLATE collation_name ] [ NOT NULL ] [ { DEFAULT | := | = } expression ]; CREATE OR REPLACE FUNCTION a() RETURNS VOID AS $$ DECLARE a INTEGER; NULL b INTEGER DEFAULT 1; 初始值（每次进入该块时都将重新赋值（计算）） c INTEGER NOT NULL = 2; 不能赋值为 NULL d INTEGER = 3; 变量 e CONSTANT INTEGER = 4; 常量 BEGIN RAISE NOTICE '% % % % %', a, b, c, d, e; END; $$ LANGUAGE PLPGSQL; DROP FUNCTION a(); SELECT a(); 注意: \u003cNULL\u003e 1 2 3 4 a --- ---- CREATE OR REPLACE FUNCTION a() RETURNS TEXT AS $$ DECLARE a TIMESTAMP DEFAULT now(); 每次调用初始值都不一样 BEGIN RETURN a; END; $$ LANGUAGE PLPGSQL; DROP FUNCTION a(); SELECT a(); a ---------------------------- 2017-03-02 15:15:27.452181 ------------------------------------------------------- 返回值 单条复合类型： CREATE OR REPLACE FUNCTION a(INTEGER, INTEGER, OUT sum INTEGER, OUT multiply INTEGER) AS $$ BEGIN sum = $1 + $2; multiply = $1 * $2; END; $$ LANGUAGE PLPGSQL; DROP FUNCTION a( INTEGER, INTEGER ); SELECT * FROM a(5, 10); 等同于 SELECT (a(5, 10)).*; sum | multiply -----+---------- 15 | 50 多条复合类型： CREATE OR REPLACE FUNCTION a() RETURNS TABLE(name TEXT, salary NUMERIC) AS $$ BEGIN RETURN QUERY SELECT abc.name, abc.salary FROM a abc; 设置别名避免与函数名冲突 END; $$ LANGUAGE PLPGSQL; DROP FUNCTION a(); SELECT * FROM a(); name | salary ------+-------- 小张 | 4999.9 小陈 | 3999.9 多态类型： CREATE OR REPLACE FUNCTION a(ANYELEMENT, ANYELEMENT, ANYELEMENT, OUT o ANYELEMENT) AS $$ BEGIN o = $1 + $2 + $3; END; $$ LANGUAGE PLPGSQL; DROP FUNCTION a( ANYELEMENT, ANYELEMENT, ANYELEMENT ); SELECT a(1, 2, 3); a --- 6 ------------------------------------------------------- 复制类型：%TYPE（基本类型），%ROWTYPE（复合类型） CREATE OR REPLACE FUNCTION a(a.age%TYPE, OUT s TEXT) AS $$ DECLARE o a%ROWTYPE; BEGIN SELECT * INTO o FROM a WHERE age = $1; 装入 o 中 s = o.name || ' ' || o.age || ' ' || o.salary; END; $$ LANGUAGE PLPGSQL; DROP FUNCTION a( INTEGER ); SELECT a(25); a ---------------- 小张 25 4999.9 记录类型： name RECORD; ------------------------------------------------------- PL/pgSQL 语句 'IF expression THEN ...' 执行时，将给主 SQL 引擎 发送一个查询 'SELECT expression'' 来计算表达式的返回值。 赋值：variable { := | = } expression; 若数据类型不匹配，将强制转换；若转换失败，将以文本方式转换，否则发生异常。 a = b * 0.06; my_record.user_id = 20; ------------------------------------------------------- 没有返回值的命令：PERFORM query; 执行命令并忽略其返回值，与 SELECT 写法一致，只是将 SELECT 替换为 PERFORM。 PERFORM create_mv('cs_session_page_requests_mv', my_query); ------------------------------------------------------- 返回一行结果的命令：INTO target 除了 INTO 子句，SQL 语句的其他部分的语法不变。 SELECT select_expressions INTO [STRICT] target FROM ...; INSERT ... RETURNING expressions INTO [STRICT] target; UPDATE ... RETURNING expressions INTO [STRICT] target; DELETE ... RETURNING expressions INTO [STRICT] target; 无 STRICT：target 为该查询返回的第一个行，无结果则为 NULL。 ---- SELECT * INTO myrec FROM emp WHERE empname = myname; IF NOT FOUND THEN 没有行（try-catch） RAISE EXCEPTION 'employee % not found', myname; END IF; 有 STRICT：该查询必须刚好返回一个行，否则发生异常；成功执行带 STRICT 的命令总是会将 FOUND 置为真。 ---- BEGIN SELECT * INTO STRICT myrec FROM emp WHERE empname = myname; EXCEPTION WHEN NO_DATA_FOUND THEN 没有行（try-catch） RAISE EXCEPTION 'employee % not found', myname; WHEN TOO_MANY_ROWS THEN 多于一行（try-catch） RAISE EXCEPTION 'employee % not unique', myname; END; CREATE OR REPLACE FUNCTION a(INTEGER, OUT r a) AS $$ BEGIN SELECT * INTO STRICT r FROM a WHERE age = $1; EXCEPTION WHEN NO_DATA_FOUND THEN RAISE EXCEPTION 'age % not found', $1; WHEN TOO_MANY_ROWS THEN RAISE EXCEPTION 'age % not unique', $1; END $$ LANGUAGE PLPGSQL; DROP FUNCTION a( INTEGER ); SELECT * FROM a(25); name | age | salary ------+-----+-------- 小张 | 25 | 4999.9 SELECT * FROM a(99); 错误: age 99 not found 背景: 在RAISE的第10行的PL/pgSQL函数a(integer) ------------------------------------------------------- 占位语句（什么也不做）：NULL; 能够指示 if/then/else 链中故意留出的空分支。 CREATE OR REPLACE FUNCTION a() RETURNS VOID AS $$ DECLARE x INTEGER = 1; y INTEGER; BEGIN y = x / 0; EXCEPTION WHEN division_by_zero THEN 忽略异常 等同于 EXCEPTION WHEN division_by_zero THEN NULL; 忽略异常（更直观） END; $$ LANGUAGE PLPGSQL; DROP FUNCTION a(); SELECT a(); EXPLAIN ANALYZE SELECT * FROM customer; --显示语句的执行计划 ALTER TABLE account DISABLE TRIGGER ALL; --禁用外键约束 ALTER TABLE account ENABLE TRIGGER ALL; --启用外键约束 SELECT * FROM pg_available_extension_versions; --查询可加载插件 SELECT * FROM pg_extension; --查询已加载插件 Tool https://www.postgresql.org/ftp/pgadmin/pgadmin4/ https://github.com/sosedoff/pgweb/releases/latest https://github.com/dbcli/pgcli https://www.heidisql.com/download.php https://www.jetbrains.com/datagrip/ ","wordCount":"2744","inLanguage":"en","datePublished":"2017-02-19T20:39:57+08:00","dateModified":"2017-02-19T20:39:57+08:00","author":{"@type":"Person","name":{"email":"xhstormr@example.org","name":"XhstormR"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://xhstormr.github.io/blog/posts/postgresql/"},"publisher":{"@type":"Organization","name":"XhstormR","logo":{"@type":"ImageObject","url":"https://xhstormr.github.io/blog/favicon.ico"}}}</script></head><body id=top><header class=header><nav class=nav><div class=logo><a href=https://xhstormr.github.io/blog/ accesskey=h title="XhstormR (Alt + H)">XhstormR</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://xhstormr.github.io/blog/archives/ title=Archive><span>Archive</span></a></li><li><a href=https://xhstormr.github.io/blog/tags/ title=Tags><span>Tags</span></a></li><li><a href=https://xhstormr.github.io/blog/search/ title="Search (Alt + /)" accesskey=/><span>Search</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://xhstormr.github.io/blog/>Home</a>&nbsp;»&nbsp;<a href=https://xhstormr.github.io/blog/posts/>Posts</a></div><h1 class="post-title entry-hint-parent">自学 PostgreSQL</h1><div class=post-meta><span title='2017-02-19 20:39:57 +0800 +0800'>2017-02-19</span>&nbsp;·&nbsp;<span>13 min</span>&nbsp;·&nbsp;<span>map[email:xhstormr@example.org name:XhstormR]</span>&nbsp;|&nbsp;<span>
+<a href=https://github.com/XhstormR/blog/tree/master/content/posts/postgresql.md rel="noopener noreferrer edit" target=_blank>Suggest Changes</a></span></div></header><div class=toc><details open><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><ul><li><a href=#concept aria-label=Concept>Concept</a></li><li><a href=#initial aria-label=Initial>Initial</a></li><li><a href=#operate aria-label=Operate>Operate</a></li><li><a href=#table aria-label=Table>Table</a><ul><li><a href=#create aria-label=Create>Create</a></li><li><a href=#alter aria-label=Alter>Alter</a></li></ul></li><li><a href=#schema aria-label=Schema>Schema</a></li><li><a href=#inherit aria-label=Inherit>Inherit</a></li><li><a href=#partition aria-label=Partition>Partition</a></li><li><a href=#function aria-label=Function>Function</a><ul><li><a href=#sql%e6%9f%a5%e8%af%a2%e8%af%ad%e8%a8%80%e5%87%bd%e6%95%b0 aria-label=SQL（查询语言函数）>SQL（查询语言函数）</a></li><li><a href=#plpgsql%e7%a8%8b%e5%ba%8f%e8%af%ad%e8%a8%80%e5%87%bd%e6%95%b0 aria-label=PL/pgSQL（程序语言函数）>PL/pgSQL（程序语言函数）</a></li></ul></li><li><a href=#tool aria-label=Tool>Tool</a></li></ul></div></details></div><div class=post-content><p>Updated on 2017-02-19</p><blockquote><img loading=lazy src=/blog/uploads/postgresql.svg title=PostgreSQL width=375><p><a href=https://www.postgresql.org/>https://www.postgresql.org/</a></p><p><a href=https://jdbc.postgresql.org/download.html>https://jdbc.postgresql.org/download.html</a></p><p><a href=https://www.postgresql.org/docs/current/index.html>https://www.postgresql.org/docs/current/index.html</a></p><p><a href=https://github.com/pgjdbc/pgjdbc>https://github.com/pgjdbc/pgjdbc</a></p><p><a href=https://github.com/postgis/postgis>https://github.com/postgis/postgis</a></p><p><a href=https://github.com/postgres/postgres>https://github.com/postgres/postgres</a></p><p><a href=https://jcenter.bintray.com/org/postgresql/postgresql/>https://jcenter.bintray.com/org/postgresql/postgresql/</a></p><p><a href=https://yum.postgresql.org/repopackages.php>https://yum.postgresql.org/repopackages.php</a></p><p><a href=https://www.enterprisedb.com/download-postgresql-binaries>Step 1</a>
+|
+<a href="https://www.enterprisedb.com/thank-you?anid=1255499">Step 2</a>
+|
+<a href=https://get.enterprisedb.com/postgresql/postgresql-10.4-1-windows-x64-binaries.zip>Step 3</a></p></blockquote><h2 id=concept>Concept<a hidden class=anchor aria-hidden=true href=#concept>#</a></h2><ul><li>结构化查询语言（SQL）：Structured Query Language<ul><li>数据定义语言（DDL）：Data Definition Language<ul><li>用于建立（CREATE）、修改（ALTER）、删除（DROP）数据库对象。</li></ul></li><li>数据操纵语言（DML）：Data Manipulation Language<ul><li>用于改变（INSERT、UPDATE、DELETE）数据库数据。</li></ul></li><li>数据查询语言（DQL）：Data Query Language<ul><li>用于查询（SELECT）所需要的数据。</li></ul></li><li>数据控制语言（DCL）：Data Control Language<ul><li>用于权限的授予（GRANT）和收回（REVOKE），创建用户（CREATE USER）。</li></ul></li><li>事务控制语言（TCL）：Transaction Control Language<ul><li>用于维护数据一致性的语句，包括提交（COMMIT）、回滚（ROLLBACK）、保存点（SAVEPOINT）。</li></ul></li></ul></li><li>增删改查（CRUD）： SQL；HTTP<ul><li><strong>增</strong>加（<strong>C</strong>reate）：INSERT；POST（非幂等）</li><li><strong>查</strong>询（<strong>R</strong>etrieve）：SELECT；GET</li><li>修<strong>改</strong>（<strong>U</strong>pdate）：UPDATE；PATCH（更新资源：非幂等），PUT（替换资源：幂等）</li><li><strong>删</strong>除（<strong>D</strong>elete）：DELETE；DELETE</li></ul></li><li>事务（Transaction）：逻辑上的 <strong>一组操作</strong>，这组操作只能一起成功或者一起失败。<ul><li>数据库中 <strong>保证事务可靠</strong> 的机制（ACID）。<ul><li>原子性（<strong>A</strong>tomicity）：对于数据修改，要么全都执行，要么全都不执行。</li><li>一致性（<strong>C</strong>onsistency）：所有的数据都保持一致状态。</li><li>隔离性（<strong>I</strong>solation）：与其它并发事务所作的修改隔离。</li><li>持久性（<strong>D</strong>urability）：对于系统的影响是永久性的。</li></ul></li></ul></li><li>数据访问对象（DAO）：Data Access Object<ul><li>用于封装所有对数据库的访问，使数据访问逻辑和业务逻辑分开。</li><li>数据传递对象<ul><li>值对象（Value Object）</li><li>实体对象（Entity）</li></ul></li></ul></li><li>对象关系映射（ORM）：Object Relation Mapping * <strong>类</strong>中的<strong>对象</strong>的<strong>属性</strong>（Java）&lt;— 映射（ORM） —><strong>表</strong>中的<strong>记录</strong>的<strong>字段</strong>（Database）</li></ul><h2 id=initial>Initial<a hidden class=anchor aria-hidden=true href=#initial>#</a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>initdb.exe -A scram-sha-256 -E UTF8 --no-locale --lc-messages<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Chinese (Simplified)_China.936&#34;</span> -U <span style=color:#ae81ff>123</span> -W -D D:<span style=color:#ae81ff>\1</span><span style=color:#ae81ff>2345</span>
+</span></span><span style=display:flex><span>pg_ctl.exe -l D:<span style=color:#ae81ff>\l</span>og.txt -D D:<span style=color:#ae81ff>\1</span><span style=color:#ae81ff>2345</span> start
+</span></span><span style=display:flex><span>pg_ctl.exe -l D:<span style=color:#ae81ff>\l</span>og.txt -D D:<span style=color:#ae81ff>\1</span><span style=color:#ae81ff>2345</span> status
+</span></span><span style=display:flex><span>pg_ctl.exe -l D:<span style=color:#ae81ff>\l</span>og.txt -D D:<span style=color:#ae81ff>\1</span><span style=color:#ae81ff>2345</span> stop
+</span></span><span style=display:flex><span>psql.exe -e -E -h 127.0.0.1 -p <span style=color:#ae81ff>5432</span> -U <span style=color:#ae81ff>123</span> -W -d postgres
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>compile<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;org.postgresql:postgresql:+&#34;</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>导出：pg_dump -h 127.0.0.1 -p <span style=color:#ae81ff>5432</span> -U <span style=color:#ae81ff>123</span> -W -d postgres -n erp -Fc -f data.dump
+</span></span><span style=display:flex><span>导入：pg_restore -h 127.0.0.1 -p <span style=color:#ae81ff>5432</span> -U <span style=color:#ae81ff>123</span> -W -d postgres -c data.dump
+</span></span></code></pre></div><h2 id=operate>Operate<a hidden class=anchor aria-hidden=true href=#operate>#</a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#ae81ff>\c</span>     切换数据库
+</span></span><span style=display:flex><span><span style=color:#ae81ff>\l</span>     列出数据库
+</span></span><span style=display:flex><span><span style=color:#ae81ff>\d</span>     列出表、序列、视图
+</span></span><span style=display:flex><span><span style=color:#ae81ff>\d</span>t     列出表
+</span></span><span style=display:flex><span><span style=color:#ae81ff>\d</span>u     列出角色
+</span></span><span style=display:flex><span><span style=color:#ae81ff>\d</span>n     列出模式
+</span></span><span style=display:flex><span><span style=color:#ae81ff>\d</span>f     列出函数
+</span></span><span style=display:flex><span><span style=color:#ae81ff>\d</span>x     列出扩展
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ae81ff>\g</span>     执行查询缓存区
+</span></span><span style=display:flex><span><span style=color:#ae81ff>\p</span>     显示查询缓存区
+</span></span><span style=display:flex><span><span style=color:#ae81ff>\r</span>     重置查询缓存区
+</span></span><span style=display:flex><span><span style=color:#ae81ff>\e</span>     使用外部编辑器编辑查询缓存区
+</span></span><span style=display:flex><span><span style=color:#ae81ff>\w</span>     将当前查询缓存区写至文件
+</span></span><span style=display:flex><span><span style=color:#ae81ff>\o</span>     将所有查询结果写至文件
+</span></span><span style=display:flex><span><span style=color:#ae81ff>\i</span>     将文件写至查询缓存区
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ae81ff>\x</span>     垂直显示查询结果（<span style=color:#ae81ff>\x\g\x</span>）
+</span></span><span style=display:flex><span><span style=color:#ae81ff>\t</span>     只显示查询结果（无页眉和页脚）
+</span></span><span style=display:flex><span><span style=color:#ae81ff>\H</span>     切换为 HTML 输出模式
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ae81ff>\q</span>     退出 psql
+</span></span><span style=display:flex><span><span style=color:#ae81ff>\h</span>     SQL 语法说明
+</span></span><span style=display:flex><span><span style=color:#ae81ff>\!</span>     执行外部命令
+</span></span><span style=display:flex><span><span style=color:#ae81ff>\s</span>et PROMPT1 <span style=color:#ae81ff>123</span>     设置提示符（https://www.postgresql.org/docs/current/app-psql.html#APP-PSQL-PROMPTING）
+</span></span><span style=display:flex><span><span style=color:#ae81ff>\p</span>set pager off     关闭分页
+</span></span><span style=display:flex><span><span style=color:#ae81ff>\t</span>iming     计时
+</span></span><span style=display:flex><span><span style=color:#ae81ff>\c</span>onninfo     显示连接信息
+</span></span><span style=display:flex><span><span style=color:#ae81ff>\p</span>assword     修改密码
+</span></span><span style=display:flex><span><span style=color:#ae81ff>\e</span>ncoding     修改客户端编码
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>show all;     显示所有系统信息
+</span></span><span style=display:flex><span>show config_file;     显示系统配置文件
+</span></span><span style=display:flex><span>show server_version;     显示系统版本
+</span></span><span style=display:flex><span>show server_encoding;     显示服务端编码
+</span></span><span style=display:flex><span>show client_encoding;     显示客户端编码
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>select</span> version<span style=color:#f92672>()</span>;     显示系统版本
+</span></span><span style=display:flex><span><span style=color:#66d9ef>select</span> now<span style=color:#f92672>()</span>;     显示当前日期+时间
+</span></span><span style=display:flex><span><span style=color:#66d9ef>select</span> current_timestamp;     显示当前日期+时间
+</span></span><span style=display:flex><span><span style=color:#66d9ef>select</span> current_date;     显示当前日期
+</span></span><span style=display:flex><span><span style=color:#66d9ef>select</span> current_time;     显示当前时间
+</span></span><span style=display:flex><span><span style=color:#66d9ef>select</span> current_user;     显示当前用户
+</span></span><span style=display:flex><span><span style=color:#66d9ef>select</span> current_database<span style=color:#f92672>()</span>;     显示当前数据库
+</span></span><span style=display:flex><span><span style=color:#66d9ef>select</span> pg_postmaster_start_time<span style=color:#f92672>()</span>;     显示系统启动日期
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>{}</span>     必选项
+</span></span><span style=display:flex><span><span style=color:#f92672>[]</span>     可选项
+</span></span><span style=display:flex><span>|     选择分隔符
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#39;&#39;</span>     表示字符串
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34;&#34;</span>     表示标识符（用于区分大小写和关键字；不常用，因为一般情况下标识符都为小写，并且不会与关键字重名，空格用 <span style=color:#e6db74>&#39;_&#39;</span> 代替）
+</span></span><span style=display:flex><span>     建议双引号要么都带，要么都不带。
+</span></span></code></pre></div><h2 id=table>Table<a hidden class=anchor aria-hidden=true href=#table>#</a></h2><h3 id=create>Create<a hidden class=anchor aria-hidden=true href=#create>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>TABLE</span> a;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-------------------------------------------------------
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> a (
+</span></span><span style=display:flex><span>  id    INTEGER,
+</span></span><span style=display:flex><span>  name  TEXT,
+</span></span><span style=display:flex><span>  price NUMERIC
+</span></span><span style=display:flex><span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-------------------------------------------------------
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>缺省值字段</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> a (
+</span></span><span style=display:flex><span>  id    SERIAL,     <span style=color:#960050;background-color:#1e0010>整形自增</span>
+</span></span><span style=display:flex><span>  name  TEXT,
+</span></span><span style=display:flex><span>  price NUMERIC <span style=color:#66d9ef>DEFAULT</span> <span style=color:#ae81ff>9</span>.<span style=color:#ae81ff>99</span>     <span style=color:#960050;background-color:#1e0010>默认值</span>
+</span></span><span style=display:flex><span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-------------------------------------------------------
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>表约束和列约束的区别是声明的位置不一样。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>非空约束</span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>检查约束（字段需要满足某个布尔表达式）</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> a (
+</span></span><span style=display:flex><span>  id    INTEGER,
+</span></span><span style=display:flex><span>  name  TEXT <span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span>,     <span style=color:#960050;background-color:#1e0010>非空约束</span>
+</span></span><span style=display:flex><span>  price NUMERIC,
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>CHECK</span> (price <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>0</span>),     <span style=color:#e6db74>&#34;a_price_check&#34;</span><span style=color:#960050;background-color:#1e0010>（检查约束）（表约束）（匿名）</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>CONSTRAINT</span> abc <span style=color:#66d9ef>CHECK</span> (price <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>0</span>)     <span style=color:#e6db74>&#34;abc&#34;</span><span style=color:#960050;background-color:#1e0010>（检查约束）（表约束）（命名）</span>
+</span></span><span style=display:flex><span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>----
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>唯一性约束</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> a (
+</span></span><span style=display:flex><span>  id    INTEGER <span style=color:#66d9ef>UNIQUE</span>,     <span style=color:#e6db74>&#34;a_id_key&#34;</span><span style=color:#960050;background-color:#1e0010>（唯一性约束）（列约束）（匿名）</span>
+</span></span><span style=display:flex><span>  name  TEXT,
+</span></span><span style=display:flex><span>  price NUMERIC
+</span></span><span style=display:flex><span>);
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>等同于</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> a (
+</span></span><span style=display:flex><span>  id    INTEGER,
+</span></span><span style=display:flex><span>  name  TEXT,
+</span></span><span style=display:flex><span>  price NUMERIC,
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>UNIQUE</span> (id)     <span style=color:#e6db74>&#34;a_id_key&#34;</span><span style=color:#960050;background-color:#1e0010>（唯一性约束）（表约束）（匿名）</span>
+</span></span><span style=display:flex><span>);
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>等同于</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> a (
+</span></span><span style=display:flex><span>  id    INTEGER,
+</span></span><span style=display:flex><span>  name  TEXT,
+</span></span><span style=display:flex><span>  price NUMERIC,
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>CONSTRAINT</span> abc <span style=color:#66d9ef>UNIQUE</span> (id)     <span style=color:#e6db74>&#34;abc&#34;</span><span style=color:#960050;background-color:#1e0010>（唯一性约束）（表约束）（命名）</span>
+</span></span><span style=display:flex><span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>----
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>联合唯一性约束</span> <span style=color:#f92672>=</span> <span style=color:#960050;background-color:#1e0010>列组</span> <span style=color:#f92672>+</span> <span style=color:#960050;background-color:#1e0010>唯一性约束</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> a (
+</span></span><span style=display:flex><span>  id    INTEGER,
+</span></span><span style=display:flex><span>  name  TEXT,
+</span></span><span style=display:flex><span>  price NUMERIC,
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>UNIQUE</span> (id, name)     <span style=color:#e6db74>&#34;a_id_name_key&#34;</span><span style=color:#960050;background-color:#1e0010>（联合唯一性约束）（表约束）（匿名）</span>
+</span></span><span style=display:flex><span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-------------------------------------------------------
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>主键</span> <span style=color:#f92672>=</span> <span style=color:#960050;background-color:#1e0010>主键约束（列或列组）</span><span style=color:#f92672>=</span> <span style=color:#960050;background-color:#1e0010>唯一且非空</span> <span style=color:#f92672>=</span> <span style=color:#960050;background-color:#1e0010>唯一性约束</span> <span style=color:#f92672>+</span> <span style=color:#960050;background-color:#1e0010>非空约束</span> <span style=color:#f92672>=</span> <span style=color:#960050;background-color:#1e0010>记录的唯一标识符</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>PRIMARY</span> <span style=color:#66d9ef>KEY</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>UNIQUE</span> <span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> a (
+</span></span><span style=display:flex><span>  id    INTEGER <span style=color:#66d9ef>PRIMARY</span> <span style=color:#66d9ef>KEY</span>,     <span style=color:#e6db74>&#34;a_pkey&#34;</span><span style=color:#960050;background-color:#1e0010>（匿名）</span>
+</span></span><span style=display:flex><span>  name  TEXT,
+</span></span><span style=display:flex><span>  price NUMERIC
+</span></span><span style=display:flex><span>);
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>等同于</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> a (
+</span></span><span style=display:flex><span>  id    INTEGER <span style=color:#66d9ef>CONSTRAINT</span> abc <span style=color:#66d9ef>PRIMARY</span> <span style=color:#66d9ef>KEY</span>,     <span style=color:#e6db74>&#34;abc&#34;</span><span style=color:#960050;background-color:#1e0010>（命名）</span>
+</span></span><span style=display:flex><span>  name  TEXT,
+</span></span><span style=display:flex><span>  price NUMERIC
+</span></span><span style=display:flex><span>);
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>等同于</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> a (
+</span></span><span style=display:flex><span>  id    INTEGER,
+</span></span><span style=display:flex><span>  name  TEXT,
+</span></span><span style=display:flex><span>  price NUMERIC,
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>PRIMARY</span> <span style=color:#66d9ef>KEY</span> (id)     <span style=color:#e6db74>&#34;a_pkey&#34;</span><span style=color:#960050;background-color:#1e0010>（表约束）</span>
+</span></span><span style=display:flex><span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>----
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>联合主键</span> <span style=color:#f92672>=</span> <span style=color:#960050;background-color:#1e0010>列组</span> <span style=color:#f92672>+</span> <span style=color:#960050;background-color:#1e0010>主键</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> a (
+</span></span><span style=display:flex><span>  id    INTEGER,
+</span></span><span style=display:flex><span>  name  TEXT,
+</span></span><span style=display:flex><span>  price NUMERIC,
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>PRIMARY</span> <span style=color:#66d9ef>KEY</span> (id, name)     <span style=color:#e6db74>&#34;a_pkey&#34;</span>
+</span></span><span style=display:flex><span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-------------------------------------------------------
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>外键</span> <span style=color:#f92672>=</span> <span style=color:#960050;background-color:#1e0010>外键约束（列或列组）</span><span style=color:#f92672>=</span> <span style=color:#960050;background-color:#1e0010>匹配（引用）另一张表的主键</span> <span style=color:#f92672>=</span> <span style=color:#960050;background-color:#1e0010>维持关联表之间的引用完整性（数据一致性）</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> a (     <span style=color:#960050;background-color:#1e0010>主表</span>
+</span></span><span style=display:flex><span>  id    INTEGER <span style=color:#66d9ef>PRIMARY</span> <span style=color:#66d9ef>KEY</span>,     <span style=color:#960050;background-color:#1e0010>主键</span>
+</span></span><span style=display:flex><span>  name  TEXT,
+</span></span><span style=display:flex><span>  price NUMERIC
+</span></span><span style=display:flex><span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> b (     <span style=color:#960050;background-color:#1e0010>从表</span>
+</span></span><span style=display:flex><span>  id    INTEGER <span style=color:#66d9ef>PRIMARY</span> <span style=color:#66d9ef>KEY</span>,     <span style=color:#960050;background-color:#1e0010>主键</span>
+</span></span><span style=display:flex><span>  a_no  INTEGER <span style=color:#66d9ef>REFERENCES</span> a (id),     <span style=color:#960050;background-color:#1e0010>外键</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>count</span> INTEGER
+</span></span><span style=display:flex><span>);
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>等同于</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> b (
+</span></span><span style=display:flex><span>  id    INTEGER <span style=color:#66d9ef>PRIMARY</span> <span style=color:#66d9ef>KEY</span>,
+</span></span><span style=display:flex><span>  a_no  INTEGER <span style=color:#66d9ef>REFERENCES</span> a,     <span style=color:#960050;background-color:#1e0010>自动将被引用表的主键作为被引用列</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>count</span> INTEGER
+</span></span><span style=display:flex><span>);
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>等同于</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> b (
+</span></span><span style=display:flex><span>  id    INTEGER <span style=color:#66d9ef>PRIMARY</span> <span style=color:#66d9ef>KEY</span>,
+</span></span><span style=display:flex><span>  a_no  INTEGER,
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>count</span> INTEGER,
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>FOREIGN</span> <span style=color:#66d9ef>KEY</span> (a_no) <span style=color:#66d9ef>REFERENCES</span> a     <span style=color:#960050;background-color:#1e0010>表约束</span>
+</span></span><span style=display:flex><span>);
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>等同于</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> b (     <span style=color:#960050;background-color:#1e0010>从表</span>
+</span></span><span style=display:flex><span>  id    INTEGER,
+</span></span><span style=display:flex><span>  a_no  INTEGER,
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>count</span> INTEGER,
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>PRIMARY</span> <span style=color:#66d9ef>KEY</span> (id),     <span style=color:#960050;background-color:#1e0010>主键（表约束）（匿名）</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>FOREIGN</span> <span style=color:#66d9ef>KEY</span> (a_no) <span style=color:#66d9ef>REFERENCES</span> a     <span style=color:#960050;background-color:#1e0010>外键（表约束）（匿名）</span>
+</span></span><span style=display:flex><span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-------------------------------------------------------
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>当删除或更新主表中的某条记录中的主键字段时，由于该条记录的主键字段被从表中某条记录所引用，所以操作将会失败（缺省）。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>操作（主表）：</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>ON</span> <span style=color:#66d9ef>DELETE</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>ON</span> <span style=color:#66d9ef>UPDATE</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>响应（从表）：</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>NO</span> ACTION     <span style=color:#960050;background-color:#1e0010>不允许该操作（事务晚些时候检查）（缺省）</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>RESTRICT</span>     <span style=color:#960050;background-color:#1e0010>不允许该操作（事务早些时候检查）（常用）</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CASCADE</span>     <span style=color:#960050;background-color:#1e0010>递归操作（删除引用行</span> <span style=color:#66d9ef>or</span> <span style=color:#960050;background-color:#1e0010>引用行字段置为更新值）（常用）</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SET</span> <span style=color:#66d9ef>DEFAULT</span>     <span style=color:#960050;background-color:#1e0010>引用行字段置为默认值</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SET</span> <span style=color:#66d9ef>NULL</span>     <span style=color:#960050;background-color:#1e0010>引用行字段置为</span> <span style=color:#66d9ef>NULL</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> b (     <span style=color:#960050;background-color:#1e0010>从表</span>
+</span></span><span style=display:flex><span>  id    INTEGER,
+</span></span><span style=display:flex><span>  a_no  INTEGER,
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>count</span> INTEGER,
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>PRIMARY</span> <span style=color:#66d9ef>KEY</span> (id),     <span style=color:#960050;background-color:#1e0010>主键</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>FOREIGN</span> <span style=color:#66d9ef>KEY</span> (a_no) <span style=color:#66d9ef>REFERENCES</span> a <span style=color:#66d9ef>ON</span> <span style=color:#66d9ef>UPDATE</span> <span style=color:#66d9ef>CASCADE</span>     <span style=color:#960050;background-color:#1e0010>外键（主表中被引用的记录不允许删除，但允许更新）</span>
+</span></span><span style=display:flex><span>);
+</span></span></code></pre></div><h3 id=alter>Alter<a hidden class=anchor aria-hidden=true href=#alter>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>添加字段（列）</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-------------------------------------------------------
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> a
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>ADD</span> <span style=color:#66d9ef>COLUMN</span> description TEXT;     <span style=color:#960050;background-color:#1e0010>已存在的记录的新字段将自动填充</span> <span style=color:#66d9ef>NULL</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> a
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>ADD</span> <span style=color:#66d9ef>COLUMN</span> description TEXT <span style=color:#66d9ef>DEFAULT</span> <span style=color:#e6db74>&#39;未描述&#39;</span> <span style=color:#66d9ef>CHECK</span> (description <span style=color:#f92672>!=</span> <span style=color:#e6db74>&#39;&#39;</span>);     <span style=color:#960050;background-color:#1e0010>可以使用</span> <span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> <span style=color:#960050;background-color:#1e0010>中对字段的描述语法</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>删除字段（列）</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-------------------------------------------------------
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> a <span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>COLUMN</span> description;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>添加约束</span>     <span style=color:#960050;background-color:#1e0010>表中的数据需在约束被添加之前就已经符合约束，否则将添加失败</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-------------------------------------------------------
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> a <span style=color:#66d9ef>ADD</span> <span style=color:#66d9ef>CHECK</span> (name <span style=color:#f92672>!=</span> <span style=color:#e6db74>&#39;&#39;</span>);     <span style=color:#960050;background-color:#1e0010>检查约束</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> a <span style=color:#66d9ef>ADD</span> <span style=color:#66d9ef>UNIQUE</span> (name);     <span style=color:#960050;background-color:#1e0010>唯一性约束</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> a <span style=color:#66d9ef>ADD</span> <span style=color:#66d9ef>FOREIGN</span> <span style=color:#66d9ef>KEY</span> (name) <span style=color:#66d9ef>REFERENCES</span> b;     <span style=color:#960050;background-color:#1e0010>外键约束</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> a <span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>COLUMN</span> name <span style=color:#66d9ef>SET</span> <span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span>;     <span style=color:#960050;background-color:#1e0010>非空约束（没有表约束，只有列约束；并且没有名称）</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>删除约束</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-------------------------------------------------------
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> a <span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>CONSTRAINT</span> <span style=color:#e6db74>&#34;a_name_check&#34;</span>;     <span style=color:#960050;background-color:#1e0010>约束</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> a <span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>COLUMN</span> name <span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span>;     <span style=color:#960050;background-color:#1e0010>非空约束（没有表约束，只有列约束；并且没有名称）</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>更改列的默认值</span>     <span style=color:#960050;background-color:#1e0010>不会影响已存在的记录</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-------------------------------------------------------
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> a <span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>COLUMN</span> description <span style=color:#66d9ef>SET</span> <span style=color:#66d9ef>DEFAULT</span> <span style=color:#e6db74>&#39;未描述&#39;</span>;     <span style=color:#960050;background-color:#1e0010>添加</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> a <span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>COLUMN</span> description <span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>DEFAULT</span>;     <span style=color:#960050;background-color:#1e0010>删除（默认值为</span> <span style=color:#66d9ef>NULL</span><span style=color:#960050;background-color:#1e0010>）</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>更改列的数据类型</span>     <span style=color:#960050;background-color:#1e0010>表中的数据需通过隐式转换才能成功，否则需要使用</span> <span style=color:#66d9ef>USING</span> <span style=color:#960050;background-color:#1e0010>子句进行显式转换</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-------------------------------------------------------
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> a <span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>COLUMN</span> description <span style=color:#66d9ef>TYPE</span> VARCHAR;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>重命名字段</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-------------------------------------------------------
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> a <span style=color:#66d9ef>RENAME</span> <span style=color:#66d9ef>COLUMN</span> description <span style=color:#66d9ef>TO</span> characterization;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>重命名表</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-------------------------------------------------------
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> a <span style=color:#66d9ef>RENAME</span> <span style=color:#66d9ef>TO</span> b;
+</span></span></code></pre></div><h2 id=schema>Schema<a hidden class=anchor aria-hidden=true href=#schema>#</a></h2><img loading=lazy src=/blog/uploads/postgresql-schema.png title=PostgreSQL><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>一个数据库集簇（</span><span style=color:#66d9ef>Cluster</span><span style=color:#960050;background-color:#1e0010>）中的所有数据库只会共享</span> pg_database<span style=color:#960050;background-color:#1e0010>（数据库列表）、</span>pg_group<span style=color:#960050;background-color:#1e0010>（用户组列表）、</span>pg_shadow<span style=color:#960050;background-color:#1e0010>（有效用户列表）。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>一个数据库中又包含一个或多个模式（</span><span style=color:#66d9ef>Schema</span><span style=color:#960050;background-color:#1e0010>）。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>一个模式中又包含表、函数、操作符、数据类型等其他类型。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>层次：服务器</span> <span style=color:#f92672>-&gt;</span> <span style=color:#960050;background-color:#1e0010>数据库</span> <span style=color:#f92672>-&gt;</span> <span style=color:#960050;background-color:#1e0010>模式</span> <span style=color:#f92672>-&gt;</span> <span style=color:#960050;background-color:#1e0010>对象（表</span>...<span style=color:#960050;background-color:#1e0010>）</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-------------------------------------------------------
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>SCHEMA</span> a;     <span style=color:#960050;background-color:#1e0010>创建模式</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-------------------------------------------------------
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>SCHEMA</span> a;     <span style=color:#960050;background-color:#1e0010>删除模式（模式需清空）</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>SCHEMA</span> a <span style=color:#66d9ef>CASCADE</span>;     <span style=color:#960050;background-color:#1e0010>递归删除模式</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-------------------------------------------------------
+</span></span></span><span style=display:flex><span>PostgreSQL <span style=color:#960050;background-color:#1e0010>会自动将不带限定名的访问指向</span> <span style=color:#66d9ef>public</span> <span style=color:#960050;background-color:#1e0010>模式。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> a ();
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>等同于</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> <span style=color:#66d9ef>public</span>.a ();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-------------------------------------------------------
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>模式搜索路径</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SHOW</span> search_path;     <span style=color:#960050;background-color:#1e0010>查看</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SET</span> search_path <span style=color:#66d9ef>TO</span> a,<span style=color:#66d9ef>public</span>;     <span style=color:#960050;background-color:#1e0010>设置</span>
+</span></span></code></pre></div><h2 id=inherit>Inherit<a hidden class=anchor aria-hidden=true href=#inherit>#</a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> a (     <span style=color:#960050;background-color:#1e0010>创建父表</span>
+</span></span><span style=display:flex><span>  a_id INTEGER
+</span></span><span style=display:flex><span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> b (     <span style=color:#960050;background-color:#1e0010>创建子表</span>
+</span></span><span style=display:flex><span>  b_id INTEGER
+</span></span><span style=display:flex><span>) <span style=color:#66d9ef>INHERITS</span> (a);     <span style=color:#960050;background-color:#1e0010>继承自</span> a <span style=color:#960050;background-color:#1e0010>表（拥有</span> a <span style=color:#960050;background-color:#1e0010>表的所有字段）</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>----
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>postgres<span style=color:#f92672>=#</span> <span style=color:#960050;background-color:#1e0010>\</span>d<span style=color:#f92672>+</span> a     <span style=color:#960050;background-color:#1e0010>查看父表属性</span>
+</span></span><span style=display:flex><span>                 <span style=color:#960050;background-color:#1e0010>数据表</span> <span style=color:#e6db74>&#34;public.a&#34;</span>
+</span></span><span style=display:flex><span> <span style=color:#960050;background-color:#1e0010>栏位</span> <span style=color:#f92672>|</span>  <span style=color:#960050;background-color:#1e0010>类型</span>   <span style=color:#f92672>|</span> <span style=color:#960050;background-color:#1e0010>修饰词</span> <span style=color:#f92672>|</span> <span style=color:#960050;background-color:#1e0010>存储</span>  <span style=color:#f92672>|</span> <span style=color:#960050;background-color:#1e0010>统计目标</span> <span style=color:#f92672>|</span> <span style=color:#960050;background-color:#1e0010>描述</span>
+</span></span><span style=display:flex><span> a_id <span style=color:#f92672>|</span> integer <span style=color:#f92672>|</span>        <span style=color:#f92672>|</span> plain <span style=color:#f92672>|</span>          <span style=color:#f92672>|</span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>子表</span>: b
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>postgres<span style=color:#f92672>=#</span> <span style=color:#960050;background-color:#1e0010>\</span>d<span style=color:#f92672>+</span> b     <span style=color:#960050;background-color:#1e0010>查看子表属性</span>
+</span></span><span style=display:flex><span>                 <span style=color:#960050;background-color:#1e0010>数据表</span> <span style=color:#e6db74>&#34;public.b&#34;</span>
+</span></span><span style=display:flex><span> <span style=color:#960050;background-color:#1e0010>栏位</span> <span style=color:#f92672>|</span>  <span style=color:#960050;background-color:#1e0010>类型</span>   <span style=color:#f92672>|</span> <span style=color:#960050;background-color:#1e0010>修饰词</span> <span style=color:#f92672>|</span> <span style=color:#960050;background-color:#1e0010>存储</span>  <span style=color:#f92672>|</span> <span style=color:#960050;background-color:#1e0010>统计目标</span> <span style=color:#f92672>|</span> <span style=color:#960050;background-color:#1e0010>描述</span>
+</span></span><span style=display:flex><span> a_id <span style=color:#f92672>|</span> integer <span style=color:#f92672>|</span>        <span style=color:#f92672>|</span> plain <span style=color:#f92672>|</span>          <span style=color:#f92672>|</span>
+</span></span><span style=display:flex><span> b_id <span style=color:#f92672>|</span> integer <span style=color:#f92672>|</span>        <span style=color:#f92672>|</span> plain <span style=color:#f92672>|</span>          <span style=color:#f92672>|</span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>继承</span>: a
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-------------------------------------------------------
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>INTO</span> a <span style=color:#66d9ef>VALUES</span> (<span style=color:#ae81ff>1</span>);     <span style=color:#960050;background-color:#1e0010>父表插入记录</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>INTO</span> a <span style=color:#66d9ef>VALUES</span> (<span style=color:#ae81ff>2</span>);
+</span></span><span style=display:flex><span><span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>INTO</span> a <span style=color:#66d9ef>VALUES</span> (<span style=color:#ae81ff>3</span>);
+</span></span><span style=display:flex><span><span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>INTO</span> b <span style=color:#66d9ef>VALUES</span> (<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>101</span>);     <span style=color:#960050;background-color:#1e0010>子表插入记录</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> a;     <span style=color:#960050;background-color:#1e0010>默认包括所有子表记录</span>
+</span></span><span style=display:flex><span> a_id
+</span></span><span style=display:flex><span><span style=color:#75715e>------
+</span></span></span><span style=display:flex><span>    <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>3</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> <span style=color:#66d9ef>ONLY</span> a;     <span style=color:#960050;background-color:#1e0010>显式声明只查看父表记录（</span><span style=color:#66d9ef>SELECT</span><span style=color:#960050;background-color:#1e0010>、</span><span style=color:#66d9ef>UPDATE</span><span style=color:#960050;background-color:#1e0010>、</span><span style=color:#66d9ef>DELETE</span> <span style=color:#960050;background-color:#1e0010>都支持</span> <span style=color:#66d9ef>ONLY</span> <span style=color:#960050;background-color:#1e0010>关键字</span>;<span style=color:#960050;background-color:#1e0010>）</span>
+</span></span><span style=display:flex><span> a_id
+</span></span><span style=display:flex><span><span style=color:#75715e>------
+</span></span></span><span style=display:flex><span>    <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>3</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> b;     <span style=color:#960050;background-color:#1e0010>查看子表记录</span>
+</span></span><span style=display:flex><span> a_id <span style=color:#f92672>|</span> b_id
+</span></span><span style=display:flex><span><span style=color:#75715e>------+------
+</span></span></span><span style=display:flex><span>    <span style=color:#ae81ff>1</span> <span style=color:#f92672>|</span>  <span style=color:#ae81ff>101</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-------------------------------------------------------
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>TRUNCATE</span> <span style=color:#66d9ef>TABLE</span> a;     <span style=color:#960050;background-color:#1e0010>使用</span> <span style=color:#66d9ef>TRUNCATE</span> <span style=color:#960050;background-color:#1e0010>清空父表记录时，子表记录会一同被清空</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> a;     <span style=color:#960050;background-color:#1e0010>默认包括所有子表记录</span>
+</span></span><span style=display:flex><span> a_id
+</span></span><span style=display:flex><span><span style=color:#75715e>------
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-------------------------------------------------------
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>确定记录来源</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>  a.<span style=color:#f92672>*</span>,
+</span></span><span style=display:flex><span>  a.TABLEOID     tableoid <span style=color:#960050;background-color:#1e0010>为系统隐含字段</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> a;
+</span></span><span style=display:flex><span> a_id <span style=color:#f92672>|</span> tableoid
+</span></span><span style=display:flex><span><span style=color:#75715e>------+----------
+</span></span></span><span style=display:flex><span>    <span style=color:#ae81ff>1</span> <span style=color:#f92672>|</span>    <span style=color:#ae81ff>17126</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>2</span> <span style=color:#f92672>|</span>    <span style=color:#ae81ff>17126</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>3</span> <span style=color:#f92672>|</span>    <span style=color:#ae81ff>17126</span>
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>1</span> <span style=color:#f92672>|</span>    <span style=color:#ae81ff>17129</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>  a.<span style=color:#f92672>*</span>,
+</span></span><span style=display:flex><span>  p.relname
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> a, pg_class p
+</span></span><span style=display:flex><span><span style=color:#66d9ef>WHERE</span> a.TABLEOID <span style=color:#f92672>=</span> p.OID;     <span style=color:#960050;background-color:#1e0010>将</span> tableoid <span style=color:#960050;background-color:#1e0010>与系统表</span> pg_class <span style=color:#960050;background-color:#1e0010>进行关联以获得实际表名</span>
+</span></span><span style=display:flex><span> a_id <span style=color:#f92672>|</span> relname
+</span></span><span style=display:flex><span><span style=color:#75715e>------+---------
+</span></span></span><span style=display:flex><span>    <span style=color:#ae81ff>1</span> <span style=color:#f92672>|</span> a
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>2</span> <span style=color:#f92672>|</span> a
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>3</span> <span style=color:#f92672>|</span> a
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>1</span> <span style=color:#f92672>|</span> b
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>----
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>  a.<span style=color:#f92672>*</span>,
+</span></span><span style=display:flex><span>  a.TABLEOID :: REGCLASS
+</span></span><span style=display:flex><span><span style=color:#66d9ef>FROM</span> a;
+</span></span><span style=display:flex><span> a_id <span style=color:#f92672>|</span> tableoid
+</span></span><span style=display:flex><span><span style=color:#75715e>------+----------
+</span></span></span><span style=display:flex><span>    <span style=color:#ae81ff>1</span> <span style=color:#f92672>|</span> a
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>2</span> <span style=color:#f92672>|</span> a
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>3</span> <span style=color:#f92672>|</span> a
+</span></span><span style=display:flex><span>    <span style=color:#ae81ff>1</span> <span style=color:#f92672>|</span> b
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-------------------------------------------------------
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>多表继承：一个表可以有多个父表，此时它拥有所有父表们的字段总和。</span>
+</span></span><span style=display:flex><span>                 <span style=color:#960050;background-color:#1e0010>若出现同名字段，则必须是相同数据类型，否则将继承失败；合并后的字段拥有它所继承的字段的所有约束（检查、非空）。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>约束：父表上的检查约束和非空约束都会被继承，而其他类型的约束（唯一、主键、外键）则不会被继承。</span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>访问权限：表的继承并不包括访问权限；因此，访问父表的用户还必须具有访问子表的权限，或者使用</span> <span style=color:#66d9ef>ONLY</span> <span style=color:#960050;background-color:#1e0010>关键字显式声明只查看父表记录。</span>
+</span></span></code></pre></div><h2 id=partition>Partition<a hidden class=anchor aria-hidden=true href=#partition>#</a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>分区：通过继承来实现数据分离。</span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>范围划分</span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>列表划分</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> a (
+</span></span><span style=display:flex><span>  id     INTEGER,
+</span></span><span style=display:flex><span>  gender TEXT,
+</span></span><span style=display:flex><span>  name   TEXT
+</span></span><span style=display:flex><span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> b1 (
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>PRIMARY</span> <span style=color:#66d9ef>KEY</span> (id),
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>CHECK</span> (gender <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;男&#39;</span>)
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>INHERITS</span> (a);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> b2 (
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>PRIMARY</span> <span style=color:#66d9ef>KEY</span> (id),
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>CHECK</span> (gender <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;女&#39;</span>)
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>INHERITS</span> (a);
+</span></span></code></pre></div><h2 id=function>Function<a hidden class=anchor aria-hidden=true href=#function>#</a></h2><h3 id=sql查询语言函数>SQL（查询语言函数）<a hidden class=anchor aria-hidden=true href=#sql查询语言函数>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>函数：可重载，有多态。</span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>函数体：包含在字符文本中的</span> <span style=color:#66d9ef>SQL</span> <span style=color:#960050;background-color:#1e0010>语句集合（</span><span style=color:#e6db74>&#39;&#39;</span><span style=color:#960050;background-color:#1e0010>、$$$$（推荐））。</span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>参数修饰：</span><span style=color:#66d9ef>IN</span><span style=color:#960050;background-color:#1e0010>（输入）（缺省），</span><span style=color:#66d9ef>OUT</span><span style=color:#960050;background-color:#1e0010>（输出），</span><span style=color:#66d9ef>INOUT</span><span style=color:#960050;background-color:#1e0010>（输入</span><span style=color:#f92672>+</span><span style=color:#960050;background-color:#1e0010>输出），</span>VARIADIC<span style=color:#960050;background-color:#1e0010>（可变长参数）。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> a (     <span style=color:#960050;background-color:#1e0010>测试表</span>
+</span></span><span style=display:flex><span>  name   TEXT,
+</span></span><span style=display:flex><span>  age    INTEGER,
+</span></span><span style=display:flex><span>  salary NUMERIC
+</span></span><span style=display:flex><span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>INTO</span> a <span style=color:#66d9ef>VALUES</span> (<span style=color:#e6db74>&#39;小张&#39;</span>, <span style=color:#ae81ff>25</span>, <span style=color:#ae81ff>4999</span>.<span style=color:#ae81ff>9</span>);     <span style=color:#960050;background-color:#1e0010>测试数据</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>INTO</span> a <span style=color:#66d9ef>VALUES</span> (<span style=color:#e6db74>&#39;小陈&#39;</span>, <span style=color:#ae81ff>23</span>, <span style=color:#ae81ff>3999</span>.<span style=color:#ae81ff>9</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-------------------------------------------------------
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>若函数返回值不为</span> Void<span style=color:#960050;background-color:#1e0010>，则最后一条语句必须是</span> <span style=color:#66d9ef>SELECT</span><span style=color:#960050;background-color:#1e0010>、</span><span style=color:#66d9ef>INSERT</span><span style=color:#960050;background-color:#1e0010>、</span><span style=color:#66d9ef>UPDATE</span><span style=color:#960050;background-color:#1e0010>、带有</span> RETURNING <span style=color:#960050;background-color:#1e0010>子句的</span> <span style=color:#66d9ef>DELETE</span><span style=color:#960050;background-color:#1e0010>。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>FUNCTION</span> a(<span style=color:#66d9ef>IN</span> INTEGER, <span style=color:#66d9ef>OUT</span> VOID) <span style=color:#66d9ef>AS</span> <span style=color:#960050;background-color:#1e0010>$$</span>     <span style=color:#960050;background-color:#1e0010>接收</span> INTEGER<span style=color:#960050;background-color:#1e0010>，返回</span> Void<span style=color:#960050;background-color:#1e0010>（创建）</span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>$$</span> <span style=color:#66d9ef>LANGUAGE</span> <span style=color:#66d9ef>SQL</span>;
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>等同于</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>FUNCTION</span> a(INTEGER) <span style=color:#66d9ef>RETURNS</span> VOID <span style=color:#66d9ef>AS</span> <span style=color:#960050;background-color:#1e0010>$$</span>     <span style=color:#66d9ef>IN</span><span style=color:#960050;background-color:#1e0010>：缺省值，可省略；</span><span style=color:#66d9ef>OUT</span><span style=color:#960050;background-color:#1e0010>：需显式声明（单个结果可在括号外声明）</span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>$$</span> <span style=color:#66d9ef>LANGUAGE</span> <span style=color:#66d9ef>SQL</span>;
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>等同于</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>FUNCTION</span> a(INTEGER) <span style=color:#66d9ef>RETURNS</span> VOID <span style=color:#66d9ef>AS</span> <span style=color:#e6db74>&#39;&#39;</span>     <span style=color:#960050;background-color:#1e0010>使用</span> <span style=color:#e6db74>&#39;&#39;</span> <span style=color:#960050;background-color:#1e0010>替代</span> <span style=color:#960050;background-color:#1e0010>$$$$</span> <span style=color:#960050;background-color:#1e0010>表示字符串</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>LANGUAGE</span> <span style=color:#66d9ef>SQL</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>FUNCTION</span> a( INTEGER );     <span style=color:#960050;background-color:#1e0010>（删除）</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> a(<span style=color:#ae81ff>1</span>);     <span style=color:#960050;background-color:#1e0010>返回</span> Void<span style=color:#960050;background-color:#1e0010>（</span><span style=color:#66d9ef>NULL</span><span style=color:#960050;background-color:#1e0010>）（调用）</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-------------------------------------------------------
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>基本类型</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>FUNCTION</span> a(<span style=color:#66d9ef>OUT</span> INTEGER) <span style=color:#66d9ef>AS</span> <span style=color:#960050;background-color:#1e0010>$$</span>     <span style=color:#960050;background-color:#1e0010>无参，返回</span> INTEGER
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> <span style=color:#ae81ff>1</span>;     <span style=color:#960050;background-color:#1e0010>返回</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>$$</span> <span style=color:#66d9ef>LANGUAGE</span> <span style=color:#66d9ef>SQL</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>FUNCTION</span> a();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> a();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>----
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>FUNCTION</span> a(<span style=color:#66d9ef>OUT</span> VOID) <span style=color:#66d9ef>AS</span> <span style=color:#960050;background-color:#1e0010>$$</span>     <span style=color:#960050;background-color:#1e0010>无参，返回</span> <span style=color:#66d9ef>NULL</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>TABLE</span> a <span style=color:#66d9ef>CASCADE</span>;     <span style=color:#960050;background-color:#1e0010>递归删除表</span> a
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>$$</span> <span style=color:#66d9ef>LANGUAGE</span> <span style=color:#66d9ef>SQL</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>FUNCTION</span> a();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> a();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>----
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>FUNCTION</span> a(INTEGER, INTEGER, <span style=color:#66d9ef>OUT</span> INTEGER) <span style=color:#66d9ef>AS</span> <span style=color:#960050;background-color:#1e0010>$$</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> <span style=color:#960050;background-color:#1e0010>$</span><span style=color:#ae81ff>1</span> <span style=color:#f92672>+</span> <span style=color:#960050;background-color:#1e0010>$</span><span style=color:#ae81ff>2</span>;     <span style=color:#960050;background-color:#1e0010>通过</span> <span style=color:#960050;background-color:#1e0010>$</span>n <span style=color:#960050;background-color:#1e0010>调用入参</span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>$$</span> <span style=color:#66d9ef>LANGUAGE</span> <span style=color:#66d9ef>SQL</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>FUNCTION</span> a( INTEGER, INTEGER );
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> a(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>);     <span style=color:#960050;background-color:#1e0010>返回</span> <span style=color:#ae81ff>3</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-------------------------------------------------------
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>FUNCTION</span> a(a a, <span style=color:#66d9ef>OUT</span> INTEGER) <span style=color:#66d9ef>AS</span> <span style=color:#960050;background-color:#1e0010>$$</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> (a.salary <span style=color:#f92672>*</span> <span style=color:#ae81ff>2</span>) :: INTEGER;     NUMERIC <span style=color:#960050;background-color:#1e0010>➜</span> INTEGER
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>$$</span> <span style=color:#66d9ef>LANGUAGE</span> <span style=color:#66d9ef>SQL</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>FUNCTION</span> a( a );
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> name, a(a) dream <span style=color:#66d9ef>FROM</span> a;
+</span></span><span style=display:flex><span> name <span style=color:#f92672>|</span> dream
+</span></span><span style=display:flex><span><span style=color:#75715e>------+-------
+</span></span></span><span style=display:flex><span> <span style=color:#960050;background-color:#1e0010>小张</span> <span style=color:#f92672>|</span> <span style=color:#ae81ff>10000</span>
+</span></span><span style=display:flex><span> <span style=color:#960050;background-color:#1e0010>小陈</span> <span style=color:#f92672>|</span>  <span style=color:#ae81ff>8000</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> name, a(<span style=color:#66d9ef>ROW</span> (name, age, salary <span style=color:#f92672>*</span> <span style=color:#ae81ff>1</span>.<span style=color:#ae81ff>1</span>)) dream <span style=color:#66d9ef>FROM</span> a;     <span style=color:#66d9ef>ROW</span> <span style=color:#960050;background-color:#1e0010>构造函数</span>
+</span></span><span style=display:flex><span> name <span style=color:#f92672>|</span> dream
+</span></span><span style=display:flex><span><span style=color:#75715e>------+-------
+</span></span></span><span style=display:flex><span> <span style=color:#960050;background-color:#1e0010>小张</span> <span style=color:#f92672>|</span> <span style=color:#ae81ff>11000</span>
+</span></span><span style=display:flex><span> <span style=color:#960050;background-color:#1e0010>小陈</span> <span style=color:#f92672>|</span>  <span style=color:#ae81ff>8800</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-------------------------------------------------------
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>返回值为复合类型（多个列（结果））</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>FUNCTION</span> a(<span style=color:#66d9ef>OUT</span> a) <span style=color:#66d9ef>AS</span> <span style=color:#960050;background-color:#1e0010>$$</span>     <span style=color:#960050;background-color:#1e0010>返回</span> a <span style=color:#960050;background-color:#1e0010>类型</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> <span style=color:#66d9ef>ROW</span> (<span style=color:#e6db74>&#39;小红&#39;</span>, <span style=color:#ae81ff>21</span>, <span style=color:#ae81ff>3499</span>.<span style=color:#ae81ff>9</span>) :: a;     Record <span style=color:#960050;background-color:#1e0010>➜</span> a
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>$$</span> <span style=color:#66d9ef>LANGUAGE</span> <span style=color:#66d9ef>SQL</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>FUNCTION</span> a();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> <span style=color:#66d9ef>ROW</span> (<span style=color:#e6db74>&#39;小红&#39;</span>, <span style=color:#ae81ff>21</span>, <span style=color:#ae81ff>3499</span>.<span style=color:#ae81ff>9</span>) :: a;
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>等同于</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> a();
+</span></span><span style=display:flex><span>       <span style=color:#66d9ef>row</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>------------------
+</span></span></span><span style=display:flex><span> (<span style=color:#960050;background-color:#1e0010>小红</span>,<span style=color:#ae81ff>21</span>,<span style=color:#ae81ff>3499</span>.<span style=color:#ae81ff>9</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> (a()).name;
+</span></span><span style=display:flex><span> name
+</span></span><span style=display:flex><span><span style=color:#75715e>------
+</span></span></span><span style=display:flex><span> <span style=color:#960050;background-color:#1e0010>小红</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> a();
+</span></span><span style=display:flex><span> name <span style=color:#f92672>|</span> age <span style=color:#f92672>|</span> salary
+</span></span><span style=display:flex><span><span style=color:#75715e>------+-----+--------
+</span></span></span><span style=display:flex><span> <span style=color:#960050;background-color:#1e0010>小红</span> <span style=color:#f92672>|</span>  <span style=color:#ae81ff>21</span> <span style=color:#f92672>|</span> <span style=color:#ae81ff>3499</span>.<span style=color:#ae81ff>9</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>----
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>FUNCTION</span> a(x INTEGER, y INTEGER, <span style=color:#66d9ef>OUT</span> <span style=color:#66d9ef>sum</span> INTEGER, <span style=color:#66d9ef>OUT</span> multiply INTEGER) <span style=color:#66d9ef>AS</span> <span style=color:#960050;background-color:#1e0010>$$</span>     <span style=color:#960050;background-color:#1e0010>返回</span> Record <span style=color:#960050;background-color:#1e0010>类型</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> x <span style=color:#f92672>+</span> y, x <span style=color:#f92672>*</span> y;     <span style=color:#960050;background-color:#1e0010>命名参数</span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>$$</span> <span style=color:#66d9ef>LANGUAGE</span> <span style=color:#66d9ef>SQL</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>FUNCTION</span> a( INTEGER, INTEGER );
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> a(<span style=color:#ae81ff>5</span>, <span style=color:#ae81ff>10</span>);
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>等同于</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> (a(<span style=color:#ae81ff>5</span>, <span style=color:#ae81ff>10</span>)).<span style=color:#f92672>*</span>;
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>sum</span> <span style=color:#f92672>|</span> multiply
+</span></span><span style=display:flex><span><span style=color:#75715e>-----+----------
+</span></span></span><span style=display:flex><span>  <span style=color:#ae81ff>15</span> <span style=color:#f92672>|</span>       <span style=color:#ae81ff>50</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-------------------------------------------------------
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>返回值为多条记录，此类函数多用于</span> <span style=color:#66d9ef>FROM</span> <span style=color:#960050;background-color:#1e0010>子句：</span><span style=color:#66d9ef>SETOF</span><span style=color:#960050;background-color:#1e0010>、</span><span style=color:#66d9ef>RETURNS</span> <span style=color:#66d9ef>TABLE</span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>若无以上关键字，则默认只取第一条记录。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>FUNCTION</span> a() <span style=color:#66d9ef>RETURNS</span> <span style=color:#66d9ef>SETOF</span> a <span style=color:#66d9ef>AS</span> <span style=color:#960050;background-color:#1e0010>$$</span>     <span style=color:#960050;background-color:#1e0010>返回</span> a <span style=color:#960050;background-color:#1e0010>类型</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> a;
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>$$</span> <span style=color:#66d9ef>LANGUAGE</span> <span style=color:#66d9ef>SQL</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>FUNCTION</span> a();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> a();
+</span></span><span style=display:flex><span> name <span style=color:#f92672>|</span> age <span style=color:#f92672>|</span> salary
+</span></span><span style=display:flex><span><span style=color:#75715e>------+-----+--------
+</span></span></span><span style=display:flex><span> <span style=color:#960050;background-color:#1e0010>小张</span> <span style=color:#f92672>|</span>  <span style=color:#ae81ff>25</span> <span style=color:#f92672>|</span> <span style=color:#ae81ff>4999</span>.<span style=color:#ae81ff>9</span>
+</span></span><span style=display:flex><span> <span style=color:#960050;background-color:#1e0010>小陈</span> <span style=color:#f92672>|</span>  <span style=color:#ae81ff>23</span> <span style=color:#f92672>|</span> <span style=color:#ae81ff>3999</span>.<span style=color:#ae81ff>9</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>----
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>FUNCTION</span> a(<span style=color:#66d9ef>OUT</span> name TEXT, <span style=color:#66d9ef>OUT</span> salary NUMERIC) <span style=color:#66d9ef>RETURNS</span> <span style=color:#66d9ef>SETOF</span> RECORD <span style=color:#66d9ef>AS</span> <span style=color:#960050;background-color:#1e0010>$$</span>     <span style=color:#960050;background-color:#1e0010>返回</span> Record <span style=color:#960050;background-color:#1e0010>类型</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> name, salary <span style=color:#66d9ef>FROM</span> a;
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>$$</span> <span style=color:#66d9ef>LANGUAGE</span> <span style=color:#66d9ef>SQL</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>FUNCTION</span> a();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> a();
+</span></span><span style=display:flex><span> name <span style=color:#f92672>|</span> salary
+</span></span><span style=display:flex><span><span style=color:#75715e>------+--------
+</span></span></span><span style=display:flex><span> <span style=color:#960050;background-color:#1e0010>小张</span> <span style=color:#f92672>|</span> <span style=color:#ae81ff>4999</span>.<span style=color:#ae81ff>9</span>
+</span></span><span style=display:flex><span> <span style=color:#960050;background-color:#1e0010>小陈</span> <span style=color:#f92672>|</span> <span style=color:#ae81ff>3999</span>.<span style=color:#ae81ff>9</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>等同于</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>FUNCTION</span> a() <span style=color:#66d9ef>RETURNS</span> <span style=color:#66d9ef>TABLE</span>(name TEXT, salary NUMERIC) <span style=color:#66d9ef>AS</span> <span style=color:#960050;background-color:#1e0010>$$</span>     <span style=color:#66d9ef>RETURNS</span> <span style=color:#66d9ef>TABLE</span> <span style=color:#960050;background-color:#1e0010>可用于替代</span> <span style=color:#66d9ef>RETURNS</span> <span style=color:#66d9ef>SETOF</span> <span style=color:#960050;background-color:#1e0010>的</span> Record <span style=color:#960050;background-color:#1e0010>类型，语法更简洁</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> name, salary <span style=color:#66d9ef>FROM</span> a;
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>$$</span> <span style=color:#66d9ef>LANGUAGE</span> <span style=color:#66d9ef>SQL</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>FUNCTION</span> a();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> a();
+</span></span><span style=display:flex><span> name <span style=color:#f92672>|</span> salary
+</span></span><span style=display:flex><span><span style=color:#75715e>------+--------
+</span></span></span><span style=display:flex><span> <span style=color:#960050;background-color:#1e0010>小张</span> <span style=color:#f92672>|</span> <span style=color:#ae81ff>4999</span>.<span style=color:#ae81ff>9</span>
+</span></span><span style=display:flex><span> <span style=color:#960050;background-color:#1e0010>小陈</span> <span style=color:#f92672>|</span> <span style=color:#ae81ff>3999</span>.<span style=color:#ae81ff>9</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-------------------------------------------------------
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>多态函数：</span>ANYELEMENT<span style=color:#960050;background-color:#1e0010>、</span>ANYARRAY<span style=color:#960050;background-color:#1e0010>、</span>ANYNONARRAY<span style=color:#960050;background-color:#1e0010>、</span>ANYENUM
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>FUNCTION</span> a(ANYELEMENT, ANYELEMENT, <span style=color:#66d9ef>OUT</span> ANYARRAY) <span style=color:#66d9ef>AS</span> <span style=color:#960050;background-color:#1e0010>$$</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> ARRAY [<span style=color:#960050;background-color:#1e0010>$</span><span style=color:#ae81ff>1</span>, <span style=color:#960050;background-color:#1e0010>$</span><span style=color:#ae81ff>2</span>];
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>$$</span> <span style=color:#66d9ef>LANGUAGE</span> <span style=color:#66d9ef>SQL</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>FUNCTION</span> a( ANYELEMENT, ANYELEMENT );
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> a(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>), a(<span style=color:#e6db74>&#39;A&#39;</span> :: TEXT, <span style=color:#e6db74>&#39;B&#39;</span>);     <span style=color:#960050;background-color:#1e0010>参数类型需一致，并且显式声明其类型</span>
+</span></span><span style=display:flex><span>   a   <span style=color:#f92672>|</span>   a
+</span></span><span style=display:flex><span><span style=color:#75715e>-------+-------
+</span></span></span><span style=display:flex><span> <span style=color:#960050;background-color:#1e0010>{</span><span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>2</span><span style=color:#960050;background-color:#1e0010>}</span> <span style=color:#f92672>|</span> <span style=color:#960050;background-color:#1e0010>{</span>A,B<span style=color:#960050;background-color:#1e0010>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>----
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>FUNCTION</span> a(ANYELEMENT, ANYELEMENT, <span style=color:#66d9ef>OUT</span> BOOLEAN) <span style=color:#66d9ef>AS</span> <span style=color:#960050;background-color:#1e0010>$$</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> <span style=color:#960050;background-color:#1e0010>$</span><span style=color:#ae81ff>1</span> <span style=color:#f92672>&gt;</span> <span style=color:#960050;background-color:#1e0010>$</span><span style=color:#ae81ff>2</span>;
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>$$</span> <span style=color:#66d9ef>LANGUAGE</span> <span style=color:#66d9ef>SQL</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>FUNCTION</span> a( ANYELEMENT, ANYELEMENT );
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> a(<span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>1</span>), a(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>), a(<span style=color:#e6db74>&#39;A&#39;</span> :: TEXT, <span style=color:#e6db74>&#39;B&#39;</span>);
+</span></span><span style=display:flex><span> a <span style=color:#f92672>|</span> a <span style=color:#f92672>|</span> a
+</span></span><span style=display:flex><span><span style=color:#75715e>---+---+---
+</span></span></span><span style=display:flex><span> t <span style=color:#f92672>|</span> f <span style=color:#f92672>|</span> f
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>----
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>FUNCTION</span> a(i ANYELEMENT, <span style=color:#66d9ef>OUT</span> o1 ANYELEMENT, <span style=color:#66d9ef>OUT</span> o2 ANYARRAY) <span style=color:#66d9ef>AS</span> <span style=color:#960050;background-color:#1e0010>$$</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span>
+</span></span><span style=display:flex><span>  i,
+</span></span><span style=display:flex><span>  ARRAY [i, i];
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>$$</span> <span style=color:#66d9ef>LANGUAGE</span> <span style=color:#66d9ef>SQL</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>FUNCTION</span> a( ANYELEMENT );
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> a(<span style=color:#ae81ff>2</span>);
+</span></span><span style=display:flex><span> o1 <span style=color:#f92672>|</span>  o2
+</span></span><span style=display:flex><span><span style=color:#75715e>----+-------
+</span></span></span><span style=display:flex><span>  <span style=color:#ae81ff>2</span> <span style=color:#f92672>|</span> <span style=color:#960050;background-color:#1e0010>{</span><span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>2</span><span style=color:#960050;background-color:#1e0010>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-------------------------------------------------------
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>默认参数值：</span><span style=color:#66d9ef>DEFAULT</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>FUNCTION</span> a(x INTEGER <span style=color:#66d9ef>DEFAULT</span> <span style=color:#ae81ff>1</span>, y INTEGER <span style=color:#66d9ef>DEFAULT</span> <span style=color:#ae81ff>10</span>, z INTEGER <span style=color:#66d9ef>DEFAULT</span> <span style=color:#ae81ff>100</span>, <span style=color:#66d9ef>OUT</span> INTEGER) <span style=color:#66d9ef>AS</span> <span style=color:#960050;background-color:#1e0010>$$</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> x <span style=color:#f92672>+</span> y <span style=color:#f92672>+</span> z;
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>$$</span> <span style=color:#66d9ef>LANGUAGE</span> <span style=color:#66d9ef>SQL</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>FUNCTION</span> a( INTEGER, INTEGER, INTEGER );
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> a();
+</span></span><span style=display:flex><span>  a
+</span></span><span style=display:flex><span><span style=color:#75715e>-----
+</span></span></span><span style=display:flex><span> <span style=color:#ae81ff>111</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> a(<span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>  a
+</span></span><span style=display:flex><span><span style=color:#75715e>-----
+</span></span></span><span style=display:flex><span> <span style=color:#ae81ff>110</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> a(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>  a
+</span></span><span style=display:flex><span><span style=color:#75715e>-----
+</span></span></span><span style=display:flex><span> <span style=color:#ae81ff>100</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> a(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span> a
+</span></span><span style=display:flex><span><span style=color:#75715e>---
+</span></span></span><span style=display:flex><span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> a(z :<span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>);     <span style=color:#960050;background-color:#1e0010>命名参数</span>
+</span></span><span style=display:flex><span> a
+</span></span><span style=display:flex><span><span style=color:#75715e>----
+</span></span></span><span style=display:flex><span> <span style=color:#ae81ff>11</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-------------------------------------------------------
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>可变长参数（数组）：</span>VARIADIC
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>FUNCTION</span> a(VARIADIC TEXT [], <span style=color:#66d9ef>OUT</span> INTEGER) <span style=color:#66d9ef>AS</span> <span style=color:#960050;background-color:#1e0010>$$</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> array_length(<span style=color:#960050;background-color:#1e0010>$</span><span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>1</span>);     <span style=color:#960050;background-color:#1e0010>返回（一维数组的）数组长度</span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>$$</span> <span style=color:#66d9ef>LANGUAGE</span> <span style=color:#66d9ef>SQL</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>FUNCTION</span> a( TEXT [] );
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> a(<span style=color:#e6db74>&#39;a&#39;</span>, <span style=color:#e6db74>&#39;b&#39;</span>, <span style=color:#e6db74>&#39;c&#39;</span>);
+</span></span><span style=display:flex><span> a
+</span></span><span style=display:flex><span><span style=color:#75715e>---
+</span></span></span><span style=display:flex><span> <span style=color:#ae81ff>3</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> a(VARIADIC ARRAY [<span style=color:#e6db74>&#39;a&#39;</span>, <span style=color:#e6db74>&#39;b&#39;</span>, <span style=color:#e6db74>&#39;c&#39;</span>]);
+</span></span><span style=display:flex><span> a
+</span></span><span style=display:flex><span><span style=color:#75715e>---
+</span></span></span><span style=display:flex><span> <span style=color:#ae81ff>3</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> a(VARIADIC ARRAY []:: TEXT []);     <span style=color:#960050;background-color:#1e0010>返回</span> <span style=color:#66d9ef>NULL</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>----
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> generate_subscripts(ARRAY [<span style=color:#e6db74>&#39;a&#39;</span>, <span style=color:#e6db74>&#39;b&#39;</span>, <span style=color:#e6db74>&#39;c&#39;</span>], <span style=color:#ae81ff>1</span>);     <span style=color:#960050;background-color:#1e0010>返回（一维数组的）数组下标</span>
+</span></span><span style=display:flex><span> generate_subscripts
+</span></span><span style=display:flex><span><span style=color:#75715e>---------------------
+</span></span></span><span style=display:flex><span>                   <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>                   <span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>                   <span style=color:#ae81ff>3</span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>等同于</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> generate_subscripts(ARRAY [<span style=color:#e6db74>&#39;a&#39;</span>, <span style=color:#e6db74>&#39;b&#39;</span>, <span style=color:#e6db74>&#39;c&#39;</span>], <span style=color:#ae81ff>1</span>) abc(def);
+</span></span><span style=display:flex><span> def
+</span></span><span style=display:flex><span><span style=color:#75715e>-----
+</span></span></span><span style=display:flex><span>   <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>   <span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>   <span style=color:#ae81ff>3</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>FUNCTION</span> a(VARIADIC ANYARRAY, <span style=color:#66d9ef>OUT</span> ANYELEMENT) <span style=color:#66d9ef>AS</span> <span style=color:#960050;background-color:#1e0010>$$</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> <span style=color:#66d9ef>min</span>(<span style=color:#960050;background-color:#1e0010>$</span><span style=color:#ae81ff>1</span> [def]) <span style=color:#66d9ef>FROM</span> generate_subscripts(<span style=color:#960050;background-color:#1e0010>$</span><span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>1</span>) abc(def);     <span style=color:#960050;background-color:#1e0010>利用多态和可变长参数求任意数组最小值</span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>$$</span> <span style=color:#66d9ef>LANGUAGE</span> <span style=color:#66d9ef>SQL</span>;
+</span></span><span style=display:flex><span>Note<span style=color:#960050;background-color:#1e0010>：</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>min</span>(<span style=color:#960050;background-color:#1e0010>$</span><span style=color:#ae81ff>1</span> [def]) <span style=color:#960050;background-color:#1e0010>通过数组下标</span> def <span style=color:#960050;background-color:#1e0010>取出数组的所有元素，再通过系统函数</span> <span style=color:#66d9ef>min</span>() <span style=color:#960050;background-color:#1e0010>求出列的最小值。</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>FUNCTION</span> a( ANYARRAY );
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> a(<span style=color:#ae81ff>10</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>5</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>6</span>);
+</span></span><span style=display:flex><span> a
+</span></span><span style=display:flex><span><span style=color:#75715e>----
+</span></span></span><span style=display:flex><span> <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> a(<span style=color:#e6db74>&#39;a&#39;</span> :: TEXT, <span style=color:#e6db74>&#39;b&#39;</span>, <span style=color:#e6db74>&#39;c&#39;</span>);
+</span></span><span style=display:flex><span> a
+</span></span><span style=display:flex><span><span style=color:#75715e>---
+</span></span></span><span style=display:flex><span> a
+</span></span></code></pre></div><h3 id=plpgsql程序语言函数>PL/pgSQL（程序语言函数）<a hidden class=anchor aria-hidden=true href=#plpgsql程序语言函数>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>块结构：</span>
+</span></span><span style=display:flex><span>[ <span style=color:#f92672>&lt;&lt;</span>label<span style=color:#f92672>&gt;&gt;</span> ]
+</span></span><span style=display:flex><span>[ <span style=color:#66d9ef>DECLARE</span>
+</span></span><span style=display:flex><span>    declarations ]
+</span></span><span style=display:flex><span><span style=color:#66d9ef>BEGIN</span>
+</span></span><span style=display:flex><span>    statements
+</span></span><span style=display:flex><span><span style=color:#66d9ef>END</span> [ label ];
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-------------------------------------------------------
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>FUNCTION</span> a() <span style=color:#66d9ef>RETURNS</span> INTEGER <span style=color:#66d9ef>AS</span> <span style=color:#960050;background-color:#1e0010>$$</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>BEGIN</span>
+</span></span><span style=display:flex><span>  RAISE NOTICE <span style=color:#e6db74>&#39;% %&#39;</span>, <span style=color:#e6db74>&#39;ABC&#39;</span>, <span style=color:#ae81ff>123</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>RETURN</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>END</span>;
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>$$</span> <span style=color:#66d9ef>LANGUAGE</span> PLPGSQL;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>FUNCTION</span> a();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> a();
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>注意</span>:  ABC <span style=color:#ae81ff>123</span>
+</span></span><span style=display:flex><span> a
+</span></span><span style=display:flex><span><span style=color:#75715e>---
+</span></span></span><span style=display:flex><span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-------------------------------------------------------
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>变量作用域</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>FUNCTION</span> a() <span style=color:#66d9ef>RETURNS</span> INTEGER <span style=color:#66d9ef>AS</span> <span style=color:#960050;background-color:#1e0010>$$</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&lt;&lt;</span> abc <span style=color:#f92672>&gt;&gt;</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>DECLARE</span>
+</span></span><span style=display:flex><span>  a INTEGER :<span style=color:#f92672>=</span> <span style=color:#ae81ff>30</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>BEGIN</span>
+</span></span><span style=display:flex><span>  RAISE NOTICE <span style=color:#e6db74>&#39;Out: a = %&#39;</span>, a;     <span style=color:#ae81ff>30</span>
+</span></span><span style=display:flex><span>  a :<span style=color:#f92672>=</span> <span style=color:#ae81ff>50</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;&lt;</span> def <span style=color:#f92672>&gt;&gt;</span>     <span style=color:#960050;background-color:#1e0010>子块开始</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>DECLARE</span>
+</span></span><span style=display:flex><span>    a INTEGER :<span style=color:#f92672>=</span> <span style=color:#ae81ff>100</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>BEGIN</span>
+</span></span><span style=display:flex><span>    RAISE NOTICE <span style=color:#e6db74>&#39;In: a = %&#39;</span>, a;     <span style=color:#ae81ff>100</span>
+</span></span><span style=display:flex><span>    RAISE NOTICE <span style=color:#e6db74>&#39;In: def.a = %&#39;</span>, def.a;     <span style=color:#ae81ff>100</span>
+</span></span><span style=display:flex><span>    RAISE NOTICE <span style=color:#e6db74>&#39;In: abc.a = %&#39;</span>, abc.a;     <span style=color:#ae81ff>50</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>END</span>;     <span style=color:#960050;background-color:#1e0010>子块结束</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  RAISE NOTICE <span style=color:#e6db74>&#39;Out: a = %&#39;</span>, a;     <span style=color:#ae81ff>50</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>RETURN</span> a;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>END</span>;
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>$$</span> <span style=color:#66d9ef>LANGUAGE</span> PLPGSQL;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>FUNCTION</span> a();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> a();
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>注意</span>:  <span style=color:#66d9ef>Out</span>: a <span style=color:#f92672>=</span> <span style=color:#ae81ff>30</span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>注意</span>:  <span style=color:#66d9ef>In</span>: a <span style=color:#f92672>=</span> <span style=color:#ae81ff>100</span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>注意</span>:  <span style=color:#66d9ef>In</span>: def.a <span style=color:#f92672>=</span> <span style=color:#ae81ff>100</span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>注意</span>:  <span style=color:#66d9ef>In</span>: abc.a <span style=color:#f92672>=</span> <span style=color:#ae81ff>50</span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>注意</span>:  <span style=color:#66d9ef>Out</span>: a <span style=color:#f92672>=</span> <span style=color:#ae81ff>50</span>
+</span></span><span style=display:flex><span> a
+</span></span><span style=display:flex><span><span style=color:#75715e>----
+</span></span></span><span style=display:flex><span> <span style=color:#ae81ff>50</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-------------------------------------------------------
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>变量声明：</span>PL<span style=color:#f92672>/</span>pgSQL <span style=color:#960050;background-color:#1e0010>中的变量都需在</span> <span style=color:#66d9ef>DECLARE</span> <span style=color:#960050;background-color:#1e0010>块中声明，声明格式：</span>
+</span></span><span style=display:flex><span>name [ CONSTANT ] <span style=color:#66d9ef>type</span> [ <span style=color:#66d9ef>COLLATE</span> <span style=color:#66d9ef>collation_name</span> ] [ <span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span> ] [ <span style=color:#960050;background-color:#1e0010>{</span> <span style=color:#66d9ef>DEFAULT</span> <span style=color:#f92672>|</span> :<span style=color:#f92672>=</span> <span style=color:#f92672>|</span> <span style=color:#f92672>=</span> <span style=color:#960050;background-color:#1e0010>}</span> expression ];
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>FUNCTION</span> a() <span style=color:#66d9ef>RETURNS</span> VOID <span style=color:#66d9ef>AS</span> <span style=color:#960050;background-color:#1e0010>$$</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>DECLARE</span>
+</span></span><span style=display:flex><span>  a          INTEGER;     <span style=color:#66d9ef>NULL</span>
+</span></span><span style=display:flex><span>  b          INTEGER <span style=color:#66d9ef>DEFAULT</span> <span style=color:#ae81ff>1</span>;     <span style=color:#960050;background-color:#1e0010>初始值（每次进入该块时都将重新赋值（计算））</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>c</span>          INTEGER <span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>2</span>;     <span style=color:#960050;background-color:#1e0010>不能赋值为</span> <span style=color:#66d9ef>NULL</span>
+</span></span><span style=display:flex><span>  d          INTEGER <span style=color:#f92672>=</span> <span style=color:#ae81ff>3</span>;     <span style=color:#960050;background-color:#1e0010>变量</span>
+</span></span><span style=display:flex><span>  e CONSTANT INTEGER <span style=color:#f92672>=</span> <span style=color:#ae81ff>4</span>;     <span style=color:#960050;background-color:#1e0010>常量</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>BEGIN</span>
+</span></span><span style=display:flex><span>  RAISE NOTICE <span style=color:#e6db74>&#39;% % % % %&#39;</span>, a, b, <span style=color:#66d9ef>c</span>, d, e;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>END</span>;
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>$$</span> <span style=color:#66d9ef>LANGUAGE</span> PLPGSQL;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>FUNCTION</span> a();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> a();
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>注意</span>:  <span style=color:#f92672>&lt;</span><span style=color:#66d9ef>NULL</span><span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>1</span> <span style=color:#ae81ff>2</span> <span style=color:#ae81ff>3</span> <span style=color:#ae81ff>4</span>
+</span></span><span style=display:flex><span> a
+</span></span><span style=display:flex><span><span style=color:#75715e>---
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>----
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>FUNCTION</span> a() <span style=color:#66d9ef>RETURNS</span> TEXT <span style=color:#66d9ef>AS</span> <span style=color:#960050;background-color:#1e0010>$$</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>DECLARE</span>
+</span></span><span style=display:flex><span>  a <span style=color:#66d9ef>TIMESTAMP</span> <span style=color:#66d9ef>DEFAULT</span> now();     <span style=color:#960050;background-color:#1e0010>每次调用初始值都不一样</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>BEGIN</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>RETURN</span> a;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>END</span>;
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>$$</span> <span style=color:#66d9ef>LANGUAGE</span> PLPGSQL;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>FUNCTION</span> a();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> a();
+</span></span><span style=display:flex><span>             a
+</span></span><span style=display:flex><span><span style=color:#75715e>----------------------------
+</span></span></span><span style=display:flex><span> <span style=color:#ae81ff>2017</span><span style=color:#f92672>-</span><span style=color:#ae81ff>03</span><span style=color:#f92672>-</span><span style=color:#ae81ff>02</span> <span style=color:#ae81ff>15</span>:<span style=color:#ae81ff>15</span>:<span style=color:#ae81ff>27</span>.<span style=color:#ae81ff>452181</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-------------------------------------------------------
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>返回值</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>单条复合类型：</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>FUNCTION</span> a(INTEGER, INTEGER, <span style=color:#66d9ef>OUT</span> <span style=color:#66d9ef>sum</span> INTEGER, <span style=color:#66d9ef>OUT</span> multiply INTEGER) <span style=color:#66d9ef>AS</span> <span style=color:#960050;background-color:#1e0010>$$</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>BEGIN</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>sum</span> <span style=color:#f92672>=</span> <span style=color:#960050;background-color:#1e0010>$</span><span style=color:#ae81ff>1</span> <span style=color:#f92672>+</span> <span style=color:#960050;background-color:#1e0010>$</span><span style=color:#ae81ff>2</span>;
+</span></span><span style=display:flex><span>  multiply <span style=color:#f92672>=</span> <span style=color:#960050;background-color:#1e0010>$</span><span style=color:#ae81ff>1</span> <span style=color:#f92672>*</span> <span style=color:#960050;background-color:#1e0010>$</span><span style=color:#ae81ff>2</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>END</span>;
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>$$</span> <span style=color:#66d9ef>LANGUAGE</span> PLPGSQL;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>FUNCTION</span> a( INTEGER, INTEGER );
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> a(<span style=color:#ae81ff>5</span>, <span style=color:#ae81ff>10</span>);
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>等同于</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> (a(<span style=color:#ae81ff>5</span>, <span style=color:#ae81ff>10</span>)).<span style=color:#f92672>*</span>;
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>sum</span> <span style=color:#f92672>|</span> multiply
+</span></span><span style=display:flex><span><span style=color:#75715e>-----+----------
+</span></span></span><span style=display:flex><span>  <span style=color:#ae81ff>15</span> <span style=color:#f92672>|</span>       <span style=color:#ae81ff>50</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>多条复合类型：</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>FUNCTION</span> a() <span style=color:#66d9ef>RETURNS</span> <span style=color:#66d9ef>TABLE</span>(name TEXT, salary NUMERIC) <span style=color:#66d9ef>AS</span> <span style=color:#960050;background-color:#1e0010>$$</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>BEGIN</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>RETURN</span> QUERY <span style=color:#66d9ef>SELECT</span> abc.name, abc.salary <span style=color:#66d9ef>FROM</span> a abc;     <span style=color:#960050;background-color:#1e0010>设置别名避免与函数名冲突</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>END</span>;
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>$$</span> <span style=color:#66d9ef>LANGUAGE</span> PLPGSQL;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>FUNCTION</span> a();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> a();
+</span></span><span style=display:flex><span> name <span style=color:#f92672>|</span> salary
+</span></span><span style=display:flex><span><span style=color:#75715e>------+--------
+</span></span></span><span style=display:flex><span> <span style=color:#960050;background-color:#1e0010>小张</span> <span style=color:#f92672>|</span> <span style=color:#ae81ff>4999</span>.<span style=color:#ae81ff>9</span>
+</span></span><span style=display:flex><span> <span style=color:#960050;background-color:#1e0010>小陈</span> <span style=color:#f92672>|</span> <span style=color:#ae81ff>3999</span>.<span style=color:#ae81ff>9</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>多态类型：</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>FUNCTION</span> a(ANYELEMENT, ANYELEMENT, ANYELEMENT, <span style=color:#66d9ef>OUT</span> o ANYELEMENT) <span style=color:#66d9ef>AS</span> <span style=color:#960050;background-color:#1e0010>$$</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>BEGIN</span>
+</span></span><span style=display:flex><span>  o <span style=color:#f92672>=</span> <span style=color:#960050;background-color:#1e0010>$</span><span style=color:#ae81ff>1</span> <span style=color:#f92672>+</span> <span style=color:#960050;background-color:#1e0010>$</span><span style=color:#ae81ff>2</span> <span style=color:#f92672>+</span> <span style=color:#960050;background-color:#1e0010>$</span><span style=color:#ae81ff>3</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>END</span>;
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>$$</span> <span style=color:#66d9ef>LANGUAGE</span> PLPGSQL;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>FUNCTION</span> a( ANYELEMENT, ANYELEMENT, ANYELEMENT );
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> a(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>);
+</span></span><span style=display:flex><span> a
+</span></span><span style=display:flex><span><span style=color:#75715e>---
+</span></span></span><span style=display:flex><span> <span style=color:#ae81ff>6</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-------------------------------------------------------
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>复制类型：</span><span style=color:#f92672>%</span><span style=color:#66d9ef>TYPE</span><span style=color:#960050;background-color:#1e0010>（基本类型），</span><span style=color:#f92672>%</span>ROWTYPE<span style=color:#960050;background-color:#1e0010>（复合类型）</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>OR</span> <span style=color:#66d9ef>REPLACE</span> <span style=color:#66d9ef>FUNCTION</span> a(a.age<span style=color:#f92672>%</span><span style=color:#66d9ef>TYPE</span>, <span style=color:#66d9ef>OUT</span> s TEXT) <span style=color:#66d9ef>AS</span> <span style=color:#960050;background-color:#1e0010>$$</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>DECLARE</span>
+</span></span><span style=display:flex><span>  o a<span style=color:#f92672>%</span>ROWTYPE;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>BEGIN</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>INTO</span> o <span style=color:#66d9ef>FROM</span> a <span style=color:#66d9ef>WHERE</span> age <span style=color:#f92672>=</span> <span style=color:#960050;background-color:#1e0010>$</span><span style=color:#ae81ff>1</span>;     <span style=color:#960050;background-color:#1e0010>装入</span> o <span style=color:#960050;background-color:#1e0010>中</span>
+</span></span><span style=display:flex><span>  s <span style=color:#f92672>=</span> o.name <span style=color:#f92672>||</span> <span style=color:#e6db74>&#39; &#39;</span> <span style=color:#f92672>||</span> o.age <span style=color:#f92672>||</span> <span style=color:#e6db74>&#39; &#39;</span> <span style=color:#f92672>||</span> o.salary;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>END</span>;
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>$$</span> <span style=color:#66d9ef>LANGUAGE</span> PLPGSQL;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>FUNCTION</span> a( INTEGER );
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> a(<span style=color:#ae81ff>25</span>);
+</span></span><span style=display:flex><span>       a
+</span></span><span style=display:flex><span><span style=color:#75715e>----------------
+</span></span></span><span style=display:flex><span> <span style=color:#960050;background-color:#1e0010>小张</span> <span style=color:#ae81ff>25</span> <span style=color:#ae81ff>4999</span>.<span style=color:#ae81ff>9</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>记录类型：</span>
+</span></span><span style=display:flex><span>name RECORD;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>-------------------------------------------------------
+</span></span></span><span style=display:flex><span>PL<span style=color:#f92672>/</span>pgSQL <span style=color:#960050;background-color:#1e0010>语句</span> <span style=color:#e6db74>&#39;IF expression THEN ...&#39;</span> <span style=color:#960050;background-color:#1e0010>执行时，将给主</span> <span style=color:#66d9ef>SQL</span> <span style=color:#960050;background-color:#1e0010>引擎</span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>发送一个查询</span> <span style=color:#e6db74>&#39;SELECT expression&#39;&#39; 来计算表达式的返回值。
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>赋值：variable { := | = } expression;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>若数据类型不匹配，将强制转换；若转换失败，将以文本方式转换，否则发生异常。
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>a = b * 0.06;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>my_record.user_id = 20;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>-------------------------------------------------------
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>没有返回值的命令：PERFORM query;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>执行命令并忽略其返回值，与 SELECT 写法一致，只是将 SELECT 替换为 PERFORM。
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>PERFORM create_mv(&#39;</span>cs_session_page_requests_mv<span style=color:#e6db74>&#39;, my_query);
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>-------------------------------------------------------
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>返回一行结果的命令：INTO target
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>除了 INTO 子句，SQL 语句的其他部分的语法不变。
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>SELECT select_expressions INTO [STRICT] target FROM ...;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>INSERT ... RETURNING expressions INTO [STRICT] target;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>UPDATE ... RETURNING expressions INTO [STRICT] target;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>DELETE ... RETURNING expressions INTO [STRICT] target;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>无 STRICT：target 为该查询返回的第一个行，无结果则为 NULL。
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>----
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>SELECT * INTO myrec FROM emp WHERE empname = myname;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>IF NOT FOUND THEN     没有行（try-catch）
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    RAISE EXCEPTION &#39;</span>employee <span style=color:#f92672>%</span> <span style=color:#66d9ef>not</span> <span style=color:#66d9ef>found</span><span style=color:#e6db74>&#39;, myname;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>END IF;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>有 STRICT：该查询必须刚好返回一个行，否则发生异常；成功执行带 STRICT 的命令总是会将 FOUND 置为真。
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>----
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>BEGIN
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    SELECT * INTO STRICT myrec FROM emp WHERE empname = myname;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    EXCEPTION
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        WHEN NO_DATA_FOUND THEN     没有行（try-catch）
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>            RAISE EXCEPTION &#39;</span>employee <span style=color:#f92672>%</span> <span style=color:#66d9ef>not</span> <span style=color:#66d9ef>found</span><span style=color:#e6db74>&#39;, myname;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        WHEN TOO_MANY_ROWS THEN     多于一行（try-catch）
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>            RAISE EXCEPTION &#39;</span>employee <span style=color:#f92672>%</span> <span style=color:#66d9ef>not</span> <span style=color:#66d9ef>unique</span><span style=color:#e6db74>&#39;, myname;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>END;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>CREATE OR REPLACE FUNCTION a(INTEGER, OUT r a) AS $$
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>BEGIN
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  SELECT * INTO STRICT r FROM a WHERE age = $1;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  EXCEPTION
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  WHEN NO_DATA_FOUND
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    THEN
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>      RAISE EXCEPTION &#39;</span>age <span style=color:#f92672>%</span> <span style=color:#66d9ef>not</span> <span style=color:#66d9ef>found</span><span style=color:#e6db74>&#39;, $1;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  WHEN TOO_MANY_ROWS
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    THEN
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>      RAISE EXCEPTION &#39;</span>age <span style=color:#f92672>%</span> <span style=color:#66d9ef>not</span> <span style=color:#66d9ef>unique</span><span style=color:#e6db74>&#39;, $1;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>END
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>$$ LANGUAGE PLPGSQL;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>DROP FUNCTION a( INTEGER );
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>SELECT * FROM a(25);
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> name | age | salary
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>------+-----+--------
+</span></span></span><span style=display:flex><span><span style=color:#e6db74> 小张 |  25 | 4999.9
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>SELECT * FROM a(99);
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>错误:  age 99 not found
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>背景:  在RAISE的第10行的PL/pgSQL函数a(integer)
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>-------------------------------------------------------
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>占位语句（什么也不做）：NULL;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>能够指示 if/then/else 链中故意留出的空分支。
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>CREATE OR REPLACE FUNCTION a() RETURNS VOID AS $$
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>DECLARE
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  x INTEGER = 1;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  y INTEGER;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>BEGIN
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  y = x / 0;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  EXCEPTION
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  WHEN division_by_zero
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    THEN     忽略异常
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  等同于
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  EXCEPTION
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  WHEN division_by_zero
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    THEN
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>      NULL;     忽略异常（更直观）
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>END;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>$$ LANGUAGE PLPGSQL;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>DROP FUNCTION a();
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>SELECT a();
+</span></span></span></code></pre></div><hr><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>EXPLAIN</span> <span style=color:#66d9ef>ANALYZE</span> <span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> customer; <span style=color:#75715e>--显示语句的执行计划
+</span></span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> account DISABLE <span style=color:#66d9ef>TRIGGER</span> <span style=color:#66d9ef>ALL</span>; <span style=color:#75715e>--禁用外键约束
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> account ENABLE  <span style=color:#66d9ef>TRIGGER</span> <span style=color:#66d9ef>ALL</span>; <span style=color:#75715e>--启用外键约束
+</span></span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> pg_available_extension_versions; <span style=color:#75715e>--查询可加载插件
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> pg_extension; <span style=color:#75715e>--查询已加载插件
+</span></span></span></code></pre></div><h2 id=tool>Tool<a hidden class=anchor aria-hidden=true href=#tool>#</a></h2><ul><li><a href=https://www.postgresql.org/ftp/pgadmin/pgadmin4/>https://www.postgresql.org/ftp/pgadmin/pgadmin4/</a></li><li><a href=https://github.com/sosedoff/pgweb/releases/latest>https://github.com/sosedoff/pgweb/releases/latest</a></li><li><a href=https://github.com/dbcli/pgcli>https://github.com/dbcli/pgcli</a></li><li><a href=https://www.heidisql.com/download.php>https://www.heidisql.com/download.php</a></li><li><a href=https://www.jetbrains.com/datagrip/>https://www.jetbrains.com/datagrip/</a></li></ul></div><footer class=post-footer><ul class=post-tags><li><a href=https://xhstormr.github.io/blog/tags/sql/>SQL</a></li></ul><nav class=paginav><a class=prev href=https://xhstormr.github.io/blog/posts/jsp/><span class=title>« Prev</span><br><span>Java Server Pages</span>
+</a><a class=next href=https://xhstormr.github.io/blog/posts/java-socket/><span class=title>Next »</span><br><span>Java Socket</span></a></nav><ul class=share-buttons><li><a target=_blank rel="noopener noreferrer" aria-label="share 自学 PostgreSQL on x" href="https://x.com/intent/tweet/?text=%e8%87%aa%e5%ad%a6%20PostgreSQL&amp;url=https%3a%2f%2fxhstormr.github.io%2fblog%2fposts%2fpostgresql%2f&amp;hashtags=SQL"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentColor"><path d="M512 62.554V449.446C512 483.97 483.97 512 449.446 512H62.554C28.03 512 0 483.97.0 449.446V62.554C0 28.03 28.029.0 62.554.0H449.446C483.971.0 512 28.03 512 62.554zM269.951 190.75 182.567 75.216H56L207.216 272.95 63.9 436.783h61.366L235.9 310.383l96.667 126.4H456L298.367 228.367l134-153.151H371.033zM127.633 110h36.468l219.38 290.065H349.5z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share 自学 PostgreSQL on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fxhstormr.github.io%2fblog%2fposts%2fpostgresql%2f&amp;title=%e8%87%aa%e5%ad%a6%20PostgreSQL&amp;summary=%e8%87%aa%e5%ad%a6%20PostgreSQL&amp;source=https%3a%2f%2fxhstormr.github.io%2fblog%2fposts%2fpostgresql%2f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentColor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share 自学 PostgreSQL on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fxhstormr.github.io%2fblog%2fposts%2fpostgresql%2f&title=%e8%87%aa%e5%ad%a6%20PostgreSQL"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentColor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share 自学 PostgreSQL on facebook" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fxhstormr.github.io%2fblog%2fposts%2fpostgresql%2f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentColor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H342.978V319.085h66.6l12.672-82.621h-79.272v-53.617c0-22.603 11.073-44.636 46.58-44.636H425.6v-70.34s-32.71-5.582-63.982-5.582c-65.288.0-107.96 39.569-107.96 111.204v62.971h-72.573v82.621h72.573V512h-191.104c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share 自学 PostgreSQL on whatsapp" href="https://api.whatsapp.com/send?text=%e8%87%aa%e5%ad%a6%20PostgreSQL%20-%20https%3a%2f%2fxhstormr.github.io%2fblog%2fposts%2fpostgresql%2f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentColor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zm-58.673 127.703c-33.842-33.881-78.847-52.548-126.798-52.568-98.799.0-179.21 80.405-179.249 179.234-.013 31.593 8.241 62.428 23.927 89.612l-25.429 92.884 95.021-24.925c26.181 14.28 55.659 21.807 85.658 21.816h.074c98.789.0 179.206-80.413 179.247-179.243.018-47.895-18.61-92.93-52.451-126.81zM263.976 403.485h-.06c-26.734-.01-52.954-7.193-75.828-20.767l-5.441-3.229-56.386 14.792 15.05-54.977-3.542-5.637c-14.913-23.72-22.791-51.136-22.779-79.287.033-82.142 66.867-148.971 149.046-148.971 39.793.014 77.199 15.531 105.329 43.692 28.128 28.16 43.609 65.592 43.594 105.4-.034 82.149-66.866 148.983-148.983 148.984zm81.721-111.581c-4.479-2.242-26.499-13.075-30.604-14.571-4.105-1.495-7.091-2.241-10.077 2.241-2.986 4.483-11.569 14.572-14.182 17.562-2.612 2.988-5.225 3.364-9.703 1.12-4.479-2.241-18.91-6.97-36.017-22.23C231.8 264.15 222.81 249.484 220.198 245s-.279-6.908 1.963-9.14c2.016-2.007 4.48-5.232 6.719-7.847 2.24-2.615 2.986-4.484 4.479-7.472 1.493-2.99.747-5.604-.374-7.846-1.119-2.241-10.077-24.288-13.809-33.256-3.635-8.733-7.327-7.55-10.077-7.688-2.609-.13-5.598-.158-8.583-.158-2.986.0-7.839 1.121-11.944 5.604-4.105 4.484-15.675 15.32-15.675 37.364.0 22.046 16.048 43.342 18.287 46.332 2.24 2.99 31.582 48.227 76.511 67.627 10.685 4.615 19.028 7.371 25.533 9.434 10.728 3.41 20.492 2.929 28.209 1.775 8.605-1.285 26.499-10.833 30.231-21.295 3.732-10.464 3.732-19.431 2.612-21.298-1.119-1.869-4.105-2.99-8.583-5.232z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share 自学 PostgreSQL on telegram" href="https://telegram.me/share/url?text=%e8%87%aa%e5%ad%a6%20PostgreSQL&amp;url=https%3a%2f%2fxhstormr.github.io%2fblog%2fposts%2fpostgresql%2f"><svg viewBox="2 2 28 28" height="30" width="30" fill="currentColor"><path d="M26.49 29.86H5.5a3.37 3.37.0 01-2.47-1 3.35 3.35.0 01-1-2.47V5.48A3.36 3.36.0 013 3 3.37 3.37.0 015.5 2h21A3.38 3.38.0 0129 3a3.36 3.36.0 011 2.46V26.37a3.35 3.35.0 01-1 2.47 3.38 3.38.0 01-2.51 1.02zm-5.38-6.71a.79.79.0 00.85-.66L24.73 9.24a.55.55.0 00-.18-.46.62.62.0 00-.41-.17q-.08.0-16.53 6.11a.59.59.0 00-.41.59.57.57.0 00.43.52l4 1.24 1.61 4.83a.62.62.0 00.63.43.56.56.0 00.4-.17L16.54 20l4.09 3A.9.9.0 0021.11 23.15zM13.8 20.71l-1.21-4q8.72-5.55 8.78-5.55c.15.0.23.0.23.16a.18.18.0 010 .06s-2.51 2.3-7.52 6.8z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share 自学 PostgreSQL on ycombinator" href="https://news.ycombinator.com/submitlink?t=%e8%87%aa%e5%ad%a6%20PostgreSQL&u=https%3a%2f%2fxhstormr.github.io%2fblog%2fposts%2fpostgresql%2f"><svg width="30" height="30" viewBox="0 0 512 512" fill="currentColor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554V449.446C512 483.97 483.97 512 449.446 512H62.554C28.03 512 0 483.97.0 449.446V62.554C0 28.03 28.029.0 62.554.0H449.446zM183.8767 87.9921h-62.034L230.6673 292.4508V424.0079h50.6655V292.4508L390.1575 87.9921H328.1233L256 238.2489z"/></svg></a></li></ul></footer><script src=https://giscus.app/client.js data-repo=XhstormR/blog data-repo-id="MDEwOlJlcG9zaXRvcnk1MTI5OTI1NQ==" data-category=Announcements data-category-id=DIC_kwDOAw7Dt84C1abT data-mapping=og:title data-strict=1 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=bottom data-theme=preferred_color_scheme data-lang=zh-CN data-loading=lazy crossorigin=anonymous async></script></article></main><footer class=footer><span>&copy; 2026 <a href=https://xhstormr.github.io/blog/>XhstormR</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>

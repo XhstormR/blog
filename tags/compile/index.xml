@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Compile on XhstormR</title>
+    <link>https://xhstormr.github.io/blog/tags/compile/</link>
+    <description>Recent content in Compile on XhstormR</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>en</language>
+    <managingEditor>xhstormr@example.org (XhstormR)</managingEditor>
+    <webMaster>xhstormr@example.org (XhstormR)</webMaster>
+    <lastBuildDate>Thu, 03 Oct 2019 17:00:34 +0800</lastBuildDate>
+    <atom:link href="https://xhstormr.github.io/blog/tags/compile/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>构建 tmux</title>
+      <link>https://xhstormr.github.io/blog/posts/build-tmux/</link>
+      <pubDate>Thu, 03 Oct 2019 17:00:34 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/build-tmux/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

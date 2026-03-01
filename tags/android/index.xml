@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Android on XhstormR</title>
+    <link>https://xhstormr.github.io/blog/tags/android/</link>
+    <description>Recent content in Android on XhstormR</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>en</language>
+    <managingEditor>xhstormr@example.org (XhstormR)</managingEditor>
+    <webMaster>xhstormr@example.org (XhstormR)</webMaster>
+    <lastBuildDate>Thu, 26 Nov 2020 17:11:51 +0800</lastBuildDate>
+    <atom:link href="https://xhstormr.github.io/blog/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Android 模拟器启用 ARM 支持</title>
+      <link>https://xhstormr.github.io/blog/posts/android-arm/</link>
+      <pubDate>Thu, 26 Nov 2020 17:11:51 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-arm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>TWRP Magisk EdXposed</title>
+      <link>https://xhstormr.github.io/blog/posts/twrp-magisk-xposed/</link>
+      <pubDate>Tue, 17 Dec 2019 10:34:56 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/twrp-magisk-xposed/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Data Binding Framework</title>
+      <link>https://xhstormr.github.io/blog/posts/android-databinding/</link>
+      <pubDate>Sat, 26 Nov 2016 23:15:56 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-databinding/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>RxBinding</title>
+      <link>https://xhstormr.github.io/blog/posts/android-rxbinding/</link>
+      <pubDate>Sat, 19 Nov 2016 14:12:15 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-rxbinding/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>RxBus</title>
+      <link>https://xhstormr.github.io/blog/posts/android-rxbus/</link>
+      <pubDate>Sat, 19 Nov 2016 14:11:15 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-rxbus/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>JsonUtil</title>
+      <link>https://xhstormr.github.io/blog/posts/android-jsonutil/</link>
+      <pubDate>Sat, 19 Nov 2016 08:00:39 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-jsonutil/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Retrolambda</title>
+      <link>https://xhstormr.github.io/blog/posts/android-retrolambda/</link>
+      <pubDate>Sat, 12 Nov 2016 21:15:01 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-retrolambda/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Android HTTP (待)</title>
+      <link>https://xhstormr.github.io/blog/posts/android-http/</link>
+      <pubDate>Mon, 31 Oct 2016 08:00:57 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-http/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Android Handler</title>
+      <link>https://xhstormr.github.io/blog/posts/android-handler/</link>
+      <pubDate>Tue, 25 Oct 2016 20:25:47 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-handler/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Android 手势识别</title>
+      <link>https://xhstormr.github.io/blog/posts/android-gesturedetector/</link>
+      <pubDate>Tue, 18 Oct 2016 19:21:52 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-gesturedetector/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Android 系统服务</title>
+      <link>https://xhstormr.github.io/blog/posts/android-systemservice/</link>
+      <pubDate>Mon, 17 Oct 2016 17:13:39 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-systemservice/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Android Service</title>
+      <link>https://xhstormr.github.io/blog/posts/android-service/</link>
+      <pubDate>Thu, 13 Oct 2016 12:21:04 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-service/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Android BroadcastReceiver</title>
+      <link>https://xhstormr.github.io/blog/posts/android-broadcastreceiver/</link>
+      <pubDate>Mon, 10 Oct 2016 20:16:37 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-broadcastreceiver/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Android 数据存储</title>
+      <link>https://xhstormr.github.io/blog/posts/android-data/</link>
+      <pubDate>Sun, 02 Oct 2016 13:27:20 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-data/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Android 异步加载</title>
+      <link>https://xhstormr.github.io/blog/posts/android-listview/</link>
+      <pubDate>Wed, 28 Sep 2016 15:18:02 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-listview/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Android AsyncTask</title>
+      <link>https://xhstormr.github.io/blog/posts/android-asynctask/</link>
+      <pubDate>Fri, 02 Sep 2016 09:10:56 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-asynctask/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Android BaseAdapter</title>
+      <link>https://xhstormr.github.io/blog/posts/android-baseadapter/</link>
+      <pubDate>Wed, 31 Aug 2016 11:27:51 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-baseadapter/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Android ViewPager</title>
+      <link>https://xhstormr.github.io/blog/posts/android-viewpager/</link>
+      <pubDate>Tue, 16 Aug 2016 14:10:08 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-viewpager/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Android Fragment</title>
+      <link>https://xhstormr.github.io/blog/posts/android-fragment/</link>
+      <pubDate>Fri, 12 Aug 2016 14:47:11 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-fragment/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Android 计算器</title>
+      <link>https://xhstormr.github.io/blog/posts/android-calculator/</link>
+      <pubDate>Tue, 19 Jul 2016 10:48:46 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-calculator/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Android Activity</title>
+      <link>https://xhstormr.github.io/blog/posts/android-activity/</link>
+      <pubDate>Mon, 18 Jul 2016 09:57:11 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-activity/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>自定义 Android 控件</title>
+      <link>https://xhstormr.github.io/blog/posts/android-custom-controls/</link>
+      <pubDate>Wed, 13 Jul 2016 16:48:22 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-custom-controls/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>实现 Android 监听事件</title>
+      <link>https://xhstormr.github.io/blog/posts/android-listener/</link>
+      <pubDate>Tue, 12 Jul 2016 11:25:48 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-listener/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>自学 Android</title>
+      <link>https://xhstormr.github.io/blog/posts/android/</link>
+      <pubDate>Mon, 04 Jul 2016 19:30:21 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
