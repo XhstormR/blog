@@ -1,0 +1,1122 @@
+<!doctype html><html lang=en dir=auto data-theme=dark><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>自学 Android | XhstormR</title><meta name=keywords content="Android"><meta name=description content="自学 Android - XhstormR"><meta name=author content="map[email:xhstormr@example.org name:XhstormR]"><link rel=canonical href=https://xhstormr.github.io/blog/posts/android/><link crossorigin=anonymous href=/blog/assets/css/stylesheet.da3211e5ef867bf2b75fd5a6515cfed7195c011e8ab735694e203810a827097b.css integrity="sha256-2jIR5e+Ge/K3X9WmUVz+1xlcAR6KtzVpTiA4EKgnCXs=" rel="preload stylesheet" as=style><link rel=icon href=https://xhstormr.github.io/blog/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://xhstormr.github.io/blog/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://xhstormr.github.io/blog/favicon-32x32.png><link rel=apple-touch-icon href=https://xhstormr.github.io/blog/apple-touch-icon.png><link rel=mask-icon href=https://xhstormr.github.io/blog/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://xhstormr.github.io/blog/posts/android/><noscript><style>#theme-toggle,.top-link{display:none}</style></noscript><script>localStorage.getItem("pref-theme")==="light"&&(document.querySelector("html").dataset.theme="light")</script><meta property="og:url" content="https://xhstormr.github.io/blog/posts/android/"><meta property="og:site_name" content="XhstormR"><meta property="og:title" content="自学 Android"><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2016-07-04T19:30:21+08:00"><meta property="article:modified_time" content="2016-07-04T19:30:21+08:00"><meta property="article:tag" content="Android"><meta name=twitter:card content="summary"><meta name=twitter:title content="自学 Android"><meta name=twitter:description content><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://xhstormr.github.io/blog/posts/"},{"@type":"ListItem","position":2,"name":"自学 Android","item":"https://xhstormr.github.io/blog/posts/android/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"自学 Android","name":"自学 Android","description":"","keywords":["Android"],"articleBody":"Updated on 2016-08-27\nhttps://developers.google.cn/\nhttps://developer.android.google.cn/\nhttps://developer.android.google.cn/reference/kotlin/classes.html\nhttps://developer.android.google.cn/reference/tools/gradle-api/\nhttps://maven.google.com/web/\napi level\n开发环境 IntelliJ IDEA：https://www.jetbrains.com/idea/download/ Eclipse + ADT 已被 Google 弃用 Android SDK：https://developer.android.com/studio/index.html#win-tools2 Mirror1 Gradle：https://services.gradle.org/distributions/ GRADLE_HOME ➜ D:\\Download\\Java\\gradle-2.14 PATH ➜ %GRADLE_HOME%\\bin JDK：http://www.oracle.com/technetwork/java/javase/downloads/index.html 新建 Android 项目卡住 IDEA 的 Android 构建工具是 Gradle，新建项目时会联网下载对应版本的 Gradle 和 Cache。\nGradle： C:\\Users\\XhstormR\\IntelliJIDEAProjects\\MyApplication\\gradle\\wrapper\\gradle-wrapper.properties ⇳ distributionUrl=http\\://android-mirror.bugly.qq.com:8080/gradle/gradle-3.2.1-all.zip Cache： C:\\Users\\XhstormR\\IntelliJIDEAProjects\\MyApplication\\build.gradle ⇳ repositories { maven { url \"http://maven.aliyun.com/nexus/content/groups/public/\" } } 找不到主题文件 ","wordCount":"2899","inLanguage":"en","datePublished":"2016-07-04T19:30:21+08:00","dateModified":"2016-07-04T19:30:21+08:00","author":{"@type":"Person","name":{"email":"xhstormr@example.org","name":"XhstormR"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://xhstormr.github.io/blog/posts/android/"},"publisher":{"@type":"Organization","name":"XhstormR","logo":{"@type":"ImageObject","url":"https://xhstormr.github.io/blog/favicon.ico"}}}</script></head><body id=top><header class=header><nav class=nav><div class=logo><a href=https://xhstormr.github.io/blog/ accesskey=h title="XhstormR (Alt + H)">XhstormR</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://xhstormr.github.io/blog/archives/ title=Archive><span>Archive</span></a></li><li><a href=https://xhstormr.github.io/blog/tags/ title=Tags><span>Tags</span></a></li><li><a href=https://xhstormr.github.io/blog/search/ title="Search (Alt + /)" accesskey=/><span>Search</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://xhstormr.github.io/blog/>Home</a>&nbsp;»&nbsp;<a href=https://xhstormr.github.io/blog/posts/>Posts</a></div><h1 class="post-title entry-hint-parent">自学 Android</h1><div class=post-meta><span title='2016-07-04 19:30:21 +0800 +0800'>2016-07-04</span>&nbsp;·&nbsp;<span>14 min</span>&nbsp;·&nbsp;<span>map[email:xhstormr@example.org name:XhstormR]</span>&nbsp;|&nbsp;<span>
+<a href=https://github.com/XhstormR/blog/tree/master/content/posts/android.md rel="noopener noreferrer edit" target=_blank>Suggest Changes</a></span></div></header><div class=toc><details open><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><ul><li><a href=#%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83 aria-label=开发环境>开发环境</a><ul><li><a href=#%e6%96%b0%e5%bb%ba-android-%e9%a1%b9%e7%9b%ae%e5%8d%a1%e4%bd%8f aria-label="新建 Android 项目卡住">新建 Android 项目卡住</a></li><li><a href=#%e6%89%be%e4%b8%8d%e5%88%b0%e4%b8%bb%e9%a2%98%e6%96%87%e4%bb%b6 aria-label=找不到主题文件>找不到主题文件</a></li><li><a href=#%e6%89%be%e4%b8%8d%e5%88%b0%e8%b5%84%e6%ba%90%e6%96%87%e4%bb%b6 aria-label=找不到资源文件>找不到资源文件</a></li><li><a href=#%e6%b2%a1%e6%9c%89-assets-%e6%96%87%e4%bb%b6%e5%a4%b9 aria-label="没有 Assets 文件夹">没有 Assets 文件夹</a></li><li><a href=#%e5%af%bc%e5%85%a5-sdk-%e6%ba%90%e7%a0%81 aria-label="导入 SDK 源码">导入 SDK 源码</a></li></ul></li><li><a href=#android-debug-bridge aria-label="Android Debug Bridge">Android Debug Bridge</a><ul><li><a href=#vysor aria-label=Vysor>Vysor</a></li></ul></li><li><a href=#sdk-manager aria-label="SDK Manager">SDK Manager</a></li><li><a href=#android-%e8%a7%84%e8%8c%83 aria-label="Android 规范">Android 规范</a></li><li><a href=#svg aria-label=SVG>SVG</a></li><li><a href=#code aria-label=Code>Code</a></li></ul></div></details></div><div class=post-content><p>Updated on 2016-08-27</p><blockquote><img loading=lazy src=/blog/uploads/android.svg title=Android><p><a href=https://developers.google.cn/>https://developers.google.cn/</a></p><p><a href=https://developer.android.google.cn/>https://developer.android.google.cn/</a></p><p><a href=https://developer.android.google.cn/reference/kotlin/classes.html>https://developer.android.google.cn/reference/kotlin/classes.html</a></p><p><a href=https://developer.android.google.cn/reference/tools/gradle-api/>https://developer.android.google.cn/reference/tools/gradle-api/</a></p><p><a href=https://maven.google.com/web/>https://maven.google.com/web/</a></p><p><a href=https://developer.android.google.cn/guide/topics/manifest/uses-sdk-element#api-level-table>api level</a></p></blockquote><h2 id=开发环境>开发环境<a hidden class=anchor aria-hidden=true href=#开发环境>#</a></h2><ul><li>IntelliJ IDEA：https://www.jetbrains.com/idea/download/<ul><li><del><a href=https://eclipse.org/downloads/eclipse-packages/>Eclipse</a> + <a href=https://developer.android.com/studio/tools/sdk/eclipse-adt.html>ADT</a> 已被 Google 弃用</del></li></ul></li><li>Android SDK：https://developer.android.com/studio/index.html#win-tools2<ul><li><a href=http://mirrors.neusoft.edu.cn/android/>Mirror1</a></li><li><a href=https://services.gradle.org/versions/current>Gradle</a>：https://services.gradle.org/distributions/<ul><li>GRADLE_HOME ➜ D:\Download\Java\gradle-2.14</li><li>PATH ➜ %GRADLE_HOME%\bin</li></ul></li></ul></li><li>JDK：http://www.oracle.com/technetwork/java/javase/downloads/index.html</li></ul><h3 id=新建-android-项目卡住>新建 Android 项目卡住<a hidden class=anchor aria-hidden=true href=#新建-android-项目卡住>#</a></h3><p>IDEA 的 Android 构建工具是 Gradle，新建项目时会联网下载对应版本的 Gradle 和 Cache。</p><p>Gradle：<img loading=lazy src=/blog/uploads/android-gradle.png></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-html data-lang=html><span style=display:flex><span>C:\Users\XhstormR\IntelliJIDEAProjects\MyApplication\gradle\wrapper\gradle-wrapper.properties
+</span></span><span style=display:flex><span>⇳
+</span></span><span style=display:flex><span>distributionUrl=http\://android-mirror.bugly.qq.com:8080/gradle/gradle-3.2.1-all.zip
+</span></span></code></pre></div><p>Cache：<img loading=lazy src=/blog/uploads/android-cache.png></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-html data-lang=html><span style=display:flex><span>C:\Users\XhstormR\IntelliJIDEAProjects\MyApplication\build.gradle ⇳ repositories
+</span></span><span style=display:flex><span>{ maven { url &#34;http://maven.aliyun.com/nexus/content/groups/public/&#34; } }
+</span></span></code></pre></div><h3 id=找不到主题文件>找不到主题文件<a hidden class=anchor aria-hidden=true href=#找不到主题文件>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-xml data-lang=xml><span style=display:flex><span><span style=color:#f92672>&lt;style</span> <span style=color:#a6e22e>name=</span><span style=color:#e6db74>&#34;AppTheme&#34;</span> <span style=color:#a6e22e>parent=</span><span style=color:#e6db74>&#34;@android:style/Theme.DeviceDefault.Light.NoActionBar&#34;</span><span style=color:#f92672>&gt;</span>
+</span></span></code></pre></div><h3 id=找不到资源文件>找不到资源文件<a hidden class=anchor aria-hidden=true href=#找不到资源文件>#</a></h3><p>IDEA ➜ Build ➜ <code>Make Project</code> or <code>Rebuild Project</code>（重新生成 R.java）</p><h3 id=没有-assets-文件夹>没有 Assets 文件夹<a hidden class=anchor aria-hidden=true href=#没有-assets-文件夹>#</a></h3><p>IDEA ➜ File ➜ New ➜ Folder ➜ Assets Folder（src/main/assets/）</p><h3 id=导入-sdk-源码>导入 SDK 源码<a hidden class=anchor aria-hidden=true href=#导入-sdk-源码>#</a></h3><p>IDEA ➜ File ➜ Project Structure ➜ SDKs ➜ Sourcepath</p><h2 id=android-debug-bridge><a href=https://developer.android.google.cn/studio/command-line/adb>Android Debug Bridge</a><a hidden class=anchor aria-hidden=true href=#android-debug-bridge>#</a></h2><ul><li>手机开启 USB 调试模式</li><li>电脑安装 Android USB 驱动</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-html data-lang=html><span style=display:flex><span>adb start-server 启动 ADB adb kill-server 停止 ADB adb root 使 ADBD 获得 ROOT
+</span></span><span style=display:flex><span>权限 adb reboot 重启手机 adb reboot recovery 重启至 Recovery 模式 adb reboot
+</span></span><span style=display:flex><span>bootloader 重启至 Fastboot 模式 adb install D:\Download\1.apk 安装 App -r
+</span></span><span style=display:flex><span>允许覆盖安装 -d 允许降级安装 adb uninstall com.baidu.mobile 卸载 App（包名） -k
+</span></span><span style=display:flex><span>保留数据和缓存 adb push D:\Download\1.txt /mnt/sdcard/Download/1.txt 发送至手机
+</span></span><span style=display:flex><span>adb pull /mnt/sdcard/Download/1.txt D:\Download\1.txt 下载至电脑 ----
+</span></span><span style=display:flex><span>/mnt/sdcard/Download/ <span style=color:#960050;background-color:#1e0010>&lt;</span>=&gt; /storage/emulated/0/Download/
+</span></span><span style=display:flex><span>D:\Download\Java\android-sdk-windows\platform-tools\adb.exe devices -l 查看设备
+</span></span><span style=display:flex><span>List of devices attached 0123456789ABCDEF device product:2013023 model:2013023
+</span></span><span style=display:flex><span>device:HM2013023 D:\Download\Java\android-sdk-windows\platform-tools\adb.exe
+</span></span><span style=display:flex><span>shell 登录设备 shell@HM2013023:/ $ su root@HM2013023:/ # ls root@HM2013023:/ #
+</span></span><span style=display:flex><span>exit wm size 查看屏幕分辨率 wm density 查看屏幕密度 dumpsys window displays
+</span></span><span style=display:flex><span>查看显示屏参数 screencap -p /sdcard/123.png 截图 screenrecord /sdcard/123.mp4
+</span></span><span style=display:flex><span>录屏 date -s 20160823.131500 设置日期和时间 cat /system/build.prop
+</span></span><span style=display:flex><span>查看硬件和系统属性 cat /data/misc/wifi/*.conf 查看连接过的 WIFI 密码
+</span></span><span style=display:flex><span>PackageManager pm list packages 显示所有应用 -d 禁用的应用 -e 启用的应用 -3
+</span></span><span style=display:flex><span>第三方应用 -s 系统应用 pm list packages google 包名带 google 字段的应用 pm clear
+</span></span><span style=display:flex><span>com.baidu.mobile 清除数据和缓存 pm list users 查看用户 pm list libraries
+</span></span><span style=display:flex><span>查看系统安装的库 pm list features 查看系统支持的功能 （总应用个数 = 禁用+启用 =
+</span></span><span style=display:flex><span>系统+第三方） ActivityManager am start -n com.example.app/.ExampleActivity -es
+</span></span><span style=display:flex><span>str ABC 调用 Activity 并发送数据 extra string（Key-Value） am start -a
+</span></span><span style=display:flex><span>android.intent.action.CALL -d tel:10086 发送 Intent（拨打电话） am start -a
+</span></span><span style=display:flex><span>android.intent.action.VIEW -d http://xhstormr.tk/ 发送 Intent（打开网站） am
+</span></span><span style=display:flex><span>startservice ... 调用 Service am broadcast ... 发送广播 am force-stop
+</span></span><span style=display:flex><span>com.baidu.mobile 强制停止 App dumpsys activity activities | grep
+</span></span><span style=display:flex><span>mFocusedActivity 查看前台 Activity /data/property/persist.sys.usb.config 配置
+</span></span><span style=display:flex><span>USB ⇳ mtp,adb 作为媒体设备,开启调试模式 远程 ADB adb devices -l List of devices
+</span></span><span style=display:flex><span>attached 10.32.17.39:1234 device product:2013023 model:2013023 device:HM2013023
+</span></span><span style=display:flex><span>启动 adb tcpip 1234 连接手机 adb connect 10.32.17.39:1234 停止 adb disconnect
+</span></span><span style=display:flex><span>adb usb 连接手机
+</span></span></code></pre></div><h3 id=vysor>Vysor<a hidden class=anchor aria-hidden=true href=#vysor>#</a></h3><ul><li>Link：<a href=https://chrome.google.com/webstore/detail/vysor/gidgenkbbabolejbgbpnhbimgjbffefm>WebStore</a>,<a href=https://github.com/koush/vysor.io/releases/latest>Github</a></li><li>破解：uglify.js ➜ function e(){this.licensed=<strong>true</strong>;this.licenseCached=<strong>true</strong>}</li></ul><h2 id=sdk-manager><a href=https://developer.android.google.cn/studio/command-line/sdkmanager>SDK Manager</a><a hidden class=anchor aria-hidden=true href=#sdk-manager>#</a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>nslookup g.cn
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>sdkmanager.bat --no_https --proxy<span style=color:#f92672>=</span>http --proxy_host<span style=color:#f92672>=</span>203.208.39.242 --proxy_port<span style=color:#f92672>=</span><span style=color:#ae81ff>80</span> --list
+</span></span><span style=display:flex><span>sdkmanager.bat --no_https --proxy<span style=color:#f92672>=</span>http --proxy_host<span style=color:#f92672>=</span>203.208.39.242 --proxy_port<span style=color:#f92672>=</span><span style=color:#ae81ff>80</span> --update
+</span></span><span style=display:flex><span>sdkmanager.bat --no_https --proxy<span style=color:#f92672>=</span>http --proxy_host<span style=color:#f92672>=</span>203.208.39.242 --proxy_port<span style=color:#f92672>=</span><span style=color:#ae81ff>80</span> <span style=color:#e6db74>&#34;platforms;android-24&#34;</span>
+</span></span><span style=display:flex><span>sdkmanager.bat --no_https --proxy<span style=color:#f92672>=</span>http --proxy_host<span style=color:#f92672>=</span>203.208.39.242 --proxy_port<span style=color:#f92672>=</span><span style=color:#ae81ff>80</span> --uninstall <span style=color:#e6db74>&#34;platforms;android-24&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Installed packages:
+</span></span><span style=display:flex><span>  Path                              | Version | Description                       | Location
+</span></span><span style=display:flex><span>  -------                           | ------- | -------                           | -------
+</span></span><span style=display:flex><span>  build-tools;25.0.1                | 25.0.1  | Android SDK Build-Tools 25.0.1    | build-tools<span style=color:#ae81ff>\2</span>5.0.1<span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  extras;android;m2repository       | 40.0.0  | Android Support Repository        | extras<span style=color:#ae81ff>\a</span>ndroid<span style=color:#ae81ff>\m</span>2repository<span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  extras;google;m2repository        | <span style=color:#ae81ff>40</span>      | Google Repository                 | extras<span style=color:#ae81ff>\g</span>oogle<span style=color:#ae81ff>\m</span>2repository<span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  extras;m2reposi...ver;1.0.0-beta4 | <span style=color:#ae81ff>1</span>       | Solver <span style=color:#66d9ef>for</span> ConstraintLayout 1.... | extras<span style=color:#ae81ff>\m</span>2reposi...er<span style=color:#ae81ff>\1</span>.0.0-beta4<span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  extras;m2reposi...out;1.0.0-beta4 | <span style=color:#ae81ff>1</span>       | ConstraintLayout <span style=color:#66d9ef>for</span> Android 1... | extras<span style=color:#ae81ff>\m</span>2reposi...ut<span style=color:#ae81ff>\1</span>.0.0-beta4<span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  platform-tools                    | 25.0.1  | Android SDK Platform-Tools 25.0.1 | platform-tools<span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  platforms;android-24              | <span style=color:#ae81ff>2</span>       | Android SDK Platform <span style=color:#ae81ff>24</span>           | platforms<span style=color:#ae81ff>\a</span>ndroid-24<span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  sources;android-24                | <span style=color:#ae81ff>1</span>       | Sources <span style=color:#66d9ef>for</span> Android <span style=color:#ae81ff>24</span>            | sources<span style=color:#ae81ff>\a</span>ndroid-24<span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  tools                             | 25.2.3  | Android SDK Tools 25.2.3          | tools<span style=color:#ae81ff>\
+</span></span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>set -x ANDROID_SDK_ROOT $HOME/android/sdk
+</span></span><span style=display:flex><span>set -e ANDROID_SDK_ROOT
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>yes | ./sdkmanager --sdk_root<span style=color:#f92672>=</span>$ANDROID_SDK_ROOT --licenses
+</span></span><span style=display:flex><span>./sdkmanager --sdk_root<span style=color:#f92672>=</span>$ANDROID_SDK_ROOT --list
+</span></span><span style=display:flex><span>./sdkmanager --sdk_root<span style=color:#f92672>=</span>$ANDROID_SDK_ROOT --update
+</span></span><span style=display:flex><span>./sdkmanager --sdk_root<span style=color:#f92672>=</span>$ANDROID_SDK_ROOT emulator platform-tools <span style=color:#e6db74>&#34;platforms;android-29&#34;</span> <span style=color:#e6db74>&#34;system-images;android-29;default;x86_64&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>./avdmanager create avd -n test -d pixel -k <span style=color:#e6db74>&#34;system-images;android-29;default;x86_64&#34;</span> -f
+</span></span><span style=display:flex><span>./avdmanager delete avd -n test
+</span></span></code></pre></div><h2 id=android-规范>Android 规范<a hidden class=anchor aria-hidden=true href=#android-规范>#</a></h2><ul><li><a href=uploads/android-design.png title="Android Design">Android Design</a></li><li>Android 组件：所有组件都需要在 <code>AndroidManifest.xml ➜ application</code> 里进行注册。<ul><li>活动（Activity）：一种包含用户界面的组件，主要用于和用户进行交互。</li><li>服务（Service）：用于实现程序后台运行的组件，不需要和用户交互。</li><li>广播接收器（Broadcast Receiver）：用于接收和发送广播的组件。</li><li>内容提供器（Content Provider）：用于实现不同应用程序之间共享数据的组件。</li></ul></li><li>控件属性：<ul><li>sp：Scale-independent Pixels（可伸缩像素），文字尺寸一律使用 <code>sp</code> 单位。</li><li>dp：Density-independent Pixels（密度无关像素），非文字尺寸使用 <code>dp</code> 单位。</li><li>orientation（方向）：<code>horizontal</code>（水平） | <code>vertical</code>（垂直）</li><li>wrap_content：包裹内容。</li><li>match_parent：铺满容器。</li><li>layout_weight：占据父容器 <strong>剩余空间</strong> 的比例。<strong>外</strong><ul><li>假设屏幕宽度为 X，2个控件的宽度都为 <code>match_parent</code> 的情况下，原有宽度为 X，2个控件的宽度也都为 X，那么剩余宽度为 X-(X+X)=-X；左边的控件占三分之一，所以左边总宽度为 X+(-X)*(1/3)=(2/3)X。</li><li>建议将 <code>width</code> 或 <code>height</code> 设为 <code>0dp</code>，这样就可以理解为屏占比了。</li></ul></li><li>margin：外边距，控件边框与控件边框的距离。<strong>外</strong></li><li>padding：内边距，控件边框与控件内容的距离。<strong>里</strong></li><li>layout_gravity：控件位置。<strong>外</strong></li><li>gravity：内容位置。<strong>里</strong></li></ul></li><li>布局优化：布局层次一样的情况下，LinearLayout 的性能要稍高于 RelativeLayout。<ul><li>include：将可重用的布局提取出来并通过 <code>include</code> 标签导入使用。<ul><li>merge：若通过 <code>include</code> 标签导入的布局不需要顶节点，可以将顶节点标签替换为<code>merge</code>，顶节点会被直接忽略而子控件会被直接导入，以降低布局嵌套层次。</li></ul></li><li>ViewStub：导入的布局会惰性加载，在创建主布局时不进行实例化，需要在代码中手动实例化，以节省内存并加快布局创建速度。（不支持导入 <code>merge</code> 布局）</li></ul></li></ul><hr><ul><li>ListView：以 <strong>列表</strong> 形式显示条目的控件。（行）<ul><li>数据适配器：把复杂的数据绑定至指定控件上，是数据源和控件之间的桥梁。<ul><li>ArrayAdapter（数组适配器）：用于绑定格式单一的数据。（数组或集合）</li><li>SimpleAdapter（简单适配器）：用于绑定格式复杂的数据。（特定泛型集合）</li></ul></li><li>事件监听器：监听某种动作行为并做出响应，是程序和用户系统交互的桥梁。<ul><li>OnItemClickListener：监听列表中单个条目的点击事件。</li><li>OnScrollListener：监听列表的滚动。</li></ul></li></ul></li><li>GridView：以 <strong>表格</strong> 形式显示条目的控件。（格）（可以用于替代 TableLayout 布局）</li><li>Spinner：以 <strong>下拉列表</strong> 形式显示条目的控件。（行）</li><li>DatePicker && TimePicker：日期选择器 && 时间选择器。</li><li>ProgressBar：环形进度条、水平进度条（精确）。<ul><li>SeekBar：拖动条，ProgressBar 的子类。</li></ul></li><li>WebView：显示网页的控件。</li><li>ViewFlipper：多页面自动轮播并且带有动画效果的控件。<ul><li><code>setInAnimation()</code> ⟺ <code>setOutAnimation()</code>：设置进入(退出)屏幕时的动画。</li><li><code>showPrevious()</code> ⟺ <code>showNext()</code>：显示前(后)一页。</li><li><code>startFlipping()</code> ⟺ <code>stopFlipping()</code>：开始(停止)循环切换。</li><li><code>setFlipInterval()</code>：设置切换页面的时间间隔，eg. 1s = 1000。</li></ul></li><li>ScrollView：包裹的子控件屏幕显示不完全，需要通过滚动来显示完整的控件。<ul><li>ScrollView 垂直滚动，HorizontalScrollView 水平滚动。</li><li><code>getScrollY()</code>：获得滚动条的滚动距离。</li><li><code>scrollTo()</code>：使滚动条移动至指定位置。</li><li><code>scrollBy()</code>：使滚动条的滚动距离增加或减少。</li><li><code>getHeight()</code>：获得控件的高度。（在 onLayout 方法运行后被确定）</li><li><code>getMeasuredHeight()</code>：获得控件的高度。（在 onMeasure 方法运行后被确定）<ul><li>在 onLayout 方法中使用 <code>getMeasuredHeight()</code>，除此之外都使用<code>getHeight()</code>。</li></ul></li></ul></li><li>Gallery：画廊、缩略图浏览器。</li><li>ImageSwitcher：用于显示图片并切换的控件，可以设置切换时的动画效果。<ul><li>ImageView 的选择器，需要实现 ViewFactory 中的 makeView() 方法为其返回 ImageView。</li></ul></li></ul><h2 id=svg>SVG<a hidden class=anchor aria-hidden=true href=#svg>#</a></h2><p><img loading=lazy src=/blog/uploads/android-architecture.svg title="Android 架构"></p><p><img loading=lazy src=/blog/uploads/android-textview.svg title=TextView></p><p><img loading=lazy src=/blog/uploads/android-edittext.svg title=EditText></p><p><img loading=lazy src=/blog/uploads/android-imageview.svg title=ImageView></p><p><img loading=lazy src=/blog/uploads/android-button.svg title=Button></p><p><img loading=lazy src=/blog/uploads/android-imagebutton.svg title=ImageButton></p><p><img loading=lazy src=/blog/uploads/android-autocompletetextview.svg title=AutoCompleteTextView></p><p><img loading=lazy src=/blog/uploads/android-autocompletetextviewmulti.svg title=MultiAutoCompleteTextView></p><p><img loading=lazy src=/blog/uploads/android-togglebutton.svg title=ToggleButton></p><p><img loading=lazy src=/blog/uploads/android-checkbox.svg title=CheckBox></p><p><img loading=lazy src=/blog/uploads/android-radiobutton.svg title=RadioButton></p><p><img loading=lazy src=/blog/uploads/android-layout.svg title=Layout></p><h2 id=code>Code<a hidden class=anchor aria-hidden=true href=#code>#</a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-java data-lang=java><span style=display:flex><span>AutoCompleteTextView
+</span></span><span style=display:flex><span>布局文件
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>AutoCompleteTextView
+</span></span><span style=display:flex><span>        android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@+id/autoCompleteTextView&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;match_parent&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:hint<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;请输入关键词&#34;</span>     输入文本提示
+</span></span><span style=display:flex><span>        android:completionThreshold<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;2&#34;</span>     输入 2 个字符时开始匹配
+</span></span><span style=display:flex><span>        <span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Activity 文件
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>FirstActivity</span> <span style=color:#66d9ef>extends</span> AppCompatActivity {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> String<span style=color:#f92672>[]</span> res <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#34;beijing1&#34;</span>, <span style=color:#e6db74>&#34;beijing2&#34;</span>, <span style=color:#e6db74>&#34;beijing3&#34;</span>, <span style=color:#e6db74>&#34;shanghai1&#34;</span>, <span style=color:#e6db74>&#34;shanghai2&#34;</span>, <span style=color:#e6db74>&#34;shanghai3&#34;</span>};     数据源
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>protected</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onCreate</span>(Bundle savedInstanceState) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>super</span>.<span style=color:#a6e22e>onCreate</span>(savedInstanceState);
+</span></span><span style=display:flex><span>        setContentView(R.<span style=color:#a6e22e>layout</span>.<span style=color:#a6e22e>first_layout</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        AutoCompleteTextView a <span style=color:#f92672>=</span> (AutoCompleteTextView) findViewById(R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>autoCompleteTextView</span>);     1控件
+</span></span><span style=display:flex><span>        ArrayAdapter<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> adapter <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ArrayAdapter<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span>(<span style=color:#66d9ef>this</span>, android.<span style=color:#a6e22e>R</span>.<span style=color:#a6e22e>layout</span>.<span style=color:#a6e22e>simple_list_item_1</span>, res);     2适配器<span style=color:#960050;background-color:#1e0010>（</span>上下文对象<span style=color:#960050;background-color:#1e0010>，</span>布局文件<span style=color:#960050;background-color:#1e0010>，</span>数据源<span style=color:#960050;background-color:#1e0010>）</span>
+</span></span><span style=display:flex><span>        a.<span style=color:#a6e22e>setAdapter</span>(adapter);     3将控件与适配器绑定
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        a.<span style=color:#a6e22e>setTokenizer</span>(<span style=color:#66d9ef>new</span> MultiAutoCompleteTextView.<span style=color:#a6e22e>CommaTokenizer</span>());     4如果是 MultiAutoCompleteTextView 还需要设置分隔符
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>ToggleButton
+</span></span><span style=display:flex><span>布局文件
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>ToggleButton
+</span></span><span style=display:flex><span>        android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@+id/toggleButton&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;match_parent&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:checked<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;false&#34;</span>     默认为关
+</span></span><span style=display:flex><span>        android:textOff<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;关&#34;</span>
+</span></span><span style=display:flex><span>        android:textOn<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;开&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>ImageView
+</span></span><span style=display:flex><span>        android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@+id/imageView&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;match_parent&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;match_parent&#34;</span>
+</span></span><span style=display:flex><span>        android:background<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@drawable/png_off&#34;</span>     默认为关的图片
+</span></span><span style=display:flex><span>        <span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Activity 文件
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>FirstActivity</span> <span style=color:#66d9ef>extends</span> AppCompatActivity <span style=color:#66d9ef>implements</span> CompoundButton.<span style=color:#a6e22e>OnCheckedChangeListener</span> {     1通过接口方式实现监听器
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> ToggleButton toggleButton;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> ImageView imageView;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>protected</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onCreate</span>(Bundle savedInstanceState) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>super</span>.<span style=color:#a6e22e>onCreate</span>(savedInstanceState);
+</span></span><span style=display:flex><span>        setContentView(R.<span style=color:#a6e22e>layout</span>.<span style=color:#a6e22e>first_layout</span>);
+</span></span><span style=display:flex><span>        toggleButton <span style=color:#f92672>=</span> (ToggleButton) findViewById(R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>toggleButton</span>);
+</span></span><span style=display:flex><span>        imageView <span style=color:#f92672>=</span> (ImageView) findViewById(R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>imageView</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        toggleButton.<span style=color:#a6e22e>setOnCheckedChangeListener</span>(<span style=color:#66d9ef>this</span>);     3设置监听器
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>     2实现接口方法
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onCheckedChanged</span>(CompoundButton buttonView, <span style=color:#66d9ef>boolean</span> isChecked) {
+</span></span><span style=display:flex><span>        imageView.<span style=color:#a6e22e>setBackgroundResource</span>(isChecked <span style=color:#f92672>?</span> R.<span style=color:#a6e22e>drawable</span>.<span style=color:#a6e22e>png_on</span> : R.<span style=color:#a6e22e>mipmap</span>.<span style=color:#a6e22e>png_off</span>);     通过三元运算符来判断开关状态设置 imageView 的背景图片
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>CheckBox
+</span></span><span style=display:flex><span>布局文件
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>CheckBox
+</span></span><span style=display:flex><span>        android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@+id/checkBox&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;match_parent&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;篮球&#34;</span>
+</span></span><span style=display:flex><span>        android:textAlignment<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;center&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_gravity<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;center&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>CheckBox
+</span></span><span style=display:flex><span>        android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@+id/checkBox2&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;match_parent&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;足球&#34;</span>
+</span></span><span style=display:flex><span>        android:textAlignment<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;center&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_gravity<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;center&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Activity 文件
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>FirstActivity</span> <span style=color:#66d9ef>extends</span> AppCompatActivity <span style=color:#66d9ef>implements</span> CompoundButton.<span style=color:#a6e22e>OnCheckedChangeListener</span> {     通过接口方式实现监听器
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>protected</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onCreate</span>(Bundle savedInstanceState) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>super</span>.<span style=color:#a6e22e>onCreate</span>(savedInstanceState);
+</span></span><span style=display:flex><span>        setContentView(R.<span style=color:#a6e22e>layout</span>.<span style=color:#a6e22e>first_layout</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        CheckBox checkBox <span style=color:#f92672>=</span> (CheckBox) findViewById(R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>checkBox</span>);
+</span></span><span style=display:flex><span>        CheckBox checkBox2 <span style=color:#f92672>=</span> (CheckBox) findViewById(R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>checkBox2</span>);
+</span></span><span style=display:flex><span>        checkBox.<span style=color:#a6e22e>setOnCheckedChangeListener</span>(<span style=color:#66d9ef>this</span>);     设置监听器
+</span></span><span style=display:flex><span>        checkBox2.<span style=color:#a6e22e>setOnCheckedChangeListener</span>(<span style=color:#66d9ef>this</span>);     设置监听器
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onCheckedChanged</span>(CompoundButton compoundButton, <span style=color:#66d9ef>boolean</span> b) {
+</span></span><span style=display:flex><span>        Log.<span style=color:#a6e22e>i</span>(<span style=color:#e6db74>&#34;Tag&#34;</span>, b <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;&#34;</span>);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (b) {
+</span></span><span style=display:flex><span>            Toast.<span style=color:#a6e22e>makeText</span>(compoundButton.<span style=color:#a6e22e>getContext</span>(), <span style=color:#e6db74>&#34;选中&#34;</span> <span style=color:#f92672>+</span> compoundButton.<span style=color:#a6e22e>getText</span>().<span style=color:#a6e22e>toString</span>(), Toast.<span style=color:#a6e22e>LENGTH_SHORT</span>).<span style=color:#a6e22e>show</span>();
+</span></span><span style=display:flex><span>        } <span style=color:#66d9ef>else</span> {                                                  <span style=color:#960050;background-color:#1e0010>⇳</span> <span style=color:#960050;background-color:#1e0010>（</span>上下文对象<span style=color:#960050;background-color:#1e0010>，</span>字符串消息<span style=color:#960050;background-color:#1e0010>，</span>显示时间<span style=color:#960050;background-color:#1e0010>）</span>
+</span></span><span style=display:flex><span>            Toast.<span style=color:#a6e22e>makeText</span>(compoundButton.<span style=color:#a6e22e>getContext</span>(), <span style=color:#e6db74>&#34;取消&#34;</span> <span style=color:#f92672>+</span> compoundButton.<span style=color:#a6e22e>getText</span>().<span style=color:#a6e22e>toString</span>(), Toast.<span style=color:#a6e22e>LENGTH_SHORT</span>).<span style=color:#a6e22e>show</span>();
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>RadioGroup <span style=color:#f92672>&amp;&amp;</span> RadioButton
+</span></span><span style=display:flex><span>布局文件
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>RadioGroup
+</span></span><span style=display:flex><span>        android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@+id/radioGroup&#34;</span>
+</span></span><span style=display:flex><span>        android:orientation<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;horizontal&#34;</span>     水平排列
+</span></span><span style=display:flex><span>        android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span><span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;</span>RadioButton
+</span></span><span style=display:flex><span>            android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@+id/radioButton&#34;</span>
+</span></span><span style=display:flex><span>            android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>            android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>            android:checked<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;true&#34;</span>     默认选中
+</span></span><span style=display:flex><span>            android:text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;男&#34;</span><span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;</span>RadioButton
+</span></span><span style=display:flex><span>            android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@+id/radioButton2&#34;</span>
+</span></span><span style=display:flex><span>            android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>            android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>            android:text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;女&#34;</span><span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;/</span>RadioGroup<span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Activity 文件
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>FirstActivity</span> <span style=color:#66d9ef>extends</span> AppCompatActivity <span style=color:#66d9ef>implements</span> RadioGroup.<span style=color:#a6e22e>OnCheckedChangeListener</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>                                                                                            <span style=color:#960050;background-color:#1e0010>↳</span> 注意是实现 RadioGroup 类的监听方法<span style=color:#960050;background-color:#1e0010>，</span>而不是 CompoundButton 类的
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>protected</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onCreate</span>(Bundle savedInstanceState) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>super</span>.<span style=color:#a6e22e>onCreate</span>(savedInstanceState);
+</span></span><span style=display:flex><span>        setContentView(R.<span style=color:#a6e22e>layout</span>.<span style=color:#a6e22e>first_layout</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        RadioGroup radioGroup <span style=color:#f92672>=</span> (RadioGroup) findViewById(R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>radioGroup</span>);
+</span></span><span style=display:flex><span>        radioGroup.<span style=color:#a6e22e>setOnCheckedChangeListener</span>(<span style=color:#66d9ef>this</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onCheckedChanged</span>(RadioGroup radioGroup, <span style=color:#a6e22e>@IdRes</span> <span style=color:#66d9ef>int</span> i) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>switch</span> (i) {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>case</span> R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>radioButton</span>:
+</span></span><span style=display:flex><span>                Log.<span style=color:#a6e22e>i</span>(<span style=color:#e6db74>&#34;Tag&#34;</span>, <span style=color:#e6db74>&#34;性别为男&#34;</span>);
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>case</span> R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>radioButton2</span>:
+</span></span><span style=display:flex><span>                Log.<span style=color:#a6e22e>i</span>(<span style=color:#e6db74>&#34;Tag&#34;</span>, <span style=color:#e6db74>&#34;性别为女&#34;</span>);
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>ListView
+</span></span><span style=display:flex><span>布局文件
+</span></span><span style=display:flex><span>main_activity.<span style=color:#a6e22e>xml</span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>⇳</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>ListView
+</span></span><span style=display:flex><span>        android:scrollbars<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;vertical&#34;</span>     显示垂直滚动条
+</span></span><span style=display:flex><span>        android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;match_parent&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@+id/listView&#34;</span><span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span>item.<span style=color:#a6e22e>xml</span>     简单适配器的自定义布局文件
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>⇳</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>ImageView
+</span></span><span style=display:flex><span>        android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:src<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@mipmap/ic_launcher&#34;</span>
+</span></span><span style=display:flex><span>        android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@+id/imageView&#34;</span><span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>TextView
+</span></span><span style=display:flex><span>        android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Test&#34;</span>
+</span></span><span style=display:flex><span>        android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@+id/textView&#34;</span><span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Activity 文件
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MainActivity</span> <span style=color:#66d9ef>extends</span> AppCompatActivity <span style=color:#66d9ef>implements</span> AdapterView.<span style=color:#a6e22e>OnItemClickListener</span>, AbsListView.<span style=color:#a6e22e>OnScrollListener</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> String<span style=color:#f92672>[]</span> data1 <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#34;1&#34;</span>, <span style=color:#e6db74>&#34;2&#34;</span>, <span style=color:#e6db74>&#34;3&#34;</span>, <span style=color:#e6db74>&#34;4&#34;</span>, <span style=color:#e6db74>&#34;5&#34;</span>, <span style=color:#e6db74>&#34;6&#34;</span>};     数据源
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>protected</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onCreate</span>(<span style=color:#a6e22e>@Nullable</span> Bundle savedInstanceState) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>super</span>.<span style=color:#a6e22e>onCreate</span>(savedInstanceState);
+</span></span><span style=display:flex><span>        setContentView(R.<span style=color:#a6e22e>layout</span>.<span style=color:#a6e22e>main_activity</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        ListView listView <span style=color:#f92672>=</span> (ListView) findViewById(R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>listView</span>);     1控件
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        ArrayAdapter<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> arrayAdapter <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ArrayAdapter<span style=color:#f92672>&lt;&gt;</span>(<span style=color:#66d9ef>this</span>, android.<span style=color:#a6e22e>R</span>.<span style=color:#a6e22e>layout</span>.<span style=color:#a6e22e>simple_list_item_1</span>, data1);
+</span></span><span style=display:flex><span>        listView.<span style=color:#a6e22e>setAdapter</span>(arrayAdapter);     3将控件与适配器绑定                               <span style=color:#960050;background-color:#1e0010>↳</span> 2数组适配器<span style=color:#960050;background-color:#1e0010>（</span>上下文对象<span style=color:#960050;background-color:#1e0010>，</span>布局文件<span style=color:#960050;background-color:#1e0010>，</span>数据源<span style=color:#960050;background-color:#1e0010>）</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        SimpleAdapter simpleAdapter <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> SimpleAdapter(<span style=color:#66d9ef>this</span>, getdata(), R.<span style=color:#a6e22e>layout</span>.<span style=color:#a6e22e>item</span>, <span style=color:#66d9ef>new</span> String<span style=color:#f92672>[]</span>{<span style=color:#e6db74>&#34;image&#34;</span>, <span style=color:#e6db74>&#34;text&#34;</span>}, <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span>{R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>imageView</span>, R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>textView</span>});
+</span></span><span style=display:flex><span>        listView.<span style=color:#a6e22e>setAdapter</span>(simpleAdapter);     3将控件与适配器绑定                             <span style=color:#960050;background-color:#1e0010>↳</span> 2简单适配器<span style=color:#960050;background-color:#1e0010>（</span>上下文对象<span style=color:#960050;background-color:#1e0010>，</span>数据源<span style=color:#960050;background-color:#1e0010>，</span>布局文件<span style=color:#960050;background-color:#1e0010>，</span>索引(Map中的键名)<span style=color:#960050;background-color:#1e0010>，</span>绑定控件ID(与索引成对应关系)<span style=color:#960050;background-color:#1e0010>）</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        listView.<span style=color:#a6e22e>setOnItemClickListener</span>(<span style=color:#66d9ef>this</span>);     监听点击条目
+</span></span><span style=display:flex><span>        listView.<span style=color:#a6e22e>setOnScrollListener</span>(<span style=color:#66d9ef>this</span>);     监听滚动变化
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> List<span style=color:#f92672>&lt;</span>Map<span style=color:#f92672>&lt;</span>String, Object<span style=color:#f92672>&gt;&gt;</span> <span style=color:#a6e22e>getdata</span>() {     数据源<span style=color:#960050;background-color:#1e0010>：</span>由许多 Map 所组成的 List 集合<span style=color:#960050;background-color:#1e0010>，</span>一个 Map 对应一个条目
+</span></span><span style=display:flex><span>        List<span style=color:#f92672>&lt;</span>Map<span style=color:#f92672>&lt;</span>String, Object<span style=color:#f92672>&gt;&gt;</span> data2 <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ArrayList<span style=color:#f92672>&lt;&gt;</span>();
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 0; i <span style=color:#f92672>&lt;</span> 6; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>            Map<span style=color:#f92672>&lt;</span>String, Object<span style=color:#f92672>&gt;</span> map <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> HashMap<span style=color:#f92672>&lt;&gt;</span>();
+</span></span><span style=display:flex><span>            map.<span style=color:#a6e22e>put</span>(<span style=color:#e6db74>&#34;image&#34;</span>, R.<span style=color:#a6e22e>mipmap</span>.<span style=color:#a6e22e>ic_launcher</span>);     (键,值)
+</span></span><span style=display:flex><span>            map.<span style=color:#a6e22e>put</span>(<span style=color:#e6db74>&#34;text&#34;</span>, <span style=color:#e6db74>&#34;文本&#34;</span> <span style=color:#f92672>+</span> i);
+</span></span><span style=display:flex><span>            data2.<span style=color:#a6e22e>add</span>(map);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> data2;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onScroll</span>(AbsListView view, <span style=color:#66d9ef>int</span> firstVisibleItem, <span style=color:#66d9ef>int</span> visibleItemCount, <span style=color:#66d9ef>int</span> totalItemCount) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (firstVisibleItem <span style=color:#f92672>==</span> 0) {
+</span></span><span style=display:flex><span>            Log.<span style=color:#a6e22e>i</span>(<span style=color:#e6db74>&#34;Tag&#34;</span>, <span style=color:#e6db74>&#34;在顶部&#34;</span>);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (firstVisibleItem <span style=color:#f92672>+</span> visibleItemCount <span style=color:#f92672>==</span> totalItemCount) {
+</span></span><span style=display:flex><span>            Log.<span style=color:#a6e22e>i</span>(<span style=color:#e6db74>&#34;Tag&#34;</span>, <span style=color:#e6db74>&#34;在底部&#34;</span>);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onScrollStateChanged</span>(AbsListView view, <span style=color:#66d9ef>int</span> scrollState) {     滚动变化
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>switch</span> (scrollState) {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>case</span> SCROLL_STATE_TOUCH_SCROLL:
+</span></span><span style=display:flex><span>                Log.<span style=color:#a6e22e>i</span>(<span style=color:#e6db74>&#34;Tag&#34;</span>, <span style=color:#e6db74>&#34;1正在滚动(手指未离开)&#34;</span>);
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>case</span> SCROLL_STATE_FLING:
+</span></span><span style=display:flex><span>                Log.<span style=color:#a6e22e>i</span>(<span style=color:#e6db74>&#34;Tag&#34;</span>, <span style=color:#e6db74>&#34;2正在滑动(手指已离开)&#34;</span>);
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>case</span> SCROLL_STATE_IDLE:
+</span></span><span style=display:flex><span>                Log.<span style=color:#a6e22e>i</span>(<span style=color:#e6db74>&#34;Tag&#34;</span>, <span style=color:#e6db74>&#34;3停止滚动&#34;</span>);
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onItemClick</span>(AdapterView<span style=color:#f92672>&lt;?&gt;</span> parent, View view, <span style=color:#66d9ef>int</span> position, <span style=color:#66d9ef>long</span> id) {     点击条目
+</span></span><span style=display:flex><span>        Toast.<span style=color:#a6e22e>makeText</span>(<span style=color:#66d9ef>this</span>, position <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;\n&#34;</span> <span style=color:#f92672>+</span> parent.<span style=color:#a6e22e>getItemAtPosition</span>(position).<span style=color:#a6e22e>toString</span>(), Toast.<span style=color:#a6e22e>LENGTH_SHORT</span>).<span style=color:#a6e22e>show</span>();
+</span></span><span style=display:flex><span>    }                                           <span style=color:#960050;background-color:#1e0010>↳</span> 显示索引位置和对应数据源中的数据
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>下滑增加新条目
+</span></span><span style=display:flex><span><span style=color:#66d9ef>case</span> SCROLL_STATE_FLING:
+</span></span><span style=display:flex><span>    Map<span style=color:#f92672>&lt;</span>String, Object<span style=color:#f92672>&gt;</span> map <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> HashMap<span style=color:#f92672>&lt;&gt;</span>();
+</span></span><span style=display:flex><span>    map.<span style=color:#a6e22e>put</span>(<span style=color:#e6db74>&#34;image&#34;</span>, R.<span style=color:#a6e22e>mipmap</span>.<span style=color:#a6e22e>ic_launcher</span>);
+</span></span><span style=display:flex><span>    map.<span style=color:#a6e22e>put</span>(<span style=color:#e6db74>&#34;text&#34;</span>, <span style=color:#e6db74>&#34;新条目&#34;</span>);
+</span></span><span style=display:flex><span>    data2.<span style=color:#a6e22e>add</span>(map);
+</span></span><span style=display:flex><span>    simpleAdapter.<span style=color:#a6e22e>notifyDataSetChanged</span>();     更新控件数据<span style=color:#960050;background-color:#1e0010>，</span>同步 UI 线程
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>DatePicker <span style=color:#f92672>&amp;&amp;</span> TimePicker
+</span></span><span style=display:flex><span>布局文件
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>DatePicker
+</span></span><span style=display:flex><span>        android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@+id/datePicker&#34;</span><span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>TimePicker
+</span></span><span style=display:flex><span>        android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@+id/timePicker&#34;</span><span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Activity 文件
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MainActivity</span> <span style=color:#66d9ef>extends</span> AppCompatActivity {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>protected</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onCreate</span>(<span style=color:#a6e22e>@Nullable</span> Bundle savedInstanceState) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>super</span>.<span style=color:#a6e22e>onCreate</span>(savedInstanceState);
+</span></span><span style=display:flex><span>        setContentView(R.<span style=color:#a6e22e>layout</span>.<span style=color:#a6e22e>main_activity</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        DatePicker datePicker <span style=color:#f92672>=</span> (DatePicker) findViewById(R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>datePicker</span>);
+</span></span><span style=display:flex><span>        TimePicker timePicker <span style=color:#f92672>=</span> (TimePicker) findViewById(R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>timePicker</span>);
+</span></span><span style=display:flex><span>        Calendar calendar <span style=color:#f92672>=</span> Calendar.<span style=color:#a6e22e>getInstance</span>();     java.<span style=color:#a6e22e>util</span>.<span style=color:#a6e22e>Calendar</span> 类
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> year <span style=color:#f92672>=</span> calendar.<span style=color:#a6e22e>get</span>(Calendar.<span style=color:#a6e22e>YEAR</span>);     年
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> month <span style=color:#f92672>=</span> calendar.<span style=color:#a6e22e>get</span>(Calendar.<span style=color:#a6e22e>MONTH</span>) <span style=color:#f92672>+</span> 1;     月<span style=color:#960050;background-color:#1e0010>（</span>从零开始<span style=color:#960050;background-color:#1e0010>）</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> day <span style=color:#f92672>=</span> calendar.<span style=color:#a6e22e>get</span>(Calendar.<span style=color:#a6e22e>DAY_OF_MONTH</span>);     日
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> hour <span style=color:#f92672>=</span> calendar.<span style=color:#a6e22e>get</span>(Calendar.<span style=color:#a6e22e>HOUR_OF_DAY</span>);     小时
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> minute <span style=color:#f92672>=</span> calendar.<span style=color:#a6e22e>get</span>(Calendar.<span style=color:#a6e22e>MINUTE</span>);     分钟
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>setTitle</span>(year <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;-&#34;</span> <span style=color:#f92672>+</span> month <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;-&#34;</span> <span style=color:#f92672>+</span> day <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;-&#34;</span> <span style=color:#f92672>+</span> hour <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;:&#34;</span> <span style=color:#f92672>+</span> minute);     设置标题栏
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        datePicker.<span style=color:#a6e22e>init</span>(year, calendar.<span style=color:#a6e22e>get</span>(Calendar.<span style=color:#a6e22e>MONTH</span>), day, <span style=color:#66d9ef>new</span> DatePicker.<span style=color:#a6e22e>OnDateChangedListener</span>() {     日期选择器<span style=color:#960050;background-color:#1e0010>（</span>年<span style=color:#960050;background-color:#1e0010>，</span>月<span style=color:#960050;background-color:#1e0010>，</span>日<span style=color:#960050;background-color:#1e0010>，</span>监听器<span style=color:#960050;background-color:#1e0010>）</span>
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onDateChanged</span>(DatePicker view, <span style=color:#66d9ef>int</span> year, <span style=color:#66d9ef>int</span> monthOfYear, <span style=color:#66d9ef>int</span> dayOfMonth) {
+</span></span><span style=display:flex><span>                setTitle(year <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;-&#34;</span> <span style=color:#f92672>+</span> (monthOfYear <span style=color:#f92672>+</span> 1) <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;-&#34;</span> <span style=color:#f92672>+</span> dayOfMonth);
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        });
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        timePicker.<span style=color:#a6e22e>setOnTimeChangedListener</span>(<span style=color:#66d9ef>new</span> TimePicker.<span style=color:#a6e22e>OnTimeChangedListener</span>() {     时间选择器<span style=color:#960050;background-color:#1e0010>（</span>监听器<span style=color:#960050;background-color:#1e0010>）</span>
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onTimeChanged</span>(TimePicker view, <span style=color:#66d9ef>int</span> hourOfDay, <span style=color:#66d9ef>int</span> minute) {
+</span></span><span style=display:flex><span>                setTitle(hourOfDay <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;:&#34;</span> <span style=color:#f92672>+</span> minute);
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        });
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>new</span> DatePickerDialog(<span style=color:#66d9ef>this</span>, <span style=color:#66d9ef>new</span> DatePickerDialog.<span style=color:#a6e22e>OnDateSetListener</span>() {     对话框形式的日期选择器<span style=color:#960050;background-color:#1e0010>（</span>上下文对象<span style=color:#960050;background-color:#1e0010>，</span>监听器<span style=color:#960050;background-color:#1e0010>，</span>年<span style=color:#960050;background-color:#1e0010>，</span>月<span style=color:#960050;background-color:#1e0010>，</span>日<span style=color:#960050;background-color:#1e0010>）</span>.<span style=color:#a6e22e>show</span>()
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onDateSet</span>(DatePicker view, <span style=color:#66d9ef>int</span> year, <span style=color:#66d9ef>int</span> monthOfYear, <span style=color:#66d9ef>int</span> dayOfMonth) {
+</span></span><span style=display:flex><span>                setTitle(year <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;-&#34;</span> <span style=color:#f92672>+</span> (monthOfYear <span style=color:#f92672>+</span> 1) <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;-&#34;</span> <span style=color:#f92672>+</span> dayOfMonth);
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }, year, calendar.<span style=color:#a6e22e>get</span>(Calendar.<span style=color:#a6e22e>MONTH</span>), day).<span style=color:#a6e22e>show</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>new</span> TimePickerDialog(<span style=color:#66d9ef>this</span>, <span style=color:#66d9ef>new</span> TimePickerDialog.<span style=color:#a6e22e>OnTimeSetListener</span>() {     对话框形式的时间选择器<span style=color:#960050;background-color:#1e0010>（</span>上下文对象<span style=color:#960050;background-color:#1e0010>，</span>监听器<span style=color:#960050;background-color:#1e0010>，</span>小时<span style=color:#960050;background-color:#1e0010>，</span>分钟<span style=color:#960050;background-color:#1e0010>，</span>是否为24小时制<span style=color:#960050;background-color:#1e0010>）</span>.<span style=color:#a6e22e>show</span>()
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onTimeSet</span>(TimePicker view, <span style=color:#66d9ef>int</span> hourOfDay, <span style=color:#66d9ef>int</span> minute) {
+</span></span><span style=display:flex><span>                setTitle(hourOfDay <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;:&#34;</span> <span style=color:#f92672>+</span> minute);
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }, hour, minute, <span style=color:#66d9ef>true</span>).<span style=color:#a6e22e>show</span>();
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>GridView
+</span></span><span style=display:flex><span>布局文件
+</span></span><span style=display:flex><span>main_activity.<span style=color:#a6e22e>xml</span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>⇳</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>GridView
+</span></span><span style=display:flex><span>        android:numColumns<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;3&#34;</span>     一行三列<span style=color:#960050;background-color:#1e0010>，</span>可以设置自适应 auto_fit
+</span></span><span style=display:flex><span>        android:horizontalSpacing<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;10dp&#34;</span>     列间距
+</span></span><span style=display:flex><span>        android:verticalSpacing<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;10dp&#34;</span>     行间距
+</span></span><span style=display:flex><span>        android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@+id/gridView&#34;</span><span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span>item.<span style=color:#a6e22e>xml</span>     简单适配器的自定义布局文件
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>⇳</span>
+</span></span><span style=display:flex><span>LinearLayout <span style=color:#960050;background-color:#1e0010>⟺</span> android:gravity<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;center&#34;</span>     整体居中
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>ImageView
+</span></span><span style=display:flex><span>        android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:src<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@mipmap/ic_launcher&#34;</span>
+</span></span><span style=display:flex><span>        android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@+id/imageView&#34;</span><span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>TextView
+</span></span><span style=display:flex><span>        android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Test&#34;</span>
+</span></span><span style=display:flex><span>        android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@+id/textView&#34;</span><span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Activity 文件
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MainActivity</span> <span style=color:#66d9ef>extends</span> AppCompatActivity <span style=color:#66d9ef>implements</span> AdapterView.<span style=color:#a6e22e>OnItemClickListener</span> {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>protected</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onCreate</span>(<span style=color:#a6e22e>@Nullable</span> Bundle savedInstanceState) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>super</span>.<span style=color:#a6e22e>onCreate</span>(savedInstanceState);
+</span></span><span style=display:flex><span>        setContentView(R.<span style=color:#a6e22e>layout</span>.<span style=color:#a6e22e>main_activity</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        GridView gridView <span style=color:#f92672>=</span> (GridView) findViewById(R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>gridView</span>);     1控件
+</span></span><span style=display:flex><span>        SimpleAdapter simpleAdapter <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> SimpleAdapter(<span style=color:#66d9ef>this</span>, getdata(), R.<span style=color:#a6e22e>layout</span>.<span style=color:#a6e22e>item</span>, <span style=color:#66d9ef>new</span> String<span style=color:#f92672>[]</span>{<span style=color:#e6db74>&#34;image&#34;</span>, <span style=color:#e6db74>&#34;text&#34;</span>}, <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span>{R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>imageView</span>, R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>textView</span>});
+</span></span><span style=display:flex><span>        gridView.<span style=color:#a6e22e>setAdapter</span>(simpleAdapter);     3将控件与适配器绑定                             <span style=color:#960050;background-color:#1e0010>↳</span> 2简单适配器<span style=color:#960050;background-color:#1e0010>（</span>上下文对象<span style=color:#960050;background-color:#1e0010>，</span>数据源<span style=color:#960050;background-color:#1e0010>，</span>布局文件<span style=color:#960050;background-color:#1e0010>，</span>索引(Map中的键名)<span style=color:#960050;background-color:#1e0010>，</span>绑定控件ID(与索引成对应关系)<span style=color:#960050;background-color:#1e0010>）</span>
+</span></span><span style=display:flex><span>        gridView.<span style=color:#a6e22e>setOnItemClickListener</span>(<span style=color:#66d9ef>this</span>);     监听点击条目
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> List<span style=color:#f92672>&lt;</span>Map<span style=color:#f92672>&lt;</span>String, Object<span style=color:#f92672>&gt;&gt;</span> <span style=color:#a6e22e>getdata</span>() {     数据源
+</span></span><span style=display:flex><span>        List<span style=color:#f92672>&lt;</span>Map<span style=color:#f92672>&lt;</span>String, Object<span style=color:#f92672>&gt;&gt;</span> data <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ArrayList<span style=color:#f92672>&lt;&gt;</span>();
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 0; i <span style=color:#f92672>&lt;</span> 9; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>            Map<span style=color:#f92672>&lt;</span>String, Object<span style=color:#f92672>&gt;</span> map <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> HashMap<span style=color:#f92672>&lt;&gt;</span>();
+</span></span><span style=display:flex><span>            map.<span style=color:#a6e22e>put</span>(<span style=color:#e6db74>&#34;image&#34;</span>, R.<span style=color:#a6e22e>mipmap</span>.<span style=color:#a6e22e>ic_launcher</span>);
+</span></span><span style=display:flex><span>            map.<span style=color:#a6e22e>put</span>(<span style=color:#e6db74>&#34;text&#34;</span>, <span style=color:#e6db74>&#34;文本&#34;</span> <span style=color:#f92672>+</span> i);
+</span></span><span style=display:flex><span>            data.<span style=color:#a6e22e>add</span>(map);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> data;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onItemClick</span>(AdapterView<span style=color:#f92672>&lt;?&gt;</span> parent, View view, <span style=color:#66d9ef>int</span> position, <span style=color:#66d9ef>long</span> id) {
+</span></span><span style=display:flex><span>        Log.<span style=color:#a6e22e>i</span>(<span style=color:#e6db74>&#34;Tag&#34;</span>, parent <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;\n&#34;</span> <span style=color:#f92672>+</span> view <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;\n&#34;</span> <span style=color:#f92672>+</span> position <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;\n&#34;</span> <span style=color:#f92672>+</span> id);
+</span></span><span style=display:flex><span>        Log.<span style=color:#a6e22e>i</span>(<span style=color:#e6db74>&#34;Tag&#34;</span>, ((TextView) view.<span style=color:#a6e22e>findViewById</span>(R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>textView</span>)).<span style=color:#a6e22e>getText</span>().<span style=color:#a6e22e>toString</span>());     获得点击条目中的控件
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Spinner
+</span></span><span style=display:flex><span>布局文件
+</span></span><span style=display:flex><span>main_activity.<span style=color:#a6e22e>xml</span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>⇳</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>Spinner
+</span></span><span style=display:flex><span>        android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;match_parent&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@+id/spinner&#34;</span><span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>TextView
+</span></span><span style=display:flex><span>        android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;New Text&#34;</span>
+</span></span><span style=display:flex><span>        android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@+id/textView&#34;</span><span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span>item.<span style=color:#a6e22e>xml</span>     简单适配器的自定义布局文件
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>⇳</span>
+</span></span><span style=display:flex><span>LinearLayout <span style=color:#960050;background-color:#1e0010>⟺</span> android:orientation<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;horizontal&#34;</span>     横向排列
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>ImageView
+</span></span><span style=display:flex><span>        android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:src<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@mipmap/ic_launcher&#34;</span>
+</span></span><span style=display:flex><span>        android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@+id/imageView&#34;</span><span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>TextView
+</span></span><span style=display:flex><span>        android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Test&#34;</span>
+</span></span><span style=display:flex><span>        android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@+id/textView2&#34;</span><span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Activity 文件
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MainActivity</span> <span style=color:#66d9ef>extends</span> AppCompatActivity <span style=color:#66d9ef>implements</span> AdapterView.<span style=color:#a6e22e>OnItemSelectedListener</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> String<span style=color:#f92672>[]</span> strings <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#34;文本1&#34;</span>, <span style=color:#e6db74>&#34;文本2&#34;</span>, <span style=color:#e6db74>&#34;文本3&#34;</span>, <span style=color:#e6db74>&#34;文本4&#34;</span>,};     数据源
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> TextView textView;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> Spinner spinner;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>protected</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onCreate</span>(<span style=color:#a6e22e>@Nullable</span> Bundle savedInstanceState) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>super</span>.<span style=color:#a6e22e>onCreate</span>(savedInstanceState);
+</span></span><span style=display:flex><span>        setContentView(R.<span style=color:#a6e22e>layout</span>.<span style=color:#a6e22e>main_activity</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        textView <span style=color:#f92672>=</span> (TextView) findViewById(R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>textView</span>);
+</span></span><span style=display:flex><span>        spinner <span style=color:#f92672>=</span> (Spinner) findViewById(R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>spinner</span>);     1控件
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        ArrayAdapter<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> arrayAdapter <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ArrayAdapter<span style=color:#f92672>&lt;&gt;</span>(<span style=color:#66d9ef>this</span>, android.<span style=color:#a6e22e>R</span>.<span style=color:#a6e22e>layout</span>.<span style=color:#a6e22e>simple_spinner_item</span>, strings);     2数组适配器
+</span></span><span style=display:flex><span>        arrayAdapter.<span style=color:#a6e22e>setDropDownViewResource</span>(android.<span style=color:#a6e22e>R</span>.<span style=color:#a6e22e>layout</span>.<span style=color:#a6e22e>simple_spinner_dropdown_item</span>);     设置下拉样式
+</span></span><span style=display:flex><span>        spinner.<span style=color:#a6e22e>setAdapter</span>(arrayAdapter);     3将控件与适配器绑定
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        SimpleAdapter simpleAdapter <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> SimpleAdapter(<span style=color:#66d9ef>this</span>, getdata(), R.<span style=color:#a6e22e>layout</span>.<span style=color:#a6e22e>item</span>, <span style=color:#66d9ef>new</span> String<span style=color:#f92672>[]</span>{<span style=color:#e6db74>&#34;image&#34;</span>, <span style=color:#e6db74>&#34;text&#34;</span>}, <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span>{R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>imageView</span>, R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>textView2</span>});     2简单适配器
+</span></span><span style=display:flex><span>        simpleAdapter.<span style=color:#a6e22e>setDropDownViewResource</span>(R.<span style=color:#a6e22e>layout</span>.<span style=color:#a6e22e>item</span>);     设置下拉样式
+</span></span><span style=display:flex><span>        spinner.<span style=color:#a6e22e>setAdapter</span>(simpleAdapter);     3将控件与适配器绑定
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        spinner.<span style=color:#a6e22e>setOnItemSelectedListener</span>(<span style=color:#66d9ef>this</span>);     监听器
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> List<span style=color:#f92672>&lt;</span>Map<span style=color:#f92672>&lt;</span>String, Object<span style=color:#f92672>&gt;&gt;</span> <span style=color:#a6e22e>getdata</span>() {     数据源
+</span></span><span style=display:flex><span>        List<span style=color:#f92672>&lt;</span>Map<span style=color:#f92672>&lt;</span>String, Object<span style=color:#f92672>&gt;&gt;</span> data <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ArrayList<span style=color:#f92672>&lt;&gt;</span>();
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (String string : strings) {
+</span></span><span style=display:flex><span>            Map<span style=color:#f92672>&lt;</span>String, Object<span style=color:#f92672>&gt;</span> map <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> HashMap<span style=color:#f92672>&lt;&gt;</span>();
+</span></span><span style=display:flex><span>            map.<span style=color:#a6e22e>put</span>(<span style=color:#e6db74>&#34;image&#34;</span>, R.<span style=color:#a6e22e>mipmap</span>.<span style=color:#a6e22e>ic_launcher</span>);
+</span></span><span style=display:flex><span>            map.<span style=color:#a6e22e>put</span>(<span style=color:#e6db74>&#34;text&#34;</span>, string);
+</span></span><span style=display:flex><span>            data.<span style=color:#a6e22e>add</span>(map);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> data;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onItemSelected</span>(AdapterView<span style=color:#f92672>&lt;?&gt;</span> parent, View view, <span style=color:#66d9ef>int</span> position, <span style=color:#66d9ef>long</span> id) {
+</span></span><span style=display:flex><span>        textView.<span style=color:#a6e22e>setText</span>(position <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;\n&#34;</span> <span style=color:#f92672>+</span> ((TextView) view.<span style=color:#a6e22e>findViewById</span>(R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>textView2</span>)).<span style=color:#a6e22e>getText</span>().<span style=color:#a6e22e>toString</span>());
+</span></span><span style=display:flex><span>    }                                     <span style=color:#960050;background-color:#1e0010>↳</span> 显示索引位置并且获得点击条目中的控件
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onNothingSelected</span>(AdapterView<span style=color:#f92672>&lt;?&gt;</span> parent) {
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>ProgressBar
+</span></span><span style=display:flex><span>布局文件
+</span></span><span style=display:flex><span>main_activity.<span style=color:#a6e22e>xml</span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>⇳</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>ProgressBar
+</span></span><span style=display:flex><span>        android:progressDrawable<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@drawable/progressbar&#34;</span>     覆盖系统自带的样式<span style=color:#960050;background-color:#1e0010>（</span>可选<span style=color:#960050;background-color:#1e0010>）</span>
+</span></span><span style=display:flex><span>        android:secondaryProgress<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;60&#34;</span>     第二进度条
+</span></span><span style=display:flex><span>        android:progress<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;30&#34;</span>     第一进度条
+</span></span><span style=display:flex><span>        android:max<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;100&#34;</span>     最大进度条
+</span></span><span style=display:flex><span>        android:indeterminate<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;false&#34;</span>     设置为精确进度
+</span></span><span style=display:flex><span>        style<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;?android:attr/progressBarStyleHorizontal&#34;</span>     设置为水平进度条
+</span></span><span style=display:flex><span>        android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;match_parent&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@+id/progressBar&#34;</span><span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>Button
+</span></span><span style=display:flex><span>        android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;增加&#34;</span>
+</span></span><span style=display:flex><span>        android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@+id/increase&#34;</span><span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>Button
+</span></span><span style=display:flex><span>        android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;减少&#34;</span>
+</span></span><span style=display:flex><span>        android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@+id/decrease&#34;</span><span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>Button
+</span></span><span style=display:flex><span>        android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;重置&#34;</span>
+</span></span><span style=display:flex><span>        android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@+id/reset&#34;</span><span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>Button
+</span></span><span style=display:flex><span>        android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;对话框形式&#34;</span>
+</span></span><span style=display:flex><span>        android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@+id/dialog&#34;</span><span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>TextView
+</span></span><span style=display:flex><span>        android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;New Text&#34;</span>
+</span></span><span style=display:flex><span>        android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@+id/textView&#34;</span><span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span>progressbar.<span style=color:#a6e22e>xml</span>     自定义进度条样式
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>⇳</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>layer<span style=color:#f92672>-</span>list xmlns:android<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;http://schemas.android.com/apk/res/android&#34;</span><span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;</span>item android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@android:id/background&#34;</span><span style=color:#f92672>&gt;</span>     最大进度条
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&lt;</span>shape<span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&lt;</span>solid android:color<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;#ff9d9e9d&#34;</span><span style=color:#f92672>/&gt;</span>     填充色
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&lt;/</span>shape<span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;/</span>item<span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;</span>item android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@android:id/secondaryProgress&#34;</span><span style=color:#f92672>&gt;</span>     第二进度条
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&lt;</span>clip<span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&lt;</span>shape<span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>                <span style=color:#f92672>&lt;</span>solid android:color<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;#008a9f&#34;</span><span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&lt;/</span>shape<span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&lt;/</span>clip<span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;/</span>item<span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;</span>item android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@android:id/progress&#34;</span><span style=color:#f92672>&gt;</span>     第一进度条
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&lt;</span>clip<span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&lt;</span>shape<span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>                <span style=color:#f92672>&lt;</span>solid android:color<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;#00ddff&#34;</span><span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&lt;/</span>shape<span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&lt;/</span>clip<span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;/</span>item<span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;/</span>layer<span style=color:#f92672>-</span>list<span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Activity 文件
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MainActivity</span> <span style=color:#66d9ef>extends</span> AppCompatActivity <span style=color:#66d9ef>implements</span> View.<span style=color:#a6e22e>OnClickListener</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> ProgressBar progressBar;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> Button btn_increase;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> Button btn_decrease;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> Button btn_reset;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> Button btn_dialog;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> TextView textView;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>protected</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onCreate</span>(<span style=color:#a6e22e>@Nullable</span> Bundle savedInstanceState) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>super</span>.<span style=color:#a6e22e>onCreate</span>(savedInstanceState);
+</span></span><span style=display:flex><span>        setContentView(R.<span style=color:#a6e22e>layout</span>.<span style=color:#a6e22e>main_activity</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        progressBar <span style=color:#f92672>=</span> (ProgressBar) findViewById(R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>progressBar</span>);
+</span></span><span style=display:flex><span>        btn_increase <span style=color:#f92672>=</span> (Button) findViewById(R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>increase</span>);
+</span></span><span style=display:flex><span>        btn_decrease <span style=color:#f92672>=</span> (Button) findViewById(R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>decrease</span>);
+</span></span><span style=display:flex><span>        btn_reset <span style=color:#f92672>=</span> (Button) findViewById(R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>reset</span>);
+</span></span><span style=display:flex><span>        btn_dialog <span style=color:#f92672>=</span> (Button) findViewById(R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>dialog</span>);
+</span></span><span style=display:flex><span>        textView <span style=color:#f92672>=</span> (TextView) findViewById(R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>textView</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        btn_increase.<span style=color:#a6e22e>setOnClickListener</span>(<span style=color:#66d9ef>this</span>);
+</span></span><span style=display:flex><span>        btn_decrease.<span style=color:#a6e22e>setOnClickListener</span>(<span style=color:#66d9ef>this</span>);
+</span></span><span style=display:flex><span>        btn_reset.<span style=color:#a6e22e>setOnClickListener</span>(<span style=color:#66d9ef>this</span>);
+</span></span><span style=display:flex><span>        btn_dialog.<span style=color:#a6e22e>setOnClickListener</span>(<span style=color:#66d9ef>this</span>);
+</span></span><span style=display:flex><span>        textView.<span style=color:#a6e22e>setText</span>(<span style=color:#e6db74>&#34;第一进度条：&#34;</span> <span style=color:#f92672>+</span> progressBar.<span style=color:#a6e22e>getProgress</span>() <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;%第二进度条：&#34;</span> <span style=color:#f92672>+</span> progressBar.<span style=color:#a6e22e>getSecondaryProgress</span>() <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;%最大进度条：&#34;</span> <span style=color:#f92672>+</span> progressBar.<span style=color:#a6e22e>getMax</span>());
+</span></span><span style=display:flex><span>    }                                                                           <span style=color:#960050;background-color:#1e0010>↳</span> 获取进度
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onClick</span>(View v) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>switch</span> (v.<span style=color:#a6e22e>getId</span>()) {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>case</span> R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>increase</span>:
+</span></span><span style=display:flex><span>                progressBar.<span style=color:#a6e22e>incrementProgressBy</span>(10);     改变进度
+</span></span><span style=display:flex><span>                progressBar.<span style=color:#a6e22e>incrementSecondaryProgressBy</span>(10);
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>case</span> R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>decrease</span>:
+</span></span><span style=display:flex><span>                progressBar.<span style=color:#a6e22e>incrementProgressBy</span>(<span style=color:#f92672>-</span>10);     改变进度
+</span></span><span style=display:flex><span>                progressBar.<span style=color:#a6e22e>incrementSecondaryProgressBy</span>(<span style=color:#f92672>-</span>10);
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>case</span> R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>reset</span>:
+</span></span><span style=display:flex><span>                progressBar.<span style=color:#a6e22e>setProgress</span>(30);     设置进度
+</span></span><span style=display:flex><span>                progressBar.<span style=color:#a6e22e>setSecondaryProgress</span>(60);
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>case</span> R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>dialog</span>:
+</span></span><span style=display:flex><span>                ProgressDialog progressDialog <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ProgressDialog(<span style=color:#66d9ef>this</span>);     实例化对话框
+</span></span><span style=display:flex><span>                progressDialog.<span style=color:#a6e22e>setTitle</span>(<span style=color:#e6db74>&#34;对话框标题&#34;</span>);
+</span></span><span style=display:flex><span>                progressDialog.<span style=color:#a6e22e>setMessage</span>(<span style=color:#e6db74>&#34;对话框信息&#34;</span>);
+</span></span><span style=display:flex><span>                progressDialog.<span style=color:#a6e22e>setIcon</span>(R.<span style=color:#a6e22e>mipmap</span>.<span style=color:#a6e22e>ic_launcher</span>);     对话框图标
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                progressDialog.<span style=color:#a6e22e>setProgressStyle</span>(ProgressDialog.<span style=color:#a6e22e>STYLE_HORIZONTAL</span>);     设置为水平进度条
+</span></span><span style=display:flex><span>                progressDialog.<span style=color:#a6e22e>setIndeterminate</span>(<span style=color:#66d9ef>false</span>);     设置为精确进度
+</span></span><span style=display:flex><span>                progressDialog.<span style=color:#a6e22e>setMax</span>(100);     设置最大进度
+</span></span><span style=display:flex><span>                progressDialog.<span style=color:#a6e22e>incrementProgressBy</span>(30);     改变进度
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                progressDialog.<span style=color:#a6e22e>setButton</span>(DialogInterface.<span style=color:#a6e22e>BUTTON_POSITIVE</span>, <span style=color:#e6db74>&#34;确定&#34;</span>, <span style=color:#66d9ef>new</span> DialogInterface.<span style=color:#a6e22e>OnClickListener</span>() {     确定按钮
+</span></span><span style=display:flex><span>                    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onClick</span>(DialogInterface dialog, <span style=color:#66d9ef>int</span> which) {
+</span></span><span style=display:flex><span>                        Toast.<span style=color:#a6e22e>makeText</span>(MainActivity.<span style=color:#a6e22e>this</span>, <span style=color:#e6db74>&#34;已确定&#34;</span>, Toast.<span style=color:#a6e22e>LENGTH_SHORT</span>).<span style=color:#a6e22e>show</span>();
+</span></span><span style=display:flex><span>                    }
+</span></span><span style=display:flex><span>                });
+</span></span><span style=display:flex><span>                progressDialog.<span style=color:#a6e22e>setButton</span>(DialogInterface.<span style=color:#a6e22e>BUTTON_NEGATIVE</span>, <span style=color:#e6db74>&#34;取消&#34;</span>, <span style=color:#66d9ef>new</span> DialogInterface.<span style=color:#a6e22e>OnClickListener</span>() {     取消按钮
+</span></span><span style=display:flex><span>                    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onClick</span>(DialogInterface dialog, <span style=color:#66d9ef>int</span> which) {
+</span></span><span style=display:flex><span>                        Toast.<span style=color:#a6e22e>makeText</span>(MainActivity.<span style=color:#a6e22e>this</span>, <span style=color:#e6db74>&#34;已取消&#34;</span>, Toast.<span style=color:#a6e22e>LENGTH_SHORT</span>).<span style=color:#a6e22e>show</span>();
+</span></span><span style=display:flex><span>                    }
+</span></span><span style=display:flex><span>                });
+</span></span><span style=display:flex><span>                progressDialog.<span style=color:#a6e22e>setCancelable</span>(<span style=color:#66d9ef>false</span>);     不可以通过返回按钮退出对话框
+</span></span><span style=display:flex><span>                progressDialog.<span style=color:#a6e22e>show</span>();     显示对话框
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        textView.<span style=color:#a6e22e>setText</span>(<span style=color:#e6db74>&#34;第一进度条：&#34;</span> <span style=color:#f92672>+</span> progressBar.<span style=color:#a6e22e>getProgress</span>() <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;%第二进度条：&#34;</span> <span style=color:#f92672>+</span> progressBar.<span style=color:#a6e22e>getSecondaryProgress</span>() <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;%最大进度条：&#34;</span> <span style=color:#f92672>+</span> progressBar.<span style=color:#a6e22e>getMax</span>());
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>WebView
+</span></span><span style=display:flex><span>布局文件
+</span></span><span style=display:flex><span>main_activity.<span style=color:#a6e22e>xml</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>WebView
+</span></span><span style=display:flex><span>        android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@+id/webView&#34;</span><span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span>配置文件
+</span></span><span style=display:flex><span>AndroidManifest.<span style=color:#a6e22e>xml</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>uses<span style=color:#f92672>-</span>permission android:name<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;android.permission.INTERNET&#34;</span><span style=color:#f92672>/&gt;</span>     网络访问权限
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Activity 文件
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MainActivity</span> <span style=color:#66d9ef>extends</span> AppCompatActivity {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> WebView webView;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> ProgressDialog progressDialog;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>protected</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onCreate</span>(<span style=color:#a6e22e>@Nullable</span> Bundle savedInstanceState) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>super</span>.<span style=color:#a6e22e>onCreate</span>(savedInstanceState);
+</span></span><span style=display:flex><span>        setContentView(R.<span style=color:#a6e22e>layout</span>.<span style=color:#a6e22e>main_activity</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        webView <span style=color:#f92672>=</span> (WebView) findViewById(R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>webView</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        webView.<span style=color:#a6e22e>loadUrl</span>(<span style=color:#e6db74>&#34;https://www.bing.com/&#34;</span>);     加载 Web 页面
+</span></span><span style=display:flex><span>        webView.<span style=color:#a6e22e>loadUrl</span>(<span style=color:#e6db74>&#34;file:///android_asset/example.html&#34;</span>);     加载本地页面
+</span></span><span style=display:flex><span>        webView.<span style=color:#a6e22e>setWebViewClient</span>(<span style=color:#66d9ef>new</span> WebViewClient() {
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>boolean</span> <span style=color:#a6e22e>shouldOverrideUrlLoading</span>(WebView view, String url) {     不使用外部游览器打开页面
+</span></span><span style=display:flex><span>                view.<span style=color:#a6e22e>loadUrl</span>(url);
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>true</span>;
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        });
+</span></span><span style=display:flex><span>        webView.<span style=color:#a6e22e>setWebChromeClient</span>(<span style=color:#66d9ef>new</span> WebChromeClient() {
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onProgressChanged</span>(WebView view, <span style=color:#66d9ef>int</span> newProgress) {     弹出 ProgressDialog 显示页面加载进度
+</span></span><span style=display:flex><span>                <span style=color:#a6e22e>if</span> (newProgress <span style=color:#f92672>==</span> 100) {
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>if</span> (progressDialog <span style=color:#f92672>!=</span> <span style=color:#66d9ef>null</span> <span style=color:#f92672>&amp;&amp;</span> progressDialog.<span style=color:#a6e22e>isShowing</span>()) {
+</span></span><span style=display:flex><span>                        progressDialog.<span style=color:#a6e22e>dismiss</span>();     关闭对话框
+</span></span><span style=display:flex><span>                        progressDialog <span style=color:#f92672>=</span> <span style=color:#66d9ef>null</span>;
+</span></span><span style=display:flex><span>                    }
+</span></span><span style=display:flex><span>                } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>if</span> (progressDialog <span style=color:#f92672>==</span> <span style=color:#66d9ef>null</span>) {
+</span></span><span style=display:flex><span>                        progressDialog <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ProgressDialog(MainActivity.<span style=color:#a6e22e>this</span>);
+</span></span><span style=display:flex><span>                        progressDialog.<span style=color:#a6e22e>setTitle</span>(<span style=color:#e6db74>&#34;正在加载&#34;</span>);
+</span></span><span style=display:flex><span>                        progressDialog.<span style=color:#a6e22e>setProgressStyle</span>(ProgressDialog.<span style=color:#a6e22e>STYLE_HORIZONTAL</span>);
+</span></span><span style=display:flex><span>                        progressDialog.<span style=color:#a6e22e>setProgress</span>(newProgress);
+</span></span><span style=display:flex><span>                        progressDialog.<span style=color:#a6e22e>show</span>();     显示对话框
+</span></span><span style=display:flex><span>                    } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>                        progressDialog.<span style=color:#a6e22e>setProgress</span>(newProgress);
+</span></span><span style=display:flex><span>                    }
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        });
+</span></span><span style=display:flex><span>        WebSettings settings <span style=color:#f92672>=</span> webView.<span style=color:#a6e22e>getSettings</span>();     获得 WebSettings 对象
+</span></span><span style=display:flex><span>        settings.<span style=color:#a6e22e>setJavaScriptEnabled</span>(<span style=color:#66d9ef>true</span>);     启用 JavaScript
+</span></span><span style=display:flex><span>        settings.<span style=color:#a6e22e>setCacheMode</span>(WebSettings.<span style=color:#a6e22e>LOAD_CACHE_ELSE_NETWORK</span>);     优先使用缓存
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>boolean</span> <span style=color:#a6e22e>onKeyDown</span>(<span style=color:#66d9ef>int</span> keyCode, KeyEvent event) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (keyCode <span style=color:#f92672>==</span> KeyEvent.<span style=color:#a6e22e>KEYCODE_BACK</span>) {     判断是否为返回键
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>if</span> (webView.<span style=color:#a6e22e>canGoBack</span>()) {
+</span></span><span style=display:flex><span>                webView.<span style=color:#a6e22e>goBack</span>();     返回上一页面
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>true</span>;     消耗掉事件
+</span></span><span style=display:flex><span>            } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>                finish();     结束当前 Activity
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>super</span>.<span style=color:#a6e22e>onKeyDown</span>(keyCode, event);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>ViewFlipper
+</span></span><span style=display:flex><span>布局文件
+</span></span><span style=display:flex><span>main_activity.<span style=color:#a6e22e>xml</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>ViewFlipper
+</span></span><span style=display:flex><span>        android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@+id/viewFlipper&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;match_parent&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;match_parent&#34;</span><span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;/</span>ViewFlipper<span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Activity 文件
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MainActivity</span> <span style=color:#66d9ef>extends</span> Activity <span style=color:#66d9ef>implements</span> View.<span style=color:#a6e22e>OnTouchListener</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> ViewFlipper viewFlipper;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>float</span> startX;     起始X轴坐标
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>protected</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onCreate</span>(<span style=color:#a6e22e>@Nullable</span> <span style=color:#66d9ef>final</span> Bundle savedInstanceState) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>super</span>.<span style=color:#a6e22e>onCreate</span>(savedInstanceState);
+</span></span><span style=display:flex><span>        setContentView(R.<span style=color:#a6e22e>layout</span>.<span style=color:#a6e22e>main_activity</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        viewFlipper <span style=color:#f92672>=</span> (ViewFlipper) findViewById(R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>viewFlipper</span>);
+</span></span><span style=display:flex><span>        viewFlipper.<span style=color:#a6e22e>addView</span>(getImageView(R.<span style=color:#a6e22e>mipmap</span>.<span style=color:#a6e22e>ic_launcher</span>));     动态导入页面
+</span></span><span style=display:flex><span>        viewFlipper.<span style=color:#a6e22e>addView</span>(getImageView(R.<span style=color:#a6e22e>mipmap</span>.<span style=color:#a6e22e>ic_launcher</span>));
+</span></span><span style=display:flex><span>        viewFlipper.<span style=color:#a6e22e>addView</span>(getImageView(R.<span style=color:#a6e22e>mipmap</span>.<span style=color:#a6e22e>ic_launcher</span>));
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        viewFlipper.<span style=color:#a6e22e>setInAnimation</span>(<span style=color:#66d9ef>this</span>, R.<span style=color:#a6e22e>anim</span>.<span style=color:#a6e22e>left_in</span>);     设置进入动画
+</span></span><span style=display:flex><span>        viewFlipper.<span style=color:#a6e22e>setOutAnimation</span>(<span style=color:#66d9ef>this</span>, R.<span style=color:#a6e22e>anim</span>.<span style=color:#a6e22e>left_out</span>);     设置退出动画
+</span></span><span style=display:flex><span>        viewFlipper.<span style=color:#a6e22e>setFlipInterval</span>(2000);     设置切换页面的间隔为 2s
+</span></span><span style=display:flex><span>        viewFlipper.<span style=color:#a6e22e>startFlipping</span>();     第一种<span style=color:#960050;background-color:#1e0010>：</span>页面轮播
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        viewFlipper.<span style=color:#a6e22e>setOnTouchListener</span>(<span style=color:#66d9ef>this</span>);     第二种<span style=color:#960050;background-color:#1e0010>：</span>手势切换<span style=color:#960050;background-color:#1e0010>（</span>设置监听器<span style=color:#960050;background-color:#1e0010>）</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> ImageView <span style=color:#a6e22e>getImageView</span>(<span style=color:#66d9ef>int</span> resID) {     获得 ImageView
+</span></span><span style=display:flex><span>        ImageView imageView <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ImageView(<span style=color:#66d9ef>this</span>);
+</span></span><span style=display:flex><span>        imageView.<span style=color:#a6e22e>setImageResource</span>(resID);     内容图片
+</span></span><span style=display:flex><span>        imageView.<span style=color:#a6e22e>setBackgroundResource</span>(resID);     背景图片
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> imageView;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>boolean</span> <span style=color:#a6e22e>onTouch</span>(View v, MotionEvent event) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>switch</span> (event.<span style=color:#a6e22e>getAction</span>()) {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>case</span> MotionEvent.<span style=color:#a6e22e>ACTION_DOWN</span>:     1手指按下
+</span></span><span style=display:flex><span>                startX <span style=color:#f92672>=</span> event.<span style=color:#a6e22e>getX</span>();     获得起始X轴坐标
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>case</span> MotionEvent.<span style=color:#a6e22e>ACTION_MOVE</span>:     2手指滑动
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>case</span> MotionEvent.<span style=color:#a6e22e>ACTION_UP</span>:     3手指离开
+</span></span><span style=display:flex><span>                <span style=color:#a6e22e>if</span> (event.<span style=color:#a6e22e>getX</span>() <span style=color:#f92672>-</span> startX <span style=color:#f92672>&gt;</span> 100) {     向右滑动看前一页面
+</span></span><span style=display:flex><span>                    viewFlipper.<span style=color:#a6e22e>setInAnimation</span>(MainActivity.<span style=color:#a6e22e>this</span>, R.<span style=color:#a6e22e>anim</span>.<span style=color:#a6e22e>left_in</span>);
+</span></span><span style=display:flex><span>                    viewFlipper.<span style=color:#a6e22e>setOutAnimation</span>(MainActivity.<span style=color:#a6e22e>this</span>, R.<span style=color:#a6e22e>anim</span>.<span style=color:#a6e22e>left_out</span>);
+</span></span><span style=display:flex><span>                    viewFlipper.<span style=color:#a6e22e>showPrevious</span>();     显示前一页
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>if</span> (startX <span style=color:#f92672>-</span> event.<span style=color:#a6e22e>getX</span>() <span style=color:#f92672>&gt;</span> 100) {     向左滑动看后一页
+</span></span><span style=display:flex><span>                    viewFlipper.<span style=color:#a6e22e>setInAnimation</span>(MainActivity.<span style=color:#a6e22e>this</span>, R.<span style=color:#a6e22e>anim</span>.<span style=color:#a6e22e>right_in</span>);
+</span></span><span style=display:flex><span>                    viewFlipper.<span style=color:#a6e22e>setOutAnimation</span>(MainActivity.<span style=color:#a6e22e>this</span>, R.<span style=color:#a6e22e>anim</span>.<span style=color:#a6e22e>right_out</span>);
+</span></span><span style=display:flex><span>                    viewFlipper.<span style=color:#a6e22e>showNext</span>();     显示后一页
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>true</span>;     消耗掉事件
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>ScrollView
+</span></span><span style=display:flex><span>布局文件
+</span></span><span style=display:flex><span>main_activity.<span style=color:#a6e22e>xml</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>Button
+</span></span><span style=display:flex><span>        android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Up&#34;</span>
+</span></span><span style=display:flex><span>        android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@+id/button&#34;</span><span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>Button
+</span></span><span style=display:flex><span>        android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Down&#34;</span>
+</span></span><span style=display:flex><span>        android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@+id/button2&#34;</span><span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>ScrollView
+</span></span><span style=display:flex><span>        android:scrollbars<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;none&#34;</span>     不显示滚动条
+</span></span><span style=display:flex><span>        android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;match_parent&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@+id/scrollView&#34;</span><span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;</span>TextView
+</span></span><span style=display:flex><span>            android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;match_parent&#34;</span>
+</span></span><span style=display:flex><span>            android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>            android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@+id/textView&#34;</span><span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;/</span>ScrollView<span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Activity 文件
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MainActivity</span> <span style=color:#66d9ef>extends</span> Activity <span style=color:#66d9ef>implements</span> View.<span style=color:#a6e22e>OnTouchListener</span>, View.<span style=color:#a6e22e>OnClickListener</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> ScrollView scrollView;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>protected</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onCreate</span>(<span style=color:#a6e22e>@Nullable</span> Bundle savedInstanceState) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>super</span>.<span style=color:#a6e22e>onCreate</span>(savedInstanceState);
+</span></span><span style=display:flex><span>        setContentView(R.<span style=color:#a6e22e>layout</span>.<span style=color:#a6e22e>main_activity</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        TextView textView <span style=color:#f92672>=</span> (TextView) findViewById(R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>textView</span>);
+</span></span><span style=display:flex><span>        textView.<span style=color:#a6e22e>setText</span>(getResources().<span style=color:#a6e22e>getString</span>(R.<span style=color:#a6e22e>string</span>.<span style=color:#a6e22e>text</span>));     获得 strings.<span style=color:#a6e22e>xml</span> 里的资源 text
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        scrollView <span style=color:#f92672>=</span> (ScrollView) findViewById(R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>scrollView</span>);
+</span></span><span style=display:flex><span>        Button up <span style=color:#f92672>=</span> (Button) findViewById(R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>button</span>);
+</span></span><span style=display:flex><span>        Button down <span style=color:#f92672>=</span> (Button) findViewById(R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>button2</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        scrollView.<span style=color:#a6e22e>setOnTouchListener</span>(<span style=color:#66d9ef>this</span>);     监听器
+</span></span><span style=display:flex><span>        up.<span style=color:#a6e22e>setOnClickListener</span>(<span style=color:#66d9ef>this</span>);     监听器
+</span></span><span style=display:flex><span>        down.<span style=color:#a6e22e>setOnClickListener</span>(<span style=color:#66d9ef>this</span>);     监听器
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        scrollView.<span style=color:#a6e22e>setHorizontalScrollBarEnabled</span>(<span style=color:#66d9ef>false</span>);     不显示横向滚动条
+</span></span><span style=display:flex><span>        scrollView.<span style=color:#a6e22e>setVerticalScrollBarEnabled</span>(<span style=color:#66d9ef>false</span>);     不显示纵向滚动条
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>boolean</span> <span style=color:#a6e22e>onTouch</span>(View v, MotionEvent event) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>switch</span> (event.<span style=color:#a6e22e>getAction</span>()) {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>case</span> MotionEvent.<span style=color:#a6e22e>ACTION_DOWN</span>:     1手指按下
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>case</span> MotionEvent.<span style=color:#a6e22e>ACTION_MOVE</span>:     2手指移动
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>case</span> MotionEvent.<span style=color:#a6e22e>ACTION_UP</span>:     3手指离开
+</span></span><span style=display:flex><span>                <span style=color:#a6e22e>if</span> (scrollView.<span style=color:#a6e22e>getScrollY</span>() <span style=color:#f92672>==</span> 0) {     滚动距离为 0 时
+</span></span><span style=display:flex><span>                    Log.<span style=color:#a6e22e>i</span>(<span style=color:#e6db74>&#34;Tag&#34;</span>, <span style=color:#e6db74>&#34;在顶部&#34;</span>);
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>if</span> (scrollView.<span style=color:#a6e22e>getScrollY</span>() <span style=color:#f92672>+</span> scrollView.<span style=color:#a6e22e>getHeight</span>() <span style=color:#f92672>==</span> scrollView.<span style=color:#a6e22e>getChildAt</span>(0).<span style=color:#a6e22e>getHeight</span>()) {     滚动距离<span style=color:#f92672>+</span>父容器高度(屏幕高度)<span style=color:#f92672>=</span>子控件高度 时
+</span></span><span style=display:flex><span>                    Log.<span style=color:#a6e22e>i</span>(<span style=color:#e6db74>&#34;Tag&#34;</span>, <span style=color:#e6db74>&#34;在底部&#34;</span>);
+</span></span><span style=display:flex><span>                    ((TextView) <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>findViewById</span>(R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>textView</span>)).<span style=color:#a6e22e>append</span>(getResources().<span style=color:#a6e22e>getString</span>(R.<span style=color:#a6e22e>string</span>.<span style=color:#a6e22e>string</span>));     追加文本
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>false</span>;     不消耗事件<span style=color:#960050;background-color:#1e0010>，</span>让 TextView 得以滚动
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onClick</span>(View v) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>switch</span> (v.<span style=color:#a6e22e>getId</span>()) {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>case</span> R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>button</span>:
+</span></span><span style=display:flex><span>                scrollView.<span style=color:#a6e22e>scrollBy</span>(0, <span style=color:#f92672>-</span>30);     向上滚动 30
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>case</span> R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>button2</span>:
+</span></span><span style=display:flex><span>                scrollView.<span style=color:#a6e22e>scrollBy</span>(0, 30);     向下滚动 30
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Gallery <span style=color:#f92672>+</span> ImageSwitcher
+</span></span><span style=display:flex><span>布局文件
+</span></span><span style=display:flex><span>main_activity.<span style=color:#a6e22e>xml</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>Gallery
+</span></span><span style=display:flex><span>        android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;match_parent&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@+id/gallery&#34;</span><span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>ImageSwitcher
+</span></span><span style=display:flex><span>        android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;match_parent&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;match_parent&#34;</span>
+</span></span><span style=display:flex><span>        android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@+id/imageSwitcher&#34;</span><span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Activity 文件
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MainActivity</span> <span style=color:#66d9ef>extends</span> Activity <span style=color:#66d9ef>implements</span> AdapterView.<span style=color:#a6e22e>OnItemSelectedListener</span>, ViewSwitcher.<span style=color:#a6e22e>ViewFactory</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> res <span style=color:#f92672>=</span> {R.<span style=color:#a6e22e>mipmap</span>.<span style=color:#a6e22e>ic_launcher</span>, R.<span style=color:#a6e22e>mipmap</span>.<span style=color:#a6e22e>ic_launcher</span>, R.<span style=color:#a6e22e>mipmap</span>.<span style=color:#a6e22e>ic_launcher</span>};     数据源
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> ImageSwitcher imageSwitcher;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>protected</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onCreate</span>(<span style=color:#a6e22e>@Nullable</span> Bundle savedInstanceState) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>super</span>.<span style=color:#a6e22e>onCreate</span>(savedInstanceState);
+</span></span><span style=display:flex><span>        setContentView(R.<span style=color:#a6e22e>layout</span>.<span style=color:#a6e22e>main_activity</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        Gallery gallery <span style=color:#f92672>=</span> (Gallery) findViewById(R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>gallery</span>);     1控件
+</span></span><span style=display:flex><span>        MyBaseAdapter myBaseAdapter <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> MyBaseAdapter(<span style=color:#66d9ef>this</span>, res);     2自定义适配器<span style=color:#960050;background-color:#1e0010>（</span>上下文对象<span style=color:#960050;background-color:#1e0010>，</span>数据源<span style=color:#960050;background-color:#1e0010>）</span>
+</span></span><span style=display:flex><span>        gallery.<span style=color:#a6e22e>setAdapter</span>(myBaseAdapter);     3将控件与适配器绑定
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        gallery.<span style=color:#a6e22e>setOnItemSelectedListener</span>(<span style=color:#66d9ef>this</span>);     加载监听器
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        imageSwitcher <span style=color:#f92672>=</span> (ImageSwitcher) findViewById(R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>imageSwitcher</span>);
+</span></span><span style=display:flex><span>        imageSwitcher.<span style=color:#a6e22e>setFactory</span>(<span style=color:#66d9ef>this</span>);     加载 ViewFactory<span style=color:#960050;background-color:#1e0010>，</span>实现 <span style=color:#a6e22e>makeView</span>() 方法
+</span></span><span style=display:flex><span>        imageSwitcher.<span style=color:#a6e22e>setInAnimation</span>(AnimationUtils.<span style=color:#a6e22e>loadAnimation</span>(<span style=color:#66d9ef>this</span>, android.<span style=color:#a6e22e>R</span>.<span style=color:#a6e22e>anim</span>.<span style=color:#a6e22e>fade_in</span>));     设置进入动画
+</span></span><span style=display:flex><span>        imageSwitcher.<span style=color:#a6e22e>setOutAnimation</span>(AnimationUtils.<span style=color:#a6e22e>loadAnimation</span>(<span style=color:#66d9ef>this</span>, android.<span style=color:#a6e22e>R</span>.<span style=color:#a6e22e>anim</span>.<span style=color:#a6e22e>fade_out</span>));     设置退出动画
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onItemSelected</span>(AdapterView<span style=color:#f92672>&lt;?&gt;</span> parent, View view, <span style=color:#66d9ef>int</span> position, <span style=color:#66d9ef>long</span> id) {
+</span></span><span style=display:flex><span>        imageSwitcher.<span style=color:#a6e22e>setBackgroundResource</span>(res<span style=color:#f92672>[</span>position<span style=color:#f92672>]</span>);     设置背景图片
+</span></span><span style=display:flex><span><span style=color:#75715e>//        imageSwitcher.setBackgroundResource(res[position % res.length]);     循环页面</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onNothingSelected</span>(AdapterView<span style=color:#f92672>&lt;?&gt;</span> parent) {
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> View <span style=color:#a6e22e>makeView</span>() {     创建 View
+</span></span><span style=display:flex><span>        ImageView imageView <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ImageView(<span style=color:#66d9ef>this</span>);
+</span></span><span style=display:flex><span>        imageView.<span style=color:#a6e22e>setScaleType</span>(ImageView.<span style=color:#a6e22e>ScaleType</span>.<span style=color:#a6e22e>FIT_CENTER</span>);     设置图片缩放模式为等比例缩放并居中
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> imageView;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MyBaseAdapter</span> <span style=color:#66d9ef>extends</span> BaseAdapter {     自定义适配器
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> Context context;     上下文对象
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> res;     数据源
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#a6e22e>MyBaseAdapter</span>(Context context, <span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> res) {     构造方法
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>context</span> <span style=color:#f92672>=</span> context;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>res</span> <span style=color:#f92672>=</span> res;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>int</span> <span style=color:#a6e22e>getCount</span>() {     获得页面数量
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> res.<span style=color:#a6e22e>length</span>;
+</span></span><span style=display:flex><span><span style=color:#75715e>//        return Integer.MAX_VALUE;     循环页面</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> Object <span style=color:#a6e22e>getItem</span>(<span style=color:#66d9ef>int</span> position) {     获得数据对象
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> res<span style=color:#f92672>[</span>position<span style=color:#f92672>]</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>long</span> <span style=color:#a6e22e>getItemId</span>(<span style=color:#66d9ef>int</span> position) {     获得数据ID
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> position;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> View <span style=color:#a6e22e>getView</span>(<span style=color:#66d9ef>int</span> position, View convertView, ViewGroup parent) {     获得页面
+</span></span><span style=display:flex><span>        ImageView imageView <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ImageView(context);
+</span></span><span style=display:flex><span>        imageView.<span style=color:#a6e22e>setBackgroundResource</span>(res<span style=color:#f92672>[</span>position<span style=color:#f92672>]</span>);     设置背景图片
+</span></span><span style=display:flex><span><span style=color:#75715e>//        imageView.setBackgroundResource(res[position % res.length]);     循环页面</span>
+</span></span><span style=display:flex><span>        imageView.<span style=color:#a6e22e>setLayoutParams</span>(<span style=color:#66d9ef>new</span> ViewGroup.<span style=color:#a6e22e>LayoutParams</span>(400, 300));     设置控件宽高
+</span></span><span style=display:flex><span>        imageView.<span style=color:#a6e22e>setScaleType</span>(ImageView.<span style=color:#a6e22e>ScaleType</span>.<span style=color:#a6e22e>FIT_XY</span>);     设置图片缩放模式为铺满控件
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> imageView;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>SeekBar
+</span></span><span style=display:flex><span>布局文件
+</span></span><span style=display:flex><span>main_activity.<span style=color:#a6e22e>xml</span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>⇳</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>SeekBar
+</span></span><span style=display:flex><span>        android:progressDrawable<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@drawable/progressbar&#34;</span>     覆盖系统自带的样式<span style=color:#960050;background-color:#1e0010>（</span>可选<span style=color:#960050;background-color:#1e0010>）</span>
+</span></span><span style=display:flex><span>        android:thumb<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@drawable/seekbar_thumb&#34;</span>     覆盖系统自带的样式<span style=color:#960050;background-color:#1e0010>（</span>可选<span style=color:#960050;background-color:#1e0010>）</span>
+</span></span><span style=display:flex><span>        android:progress<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;50&#34;</span>     第一进度条
+</span></span><span style=display:flex><span>        android:max<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;100&#34;</span>     最大进度条
+</span></span><span style=display:flex><span>        android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;match_parent&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@+id/seekBar&#34;</span><span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span>seekbar_thumb.<span style=color:#a6e22e>xml</span>     自定义拖动按钮样式
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>⇳</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>selector xmlns:android<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;http://schemas.android.com/apk/res/android&#34;</span><span style=color:#f92672>&gt;</span>     选择器
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;</span>item android:state_pressed<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;true&#34;</span> android:state_window_focused<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;true&#34;</span> android:drawable<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@mipmap/ic_launcher&#34;</span><span style=color:#f92672>/&gt;</span>     按下
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;</span>item android:state_focused<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;true&#34;</span> android:state_window_focused<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;true&#34;</span> android:drawable<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@mipmap/ic_launcher&#34;</span><span style=color:#f92672>/&gt;</span>     焦点
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;</span>item android:state_selected<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;true&#34;</span> android:state_window_focused<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;true&#34;</span> android:drawable<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@mipmap/ic_launcher&#34;</span><span style=color:#f92672>/&gt;</span>     选中
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;</span>item android:drawable<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@mipmap/ic_launcher&#34;</span><span style=color:#f92672>/&gt;</span>     默认
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;/</span>selector<span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Activity 文件
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MainActivity</span> <span style=color:#66d9ef>extends</span> Activity <span style=color:#66d9ef>implements</span> SeekBar.<span style=color:#a6e22e>OnSeekBarChangeListener</span> {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>protected</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onCreate</span>(<span style=color:#a6e22e>@Nullable</span> Bundle savedInstanceState) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>super</span>.<span style=color:#a6e22e>onCreate</span>(savedInstanceState);
+</span></span><span style=display:flex><span>        setContentView(R.<span style=color:#a6e22e>layout</span>.<span style=color:#a6e22e>main_activity</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        SeekBar seekBar <span style=color:#f92672>=</span> (SeekBar) findViewById(R.<span style=color:#a6e22e>id</span>.<span style=color:#a6e22e>seekBar</span>);
+</span></span><span style=display:flex><span>        seekBar.<span style=color:#a6e22e>setOnSeekBarChangeListener</span>(<span style=color:#66d9ef>this</span>);     设置监听器
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onProgressChanged</span>(SeekBar seekBar, <span style=color:#66d9ef>int</span> progress, <span style=color:#66d9ef>boolean</span> fromUser) {
+</span></span><span style=display:flex><span>        Log.<span style=color:#a6e22e>i</span>(<span style=color:#e6db74>&#34;Tag&#34;</span>, <span style=color:#e6db74>&#34;2正在拖动:&#34;</span> <span style=color:#f92672>+</span> String.<span style=color:#a6e22e>valueOf</span>(progress));
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onStartTrackingTouch</span>(SeekBar seekBar) {
+</span></span><span style=display:flex><span>        Log.<span style=color:#a6e22e>i</span>(<span style=color:#e6db74>&#34;Tag&#34;</span>, <span style=color:#e6db74>&#34;1开始拖动&#34;</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@Override</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>onStopTrackingTouch</span>(SeekBar seekBar) {
+</span></span><span style=display:flex><span>        Log.<span style=color:#a6e22e>i</span>(<span style=color:#e6db74>&#34;Tag&#34;</span>, <span style=color:#e6db74>&#34;3停止拖动&#34;</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><hr><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-java data-lang=java><span style=display:flex><span>android:visibility<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;visible&#34;</span>     可见
+</span></span><span style=display:flex><span>button.<span style=color:#a6e22e>setVisibility</span>(View.<span style=color:#a6e22e>VISIBLE</span>);
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>android:visibility<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;invisible&#34;</span>     隐形<span style=color:#960050;background-color:#1e0010>（</span>不可见<span style=color:#960050;background-color:#1e0010>，</span>占据空间<span style=color:#960050;background-color:#1e0010>）</span>
+</span></span><span style=display:flex><span>button.<span style=color:#a6e22e>setVisibility</span>(View.<span style=color:#a6e22e>INVISIBLE</span>);
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>android:visibility<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;gone&#34;</span>     隐藏<span style=color:#960050;background-color:#1e0010>（</span>不可见<span style=color:#960050;background-color:#1e0010>，</span>释放空间<span style=color:#960050;background-color:#1e0010>）</span>
+</span></span><span style=display:flex><span>button.<span style=color:#a6e22e>setVisibility</span>(View.<span style=color:#a6e22e>GONE</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>include     导入布局
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>include layout<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@layout/common_title&#34;</span><span style=color:#f92672>/&gt;</span>     导入的布局
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>merge     忽略顶节点<span style=color:#960050;background-color:#1e0010>，</span>直接导入子控件
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>merge xmlns:android<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;http://schemas.android.com/apk/res/android&#34;</span>     忽略
+</span></span><span style=display:flex><span>       android:orientation<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;vertical&#34;</span>     忽略
+</span></span><span style=display:flex><span>       android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;match_parent&#34;</span>     忽略
+</span></span><span style=display:flex><span>       android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;match_parent&#34;</span><span style=color:#f92672>&gt;</span>     忽略
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;</span>ProgressBar
+</span></span><span style=display:flex><span>            android:layout_centerInParent<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;true&#34;</span>
+</span></span><span style=display:flex><span>            android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>            android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span><span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;</span>TextView
+</span></span><span style=display:flex><span>            android:text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;请稍后&#34;</span>
+</span></span><span style=display:flex><span>            android:layout_centerInParent<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;true&#34;</span>
+</span></span><span style=display:flex><span>            android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>            android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span><span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;/</span>merge<span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>ViewStub     导入布局<span style=color:#960050;background-color:#1e0010>（</span>惰性加载<span style=color:#960050;background-color:#1e0010>）</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>ViewStub
+</span></span><span style=display:flex><span>        android:layout<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@layout/common_title&#34;</span>     导入的布局
+</span></span><span style=display:flex><span>        android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@+id/viewStub&#34;</span><span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>----</span>
+</span></span><span style=display:flex><span>viewStub.<span style=color:#a6e22e>setOnInflateListener</span>()     设置加载时的监听器<span style=color:#960050;background-color:#1e0010>（</span>可选<span style=color:#960050;background-color:#1e0010>）</span>
+</span></span><span style=display:flex><span>View view <span style=color:#f92672>=</span> viewStub.<span style=color:#a6e22e>inflate</span>();     开始加载并接收实例化的布局 View
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>-------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>RadioButton 做出 TAB 效果
+</span></span><span style=display:flex><span>布局文件
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>RadioButton
+</span></span><span style=display:flex><span>        android:checked<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;true&#34;</span>     默认选中
+</span></span><span style=display:flex><span>        android:drawableTop<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@mipmap/ic_launcher&#34;</span>     放置图片
+</span></span><span style=display:flex><span>        android:background<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@drawable/button&#34;</span>     背景样式
+</span></span><span style=display:flex><span>        android:button<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@null&#34;</span>     无按钮样式
+</span></span><span style=display:flex><span>        android:gravity<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;center&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_width<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:layout_height<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;wrap_content&#34;</span>
+</span></span><span style=display:flex><span>        android:text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;TAB&#34;</span>
+</span></span><span style=display:flex><span>        android:id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@+id/radioButton&#34;</span><span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span>背景样式 (button.<span style=color:#a6e22e>xml</span>)
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span>selector xmlns:android<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;http://schemas.android.com/apk/res/android&#34;</span><span style=color:#f92672>&gt;</span>     选择器
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;</span>item android:drawable<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@color/gray&#34;</span> android:state_checked<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;true&#34;</span><span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;</span>item android:drawable<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;@color/white&#34;</span><span style=color:#f92672>/&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;/</span>selector<span style=color:#f92672>&gt;</span>
+</span></span></code></pre></div><hr><ul><li><a href=https://central.sonatype.com/search>https://central.sonatype.com/search</a></li><li><a href=https://search.maven.org>https://search.maven.org</a></li><li><a href=https://mvnrepository.com>https://mvnrepository.com</a></li><li><a href=https://maven.aliyun.com>https://maven.aliyun.com</a></li><li><a href=https://repo1.maven.org/maven2>https://repo1.maven.org/maven2</a></li><li><a href=https://repo.maven.apache.org/maven2>https://repo.maven.apache.org/maven2</a></li></ul><p>Cache：
+<a href=http://ww1.sinaimg.cn/large/a038ef72gw1f5lcbds6wvj203k03k1lf title=Part1><img loading=lazy src=/blog/uploads/file-into-picture2.png>
+</a><a href=http://ww3.sinaimg.cn/large/a038ef72gw1f5lcbrppq1j203k03ku19 title=Part2><img loading=lazy src=/blog/uploads/file-into-picture2.png>
+</a>Android USB Driver：
+<a href=http://ww4.sinaimg.cn/large/a15b4afegw1f5l3t68pezj203k03k4qw><img loading=lazy src=/blog/uploads/file-into-picture2.png></a></p></div><footer class=post-footer><ul class=post-tags><li><a href=https://xhstormr.github.io/blog/tags/android/>Android</a></li></ul><nav class=paginav><a class=prev href=https://xhstormr.github.io/blog/posts/file-into-picture/><span class=title>« Prev</span><br><span>将文件伪装成图片</span>
+</a><a class=next href=https://xhstormr.github.io/blog/posts/java-rent/><span class=title>Next »</span><br><span>通过 Java 实现租车系统</span></a></nav><ul class=share-buttons><li><a target=_blank rel="noopener noreferrer" aria-label="share 自学 Android on x" href="https://x.com/intent/tweet/?text=%e8%87%aa%e5%ad%a6%20Android&amp;url=https%3a%2f%2fxhstormr.github.io%2fblog%2fposts%2fandroid%2f&amp;hashtags=Android"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentColor"><path d="M512 62.554V449.446C512 483.97 483.97 512 449.446 512H62.554C28.03 512 0 483.97.0 449.446V62.554C0 28.03 28.029.0 62.554.0H449.446C483.971.0 512 28.03 512 62.554zM269.951 190.75 182.567 75.216H56L207.216 272.95 63.9 436.783h61.366L235.9 310.383l96.667 126.4H456L298.367 228.367l134-153.151H371.033zM127.633 110h36.468l219.38 290.065H349.5z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share 自学 Android on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fxhstormr.github.io%2fblog%2fposts%2fandroid%2f&amp;title=%e8%87%aa%e5%ad%a6%20Android&amp;summary=%e8%87%aa%e5%ad%a6%20Android&amp;source=https%3a%2f%2fxhstormr.github.io%2fblog%2fposts%2fandroid%2f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentColor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share 自学 Android on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fxhstormr.github.io%2fblog%2fposts%2fandroid%2f&title=%e8%87%aa%e5%ad%a6%20Android"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentColor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share 自学 Android on facebook" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fxhstormr.github.io%2fblog%2fposts%2fandroid%2f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentColor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H342.978V319.085h66.6l12.672-82.621h-79.272v-53.617c0-22.603 11.073-44.636 46.58-44.636H425.6v-70.34s-32.71-5.582-63.982-5.582c-65.288.0-107.96 39.569-107.96 111.204v62.971h-72.573v82.621h72.573V512h-191.104c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share 自学 Android on whatsapp" href="https://api.whatsapp.com/send?text=%e8%87%aa%e5%ad%a6%20Android%20-%20https%3a%2f%2fxhstormr.github.io%2fblog%2fposts%2fandroid%2f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentColor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zm-58.673 127.703c-33.842-33.881-78.847-52.548-126.798-52.568-98.799.0-179.21 80.405-179.249 179.234-.013 31.593 8.241 62.428 23.927 89.612l-25.429 92.884 95.021-24.925c26.181 14.28 55.659 21.807 85.658 21.816h.074c98.789.0 179.206-80.413 179.247-179.243.018-47.895-18.61-92.93-52.451-126.81zM263.976 403.485h-.06c-26.734-.01-52.954-7.193-75.828-20.767l-5.441-3.229-56.386 14.792 15.05-54.977-3.542-5.637c-14.913-23.72-22.791-51.136-22.779-79.287.033-82.142 66.867-148.971 149.046-148.971 39.793.014 77.199 15.531 105.329 43.692 28.128 28.16 43.609 65.592 43.594 105.4-.034 82.149-66.866 148.983-148.983 148.984zm81.721-111.581c-4.479-2.242-26.499-13.075-30.604-14.571-4.105-1.495-7.091-2.241-10.077 2.241-2.986 4.483-11.569 14.572-14.182 17.562-2.612 2.988-5.225 3.364-9.703 1.12-4.479-2.241-18.91-6.97-36.017-22.23C231.8 264.15 222.81 249.484 220.198 245s-.279-6.908 1.963-9.14c2.016-2.007 4.48-5.232 6.719-7.847 2.24-2.615 2.986-4.484 4.479-7.472 1.493-2.99.747-5.604-.374-7.846-1.119-2.241-10.077-24.288-13.809-33.256-3.635-8.733-7.327-7.55-10.077-7.688-2.609-.13-5.598-.158-8.583-.158-2.986.0-7.839 1.121-11.944 5.604-4.105 4.484-15.675 15.32-15.675 37.364.0 22.046 16.048 43.342 18.287 46.332 2.24 2.99 31.582 48.227 76.511 67.627 10.685 4.615 19.028 7.371 25.533 9.434 10.728 3.41 20.492 2.929 28.209 1.775 8.605-1.285 26.499-10.833 30.231-21.295 3.732-10.464 3.732-19.431 2.612-21.298-1.119-1.869-4.105-2.99-8.583-5.232z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share 自学 Android on telegram" href="https://telegram.me/share/url?text=%e8%87%aa%e5%ad%a6%20Android&amp;url=https%3a%2f%2fxhstormr.github.io%2fblog%2fposts%2fandroid%2f"><svg viewBox="2 2 28 28" height="30" width="30" fill="currentColor"><path d="M26.49 29.86H5.5a3.37 3.37.0 01-2.47-1 3.35 3.35.0 01-1-2.47V5.48A3.36 3.36.0 013 3 3.37 3.37.0 015.5 2h21A3.38 3.38.0 0129 3a3.36 3.36.0 011 2.46V26.37a3.35 3.35.0 01-1 2.47 3.38 3.38.0 01-2.51 1.02zm-5.38-6.71a.79.79.0 00.85-.66L24.73 9.24a.55.55.0 00-.18-.46.62.62.0 00-.41-.17q-.08.0-16.53 6.11a.59.59.0 00-.41.59.57.57.0 00.43.52l4 1.24 1.61 4.83a.62.62.0 00.63.43.56.56.0 00.4-.17L16.54 20l4.09 3A.9.9.0 0021.11 23.15zM13.8 20.71l-1.21-4q8.72-5.55 8.78-5.55c.15.0.23.0.23.16a.18.18.0 010 .06s-2.51 2.3-7.52 6.8z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share 自学 Android on ycombinator" href="https://news.ycombinator.com/submitlink?t=%e8%87%aa%e5%ad%a6%20Android&u=https%3a%2f%2fxhstormr.github.io%2fblog%2fposts%2fandroid%2f"><svg width="30" height="30" viewBox="0 0 512 512" fill="currentColor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554V449.446C512 483.97 483.97 512 449.446 512H62.554C28.03 512 0 483.97.0 449.446V62.554C0 28.03 28.029.0 62.554.0H449.446zM183.8767 87.9921h-62.034L230.6673 292.4508V424.0079h50.6655V292.4508L390.1575 87.9921H328.1233L256 238.2489z"/></svg></a></li></ul></footer><script src=https://giscus.app/client.js data-repo=XhstormR/blog data-repo-id="MDEwOlJlcG9zaXRvcnk1MTI5OTI1NQ==" data-category=Announcements data-category-id=DIC_kwDOAw7Dt84C1abT data-mapping=og:title data-strict=1 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=bottom data-theme=preferred_color_scheme data-lang=zh-CN data-loading=lazy crossorigin=anonymous async></script></article></main><footer class=footer><span>&copy; 2026 <a href=https://xhstormr.github.io/blog/>XhstormR</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>

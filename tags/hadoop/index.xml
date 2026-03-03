@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Hadoop on XhstormR</title>
+    <link>https://xhstormr.github.io/blog/tags/hadoop/</link>
+    <description>Recent content in Hadoop on XhstormR</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>en</language>
+    <managingEditor>xhstormr@example.org (XhstormR)</managingEditor>
+    <webMaster>xhstormr@example.org (XhstormR)</webMaster>
+    <lastBuildDate>Tue, 19 Apr 2016 07:49:53 +0800</lastBuildDate>
+    <atom:link href="https://xhstormr.github.io/blog/tags/hadoop/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>自学 Hive</title>
+      <link>https://xhstormr.github.io/blog/posts/hadoop-hive/</link>
+      <pubDate>Tue, 19 Apr 2016 07:49:53 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/hadoop-hive/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>自学 Hadoop</title>
+      <link>https://xhstormr.github.io/blog/posts/hadoop/</link>
+      <pubDate>Thu, 14 Apr 2016 21:45:01 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/hadoop/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

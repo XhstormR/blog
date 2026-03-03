@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Blog on XhstormR</title>
+    <link>https://xhstormr.github.io/blog/tags/blog/</link>
+    <description>Recent content in Blog on XhstormR</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>en</language>
+    <managingEditor>xhstormr@example.org (XhstormR)</managingEditor>
+    <webMaster>xhstormr@example.org (XhstormR)</webMaster>
+    <lastBuildDate>Tue, 16 Aug 2016 22:51:51 +0800</lastBuildDate>
+    <atom:link href="https://xhstormr.github.io/blog/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Children of the Sun</title>
+      <link>https://xhstormr.github.io/blog/posts/children-of-the-sun/</link>
+      <pubDate>Tue, 16 Aug 2016 22:51:51 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/children-of-the-sun/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Loner</title>
+      <link>https://xhstormr.github.io/blog/posts/loner/</link>
+      <pubDate>Thu, 26 May 2016 21:51:47 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/loner/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Blog Changelog</title>
+      <link>https://xhstormr.github.io/blog/posts/blog-changelog/</link>
+      <pubDate>Mon, 08 Feb 2016 21:03:50 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/blog-changelog/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Categories &amp; Tags</title>
+      <link>https://xhstormr.github.io/blog/posts/categories-tags/</link>
+      <pubDate>Mon, 08 Feb 2016 21:03:48 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/categories-tags/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
