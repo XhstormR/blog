@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Reverse on XhstormR</title>
+    <link>https://xhstormr.github.io/blog/tags/reverse/</link>
+    <description>Recent content in Reverse on XhstormR</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>en</language>
+    <managingEditor>xhstormr@example.org (XhstormR)</managingEditor>
+    <webMaster>xhstormr@example.org (XhstormR)</webMaster>
+    <lastBuildDate>Tue, 19 Aug 2025 04:43:17 +0300</lastBuildDate>
+    <atom:link href="https://xhstormr.github.io/blog/tags/reverse/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Patch Bongo Cat</title>
+      <link>https://xhstormr.github.io/blog/posts/patch-bongo_cat/</link>
+      <pubDate>Tue, 19 Aug 2025 04:43:17 +0300</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/patch-bongo_cat/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Patch Sublime Text</title>
+      <link>https://xhstormr.github.io/blog/posts/patch-sublimetext/</link>
+      <pubDate>Sun, 20 Aug 2023 15:57:41 +0300</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/patch-sublimetext/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Patch SecureCRT &#43; SecureFX Bundle</title>
+      <link>https://xhstormr.github.io/blog/posts/patch-securecrt/</link>
+      <pubDate>Sun, 29 Jan 2023 22:12:53 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/patch-securecrt/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>APK 重打包</title>
+      <link>https://xhstormr.github.io/blog/posts/apk-repack/</link>
+      <pubDate>Wed, 22 Apr 2020 11:20:33 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/apk-repack/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>JVM Class Dump</title>
+      <link>https://xhstormr.github.io/blog/posts/jvm-class-dump/</link>
+      <pubDate>Sun, 05 Jan 2020 21:30:48 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/jvm-class-dump/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>逆向 Minecraft</title>
+      <link>https://xhstormr.github.io/blog/posts/reverse-minecraft/</link>
+      <pubDate>Tue, 03 Dec 2019 13:39:27 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/reverse-minecraft/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>逆向 JxBrowser</title>
+      <link>https://xhstormr.github.io/blog/posts/reverse-jxbrowser/</link>
+      <pubDate>Mon, 17 Dec 2018 22:45:44 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/reverse-jxbrowser/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>逆向 MyBatis plugin</title>
+      <link>https://xhstormr.github.io/blog/posts/reverse-mybatis-plugin/</link>
+      <pubDate>Sat, 14 Jul 2018 16:12:09 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/reverse-mybatis-plugin/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>逆向 DBeaver</title>
+      <link>https://xhstormr.github.io/blog/posts/reverse-dbeaver/</link>
+      <pubDate>Thu, 07 Dec 2017 14:54:55 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/reverse-dbeaver/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>逆向 Minecraft Launcher</title>
+      <link>https://xhstormr.github.io/blog/posts/reverse-minecraft-launcher/</link>
+      <pubDate>Tue, 08 Aug 2017 11:40:35 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/reverse-minecraft-launcher/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>逆向 Charles</title>
+      <link>https://xhstormr.github.io/blog/posts/reverse-charles/</link>
+      <pubDate>Tue, 18 Jul 2017 20:36:06 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/reverse-charles/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

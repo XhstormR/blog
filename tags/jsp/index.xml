@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>JSP on XhstormR</title>
+    <link>https://xhstormr.github.io/blog/tags/jsp/</link>
+    <description>Recent content in JSP on XhstormR</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>en</language>
+    <managingEditor>xhstormr@example.org (XhstormR)</managingEditor>
+    <webMaster>xhstormr@example.org (XhstormR)</webMaster>
+    <lastBuildDate>Fri, 05 May 2017 18:43:44 +0800</lastBuildDate>
+    <atom:link href="https://xhstormr.github.io/blog/tags/jsp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JSP 实例</title>
+      <link>https://xhstormr.github.io/blog/posts/jsp-practice/</link>
+      <pubDate>Fri, 05 May 2017 18:43:44 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/jsp-practice/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>JSP Listener</title>
+      <link>https://xhstormr.github.io/blog/posts/jsp-listener/</link>
+      <pubDate>Tue, 02 May 2017 15:08:50 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/jsp-listener/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>JSP Model2</title>
+      <link>https://xhstormr.github.io/blog/posts/jsp-model2/</link>
+      <pubDate>Sun, 30 Apr 2017 20:41:07 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/jsp-model2/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>JSP Servlet</title>
+      <link>https://xhstormr.github.io/blog/posts/jsp-servlet/</link>
+      <pubDate>Tue, 11 Apr 2017 18:15:43 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/jsp-servlet/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>JSP Filter</title>
+      <link>https://xhstormr.github.io/blog/posts/jsp-filter/</link>
+      <pubDate>Mon, 03 Apr 2017 16:12:58 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/jsp-filter/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>JSP Model1</title>
+      <link>https://xhstormr.github.io/blog/posts/jsp-model1/</link>
+      <pubDate>Sat, 18 Mar 2017 16:25:36 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/jsp-model1/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Java Server Pages</title>
+      <link>https://xhstormr.github.io/blog/posts/jsp/</link>
+      <pubDate>Thu, 09 Mar 2017 23:30:26 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/jsp/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

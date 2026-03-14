@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Openwrt on XhstormR</title>
+    <link>https://xhstormr.github.io/blog/tags/openwrt/</link>
+    <description>Recent content in Openwrt on XhstormR</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>en</language>
+    <managingEditor>xhstormr@example.org (XhstormR)</managingEditor>
+    <webMaster>xhstormr@example.org (XhstormR)</webMaster>
+    <lastBuildDate>Mon, 25 Nov 2024 05:30:18 +0300</lastBuildDate>
+    <atom:link href="https://xhstormr.github.io/blog/tags/openwrt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OpenWrt Redmi AX6000</title>
+      <link>https://xhstormr.github.io/blog/posts/openwrt_ax6000/</link>
+      <pubDate>Mon, 25 Nov 2024 05:30:18 +0300</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/openwrt_ax6000/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

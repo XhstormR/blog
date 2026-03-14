@@ -1,0 +1,1239 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>XhstormR</title>
+    <link>https://xhstormr.github.io/blog/</link>
+    <description>Recent content on XhstormR</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>en</language>
+    <managingEditor>xhstormr@example.org (XhstormR)</managingEditor>
+    <webMaster>xhstormr@example.org (XhstormR)</webMaster>
+    <lastBuildDate>Fri, 30 Jan 2026 22:31:05 +0300</lastBuildDate>
+    <atom:link href="https://xhstormr.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>快速傅里叶变换</title>
+      <link>https://xhstormr.github.io/blog/posts/fft/</link>
+      <pubDate>Fri, 30 Jan 2026 22:31:05 +0300</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/fft/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vibe Coding</title>
+      <link>https://xhstormr.github.io/blog/posts/vibe-coding/</link>
+      <pubDate>Sat, 13 Dec 2025 14:03:49 +0300</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/vibe-coding/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>MyBase64</title>
+      <link>https://xhstormr.github.io/blog/posts/mybase64/</link>
+      <pubDate>Tue, 09 Sep 2025 16:23:54 +0300</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/mybase64/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Patch Bongo Cat</title>
+      <link>https://xhstormr.github.io/blog/posts/patch-bongo_cat/</link>
+      <pubDate>Tue, 19 Aug 2025 04:43:17 +0300</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/patch-bongo_cat/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>JBL Authentics 200 音响</title>
+      <link>https://xhstormr.github.io/blog/posts/jbl-authentics-200/</link>
+      <pubDate>Thu, 19 Dec 2024 09:51:35 +0300</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/jbl-authentics-200/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>OpenWrt Redmi AX6000</title>
+      <link>https://xhstormr.github.io/blog/posts/openwrt_ax6000/</link>
+      <pubDate>Mon, 25 Nov 2024 05:30:18 +0300</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/openwrt_ax6000/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>低潜在抑制症</title>
+      <link>https://xhstormr.github.io/blog/posts/lli/</link>
+      <pubDate>Wed, 26 Jun 2024 09:26:12 +0300</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/lli/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>sing-box</title>
+      <link>https://xhstormr.github.io/blog/posts/sing-box/</link>
+      <pubDate>Sun, 04 Feb 2024 19:16:34 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/sing-box/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Patch Sublime Text</title>
+      <link>https://xhstormr.github.io/blog/posts/patch-sublimetext/</link>
+      <pubDate>Sun, 20 Aug 2023 15:57:41 +0300</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/patch-sublimetext/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Navicat Reset</title>
+      <link>https://xhstormr.github.io/blog/posts/navicat-reset/</link>
+      <pubDate>Tue, 27 Jun 2023 12:58:54 +0300</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/navicat-reset/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Patch SecureCRT &#43; SecureFX Bundle</title>
+      <link>https://xhstormr.github.io/blog/posts/patch-securecrt/</link>
+      <pubDate>Sun, 29 Jan 2023 22:12:53 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/patch-securecrt/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SAST</title>
+      <link>https://xhstormr.github.io/blog/posts/sast/</link>
+      <pubDate>Mon, 18 Apr 2022 15:28:59 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/sast/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Alacritty</title>
+      <link>https://xhstormr.github.io/blog/posts/alacritty/</link>
+      <pubDate>Wed, 18 Aug 2021 10:13:37 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/alacritty/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mac OS</title>
+      <link>https://xhstormr.github.io/blog/posts/mac-os/</link>
+      <pubDate>Thu, 22 Jul 2021 22:56:57 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/mac-os/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>乐理</title>
+      <link>https://xhstormr.github.io/blog/posts/music-theory/</link>
+      <pubDate>Sat, 05 Jun 2021 16:46:13 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/music-theory/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Load shellcode from UUID</title>
+      <link>https://xhstormr.github.io/blog/posts/shellcode-uuid/</link>
+      <pubDate>Sun, 14 Mar 2021 14:40:49 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/shellcode-uuid/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>PHP with Nginx</title>
+      <link>https://xhstormr.github.io/blog/posts/php-with-nginx/</link>
+      <pubDate>Thu, 18 Feb 2021 16:21:44 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/php-with-nginx/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Java 反序列化漏洞利用</title>
+      <link>https://xhstormr.github.io/blog/posts/java-deserialization-vul/</link>
+      <pubDate>Wed, 27 Jan 2021 16:40:13 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/java-deserialization-vul/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Android 模拟器启用 ARM 支持</title>
+      <link>https://xhstormr.github.io/blog/posts/android-arm/</link>
+      <pubDate>Thu, 26 Nov 2020 17:11:51 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-arm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>JBoss Keycloak</title>
+      <link>https://xhstormr.github.io/blog/posts/keycloak/</link>
+      <pubDate>Tue, 13 Oct 2020 11:18:15 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/keycloak/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>JDK Keytool</title>
+      <link>https://xhstormr.github.io/blog/posts/java-keytool/</link>
+      <pubDate>Mon, 12 Oct 2020 15:31:42 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/java-keytool/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Apereo CAS</title>
+      <link>https://xhstormr.github.io/blog/posts/cas/</link>
+      <pubDate>Mon, 12 Oct 2020 13:35:54 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/cas/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>构建 Redis</title>
+      <link>https://xhstormr.github.io/blog/posts/msys2-build-redis/</link>
+      <pubDate>Thu, 08 Oct 2020 11:45:51 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/msys2-build-redis/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>构建 kcat</title>
+      <link>https://xhstormr.github.io/blog/posts/cmake-build-kcat/</link>
+      <pubDate>Sun, 20 Sep 2020 11:07:42 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/cmake-build-kcat/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kafka</title>
+      <link>https://xhstormr.github.io/blog/posts/kafka/</link>
+      <pubDate>Tue, 15 Sep 2020 19:22:58 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/kafka/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>DLL Proxy</title>
+      <link>https://xhstormr.github.io/blog/posts/dll-proxy/</link>
+      <pubDate>Fri, 04 Sep 2020 08:38:24 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/dll-proxy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Elastic Stack</title>
+      <link>https://xhstormr.github.io/blog/posts/elk/</link>
+      <pubDate>Sat, 08 Aug 2020 18:39:18 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/elk/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Malware Scanner</title>
+      <link>https://xhstormr.github.io/blog/posts/malware-scanner/</link>
+      <pubDate>Mon, 06 Jul 2020 11:37:35 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/malware-scanner/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Proxy DNS</title>
+      <link>https://xhstormr.github.io/blog/posts/coredns/</link>
+      <pubDate>Sun, 03 May 2020 10:03:50 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/coredns/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cuckoo</title>
+      <link>https://xhstormr.github.io/blog/posts/cuckoo/</link>
+      <pubDate>Mon, 27 Apr 2020 22:18:01 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/cuckoo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Assembly language</title>
+      <link>https://xhstormr.github.io/blog/posts/assembly-lang/</link>
+      <pubDate>Fri, 24 Apr 2020 10:26:27 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/assembly-lang/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>APK 重打包</title>
+      <link>https://xhstormr.github.io/blog/posts/apk-repack/</link>
+      <pubDate>Wed, 22 Apr 2020 11:20:33 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/apk-repack/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Fish Shell</title>
+      <link>https://xhstormr.github.io/blog/posts/fish-shell/</link>
+      <pubDate>Sun, 15 Mar 2020 17:16:19 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/fish-shell/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>构建 Lua</title>
+      <link>https://xhstormr.github.io/blog/posts/msys2-build-lua/</link>
+      <pubDate>Sun, 15 Mar 2020 00:14:57 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/msys2-build-lua/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Android Proxy</title>
+      <link>https://xhstormr.github.io/blog/posts/android-proxy/</link>
+      <pubDate>Fri, 28 Feb 2020 14:06:07 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-proxy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>构建 HAProxy</title>
+      <link>https://xhstormr.github.io/blog/posts/msys2-build-haproxy/</link>
+      <pubDate>Fri, 21 Feb 2020 23:20:13 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/msys2-build-haproxy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>交叉编译 masscan</title>
+      <link>https://xhstormr.github.io/blog/posts/cross-compile-masscan/</link>
+      <pubDate>Mon, 17 Feb 2020 16:45:32 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/cross-compile-masscan/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>JavaFX with Kotlin coroutines</title>
+      <link>https://xhstormr.github.io/blog/posts/kotlin-coroutines/</link>
+      <pubDate>Wed, 05 Feb 2020 23:08:38 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/kotlin-coroutines/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>交叉编译 jq</title>
+      <link>https://xhstormr.github.io/blog/posts/cross-compile-jq/</link>
+      <pubDate>Fri, 31 Jan 2020 20:14:56 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/cross-compile-jq/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>构建 socat</title>
+      <link>https://xhstormr.github.io/blog/posts/msys2-build-socat/</link>
+      <pubDate>Tue, 28 Jan 2020 21:49:39 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/msys2-build-socat/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>X11 Server</title>
+      <link>https://xhstormr.github.io/blog/posts/x11-server/</link>
+      <pubDate>Fri, 24 Jan 2020 11:05:41 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/x11-server/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Patator</title>
+      <link>https://xhstormr.github.io/blog/posts/patator/</link>
+      <pubDate>Thu, 23 Jan 2020 21:31:52 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/patator/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>BeEF</title>
+      <link>https://xhstormr.github.io/blog/posts/beef/</link>
+      <pubDate>Tue, 21 Jan 2020 19:59:06 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/beef/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>JVM Class Dump</title>
+      <link>https://xhstormr.github.io/blog/posts/jvm-class-dump/</link>
+      <pubDate>Sun, 05 Jan 2020 21:30:48 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/jvm-class-dump/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>TWRP Magisk EdXposed</title>
+      <link>https://xhstormr.github.io/blog/posts/twrp-magisk-xposed/</link>
+      <pubDate>Tue, 17 Dec 2019 10:34:56 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/twrp-magisk-xposed/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>逆向 Minecraft</title>
+      <link>https://xhstormr.github.io/blog/posts/reverse-minecraft/</link>
+      <pubDate>Tue, 03 Dec 2019 13:39:27 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/reverse-minecraft/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ESP8266</title>
+      <link>https://xhstormr.github.io/blog/posts/esp8266/</link>
+      <pubDate>Fri, 29 Nov 2019 10:32:36 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/esp8266/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Digispark BadUSB</title>
+      <link>https://xhstormr.github.io/blog/posts/digispark/</link>
+      <pubDate>Sat, 16 Nov 2019 16:15:32 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/digispark/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Frida Gadget</title>
+      <link>https://xhstormr.github.io/blog/posts/frida-gadget/</link>
+      <pubDate>Thu, 07 Nov 2019 14:04:44 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/frida-gadget/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Miniconda</title>
+      <link>https://xhstormr.github.io/blog/posts/miniconda/</link>
+      <pubDate>Wed, 23 Oct 2019 22:54:54 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/miniconda/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>内网穿透</title>
+      <link>https://xhstormr.github.io/blog/posts/reverse/</link>
+      <pubDate>Sun, 20 Oct 2019 22:14:43 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/reverse/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Win32 RegisterTask API</title>
+      <link>https://xhstormr.github.io/blog/posts/registertask-api/</link>
+      <pubDate>Fri, 04 Oct 2019 17:46:10 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/registertask-api/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>计划任务 Backdoor</title>
+      <link>https://xhstormr.github.io/blog/posts/taskschd-backdoor/</link>
+      <pubDate>Fri, 04 Oct 2019 14:00:20 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/taskschd-backdoor/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>构建 tmux</title>
+      <link>https://xhstormr.github.io/blog/posts/build-tmux/</link>
+      <pubDate>Thu, 03 Oct 2019 17:00:34 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/build-tmux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>DLL 劫持</title>
+      <link>https://xhstormr.github.io/blog/posts/dll-hijacking/</link>
+      <pubDate>Wed, 02 Oct 2019 14:00:52 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/dll-hijacking/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Win32 NetUserAdd API</title>
+      <link>https://xhstormr.github.io/blog/posts/netuseradd-api/</link>
+      <pubDate>Tue, 01 Oct 2019 09:59:16 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/netuseradd-api/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Alternate Data Stream</title>
+      <link>https://xhstormr.github.io/blog/posts/ads/</link>
+      <pubDate>Mon, 30 Sep 2019 19:31:07 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/ads/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Parrot</title>
+      <link>https://xhstormr.github.io/blog/posts/parrot/</link>
+      <pubDate>Sun, 18 Aug 2019 19:31:07 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/parrot/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Android DEX Unpack</title>
+      <link>https://xhstormr.github.io/blog/posts/dex-unpack/</link>
+      <pubDate>Fri, 31 May 2019 16:50:54 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/dex-unpack/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Frida</title>
+      <link>https://xhstormr.github.io/blog/posts/frida/</link>
+      <pubDate>Wed, 29 May 2019 11:22:56 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/frida/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>构建 OpenSSL</title>
+      <link>https://xhstormr.github.io/blog/posts/docker-build-openssl/</link>
+      <pubDate>Fri, 10 May 2019 09:19:26 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/docker-build-openssl/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Git &#43; CI</title>
+      <link>https://xhstormr.github.io/blog/posts/git-ci/</link>
+      <pubDate>Thu, 04 Apr 2019 15:32:27 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/git-ci/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>构建 hydra</title>
+      <link>https://xhstormr.github.io/blog/posts/msys2-build-hydra/</link>
+      <pubDate>Fri, 01 Mar 2019 14:11:28 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/msys2-build-hydra/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>逆向 JxBrowser</title>
+      <link>https://xhstormr.github.io/blog/posts/reverse-jxbrowser/</link>
+      <pubDate>Mon, 17 Dec 2018 22:45:44 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/reverse-jxbrowser/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>构建 tcpdump</title>
+      <link>https://xhstormr.github.io/blog/posts/cmake-build-tcpdump/</link>
+      <pubDate>Sat, 13 Oct 2018 13:47:42 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/cmake-build-tcpdump/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>MyBatis Generator</title>
+      <link>https://xhstormr.github.io/blog/posts/mybatis-generator/</link>
+      <pubDate>Fri, 20 Jul 2018 14:35:35 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/mybatis-generator/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>逆向 MyBatis plugin</title>
+      <link>https://xhstormr.github.io/blog/posts/reverse-mybatis-plugin/</link>
+      <pubDate>Sat, 14 Jul 2018 16:12:09 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/reverse-mybatis-plugin/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>IntelliJ IDEA JVM 设置</title>
+      <link>https://xhstormr.github.io/blog/posts/idea-jvm-setting/</link>
+      <pubDate>Sat, 14 Jul 2018 16:12:08 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/idea-jvm-setting/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>QEMU</title>
+      <link>https://xhstormr.github.io/blog/posts/qemu/</link>
+      <pubDate>Fri, 20 Apr 2018 10:29:55 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/qemu/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SQL 必知必会</title>
+      <link>https://xhstormr.github.io/blog/posts/sql/</link>
+      <pubDate>Sat, 07 Apr 2018 15:05:01 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/sql/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Swagger API</title>
+      <link>https://xhstormr.github.io/blog/posts/swagger/</link>
+      <pubDate>Fri, 02 Mar 2018 15:55:56 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/swagger/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>构建 libxml2</title>
+      <link>https://xhstormr.github.io/blog/posts/build-libxml2/</link>
+      <pubDate>Sun, 18 Feb 2018 17:27:36 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/build-libxml2/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Bandicam Portable</title>
+      <link>https://xhstormr.github.io/blog/posts/bandicam-portable/</link>
+      <pubDate>Wed, 14 Feb 2018 19:51:46 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/bandicam-portable/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>构建 libiconv</title>
+      <link>https://xhstormr.github.io/blog/posts/automake-build-libiconv/</link>
+      <pubDate>Wed, 14 Feb 2018 13:46:24 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/automake-build-libiconv/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>解决问题的步骤</title>
+      <link>https://xhstormr.github.io/blog/posts/solve-problem/</link>
+      <pubDate>Mon, 01 Jan 2018 13:55:23 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/solve-problem/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>FuZZbuNch</title>
+      <link>https://xhstormr.github.io/blog/posts/fuzzbunch/</link>
+      <pubDate>Sun, 17 Dec 2017 19:36:42 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/fuzzbunch/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>逆向 DBeaver</title>
+      <link>https://xhstormr.github.io/blog/posts/reverse-dbeaver/</link>
+      <pubDate>Thu, 07 Dec 2017 14:54:55 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/reverse-dbeaver/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>V2Ray</title>
+      <link>https://xhstormr.github.io/blog/posts/v2ray/</link>
+      <pubDate>Wed, 29 Nov 2017 17:47:16 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/v2ray/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>构建 botan</title>
+      <link>https://xhstormr.github.io/blog/posts/make-build-botan/</link>
+      <pubDate>Thu, 21 Sep 2017 20:01:46 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/make-build-botan/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>构建 jq</title>
+      <link>https://xhstormr.github.io/blog/posts/automake-build-jq/</link>
+      <pubDate>Fri, 01 Sep 2017 20:21:40 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/automake-build-jq/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>构建 cmark</title>
+      <link>https://xhstormr.github.io/blog/posts/cmake-build-cmark/</link>
+      <pubDate>Thu, 31 Aug 2017 14:01:08 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/cmake-build-cmark/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>逆向 Minecraft Launcher</title>
+      <link>https://xhstormr.github.io/blog/posts/reverse-minecraft-launcher/</link>
+      <pubDate>Tue, 08 Aug 2017 11:40:35 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/reverse-minecraft-launcher/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Java CompletableFuture</title>
+      <link>https://xhstormr.github.io/blog/posts/java-completable-future/</link>
+      <pubDate>Mon, 07 Aug 2017 19:25:50 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/java-completable-future/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Java Concurrency Lock</title>
+      <link>https://xhstormr.github.io/blog/posts/java-concurrency-lock/</link>
+      <pubDate>Tue, 01 Aug 2017 11:14:11 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/java-concurrency-lock/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>逆向 Charles</title>
+      <link>https://xhstormr.github.io/blog/posts/reverse-charles/</link>
+      <pubDate>Tue, 18 Jul 2017 20:36:06 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/reverse-charles/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Java Concurrency</title>
+      <link>https://xhstormr.github.io/blog/posts/java-concurrency/</link>
+      <pubDate>Sun, 16 Jul 2017 20:48:40 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/java-concurrency/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Spring MVC</title>
+      <link>https://xhstormr.github.io/blog/posts/spring-mvc/</link>
+      <pubDate>Sat, 17 Jun 2017 10:49:25 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/spring-mvc/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Spring Transaction</title>
+      <link>https://xhstormr.github.io/blog/posts/spring-transaction/</link>
+      <pubDate>Thu, 15 Jun 2017 12:53:18 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/spring-transaction/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Spring Framework</title>
+      <link>https://xhstormr.github.io/blog/posts/spring2/</link>
+      <pubDate>Wed, 07 Jun 2017 13:20:02 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/spring2/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Spring Framework</title>
+      <link>https://xhstormr.github.io/blog/posts/spring/</link>
+      <pubDate>Sun, 21 May 2017 20:11:22 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/spring/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hibernate Query Language</title>
+      <link>https://xhstormr.github.io/blog/posts/hibernate-hql/</link>
+      <pubDate>Fri, 19 May 2017 20:17:25 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/hibernate-hql/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hibernate ORM</title>
+      <link>https://xhstormr.github.io/blog/posts/hibernate/</link>
+      <pubDate>Sun, 14 May 2017 15:31:36 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/hibernate/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>JUnit</title>
+      <link>https://xhstormr.github.io/blog/posts/junit/</link>
+      <pubDate>Fri, 12 May 2017 16:30:19 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/junit/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Java Annotation</title>
+      <link>https://xhstormr.github.io/blog/posts/java-annotation/</link>
+      <pubDate>Tue, 09 May 2017 21:08:55 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/java-annotation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Java Reflect</title>
+      <link>https://xhstormr.github.io/blog/posts/java-reflect/</link>
+      <pubDate>Mon, 08 May 2017 10:37:40 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/java-reflect/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>JSP 实例</title>
+      <link>https://xhstormr.github.io/blog/posts/jsp-practice/</link>
+      <pubDate>Fri, 05 May 2017 18:43:44 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/jsp-practice/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>JSP Listener</title>
+      <link>https://xhstormr.github.io/blog/posts/jsp-listener/</link>
+      <pubDate>Tue, 02 May 2017 15:08:50 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/jsp-listener/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>JSP Model2</title>
+      <link>https://xhstormr.github.io/blog/posts/jsp-model2/</link>
+      <pubDate>Sun, 30 Apr 2017 20:41:07 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/jsp-model2/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>JSP Servlet</title>
+      <link>https://xhstormr.github.io/blog/posts/jsp-servlet/</link>
+      <pubDate>Tue, 11 Apr 2017 18:15:43 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/jsp-servlet/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>JSP Filter</title>
+      <link>https://xhstormr.github.io/blog/posts/jsp-filter/</link>
+      <pubDate>Mon, 03 Apr 2017 16:12:58 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/jsp-filter/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>JSP Model1</title>
+      <link>https://xhstormr.github.io/blog/posts/jsp-model1/</link>
+      <pubDate>Sat, 18 Mar 2017 16:25:36 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/jsp-model1/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Java Server Pages</title>
+      <link>https://xhstormr.github.io/blog/posts/jsp/</link>
+      <pubDate>Thu, 09 Mar 2017 23:30:26 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/jsp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>自学 PostgreSQL</title>
+      <link>https://xhstormr.github.io/blog/posts/postgresql/</link>
+      <pubDate>Sun, 19 Feb 2017 20:39:57 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/postgresql/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Java Socket</title>
+      <link>https://xhstormr.github.io/blog/posts/java-socket/</link>
+      <pubDate>Tue, 14 Feb 2017 15:29:22 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/java-socket/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>函数式编程：Kotlin 与 Java</title>
+      <link>https://xhstormr.github.io/blog/posts/kotlin-and-java/</link>
+      <pubDate>Mon, 13 Feb 2017 13:33:59 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/kotlin-and-java/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>jOOQ</title>
+      <link>https://xhstormr.github.io/blog/posts/jooq/</link>
+      <pubDate>Thu, 26 Jan 2017 20:22:26 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/jooq/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Windows SSH Server</title>
+      <link>https://xhstormr.github.io/blog/posts/ssh-server/</link>
+      <pubDate>Sat, 14 Jan 2017 08:49:47 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/ssh-server/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kotlin</title>
+      <link>https://xhstormr.github.io/blog/posts/kotlin/</link>
+      <pubDate>Sun, 25 Dec 2016 10:31:02 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/kotlin/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Retrofit</title>
+      <link>https://xhstormr.github.io/blog/posts/java-retrofit/</link>
+      <pubDate>Mon, 05 Dec 2016 16:32:13 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/java-retrofit/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Data Binding Framework</title>
+      <link>https://xhstormr.github.io/blog/posts/android-databinding/</link>
+      <pubDate>Sat, 26 Nov 2016 23:15:56 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-databinding/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Java Singleton</title>
+      <link>https://xhstormr.github.io/blog/posts/java-singleton/</link>
+      <pubDate>Sat, 19 Nov 2016 14:16:15 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/java-singleton/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>RxBinding</title>
+      <link>https://xhstormr.github.io/blog/posts/android-rxbinding/</link>
+      <pubDate>Sat, 19 Nov 2016 14:12:15 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-rxbinding/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>RxBus</title>
+      <link>https://xhstormr.github.io/blog/posts/android-rxbus/</link>
+      <pubDate>Sat, 19 Nov 2016 14:11:15 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-rxbus/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>JsonUtil</title>
+      <link>https://xhstormr.github.io/blog/posts/android-jsonutil/</link>
+      <pubDate>Sat, 19 Nov 2016 08:00:39 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-jsonutil/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>RxJava</title>
+      <link>https://xhstormr.github.io/blog/posts/java-rxjava/</link>
+      <pubDate>Sun, 13 Nov 2016 19:48:15 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/java-rxjava/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Retrolambda</title>
+      <link>https://xhstormr.github.io/blog/posts/android-retrolambda/</link>
+      <pubDate>Sat, 12 Nov 2016 21:15:01 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-retrolambda/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Java 8</title>
+      <link>https://xhstormr.github.io/blog/posts/java-8/</link>
+      <pubDate>Fri, 04 Nov 2016 10:08:22 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/java-8/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Java 7</title>
+      <link>https://xhstormr.github.io/blog/posts/java-7/</link>
+      <pubDate>Tue, 01 Nov 2016 10:07:22 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/java-7/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Android HTTP (待)</title>
+      <link>https://xhstormr.github.io/blog/posts/android-http/</link>
+      <pubDate>Mon, 31 Oct 2016 08:00:57 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-http/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Android Handler</title>
+      <link>https://xhstormr.github.io/blog/posts/android-handler/</link>
+      <pubDate>Tue, 25 Oct 2016 20:25:47 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-handler/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Java Thread</title>
+      <link>https://xhstormr.github.io/blog/posts/java-thread/</link>
+      <pubDate>Wed, 19 Oct 2016 18:12:06 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/java-thread/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Android 手势识别</title>
+      <link>https://xhstormr.github.io/blog/posts/android-gesturedetector/</link>
+      <pubDate>Tue, 18 Oct 2016 19:21:52 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-gesturedetector/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Android 系统服务</title>
+      <link>https://xhstormr.github.io/blog/posts/android-systemservice/</link>
+      <pubDate>Mon, 17 Oct 2016 17:13:39 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-systemservice/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Data Structure</title>
+      <link>https://xhstormr.github.io/blog/posts/java-data-structure/</link>
+      <pubDate>Sat, 15 Oct 2016 10:24:45 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/java-data-structure/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Algorithm</title>
+      <link>https://xhstormr.github.io/blog/posts/java-algorithm/</link>
+      <pubDate>Sat, 15 Oct 2016 10:23:45 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/java-algorithm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Android Service</title>
+      <link>https://xhstormr.github.io/blog/posts/android-service/</link>
+      <pubDate>Thu, 13 Oct 2016 12:21:04 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-service/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Android BroadcastReceiver</title>
+      <link>https://xhstormr.github.io/blog/posts/android-broadcastreceiver/</link>
+      <pubDate>Mon, 10 Oct 2016 20:16:37 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-broadcastreceiver/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Android 数据存储</title>
+      <link>https://xhstormr.github.io/blog/posts/android-data/</link>
+      <pubDate>Sun, 02 Oct 2016 13:27:20 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-data/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Android 异步加载</title>
+      <link>https://xhstormr.github.io/blog/posts/android-listview/</link>
+      <pubDate>Wed, 28 Sep 2016 15:18:02 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-listview/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>BiliBili API</title>
+      <link>https://xhstormr.github.io/blog/posts/bilibili-api/</link>
+      <pubDate>Sun, 18 Sep 2016 14:27:24 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/bilibili-api/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>进制转换</title>
+      <link>https://xhstormr.github.io/blog/posts/binary/</link>
+      <pubDate>Wed, 07 Sep 2016 16:15:33 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/binary/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Java IO Stream</title>
+      <link>https://xhstormr.github.io/blog/posts/java-io/</link>
+      <pubDate>Tue, 06 Sep 2016 11:52:11 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/java-io/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Android AsyncTask</title>
+      <link>https://xhstormr.github.io/blog/posts/android-asynctask/</link>
+      <pubDate>Fri, 02 Sep 2016 09:10:56 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-asynctask/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Android BaseAdapter</title>
+      <link>https://xhstormr.github.io/blog/posts/android-baseadapter/</link>
+      <pubDate>Wed, 31 Aug 2016 11:27:51 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-baseadapter/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Children of the Sun</title>
+      <link>https://xhstormr.github.io/blog/posts/children-of-the-sun/</link>
+      <pubDate>Tue, 16 Aug 2016 22:51:51 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/children-of-the-sun/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Android ViewPager</title>
+      <link>https://xhstormr.github.io/blog/posts/android-viewpager/</link>
+      <pubDate>Tue, 16 Aug 2016 14:10:08 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-viewpager/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Android Fragment</title>
+      <link>https://xhstormr.github.io/blog/posts/android-fragment/</link>
+      <pubDate>Fri, 12 Aug 2016 14:47:11 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-fragment/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>通过 Java 实现扑克牌游戏</title>
+      <link>https://xhstormr.github.io/blog/posts/java-poker/</link>
+      <pubDate>Tue, 02 Aug 2016 09:41:40 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/java-poker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>集合</title>
+      <link>https://xhstormr.github.io/blog/posts/java-collection/</link>
+      <pubDate>Wed, 27 Jul 2016 14:25:38 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/java-collection/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Queue and Stack</title>
+      <link>https://xhstormr.github.io/blog/posts/java-stack/</link>
+      <pubDate>Thu, 21 Jul 2016 13:17:17 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/java-stack/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>关于 Java 中的 String</title>
+      <link>https://xhstormr.github.io/blog/posts/java-string/</link>
+      <pubDate>Wed, 20 Jul 2016 10:26:13 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/java-string/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Android 计算器</title>
+      <link>https://xhstormr.github.io/blog/posts/android-calculator/</link>
+      <pubDate>Tue, 19 Jul 2016 10:48:46 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-calculator/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Android Activity</title>
+      <link>https://xhstormr.github.io/blog/posts/android-activity/</link>
+      <pubDate>Mon, 18 Jul 2016 09:57:11 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-activity/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>关于 Java 中的 == 和 equals</title>
+      <link>https://xhstormr.github.io/blog/posts/java-equals/</link>
+      <pubDate>Sat, 16 Jul 2016 10:04:36 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/java-equals/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>自定义 Android 控件</title>
+      <link>https://xhstormr.github.io/blog/posts/android-custom-controls/</link>
+      <pubDate>Wed, 13 Jul 2016 16:48:22 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-custom-controls/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>实现 Android 监听事件</title>
+      <link>https://xhstormr.github.io/blog/posts/android-listener/</link>
+      <pubDate>Tue, 12 Jul 2016 11:25:48 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android-listener/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>将文件伪装成图片</title>
+      <link>https://xhstormr.github.io/blog/posts/file-into-picture/</link>
+      <pubDate>Wed, 06 Jul 2016 18:06:57 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/file-into-picture/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>自学 Android</title>
+      <link>https://xhstormr.github.io/blog/posts/android/</link>
+      <pubDate>Mon, 04 Jul 2016 19:30:21 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/android/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>通过 Java 实现租车系统</title>
+      <link>https://xhstormr.github.io/blog/posts/java-rent/</link>
+      <pubDate>Fri, 01 Jul 2016 16:17:53 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/java-rent/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>自学 Java</title>
+      <link>https://xhstormr.github.io/blog/posts/java/</link>
+      <pubDate>Fri, 10 Jun 2016 11:04:52 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/java/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Loner</title>
+      <link>https://xhstormr.github.io/blog/posts/loner/</link>
+      <pubDate>Thu, 26 May 2016 21:51:47 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/loner/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>HTTP Status Code</title>
+      <link>https://xhstormr.github.io/blog/posts/http-status-code/</link>
+      <pubDate>Thu, 12 May 2016 07:02:01 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/http-status-code/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>OpenStack 不完全使用手册</title>
+      <link>https://xhstormr.github.io/blog/posts/openstack-operations/</link>
+      <pubDate>Sat, 07 May 2016 08:15:41 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/openstack-operations/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>自学 OpenStack</title>
+      <link>https://xhstormr.github.io/blog/posts/openstack/</link>
+      <pubDate>Tue, 03 May 2016 15:54:58 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/openstack/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Aria2 Configuration</title>
+      <link>https://xhstormr.github.io/blog/posts/aria2/</link>
+      <pubDate>Thu, 21 Apr 2016 21:58:45 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/aria2/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>自学 Hive</title>
+      <link>https://xhstormr.github.io/blog/posts/hadoop-hive/</link>
+      <pubDate>Tue, 19 Apr 2016 07:49:53 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/hadoop-hive/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>自学 Hadoop</title>
+      <link>https://xhstormr.github.io/blog/posts/hadoop/</link>
+      <pubDate>Thu, 14 Apr 2016 21:45:01 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/hadoop/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tmux 不完全使用手册</title>
+      <link>https://xhstormr.github.io/blog/posts/cheatsheet-tmux/</link>
+      <pubDate>Sun, 10 Apr 2016 12:16:09 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/cheatsheet-tmux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Libvirt 不完全使用手册</title>
+      <link>https://xhstormr.github.io/blog/posts/cheatsheet-libvirt/</link>
+      <pubDate>Wed, 06 Apr 2016 11:28:51 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/cheatsheet-libvirt/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vim 命令不完全手册</title>
+      <link>https://xhstormr.github.io/blog/posts/cheatsheet-vim/</link>
+      <pubDate>Thu, 31 Mar 2016 11:09:57 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/cheatsheet-vim/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CMD 使用 UTF-8 编码</title>
+      <link>https://xhstormr.github.io/blog/posts/cmd-use-utf8/</link>
+      <pubDate>Sun, 27 Mar 2016 16:28:03 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/cmd-use-utf8/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linux 命令不完全手册</title>
+      <link>https://xhstormr.github.io/blog/posts/cheatsheet-linux/</link>
+      <pubDate>Wed, 23 Mar 2016 16:40:02 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/cheatsheet-linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>uBlock Origin Filter</title>
+      <link>https://xhstormr.github.io/blog/posts/ublock-origin-filter/</link>
+      <pubDate>Sat, 27 Feb 2016 22:12:44 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/ublock-origin-filter/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>解包 MSI IS 文件</title>
+      <link>https://xhstormr.github.io/blog/posts/unpack-msi-installshield/</link>
+      <pubDate>Thu, 11 Feb 2016 20:17:10 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/unpack-msi-installshield/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>带宽测速</title>
+      <link>https://xhstormr.github.io/blog/posts/bandwidth-speed/</link>
+      <pubDate>Wed, 10 Feb 2016 14:02:01 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/bandwidth-speed/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Note</title>
+      <link>https://xhstormr.github.io/blog/posts/note/</link>
+      <pubDate>Mon, 08 Feb 2016 21:08:50 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/note/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Markdown 简明语法手册</title>
+      <link>https://xhstormr.github.io/blog/posts/cheatsheet-markdown/</link>
+      <pubDate>Mon, 08 Feb 2016 21:08:48 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/cheatsheet-markdown/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python(一)</title>
+      <link>https://xhstormr.github.io/blog/posts/python1/</link>
+      <pubDate>Mon, 08 Feb 2016 21:08:48 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/python1/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sublime Text 快捷键列表</title>
+      <link>https://xhstormr.github.io/blog/posts/cheatsheet-sublime-text/</link>
+      <pubDate>Mon, 08 Feb 2016 21:08:48 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/cheatsheet-sublime-text/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>常用 Git 命令清单</title>
+      <link>https://xhstormr.github.io/blog/posts/cheatsheet-git/</link>
+      <pubDate>Mon, 08 Feb 2016 21:08:48 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/cheatsheet-git/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>百度的原罪—封杀Google的黑内幕</title>
+      <link>https://xhstormr.github.io/blog/posts/baidu-original-sin/</link>
+      <pubDate>Mon, 08 Feb 2016 21:08:48 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/baidu-original-sin/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hexo(二)</title>
+      <link>https://xhstormr.github.io/blog/posts/github-page-hexo2/</link>
+      <pubDate>Mon, 08 Feb 2016 21:05:48 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/github-page-hexo2/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hexo(一)</title>
+      <link>https://xhstormr.github.io/blog/posts/github-page-hexo1/</link>
+      <pubDate>Mon, 08 Feb 2016 21:04:48 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/github-page-hexo1/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Blog Changelog</title>
+      <link>https://xhstormr.github.io/blog/posts/blog-changelog/</link>
+      <pubDate>Mon, 08 Feb 2016 21:03:50 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/blog-changelog/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Categories &amp; Tags</title>
+      <link>https://xhstormr.github.io/blog/posts/categories-tags/</link>
+      <pubDate>Mon, 08 Feb 2016 21:03:48 +0800</pubDate><author>xhstormr@example.org (XhstormR)</author>
+      <guid>https://xhstormr.github.io/blog/posts/categories-tags/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
