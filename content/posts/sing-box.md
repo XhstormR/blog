@@ -12,6 +12,8 @@ tags:
 >
 > https://sing-box.sagernet.org/zh/configuration/
 >
+> https://sing-box-dashboard.sagernet.org
+>
 > https://metacubexd.pages.dev
 
 Note: `rules` 中的规则越靠前（上），优先级就越高。
@@ -61,7 +63,7 @@ Note: `rules` 中的规则越靠前（上），优先级就越高。
         {
             "tag": "自动",
             "type": "urltest",
-            "interval": "3m",
+            "interval": "2m",
             "outbounds": [
                 "香港2024-1",
                 "香港2024-2",
@@ -247,6 +249,14 @@ Note: `rules` 中的规则越靠前（上），优先级就越高。
             }
         ]
     },
+    "services": [
+        {
+            "type": "api",
+            "listen": "127.0.0.1",
+            "listen_port": 9091,
+            "secret": "123456"
+        }
+    ],
     "experimental": {
         "cache_file": {
             "enabled": true,
