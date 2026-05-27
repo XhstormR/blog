@@ -97,7 +97,7 @@ config.json
             "type": "socks",
             "server": "host.lima.internal",
             "server_port": 1080,
-            "domain_resolver": "local" // 用于解析 outbound server 的域名 host.lima.internal，防止循环解析
+            "domain_resolver": "local" // 用于本地解析 outbound.server 的域名 host.lima.internal，防止解析死循环
         },
         {
             "tag": "直连",
