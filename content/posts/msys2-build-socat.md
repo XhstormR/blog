@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-  - Notes
+    - Notes
 date: 2020-01-28T21:49:39+08:00
 title: 构建 socat
 ---
@@ -64,10 +64,6 @@ ncat 127.0.0.1 1234
 or
 curl 127.0.0.1:1234
 
-端口转发
-----
-socat tcp-listen:1234,fork,reuseaddr tcp-connect:192.168.1.19:3389
-
 写入文件
 ----
 echo 123 | socat -u - ./123.txt
@@ -96,9 +92,34 @@ socat tcp-connect:47.98.135.65:1234 tcp-connect:192.168.1.19:80
 客户端：
 curl 47.98.135.65:8080
 
+端口转发
+----
+socat tcp-listen:1234,fork,reuseaddr tcp-connect:192.168.1.19:3389
+
+DEBUG 数据流量
+----
+socat -v tcp-listen:1234,fork,reuseaddr exec:"true"
+
 SSH 设置 HTTP PROXY
 ----
 ssh -o ProxyCommand='socat - PROXY:127.0.0.1:%h:%p,proxyport=8080' root@192.168.2.2
+```
+
+### 网页服务器
+
+```bash
+socat -U tcp-listen:8080,bind=127.0.0.1,fork,reuseaddr exec:'sh ./web.sh'
+```
+
+web.sh
+
+```bash
+#!/usr/bin/env bash
+printf 'HTTP/1.1 200 OK\r\n'
+printf 'Content-Type: text/html; charset=utf-8\r\n'
+printf 'Connection: close\r\n'
+printf '\r\n'
+printf '<h1>我的第一个标题</h1>'
 ```
 
 ## Reference
