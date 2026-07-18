@@ -14,7 +14,7 @@ tags:
 >
 > https://sing-box-dashboard.sagernet.org
 >
-> https://metacubexd.pages.dev
+> https://metacubex.github.io/metacubexd/
 
 Note: `rules` 中的规则越靠前（上），优先级就越高。
 
@@ -148,6 +148,7 @@ Note: `rules` 中的规则越靠前（上），优先级就越高。
     },
     "route": {
         "find_process": true,
+        "find_neighbor": true,
         "auto_detect_interface": true,
         "default_domain_resolver": "local",
         "rules": [
@@ -268,6 +269,7 @@ Note: `rules` 中的规则越靠前（上），优先级就越高。
             "access_control_allow_origin": [
                 "https://yacd.haishan.me",
                 "https://yacd.metacubex.one",
+                "https://metacubex.github.io",
                 "https://metacubexd.pages.dev"
             ]
         }

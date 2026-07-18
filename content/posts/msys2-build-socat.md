@@ -64,10 +64,6 @@ ncat 127.0.0.1 1234
 or
 curl 127.0.0.1:1234
 
-端口转发
-----
-socat tcp-listen:1234,fork,reuseaddr tcp-connect:192.168.1.19:3389
-
 写入文件
 ----
 echo 123 | socat -u - ./123.txt
@@ -95,6 +91,14 @@ socat tcp-listen:1234,fork,reuseaddr tcp-listen:8080
 socat tcp-connect:47.98.135.65:1234 tcp-connect:192.168.1.19:80
 客户端：
 curl 47.98.135.65:8080
+
+端口转发
+----
+socat tcp-listen:1234,fork,reuseaddr tcp-connect:192.168.1.19:3389
+
+DEBUG 数据流量
+----
+socat -v tcp-listen:1234,fork,reuseaddr exec:"true"
 
 SSH 设置 HTTP PROXY
 ----
