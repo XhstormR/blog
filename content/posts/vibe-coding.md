@@ -29,7 +29,7 @@ tags:
 
 Engineering 的三个层次：
 
-- Harness Engineering (驾驭工程) -> 制定约束
+- Harness Engineering (驾驭工程) -> 提供工具
     - Context Engineering (上下文工程) -> 提供信息
         - Prompt Engineering (提示词工程) -> 表达方式
 

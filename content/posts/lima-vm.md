@@ -122,7 +122,7 @@ config.json
     "route": {
         "find_process": true,
         "auto_detect_interface": true,
-        "default_domain_resolver": "remote",
+        "default_domain_resolver": "local",
         "rules": [
             {
                 "action": "sniff"

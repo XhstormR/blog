@@ -17,7 +17,7 @@ Updated on 2019-12-17
 ```bash
 https://dl.google.com/android/repository/repository2-1.xml
 
-curl -k https://dl.google.com/android/repository/platform-tools_r36.0.2-win.zip | busybox unzip -
+curl -k https://dl.google.com/android/repository/platform-tools_r37.0.1-win.zip | busybox unzip -
 ```
 
 ## Bootloader Driver
@@ -80,6 +80,10 @@ adb install -r EdXposedManager-4.5.4-45401-org.meowcat.edxposed.manager-release.
 - https://github.com/LSPosed/LSPosed/releases/latest
 - https://github.com/LSPosed/LSPosed.github.io/releases
     - 推荐使用**白名单**模式: `/data/adb/shamiko/whitelist`
+
+## Vector
+
+- https://github.com/JingMatrix/Vector
 
 ## KernelSU
 
@@ -156,4 +160,5 @@ payload_dumper --partitions init_boot,boot payload.bin
     - https://github.com/KOWX712/PlayIntegrityFix
 - https://github.com/5ec1cff/TrickyStore
     - https://github.com/KOWX712/Tricky-Addon-Update-Target-List
+- https://github.com/JingMatrix/TEESimulator
 - https://github.com/Dr-TSNG/Hide-My-Applist
