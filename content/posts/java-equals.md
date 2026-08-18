@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-  - JAVA
+  - Java
 date: 2016-07-16T10:04:36+08:00
 title: 关于 Java 中的 == 和 equals
 ---

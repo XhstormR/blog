@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-  - JAVA
+  - Java
 date: 2016-12-05T16:32:13+08:00
 title: Retrofit
 ---

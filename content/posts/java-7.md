@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-  - JAVA
+  - Java
 date: 2016-11-01T10:07:22+08:00
 title: Java 7
 ---

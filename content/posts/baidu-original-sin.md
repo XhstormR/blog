@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-  - 百度
+    - Baidu
 date: 2016-02-08T21:08:48+08:00
 title: 百度的原罪—封杀Google的黑内幕
 ---

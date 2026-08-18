@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-  - JAVA
+  - Java
 date: 2017-02-14T15:29:22+08:00
 title: Java Socket
 ---

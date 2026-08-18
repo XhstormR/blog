@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-  - JAVA
+  - Java
 date: 2017-07-16T20:48:40+08:00
 title: Java Concurrency
 ---

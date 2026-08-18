@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-  - JAVA
+  - Java
 date: 2016-07-21T13:17:17+08:00
 title: Queue and Stack
 ---

@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-  - security
+  - Security
 date: 2021-03-14T14:40:49+08:00
 title: Load shellcode from UUID
 ---

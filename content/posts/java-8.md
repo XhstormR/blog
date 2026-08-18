@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-  - JAVA
+  - Java
 date: 2016-11-04T10:08:22+08:00
 title: Java 8
 ---

@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-  - JAVA
+  - Java
 date: 2016-07-27T14:25:38+08:00
 title: 集合
 ---

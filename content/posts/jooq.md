@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-  - JAVA
+  - Java
 date: 2017-01-26T20:22:26+08:00
 title: jOOQ
 ---

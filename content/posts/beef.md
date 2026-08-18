@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-    - security
+    - Security
 date: 2020-01-21T19:59:06+08:00
 title: BeEF
 ---

@@ -3,7 +3,7 @@ title: OpenWrt Redmi AX6000
 date: 2024-11-25T05:30:18+03:00
 author: XhstormR
 tags:
-  - openwrt
+  - OpenWrt
 ---
 
 <!--more-->

@@ -1,6 +1,6 @@
 ---
 tags:
-  - JAVA
+  - Java
 author: XhstormR
 date: 2016-10-19T18:12:06+08:00
 title: Java Thread

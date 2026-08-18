@@ -1,0 +1,27 @@
+# https://gohugo.io/configuration/all/
+
+baseURL = "https://xhstormr.github.io/blog/"
+theme = "blowfish"
+defaultContentLanguage = "zh-cn"
+
+enableEmoji = true
+enableRobotsTXT = true
+summaryLength = 0
+
+[pagination]
+pagerSize = 999
+
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+
+[imaging]
+anchor = "Center"
+
+[minify]
+minifyOutput = true
+
+[taxonomies]
+tag = "tags"
+category = "categories"
+author = "authors"
+series = "series"

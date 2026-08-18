@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-  - JAVA
+  - Java
 date: 2016-06-10T11:04:52+08:00
 title: 自学 Java
 ---

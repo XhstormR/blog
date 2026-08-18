@@ -1,0 +1,9 @@
+[[main]]
+pageRef = "posts"
+pre = "list"
+weight = 10
+
+[[main]]
+pageRef = "tags"
+pre = "tag"
+weight = 20

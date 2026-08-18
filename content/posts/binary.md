@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-  - JAVA
+  - Java
 date: 2016-09-07T16:15:33+08:00
 title: 进制转换
 ---
