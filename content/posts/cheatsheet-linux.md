@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-  - CheatSheet
+    - CheatSheet
 date: 2016-03-23T16:40:02+08:00
 title: Linux 命令不完全手册
 ---
@@ -447,6 +447,8 @@ Tips：
 6ae8592f578b0d2ec704a1ac347cdfc9205d41ede0f853eb15cb28786553
 [root@controller ~]$ openssl rand -base64 30 #Base64编码
 HTUKtp8wVb2m8ZIIsLtXkQDGKc+V8SeSWJg8yU0Z
+
+openssl kdf -keylen 32 -binary -kdfopt pass:123456 -kdfopt salt:0123456789abcdef -kdfopt digest:SHA256 -kdfopt iter:600000 PBKDF2 | xxd -p -c 0
 
 openssl enc -aes-256-ctr -k 123456 -pbkdf2 -a -p -e -in 1.txt -out 2.txt #加密文件
 openssl enc -aes-256-ctr -k 123456 -pbkdf2 -a -p -d -in 2.txt -out 3.txt #解密文件
