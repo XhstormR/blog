@@ -1,0 +1,15 @@
+{{- if not (.Page.Store.Get "encAssetsLoaded") -}}
+    {{- .Page.Store.Set "encAssetsLoaded" true -}}
+    {{- $script := resources.Get "js/render-codeblock-enc.js" | resources.Minify | resources.Fingerprint -}}
+    <script type="module" src="{{ $script.RelPermalink }}" crossorigin="anonymous"></script>
+{{- end -}}
+
+<div
+    class="highlight-wrapper enc-block cursor-pointer"
+    {{- with .Attributes.format }} data-enc-format="{{ . }}"{{ end -}}
+>
+    {{- with .Attributes.title -}}
+        <div class="codeblock-title">{{ . }}</div>
+    {{- end -}}
+    {{- transform.Highlight .Inner "text" .Options -}}
+</div>
