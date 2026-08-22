@@ -477,11 +477,11 @@ ux1nzjpk6S2yebqk4I9k9+9HLjXDb7jqCBh3ew==
 ## Mac App Sandbox 白名单路径 (application.sb)
 
 ```
-/Applications/sing-box.app/  -  io.nekohasekai.sfavt  -  com.apple.security.app-sandbox
+/Applications/sing-box.app/  -  io.nekohasekai.sfamt  -  com.apple.security.app-sandbox
 /Library/Application Support/<任意子目录>/  <- 首选
-~/Library/Application Scripts/group.io.nekohasekai.sfavt/
-~/Library/Application Scripts/io.nekohasekai.sfavt/
-~/Library/Application Scripts/io.nekohasekai.sfavt.extension/
+~/Library/Application Scripts/group.io.nekohasekai.sfamt/
+~/Library/Application Scripts/io.nekohasekai.sfamt/
+~/Library/Application Scripts/io.nekohasekai.sfamt.extension/
 ```
 
 ## Age

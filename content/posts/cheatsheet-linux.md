@@ -14,6 +14,8 @@ Updated on 2018-02-08
 >
 > https://www.centos.org/
 >
+> https://almalinux.org/
+>
 > http://man7.org/linux/man-pages/dir_all_alphabetic.html
 >
 > 最近因为要参加全国云计算比赛，需要使用 Linux；所以我把关于 Linux 系统的一些命令整理在这里，以便查阅。

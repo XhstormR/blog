@@ -157,6 +157,15 @@ config.json
 }
 ```
 
+## smolvm
+
+- https://github.com/smol-machines/smolvm/releases/latest
+- https://smolmachines.com/docs/local
+
+```bash
+smolvm machine run --net --image sina.dev/library/fedora:latest -it --oci-cache -- sh -c "echo 'Hello world from a microVM' && uname -a"
+```
+
 ## Reference
 
 - https://github.com/lima-vm/lima/blob/master/templates/default.yaml
