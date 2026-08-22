@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-  - CheatSheet
+    - CheatSheet
 date: 2016-02-08T21:08:48+08:00
 title: 常用 Git 命令清单
 ---
@@ -371,7 +371,7 @@ git gc --prune=all
 git reset --soft HEAD^
 
 git submodule add -b master https://github.com/openssl/openssl.git
-git submodule update --remote
+git submodule update --remote --merge
 
 git archive -o 123.zip HEAD
 
