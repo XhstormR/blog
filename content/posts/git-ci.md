@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-  - Notes
+    - Notes
 date: 2019-04-04T15:32:27+08:00
 title: Git + CI
 ---
@@ -61,9 +61,9 @@ docker system prune --volumes #清除未使用数据
 
 ### Docker Compose
 
-- https://docs.docker.com/compose/reference/
-- https://docs.docker.com/compose/compose-file/
-- https://github.com/compose-spec/compose-spec/blob/master/spec.md
+- https://docs.docker.com/reference/cli/docker/compose/
+- https://docs.docker.com/reference/compose-file/services/
+- https://github.com/compose-spec/compose-spec/blob/main/spec.md
 
 ```bash
 sudo curl -Lf https://github.com/docker/compose/releases/download/1.24.0/run.sh -o /usr/local/bin/docker-compose
@@ -123,80 +123,80 @@ docker-compose exec runner gitlab-runner register
 version: "3"
 
 services:
-  gitlab:
-    image: gitlab/gitlab-ce:latest
-    restart: always
-    environment:
-      GITLAB_OMNIBUS_CONFIG: |
-        gitlab_rails['gitlab_shell_ssh_port'] = 5022
-        external_url '${GITLAB_SERVER_URL}'
-        registry_external_url '${GITLAB_REGISTRY_URL}'
-        registry_nginx['ssl_certificate'] = "/certs/domain.crt"
-        registry_nginx['ssl_certificate_key'] = "/certs/domain.key"
-    ports:
-      - "5022:22"
-      - "5100:5100"
-    volumes:
-      - ./certs:/certs
-      - gitlab_config:/etc/gitlab
-      - gitlab_logs:/var/log/gitlab
-      - gitlab_data:/var/opt/gitlab
-    labels:
-      - traefik.http.services.gitlab.loadbalancer.server.port=80
-      - traefik.http.routers.gitlab.rule=PathPrefix(`/git/`)
+    gitlab:
+        image: gitlab/gitlab-ce:latest
+        restart: always
+        environment:
+            GITLAB_OMNIBUS_CONFIG: |
+                gitlab_rails['gitlab_shell_ssh_port'] = 5022
+                external_url '${GITLAB_SERVER_URL}'
+                registry_external_url '${GITLAB_REGISTRY_URL}'
+                registry_nginx['ssl_certificate'] = "/certs/domain.crt"
+                registry_nginx['ssl_certificate_key'] = "/certs/domain.key"
+        ports:
+            - "5022:22"
+            - "5100:5100"
+        volumes:
+            - ./certs:/certs
+            - gitlab_config:/etc/gitlab
+            - gitlab_logs:/var/log/gitlab
+            - gitlab_data:/var/opt/gitlab
+        labels:
+            - traefik.http.services.gitlab.loadbalancer.server.port=80
+            - traefik.http.routers.gitlab.rule=PathPrefix(`/git/`)
 
-  runner:
-    image: gitlab/gitlab-runner:latest
-    restart: always
-    environment:
-      CI_SERVER_URL: ${GITLAB_SERVER_URL}
-      REGISTRATION_TOKEN: ${RUNNER_REGISTRATION_TOKEN}
-      REGISTER_NON_INTERACTIVE: "true"
-      RUNNER_EXECUTOR: docker
-      DOCKER_IMAGE: alpine:latest
-    volumes:
-      - runner_data:/etc/gitlab-runner
-      - /var/run/docker.sock:/var/run/docker.sock
-    labels:
-      - traefik.enable=false
-    depends_on:
-      - gitlab
+    runner:
+        image: gitlab/gitlab-runner:latest
+        restart: always
+        environment:
+            CI_SERVER_URL: ${GITLAB_SERVER_URL}
+            REGISTRATION_TOKEN: ${RUNNER_REGISTRATION_TOKEN}
+            REGISTER_NON_INTERACTIVE: "true"
+            RUNNER_EXECUTOR: docker
+            DOCKER_IMAGE: alpine:latest
+        volumes:
+            - runner_data:/etc/gitlab-runner
+            - /var/run/docker.sock:/var/run/docker.sock
+        labels:
+            - traefik.enable=false
+        depends_on:
+            - gitlab
 
-  portainer:
-    image: portainer/portainer:latest
-    restart: always
-    command: -H unix:///var/run/docker.sock --admin-password ${PORTAINER_ADMIN_PASSWORD}
-    volumes:
-      - portainer_data:/data
-      - /var/run/docker.sock:/var/run/docker.sock
-    labels:
-      - traefik.http.services.portainer.loadbalancer.server.port=9000
-      - traefik.http.routers.portainer.rule=PathPrefix(`/portainer/`)
-      - traefik.http.routers.portainer.middlewares=portainer-stripprefix
-      - traefik.http.middlewares.portainer-stripprefix.stripprefix.prefixes=/portainer/
+    portainer:
+        image: portainer/portainer:latest
+        restart: always
+        command: -H unix:///var/run/docker.sock --admin-password ${PORTAINER_ADMIN_PASSWORD}
+        volumes:
+            - portainer_data:/data
+            - /var/run/docker.sock:/var/run/docker.sock
+        labels:
+            - traefik.http.services.portainer.loadbalancer.server.port=9000
+            - traefik.http.routers.portainer.rule=PathPrefix(`/portainer/`)
+            - traefik.http.routers.portainer.middlewares=portainer-stripprefix
+            - traefik.http.middlewares.portainer-stripprefix.stripprefix.prefixes=/portainer/
 
-  traefik:
-    image: traefik:latest
-    restart: always
-    ports:
-      - "80:80"
-    command: --api --providers.docker
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    labels:
-      - traefik.http.routers.traefik.service=api@internal
-      - traefik.http.routers.traefik.rule=PathPrefix(`/traefik/`)
-      - traefik.http.routers.traefik.middlewares=traefik-stripprefix,traefik-basicauth
-      - traefik.http.middlewares.traefik-stripprefix.stripprefix.prefixes=/traefik/
-      - traefik.http.middlewares.traefik-basicauth.basicauth.removeheader=true
-      - traefik.http.middlewares.traefik-basicauth.basicauth.users=${TRAEFIK_BASIC_AUTH}
+    traefik:
+        image: traefik:latest
+        restart: always
+        ports:
+            - "80:80"
+        command: --api --providers.docker
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+        labels:
+            - traefik.http.routers.traefik.service=api@internal
+            - traefik.http.routers.traefik.rule=PathPrefix(`/traefik/`)
+            - traefik.http.routers.traefik.middlewares=traefik-stripprefix,traefik-basicauth
+            - traefik.http.middlewares.traefik-stripprefix.stripprefix.prefixes=/traefik/
+            - traefik.http.middlewares.traefik-basicauth.basicauth.removeheader=true
+            - traefik.http.middlewares.traefik-basicauth.basicauth.users=${TRAEFIK_BASIC_AUTH}
 
 volumes:
-  gitlab_config:
-  gitlab_logs:
-  gitlab_data:
-  runner_data:
-  portainer_data:
+    gitlab_config:
+    gitlab_logs:
+    gitlab_data:
+    runner_data:
+    portainer_data:
 ```
 
 ### .env
@@ -273,17 +273,14 @@ firewall-cmd --reload
 ```
 
 ```bash
-https://docker.mirrors.ustc.edu.cn/v2/gitlab/gitlab-ce/tags/list
-https://docker.mirrors.ustc.edu.cn/v2/gitlab/gitlab-ce/manifests/latest
-https://docker.mirrors.ustc.edu.cn/v2/gitlab/gitlab-ce/blobs/sha256:e04a2435a78d15beae8c317bb18cfc3bc556b8dcdb7d29b256971ad42ee06767
+set TOKEN (curl -s "https://auth.docker.io/token?service=registry.docker.io&scope=repository:gitlab/gitlab-ce:pull" | jq -r .token)
+curl -s -H "Authorization: Bearer $TOKEN" https://registry-1.docker.io/v2/gitlab/gitlab-ce/manifests/latest | jq
 
-curl -sk https://docker.mirrors.ustc.edu.cn/v2/gitlab/gitlab-ce/manifests/latest | ^
-jq -r .fsLayers[].blobSum | ^
-busybox xargs -i echo curl -skI https://docker.mirrors.ustc.edu.cn/v2/gitlab/gitlab-ce/blobs/{} | ^
-busybox sh | ^
-busybox grep -i content-length
-
-https://docs.docker.com/registry/spec/api/
+https://hub.docker.com/v2/repositories/gitlab/gitlab-ce/
+https://hub.docker.com/v2/repositories/gitlab/gitlab-ce/tags/latest
+---
+https://github.com/distribution/distribution/blob/main/docs/content/spec/api.md#detail
+https://github.com/opencontainers/distribution-spec/blob/main/spec.md#endpoints
 ```
 
 ```bash
@@ -309,12 +306,12 @@ gitlab-ctl tail
 
 - https://docs.docker.com/samples/
 - https://github.com/wagoodman/dive
-- Docker mirror
-  - https://dockerhub.azk8s.cn/v2/
-  - https://hub-mirror.c.163.com/v2/
-  - https://docker.mirrors.ustc.edu.cn/v2/
-  - https://ustc-edu-cn.mirror.aliyuncs.com/v2/
-  - https://cr.console.aliyun.com/cn-shanghai/instances/mirrors
+- Docker Registry API mirror
+    - https://registry-1.docker.io/v2/
+    - https://sina.dev/v2/
+    - https://dockerhub.azk8s.cn/v2/
+    - https://ustc-edu-cn.mirror.aliyuncs.com/v2/
+    - https://cr.console.aliyun.com/cn-shanghai/instances/mirrors
 - GitLab CI
-  - https://docs.gitlab.com/ee/ci/yaml/
-  - https://docs.gitlab.com/ee/ci/variables/predefined_variables.html
+    - https://docs.gitlab.com/ee/ci/yaml/
+    - https://docs.gitlab.com/ee/ci/variables/predefined_variables.html

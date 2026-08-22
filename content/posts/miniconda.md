@@ -80,6 +80,7 @@ C:\Users\Leo\AppData\Roaming\Microsoft\Windows\Start Menu\Programs
 
 ## Reference
 
+- https://github.com/conda-forge/linux-sysroot-feedstock
 - meta.yaml
     - https://docs.conda.io/projects/conda-build/en/latest/user-guide/environment-variables.html
 - recipe.yaml

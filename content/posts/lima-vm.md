@@ -27,16 +27,14 @@ export DOCKER_HOST=unix:///Users/leo/.lima/default/sock/podman.sock
 docker info
 docker ps -a
 
-docker run -it -v '/Users/leo/Documents/IdeaProjects:/work' -w /work fedora:latest bash
+docker run -it -v '/Users/leo/Documents/IdeaProjects:/work' -w /work sina.dev/library/fedora:latest bash
 ```
 
 ## 透明代理容器网络
 
 ### 虚拟机 (Guest)
 
-lima.yaml
-
-```yaml
+```yaml {title="lima.yaml" lineNos=inline}
 provision:
     - mode: system
       file: "{{.Dir}}/sing-box/tun-provisioning.sh"
@@ -46,9 +44,7 @@ mounts:
       mountPoint: /var/lib/sing-box
 ```
 
-tun-provisioning.sh
-
-```bash
+```bash {title="sing-box/tun-provisioning.sh" lineNos=inline}
 #!/bin/bash
 set -eux -o pipefail
 
@@ -76,9 +72,7 @@ if ! systemctl is-active --quiet sing-box; then
 fi
 ```
 
-config.json
-
-```json
+```json {title="sing-box/config.json" lineNos=inline}
 {
     "log": {
         "level": "info"
@@ -122,7 +116,7 @@ config.json
     "route": {
         "find_process": true,
         "auto_detect_interface": true,
-        "default_domain_resolver": "local",
+        "default_domain_resolver": "remote",
         "rules": [
             {
                 "action": "sniff"
@@ -142,9 +136,7 @@ config.json
 
 ### 宿主机 (Host)
 
-config.json
-
-```json
+```json {title="config.json" lineNos=inline}
 {
     "inbounds": [
         {
@@ -157,9 +149,42 @@ config.json
 }
 ```
 
+## smolvm
+
+- https://github.com/smol-machines/smolvm/releases/latest
+- https://smolmachines.com/docs/local
+
+```bash
+smolvm machine run --net --image sina.dev/library/fedora:latest -it --oci-cache -- bash
+```
+
+## kern
+
+只支持 Linux 宿主机，可以运行在 Lima VM 中。
+
+- https://github.com/getkern/kern
+- https://github.com/getpaseo/paseo/blob/main/docker/docker-compose.example.yml
+
+```bash
+kern info
+kern ps -a
+kern images
+kern stats
+kern history
+kern prune
+kern doctor
+kern top
+
+kern box --net --image sina.dev/library/fedora:latest -it --verbose -- bash
+
+kern compose docker-compose.yml up
+kern compose docker-compose.yml stop
+```
+
 ## Reference
 
 - https://github.com/lima-vm/lima/blob/master/templates/default.yaml
+- https://github.com/lima-vm/lima/blob/master/website/content/en/docs/config/network/user.md
 - Fedora Extra Packages
     - https://rpmfusion.org
     - https://github.com/terrapkg/packages

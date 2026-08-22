@@ -478,7 +478,7 @@ https://mirrors.sohu.com/
 https://mirrors.yun-idc.com/
 https://developer.aliyun.com/mirror/
 https://mirror.azure.cn/
-https://mirrorz.org/
+https://mirrors.cernet.edu.cn/
 
 RHEL：
 https://access.redhat.com/products/red-hat-enterprise-linux/
