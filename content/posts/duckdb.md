@@ -10,7 +10,9 @@ tags:
 
 > https://github.com/duckdb/duckdb
 >
-> https://www.duckdb.org/docs/current/sql/statements/overview
+> https://duckdb.org/docs/current/sql/statements/overview
+>
+> https://duckdb.org/docs/current/core_extensions/overview
 
 ## 数据清洗
 

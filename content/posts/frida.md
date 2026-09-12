@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-  - Frida
+    - Frida
 date: 2019-05-29T11:22:56+08:00
 title: Frida
 ---
@@ -11,6 +11,8 @@ title: Frida
 Updated on 2019-05-29
 
 > https://frida.re/docs/javascript-api/#java
+>
+> https://github.com/frida/luma
 
 ## Python
 
@@ -66,107 +68,107 @@ frida -U com.example.leo.myapplication -l 123.js --runtime=v8
 
 ```javascript
 Java.perform(function () {
-  Java.enumerateClassLoaders({
-    onMatch: function (loader) {
-      console.log(loader);
-    },
-    onComplete: function () {
-      console.log("------");
-    },
-  });
+    Java.enumerateClassLoaders({
+        onMatch: function (loader) {
+            console.log(loader);
+        },
+        onComplete: function () {
+            console.log("------");
+        },
+    });
 
-  Java.enumerateLoadedClasses({
-    onMatch: function (className) {
-      if (className.includes("com/example")) {
-        console.log(className);
-      }
-    },
-    onComplete: function () {
-      console.log("------");
-    },
-  });
+    Java.enumerateLoadedClasses({
+        onMatch: function (className) {
+            if (className.includes("com/example")) {
+                console.log(className);
+            }
+        },
+        onComplete: function () {
+            console.log("------");
+        },
+    });
 
-  var TargetClass = Java.use("com.example.leo.myapplication.MainActivity");
-  TargetClass.isModuleActive.implementation = function () {
-    console.log("isModuleActive");
-    return this.isModuleActive();
-  };
+    var TargetClass = Java.use("com.example.leo.myapplication.MainActivity");
+    TargetClass.isModuleActive.implementation = function () {
+        console.log("isModuleActive");
+        return this.isModuleActive();
+    };
 });
 ```
 
 ```javascript
 const loging = (input, kwargs) => {
-  kwargs = kwargs || {};
-  let level = kwargs["l"] || "log";
-  let indent = kwargs["i"] ? 2 : null;
-  if (typeof input === "object") {
-    input = JSON.stringify(input, null, indent);
-  }
-  console[level](input);
+    kwargs = kwargs || {};
+    let level = kwargs["l"] || "log";
+    let indent = kwargs["i"] ? 2 : null;
+    if (typeof input === "object") {
+        input = JSON.stringify(input, null, indent);
+    }
+    console[level](input);
 };
 
 const printStackTrace = () => {
-  let log = Java.use("android.util.Log");
-  let exception = Java.use("java.lang.Exception");
-  loging(log.getStackTraceString(exception.$new()), { l: "warn" });
+    let log = Java.use("android.util.Log");
+    let exception = Java.use("java.lang.Exception");
+    loging(log.getStackTraceString(exception.$new()), { l: "warn" });
 };
 
 const unique = (arr) => Array.from(new Set(arr));
 
 const traceClass = (className) => {
-  let clazz = Java.use(className);
+    let clazz = Java.use(className);
 
-  let methods = clazz.class
-    .getDeclaredMethods()
-    .map((method) => method.getName());
+    let methods = clazz.class
+        .getDeclaredMethods()
+        .map((method) => method.getName());
 
-  unique(methods).forEach((methodName) => traceMethod(className, methodName));
+    unique(methods).forEach((methodName) => traceMethod(className, methodName));
 };
 
 const traceMethod = (className, methodName) => {
-  let clazz = Java.use(className);
+    let clazz = Java.use(className);
 
-  let targetClassMethod = className + "." + methodName;
-  loging(targetClassMethod);
+    let targetClassMethod = className + "." + methodName;
+    loging(targetClassMethod);
 
-  for (const method of clazz[methodName].overloads) {
-    method.implementation = function () {
-      let log = { method: targetClassMethod, args: [] };
+    for (const method of clazz[methodName].overloads) {
+        method.implementation = function () {
+            let log = { method: targetClassMethod, args: [] };
 
-      for (const argument of arguments) {
-        log.args.push(argument);
-      }
+            for (const argument of arguments) {
+                log.args.push(argument);
+            }
 
-      let ret = method.apply(this, arguments);
-      log.ret = ret;
-      loging(log, { i: false });
-      printStackTrace();
-      return ret;
-    };
-  }
+            let ret = method.apply(this, arguments);
+            log.ret = ret;
+            loging(log, { i: false });
+            printStackTrace();
+            return ret;
+        };
+    }
 };
 
 const hooks = [
-  { class: "javax.crypto.Cipher", method: "doFinal" },
-  { class: "com.wonders.common.utils.e", method: null },
-  { class: "com.wonders.common.utils.o", method: null },
-  { class: "com.wonders.account.utils.e", method: null },
-  { class: "com.wonders.account.utils.a", method: null },
+    { class: "javax.crypto.Cipher", method: "doFinal" },
+    { class: "com.wonders.common.utils.e", method: null },
+    { class: "com.wonders.common.utils.o", method: null },
+    { class: "com.wonders.account.utils.e", method: null },
+    { class: "com.wonders.account.utils.a", method: null },
 ];
 
 Java.perform(() => {
-  Java.enumerateLoadedClasses({
-    onMatch: (className) => {
-      for (const hook of hooks) {
-        if (hook.class.includes(className)) {
-          hook.method
-            ? traceMethod(hook.class, hook.method)
-            : traceClass(hook.class);
-        }
-      }
-    },
-    onComplete: () => console.log("------"),
-  });
+    Java.enumerateLoadedClasses({
+        onMatch: (className) => {
+            for (const hook of hooks) {
+                if (hook.class.includes(className)) {
+                    hook.method
+                        ? traceMethod(hook.class, hook.method)
+                        : traceClass(hook.class);
+                }
+            }
+        },
+        onComplete: () => console.log("------"),
+    });
 });
 
 console.log("------");
@@ -181,4 +183,4 @@ console.log("------");
 - https://github.com/deathmemory/FridaContainer
 - https://github.com/deathmemory/fridaRegstNtv
 - https://www.npmjs.com/package/@types/frida-gum
-  - https://cdn.npm.taobao.org/@types/frida-gum/-/@types/frida-gum-16.2.1.tgz
+    - https://registry.npmmirror.com/@types/frida-gum/-/@types/frida-gum-19.12.0.tgz
