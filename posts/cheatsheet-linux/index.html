@@ -1,0 +1,872 @@
+<!doctype html><html lang=zh-cn dir=ltr class=scroll-smooth data-default-appearance=dark data-auto-appearance=true><head><meta charset=utf-8><meta http-equiv=content-language content="zh-cn"><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="ie=edge"><meta name=theme-color><title>Linux 命令不完全手册 &#183; XhstormR's Blog</title><meta name=title content="Linux 命令不完全手册 &#183; XhstormR's Blog"><meta name=description content="My awesome website"><meta name=keywords content="CheatSheet,"><link rel=canonical href=https://xhstormr.github.io/blog/posts/cheatsheet-linux/><meta name=author content="XhstormR"><link href=https://xhstormr.github.io/blog/index.xml rel=me><link href=https://github.com/XhstormR rel=me><meta property="og:url" content="https://xhstormr.github.io/blog/posts/cheatsheet-linux/"><meta property="og:site_name" content="XhstormR's Blog"><meta property="og:title" content="Linux 命令不完全手册"><meta property="og:description" content="My awesome website"><meta property="og:locale" content="zh_cn"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2016-03-23T16:40:02+08:00"><meta property="article:modified_time" content="2016-03-23T16:40:02+08:00"><meta property="article:tag" content="CheatSheet"><meta name=twitter:card content="summary"><meta name=twitter:title content="Linux 命令不完全手册"><meta name=twitter:description content="My awesome website"><link type=text/css rel=stylesheet href=/blog/css/main.bundle.min.9208c96d6ff256eb62dd67f0cd02d2bd421f53b160f251586c4e26d685f9a8b23cbd53e282debf1df9cac3174b6907b2b66d22d21bd1c1531647ab1b7df31455.css integrity="sha512-kgjJbW/yVuti3WfwzQLSvUIfU7Fg8lFYbE4m1oX5qLI8vVPigt6/HfnKwxdLaQeytm0i0hvRwVMWR6sbffMUVQ=="><script type=text/javascript src=/blog/js/appearance.min.11183536302aa30e374452803c0154673009b5a4995c7f6559d1c935544cc591b599a5f2adfaeda41e1cc865bd62bdace9b0672a75294ce49d185f0f82b98cbe.js integrity="sha512-ERg1NjAqow43RFKAPAFUZzAJtaSZXH9lWdHJNVRMxZG1maXyrfrtpB4cyGW9Yr2s6bBnKnUpTOSdGF8PgrmMvg=="></script><script type=text/javascript src=/blog/js/zen-mode.min.9814dee9614d32aeb56239d118edfe20acd6231424f9b19c2dd48835038414130a5e946c0d1c9087d60e60e31840c9babfd217e3d4b95643dc8d651a71ccdf4a.js integrity="sha512-mBTe6WFNMq61YjnRGO3+IKzWIxQk+bGcLdSINQOEFBMKXpRsDRyQh9YOYOMYQMm6v9IX49S5VkPcjWUacczfSg=="></script><script defer src=/blog/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7+kfJ6kKCJxQGC+8wm+Bz9JucDjDTGNew=="></script><script defer src=/blog/js/medium-zoom.67b71ecf7eecce38673a92244d1ffd93edb5f1aeedd12e725d0f67fe901828fa3562f6a6d64ad290b36b7d7034b8ea16e63486d75d957bcf6a2732923e5d46e6.js integrity="sha512-Z7cez37szjhnOpIkTR/9k+218a7t0S5yXQ9n/pAYKPo1Yvam1krSkLNrfXA0uOoW5jSG112Ve89qJzKSPl1G5g=="></script><script type=text/javascript src=/blog/js/reading-progress.min.5d84577898a2dc0e1ed36baf2acb508e94e0c0f59a7fdeef67c1aa264029d9a17ccaff47182411b19d9de2eec2d6ac67f610f61bd938aa18af177ed66030cff1.js integrity="sha512-XYRXeJii3A4e02uvKstQjpTgwPWaf97vZ8GqJkAp2aF8yv9HGCQRsZ2d4u7C1qxn9hD2G9k4qhivF37WYDDP8Q=="></script><script defer type=text/javascript id=script-bundle src=/blog/js/main.bundle.min.17b3d3bbe00602f12ed247330588c186dd330147642a44a8aca5159f5905a7a6e0a70abb06315b581aef2c4f6d0e4d4bac82dbc1b0916818b057f9ad42c4aae6.js integrity="sha512-F7PTu+AGAvEu0kczBYjBht0zAUdkKkSorKUVn1kFp6bgpwq7BjFbWBrvLE9tDk1LrILbwbCRaBiwV/mtQsSq5g==" data-copy=复制 data-copied=已复制></script><link rel=apple-touch-icon sizes=180x180 href=/blog/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/blog/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/blog/favicon-16x16.png><link rel=manifest href=/blog/site.webmanifest><script type=application/ld+json>[{"@context":"https://schema.org","@type":"Article","articleSection":"Posts","name":"Linux 命令不完全手册","headline":"Linux 命令不完全手册","inLanguage":"zh-cn","url":"https://xhstormr.github.io/blog/posts/cheatsheet-linux/","author":{"@type":"Person","name":"XhstormR","image":"https://xhstormr.github.io/blog/img/avatar.jpg","sameAs":["https://xhstormr.github.io/blog/index.xml","https://github.com/XhstormR"]},"copyrightYear":"2016","dateCreated":"2016-03-23T16:40:02\u002b08:00","datePublished":"2016-03-23T16:40:02\u002b08:00","dateModified":"2016-03-23T16:40:02\u002b08:00","keywords":["CheatSheet"],"mainEntityOfPage":"https://xhstormr.github.io/blog/posts/cheatsheet-linux/","wordCount":3327}]</script></head><body class="flex flex-col h-screen m-auto leading-7 max-w-7xl px-6 sm:px-14 md:px-24 lg:px-32 text-lg bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral bf-scrollbar"><div id=the-top class="absolute flex self-center"><a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600" href=#main-content><span class="font-bold text-primary-600 pe-2 dark:text-primary-400">&darr;</span>
+跳过正文</a></div><header><div class=min-h-32></div><div class="fixed inset-x-0 top-3 z-100 px-3 sm:top-5 sm:px-6"><div class="relative mx-auto max-w-7xl rounded-2xl border border-neutral-200/80 shadow-lg shadow-neutral-900/5 dark:border-neutral-700/80 [&_img.logo]:max-h-10 [&_img.logo]:max-w-10"><div class="absolute inset-0 -z-10 rounded-2xl bg-neutral/60 backdrop-blur-xl dark:bg-neutral-800/60"></div><div class=px-3><div class="main-menu flex items-center w-full gap-2 p-1 pl-0"><a href=/blog/ class="text-base font-medium truncate min-w-0 shrink">XhstormR&rsquo;s Blog</a><div class="flex items-center ms-auto"><div class="hidden md:flex"><nav aria-label class="flex items-center gap-x-5 h-12"><a href=/blog/posts/ class="flex items-center bf-icon-color-hover" aria-label=Posts title=Posts><span class=mr-1><span class="relative block icon"><svg viewBox="0 0 512 512"><path fill="currentColor" d="M88 48c13.3.0 24 10.75 24 24v48c0 13.3-10.7 24-24 24H40c-13.25.0-24-10.7-24-24V72c0-13.25 10.75-24 24-24H88zM480 64c17.7.0 32 14.33 32 32 0 17.7-14.3 32-32 32H192c-17.7.0-32-14.3-32-32 0-17.67 14.3-32 32-32H480zm0 160c17.7.0 32 14.3 32 32s-14.3 32-32 32H192c-17.7.0-32-14.3-32-32s14.3-32 32-32H480zm0 160c17.7.0 32 14.3 32 32s-14.3 32-32 32H192c-17.7.0-32-14.3-32-32s14.3-32 32-32H480zM16 232c0-13.3 10.75-24 24-24H88c13.3.0 24 10.7 24 24v48c0 13.3-10.7 24-24 24H40c-13.25.0-24-10.7-24-24V232zM88 368c13.3.0 24 10.7 24 24v48c0 13.3-10.7 24-24 24H40c-13.25.0-24-10.7-24-24V392c0-13.3 10.75-24 24-24H88z"/></svg>
+</span></span><span class="text-sm font-medium break-normal">Posts
+</span></a><a href=/blog/tags/ class="flex items-center bf-icon-color-hover" aria-label=Tags title=Tags><span class=mr-1><span class="relative block icon"><svg viewBox="0 0 448 512"><path fill="currentColor" d="M48 32H197.5c17 0 33.2 6.74 45.2 18.75l176 175.95c25 25 25 65.6.0 90.6L285.3 450.7c-25 25-65.6 25-90.6.0L18.75 274.7C6.743 262.7.0 246.5.0 229.5V80C0 53.49 21.49 32 48 32zm64 144c17.7.0 32-14.3 32-32 0-17.7-14.3-32-32-32-17.67.0-32 14.3-32 32s14.33 32 32 32z"/></svg>
+</span></span><span class="text-sm font-medium break-normal">Tags</span></a><div class="flex items-center"><button id=appearance-switcher aria-label=切换为深色模式 type=button class="text-sm bf-icon-color-hover" title=切换为深色模式><div class="flex items-center justify-center dark:hidden"><span class="relative block icon"><svg viewBox="0 0 512 512"><path fill="currentColor" d="M32 256C32 132.2 132.3 32 255.8 32c11.36.0 29.7 1.668 40.9 3.746 9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3 9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480 132.1 480 32 379.6 32 256z"/></svg></span></div><div class="items-center justify-center hidden dark:flex"><span class="relative block icon"><svg viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02.0-95.1 42.98-95.1 95.1s41.2 96.9 95.1 96.9 95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347l-63.2-91.9 63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89 164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6 12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256 2.74 347.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7 19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109 109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69.0-127.1-57.31-127.1-127.1.0-70.69 57.31-127.1 127.1-127.1S383.1 186.2 383.1 256c0 70.7-56.4 127.1-127.1 127.1z"/></svg></span></div></button></div><button id=search-button aria-label="搜索 (/)" class="flex items-center gap-2 rounded-lg border bf-border-color bf-border-color-hover bg-neutral-100/50 px-2 py-1 text-sm text-neutral-500 transition-colors hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral-400 dark:hover:text-primary-400" title="搜索 (/)">
+<span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7 405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9.0 208 0S0 93.1.0 208s93.1 208 208 208c48.3.0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9.0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7.0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7.0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span><kbd id=search-shortcut-hint class="pointer-events-none font-sans text-xs text-neutral-500 dark:text-neutral-400" aria-hidden=true>⌘K</kbd></button></nav></div><div class="flex md:hidden"><div class="mobile-header-row relative flex items-center h-14 gap-4"><button id=appearance-switcher-mobile type=button aria-label=切换为深色模式 title=切换为深色模式 class="flex items-center justify-center text-neutral-900 hover:text-primary-600 dark:text-neutral-200 dark:hover:text-primary-400"><div class=dark:hidden><span class="relative block icon"><svg viewBox="0 0 512 512"><path fill="currentColor" d="M32 256C32 132.2 132.3 32 255.8 32c11.36.0 29.7 1.668 40.9 3.746 9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3 9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480 132.1 480 32 379.6 32 256z"/></svg></span></div><div class="hidden dark:block"><span class="relative block icon"><svg viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02.0-95.1 42.98-95.1 95.1s41.2 96.9 95.1 96.9 95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347l-63.2-91.9 63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89 164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6 12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256 2.74 347.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7 19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109 109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69.0-127.1-57.31-127.1-127.1.0-70.69 57.31-127.1 127.1-127.1S383.1 186.2 383.1 256c0 70.7-56.4 127.1-127.1 127.1z"/></svg></span></div></button>
+<button id=search-button-mobile aria-label="搜索 (/)" class="flex items-center justify-center bf-icon-color-hover" title="搜索 (/)">
+<span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7 405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9.0 208 0S0 93.1.0 208s93.1 208 208 208c48.3.0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9.0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7.0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7.0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+</span></button>
+<input type=checkbox id=mobile-menu-toggle autocomplete=off class="hidden peer">
+<label for=mobile-menu-toggle tabindex=0 role=button aria-expanded=false aria-controls=mobile-menu-dialog aria-label class="flex items-center justify-center cursor-pointer bf-icon-color-hover"><span class="relative block icon"><svg viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416c17.7.0 32 14.33 32 32 0 17.7-14.3 32-32 32H32C14.33 128 0 113.7.0 96zM0 256c0-17.7 14.33-32 32-32H416c17.7.0 32 14.3 32 32s-14.3 32-32 32H32c-17.67.0-32-14.3-32-32zM416 448H32c-17.67.0-32-14.3-32-32s14.33-32 32-32H416c17.7.0 32 14.3 32 32s-14.3 32-32 32z"/></svg></span></label><div id=mobile-menu-dialog role=dialog aria-modal=true aria-label style=scrollbar-gutter:stable class="z-50 invisible overflow-y-auto opacity-0 transition-[opacity,visibility] duration-300 peer-checked:visible peer-checked:opacity-100
+mobile-menu-style-dropdown absolute end-0 top-[calc(100%+0.75rem)] z-10 w-[min(22rem,calc(100vw-1.5rem))] rounded-2xl border border-neutral-200/80 bg-neutral/95 p-5 shadow-2xl shadow-neutral-900/20 dark:border-neutral-700/80 dark:bg-neutral-800/95
+bf-scrollbar"><label for=mobile-menu-toggle tabindex=0 role=button aria-expanded=false aria-controls=mobile-menu-dialog class="absolute end-3 top-3 h-10 w-10 rounded-xl flex items-center justify-center cursor-pointer select-none bf-icon-color-hover border bf-border-color bf-border-color-hover bg-neutral-50 dark:bg-neutral-900"><span class=sr-only></span>
+<span class="relative block icon"><svg viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75.0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3 54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75.0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75.0-45.25s32.75-12.5 45.25.0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25.0s12.5 32.75.0 45.25l-105.4 105.4L310.6 361.4z"/></svg></span></label><nav aria-label class="mt-10 space-y-3"><div class=px-2><div class="flex items-center gap-4"><a href=/blog/posts/ aria-label=Posts class="flex grow items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200"><span class="flex items-center justify-center h-8 w-8 text-2xl"><span class="relative block icon"><svg viewBox="0 0 512 512"><path fill="currentColor" d="M88 48c13.3.0 24 10.75 24 24v48c0 13.3-10.7 24-24 24H40c-13.25.0-24-10.7-24-24V72c0-13.25 10.75-24 24-24H88zM480 64c17.7.0 32 14.33 32 32 0 17.7-14.3 32-32 32H192c-17.7.0-32-14.3-32-32 0-17.67 14.3-32 32-32H480zm0 160c17.7.0 32 14.3 32 32s-14.3 32-32 32H192c-17.7.0-32-14.3-32-32s14.3-32 32-32H480zm0 160c17.7.0 32 14.3 32 32s-14.3 32-32 32H192c-17.7.0-32-14.3-32-32s14.3-32 32-32H480zM16 232c0-13.3 10.75-24 24-24H88c13.3.0 24 10.7 24 24v48c0 13.3-10.7 24-24 24H40c-13.25.0-24-10.7-24-24V232zM88 368c13.3.0 24 10.7 24 24v48c0 13.3-10.7 24-24 24H40c-13.25.0-24-10.7-24-24V392c0-13.3 10.75-24 24-24H88z"/></svg>
+</span></span><span title=Posts class="text-2xl font-bold tracking-tight">Posts</span></a></div></div><div class=px-2><div class="flex items-center gap-4"><a href=/blog/tags/ aria-label=Tags class="flex grow items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200"><span class="flex items-center justify-center h-8 w-8 text-2xl"><span class="relative block icon"><svg viewBox="0 0 448 512"><path fill="currentColor" d="M48 32H197.5c17 0 33.2 6.74 45.2 18.75l176 175.95c25 25 25 65.6.0 90.6L285.3 450.7c-25 25-65.6 25-90.6.0L18.75 274.7C6.743 262.7.0 246.5.0 229.5V80C0 53.49 21.49 32 48 32zm64 144c17.7.0 32-14.3 32-32 0-17.7-14.3-32-32-32-17.67.0-32 14.3-32 32s14.33 32 32 32z"/></svg>
+</span></span><span title=Tags class="text-2xl font-bold tracking-tight">Tags</span></a></div></div></nav></div></div></div></div></div><script>(function(){var t,n,e=document.querySelector(".main-menu");if(!e)return;t=window.location.pathname,n=e.querySelectorAll('a[href="'+t+'"]'),n.forEach(function(e){var t=e.querySelectorAll("span");t.forEach(function(e){e.classList.add("active")})})})()</script></div></div></div></header><div class="relative flex flex-col grow"><main id=main-content class=grow><div id=reading-progress class="fixed left-0 top-0 z-100 h-1 w-0 bg-primary-500 dark:bg-primary-400 print:hidden" aria-hidden=true></div><article><div id=background-blur class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-xl bg-neutral-100/75 dark:bg-neutral-800/60"></div><script type=text/javascript src=/blog/js/background-blur.min.2b8477cfbdb6843f33fd6f7c9a9a1343c895e878a7b55c32979586e6c6ba1018372c0c66a011abdbd7bc1a912f98ea249043c82bfae8fb04a0f37f854ee1e920.js integrity="sha512-K4R3z722hD8z/W98mpoTQ8iV6HintVwyl5WG5sa6EBg3LAxmoBGr29e8GpEvmOokkEPIK/ro+wSg83+FTuHpIA==" data-blur-id=background-blur data-image-id=background-image-main></script><header id=single_header class="mt-5 max-w-prose"><ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden"><li class=hidden><a class="hover:underline decoration-neutral-300 dark:underline-neutral-600" href=/blog/>XhstormR's Blog</a><span class="px-1 text-primary-500">/</span></li><li class=inline><a class="hover:underline decoration-neutral-300 dark:underline-neutral-600" href=/blog/posts/>Posts</a><span class="px-1 text-primary-500">/</span></li><li class=hidden><a class="hover:underline decoration-neutral-300 dark:underline-neutral-600" href=/blog/posts/cheatsheet-linux/>Linux 命令不完全手册</a><span class="px-1 text-primary-500">/</span></li></ol><h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">Linux 命令不完全手册</h1><div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden"><div class="flex flex-row flex-wrap items-center"><time datetime=2016-03-23T16:40:02+08:00>2016-03-23</time><span class="px-2 text-primary-500">&#183;</span><span>3327 字</span><span class="px-2 text-primary-500">&#183;</span><span title=预计阅读>16 分钟</span><span class="px-2 text-primary-500">&#183;</span>
+<span class=mb-[2px]><a href=https://github.com/XhstormR/blog/blob/master/content/posts/cheatsheet-linux.md class="text-lg hover:text-primary-500" rel="noopener noreferrer" target=_blank title=编辑内容><span class="inline-block align-text-bottom"><span class="relative block icon"><svg height="1em" viewBox="0 0 512 512"><path fill="currentColor" d="M441 58.9 453.1 71c9.4 9.4 9.4 24.6.0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9.0zM209.8 256.2 344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1L186.9 325l16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25 175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 1e2c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l1e2-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7.0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4.0 152V424c0 48.6 39.4 88 88 88H360c48.6.0 88-39.4 88-88V312c0-13.3-10.7-24-24-24s-24 10.7-24 24V424c0 22.1-17.9 40-40 40H88c-22.1.0-40-17.9-40-40V152c0-22.1 17.9-40 40-40H2e2c13.3.0 24-10.7 24-24s-10.7-24-24-24H88z"/></svg></span></span></a>
+</span><span class="px-2 text-primary-500">&#183;</span><span class=mb-[2px]>
+<span id=zen-mode-button class="text-lg hover:text-primary-500" title=啟用阅读模式 data-title-i18n-disable=啟用阅读模式 data-title-i18n-enable=停用阅读模式><span class="inline-block align-text-bottom"><span class="relative block icon"><svg viewBox="0 0 50 50" width="50" height="50"><path fill="currentColor" d="M12.980469 4C9.1204688 4 5.9804688 7.14 5.9804688 11L6 26H9.9804688V11c0-1.65 1.3400002-3 3.0000002-3H40.019531c1.66.0 3 1.35 3 3V39c0 1.65-1.34 3-3 3H29c0 1.54-.579062 2.94-1.539062 4H40.019531c3.86.0 7-3.14 7-7V11c0-3.86-3.14-7-7-7H12.980469zM7 28c-2.206.0-4 1.794-4 4V42c0 2.206 1.794 4 4 4H23c2.206.0 4-1.794 4-4V32c0-2.206-1.794-4-4-4H7zm0 4H23L23.001953 42H7V32z"/></svg></span></span></span></span></div><div class="flex flex-row flex-wrap items-center"></div><div class="flex flex-row flex-wrap items-center"><a class="relative mt-[0.5rem] me-2" href=/blog/tags/cheatsheet/><span class="flex cursor-pointer"><span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">CheatSheet</span></span></a></div></div><div class="flex author"><img class="!mt-0 !mb-0 h-24 w-24 rounded-full me-4" width=96 height=96 alt=XhstormR src=/blog/img/avatar_hu_30cc958818b533fd.jpg data-zoom-src=/blog/img/avatar_hu_e9a3cd8c4429f1d8.jpg><div class=place-self-center><div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">作者</div><div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">XhstormR</div><div class="text-sm text-neutral-700 dark:text-neutral-400">INTJ</div><div class="text-2xl sm:text-lg"><div class="flex flex-wrap text-neutral-400 dark:text-neutral-500 space-x-2"><a class="email-link hover:text-primary-700 dark:hover:text-primary-400" href=# data-email=bWFpbHRvOnhoc3Rvcm1yQGV4YW1wbGUuY29t target=_blank aria-label=Email title=Email rel="me noopener noreferrer"><span class="inline-block align-text-bottom"><span class="relative block icon"><svg viewBox="0 0 512 512"><path fill="currentColor" d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1-27.64 140.9 68.65 266.2 199.1 285.1 19.01 2.888 36.17-12.26 36.17-31.49l1e-4-.6631c0-15.74-11.44-28.88-26.84-31.24-84.35-12.98-149.2-86.13-149.2-174.2.0-102.9 88.61-185.5 193.4-175.4 91.54 8.869 158.6 91.25 158.6 183.2v16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98.0036c-7.299.0-13.2 4.992-15.12 11.68-24.85-12.15-54.24-16.38-86.06-5.106-38.75 13.73-68.12 48.91-73.72 89.64-9.483 69.01 43.81 128 110.9 128 26.44.0 50.43-9.544 69.59-24.88 24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3c0-149.2-133.9-265.632-287.3-235.57zM239.1 304.3c-26.47.0-48-21.56-48-48.05s21.53-48.05 48-48.05 48 21.56 48 48.05-20.6 48.05-48 48.05z"/></svg>
+</span></span></a><a class="hover:text-primary-700 dark:hover:text-primary-400" href=https://xhstormr.github.io/blog/index.xml target=_blank aria-label=Rss title=Rss rel="me noopener noreferrer"><span class="inline-block align-text-bottom"><span class="relative block icon"><svg viewBox="0 0 448 512"><path fill="currentColor" d="M0 64C0 46.3 14.3 32 32 32c229.8.0 416 186.2 416 416 0 17.7-14.3 32-32 32s-32-14.3-32-32C384 253.6 226.4 96 32 96 14.3 96 0 81.7.0 64zM128 416c0 35.3-28.7 64-64 64S0 451.3.0 416s28.7-64 64-64 64 28.7 64 64zM32 160c159.1.0 288 128.9 288 288 0 17.7-14.3 32-32 32s-32-14.3-32-32c0-123.7-100.3-224-224-224-17.7.0-32-14.3-32-32s14.3-32 32-32z"/></svg></span></span></a>
+<a class="hover:text-primary-700 dark:hover:text-primary-400" href=https://github.com/XhstormR target=_blank aria-label=Github title=Github rel="me noopener noreferrer"><span class="inline-block align-text-bottom"><span class="relative block icon"><svg viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6.0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6.0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3.0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1.0-6.2-.3-40.4-.3-61.4.0.0-70 15-84.7-29.8.0.0-11.4-29.1-27.8-36.6.0.0-22.9-15.7 1.6-15.4.0.0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5.0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9.0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4.0 33.7-.3 75.4-.3 83.6.0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6.0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9.0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span></span></a></div></div></div></div><div class=mb-5></div></header><section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row"><div class="order-first lg:ms-auto px-0 lg:order-last lg:ps-8 lg:max-w-2xs"><div class="toc ps-5 print:hidden lg:sticky lg:top-[140px]"><details open id=TOCView class="toc-right mt-0 overflow-y-auto overscroll-contain bf-scrollbar rounded-lg -ms-5 ps-5 pe-2 hidden lg:block"><summary class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">目录</summary><div class="min-w-[220px] py-2 border-dotted border-s-1 -ms-5 ps-5 dark:border-neutral-600"><nav id=TableOfContents aria-label=目录><ul><li><a href=#ls>ls</a></li><li><a href=#mkdir>mkdir</a></li><li><a href=#cd>cd</a></li><li><a href=#rmdir>rmdir</a></li><li><a href=#rm>rm</a></li><li><a href=#chattr>chattr</a></li><li><a href=#cp>cp</a></li><li><a href=#mv>mv</a></li><li><a href=#ln>ln</a></li><li><a href=#z>z</a></li><li><a href=#zlua>z.lua</a></li><li><a href=#locate>locate</a></li><li><a href=#zmodem>ZModem</a></li><li><a href=#parted>parted</a></li><li><a href=#7z>7z</a></li><li><a href=#ncdu>ncdu</a></li><li><a href=#nethogs>nethogs</a></li><li><a href=#iftop>iftop</a></li><li><a href=#tree>tree</a></li><li><a href=#ssh>ssh</a></li><li><a href=#scp>scp</a></li><li><a href=#find>find</a></li><li><a href=#sort>sort</a></li><li><a href=#grep>grep</a></li><li><a href=#awk>awk</a></li><li><a href=#sed>sed</a></li><li><a href=#mount>mount</a></li><li><a href=#echo>echo</a></li><li><a href=#alias>alias</a></li><li><a href=#lsblk>lsblk</a></li><li><a href=#df>df</a></li><li><a href=#du>du</a></li><li><a href=#yum>yum</a></li><li><a href=#rpm>rpm</a></li><li><a href=#chown>chown</a></li><li><a href=#chmod>chmod</a></li><li><a href=#getent>getent</a></li><li><a href=#passwd>passwd</a></li><li><a href=#history>history</a></li><li><a href=#uname>uname</a></li><li><a href=#lsb_release>lsb_release</a></li><li><a href=#free>free</a></li><li><a href=#netstat>netstat</a></li><li><a href=#查看文件占用>查看文件占用</a></li><li><a href=#nmap>nmap</a></li><li><a href=#ps>ps</a></li><li><a href=#pidof>pidof</a></li><li><a href=#shutdown>shutdown</a></li><li><a href=#init>init</a></li><li><a href=#zip-压缩>zip 压缩</a></li><li><a href=#gz-压缩>gz 压缩</a></li><li><a href=#bz2-压缩>bz2 压缩</a></li><li><a href=#tar-压缩>tar 压缩</a></li><li><a href=#centos-7>CentOS 7</a><ul><li><a href=#hostnamectl>hostnamectl</a></li></ul></li><li><a href=#退出登录>退出登录</a></li><li><a href=#修改环境变量>修改环境变量</a></li><li><a href=#搜索系统命令>搜索系统命令</a></li><li><a href=#查看命令帮助>查看命令帮助</a></li><li><a href=#查看用户登录信息>查看用户登录信息</a></li><li><a href=#通配符>通配符</a></li><li><a href=#管道符>管道符</a></li><li><a href=#重定向>重定向</a></li><li><a href=#命令连接符>命令连接符</a></li><li><a href=#命令替换符>命令替换符</a></li><li><a href=#后台进程>后台进程</a></li><li><a href=#自定义登录信息>自定义登录信息</a></li><li><a href=#配置-dns>配置 DNS</a></li><li><a href=#脚本>脚本</a></li><li><a href=#linux-目录>Linux 目录</a></li><li><a href=#linux-快捷键emacs-风格>Linux 快捷键（Emacs 风格）</a></li><li><a href=#securecrt-快捷键>SecureCRT 快捷键</a></li></ul></nav></div></details><details class="toc-inside mt-0 overflow-hidden rounded-lg -ms-5 ps-5 lg:hidden"><summary class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">目录</summary><div class="py-2 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600"><nav id=TableOfContentsMobile aria-label=目录><ul><li><a href=#ls>ls</a></li><li><a href=#mkdir>mkdir</a></li><li><a href=#cd>cd</a></li><li><a href=#rmdir>rmdir</a></li><li><a href=#rm>rm</a></li><li><a href=#chattr>chattr</a></li><li><a href=#cp>cp</a></li><li><a href=#mv>mv</a></li><li><a href=#ln>ln</a></li><li><a href=#z>z</a></li><li><a href=#zlua>z.lua</a></li><li><a href=#locate>locate</a></li><li><a href=#zmodem>ZModem</a></li><li><a href=#parted>parted</a></li><li><a href=#7z>7z</a></li><li><a href=#ncdu>ncdu</a></li><li><a href=#nethogs>nethogs</a></li><li><a href=#iftop>iftop</a></li><li><a href=#tree>tree</a></li><li><a href=#ssh>ssh</a></li><li><a href=#scp>scp</a></li><li><a href=#find>find</a></li><li><a href=#sort>sort</a></li><li><a href=#grep>grep</a></li><li><a href=#awk>awk</a></li><li><a href=#sed>sed</a></li><li><a href=#mount>mount</a></li><li><a href=#echo>echo</a></li><li><a href=#alias>alias</a></li><li><a href=#lsblk>lsblk</a></li><li><a href=#df>df</a></li><li><a href=#du>du</a></li><li><a href=#yum>yum</a></li><li><a href=#rpm>rpm</a></li><li><a href=#chown>chown</a></li><li><a href=#chmod>chmod</a></li><li><a href=#getent>getent</a></li><li><a href=#passwd>passwd</a></li><li><a href=#history>history</a></li><li><a href=#uname>uname</a></li><li><a href=#lsb_release>lsb_release</a></li><li><a href=#free>free</a></li><li><a href=#netstat>netstat</a></li><li><a href=#查看文件占用>查看文件占用</a></li><li><a href=#nmap>nmap</a></li><li><a href=#ps>ps</a></li><li><a href=#pidof>pidof</a></li><li><a href=#shutdown>shutdown</a></li><li><a href=#init>init</a></li><li><a href=#zip-压缩>zip 压缩</a></li><li><a href=#gz-压缩>gz 压缩</a></li><li><a href=#bz2-压缩>bz2 压缩</a></li><li><a href=#tar-压缩>tar 压缩</a></li><li><a href=#centos-7>CentOS 7</a><ul><li><a href=#hostnamectl>hostnamectl</a></li></ul></li><li><a href=#退出登录>退出登录</a></li><li><a href=#修改环境变量>修改环境变量</a></li><li><a href=#搜索系统命令>搜索系统命令</a></li><li><a href=#查看命令帮助>查看命令帮助</a></li><li><a href=#查看用户登录信息>查看用户登录信息</a></li><li><a href=#通配符>通配符</a></li><li><a href=#管道符>管道符</a></li><li><a href=#重定向>重定向</a></li><li><a href=#命令连接符>命令连接符</a></li><li><a href=#命令替换符>命令替换符</a></li><li><a href=#后台进程>后台进程</a></li><li><a href=#自定义登录信息>自定义登录信息</a></li><li><a href=#配置-dns>配置 DNS</a></li><li><a href=#脚本>脚本</a></li><li><a href=#linux-目录>Linux 目录</a></li><li><a href=#linux-快捷键emacs-风格>Linux 快捷键（Emacs 风格）</a></li><li><a href=#securecrt-快捷键>SecureCRT 快捷键</a></li></ul></nav></div></details><script>(function(){"use strict";const s=.33,o="#TableOfContents",i=".anchor",a='a[href^="#"]',r="li ul",c="active";let t=!1;function l(e,n){const o=window.scrollY+window.innerHeight*n,i=[...document.querySelectorAll('#TableOfContents a[href^="#"]')],s=new Set(i.map(e=>e.getAttribute("href").substring(1)));if(t)for(let t=0;t<e.length;t++){const n=e[t];if(!s.has(n.id))continue;const o=n.getBoundingClientRect().top+window.scrollY;if(Math.abs(window.scrollY-o)<100)return n.id}for(let t=e.length-1;t>=0;t--){const n=e[t].getBoundingClientRect().top+window.scrollY;if(n<=o&&s.has(e[t].id))return e[t].id}return e.find(e=>s.has(e.id))?.id||""}function e({toc:e,anchors:t,links:n,scrollOffset:s,collapseInactive:o}){const i=l(t,s);if(!i)return;if(n.forEach(e=>{const t=e.getAttribute("href")===`#${i}`;if(e.classList.toggle(c,t),o){const n=e.closest("li")?.querySelector("ul");n&&(n.style.display=t?"":"none")}}),o){const n=e.querySelector(`a[href="#${CSS.escape(i)}"]`);let t=n;for(;t&&t!==e;)t.tagName==="UL"&&(t.style.display=""),t.tagName==="LI"&&t.querySelector("ul")?.style.setProperty("display",""),t=t.parentElement}}function n(){const n=document.querySelector(o);if(!n)return;const l=!1,u=[...document.querySelectorAll(i)],d=[...n.querySelectorAll(a)];l&&n.querySelectorAll(r).forEach(e=>e.style.display="none"),d.forEach(e=>{e.addEventListener("click",()=>{t=!0})});const c={toc:n,anchors:u,links:d,scrollOffset:s,collapseInactive:l};window.addEventListener("scroll",()=>e(c),{passive:!0}),window.addEventListener("hashchange",()=>e(c),{passive:!0}),e(c)}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",n):n()})()</script></div></div><div class="min-w-0 min-h-0 max-w-fit"><div class="article-content max-w-prose mb-20"><p>Updated on 2018-02-08</p><blockquote><img loading=lazy src=/blog/uploads/linux-centos.svg><p><a href=https://www.centos.org/ target=_blank rel=noreferrer>https://www.centos.org/</a></p><p><a href=https://almalinux.org/ target=_blank rel=noreferrer>https://almalinux.org/</a></p><p><a href=http://man7.org/linux/man-pages/dir_all_alphabetic.html target=_blank rel=noreferrer>http://man7.org/linux/man-pages/dir_all_alphabetic.html</a></p><p>最近因为要参加全国云计算比赛，需要使用 Linux；所以我把关于 Linux 系统的一些命令整理在这里，以便查阅。</p><p>Update：市赛以第一名出线，国赛获得二等奖。</p><p>Update 2：学校要求我留下，继续参加下一届比赛。</p></blockquote><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>pwd  #查看当前路径
+</span></span><span class=line><span class=cl>date #查看当前时间
+</span></span><span class=line><span class=cl>type #查看命令类型
+</span></span><span class=line><span class=cl>file #查看文件类型 -i 显示MIME类别
+</span></span><span class=line><span class=cl>stat #查看文件属性
+</span></span><span class=line><span class=cl>cat  #查看文件内容     Concatenate
+</span></span><span class=line><span class=cl>head #查看文件内容头10行
+</span></span><span class=line><span class=cl>tail #查看文件内容尾10行 -f 监视文件最新增加的内容     Follow
+</span></span><span class=line><span class=cl>touch #创建空文件
+</span></span><span class=line><span class=cl>ip -s -h address #查看网卡信息
+</span></span><span class=line><span class=cl>wc   #统计文本     -l -w -c     行数 单词数 字节数
+</span></span><span class=line><span class=cl>less #分屏显示     -5 每次显示5行     -N 显示行号
+</span></span><span class=line><span class=cl>more #分页显示     -5 每次显示5行     推荐使用 less
+</span></span><span class=line><span class=cl>reset #初始化终端
+</span></span><span class=line><span class=cl>env #查看环境变量
+</span></span><span class=line><span class=cl>set #查看环境变量 + Shell 变量</span></span></code></pre></div></div><h2 class="relative group">ls<div id=ls class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#ls aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>-a <span class=c1>#显示隐藏文件</span>
+</span></span><span class=line><span class=cl>-d <span class=c1>#只显示当前文件夹信息</span>
+</span></span><span class=line><span class=cl>-l <span class=c1>#以列表形式显示详细信息</span>
+</span></span><span class=line><span class=cl>-F <span class=c1>#显示类型标识符     /目录 *可执行文件 @符号链接 =Sockets套接字 |FIFO命令管道 普通文件无标识符     Classify(分类)</span>
+</span></span><span class=line><span class=cl>-h <span class=c1>#人性化显示大小</span>
+</span></span><span class=line><span class=cl>-i <span class=c1>#显示inode</span>
+</span></span><span class=line><span class=cl>-I <span class=c1>#排除匹配文件</span>
+</span></span><span class=line><span class=cl>-r <span class=c1>#反向排序     Reverse(相反)</span>
+</span></span><span class=line><span class=cl>-R <span class=c1>#操作文件夹下的所有文件     Recursive(递归)</span>
+</span></span><span class=line><span class=cl>-S <span class=c1>#按文件大小降序排列     Size</span>
+</span></span><span class=line><span class=cl>-t <span class=c1>#按文件时间排序     Time</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>[</span>root@controller ~<span class=o>]</span>$ ll -Shr <span class=c1>#人性化显示大小并按大小升序排列</span>
+</span></span><span class=line><span class=cl>total 20K
+</span></span><span class=line><span class=cl>-rw-------. <span class=m>1</span> root root 1.2K Mar <span class=m>29</span> 14:35 anaconda-ks.cfg
+</span></span><span class=line><span class=cl>-rw-r--r--. <span class=m>1</span> root root 3.1K Mar <span class=m>29</span> 14:34 install.log.syslog
+</span></span><span class=line><span class=cl>-rw-r--r--. <span class=m>1</span> root root 8.9K Mar <span class=m>29</span> 14:35 install.log
+</span></span><span class=line><span class=cl><span class=o>[</span>root@controller ~<span class=o>]</span>$ ls -lF
+</span></span><span class=line><span class=cl>total <span class=m>24</span>
+</span></span><span class=line><span class=cl>-rw-------. <span class=m>1</span> root root <span class=m>1208</span> Apr <span class=m>12</span> 14:42 anaconda-ks.cfg
+</span></span><span class=line><span class=cl>-rw-r--r--. <span class=m>1</span> root root <span class=m>9114</span> Apr <span class=m>12</span> 16:22 install.log
+</span></span><span class=line><span class=cl>-rw-r--r--. <span class=m>1</span> root root <span class=m>3161</span> Apr <span class=m>12</span> 14:41 install.log.syslog
+</span></span><span class=line><span class=cl>drwxr-xr-x. <span class=m>2</span> root root <span class=m>4096</span> Apr <span class=m>13</span> 06:06 test/
+</span></span><span class=line><span class=cl>-rwxr-xr-x. <span class=m>1</span> root root    <span class=m>0</span> Apr <span class=m>13</span> 06:06 test.sh*
+</span></span><span class=line><span class=cl><span class=o>[</span>root@controller ~<span class=o>]</span>$ ls -l
+</span></span><span class=line><span class=cl>total <span class=m>20</span>
+</span></span><span class=line><span class=cl>-rw-------. <span class=m>1</span> root root  <span class=m>986</span> Mar <span class=m>18</span> 10:14 anaconda-ks.cfg
+</span></span><span class=line><span class=cl>-rw-r--r--. <span class=m>1</span> root root <span class=m>9072</span> Mar <span class=m>18</span> 10:14 install.log
+</span></span><span class=line><span class=cl>-rw-r--r--. <span class=m>1</span> root root <span class=m>3161</span> Mar <span class=m>18</span> 10:13 install.log.syslog
+</span></span><span class=line><span class=cl>10位     前1<span class=o>(</span>-文件 d目录 l连接<span class=o>)</span>     后9<span class=o>(</span>rw-r--r--<span class=o>)</span>
+</span></span><span class=line><span class=cl>rw-r--r--<span class=o>(</span>333<span class=o>)</span>
+</span></span><span class=line><span class=cl>u所属用户     g所属组     o其他人
+</span></span><span class=line><span class=cl>r读     w写     x执行
+</span></span><span class=line><span class=cl>1引用计数     root所属用户     root所属组     9072文件大小
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Tips :
+</span></span><span class=line><span class=cl><span class=nv>ll</span> <span class=o>=</span> ls -l
+</span></span><span class=line><span class=cl>ls <span class=sb>`</span>cat 123<span class=sb>`</span>     <span class=sb>``</span>包含的命令 bash 会先执行
+</span></span><span class=line><span class=cl>ll /root/<span class=o>{</span>1,2<span class=o>}</span>     等同于 ll /root/1 /root/2</span></span></code></pre></div></div><h2 class="relative group">mkdir<div id=mkdir class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#mkdir aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>-p #递归创建目录
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>mkdir -p 1/2/3</span></span></code></pre></div></div><h2 class="relative group">cd<div id=cd class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#cd aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>cd    #进入当前用户家目录
+</span></span><span class=line><span class=cl>cd ~  #进入当前用户家目录
+</span></span><span class=line><span class=cl>cd -  #进入上一次目录
+</span></span><span class=line><span class=cl>cd .. #进入上一级目录</span></span></code></pre></div></div><h2 class="relative group">rmdir<div id=rmdir class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#rmdir aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>rmdir #删除空白目录，不常用</span></span></code></pre></div></div><h2 class="relative group">rm<div id=rm class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#rm aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>-r #操作文件夹下的所有文件     Recursive(递归)
+</span></span><span class=line><span class=cl>-f #不显示确认信息
+</span></span><span class=line><span class=cl>-v #显示详细信息
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>rm -rf *
+</span></span><span class=line><span class=cl>rm -rf `ls | grep -v word` #删除除了 word 之外的所有文件
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>删除文件名前带有特殊字符的文件
+</span></span><span class=line><span class=cl>rm -rf -- -1
+</span></span><span class=line><span class=cl>rm -rf ./-1
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>创建文件名前带有特殊字符的文件
+</span></span><span class=line><span class=cl>cp -- 1 -1     -1
+</span></span><span class=line><span class=cl>cp 1 \\1     \1</span></span></code></pre></div></div><h2 class="relative group">chattr<div id=chattr class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#chattr aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>-R #操作文件夹下的所有文件     Recursive(递归)
+</span></span><span class=line><span class=cl>+ 属性 #开启属性
+</span></span><span class=line><span class=cl>- 属性 #关闭属性
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>第二扩展文件系统属性：
+</span></span><span class=line><span class=cl>a：让文件或目录仅供附加用途
+</span></span><span class=line><span class=cl>b：不更新文件或目录的最后存取时间
+</span></span><span class=line><span class=cl>c：将文件或目录压缩后存放
+</span></span><span class=line><span class=cl>d：将文件或目录排除在倾倒操作之外
+</span></span><span class=line><span class=cl>i：不得任意更动文件或目录
+</span></span><span class=line><span class=cl>s：保密性删除文件或目录
+</span></span><span class=line><span class=cl>S：即时更新文件或目录
+</span></span><span class=line><span class=cl>u：预防意外删除
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>[root@controller ~]$ chattr +i 123 #添加 i 属性，保护文件
+</span></span><span class=line><span class=cl>[root@controller ~]$ lsattr #查看文件的第二扩展文件系统属性
+</span></span><span class=line><span class=cl>----i--------e- ./123
+</span></span><span class=line><span class=cl>[root@controller ~]$ rm -rf 123 #不能删除
+</span></span><span class=line><span class=cl>rm: cannot remove 123: Operation not permitted
+</span></span><span class=line><span class=cl>[root@controller ~]$ chattr -i 123 #关闭属性
+</span></span><span class=line><span class=cl>[root@controller ~]$ rm -rfv 123
+</span></span><span class=line><span class=cl>removed 123
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>[root@controller ~]$ chattr +a 123 #只能往里面追加内容，不能删除</span></span></code></pre></div></div><h2 class="relative group">cp<div id=cp class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#cp aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>cp [选项] [原文件或目录] [目标目录]
+</span></span><span class=line><span class=cl>-u #只复制比目标新的文件
+</span></span><span class=line><span class=cl>-r #操作文件夹下的所有文件     Recursive(递归)
+</span></span><span class=line><span class=cl>-p #连带文件属性复制
+</span></span><span class=line><span class=cl>-d #若原文件是链接文件，则复制链接属性
+</span></span><span class=line><span class=cl>-a #相当于 -rpd
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>cp /root/123 .     复制文件到当前目录
+</span></span><span class=line><span class=cl>cp /root/123{,.bak}     备份文件，相当于 cp /root/123 /root/123.bak</span></span></code></pre></div></div><h2 class="relative group">mv<div id=mv class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#mv aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>mv <span class=o>[</span>选项<span class=o>]</span> <span class=o>[</span>原文件或目录<span class=o>]</span> <span class=o>[</span>目标目录<span class=o>]</span>
+</span></span><span class=line><span class=cl>-u <span class=c1>#只移动比目标新的文件</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>mv <span class=m>123</span> <span class=m>1</span> <span class=c1>#相当于重命名</span></span></span></code></pre></div></div><h2 class="relative group">ln<div id=ln class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#ln aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>ln [原文件]  [目标文件]
+</span></span><span class=line><span class=cl>-s #创建软链接 soft，不加则创建硬链接 hard，需使用绝对路径
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>软链接：类似于windows快捷方式，删除原文件，软连接不能使用
+</span></span><span class=line><span class=cl>硬链接：拥有相同的i节点和存储block块，可以看作同一个文件，删除其中之一，另一个还能使用，可通过i节点识别，不能跨分区和针对目录使用，相当于backup，防止误删。</span></span></code></pre></div></div><h2 class="relative group">z<div id=z class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#z aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>echo</span> <span class=s1>&#39;. ~/z.sh&#39;</span> &gt;&gt; .bashrc <span class=c1>#安装 z</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>https://github.com/rupa/z
+</span></span><span class=line><span class=cl>https://raw.githubusercontent.com/rupa/z/master/z.sh</span></span></code></pre></div></div><h2 class="relative group">z.lua<div id=zlua class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#zlua aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>echo</span> <span class=s1>&#39;lua ~/z.lua --init fish once | source&#39;</span> &gt;&gt; ~/.config/fish/config.fish
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>https://github.com/skywind3000/z.lua
+</span></span><span class=line><span class=cl>https://raw.githubusercontent.com/skywind3000/z.lua/master/z.lua</span></span></code></pre></div></div><h2 class="relative group">locate<div id=locate class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#locate aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>yum -y install mlocate <span class=c1>#安装 locate</span>
+</span></span><span class=line><span class=cl>locate <span class=o>[</span>文件名<span class=o>]</span> <span class=c1>#在数据库中搜索文件名，速度非常快</span>
+</span></span><span class=line><span class=cl>updatedb <span class=c1>#手动更新数据库</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>/var/lib/mlocate     数据库位置，默认更新周期为 <span class=m>1</span> 天
+</span></span><span class=line><span class=cl>/etc/updatedb.conf     locate 配置文件</span></span></code></pre></div></div><h2 class="relative group">ZModem<div id=zmodem class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#zmodem aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>yum -y install lrzsz #安装 ZModem
+</span></span><span class=line><span class=cl>rz #上传文件     对于 Linux Receive（接收）
+</span></span><span class=line><span class=cl>sz #下载文件     对于 Linux Send（发送）</span></span></code></pre></div></div><h2 class="relative group">parted<div id=parted class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#parted aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>yum -y install parted <span class=c1>#安装 parted</span>
+</span></span><span class=line><span class=cl>-l <span class=c1>#输出分区信息</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>交互命令
+</span></span><span class=line><span class=cl><span class=nb>help</span> <span class=o>[</span>COMMAND<span class=o>]</span>     获取帮助信息
+</span></span><span class=line><span class=cl>mklabel     设置分区表，如 gpt 和 msdos
+</span></span><span class=line><span class=cl>mkpart     创建新分区     mkpart PART-TYPE <span class=o>[</span>FS-TYPE<span class=o>]</span> START END
+</span></span><span class=line><span class=cl>print     输出分区信息，可简写为 p
+</span></span><span class=line><span class=cl>      free     同时显示磁盘剩余空间
+</span></span><span class=line><span class=cl>      all     显示所有磁盘信息
+</span></span><span class=line><span class=cl>      number     显示指定分区信息
+</span></span><span class=line><span class=cl>rm     删除分区
+</span></span><span class=line><span class=cl><span class=k>select</span>     选择设备
+</span></span><span class=line><span class=cl>quit     退出，可简写为 q
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>[</span>root@controller ~<span class=o>]</span>$ parted
+</span></span><span class=line><span class=cl>      <span class=k>select</span> /dev/sdb <span class=c1>#选择设备</span>
+</span></span><span class=line><span class=cl>      p <span class=c1>#显示磁盘分区信息</span>
+</span></span><span class=line><span class=cl>      mklabel gpt <span class=c1>#将分区表修改为 gpt 格式</span>
+</span></span><span class=line><span class=cl>      mkpart primary 265gb 275gb <span class=c1>#创建一个大小为 10GB 的主分区，分区起始位置：265gb，分区结束位置：275gb</span>
+</span></span><span class=line><span class=cl>      mkpart primary 275gb 280gb <span class=c1>#创建一个大小为 5GB 的主分区，分区起始位置：275gb，分区结束位置：280gb</span>
+</span></span><span class=line><span class=cl>      rm <span class=m>2</span> <span class=c1>#删除大小为 5GB 的分区</span>
+</span></span><span class=line><span class=cl>      p free <span class=c1>#同时查看磁盘剩余空间</span>
+</span></span><span class=line><span class=cl>      q <span class=c1>#退出</span>
+</span></span><span class=line><span class=cl><span class=o>[</span>root@controller ~<span class=o>]</span>$ mkfs.ext4 /dev/sdb1 <span class=c1>#格式化为 ext4 文件系统</span>
+</span></span><span class=line><span class=cl><span class=o>[</span>root@controller ~<span class=o>]</span>$ mkdir /123 <span class=c1>#挂载</span>
+</span></span><span class=line><span class=cl><span class=o>[</span>root@controller ~<span class=o>]</span>$ mount /dev/sdb1 /123/ <span class=c1>#挂载</span>
+</span></span><span class=line><span class=cl><span class=o>[</span>root@controller ~<span class=o>]</span>$ df -h<span class=p>|</span>grep <span class=m>123</span> <span class=c1>#查看挂载分区</span>
+</span></span><span class=line><span class=cl>/dev/sdb1       9.6G  138M  9.3G   2% /123
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>[</span>root@controller ~<span class=o>]</span>$ parted /dev/sdb
+</span></span><span class=line><span class=cl>      mklabel gpt
+</span></span><span class=line><span class=cl>      mkpart primary 0% 100%
+</span></span><span class=line><span class=cl>      q
+</span></span><span class=line><span class=cl><span class=o>[</span>root@controller ~<span class=o>]</span>$ mkfs.ext4 /dev/sdb1
+</span></span><span class=line><span class=cl><span class=o>[</span>root@controller ~<span class=o>]</span>$ mkdir /123
+</span></span><span class=line><span class=cl><span class=o>[</span>root@controller ~<span class=o>]</span>$ mount /dev/sdb1 /123</span></span></code></pre></div></div><h2 class="relative group">7z<div id=7z class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#7z aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>yum -y install p7zip* <span class=c1>#安装 7z     p7zip，p7zip-plugins，7za和7zr是7z的精简版，建议使用7z</span>
+</span></span><span class=line><span class=cl>a     添加到压缩文件
+</span></span><span class=line><span class=cl>b     基准测试     Benchmark
+</span></span><span class=line><span class=cl>d     从压缩文件中删除
+</span></span><span class=line><span class=cl>l     列出压缩文件中的内容
+</span></span><span class=line><span class=cl>t     测试压缩文件
+</span></span><span class=line><span class=cl>e     解压到当前目录，但没有目录结构，即所有文件都在同一个目录下
+</span></span><span class=line><span class=cl>x     以完整路径解压
+</span></span><span class=line><span class=cl>-o     指定输出文件夹     output
+</span></span><span class=line><span class=cl>-mx<span class=o>[</span>0,1,3,5,7,9<span class=o>]</span>     指定压缩级别
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>7z a <span class=m>123</span> * <span class=c1>#将当前目录下的所有文件和文件夹都压缩到 123.7z 中</span>
+</span></span><span class=line><span class=cl>7z a /root/123 /tmp/ <span class=c1>#将 /tmp 中的所有内容压缩到 /root 目录中的 123.7z 中</span>
+</span></span><span class=line><span class=cl>7z l 123.7z <span class=c1>#列出压缩文件中的内容</span>
+</span></span><span class=line><span class=cl>7z x 123.7z <span class=c1>#解压 123.7z 中的所有文件到当前目录下</span>
+</span></span><span class=line><span class=cl>7z x 123.7z -o456 <span class=c1>#解压 123.7z 中的所有文件到 456 目录中，456 目录会自动创建</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>7z a <span class=m>123</span> <span class=m>123</span> -mx9 <span class=c1>#将当前文件夹里的 123 文件夹以 ultra 级别压缩到 123.7z 中</span></span></span></code></pre></div></div><h2 class="relative group">ncdu<div id=ncdu class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#ncdu aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=n>yum</span> <span class=o>-</span><span class=n>y</span> <span class=n>install</span> <span class=n>ncdu</span> <span class=err>#安装</span> <span class=n>ncdu</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=err>交互命令</span>
+</span></span><span class=line><span class=cl><span class=n>n</span>     <span class=err>按文件名排序</span>
+</span></span><span class=line><span class=cl><span class=n>s</span>     <span class=err>按文件大小排序</span>
+</span></span><span class=line><span class=cl><span class=n>r</span>     <span class=err>重新统计大小</span>
+</span></span><span class=line><span class=cl><span class=n>g</span>     <span class=err>切换统计视图</span>
+</span></span><span class=line><span class=cl><span class=n>e</span>     <span class=err>显示隐藏文件</span>
+</span></span><span class=line><span class=cl><span class=n>d</span>     <span class=err>删除文件</span><span class=o>/</span><span class=err>文件夹</span>
+</span></span><span class=line><span class=cl><span class=n>i</span>     <span class=err>显示文件</span><span class=o>/</span><span class=err>目录信息</span>
+</span></span><span class=line><span class=cl><span class=err>↑↓</span>     <span class=err>上</span><span class=o>/</span><span class=err>下</span>
+</span></span><span class=line><span class=cl><span class=err>←→</span>     <span class=err>返回</span><span class=o>/</span><span class=err>进入</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>[</span><span class=n>root</span><span class=err>@</span><span class=n>controller</span> <span class=o>~</span><span class=p>]</span><span class=err>$</span> <span class=n>ncdu</span> <span class=o>/</span><span class=n>root</span><span class=o>/</span>
+</span></span><span class=line><span class=cl><span class=n>ncdu</span> <span class=mf>1.7</span> <span class=o>~</span> <span class=n>Use</span> <span class=n>the</span> <span class=n>arrow</span> <span class=n>keys</span> <span class=n>to</span> <span class=n>navigate</span><span class=p>,</span> <span class=n>press</span> <span class=o>?</span> <span class=k>for</span> <span class=n>help</span>
+</span></span><span class=line><span class=cl><span class=o>---</span> <span class=o>/</span><span class=n>root</span> <span class=o>-----------------------------------------------------------------------</span>
+</span></span><span class=line><span class=cl>   <span class=mf>16.0</span><span class=n>kiB</span> <span class=p>[</span> <span class=mf>13.8</span><span class=o>%</span> <span class=err>##########</span><span class=p>]</span>  <span class=p>.</span><span class=n>bash_history</span>
+</span></span><span class=line><span class=cl>   <span class=mf>16.0</span><span class=n>kiB</span> <span class=p>[</span> <span class=mf>13.8</span><span class=o>%</span> <span class=err>##########</span><span class=p>]</span> <span class=o>/</span><span class=p>.</span><span class=n>ssh</span>
+</span></span><span class=line><span class=cl>   <span class=mf>12.0</span><span class=n>kiB</span> <span class=p>[</span> <span class=mf>10.3</span><span class=o>%</span> <span class=err>#######</span>   <span class=p>]</span>  <span class=n>install</span><span class=p>.</span><span class=n>log</span>
+</span></span><span class=line><span class=cl>    <span class=mf>8.0</span><span class=n>kiB</span> <span class=p>[</span>  <span class=mf>6.9</span><span class=o>%</span> <span class=err>#####</span>     <span class=p>]</span> <span class=o>/</span><span class=p>.</span><span class=n>novaclient</span>
+</span></span><span class=line><span class=cl>    <span class=mf>8.0</span><span class=n>kiB</span> <span class=p>[</span>  <span class=mf>6.9</span><span class=o>%</span> <span class=err>#####</span>     <span class=p>]</span> <span class=o>/</span><span class=p>.</span><span class=n>m2</span>
+</span></span><span class=line><span class=cl>    <span class=mf>8.0</span><span class=n>kiB</span> <span class=p>[</span>  <span class=mf>6.9</span><span class=o>%</span> <span class=err>#####</span>     <span class=p>]</span>  <span class=p>.</span><span class=n>viminfo</span>
+</span></span><span class=line><span class=cl>    <span class=mf>8.0</span><span class=n>kiB</span> <span class=p>[</span>  <span class=mf>6.9</span><span class=o>%</span> <span class=err>#####</span>     <span class=p>]</span> <span class=o>/</span><span class=p>.</span><span class=n>karaf</span>
+</span></span><span class=line><span class=cl>    <span class=mf>4.0</span><span class=n>kiB</span> <span class=p>[</span>  <span class=mf>3.4</span><span class=o>%</span> <span class=err>##</span>        <span class=p>]</span>  <span class=n>install</span><span class=p>.</span><span class=n>log</span><span class=p>.</span><span class=n>syslog</span>
+</span></span><span class=line><span class=cl>    <span class=mf>4.0</span><span class=n>kiB</span> <span class=p>[</span>  <span class=mf>3.4</span><span class=o>%</span> <span class=err>##</span>        <span class=p>]</span>  <span class=n>anaconda</span><span class=o>-</span><span class=n>ks</span><span class=p>.</span><span class=n>cfg</span>
+</span></span><span class=line><span class=cl>    <span class=mf>4.0</span><span class=n>kiB</span> <span class=p>[</span>  <span class=mf>3.4</span><span class=o>%</span> <span class=err>##</span>        <span class=p>]</span>  <span class=p>.</span><span class=n>rnd</span>
+</span></span><span class=line><span class=cl>    <span class=mf>4.0</span><span class=n>kiB</span> <span class=p>[</span>  <span class=mf>3.4</span><span class=o>%</span> <span class=err>##</span>        <span class=p>]</span>  <span class=p>.</span><span class=n>mysql_history</span>
+</span></span><span class=line><span class=cl>    <span class=mf>4.0</span><span class=n>kiB</span> <span class=p>[</span>  <span class=mf>3.4</span><span class=o>%</span> <span class=err>##</span>        <span class=p>]</span>  <span class=p>.</span><span class=n>bashrc</span>
+</span></span><span class=line><span class=cl>    <span class=mf>4.0</span><span class=n>kiB</span> <span class=p>[</span>  <span class=mf>3.4</span><span class=o>%</span> <span class=err>##</span>        <span class=p>]</span>  <span class=p>.</span><span class=n>bash_profile</span>
+</span></span><span class=line><span class=cl>    <span class=mf>4.0</span><span class=n>kiB</span> <span class=p>[</span>  <span class=mf>3.4</span><span class=o>%</span> <span class=err>##</span>        <span class=p>]</span>  <span class=p>.</span><span class=n>tcshrc</span>
+</span></span><span class=line><span class=cl>    <span class=mf>4.0</span><span class=n>kiB</span> <span class=p>[</span>  <span class=mf>3.4</span><span class=o>%</span> <span class=err>##</span>        <span class=p>]</span>  <span class=p>.</span><span class=n>cshrc</span>
+</span></span><span class=line><span class=cl>    <span class=mf>4.0</span><span class=n>kiB</span> <span class=p>[</span>  <span class=mf>3.4</span><span class=o>%</span> <span class=err>##</span>        <span class=p>]</span>  <span class=p>.</span><span class=n>bash_logout</span>
+</span></span><span class=line><span class=cl> <span class=n>Total</span> <span class=n>disk</span> <span class=nl>usage</span><span class=p>:</span> <span class=mf>116.0</span><span class=n>kiB</span>  <span class=n>Apparent</span> <span class=nl>size</span><span class=p>:</span>  <span class=mf>66.3</span><span class=n>kiB</span>  <span class=nl>Items</span><span class=p>:</span> <span class=mi>30</span></span></span></code></pre></div></div><h2 class="relative group">nethogs<div id=nethogs class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#nethogs aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>yum -y install nethogs #安装 nethogs
+</span></span><span class=line><span class=cl>-d 2 #设置刷新频率为 2 秒，默认 1 秒     delay(延迟)
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>交互命令
+</span></span><span class=line><span class=cl>m     切换统计视图     KB/sec -&gt; Total[KB -&gt; B -&gt; MB]
+</span></span><span class=line><span class=cl>s     按发送流量排序     SEND
+</span></span><span class=line><span class=cl>r     按接收流量排序     RECEIVED
+</span></span><span class=line><span class=cl>q     退出
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>[root@controller ~]$ nethogs eth0 eth1 #同时监视 eth0、eth1 网卡，默认只监视 eth0
+</span></span><span class=line><span class=cl>NetHogs version 0.8.0
+</span></span><span class=line><span class=cl>  PID USER     PROGRAM                                DEV        SENT      RECEIVED
+</span></span><span class=line><span class=cl>2039  qpidd    /usr/sbin/qpidd                        eth0       0.350       0.397 KB/sec
+</span></span><span class=line><span class=cl>16415 root     sshd: root@pts/4                       eth0       2.509       0.047 KB/sec
+</span></span><span class=line><span class=cl>28605 root     sshd: root@pts/0                       eth0       0.645       0.047 KB/sec
+</span></span><span class=line><span class=cl>1885  mysql    /usr/libexec/mysqld                    eth0       0.000       0.000 KB/sec
+</span></span><span class=line><span class=cl>?     root     unknown TCP                                       0.000       0.000 KB/sec
+</span></span><span class=line><span class=cl>  TOTAL                                                          3.504       0.491 KB/sec</span></span></code></pre></div></div><h2 class="relative group">iftop<div id=iftop class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#iftop aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>yum -y install iftop #安装 iftop
+</span></span><span class=line><span class=cl>-i eth1 #设定监视网卡
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>交互命令
+</span></span><span class=line><span class=cl>n     是否解析 IP
+</span></span><span class=line><span class=cl>N     是否解析端口
+</span></span><span class=line><span class=cl>s     是否显示本地 主机
+</span></span><span class=line><span class=cl>d     是否显示远端 主机
+</span></span><span class=line><span class=cl>S     是否显示本地 端口
+</span></span><span class=line><span class=cl>D     是否显示远端 端口
+</span></span><span class=line><span class=cl>p     是否显示端口连接
+</span></span><span class=line><span class=cl>P     是否暂停
+</span></span><span class=line><span class=cl>b     是否显示平均流量刻度条
+</span></span><span class=line><span class=cl>B     切换刻度条时间单位     2s，10s，40s
+</span></span><span class=line><span class=cl>l     打开屏幕过滤功能
+</span></span><span class=line><span class=cl>L     切换刻度条单位
+</span></span><span class=line><span class=cl>t     切换显示格式
+</span></span><span class=line><span class=cl>T     是否显示每个连接的总流量
+</span></span><span class=line><span class=cl>j,k     滚动屏幕
+</span></span><span class=line><span class=cl>1,2,3     根据右侧3列流量排序
+</span></span><span class=line><span class=cl>&lt;     根据本地主机名排序
+</span></span><span class=line><span class=cl>&gt;     根据远端主机名排序
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>TX     发送Transport     cum     运行到目前的总流量     peak     流量峰值     rates     过去2s，10s，40s的平均流量
+</span></span><span class=line><span class=cl>RX     接收Received
+</span></span><span class=line><span class=cl>TOTAL     总流量
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                 19.1Mb            38.1Mb            57.2Mb            76.3Mb      95.4Mb
+</span></span><span class=line><span class=cl>└────────────────┴─────────────────┴─────────────────┴──────────────
+</span></span><span class=line><span class=cl>192.168.100.10:ssh         =&gt; 192.168.100.151:54315        116KB  4.09Kb  4.09Kb  4.06Kb
+</span></span><span class=line><span class=cl>                           &lt;=                             12.1KB   320b    320b    418b
+</span></span><span class=line><span class=cl>192.168.100.10:ssh         =&gt; 192.168.100.151:53704        687KB   688b    726b   1.49Kb
+</span></span><span class=line><span class=cl>                           &lt;=                              155KB   160b    160b    311b
+</span></span><span class=line><span class=cl>────────────────────────────────────────────────────────────────────
+</span></span><span class=line><span class=cl>TX:             cum:   14.6MB   peak:   11.4Kb           rates:   4.77Kb  4.80Kb  5.54Kb
+</span></span><span class=line><span class=cl>RX:                     715MB           2.27Kb                     480b    480b    730b
+</span></span><span class=line><span class=cl>TOTAL:                  729MB           13.7Kb                    5.23Kb  5.27Kb  6.26Kb</span></span></code></pre></div></div><h2 class="relative group">tree<div id=tree class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#tree aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>yum -y install tree <span class=c1>#安装 tree</span>
+</span></span><span class=line><span class=cl>-a <span class=c1>#显示所有文件和目录     all</span>
+</span></span><span class=line><span class=cl>-d <span class=c1>#只显示目录     directory</span>
+</span></span><span class=line><span class=cl>-f <span class=c1>#在文件和目录前显示绝对路径     full</span>
+</span></span><span class=line><span class=cl>-u <span class=c1>#在文件和目录前显示所属用户     user</span>
+</span></span><span class=line><span class=cl>-g <span class=c1>#在文件和目录前显示所属组     group</span>
+</span></span><span class=line><span class=cl>-s <span class=c1>#列出文件和目录大小     size</span>
+</span></span><span class=line><span class=cl>-h <span class=c1>#列出文件和目录大小并人性化显示     human</span>
+</span></span><span class=line><span class=cl>-p <span class=c1>#列出权限标识     purview</span>
+</span></span><span class=line><span class=cl>-i <span class=c1>#不以阶梯状列出文件和目录     Ignore indentation</span>
+</span></span><span class=line><span class=cl>-C <span class=c1>#文件夹显示不同颜色     color</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>[</span>root@controller ~<span class=o>]</span>$ tree -a /root
+</span></span><span class=line><span class=cl>/root
+</span></span><span class=line><span class=cl>├── anaconda-ks.cfg
+</span></span><span class=line><span class=cl>├── .bash_history
+</span></span><span class=line><span class=cl>├── .bash_logout
+</span></span><span class=line><span class=cl>├── .bash_profile
+</span></span><span class=line><span class=cl>├── .bashrc
+</span></span><span class=line><span class=cl>├── .cshrc
+</span></span><span class=line><span class=cl>├── install.log
+</span></span><span class=line><span class=cl>├── install.log.syslog
+</span></span><span class=line><span class=cl>├── .novaclient
+</span></span><span class=line><span class=cl>│   └── 21232f297a57a5a743894a0e4a801fc3
+</span></span><span class=line><span class=cl>│       ├── keypair-human-id-cache
+</span></span><span class=line><span class=cl>│       └── keypair-uuid-cache
+</span></span><span class=line><span class=cl>├── .rnd
+</span></span><span class=line><span class=cl>├── .ssh
+</span></span><span class=line><span class=cl>│   ├── id_rsa
+</span></span><span class=line><span class=cl>│   ├── id_rsa.pub
+</span></span><span class=line><span class=cl>│   └── known_hosts
+</span></span><span class=line><span class=cl>├── .tcshrc
+</span></span><span class=line><span class=cl>└── .viminfo
+</span></span><span class=line><span class=cl><span class=m>3</span> directories, <span class=m>16</span> files</span></span></code></pre></div></div><h2 class="relative group">ssh<div id=ssh class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#ssh aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>yum -y install openssh-clients #安装 SSH 套件
+</span></span><span class=line><span class=cl>ssh-keygen #在 ~/.ssh 目录下生成公钥和私钥
+</span></span><span class=line><span class=cl>ssh-copy-id user@host #将公钥复制到 user@host 下的 ~/.ssh/authorized_keys 以启用无密码 SSH 登录
+</span></span><span class=line><span class=cl>ssh user@host #以 SSH 方式登陆远程主机
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Tips：
+</span></span><span class=line><span class=cl>干掉弱密码
+</span></span><span class=line><span class=cl>[root@controller ~]$ openssl rand -hex 30 #十六进制格式
+</span></span><span class=line><span class=cl>6ae8592f578b0d2ec704a1ac347cdfc9205d41ede0f853eb15cb28786553
+</span></span><span class=line><span class=cl>[root@controller ~]$ openssl rand -base64 30 #Base64编码
+</span></span><span class=line><span class=cl>HTUKtp8wVb2m8ZIIsLtXkQDGKc+V8SeSWJg8yU0Z
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>openssl kdf -keylen 32 -binary -kdfopt pass:123456 -kdfopt salt:0123456789abcdef -kdfopt digest:SHA256 -kdfopt iter:600000 PBKDF2 | xxd -p -c 0
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>openssl enc -aes-256-ctr -k 123456 -pbkdf2 -a -p -e -in 1.txt -out 2.txt #加密文件
+</span></span><span class=line><span class=cl>openssl enc -aes-256-ctr -k 123456 -pbkdf2 -a -p -d -in 2.txt -out 3.txt #解密文件
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>openssl enc -aes-256-ctr -K 41B2E7F37D50325E29EFF13C247892E53B1813B02388590EBB348A4384633C3E -iv 27B0BD8A2CF2C8568B9AFC9BE79D5C2D -a -p -d -in 2.txt -out 3.txt #通过指定 key 和 iv 解密文件
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>https://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-connectors/native/1.2.14/binaries/tomcat-native-1.2.14-win32-bin.zip</span></span></code></pre></div></div><h2 class="relative group">scp<div id=scp class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#scp aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>-r #操作文件夹下的所有文件     Recursive(递归)
+</span></span><span class=line><span class=cl>-P #指定远程主机的 SSH 端口号
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>[root@controller ~]$ scp -r /tmp/soft root@192.168.100.10:/tmp/ #上传本地目录到远端指定目录
+</span></span><span class=line><span class=cl>[root@controller ~]$ scp -r root@192.168.100.10:/tmp/soft /tmp/ #从远端下载到本地
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>rsync -Par -e &#39;ssh -i key.pem&#39; source/ root@192.168.100.10:/destination # 断点续传</span></span></code></pre></div></div><h2 class="relative group">find<div id=find class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#find aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>find [路径] [模式] [条件]
+</span></span><span class=line><span class=cl>find / -name 123.log
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>模式:
+</span></span><span class=line><span class=cl>-name  #文件名
+</span></span><span class=line><span class=cl>-iname #不区分大小写
+</span></span><span class=line><span class=cl>-path  #路径
+</span></span><span class=line><span class=cl>-ipath #不区分大小写
+</span></span><span class=line><span class=cl>-nouser #查找没有所有者的文件
+</span></span><span class=line><span class=cl>-user root #按所有者搜索
+</span></span><span class=line><span class=cl>-inum 262422 #查找i节点是262422的文件
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>-atime +10 #查找 10 天前访问的文件
+</span></span><span class=line><span class=cl>-ctime +10 #查找 10 天前属性改变的文件
+</span></span><span class=line><span class=cl>-mtime +10 #查找 10 天前修改的文件
+</span></span><span class=line><span class=cl>+            10            -            now
+</span></span><span class=line><span class=cl>10 天前      10 天当天      10 天内
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>-size +25k #查找大于25k的文件
+</span></span><span class=line><span class=cl>+            25            -            0
+</span></span><span class=line><span class=cl>大于         等于         小于
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>find . -name &#39;*.ini&#39; #查找当前目录下以 .ini 结尾的文件
+</span></span><span class=line><span class=cl>find . -size +20k -a -size -50k #查找当前目录下大于20k小于50k的文件
+</span></span><span class=line><span class=cl>find . -size +20k -a -size -50k -exec ls -lh {} \; #查找当前目录下大于20k小于50k的文件，并显示详细信息
+</span></span><span class=line><span class=cl>-o or  逻辑或，两者满足其一即可
+</span></span><span class=line><span class=cl>-a and 逻辑与，两者都满足
+</span></span><span class=line><span class=cl>-exec [命令] {} ; 对搜索结果执行命令
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Tips :
+</span></span><span class=line><span class=cl>默认为完全匹配搜索，可使用通配符进行模糊搜索。</span></span></code></pre></div></div><h2 class="relative group">sort<div id=sort class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#sort aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>-u <span class=c1>#去重</span>
+</span></span><span class=line><span class=cl>-f <span class=c1>#忽略大小写</span>
+</span></span><span class=line><span class=cl>-r <span class=c1>#以相反顺序来排序（降序）</span>
+</span></span><span class=line><span class=cl>-c <span class=c1>#检查文件是否已排序</span>
+</span></span><span class=line><span class=cl>-t <span class=s2>&#34;:&#34;</span> <span class=c1>#以 : 为列分隔符</span>
+</span></span><span class=line><span class=cl>-k 2,2 <span class=c1>#以第二列为目标排序</span>
+</span></span><span class=line><span class=cl>-o 1.txt <span class=c1>#将结果写入文件</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>sort -t <span class=s2>&#34;:&#34;</span> -k 3,3r -k 1,1f -o 2.txt 1.txt <span class=c1>#以 3、1 列为目标排序，其中 3 列为逆序，1 列忽略大小写</span></span></span></code></pre></div></div><h2 class="relative group">grep<div id=grep class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#grep aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>grep[选项] 字符串 文件名     在文件当中查找匹配符合条件的字符串
+</span></span><span class=line><span class=cl>-n #显示行号
+</span></span><span class=line><span class=cl>-i #忽略大小写
+</span></span><span class=line><span class=cl>-I #忽略二进制文件
+</span></span><span class=line><span class=cl>-l #只列出一匹配的文件名称
+</span></span><span class=line><span class=cl>-L #只列出不匹配的文件名称
+</span></span><span class=line><span class=cl>-w #只匹配单词
+</span></span><span class=line><span class=cl>-v #排除指定字符串，取反
+</span></span><span class=line><span class=cl>-c #只显示匹配到的行的数量
+</span></span><span class=line><span class=cl>-r #操作文件夹下的所有文件     Recursive(递归)
+</span></span><span class=line><span class=cl>-e #执行多条匹配命令
+</span></span><span class=line><span class=cl>-A 3 #显示匹配结果的后 3 行
+</span></span><span class=line><span class=cl>-B 3 #显示匹配结果的前 3 行
+</span></span><span class=line><span class=cl>-C 3 #显示匹配结果的前 3 行和后 3 行
+</span></span><span class=line><span class=cl>-3 #Same as -C
+</span></span><span class=line><span class=cl>--color=auto #高亮匹配字符
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>egrep = grep -E     扩展正则表达式
+</span></span><span class=line><span class=cl>fgrep = grep -F     匹配多个关键字
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>grep service 1.txt #输出带有 service 字符的行
+</span></span><span class=line><span class=cl>grep &#34;ls --color=auto&#34; /etc/ -rn #递归查找并显示行号
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Tips : 默认为包含匹配，可使用正则表达式进行包含匹配     ^开头     结尾$
+</span></span><span class=line><span class=cl>grep ^[a-z] /etc/nova/nova.conf #使用正则表达式去掉注释
+</span></span><span class=line><span class=cl>grep -vn -e &#39;^\s*#&#39; -e &#39;^\s*$&#39; /etc/vsftpd/vsftpd.conf #使用正则表达式取反去掉注释和空行并显示行号</span></span></code></pre></div></div><h2 class="relative group">awk<div id=awk class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#awk aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>awk <span class=s1>&#39;{print $2}&#39;</span> 1.txt             <span class=c1>#输出每一行的第二列到屏幕</span>
+</span></span><span class=line><span class=cl>awk <span class=s1>&#39;{print $0 &gt; &#34;2.txt&#34;}&#39;</span> 1.txt   <span class=c1>#输出每一行的每一列到文件</span>
+</span></span><span class=line><span class=cl>awk <span class=s1>&#39;NR==1,NR==2 {print $2}&#39;</span> 1.txt <span class=c1>#输出第 1、2 行的第 2 列</span>
+</span></span><span class=line><span class=cl>awk <span class=s1>&#39;/必修/ {sum+=$3} END {print sum}&#39;</span> 1.txt <span class=c1>#取带有 必修 字符的行，求和第 3 列     /123/ 模拟grep取行</span>
+</span></span><span class=line><span class=cl>awk -F <span class=s1>&#39; &#39;</span> <span class=s1>&#39;/read/ {print $2}&#39;</span> 1.txt <span class=c1>#以空格为列分隔符，取带有 read 字符的行，输出第 2 列</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>https://www.ibm.com/developerworks/cn/education/aix/au-gawk/index.html</span></span></code></pre></div></div><h2 class="relative group">sed<div id=sed class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#sed aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>-i #将修改写入文件
+</span></span><span class=line><span class=cl>-e #执行多条编辑命令
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>命令
+</span></span><span class=line><span class=cl>s #替换
+</span></span><span class=line><span class=cl>d #删除
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>sed -i &#39;s/123/456/g&#39;  1.txt #每一行中的 123 替换为 456
+</span></span><span class=line><span class=cl>sed -i &#39;s/\(^\)/123/&#39; 1.txt #每一行的开头写入 123
+</span></span><span class=line><span class=cl>sed -i -e &#39;/^$/d&#39; -e &#39;/^#/d&#39; 1.txt #删除 空白行 和 注释行
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>https://www.gnu.org/software/sed/manual/html_node/sed-commands-list.html#sed-commands-list</span></span></code></pre></div></div><h2 class="relative group">mount<div id=mount class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#mount aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>mount #查询系统中已经挂载的设备
+</span></span><span class=line><span class=cl>mount -a #依据配置文件/etc/fstab的内容，自动挂载
+</span></span><span class=line><span class=cl>mount [-t 文件系统] [-o特殊选项] 设备文件名 挂载点 #挂载设备     type     option
+</span></span><span class=line><span class=cl>umount [设备文件名或挂载点] #卸载设备
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>-t #一般不必指定，mount 会自动选择正确的类型
+</span></span><span class=line><span class=cl>     光盘、光盘镜像：iso9660
+</span></span><span class=line><span class=cl>     DOS fat16：msdos
+</span></span><span class=line><span class=cl>     Windows9x fat32：vfat
+</span></span><span class=line><span class=cl>     WindowsNT ntfs：ntfs
+</span></span><span class=line><span class=cl>     Windows 网络文件共享：smbfs
+</span></span><span class=line><span class=cl>     Linux 网络文件共享：nfs
+</span></span><span class=line><span class=cl>-o #挂载方式
+</span></span><span class=line><span class=cl>     loop：把一个文件当成硬盘分区挂载
+</span></span><span class=line><span class=cl>     ro：采用只读方式挂接设备
+</span></span><span class=line><span class=cl>     rw：采用读写方式挂接设备
+</span></span><span class=line><span class=cl>     iocharset：指定访问文件系统所用字符集
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>example:
+</span></span><span class=line><span class=cl>挂载光盘
+</span></span><span class=line><span class=cl>mount /dev/cdrom(or `sr0`) /mnt/ #把设备文件挂载到空文件夹(挂载点)上
+</span></span><span class=line><span class=cl>挂载U盘
+</span></span><span class=line><span class=cl>fdisk -l #查看分区表
+</span></span><span class=line><span class=cl>mount /dev/sdb1 /mnt/ #把设备文件挂载到空文件夹(挂载点)上，若中文乱码加上`-o iocharset=cp936`
+</span></span><span class=line><span class=cl>挂载本地镜像
+</span></span><span class=line><span class=cl>mount -o loop 1.iso /mnt/
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Tips：
+</span></span><span class=line><span class=cl>[root@controller ~]$ cat /proc/partitions #同样可以查看分区表
+</span></span><span class=line><span class=cl>major minor  blocks  name
+</span></span><span class=line><span class=cl>   8        0  488386584 sda
+</span></span><span class=line><span class=cl>   8        1     204800 sda1
+</span></span><span class=line><span class=cl>   8        2    1024000 sda2
+</span></span><span class=line><span class=cl>   8        3  204800000 sda3
+</span></span><span class=line><span class=cl>   8        4    8192000 sda4
+</span></span><span class=line><span class=cl>[root@controller ~]$ lsblk #同样可以查看分区表
+</span></span><span class=line><span class=cl>NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+</span></span><span class=line><span class=cl>sda      8:0    0 465.8G  0 disk
+</span></span><span class=line><span class=cl>├─sda1   8:1    0   200M  0 part /boot/efi
+</span></span><span class=line><span class=cl>├─sda2   8:2    0  1000M  0 part /boot
+</span></span><span class=line><span class=cl>├─sda3   8:3    0 195.3G  0 part /
+</span></span><span class=line><span class=cl>└─sda4   8:4    0   7.8G  0 part [SWAP]
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>linux默认是不支持NTFS文件系统的
+</span></span><span class=line><span class=cl>cp /dev/cdrom /tmp/1.iso #从光盘制作光盘镜像文件</span></span></code></pre></div></div><h2 class="relative group">echo<div id=echo class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#echo aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>echo [选项] [输出内容]
+</span></span><span class=line><span class=cl>-e #激活转义字符，支持反斜线控制的字符转换
+</span></span><span class=line><span class=cl>     \a 发出警告声
+</span></span><span class=line><span class=cl>     \f 换行但光标仍旧停留在原来的位置
+</span></span><span class=line><span class=cl>     \n 换行且光标移至行首
+</span></span><span class=line><span class=cl>     \t 插入制表符     Tab 键
+</span></span><span class=line><span class=cl>     \\ 插入 \
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>echo -e &#34;\e[1;31m 123456 \e[0m&#34; #输出红颜色 (31m)
+</span></span><span class=line><span class=cl>echo -e &#34;123\n45\f6&#34; &gt;&gt; 123 #追加写入文件</span></span></code></pre></div></div><h2 class="relative group">alias<div id=alias class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#alias aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>alias #查看系统中所有的命令别名
+</span></span><span class=line><span class=cl>alias 别名=&#39;原命令&#39; #设定命令别名，重启失效
+</span></span><span class=line><span class=cl>unalias 别名 #删除别名
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>别名永久生效
+</span></span><span class=line><span class=cl>vi ~/.bashrc
+</span></span><span class=line><span class=cl>将命令写入环境变量配置文件，每个用户都分别有一个，~代表家目录。
+</span></span><span class=line><span class=cl>重启后生效，若想直接生效可用 source .bashrc 重新调用。</span></span></code></pre></div></div><h2 class="relative group">lsblk<div id=lsblk class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#lsblk aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>-a #显示所有设备
+</span></span><span class=line><span class=cl>-d #只显示磁盘
+</span></span><span class=line><span class=cl>-f #显示文件系统信息
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>[root@controller ~]$ lsblk
+</span></span><span class=line><span class=cl>NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+</span></span><span class=line><span class=cl>sda      8:0    0 278.9G  0 disk
+</span></span><span class=line><span class=cl>├─sda1   8:1    0  1000M  0 part /boot
+</span></span><span class=line><span class=cl>├─sda2   8:2    0 195.3G  0 part /
+</span></span><span class=line><span class=cl>└─sda3   8:3    0   7.8G  0 part [SWAP]
+</span></span><span class=line><span class=cl>设备名     主要和次要设备号     是否为可移动设备     容量     是否为只读     类型     挂载点</span></span></code></pre></div></div><h2 class="relative group">df<div id=df class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#df aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>-a <span class=c1>#显示所有文件系统</span>
+</span></span><span class=line><span class=cl>-h <span class=c1>#大小人性化显示</span>
+</span></span><span class=line><span class=cl>-T <span class=c1>#显示文件系统类型</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>[</span>root@controller ~<span class=o>]</span>$ df -Th
+</span></span><span class=line><span class=cl>Filesystem     Type   Size  Used Avail Use% Mounted on
+</span></span><span class=line><span class=cl>/dev/sda3      ext4   193G  2.7G  180G   2% /
+</span></span><span class=line><span class=cl>tmpfs          tmpfs  5.8G     <span class=m>0</span>  5.8G   0% /dev/shm
+</span></span><span class=line><span class=cl>/dev/sda2      ext4   985M   38M  897M   5% /boot
+</span></span><span class=line><span class=cl>/dev/sda1      vfat   200M  260K  200M   1% /boot/efi</span></span></code></pre></div></div><h2 class="relative group">du<div id=du class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#du aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>-a #同时显示文件大小
+</span></span><span class=line><span class=cl>-c #同时显示大小总和
+</span></span><span class=line><span class=cl>-s #仅显示大小总和
+</span></span><span class=line><span class=cl>-h #大小人性化显示
+</span></span><span class=line><span class=cl>-S #目录大小不包含子目录的大小
+</span></span><span class=line><span class=cl>--max-depth=0 #列出小于队列深度的文件夹，0等同于 -s
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>[root@controller ~]$ du -hac #人性化显示所有文件目录及总和的大小
+</span></span><span class=line><span class=cl>4.0K    ./.bash_profile
+</span></span><span class=line><span class=cl>4.0K    ./.bash_logout
+</span></span><span class=line><span class=cl>4.0K    ./installl.log.syslog
+</span></span><span class=line><span class=cl>4.0K    ./.ssh/known_hosts
+</span></span><span class=line><span class=cl>4.0K    ./.ssh/authorized_keys
+</span></span><span class=line><span class=cl>12K     ./.ssh
+</span></span><span class=line><span class=cl>4.0K    ./anaconda-ks.cfg
+</span></span><span class=line><span class=cl>12K     ./installl.log
+</span></span><span class=line><span class=cl>4.0K    ./.bashrc
+</span></span><span class=line><span class=cl>4.0K    ./.cshrc
+</span></span><span class=line><span class=cl>4.0K    ./.viminfo
+</span></span><span class=line><span class=cl>4.0K    ./.bash_history
+</span></span><span class=line><span class=cl>4.0K    ./.tcshrc
+</span></span><span class=line><span class=cl>64K     .
+</span></span><span class=line><span class=cl>64K     total
+</span></span><span class=line><span class=cl>[root@controller ~]$ du --max-depth=1 -h /opt/ #列出各子目录所使用的空间
+</span></span><span class=line><span class=cl>3.3G    /opt/paas
+</span></span><span class=line><span class=cl>24K     /opt/distribution-karaf-0.2.1-Helium-SR1.1
+</span></span><span class=line><span class=cl>2.7G    /opt/iaas
+</span></span><span class=line><span class=cl>441M    /opt/opendaylight
+</span></span><span class=line><span class=cl>4.2G    /opt/centos
+</span></span><span class=line><span class=cl>21G     /opt/</span></span></code></pre></div></div><h2 class="relative group">yum<div id=yum class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#yum aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>-y #对所有提问都回答 yes
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>yum install tree #安装包
+</span></span><span class=line><span class=cl>yum reinstall tree #重新安装包
+</span></span><span class=line><span class=cl>yum remove tree #移除包
+</span></span><span class=line><span class=cl>yum search tree #搜索包
+</span></span><span class=line><span class=cl>yum list #列出所有包
+</span></span><span class=line><span class=cl>yum list installed #列出已安装的包
+</span></span><span class=line><span class=cl>yum update #更新系统
+</span></span><span class=line><span class=cl>yum check-update #更新包列表
+</span></span><span class=line><span class=cl>yum repolist #列出源
+</span></span><span class=line><span class=cl>yum provides /bin/bash #查找某一文件的提供包
+</span></span><span class=line><span class=cl>yum info bash #查看软件包详情
+</span></span><span class=line><span class=cl>yum clean all #删除缓存
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>添加源：add &lt;repo&gt; to /etc/yum.repos.d/
+</span></span><span class=line><span class=cl>移除源：remove &lt;repo&gt; from /etc/yum.repos.d/</span></span></code></pre></div></div><h2 class="relative group">rpm<div id=rpm class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#rpm aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>rpm -ivh --force *rpm #安装 RPM 包</span></span></code></pre></div></div><h2 class="relative group">chown<div id=chown class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#chown aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>chown [选项] [参数]
+</span></span><span class=line><span class=cl>-R #操作文件夹下的所有文件     Recursive(递归)
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>参数：
+</span></span><span class=line><span class=cl>用户:组：指定所有者和所属工作组。当省略“:组”，仅改变文件所有者；
+</span></span><span class=line><span class=cl>文件：指定要改变所有者和工作组的文件列表。支持多个文件和目标，支持shell通配符。
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>chown user:market file01 #把 file01 给 user，并添加到 market 组中</span></span></code></pre></div></div><h2 class="relative group">chmod<div id=chmod class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#chmod aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>chmod [选项] [参数]
+</span></span><span class=line><span class=cl>-R #操作文件夹下的所有文件     Recursive(递归)
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>chmod +x file01 #添加可执行权限
+</span></span><span class=line><span class=cl>chmod 764 file01 #把 file01 的权限改为 rwx rw- r--
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>rwx rw- r--(333)
+</span></span><span class=line><span class=cl>r=读取     值 = 4
+</span></span><span class=line><span class=cl>w=写入     值 = 2
+</span></span><span class=line><span class=cl>x=执行     值 = 1
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Tips：
+</span></span><span class=line><span class=cl>所有用户记录在 /etc/passwd；
+</span></span><span class=line><span class=cl>所有密码记录在 /etc/shadow；
+</span></span><span class=line><span class=cl>所有组群记录在 /etc/group。</span></span></code></pre></div></div><h2 class="relative group">getent<div id=getent class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#getent aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>getent passwd <span class=c1>#查看用户</span>
+</span></span><span class=line><span class=cl>getent shadow <span class=c1>#查看密码</span>
+</span></span><span class=line><span class=cl>getent group <span class=c1>#查看用户组</span>
+</span></span><span class=line><span class=cl>getent hosts <span class=c1>#查看主机</span></span></span></code></pre></div></div><h2 class="relative group">passwd<div id=passwd class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#passwd aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>-d #删除密码
+</span></span><span class=line><span class=cl>-l #锁住密码     Lock
+</span></span><span class=line><span class=cl>-u #解开锁住的密码     Unlock
+</span></span><span class=line><span class=cl>-S #查看密码的相关信息     Status
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>passwd #更改当前登录用户密码
+</span></span><span class=line><span class=cl>passwd mysql #更改 mysql 用户的密码
+</span></span><span class=line><span class=cl>passwd -d root #删除 root 用户的密码，注意删除 root 用户密码后，便不能用 root 用户远程登录了</span></span></code></pre></div></div><h2 class="relative group">history<div id=history class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#history aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>history [选项]
+</span></span><span class=line><span class=cl>-c #清空历史命令
+</span></span><span class=line><span class=cl>-w #把缓存中的历史命令写入历史命令保存文件 ~/.bash_history
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>[root@controller ~]$ echo $HISTSIZE #存储数量由环境变量 `HISTSIZE` 控制，默认1000条
+</span></span><span class=line><span class=cl>1000
+</span></span><span class=line><span class=cl>[root@controller ~]$ history 10 #显示最近10条历史命令
+</span></span><span class=line><span class=cl>   92  ls
+</span></span><span class=line><span class=cl>   93  cd ..
+</span></span><span class=line><span class=cl>   94  ls
+</span></span><span class=line><span class=cl>   95  exit
+</span></span><span class=line><span class=cl>   96  ls -a
+</span></span><span class=line><span class=cl>   97  cd .ssh/
+</span></span><span class=line><span class=cl>   98  ls
+</span></span><span class=line><span class=cl>   99  cat known_hosts
+</span></span><span class=line><span class=cl>  100  exit
+</span></span><span class=line><span class=cl>  101  history 10
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>!n 执行第 n 条历史命令
+</span></span><span class=line><span class=cl>!! 执行上一条命令
+</span></span><span class=line><span class=cl>!abc 执行最后一条以 abc 开头的历史命令</span></span></code></pre></div></div><h2 class="relative group">uname<div id=uname class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#uname aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>-a #显示全部系统信息
+</span></span><span class=line><span class=cl>-m #电脑类型
+</span></span><span class=line><span class=cl>-n #主机名称
+</span></span><span class=line><span class=cl>-v #内核版本
+</span></span><span class=line><span class=cl>-r #内核发行编号
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>[root@controller ~]$ uname -a
+</span></span><span class=line><span class=cl>Linux controller 2.6.32-431.el6.x86_64 井1 SMP Fri Nov 22 03:15:09 UTC 2013 x86_64 x86_64 x86_64 GNU/Linux</span></span></code></pre></div></div><h2 class="relative group">lsb_release<div id=lsb_release class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#lsb_release aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>-a #显示全部发行版本信息
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>[root@controller ~]$ lsb_release -a
+</span></span><span class=line><span class=cl>LSB Version:    :base-4.0-amd64:base-4.0-noarch:core-4.0-amd64:core-4.0-noarch
+</span></span><span class=line><span class=cl>Distributor ID: CentOS
+</span></span><span class=line><span class=cl>Description:    CentOS release 6.5 (Final)
+</span></span><span class=line><span class=cl>Release:        6.5
+</span></span><span class=line><span class=cl>Codename:       Final
+</span></span><span class=line><span class=cl>                     标准   基础
+</span></span><span class=line><span class=cl>Tips：LSB 是 Linux Standard Base 的缩写</span></span></code></pre></div></div><h2 class="relative group">free<div id=free class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#free aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>-m <span class=c1>#以 MB 为单位</span>
+</span></span><span class=line><span class=cl>-g <span class=c1>#以 GB 为单位</span>
+</span></span><span class=line><span class=cl>-s <span class=m>1</span> <span class=c1>#每 1 秒更新内存使用情况</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>[</span>root@controller ~<span class=o>]</span>$ free -g
+</span></span><span class=line><span class=cl>                    total       used       free     shared    buffers     cached
+</span></span><span class=line><span class=cl>Mem:                <span class=m>11</span>          <span class=m>2</span>          <span class=m>9</span>          <span class=m>0</span>          <span class=m>0</span>          <span class=m>0</span>
+</span></span><span class=line><span class=cl>-/+ buffers/cache:          <span class=m>2</span>          <span class=m>9</span>
+</span></span><span class=line><span class=cl>Swap:                  <span class=m>7</span>          <span class=m>0</span>          <span class=m>7</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>total     内存总数     <span class=nv>total</span><span class=o>=</span>used+free
+</span></span><span class=line><span class=cl>used     已使用的内存
+</span></span><span class=line><span class=cl>free     空闲内存
+</span></span><span class=line><span class=cl>shared     废弃内存
+</span></span><span class=line><span class=cl>buffers     缓存内存
+</span></span><span class=line><span class=cl>cached     缓存内存
+</span></span><span class=line><span class=cl>-buffers/cache     used-buffers-cached 被程序实实在在使用的内存
+</span></span><span class=line><span class=cl>+buffers/cache     free+buffers+cached 可以被挪用的内存
+</span></span><span class=line><span class=cl>Swap     交换分区</span></span></code></pre></div></div><h2 class="relative group">netstat<div id=netstat class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#netstat aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>-a #显示所有端口
+</span></span><span class=line><span class=cl>     -at #显示所有 TCP 端口
+</span></span><span class=line><span class=cl>     -au #显示所有 UDP 端口
+</span></span><span class=line><span class=cl>-l #只显示监听状态的端口     Listen
+</span></span><span class=line><span class=cl>     同上
+</span></span><span class=line><span class=cl>-s #显示所有端口的统计信息
+</span></span><span class=line><span class=cl>     同上
+</span></span><span class=line><span class=cl>-n #不解析 IP
+</span></span><span class=line><span class=cl>-o #显示计时器
+</span></span><span class=line><span class=cl>-p #显示PID     Program name
+</span></span><span class=line><span class=cl>-r #显示核心路由     Route
+</span></span><span class=line><span class=cl>-i #显示网络接口     Interface
+</span></span><span class=line><span class=cl>-c #持续输出网络信息     Continue
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>[root@controller ~]$ netstat -anp | grep ssh #查找进程
+</span></span><span class=line><span class=cl>tcp        0      0 0.0.0.0:22                  0.0.0.0:*                   LISTEN      1604/sshd
+</span></span><span class=line><span class=cl>tcp        0      0 192.168.100.10:22           192.168.100.151:54704       ESTABLISHED 24349/sshd
+</span></span><span class=line><span class=cl>tcp        0      0 :::22                       :::*                        LISTEN      1604/sshd
+</span></span><span class=line><span class=cl>unix  2      [ ]         DGRAM                    4581866 24349/sshd
+</span></span><span class=line><span class=cl>[root@controller ~]$ netstat -anp | grep &#39;:80&#39; #查找端口
+</span></span><span class=line><span class=cl>tcp        0      0 0.0.0.0:8000                0.0.0.0:*                   LISTEN      2330/python
+</span></span><span class=line><span class=cl>tcp        0      0 0.0.0.0:8004                0.0.0.0:*                   LISTEN      2322/python
+</span></span><span class=line><span class=cl>tcp        0      0 :::80                       :::*                        LISTEN      1884/httpd</span></span></code></pre></div></div><h2 class="relative group">查看文件占用<div id=查看文件占用 class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#%e6%9f%a5%e7%9c%8b%e6%96%87%e4%bb%b6%e5%8d%a0%e7%94%a8 aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>fuser -v 123.txt
+</span></span><span class=line><span class=cl>lsof 123.txt
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>fuser -v 80/tcp -k #终止占用此端口的进程
+</span></span><span class=line><span class=cl>lsof -i:80</span></span></code></pre></div></div><h2 class="relative group">nmap<div id=nmap class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#nmap aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>-p - #扫描所有端口 (1-65535)
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>nmap -p 80,443 192.168.1.1-254 #扫描此网段的 80、443 端口</span></span></code></pre></div></div><h2 class="relative group">ps<div id=ps class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#ps aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>-A #显示所有程序
+</span></span><span class=line><span class=cl>-f #显示所有内容
+</span></span><span class=line><span class=cl>-e #与 `A` 选项相同
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>[root@controller ~]$ ps -ef | grep vim #查找进程
+</span></span><span class=line><span class=cl>所属用户 进程ID 父进程ID                                进程名
+</span></span><span class=line><span class=cl>root      7207  2965  0 11:30 pts/1    00:00:00 vim
+</span></span><span class=line><span class=cl>root      7542  2965  0 11:30 pts/1    00:00:00 grep vim
+</span></span><span class=line><span class=cl>[root@controller ~]$  kill -9 7207 #根据进程 ID 强制终止进程，默认终止进程发送信号15
+</span></span><span class=line><span class=cl>[root@controller ~]$ pkill -9 -t pts/1 #根据终端 ID 强制终止进程
+</span></span><span class=line><span class=cl>[root@controller ~]$ pgrep -a -t pts/1 #根据终端 ID 查找进程
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>[root@controller ~]$ kill -l #列出信号
+</span></span><span class=line><span class=cl> 1) SIGHUP       2) SIGINT       3) SIGQUIT      4) SIGILL       5) SIGTRAP
+</span></span><span class=line><span class=cl> 6) SIGABRT      7) SIGBUS       8) SIGFPE       9) SIGKILL     10) SIGUSR1
+</span></span><span class=line><span class=cl>11) SIGSEGV     12) SIGUSR2     13) SIGPIPE     14) SIGALRM     15) SIGTERM
+</span></span><span class=line><span class=cl>16) SIGSTKFLT   17) SIGCHLD     18) SIGCONT     19) SIGSTOP     20) SIGTSTP
+</span></span><span class=line><span class=cl>21) SIGTTIN     22) SIGTTOU     23) SIGURG      24) SIGXCPU     25) SIGXFSZ
+</span></span><span class=line><span class=cl>26) SIGVTALRM   27) SIGPROF     28) SIGWINCH    29) SIGIO       30) SIGPWR
+</span></span><span class=line><span class=cl>31) SIGSYS      34) SIGRTMIN    35) SIGRTMIN+1  36) SIGRTMIN+2  37) SIGRTMIN+3
+</span></span><span class=line><span class=cl>38) SIGRTMIN+4  39) SIGRTMIN+5  40) SIGRTMIN+6  41) SIGRTMIN+7  42) SIGRTMIN+8
+</span></span><span class=line><span class=cl>43) SIGRTMIN+9  44) SIGRTMIN+10 45) SIGRTMIN+11 46) SIGRTMIN+12 47) SIGRTMIN+13
+</span></span><span class=line><span class=cl>48) SIGRTMIN+14 49) SIGRTMIN+15 50) SIGRTMAX-14 51) SIGRTMAX-13 52) SIGRTMAX-12
+</span></span><span class=line><span class=cl>53) SIGRTMAX-11 54) SIGRTMAX-10 55) SIGRTMAX-9  56) SIGRTMAX-8  57) SIGRTMAX-7
+</span></span><span class=line><span class=cl>58) SIGRTMAX-6  59) SIGRTMAX-5  60) SIGRTMAX-4  61) SIGRTMAX-3  62) SIGRTMAX-2
+</span></span><span class=line><span class=cl>63) SIGRTMAX-1  64) SIGRTMAX</span></span></code></pre></div></div><h2 class="relative group">pidof<div id=pidof class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#pidof aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>[root@controller ~]# pidof sshd # 返回符合进程名的进程 ID
+</span></span><span class=line><span class=cl>26051 3192
+</span></span><span class=line><span class=cl>[root@controller ~]# pgrep sshd
+</span></span><span class=line><span class=cl>3192
+</span></span><span class=line><span class=cl>26051</span></span></code></pre></div></div><h2 class="relative group">shutdown<div id=shutdown class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#shutdown aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>shutdown [选项]  [时间 (now立即) ]
+</span></span><span class=line><span class=cl>-h #关机
+</span></span><span class=line><span class=cl>-r #重启
+</span></span><span class=line><span class=cl>-k #只是发布消息
+</span></span><span class=line><span class=cl>-c #取消前一个关机命令
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>shutdown -h now #立即关机
+</span></span><span class=line><span class=cl>shutdown -r now #立即重启</span></span></code></pre></div></div><h2 class="relative group">init<div id=init class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#init aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>init [0-6] #切换系统运行级别
+</span></span><span class=line><span class=cl>runlevel #查询系统当前运行级别
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>/etc/inittab     系统默认运行级别配置文件,默认为3     initial table
+</span></span><span class=line><span class=cl>0关机     1单用户     2不完全多用户(不含NFS服务)     3完全多用户(默认字符界面)     4未分配     5图形界面(X11)     6重启
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Tips :
+</span></span><span class=line><span class=cl>Ctrl+Alt+F1~7 #在图形界面和字符界面中切换</span></span></code></pre></div></div><h2 class="relative group">zip 压缩<div id=zip-压缩 class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#zip-%e5%8e%8b%e7%bc%a9 aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>zip <span class=o>[</span>压缩文件名<span class=o>]</span> <span class=o>[</span>源文件<span class=o>]</span> <span class=c1>#压缩文件</span>
+</span></span><span class=line><span class=cl>zip -r <span class=o>[</span>压缩文件名<span class=o>]</span> <span class=o>[</span>源目录<span class=o>]</span> <span class=c1>#压缩目录</span>
+</span></span><span class=line><span class=cl>unzip <span class=o>[</span>压缩文件名<span class=o>]</span> <span class=c1>#解压缩</span></span></span></code></pre></div></div><h2 class="relative group">gz 压缩<div id=gz-压缩 class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#gz-%e5%8e%8b%e7%bc%a9 aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>gzip <span class=o>[</span>源文件<span class=o>]</span> <span class=c1>#压缩为.gz格式压缩文件，源文件会消失</span>
+</span></span><span class=line><span class=cl>gzip -r <span class=o>[</span>目录<span class=o>]</span> <span class=c1>#分别压缩目录下的所有子文件，不能压缩目录</span>
+</span></span><span class=line><span class=cl>gunzip or gzip -d <span class=o>[</span>压缩文件<span class=o>]</span> <span class=c1>#解压缩</span>
+</span></span><span class=line><span class=cl>gzip -c <span class=o>[</span>源文件<span class=o>]</span> &gt; <span class=o>[</span>压缩文件<span class=o>]</span> <span class=c1>#压缩为.gz格式压缩文件，源文件保留</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>gzip -c abc &gt; abc.gz</span></span></code></pre></div></div><h2 class="relative group">bz2 压缩<div id=bz2-压缩 class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#bz2-%e5%8e%8b%e7%bc%a9 aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>bzip2 [源文件] #压缩为.bz2格式的压缩文件，源文件会消失
+</span></span><span class=line><span class=cl>bzip2 -k [源文件] #压缩之后保留源文件
+</span></span><span class=line><span class=cl>`bunzip2` or `bzip2` -d [压缩文件] [-k 保留源文件] #解压缩
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Tips : bzip2不支持目录压缩</span></span></code></pre></div></div><h2 class="relative group">tar 压缩<div id=tar-压缩 class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#tar-%e5%8e%8b%e7%bc%a9 aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>tar -[cxt]f [打包解包文件名] [源文件]
+</span></span><span class=line><span class=cl>-c #打包
+</span></span><span class=line><span class=cl>-x #解包
+</span></span><span class=line><span class=cl>-t #测试
+</span></span><span class=line><span class=cl>-v #显示过程
+</span></span><span class=line><span class=cl>-f #指定打包后的文件名
+</span></span><span class=line><span class=cl>-z #打包为 .tar.gz 文件
+</span></span><span class=line><span class=cl>-j #打包为 .tar.bz2 文件
+</span></span><span class=line><span class=cl>-J #打包为 .tar.xz 文件
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>tar -cJf 123.tar.xz 123 #压缩
+</span></span><span class=line><span class=cl>tar -xJf 123.tar.xz -C /tmp/ #指定解包位置</span></span></code></pre></div></div><h2 class="relative group">CentOS 7<div id=centos-7 class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#centos-7 aria-label=锚点>#</a></span></h2><h3 class="relative group">hostnamectl<div id=hostnamectl class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#hostnamectl aria-label=锚点>#</a></span></h3><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>hostnamectl set-hostname controller     设置主机名
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>[</span>root@controller ~<span class=o>]</span>$ hostnamectl
+</span></span><span class=line><span class=cl>Static hostname: controller
+</span></span><span class=line><span class=cl>Icon name: computer-vm
+</span></span><span class=line><span class=cl>Chassis: vm
+</span></span><span class=line><span class=cl>Machine ID: 4c81baeee82945e8a47b4cdeb31bfc42
+</span></span><span class=line><span class=cl>Boot ID: 2a89be262fa347159bb7243922dee933
+</span></span><span class=line><span class=cl>Virtualization: vmware
+</span></span><span class=line><span class=cl>Operating System: CentOS Linux <span class=m>7</span> <span class=o>(</span>Core<span class=o>)</span>
+</span></span><span class=line><span class=cl>CPE OS Name: cpe:/o:centos:centos:7
+</span></span><span class=line><span class=cl>Kernel: Linux 3.10.0-514.el7.x86_64
+</span></span><span class=line><span class=cl>Architecture: x86-64
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>/etc/system-release <span class=c1>#系统版本号</span></span></span></code></pre></div></div><h2 class="relative group">退出登录<div id=退出登录 class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#%e9%80%80%e5%87%ba%e7%99%bb%e5%bd%95 aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>logout #退出并执行 ~/.bash_logout
+</span></span><span class=line><span class=cl>exit #退出
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Tips :
+</span></span><span class=line><span class=cl>Ctrl+D #快捷键退出</span></span></code></pre></div></div><h2 class="relative group">修改环境变量<div id=修改环境变量 class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#%e4%bf%ae%e6%94%b9%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>vi ~/.bash_profile
+</span></span><span class=line><span class=cl>----
+</span></span><span class=line><span class=cl>PATH=$PATH:/opt/metasploit-framework/bin</span></span></code></pre></div></div><h2 class="relative group">搜索系统命令<div id=搜索系统命令 class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#%e6%90%9c%e7%b4%a2%e7%b3%bb%e7%bb%9f%e5%91%bd%e4%bb%a4 aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>whereis [命令名] #查找可执行文件和帮助文件
+</span></span><span class=line><span class=cl>which [命令名] #查找可执行文件和默认别名
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>[root@controller ~]$ whereis ls
+</span></span><span class=line><span class=cl>ls: /bin/ls /usr/share/man/man1/ls.1.gz
+</span></span><span class=line><span class=cl>[root@controller ~]$ which ls
+</span></span><span class=line><span class=cl>alias ls=&#39;ls --color=auto&#39;
+</span></span><span class=line><span class=cl>        /bin/ls</span></span></code></pre></div></div><h2 class="relative group">查看命令帮助<div id=查看命令帮助 class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#%e6%9f%a5%e7%9c%8b%e5%91%bd%e4%bb%a4%e5%b8%ae%e5%8a%a9 aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>whatis [命令]
+</span></span><span class=line><span class=cl>相当于
+</span></span><span class=line><span class=cl>man -f [命令]
+</span></span><span class=line><span class=cl>-k net 查找包含`net`的命令</span></span></code></pre></div></div><h2 class="relative group">查看用户登录信息<div id=查看用户登录信息 class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#%e6%9f%a5%e7%9c%8b%e7%94%a8%e6%88%b7%e7%99%bb%e5%bd%95%e4%bf%a1%e6%81%af aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>当前登录用户：
+</span></span><span class=line><span class=cl>w
+</span></span><span class=line><span class=cl>who
+</span></span><span class=line><span class=cl>whoami     euid 有效用户 当前操作的用户ID     Effective
+</span></span><span class=line><span class=cl>who am i     uid 实际用户 登录时使用的用户ID
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>[</span>root@controller ~<span class=o>]</span>$ w
+</span></span><span class=line><span class=cl> 08:28:35 up  1:50,  <span class=m>2</span> users,  load average: 0.02, 0.23, 0.19
+</span></span><span class=line><span class=cl>USER     TTY      FROM              LOGIN@   IDLE   JCPU   PCPU WHAT
+</span></span><span class=line><span class=cl>root     pts/0    192.168.100.65   06:41    8.00s  0.08s  0.08s -bash
+</span></span><span class=line><span class=cl>root     pts/1    192.168.100.151  07:47    0.00s  0.06s  0.00s w
+</span></span><span class=line><span class=cl><span class=o>[</span>root@controller ~<span class=o>]</span>$ who
+</span></span><span class=line><span class=cl>root     pts/0        2016-03-24 06:41 <span class=o>(</span>192.168.100.65<span class=o>)</span>
+</span></span><span class=line><span class=cl>root     pts/1        2016-03-24 07:47 <span class=o>(</span>192.168.100.151<span class=o>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>last <span class=c1>#过去登录用户</span>
+</span></span><span class=line><span class=cl>last命令默认读取 /var/log/wtmp 文件
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>lastlog <span class=c1>#查询所有用户最后的登录时间</span>
+</span></span><span class=line><span class=cl>lastlog命令默认读取 /var/log/lastlog 文件</span></span></code></pre></div></div><h2 class="relative group">通配符<div id=通配符 class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#%e9%80%9a%e9%85%8d%e7%ac%a6 aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>*     匹配任意字符     123*
+</span></span><span class=line><span class=cl>?     匹配一个任意字符     12?.log
+</span></span><span class=line><span class=cl>[]     匹配中括号中内的任意一个字符     12[34].log = 123.log or 124.log
+</span></span><span class=line><span class=cl>[-]     匹配中括号中内的任意一个字符，- 代表一个范围。例如：[a-z]代表匹配一个小写字母
+</span></span><span class=line><span class=cl>[^]     逻辑非，表示匹配不是中括号内的一个字符。例如：[^0-9]代表匹配一个不是数字的字符</span></span></code></pre></div></div><h2 class="relative group">管道符<div id=管道符 class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#%e7%ae%a1%e9%81%93%e7%ac%a6 aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>命令1 | 命令2     命令1的正确输出作为命令2的操作对象（命令2必须能处理命令1的输出）
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>ls -l /etc | more
+</span></span><span class=line><span class=cl>netstat -an | grep ESTABLISHED | wc -l
+</span></span><span class=line><span class=cl>keystone tenant-list | grep service | awk &#39;{print $2}&#39;
+</span></span><span class=line><span class=cl>ps -e | grep nova | awk &#39;{print $4}&#39; | sort -u</span></span></code></pre></div></div><h2 class="relative group">重定向<div id=重定向 class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#%e9%87%8d%e5%ae%9a%e5%90%91 aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>覆盖：&gt;
+</span></span><span class=line><span class=cl>追加：&gt;&gt;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>正确输出重定向：命令 1&gt; 文件 <span class=c1>#可省略 1</span>
+</span></span><span class=line><span class=cl>错误输出重定向：命令 2&gt; 文件
+</span></span><span class=line><span class=cl>　　输入重定向：命令  &lt; 文件
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>同时保存输出：命令 <span class=p>&amp;</span>&gt; a.log
+</span></span><span class=line><span class=cl>分别保存输出：命令 1&gt; a.log 2&gt; b.log</span></span></code></pre></div></div><h2 class="relative group">命令连接符<div id=命令连接符 class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#%e5%91%bd%e4%bb%a4%e8%bf%9e%e6%8e%a5%e7%ac%a6 aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>;      命令1 ;  命令2     命令按顺序依次执行
+</span></span><span class=line><span class=cl>&amp;&amp;     命令1 &amp;&amp; 命令2     逻辑与，只有当命令1执行成功时，命令2才会执行
+</span></span><span class=line><span class=cl>||     命令1 || 命令2     逻辑或，只有当命令1执行失败时，命令2才会执行
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>ls &amp;&amp; echo yes || echo no #判断命令是否执行成功</span></span></code></pre></div></div><h2 class="relative group">命令替换符<div id=命令替换符 class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#%e5%91%bd%e4%bb%a4%e6%9b%bf%e6%8d%a2%e7%ac%a6 aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>ls `cat 123` #bash 会先执行 ` ` 包含的命令，其输出会作为另一个命令的参数</span></span></code></pre></div></div><h2 class="relative group">后台进程<div id=后台进程 class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#%e5%90%8e%e5%8f%b0%e8%bf%9b%e7%a8%8b aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>Ctrl+Z     挂起当前命令
+</span></span><span class=line><span class=cl>ping 127.0.0.1 &amp;  #挂起当前命令
+</span></span><span class=line><span class=cl>jobs #显示挂起的命令
+</span></span><span class=line><span class=cl>bg %N #使第 N 个进程在后台运行     back
+</span></span><span class=line><span class=cl>fg %N #使第 N 个进程在前台运行     front
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Tips : bg 和 fg 不带 %N 时默认对最后一个进程进行操作</span></span></code></pre></div></div><h2 class="relative group">自定义登录信息<div id=自定义登录信息 class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#%e8%87%aa%e5%ae%9a%e4%b9%89%e7%99%bb%e5%bd%95%e4%bf%a1%e6%81%af aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>登录前 /etc/issue 本地设备     /etc/issue.net 远程设备
+</span></span><span class=line><span class=cl>     \l 显示第几个终端机接口
+</span></span><span class=line><span class=cl>     \d 日期
+</span></span><span class=line><span class=cl>     \t 时间
+</span></span><span class=line><span class=cl>登录后 /etc/motd     Message Of The Day</span></span></code></pre></div></div><h2 class="relative group">配置 DNS<div id=配置-dns class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#%e9%85%8d%e7%bd%ae-dns aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>nmcli con show
+</span></span><span class=line><span class=cl>nmcli con mod eno16780032 ipv4.dns 1.2.4.8
+</span></span><span class=line><span class=cl>nmcli con up eno16780032
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>cat /etc/resolv.conf
+</span></span><span class=line><span class=cl>----
+</span></span><span class=line><span class=cl><span class=c1># Generated by NetworkManager</span>
+</span></span><span class=line><span class=cl>nameserver 1.2.4.8</span></span></code></pre></div></div><h2 class="relative group">脚本<div id=脚本 class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#%e8%84%9a%e6%9c%ac aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>vi hello.sh
+</span></span><span class=line><span class=cl>#!/bin/bash
+</span></span><span class=line><span class=cl>echo -e &#34;\e[1;36m 123456 \e[0m&#34;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>执行脚本
+</span></span><span class=line><span class=cl>- chmod 755 hello.sh #赋予执行权限，直接运行
+</span></span><span class=line><span class=cl>   ./hello.sh
+</span></span><span class=line><span class=cl>- bash hello.sh #通过Bash调用执行脚本</span></span></code></pre></div></div><h2 class="relative group">Linux 目录<div id=linux-目录 class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#linux-%e7%9b%ae%e5%bd%95 aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>/boot     启动文件目录
+</span></span><span class=line><span class=cl>/dev     设备文件目录
+</span></span><span class=line><span class=cl>/etc     配置文件目录
+</span></span><span class=line><span class=cl>/home     普通用户的家目录
+</span></span><span class=line><span class=cl>/root     超级用户的家目录
+</span></span><span class=line><span class=cl>/lib     系统函数库目录
+</span></span><span class=line><span class=cl>/tmp     临时文件目录
+</span></span><span class=line><span class=cl>/usr     系统软件资源目录
+</span></span><span class=line><span class=cl>/opt     第三方软件资源目录
+</span></span><span class=line><span class=cl>/var     系统文档目录
+</span></span><span class=line><span class=cl>/proc|/sys     内存挂载点，不能操作
+</span></span><span class=line><span class=cl>/mnt|/media|/misc     媒体设备挂载点
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>根目录(/)下的bin和sbin，usr目录(/usr)下的的bin和sbin，这四个目录都是用来保存系统命令的。
+</span></span><span class=line><span class=cl>区别在于2个sbin目录只有root用户才能执行。</span></span></code></pre></div></div><h2 class="relative group">Linux 快捷键（Emacs 风格）<div id=linux-快捷键emacs-风格 class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#linux-%e5%bf%ab%e6%8d%b7%e9%94%aeemacs-%e9%a3%8e%e6%a0%bc aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>Ctrl+L     清屏     （另外 CMD 下的清屏命令是 `cls`）
+</span></span><span class=line><span class=cl>Ctrl+Z     挂起当前命令
+</span></span><span class=line><span class=cl>Ctrl+C     终止当前命令
+</span></span><span class=line><span class=cl>Ctrl+D     退出登录
+</span></span><span class=line><span class=cl>Ctrl+A     光标移动到行首
+</span></span><span class=line><span class=cl>Ctrl+E     光标移动到行尾
+</span></span><span class=line><span class=cl>Ctrl+U     剪切光标前的内容
+</span></span><span class=line><span class=cl>Ctrl+K     剪切光标后的内容
+</span></span><span class=line><span class=cl>Ctrl+W     剪切光标前的一个单词
+</span></span><span class=line><span class=cl>Ctrl+Y     粘贴上一次快捷键剪切的内容
+</span></span><span class=line><span class=cl>Ctrl+?     撤消前一次动作
+</span></span><span class=line><span class=cl>Ctrl+O     重复执行命令
+</span></span><span class=line><span class=cl>Ctrl+R     在历史命令中搜索
+</span></span><span class=line><span class=cl>Ctrl+M     回车键 (Enter)
+</span></span><span class=line><span class=cl>Ctrl+S     暂停屏幕输出
+</span></span><span class=line><span class=cl>Ctrl+Q     恢复屏幕输出
+</span></span><span class=line><span class=cl>Ctrl+Alt+F1~7     在图形界面和字符界面中切换
+</span></span><span class=line><span class=cl>Ctrl+Alt+T     在图形界面中打开终端（CentOS 需要自己设置快捷键）
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>~+Tab*2     All Present Users on system from &#34;/etc/passwd&#34;
+</span></span><span class=line><span class=cl>@+Tab*2     Entries from &#34;/etc/hosts&#34;
+</span></span><span class=line><span class=cl>$+Tab*2     All Sys variables</span></span></code></pre></div></div><h2 class="relative group">SecureCRT 快捷键<div id=securecrt-快捷键 class=anchor></div><span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"><a class="text-primary-300 dark:text-neutral-700 !no-underline" href=#securecrt-%e5%bf%ab%e6%8d%b7%e9%94%ae aria-label=锚点>#</a></span></h2><div class=highlight-wrapper><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>Alt+B     新建选项卡
+</span></span><span class=line><span class=cl>Ctrl+Tab     切换选项卡
+</span></span><span class=line><span class=cl>Alt+2     切换至第 <span class=m>2</span> 个选项卡
+</span></span><span class=line><span class=cl>Alt+Enter     全屏
+</span></span><span class=line><span class=cl>Ctrl+Shift+V     粘贴
+</span></span><span class=line><span class=cl>Shift+Insert     粘贴</span></span></code></pre></div></div></div><section class="flex flex-row flex-wrap justify-center pt-4 text-xl"><a class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800" target=_blank href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://xhstormr.github.io/blog/posts/cheatsheet-linux/&amp;title=Linux%20%e5%91%bd%e4%bb%a4%e4%b8%8d%e5%ae%8c%e5%85%a8%e6%89%8b%e5%86%8c" title="分享到 LinkedIn" aria-label="分享到 LinkedIn"><span class="relative block icon"><svg viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5.0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6.0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3.0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2.0 38.5 17.3 38.5 38.5.0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6.0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2.0 79.7 44.3 79.7 101.9V416z"/></svg>
+</span></a><a class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800" target=_blank href="https://twitter.com/intent/tweet/?url=https://xhstormr.github.io/blog/posts/cheatsheet-linux/&amp;text=Linux%20%e5%91%bd%e4%bb%a4%e4%b8%8d%e5%ae%8c%e5%85%a8%e6%89%8b%e5%86%8c" title="分享到 Twitter" aria-label="分享到 Twitter"><span class="relative block icon"><svg viewBox="0 0 512 512"><path fill="currentColor" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg></span>
+</a><a class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800" target=_blank href="https://bsky.app/intent/compose?text=Linux%20%e5%91%bd%e4%bb%a4%e4%b8%8d%e5%ae%8c%e5%85%a8%e6%89%8b%e5%86%8c+https://xhstormr.github.io/blog/posts/cheatsheet-linux/" title="发布到 Bluesky" aria-label="发布到 Bluesky"><span class="relative block icon"><svg viewBox="0 0 512 512"><path fill="currentColor" d="M256 232.562c-21.183-41.196-78.868-117.97-132.503-155.834-51.378-36.272-70.978-29.987-83.828-24.181-14.872 6.72-17.577 29.554-17.577 42.988.0 13.433 7.365 110.138 12.169 126.281 15.873 53.336 72.376 71.358 124.413 65.574 2.66-.395 5.357-.759 8.089-1.097-2.68.429-5.379.796-8.089 1.097-76.259 11.294-143.984 39.085-55.158 137.972C201.224 526.527 237.424 403.67 256 341.379c18.576 62.291 39.972 180.718 150.734 83.983 83.174-83.983 22.851-126.674-53.408-137.969-2.71-.302-5.409-.667-8.089-1.096 2.732.337 5.429.702 8.089 1.096 52.037 5.785 108.54-12.239 124.413-65.574 4.804-16.142 12.169-112.847 12.169-126.281.0-13.434-2.705-36.267-17.577-42.988-12.85-5.806-32.45-12.09-83.829 24.181C334.868 114.595 277.183 191.366 256 232.562z"/></svg></span>
+</a><a class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800" target=_blank href="https://share.joinmastodon.org/#text=Linux%20%e5%91%bd%e4%bb%a4%e4%b8%8d%e5%ae%8c%e5%85%a8%e6%89%8b%e5%86%8c%20https://xhstormr.github.io/blog/posts/cheatsheet-linux/" title aria-label><span class="relative block icon"><svg viewBox="0 0 448 512"><path fill="currentColor" d="M433 179.11c0-97.2-63.71-125.7-63.71-125.7-62.52-28.7-228.56-28.4-290.48.0.0.0-63.72 28.5-63.72 125.7.0 115.7-6.6 259.4 105.63 289.1 40.51 10.7 75.32 13 103.33 11.4 50.81-2.8 79.32-18.1 79.32-18.1l-1.7-36.9s-36.31 11.4-77.12 10.1c-40.41-1.4-83-4.4-89.63-54a102.54 102.54.0 01-.9-13.9c85.63 20.9 158.65 9.1 178.75 6.7 56.12-6.7 105-41.3 111.23-72.9 9.8-49.8 9-121.5 9-121.5zm-75.12 125.2h-46.63v-114.2c0-49.7-64-51.6-64 6.9v62.5h-46.33V197c0-58.5-64-56.6-64-6.9v114.2H90.19c0-122.1-5.2-147.9 18.41-175 25.9-28.9 79.82-30.8 103.83 6.1l11.6 19.5 11.6-19.5c24.11-37.1 78.12-34.8 103.83-6.1 23.71 27.3 18.4 53 18.4 175z"/></svg>
+</span></a><a class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800" target=_blank href="https://reddit.com/submit/?url=https://xhstormr.github.io/blog/posts/cheatsheet-linux/&amp;resubmit=true&amp;title=Linux%20%e5%91%bd%e4%bb%a4%e4%b8%8d%e5%ae%8c%e5%85%a8%e6%89%8b%e5%86%8c" title="提交到 Reddit" aria-label="提交到 Reddit"><span class="relative block icon"><svg viewBox="0 0 512 512"><path fill="currentColor" d="M201.5 305.5c-13.8.0-24.9-11.1-24.9-24.6.0-13.8 11.1-24.9 24.9-24.9 13.6.0 24.6 11.1 24.6 24.9.0 13.6-11.1 24.6-24.6 24.6zM504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-132.3-41.2c-9.4.0-17.7 3.9-23.8 10-22.4-15.5-52.6-25.5-86.1-26.6l17.4-78.3 55.4 12.5c0 13.6 11.1 24.6 24.6 24.6 13.8.0 24.9-11.3 24.9-24.9s-11.1-24.9-24.9-24.9c-9.7.0-18 5.8-22.1 13.8l-61.2-13.6c-3-.8-6.1 1.4-6.9 4.4l-19.1 86.4c-33.2 1.4-63.1 11.3-85.5 26.8-6.1-6.4-14.7-10.2-24.1-10.2-34.9.0-46.3 46.9-14.4 62.8-1.1 5-1.7 10.2-1.7 15.5.0 52.6 59.2 95.2 132 95.2 73.1.0 132.3-42.6 132.3-95.2.0-5.3-.6-10.8-1.9-15.8 31.3-16 19.8-62.5-14.9-62.5zM302.8 331c-18.2 18.2-76.1 17.9-93.6.0-2.2-2.2-6.1-2.2-8.3.0-2.5 2.5-2.5 6.4.0 8.6 22.8 22.8 87.3 22.8 110.2.0 2.5-2.2 2.5-6.1.0-8.6-2.2-2.2-6.1-2.2-8.3.0zm7.7-75c-13.6.0-24.6 11.1-24.6 24.9.0 13.6 11.1 24.6 24.6 24.6 13.8.0 24.9-11.1 24.9-24.6.0-13.8-11-24.9-24.9-24.9z"/></svg>
+</span></a><a class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800" target=_blank href="https://pinterest.com/pin/create/bookmarklet/?url=https://xhstormr.github.io/blog/posts/cheatsheet-linux/&amp;description=Linux%20%e5%91%bd%e4%bb%a4%e4%b8%8d%e5%ae%8c%e5%85%a8%e6%89%8b%e5%86%8c" title="钉到 Pinterest" aria-label="钉到 Pinterest"><span class="relative block icon"><svg viewBox="0 0 496 512"><path fill="currentColor" d="M496 256c0 137-111 248-248 248-25.6.0-50.2-3.9-73.4-11.1 10.1-16.5 25.2-43.5 30.8-65 3-11.6 15.4-59 15.4-59 8.1 15.4 31.7 28.5 56.8 28.5 74.8.0 128.7-68.8 128.7-154.3.0-81.9-66.9-143.2-152.9-143.2-107 0-163.9 71.8-163.9 150.1.0 36.4 19.4 81.7 50.3 96.1 4.7 2.2 7.2 1.2 8.3-3.3.8-3.4 5-20.3 6.9-28.1.6-2.5.3-4.7-1.7-7.1-10.1-12.5-18.3-35.3-18.3-56.6.0-54.7 41.4-107.6 112-107.6 60.9.0 103.6 41.5 103.6 100.9.0 67.1-33.9 113.6-78 113.6-24.3.0-42.6-20.1-36.7-44.8 7-29.5 20.5-61.3 20.5-82.6.0-19-10.2-34.9-31.4-34.9-24.9.0-44.9 25.7-44.9 60.2.0 22 7.4 36.8 7.4 36.8s-24.5 103.8-29 123.2c-5 21.4-3 51.6-.9 71.2C65.4 450.9.0 361.1.0 256 0 119 111 8 248 8s248 111 248 248z"/></svg>
+</span></a><a class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800" target=_blank href="https://www.facebook.com/sharer/sharer.php?u=https://xhstormr.github.io/blog/posts/cheatsheet-linux/&amp;quote=Linux%20%e5%91%bd%e4%bb%a4%e4%b8%8d%e5%ae%8c%e5%85%a8%e6%89%8b%e5%86%8c" title="分享到 Facebook" aria-label="分享到 Facebook"><span class="relative block icon"><svg viewBox="0 0 512 512"><path fill="currentColor" d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14.0 55.52 4.84 55.52 4.84v61h-31.28c-30.8.0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+</span></a><a class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800" target=_blank href="mailto:?body=https://xhstormr.github.io/blog/posts/cheatsheet-linux/&amp;subject=Linux%20%e5%91%bd%e4%bb%a4%e4%b8%8d%e5%ae%8c%e5%85%a8%e6%89%8b%e5%86%8c" title=通过电子邮件发送 aria-label=通过电子邮件发送><span class="relative block icon"><svg viewBox="0 0 512 512"><path fill="currentColor" d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1-27.64 140.9 68.65 266.2 199.1 285.1 19.01 2.888 36.17-12.26 36.17-31.49l1e-4-.6631c0-15.74-11.44-28.88-26.84-31.24-84.35-12.98-149.2-86.13-149.2-174.2.0-102.9 88.61-185.5 193.4-175.4 91.54 8.869 158.6 91.25 158.6 183.2v16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98.0036c-7.299.0-13.2 4.992-15.12 11.68-24.85-12.15-54.24-16.38-86.06-5.106-38.75 13.73-68.12 48.91-73.72 89.64-9.483 69.01 43.81 128 110.9 128 26.44.0 50.43-9.544 69.59-24.88 24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3c0-149.2-133.9-265.632-287.3-235.57zM239.1 304.3c-26.47.0-48-21.56-48-48.05s21.53-48.05 48-48.05 48 21.56 48 48.05-20.6 48.05-48 48.05z"/></svg>
+</span></a><a class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800" target=_blank href="https://api.whatsapp.com/send?text=https://xhstormr.github.io/blog/posts/cheatsheet-linux/&amp;resubmit=true&amp;title=Linux%20%e5%91%bd%e4%bb%a4%e4%b8%8d%e5%ae%8c%e5%85%a8%e6%89%8b%e5%86%8c" title="通过 WhatsApp 分享" aria-label="通过 WhatsApp 分享"><span class="relative block icon"><svg viewBox="0 0 448 512"><path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4.0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3.0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2.0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2.0-101.7 82.8-184.5 184.6-184.5 49.3.0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5.0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8s-14.3 18-17.6 21.8c-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2s-9.7 1.4-14.8 6.9c-5.1 5.6-19.4 19-19.4 46.3.0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+</span></a><a class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800" target=_blank href="https://t.me/share/url?url=https://xhstormr.github.io/blog/posts/cheatsheet-linux/&amp;resubmit=true&amp;title=Linux%20%e5%91%bd%e4%bb%a4%e4%b8%8d%e5%ae%8c%e5%85%a8%e6%89%8b%e5%86%8c" title="通过 Telegram 分享" aria-label="通过 Telegram 分享"><span class="relative block icon"><svg viewBox="0 0 496 512"><path fill="currentColor" d="M248 8C111.033 8 0 119.033.0 256S111.033 504 248 504 496 392.967 496 256 384.967 8 248 8zM362.952 176.66c-3.732 39.215-19.881 134.378-28.1 178.3-3.476 18.584-10.322 24.816-16.948 25.425-14.4 1.326-25.338-9.517-39.287-18.661-21.827-14.308-34.158-23.215-55.346-37.177-24.485-16.135-8.612-25 5.342-39.5 3.652-3.793 67.107-61.51 68.335-66.746.153-.655.3-3.1-1.154-4.384s-3.59-.849-5.135-.5q-3.283.746-104.608 69.142-14.845 10.194-26.894 9.934c-8.855-.191-25.888-5.006-38.551-9.123-15.531-5.048-27.875-7.717-26.8-16.291q.84-6.7 18.45-13.7 108.446-47.248 144.628-62.3c68.872-28.647 83.183-33.623 92.511-33.789 2.052-.034 6.639.474 9.61 2.885a10.452 10.452.0 013.53 6.716A43.765 43.765.0 01362.952 176.66z"/></svg>
+</span></a><a class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800" target=_blank href="https://line.me/R/share?text=https://xhstormr.github.io/blog/posts/cheatsheet-linux/%20Linux%20%e5%91%bd%e4%bb%a4%e4%b8%8d%e5%ae%8c%e5%85%a8%e6%89%8b%e5%86%8c" title="分享到 LINE" aria-label="分享到 LINE"><span class="relative block icon"><svg viewBox="0 0 512 512"><path fill="currentColor" d="M311 196.8v81.3c0 2.1-1.6 3.7-3.7 3.7h-13c-1.3.0-2.4-.7-3-1.5L254 230v48.2c0 2.1-1.6 3.7-3.7 3.7h-13c-2.1.0-3.7-1.6-3.7-3.7V196.9c0-2.1 1.6-3.7 3.7-3.7h12.9c1.1.0 2.4.6 3 1.6l37.3 50.3V196.9c0-2.1 1.6-3.7 3.7-3.7h13c2.1-.1 3.8 1.6 3.8 3.5zm-93.7-3.7h-13c-2.1.0-3.7 1.6-3.7 3.7v81.3c0 2.1 1.6 3.7 3.7 3.7h13c2.1.0 3.7-1.6 3.7-3.7V196.8c0-1.9-1.6-3.7-3.7-3.7zm-31.4 68.1H150.3V196.8c0-2.1-1.6-3.7-3.7-3.7h-13c-2.1.0-3.7 1.6-3.7 3.7v81.3c0 1 .3 1.8 1 2.5.7.6 1.5 1 2.5 1h52.2c2.1.0 3.7-1.6 3.7-3.7v-13c0-1.9-1.6-3.7-3.5-3.7zm193.7-68.1H327.3c-1.9.0-3.7 1.6-3.7 3.7v81.3c0 1.9 1.6 3.7 3.7 3.7h52.2c2.1.0 3.7-1.6 3.7-3.7V265c0-2.1-1.6-3.7-3.7-3.7H344V247.7h35.5c2.1.0 3.7-1.6 3.7-3.7V230.9c0-2.1-1.6-3.7-3.7-3.7H344V213.5h35.5c2.1.0 3.7-1.6 3.7-3.7v-13c-.1-1.9-1.7-3.7-3.7-3.7zM512 93.4v326c-.1 51.2-42.1 92.7-93.4 92.6H92.6C41.4 511.9-.1 469.8.0 418.6V92.6C.1 41.4 42.2-.1 93.4.0h326c51.2.1 92.7 42.1 92.6 93.4zM441.6 233.5c0-83.4-83.7-151.3-186.4-151.3S68.8 150.1 68.8 233.5c0 74.7 66.3 137.4 155.9 149.3 21.8 4.7 19.3 12.7 14.4 42.1-.8 4.7-3.8 18.4 16.1 10.1s107.3-63.2 146.5-108.2c27-29.7 39.9-59.8 39.9-93.1z"/></svg></span></a></section></div></section><footer class="pt-8 max-w-prose print:hidden"><div class=pt-8><hr class="border-dotted border-neutral-300 dark:border-neutral-600"><div class="flex justify-between pt-3"><span class="flex flex-col"><a class="flex text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400" href=/blog/posts/ublock-origin-filter/><span class=leading-6><span class="inline-block rtl:rotate-180">&larr;</span>&ensp;uBlock Origin Filter
+</span></a><span class="ms-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400"><time datetime=2016-02-27T22:12:44+08:00>2016-02-27</time>
+</span></span><span class="flex flex-col items-end"><a class="flex text-right text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400" href=/blog/posts/cmd-use-utf8/><span class=leading-6>CMD 使用 UTF-8 编码&ensp;<span class="inline-block rtl:rotate-180">&rarr;</span>
+</span></a><span class="me-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400"><time datetime=2016-03-27T16:28:03+08:00>2016-03-27</time></span></span></div></div><div class=pt-3><hr class="border-dotted border-neutral-300 dark:border-neutral-600"><div class=pt-3><script src=https://giscus.app/client.js data-repo=XhstormR/blog data-repo-id="MDEwOlJlcG9zaXRvcnk1MTI5OTI1NQ==" data-category=Announcements data-category-id=DIC_kwDOAw7Dt84C1abT data-mapping=og:title data-strict=1 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=bottom data-theme=preferred_color_scheme data-lang=zh-CN data-loading=lazy crossorigin=anonymous async></script></div></div></footer></article><div id=scroll-to-top class="fixed bottom-6 end-6 z-50 transform translate-y-4 opacity-0 duration-200"><a href=#the-top class="pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400" aria-label=返回顶部 title=返回顶部>&uarr;</a></div></main><footer id=site-footer class="py-10 print:hidden"><div class="flex items-center justify-between"><p class="text-sm text-neutral-500 dark:text-neutral-400">&copy;
+2026
+XhstormR</p><p class="text-xs text-neutral-500 dark:text-neutral-400">由 <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500" href=https://gohugo.io/ target=_blank rel="noopener noreferrer">Hugo</a> & <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500" href=https://blowfish.page/ target=_blank rel="noopener noreferrer">Blowfish</a> 强力驱动</p></div></footer><div id=search-wrapper role=dialog aria-modal=true aria-label=搜索 class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500" data-url=/blog/><div id=search-modal class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"><header class="relative z-10 flex items-center justify-between flex-none px-2"><form class="flex items-center flex-auto min-w-0"><div class="flex items-center justify-center w-8 h-8 text-neutral-400"><span class="relative block icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7 405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9.0 208 0S0 93.1.0 208s93.1 208 208 208c48.3.0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9.0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7.0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7.0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg></span></div><input type=search id=search-query aria-label=搜索 class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent" placeholder=搜索 tabindex=0></form><button id=close-search-button class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400" title="关闭 (Esc)">
+<span class="relative block icon"><svg viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75.0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3 54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75.0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75.0-45.25s32.75-12.5 45.25.0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25.0s12.5 32.75.0 45.25l-105.4 105.4L310.6 361.4z"/></svg></span></button></header><section class="flex-auto px-2 overflow-auto"><ul id=search-results></ul></section></div></div></div><div id=background-canvas aria-hidden=true class="pointer-events-none fixed inset-0 -z-20"><img src=/blog/img/rain.svg role=presentation loading=eager decoding=async class="nozoom h-full w-full object-cover"><div class="absolute inset-0 bg-neutral/75 dark:bg-neutral-800/60"></div></div></body></html>
