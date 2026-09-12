@@ -301,6 +301,30 @@ https://tiansh.github.io/us-danmaku/bilibili/
 https://danmu2ass.codeplex.com/releases
 ```
 
+```shell
+bun x @playwright/cli attach --extension=chrome
+bun x @playwright/cli -s=chrome goto https://www.youtube.com/robots.txt
+bun x @playwright/cli -s=chrome --raw cookie-list --domain=.youtube.com
+bun x @playwright/cli -s=chrome state-save state.json
+
+jq -r '
+  .cookies
+  | map(select(.domain == "youtube.com" or (.domain | endswith(".youtube.com"))))
+  | ["# Netscape HTTP Cookie File"]
+    + (map([
+        .domain,
+        (if .domain | startswith(".") then "TRUE" else "FALSE" end),
+        .path,
+        (if .secure then "TRUE" else "FALSE" end),
+        ((.expires // 0) | if . > 0 then floor else (now + 31536000 | floor) end | tostring),
+        .name, .value
+      ] | @tsv))
+  | .[]
+' state.json > cookies.txt
+
+yt-dlp -F 'https://www.youtube.com/watch?v=WS0mzDY3dZM' --cookies cookies.txt
+```
+
 ## Chrome CSS
 
 ```css
