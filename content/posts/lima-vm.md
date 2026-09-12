@@ -91,7 +91,7 @@ fi
             "type": "socks",
             "server": "host.lima.internal",
             "server_port": 1080,
-            "domain_resolver": "local" // 用于本地解析 outbound.server 的域名 host.lima.internal，防止解析死循环
+            "domain_resolver": "dns-local" // 用于本地解析 outbound.server 的域名 host.lima.internal，防止解析死循环
         },
         {
             "tag": "直连",
@@ -102,13 +102,13 @@ fi
         "strategy": "ipv4_only",
         "servers": [
             {
-                "tag": "remote",
+                "tag": "dns-remote",
                 "type": "https",
                 "server": "9.9.9.9",
                 "detour": "自选"
             },
             {
-                "tag": "local",
+                "tag": "dns-local",
                 "type": "local"
             }
         ]
@@ -116,7 +116,7 @@ fi
     "route": {
         "find_process": true,
         "auto_detect_interface": true,
-        "default_domain_resolver": "remote",
+        "default_domain_resolver": "dns-remote",
         "rules": [
             {
                 "action": "sniff"
@@ -158,6 +158,11 @@ fi
 smolvm machine run --net --image sina.dev/library/fedora:latest -it --oci-cache -- bash
 ```
 
+## BoxLite
+
+- https://github.com/boxlite-ai/boxlite/releases/latest
+- https://docs.boxlite.ai/reference/cli
+
 ## kern
 
 只支持 Linux 宿主机，可以运行在 Lima VM 中。
@@ -179,6 +184,32 @@ kern box --net --image sina.dev/library/fedora:latest -it --verbose -- bash
 
 kern compose docker-compose.yml up
 kern compose docker-compose.yml stop
+```
+
+## Kata Containers
+
+- https://github.com/kata-containers/kata-containers/releases/latest
+- https://github.com/kata-containers/kata-containers/blob/main/docs/installation.md
+
+### Firecracker
+
+- https://github.com/firecracker-microvm/firecracker/releases/latest
+- https://github.com/kata-containers/kata-containers/blob/main/docs/how-to/how-to-use-kata-containers-with-firecracker.md
+
+```
+Podman  ── 高层引擎，管镜像/生命周期
+ │
+ ▼
+Kata runtime  ── 读配置，选定 hypervisor
+ │
+ ▼
+Firecracker  ── 创建 microVM
+ │
+ ▼
+microVM  ── 独立内核 + kata-agent
+ │
+ ▼
+container (Untrusted)
 ```
 
 ## Reference
