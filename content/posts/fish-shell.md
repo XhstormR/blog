@@ -1,7 +1,7 @@
 ---
 author: XhstormR
 tags:
-  - Notes
+    - Notes
 date: 2020-03-15T17:16:19+08:00
 title: Fish Shell
 ---
@@ -243,6 +243,7 @@ if type tmux > /dev/null 2>&1 ; and not set -q TMUX
 end
 ```
 
-```
-"D:\Work\msys64\msys2_shell.cmd" -no-start -full-path -mingw64 -shell fish
+```batch
+REM 不推荐使用 MSYS2, Cygwin 模拟 POSIX 调用性能太差，推荐使用 WSL
+"D:/Work/msys64/msys2_shell.cmd" -no-start -use-full-path -ucrt64 -defterm -here -shell fish
 ```
