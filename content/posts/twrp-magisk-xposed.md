@@ -11,6 +11,8 @@ title: TWRP Magisk EdXposed
 Updated on 2019-12-17
 
 > https://github.com/awesome-android-root/awesome-android-root
+>
+> https://modules.lsposed.org/
 
 ## ADB
 
@@ -88,7 +90,7 @@ adb install -r EdXposedManager-4.5.4-45401-org.meowcat.edxposed.manager-release.
 ## KernelSU
 
 - https://github.com/tiann/KernelSU
-- https://github.com/Dr-TSNG/ZygiskNext
+- https://github.com/LSPosed/ZygiskNext
 - GKI 模式 (Generic Kernel Image)：修补 `boot` 分区，模拟器、虚拟机使用。
 - LKM 模式 (Loadable Kernel Module)：修补 `init_boot` 分区，真实设备（手机）使用。
     - 使用 `fastboot boot` 命令临时启动 KernelSU 提供的 GKI 内核（获得临时 root）-> 安装管理器 -> 在管理器中选择直接安装，修补 `init_boot` 分区（无需下载官方全量包，无需提取固件镜像）
@@ -152,13 +154,16 @@ payload_dumper --partitions init_boot,boot payload.bin
 ## Reference
 
 - AOSP Enable Call Recording:
-    - https://github.com/jacopotediosi/GAppsMod
+    - https://github.com/polodarb/GMS-Flags-Reborn
     - https://github.com/chenxiaolong/BCR
+- Hide:
+    - https://github.com/frknkrc44/HMA-OSS
+    - https://github.com/XiaoTong6666/FuseHide
 - https://github.com/0x192/universal-android-debloater
 - https://github.com/chiteroman/PlayIntegrityFix
     - https://github.com/osm0sis/PlayIntegrityFork
     - https://github.com/KOWX712/PlayIntegrityFix
 - https://github.com/5ec1cff/TrickyStore
     - https://github.com/KOWX712/Tricky-Addon-Update-Target-List
-- https://github.com/JingMatrix/TEESimulator
-- https://github.com/Dr-TSNG/Hide-My-Applist
+    - https://github.com/JingMatrix/TEESimulator
+- https://github.com/LSPosed/DisableFlagSecure
