@@ -1,0 +1,1 @@
+function readingProgress(){const e=document.getElementById("reading-progress");if(!e)return;const t=document.documentElement.scrollHeight-window.innerHeight;e.style.width=t>0?`${window.scrollY/t*100}%`:"0%"}window.addEventListener("scroll",readingProgress,{passive:!0}),window.addEventListener("load",readingProgress)
